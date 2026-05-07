@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "VulnGym: a vulnerability-scene dataset with entry_point/critical_operation/trace annotations"
+abstract: >-
+  VulnGym is a curated benchmark of reviewed GitHub Security Advisories with
+  per-entry-point entry_point, critical_operation, and trace annotations,
+  intended for evaluating code-understanding and vulnerability-detection agents.
+version: "0.1.0"
+date-released: "2026-04-22"
+license: CC-BY-4.0
+repository-code: "https://github.com/<org>/VulnGym"
+keywords:
+  - vulnerability
+  - dataset
+  - benchmark
+  - taint-analysis
+  - security
+  - LLM
+  - agent-evaluation
+authors:
+  - name: "VulnGym maintainers"
