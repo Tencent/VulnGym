@@ -10,9 +10,6 @@
 </h4>
 
 <p align="center">
-  <a href="https://github.com/Tencent/VulnGym/releases">
-    <img alt="Release" src="https://img.shields.io/github/v/release/Tencent/VulnGym?color=green">
-  </a>
   <a href="https://github.com/Tencent/VulnGym/stargazers">
     <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Tencent/VulnGym?color=gold">
   </a>
