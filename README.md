@@ -346,10 +346,10 @@ listed there are enforced at release time.
 VulnGym is jointly built by the **Tencent Wukong Security Team**
 together with the following academic partners (listed in no particular
 order, final order TBD):
-
+- ARISE Lab, The Chinese University of Hong Kong
 - Systems Software & Security Lab, Fudan University
 - JC STEM Lab of Intelligent Cybersecurity, The University of Hong Kong
-- Prof. Li Hui's Team, Peking University Shenzhen Graduate School
+- Narwhal-Lab, Peking University
 - Network Threat Analysis Lab, Institute of Information Engineering, Chinese Academy of Sciences
 
 Many thanks to all partners for their outstanding contributions to
