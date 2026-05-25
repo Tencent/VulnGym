@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">VulnGym</h1>
+  <img src="./img/wukong_logo.png" alt="VulnGym" height="100">
 </p>
 
 <h4 align="center">
@@ -10,15 +10,9 @@
 </h4>
 
 <p align="center">
-  <a href="https://github.com/Tencent/VulnGym/stargazers">
-    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Tencent/VulnGym?color=gold">
-  </a>
-  <a href="https://github.com/Tencent/VulnGym/network/members">
-    <img alt="GitHub Forks" src="https://img.shields.io/github/forks/Tencent/VulnGym?color=gold">
-  </a>
-  <a href="./LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-CC--BY--4.0-blue.svg">
-  </a>
+  <a href="https://github.com/Tencent/VulnGym/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/Tencent/VulnGym?color=gold"></a>
+  <a href="https://github.com/Tencent/VulnGym/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/Tencent/VulnGym?color=gold"></a>
+  <a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/License-CC--BY--4.0-blue.svg"></a>
 </p>
 
 <p align="center">
