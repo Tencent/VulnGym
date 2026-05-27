@@ -93,15 +93,18 @@ def demo_hf_datasets() -> None:
     except ImportError:
         print("[datasets] skipped (pip install datasets)")
         return
-    ds = load_dataset(
-        "json",
-        data_files={
-            "reports": str(DATA / "reports.jsonl"),
-            "entries": str(DATA / "entries.jsonl"),
-        },
+    # reports.jsonl 与 entries.jsonl 的 schema 不同（前者是报告级，后者是入口点级，
+    # 通过 report_id 关联），不能作为同一个 dataset 的两个 split 加载——那样
+    # `datasets` 会用第一个文件推断出的 Arrow schema 去 cast 第二个文件，导致
+    # CastError。这里分别加载为两个独立 dataset。
+    reports = load_dataset(
+        "json", data_files=str(DATA / "reports.jsonl"), split="train"
     )
-    print(f"[datasets] splits={list(ds.keys())}  "
-          f"entries.features={list(ds['entries'].features)}")
+    entries = load_dataset(
+        "json", data_files=str(DATA / "entries.jsonl"), split="train"
+    )
+    print(f"[datasets] reports rows={len(reports)}  entries rows={len(entries)}")
+    print(f"[datasets] entries.features={list(entries.features)}")
 
 
 if __name__ == "__main__":
