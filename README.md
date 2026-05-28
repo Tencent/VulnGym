@@ -23,6 +23,9 @@
   <a href="https://github.com/Tencent/VulnGym">
     <img src="https://img.shields.io/badge/⭐-Give VulnGym a Star-yellow?style=flat&logo=github" alt="Give VulnGym a Star">
   </a>
+  <a href="https://huggingface.co/datasets/tencent/VulnGym">
+    <img src="https://img.shields.io/badge/🤗%20HuggingFace-Dataset-yellow?style=flat" alt="HuggingFace Dataset">
+  </a>
 </p>
 
 **VulnGym** is a project-level benchmark for white-box vulnerability-hunting agents, designed to evaluate an agent's vulnerability detection capabilities within **real-world engineering contexts**, with **verifiable vulnerability trigger paths and code-semantic evidence chains**.
@@ -234,8 +237,15 @@ entries = pd.read_json("data/entries.jsonl", lines=True)
 
 HuggingFace `datasets`:
 
+VulnGym is also published on the HuggingFace Hub: [tencent/VulnGym](https://huggingface.co/datasets/tencent/VulnGym).
+
 ```python
 from datasets import load_dataset
+
+# Load directly from the HuggingFace Hub
+ds = load_dataset("tencent/VulnGym")
+
+# Or load from local JSONL files
 ds = load_dataset("json", data_files={
     "reports": "data/reports.jsonl",
     "entries": "data/entries.jsonl",

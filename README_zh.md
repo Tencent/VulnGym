@@ -23,6 +23,9 @@
   <a href="https://github.com/Tencent/VulnGym">
     <img src="https://img.shields.io/badge/⭐-给 VulnGym 点个 Star-yellow?style=flat&logo=github" alt="Give VulnGym a Star">
   </a>
+  <a href="https://huggingface.co/datasets/tencent/VulnGym">
+    <img src="https://img.shields.io/badge/🤗%20HuggingFace-数据集-yellow?style=flat" alt="HuggingFace Dataset">
+  </a>
 </p>
 
 **VulnGym** 是面向白盒漏洞检测 Agent 的项目级评测基准，支持在**真实工程上下文**中评估 Agent 的漏洞识别能力，并提供**可验证的漏洞触发路径与业务语义证据链**。
@@ -224,8 +227,15 @@ entries = pd.read_json("data/entries.jsonl", lines=True)
 
 HuggingFace `datasets`：
 
+VulnGym 也已发布至 HuggingFace Hub：[tencent/VulnGym](https://huggingface.co/datasets/tencent/VulnGym)。
+
 ```python
 from datasets import load_dataset
+
+# 直接从 HuggingFace Hub 加载
+ds = load_dataset("tencent/VulnGym")
+
+# 或者从本地 JSONL 文件加载
 ds = load_dataset("json", data_files={
     "reports": "data/reports.jsonl",
     "entries": "data/entries.jsonl",
