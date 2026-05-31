@@ -6,8 +6,8 @@ abstract: >-
   VulnGym is a curated benchmark of reviewed GitHub Security Advisories with
   per-entry-point entry_point, critical_operation, and trace annotations,
   intended for evaluating code-understanding and vulnerability-detection agents.
-version: "0.1.1"
-date-released: "2026-05-15"
+version: "0.1.2"
+date-released: "2026-05-31"
 license: CC-BY-4.0
 repository-code: "https://github.com/<org>/VulnGym"
 keywords:

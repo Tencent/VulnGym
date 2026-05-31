@@ -4,6 +4,22 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] — 2026-05-31
+
+Data refresh — significant expansion of human-audited coverage and annotation refinements.
+
+### Changed
+- Human-audited entries grew from **113 → 274 / 408** (67.2 %),
+  covering **137 / 184** advisories (74.5 %).
+- Refined `entry_point`, `critical_operation`, and `trace` annotations
+  on **80** entries for improved accuracy.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **274** (was 113)
+- human-audited advisories (≥ 1 verified entry): **137** (was 61)
+
 ## [0.1.1] — 2026-05-15
 
 Data refresh — adds a human-audit flag and additional human-verified entries.

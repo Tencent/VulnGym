@@ -68,7 +68,7 @@
 
 ## ✨ 数据集概览
 
-当前为 VulnGym 的 **v0.1.1 版本**。数据以两个 JSONL 文件提供于 `data/` 目录下：
+当前为 VulnGym 的 **v0.1.2 版本**。数据以两个 JSONL 文件提供于 `data/` 目录下：
 
 - `reports.jsonl` — 以 GitHub Advisory 为粒度的聚合记录
 - `entries.jsonl` — 以外部可达入口（entry point）为粒度的标注记录
@@ -283,7 +283,7 @@ python3 examples/evaluate.py path/to/your_findings.jsonl -v
                   for White-Box Vulnerability-Hunting Agents},
   author       = {{Tencent Wukong Code Security Team and contributors}},
   year         = {2026},
-  version      = {0.1.1},
+  version      = {0.1.2},
   howpublished = {\url{https://github.com/Tencent/VulnGym}},
   note         = {Dataset. A companion paper is in preparation; please check
                   the repository for the latest citation.}

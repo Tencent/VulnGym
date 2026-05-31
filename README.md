@@ -69,7 +69,7 @@ evaluating the real-world vulnerability-hunting capabilities of AI agents:
 
 ## ✨ Dataset overview
 
-This is the **v0.1.1 release** of VulnGym. Data is provided
+This is the **v0.1.2 release** of VulnGym. Data is provided
 as two JSONL files under the `data/` directory:
 
 - `reports.jsonl` — aggregated records at the GitHub Advisory granularity
@@ -297,7 +297,7 @@ All policies are documented and configurable via CLI arguments
                   for White-Box Vulnerability-Hunting Agents},
   author       = {{Tencent Wukong Code Security Team and contributors}},
   year         = {2026},
-  version      = {0.1.1},
+  version      = {0.1.2},
   howpublished = {\url{https://github.com/Tencent/VulnGym}},
   note         = {Dataset. A companion paper is in preparation; please check
                   the repository for the latest citation.}
