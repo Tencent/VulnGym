@@ -4,6 +4,25 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.3] — 2026-06-18
+
+Data refresh — further expansion of human-audited coverage and broad annotation refinements.
+
+### Changed
+- Human-audited entries grew from **274 → 350 / 408** (85.8 %),
+  covering **163 / 184** advisories (88.6 %).
+
+### Added
+- `desc` field on the `entry_point`, `critical_operation`, and `trace`
+  nodes of **400** entries — a natural-language explanation of each
+  node's role in the vulnerability chain.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **350** (was 274)
+- human-audited advisories (≥ 1 verified entry): **163** (was 137)
+
 ## [0.1.2] — 2026-05-31
 
 Data refresh — significant expansion of human-audited coverage and annotation refinements.
@@ -47,7 +66,7 @@ Data refresh — adds a human-audit flag and additional human-verified entries.
 - human-audited entries (verify = 1): **113**
 - human-audited advisories (≥ 1 verified entry): **61**
 
-## [0.1.0] — 2026-05-xx
+## [0.1.0] — 2026-05-07
 
 Initial open-source release.
 

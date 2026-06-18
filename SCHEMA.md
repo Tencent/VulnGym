@@ -1,4 +1,4 @@
-# SCHEMA.md — VulnGym data format reference (v0.1.2)
+# SCHEMA.md — VulnGym data format reference (v0.1.3)
 
 The dataset ships two line-delimited JSON files under `data/`. Every line is
 a single self-contained JSON object (no trailing comma, `\n`-terminated,
@@ -27,9 +27,9 @@ Join key: `entries.report_id == reports.report_id`.
 | `vuln_title` | `string` | ✅ | Per-entry title. Annotators sometimes append ` - <filename>` to disambiguate entries of the same advisory; the report-level `vuln_title` has this suffix stripped. |
 | `vuln_category_l1` | `string` | ✅ | Coarse category. **Bilingual** — e.g. `XSS`, `权限绕过`, `代码注入`. |
 | `vuln_category_l2` | `string` | ✅ | Sub-category. Bilingual. |
-| `entry_point` | `object` | ✅ | Reachable entry point — `{file, line, code}`. See below. |
-| `critical_operation` | `object` | ✅ | Critical operation (core defect location) — `{file, line, code}`. See below. |
-| `trace` | `object[]` | ✅ | Ordered taint-flow steps. Each item is `{file, line, code}`. May be empty. |
+| `entry_point` | `object` | ✅ | Reachable entry point — `{file, line, code, desc?}`. See below. |
+| `critical_operation` | `object` | ✅ | Critical operation (core defect location) — `{file, line, code, desc?}`. See below. |
+| `trace` | `object[]` | ✅ | Ordered taint-flow steps. Each item is `{file, line, code, desc?}`. May be empty. |
 | `verify` | `int` | ✅ | Human-audit flag. `1` = the entry has been reviewed and confirmed by a human annotator (high-confidence ground truth); `0` = automatically annotated, not yet human-confirmed. Added in v0.1.1. |
 
 ### `entry_point` / `critical_operation` / `trace[*]` object
@@ -39,6 +39,7 @@ Join key: `entries.report_id == reports.report_id`.
 | `file` | `string` | Repository-relative path at the vulnerable commit. |
 | `line` | `int` \| `string` | Line location, **1-based**. Either a single positive integer (e.g. `97`) or a range string `"start-end"` where `start` and `end` are integers with `1 ≤ start ≤ end` (e.g. `"348-352"`). Always `≥ 1` — the value `0` is **not** permitted. Single-line upstream string values are coerced to `int`; range values stay strings. |
 | `code` | `string` | Verbatim code snippet. May span multiple lines via `\n` and may contain 中文 inline comments when the annotator added them. |
+| `desc` | `string` | *Optional.* Natural-language explanation of this node's role in the vulnerability chain (often 中文). Added in v0.1.3; present on most reviewed nodes but may be absent. |
 
 `line` has two valid forms:
 
@@ -68,15 +69,17 @@ maps to `(n, n)`; a string `"a-b"` splits on `-` to `(int(a), int(b))`.
   "entry_point": {
     "file": "src/lib/components/chat/MessageInput/CommandSuggestionList.svelte",
     "line": 97,
-    "code": "insertTextHandler(data.content);"
+    "code": "insertTextHandler(data.content);",
+    "desc": "insertTextHandler 以 data.content 为实参被调用，将用户选中的提示词内容注入插入流程；data.content 源自后端持久化记录，在此处未经过滤即向下游传递，是整条利用链的触发起点。"
   },
   "critical_operation": {
     "file": "src/lib/components/common/RichTextInput.svelte",
     "line": 348,
-    "code": "tempDiv.innerHTML = htmlContent;"
+    "code": "tempDiv.innerHTML = htmlContent;",
+    "desc": "将未净化的 HTML 字符串直接赋值给 DOM 节点，浏览器在此完成脚本注入，是整条链路的最终利用点。"
   },
   "trace": [
-    {"file": "…", "line": "42-45", "code": "…"}
+    {"file": "…", "line": "42-45", "code": "…", "desc": "…"}
   ],
   "verify": 1
 }
@@ -144,8 +147,8 @@ Every release must satisfy these before tagging:
    `https://github.com/`.
 6. `source_link` contains `github.com/advisories/` and its embedded GHSA id
    equals `report_id`.
-7. `entry_point`, `critical_operation`, and every `trace[i]` have exactly the keys
-   `{file, line, code}`. `line` is either a **positive integer** (`≥ 1`) or a
+7. `entry_point`, `critical_operation`, and every `trace[i]` have the required keys
+   `{file, line, code}` and an optional `desc` key. `line` is either a **positive integer** (`≥ 1`) or a
    **range string** `"a-b"` where `a` and `b` are integers with `1 ≤ a ≤ b`.
    The value `0` is **not** permitted.
 8. No row contains any of the internal fields we intentionally omit
@@ -170,6 +173,9 @@ Every release must satisfy these before tagging:
   integer **or** range string), and the `0`-means-unknown sentinel was
   retired — `line` is now always `≥ 1`. Consumers should accept both the `int`
   and the range-string form.
+- `desc` (in `entry_point` / `critical_operation` / `trace[*]`) was added in
+  v0.1.3 as an **optional** per-node explanation. Consumers must not assume it
+  is present on every node.
 - An English translation of `vuln_category_l1/l2` is a likely future
   addition as `vuln_category_l1_en` / `_l2_en`.
 - The JSONL ordering (entries by `entry_id` asc, reports by `report_id`

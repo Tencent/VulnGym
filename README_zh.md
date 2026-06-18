@@ -34,6 +34,7 @@
 ---
 
 ## 📢 最新动态
+- **2026-06-18** — 🔧 v0.1.3 数据更新：人工审计通过数量进一步提升，已审计 entry 从 **274 条增至 350 / 408 条 (85.8%)**，覆盖 advisory 从 **137 条增至 163 / 184 条 (88.6%)**。此外，为 400 条 entry 的 `entry_point` / `critical_operation` / `trace` 节点新增 `desc` 字段，用自然语言说明每个节点在漏洞链路中的作用。
 - **2026-05-31** — 🔧 v0.1.2 数据更新：人工审计通过数量大幅提升，已审计 entry 从 **113 条增至 274 / 408 条 (67.2%)**，覆盖 advisory 从 **61 条增至 137 / 184 条 (74.5%)**。此外，对 80 条 entry 的 `entry_point` / `critical_operation` / `trace` 标注进行了精度优化。
 - **2026-05-17** — 🔧 v0.1.1 数据更新：为每条 entry 新增 `verify` 字段以标记人工审计状态；目前已有 **113 / 408 条 entry**（覆盖 **61 / 184 条 advisory**）通过人工审计。同时对部分 `entry_point` / `critical_operation` / `trace` 字段值做了优化。
 - **2026-05-15** — 🎉 VulnGym v0.1.0 版本正式开源！
@@ -68,7 +69,7 @@
 
 ## ✨ 数据集概览
 
-当前为 VulnGym 的 **v0.1.2 版本**。数据以两个 JSONL 文件提供于 `data/` 目录下：
+当前为 VulnGym 的 **v0.1.3 版本**。数据以两个 JSONL 文件提供于 `data/` 目录下：
 
 - `reports.jsonl` — 以 GitHub Advisory 为粒度的聚合记录
 - `entries.jsonl` — 以外部可达入口（entry point）为粒度的标注记录
@@ -83,8 +84,8 @@
 | 可达入口数（entries） | **408** |
 | 涉及项目数 | 38 |
 | 涉及仓库数 | 23 |
-| 人工审计通过的入口（`verify = 1`） | **113 / 408 (27.7%)** |
-| 人工审计通过的 advisory（至少一条入口已审计） | **61 / 184 (33.2%)** |
+| 人工审计通过的入口（`verify = 1`） | **350 / 408 (85.8%)** |
+| 人工审计通过的 advisory（至少一条入口已审计） | **163 / 184 (88.6%)** |
 
 ### 人工审计状态
 
@@ -96,8 +97,8 @@
 - `verify == 0` —— 自动标注，尚未经过人工确认。可用于规模化或召回类
   研究，但其字段值在后续版本中仍可能继续优化。
 
-在全部 **184** 条 advisory 中，**50** 条 advisory 的所有入口均已审计通过，
-**11** 条为部分审计通过，合计 **61** 条 advisory 至少包含一条人工审计入口。
+在全部 **184** 条 advisory 中，**152** 条 advisory 的所有入口均已审计通过，
+**11** 条为部分审计通过，合计 **163** 条 advisory 至少包含一条人工审计入口。
 后续版本将持续扩充已审计子集。
 
 ### 漏洞类型分布
@@ -283,7 +284,7 @@ python3 examples/evaluate.py path/to/your_findings.jsonl -v
                   for White-Box Vulnerability-Hunting Agents},
   author       = {{Tencent Wukong Code Security Team and contributors}},
   year         = {2026},
-  version      = {0.1.2},
+  version      = {0.1.3},
   howpublished = {\url{https://github.com/Tencent/VulnGym}},
   note         = {Dataset. A companion paper is in preparation; please check
                   the repository for the latest citation.}
