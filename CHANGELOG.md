@@ -4,6 +4,22 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.4] — 2026-06-26
+
+Data refresh — further expansion of human-audited coverage.
+
+### Changed
+- Human-audited entries grew from **350 → 393 / 408** (96.3 %),
+  covering **178 / 184** advisories (96.7 %).
+- Updated human-audit status flags only; row counts, schema, `desc`
+  coverage, and vulnerability-type distribution are unchanged.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **393** (was 350)
+- human-audited advisories (≥ 1 verified entry): **178** (was 163)
+
 ## [0.1.3] — 2026-06-18
 
 Data refresh — further expansion of human-audited coverage and broad annotation refinements.

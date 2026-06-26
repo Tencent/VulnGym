@@ -34,6 +34,7 @@
 ---
 
 ## 📢 What's New
+- **2026-06-26** — 🔧 v0.1.4 data refresh: human-audited entries grew from **350 → 393 / 408 (96.3 %)**, covering **178 / 184 advisories (96.7 %)**. This release updates only human-audit status flags; row counts, schema, `desc` coverage, and vulnerability-type distribution are unchanged.
 - **2026-06-18** — 🔧 v0.1.3 data refresh: human-audited entries grew from **274 → 350 / 408 (85.8 %)**, covering **163 / 184 advisories (88.6 %)**. In addition, a `desc` field was added to the `entry_point` / `critical_operation` / `trace` nodes of 400 entries, giving a natural-language explanation of each node's role in the vulnerability chain.
 - **2026-05-31** — 🔧 v0.1.2 data refresh: human-audited entries grew from **113 → 274 / 408 (67.2 %)**, covering **137 / 184 advisories (74.5 %)**. Additionally, `entry_point` / `critical_operation` / `trace` annotations were refined on 80 entries for improved accuracy.
 - **2026-05-17** — 🔧 v0.1.1 data refresh: added a `verify` field on every entry to mark human-audit status; **113 / 408 entries** (covering **61 / 184 advisories**) are now human-verified. Selected `entry_point` / `critical_operation` / `trace` values were also refined.
@@ -70,7 +71,7 @@ evaluating the real-world vulnerability-hunting capabilities of AI agents:
 
 ## ✨ Dataset overview
 
-This is the **v0.1.3 release** of VulnGym. Data is provided
+This is the **v0.1.4 release** of VulnGym. Data is provided
 as two JSONL files under the `data/` directory:
 
 - `reports.jsonl` — aggregated records at the GitHub Advisory granularity
@@ -87,8 +88,8 @@ full vulnerable source tree for the corresponding version.
 | Reachable entry points (entries) | **408** |
 | Distinct projects | 38 |
 | Distinct repositories | 23 |
-| Human-audited entries (`verify = 1`) | **350 / 408 (85.8 %)** |
-| Human-audited advisories (≥ 1 verified entry) | **163 / 184 (88.6 %)** |
+| Human-audited entries (`verify = 1`) | **393 / 408 (96.3 %)** |
+| Human-audited advisories (≥ 1 verified entry) | **178 / 184 (96.7 %)** |
 
 ### Human audit status
 
@@ -103,8 +104,8 @@ Starting in v0.1.1, every row in `entries.jsonl` carries a `verify` field
   Useful for scale and recall studies, but values may still be refined
   in future releases.
 
-Of the **184** advisories, **152** have all of their entries verified and
-**11** are partially verified, for a total of **163** advisories with at
+Of the **184** advisories, **174** have all of their entries verified and
+**4** are partially verified, for a total of **178** advisories with at
 least one human-audited entry. Future releases will continue to expand
 the verified subset.
 
@@ -298,7 +299,7 @@ All policies are documented and configurable via CLI arguments
                   for White-Box Vulnerability-Hunting Agents},
   author       = {{Tencent Wukong Code Security Team and contributors}},
   year         = {2026},
-  version      = {0.1.3},
+  version      = {0.1.4},
   howpublished = {\url{https://github.com/Tencent/VulnGym}},
   note         = {Dataset. A companion paper is in preparation; please check
                   the repository for the latest citation.}
