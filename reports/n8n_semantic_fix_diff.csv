@@ -1,4 +1,4 @@
-﻿entry_id,field_path,old_file,old_line,old_code,old_desc,new_file,new_line,new_code,new_desc,reason
+entry_id,field_path,old_file,old_line,old_code,old_desc,new_file,new_line,new_code,new_desc,reason
 entry-00099,entry_point,packages/cli/src/workflows/workflows.controller.ts,539,	@Post('/:workflowId/run'),@Post('/:workflowId/run') 是 WorkflowsController 中工作流执行路由的装饰器，将对应控制器方法注册为可被低权限认证用户通过网络直接触达的 HTTP POST 端点。请求体携带的工作流节点参数（包含用户自定义的表达式字符串）由此处进入系统，并随调用链向下传递至表达式解析与沙箱求值子系统。在漏洞链路中，该端点是用户可控表达式从外部网络进入内部执行管道的最外层入口，决定了沙箱绕过攻击具备网络可达性。,packages/workflow/src/expression.ts,368-377,"	resolveSimpleParameterValue(
 		parameterValue: NodeParameterValue,
 		siblingParameters: INodeParameters,
