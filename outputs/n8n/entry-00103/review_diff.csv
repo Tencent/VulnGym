@@ -1,0 +1,15 @@
+entry_id,node,action,old_index,new_index,old_file,old_line,old_code,new_file,new_line,new_code,desc_change,reason
+entry-00103,entry_point,keep,,,packages/cli/src/webhooks/webhook-helpers.ts,615,"		}",packages/cli/src/webhooks/webhook-helpers.ts,615,"		}","no","按任务补充要求，本次不复查、不修改 entry_point；trace 首节点同步使用该入口锚点。"
+entry-00103,critical_operation,replace,,,packages/core/src/html-sandbox.ts,20,"	const contentTypeLower = contentType.toLowerCase();",packages/cli/src/webhooks/webhook-request-handler.ts,153-158,"		const contentType = res.getHeader('content-type') as string | undefined;
+		const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);
+
+		if (needsSandbox && !isWebhookHtmlSandboxingDisabled()) {
+			res.setHeader('Content-Security-Policy', getWebhookSandboxCSP());
+		}","yes","原位置是补丁根因检测点；修复后位置是根据检测结果决定是否设置 CSP sandbox 的安全决策点，更符合 critical_operation 语义，并作为 trace 终点。"
+entry-00103,trace,keep,trace[0],trace[0],packages/cli/src/webhooks/webhook-helpers.ts,615,"		}",packages/cli/src/webhooks/webhook-helpers.ts,615,"		}","no","为满足 trace 起点与 entry_point 对齐，trace 首节点完全复用 entry_point 对象。"
+entry-00103,trace,delete,trace[1],无,packages/cli/src/webhooks/webhook-helpers.ts,605-614,"if (responseMode === 'streaming') { ... didSendResponse = true;",无,无,无,"yes","原节点属于 streaming 分支，不是后续 Content-Type 写入、检测和 CSP 决策所必需的链路节点。"
+entry-00103,trace,add,无,trace[1],无,无,无,packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts,393-401,"headers[header.name?.toLowerCase() as string] = header.value?.toString();","yes","新增用户配置 responseHeaders 进入链路的位置，证明污染 Content-Type 来自工作流节点配置。"
+entry-00103,trace,replace,trace[2],trace[2],packages/cli/src/webhooks/webhook-request-handler.ts,146-155,"setResponseHeaders(...) 写入并读回 content-type",packages/cli/src/webhooks/webhook-request-handler.ts,146-151,"res.setHeader(name, value);","yes","将原合并节点拆分，单独标明污染 Content-Type 写入 Express response。"
+entry-00103,trace,update_desc,trace[3],trace[3],packages/core/src/html-sandbox.ts,19-25,"const contentTypeLower = contentType.toLowerCase();",packages/core/src/html-sandbox.ts,19-25,"const contentTypeLower = contentType.toLowerCase();","yes","保留 html-sandbox 根因检测节点，并修正描述：前导或包围空白会失败；单纯尾随空白在旧代码中仍会通过 startsWith。"
+entry-00103,trace,add,无,trace[4],无,无,无,packages/cli/src/webhooks/webhook-request-handler.ts,153-158,"const contentType = res.getHeader('content-type') as string | undefined; ... res.setHeader('Content-Security-Policy', getWebhookSandboxCSP());","yes","新增并作为 trace 终点；该节点与 critical_operation 完全一致，体现 CSP sandbox 安全决策/绕过点。"
+entry-00103,trace,delete,无,无,packages/cli/src/webhooks/webhook-request-handler.ts,133-137,"if (typeof body === 'string') { res.send(body); } else { res.json(body); }",无,无,无,"yes","删除最终输出节点；为满足 trace 终点与 critical_operation 对齐，链路终止在 CSP sandbox 安全决策点。"
