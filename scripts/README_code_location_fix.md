@@ -1,6 +1,6 @@
 # Code location repair tool
 
-`tools/fix_code_locations.py` checks VulnGym annotation nodes against the
+`scripts/fix_code_locations.py` checks VulnGym annotation nodes against the
 source repository and commit recorded in each entry. It uses each node's `code`
 snippet as the primary anchor and repairs `file` / `line` only when there is a
 single unambiguous match.
@@ -10,27 +10,33 @@ single unambiguous match.
 Quick run for the current unverified bucket:
 
 ```bash
-python tools/fix_code_locations.py --verify 0
+python scripts/fix_code_locations.py --verify 0
 ```
 
 Run all entries after the source cache has been populated:
 
 ```bash
-python tools/fix_code_locations.py --verify all
+python scripts/fix_code_locations.py --verify all
+```
+
+If HTTPS access to GitHub is unstable but SSH authentication is available:
+
+```bash
+python scripts/fix_code_locations.py --verify 0 --git-protocol ssh
 ```
 
 Useful focused run:
 
 ```bash
-python tools/fix_code_locations.py --entry-id entry-00103 --entry-id entry-00320
+python scripts/fix_code_locations.py --entry-id entry-00103 --entry-id entry-00320
 ```
 
 ## Outputs
 
 - `data/entries.fixed.jsonl`: JSONL with automatic repairs applied.
-- `data/fix_diff.csv`: every automatic modification, including old/new
+- `reports/fix_diff.csv`: every automatic modification, including old/new
   `file`, `line`, `desc`, strategy, and source evidence.
-- `data/needs_human.csv`: nodes with multiple matches, no match, invalid
+- `reports/needs_human.csv`: nodes with multiple matches, no match, invalid
   metadata, or checkout failures.
 
 ## Matching Strategy
@@ -60,6 +66,10 @@ uses `git ls-files` to decide which files to scan.
 
 Use `--offline` to require the cache to already contain the needed repos and
 commits.
+
+When `--offline` is used and a repo or commit is missing from the cache, the
+affected nodes are written to `reports/needs_human.csv` instead of blocking on
+network access.
 
 ## Desc Handling
 

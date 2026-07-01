@@ -34,8 +34,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ENTRIES = REPO_ROOT / "data" / "entries.jsonl"
 DEFAULT_REPO_CACHE = REPO_ROOT / ".cache" / "source_repos"
 DEFAULT_OUTPUT = REPO_ROOT / "data" / "entries.fixed.jsonl"
-DEFAULT_DIFF = REPO_ROOT / "data" / "fix_diff.csv"
-DEFAULT_NEEDS_HUMAN = REPO_ROOT / "data" / "needs_human.csv"
+DEFAULT_DIFF = REPO_ROOT / "reports" / "fix_diff.csv"
+DEFAULT_NEEDS_HUMAN = REPO_ROOT / "reports" / "needs_human.csv"
 
 LINE_RANGE_RE = re.compile(r"^([1-9]\d*)-([1-9]\d*)$")
 NUMERIC_LINE_RE = re.compile(r"^[1-9]\d*$")
@@ -84,10 +84,20 @@ class CheckoutError(RuntimeError):
     pass
 
 
-def run_git(args: list[str], cwd: Path | None = None, timeout: int = 120) -> subprocess.CompletedProcess[str]:
+def run_git(
+    args: list[str],
+    cwd: Path | None = None,
+    timeout: int = 120,
+    no_lazy_fetch: bool = False,
+) -> subprocess.CompletedProcess[str]:
+    env = os.environ.copy()
+    env["GIT_TERMINAL_PROMPT"] = "0"
+    if no_lazy_fetch:
+        env["GIT_NO_LAZY_FETCH"] = "1"
     return subprocess.run(
         ["git", *args],
         cwd=str(cwd) if cwd else None,
+        env=env,
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -111,6 +121,13 @@ def repo_cache_name(repo_url: str) -> str:
     digest = hashlib.sha1(normalized.encode("utf-8")).hexdigest()[:10]
     safe_tail = re.sub(r"[^A-Za-z0-9_.-]+", "_", tail)
     return f"{safe_tail}__{digest}"
+
+
+def clone_url_for(repo_url: str, protocol: str) -> str:
+    normalized = normalize_repo_url(repo_url)
+    if protocol == "ssh" and normalized.startswith("https://github.com/"):
+        return "git@github.com:" + normalized.split("https://github.com/", 1)[1] + ".git"
+    return normalized + ".git"
 
 
 def normalize_path(path: Any) -> str:
@@ -294,7 +311,7 @@ class RepoWorkspace:
                 raise CheckoutError(f"repo_not_cached:{self.repo_url}")
             if self.path.exists():
                 shutil.rmtree(self.path)
-            clone_url = self.repo_url + ".git"
+            clone_url = clone_url_for(self.repo_url, self.args.git_protocol)
             result = run_git(
                 ["clone", "--filter=blob:none", "--no-checkout", clone_url, str(self.path)],
                 timeout=self.args.git_timeout,
@@ -302,7 +319,12 @@ class RepoWorkspace:
             if result.returncode != 0:
                 raise CheckoutError(f"clone_failed:{result.stderr.strip() or result.stdout.strip()}")
 
-        exists = run_git(["cat-file", "-e", f"{self.commit}^{{commit}}"], cwd=self.path, timeout=30)
+        exists = run_git(
+            ["cat-file", "-e", f"{self.commit}^{{commit}}"],
+            cwd=self.path,
+            timeout=30,
+            no_lazy_fetch=self.args.offline,
+        )
         if exists.returncode != 0:
             if self.args.offline:
                 raise CheckoutError(f"commit_not_cached:{self.commit}")
@@ -312,9 +334,14 @@ class RepoWorkspace:
             if fetched.returncode != 0:
                 raise CheckoutError(f"fetch_failed:{fetched.stderr.strip() or fetched.stdout.strip()}")
 
-        current = run_git(["rev-parse", "HEAD"], cwd=self.path, timeout=30)
+        current = run_git(["rev-parse", "HEAD"], cwd=self.path, timeout=30, no_lazy_fetch=self.args.offline)
         if current.returncode != 0 or current.stdout.strip() != self.commit:
-            checked = run_git(["checkout", "--force", self.commit], cwd=self.path, timeout=self.args.git_timeout)
+            checked = run_git(
+                ["checkout", "--force", self.commit],
+                cwd=self.path,
+                timeout=self.args.git_timeout,
+                no_lazy_fetch=self.args.offline,
+            )
             if checked.returncode != 0:
                 raise CheckoutError(f"checkout_failed:{checked.stderr.strip() or checked.stdout.strip()}")
 
@@ -627,6 +654,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-file-bytes", type=int, default=3_000_000)
     parser.add_argument("--max-repo-matches", type=int, default=100)
     parser.add_argument("--git-timeout", type=int, default=600)
+    parser.add_argument("--git-protocol", choices=("https", "ssh"), default="https")
     parser.add_argument("--offline", action="store_true")
     return parser.parse_args(argv)
 
@@ -648,16 +676,17 @@ def main(argv: list[str] | None = None) -> int:
         entry = fixed_rows[index]
         groups[(entry.get("repo_url", ""), entry.get("commit", ""))].append(index)
 
-    print(f"selected entries: {len(selected_indexes)}")
-    print(f"repo/commit groups: {len(groups)}")
+    print(f"selected entries: {len(selected_indexes)}", flush=True)
+    print(f"repo/commit groups: {len(groups)}", flush=True)
 
     for group_no, ((repo_url, commit), indexes) in enumerate(groups.items(), 1):
-        print(f"[{group_no}/{len(groups)}] {repo_url} @ {str(commit)[:12]} ({len(indexes)} entries)")
+        print(f"[{group_no}/{len(groups)}] {repo_url} @ {str(commit)[:12]} ({len(indexes)} entries)", flush=True)
         workspace = RepoWorkspace(str(repo_url), str(commit), args.repo_cache, args)
         try:
             workspace.ensure()
         except (CheckoutError, subprocess.TimeoutExpired) as exc:
             reason = f"checkout_failed:{exc}"
+            print(f"  {reason}", flush=True)
             for index in indexes:
                 entry = fixed_rows[index]
                 for field_path, node in iter_nodes(entry):
@@ -724,15 +753,15 @@ def main(argv: list[str] | None = None) -> int:
         ],
     )
 
-    print("summary")
-    print("-------")
-    print(f"ok nodes: {stats['ok']}")
-    print(f"fixed nodes: {stats['fixed']}")
-    print(f"human nodes: {stats['human']}")
-    print(f"schema errors: {len(validation_errors)}")
-    print(f"wrote fixed jsonl: {args.output}")
-    print(f"wrote diff csv: {args.diff_out}")
-    print(f"wrote needs-human csv: {args.needs_human_out}")
+    print("summary", flush=True)
+    print("-------", flush=True)
+    print(f"ok nodes: {stats['ok']}", flush=True)
+    print(f"fixed nodes: {stats['fixed']}", flush=True)
+    print(f"human nodes: {stats['human']}", flush=True)
+    print(f"schema errors: {len(validation_errors)}", flush=True)
+    print(f"wrote fixed jsonl: {args.output}", flush=True)
+    print(f"wrote diff csv: {args.diff_out}", flush=True)
+    print(f"wrote needs-human csv: {args.needs_human_out}", flush=True)
 
     return 1 if validation_errors else 0
 
