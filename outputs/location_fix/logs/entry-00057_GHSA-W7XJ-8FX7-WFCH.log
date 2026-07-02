@@ -1,0 +1,151 @@
+====================================================================================================
+entry-00057 entry_point  src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:97  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    insertTextHandler(data.content);
+expected normalized: 'insertTextHandler(data.content);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:97
+actual code:
+    							insertTextHandler(data.content);
+actual normalized: 'insertTextHandler(data.content);'
+
+====================================================================================================
+entry-00057 critical_operation  src/lib/components/common/RichTextInput.svelte:348  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    tempDiv.innerHTML = htmlContent;
+expected normalized: 'tempDiv.innerHTML = htmlContent;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/common/RichTextInput.svelte:348
+actual code:
+    			tempDiv.innerHTML = htmlContent;
+actual normalized: 'tempDiv.innerHTML = htmlContent;'
+
+====================================================================================================
+entry-00057 trace[0]  src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:97  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    insertTextHandler(data.content);
+expected normalized: 'insertTextHandler(data.content);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:97
+actual code:
+    							insertTextHandler(data.content);
+actual normalized: 'insertTextHandler(data.content);'
+
+====================================================================================================
+entry-00057 trace[1]  backend/open_webui/routers/prompts.py:47  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    @router.post("/create", response_model=Optional[PromptModel])
+expected normalized: '@router.post("/create", response_model=Optional[PromptModel])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/prompts.py:47
+actual code:
+    @router.post("/create", response_model=Optional[PromptModel])
+actual normalized: '@router.post("/create", response_model=Optional[PromptModel])'
+
+====================================================================================================
+entry-00057 trace[2]  src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:30  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    prompts.set(await getPrompts(localStorage.token));
+expected normalized: 'prompts.set(await getPrompts(localStorage.token));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:30
+actual code:
+    				prompts.set(await getPrompts(localStorage.token));
+actual normalized: 'prompts.set(await getPrompts(localStorage.token));'
+
+====================================================================================================
+entry-00057 trace[3]  src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:93  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    onSelect={(e) => {
+expected normalized: 'onSelect={(e) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput/CommandSuggestionList.svelte:93
+actual code:
+    					onSelect={(e) => {
+actual normalized: 'onSelect={(e) => {'
+
+====================================================================================================
+entry-00057 trace[4]  src/lib/components/chat/MessageInput.svelte:324  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    const replaceCommandWithText = (text) => {
+expected normalized: 'const replaceCommandWithText = (text) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput.svelte:324
+actual code:
+    	const replaceCommandWithText = (text) => {
+actual normalized: 'const replaceCommandWithText = (text) => {'
+
+====================================================================================================
+entry-00057 trace[5]  src/lib/components/chat/MessageInput.svelte:1207  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    insertPromptAsRichText={$settings?.insertPromptAsRichText ?? false}
+expected normalized: 'insertPromptAsRichText={$settings?.insertPromptAsRichText ?? false}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/chat/MessageInput.svelte:1207
+actual code:
+    														insertPromptAsRichText={$settings?.insertPromptAsRichText ?? false}
+actual normalized: 'insertPromptAsRichText={$settings?.insertPromptAsRichText ?? false}'
+
+====================================================================================================
+entry-00057 trace[6]  src/lib/components/common/RichTextInput.svelte:338  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    if (insertPromptAsRichText) {
+expected normalized: 'if (insertPromptAsRichText) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/common/RichTextInput.svelte:338
+actual code:
+    		if (insertPromptAsRichText) {
+actual normalized: 'if (insertPromptAsRichText) {'
+
+====================================================================================================
+entry-00057 trace[7]  src/lib/components/common/RichTextInput.svelte:347-348  report=GHSA-W7XJ-8FX7-WFCH
+repo=https://github.com/open-webui/open-webui
+commit=9942de8011d4b5a141ac507c974c061c0cdad59a
+expected code:
+    const tempDiv = document.createElement('div');
+    			tempDiv.innerHTML = htmlContent;
+expected normalized: "const tempDiv = document.createElement('div'); tempDiv.innerHTML = htmlContent;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/lib/components/common/RichTextInput.svelte:347-348
+actual code:
+    			const tempDiv = document.createElement('div');
+    			tempDiv.innerHTML = htmlContent;
+actual normalized: "const tempDiv = document.createElement('div'); tempDiv.innerHTML = htmlContent;"

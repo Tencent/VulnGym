@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00409 entry_point  src/gateway/server/ws-connection/message-handler.ts:265  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+      socket.on("message", async (data) => {
+expected normalized: 'socket.on("message", async (data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:265
+actual code:
+      socket.on("message", async (data) => {
+actual normalized: 'socket.on("message", async (data) => {'
+
+====================================================================================================
+entry-00409 critical_operation  src/gateway/server/ws-connection/message-handler.ts:973  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+              const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;
+expected normalized: 'const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:973
+actual code:
+              const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;
+actual normalized: 'const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;'
+
+====================================================================================================
+entry-00409 trace[0]  src/gateway/server/ws-connection/message-handler.ts:265  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+      socket.on("message", async (data) => {
+expected normalized: 'socket.on("message", async (data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:265
+actual code:
+      socket.on("message", async (data) => {
+actual normalized: 'socket.on("message", async (data) => {'
+
+====================================================================================================
+entry-00409 trace[1]  src/gateway/server/ws-connection/message-handler.ts:964  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+            if (role === "node") {
+expected normalized: 'if (role === "node") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:964
+actual code:
+            if (role === "node") {
+actual normalized: 'if (role === "node") {'
+
+====================================================================================================
+entry-00409 trace[2]  src/gateway/server/ws-connection/message-handler.ts:966  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+              const nodeId = connectParams.device?.id ?? connectParams.client.id;
+expected normalized: 'const nodeId = connectParams.device?.id ?? connectParams.client.id;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:966
+actual code:
+              const nodeId = connectParams.device?.id ?? connectParams.client.id;
+actual normalized: 'const nodeId = connectParams.device?.id ?? connectParams.client.id;'
+
+====================================================================================================
+entry-00409 trace[3]  src/gateway/server/ws-connection/message-handler.ts:967  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+              const pairedNode = await getPairedNode(nodeId);
+expected normalized: 'const pairedNode = await getPairedNode(nodeId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:967
+actual code:
+              const pairedNode = await getPairedNode(nodeId);
+actual normalized: 'const pairedNode = await getPairedNode(nodeId);'
+
+====================================================================================================
+entry-00409 trace[4]  src/gateway/server/ws-connection/message-handler.ts:972  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+expected normalized: 'const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:972
+actual code:
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+actual normalized: 'const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];'
+
+====================================================================================================
+entry-00409 trace[5]  src/gateway/server/ws-connection/message-handler.ts:973  report=GHSA-XJ9W-5R6Q-X6V4
+repo=https://github.com/openclaw/openclaw
+commit=6b38815f86d8d58e29745fe212d95650e13a936c
+expected code:
+              const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;
+expected normalized: 'const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:973
+actual code:
+              const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;
+actual normalized: 'const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;'

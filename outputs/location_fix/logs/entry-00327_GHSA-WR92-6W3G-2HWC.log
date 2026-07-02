@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00327 entry_point  src/agents/tools/sessions-spawn-tool.ts:46  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+        execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:46
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00327 critical_operation  src/agents/subagent-spawn.ts:271  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+      const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;
+expected normalized: 'const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:271
+actual code:
+      const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;
+actual normalized: 'const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;'
+
+====================================================================================================
+entry-00327 trace[0]  src/agents/tools/sessions-spawn-tool.ts:46  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+        execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:46
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00327 trace[1]  src/agents/tools/sessions-spawn-tool.ts:90  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+              : await spawnSubagentDirect(
+expected normalized: ': await spawnSubagentDirect('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:90
+actual code:
+              : await spawnSubagentDirect(
+actual normalized: ': await spawnSubagentDirect('
+
+====================================================================================================
+entry-00327 trace[2]  src/agents/subagent-spawn.ts:218  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+      const requesterInternalKey = requesterSessionKey
+expected normalized: 'const requesterInternalKey = requesterSessionKey'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:218
+actual code:
+      const requesterInternalKey = requesterSessionKey
+actual normalized: 'const requesterInternalKey = requesterSessionKey'
+
+====================================================================================================
+entry-00327 trace[3]  src/agents/subagent-spawn.ts:234  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+      if (callerDepth >= maxSpawnDepth) {
+expected normalized: 'if (callerDepth >= maxSpawnDepth) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:234
+actual code:
+      if (callerDepth >= maxSpawnDepth) {
+actual normalized: 'if (callerDepth >= maxSpawnDepth) {'
+
+====================================================================================================
+entry-00327 trace[4]  src/agents/subagent-spawn.ts:243  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+      if (activeChildren >= maxChildren) {
+expected normalized: 'if (activeChildren >= maxChildren) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:243
+actual code:
+      if (activeChildren >= maxChildren) {
+actual normalized: 'if (activeChildren >= maxChildren) {'
+
+====================================================================================================
+entry-00327 trace[5]  src/agents/subagent-spawn.ts:263  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+        if (!allowAny && !allowSet.has(normalizedTargetId)) {
+expected normalized: 'if (!allowAny && !allowSet.has(normalizedTargetId)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:263
+actual code:
+        if (!allowAny && !allowSet.has(normalizedTargetId)) {
+actual normalized: 'if (!allowAny && !allowSet.has(normalizedTargetId)) {'
+
+====================================================================================================
+entry-00327 trace[6]  src/agents/subagent-spawn.ts:271  report=GHSA-WR92-6W3G-2HWC
+repo=https://github.com/openclaw/openclaw
+commit=6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1
+expected code:
+      const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;
+expected normalized: 'const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:271
+actual code:
+      const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;
+actual normalized: 'const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;'

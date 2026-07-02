@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00463 entry_point  onnx/external_data_helper.py:35  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+                setattr(self, entry.key, entry.value)
+expected normalized: 'setattr(self, entry.key, entry.value)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:35
+actual code:
+                setattr(self, entry.key, entry.value)
+actual normalized: 'setattr(self, entry.key, entry.value)'
+
+====================================================================================================
+entry-00463 critical_operation  onnx/external_data_helper.py:194  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+        external_data_file_path = os.path.join(base_path, info.location)
+expected normalized: 'external_data_file_path = os.path.join(base_path, info.location)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:194
+actual code:
+        external_data_file_path = os.path.join(base_path, info.location)
+actual normalized: 'external_data_file_path = os.path.join(base_path, info.location)'
+
+====================================================================================================
+entry-00463 trace[0]  onnx/external_data_helper.py:35  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+                setattr(self, entry.key, entry.value)
+expected normalized: 'setattr(self, entry.key, entry.value)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:35
+actual code:
+                setattr(self, entry.key, entry.value)
+actual normalized: 'setattr(self, entry.key, entry.value)'
+
+====================================================================================================
+entry-00463 trace[1]  onnx/external_data_helper.py:193  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+        info = ExternalDataInfo(tensor)
+expected normalized: 'info = ExternalDataInfo(tensor)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:193
+actual code:
+        info = ExternalDataInfo(tensor)
+actual normalized: 'info = ExternalDataInfo(tensor)'
+
+====================================================================================================
+entry-00463 trace[2]  onnx/external_data_helper.py:194  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+        external_data_file_path = os.path.join(base_path, info.location)
+expected normalized: 'external_data_file_path = os.path.join(base_path, info.location)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:194
+actual code:
+        external_data_file_path = os.path.join(base_path, info.location)
+actual normalized: 'external_data_file_path = os.path.join(base_path, info.location)'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00097 entry_point  autogpt_platform/backend/backend/api/features/v1.py:361  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+    async def execute_graph_block(
+expected normalized: 'async def execute_graph_block('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/features/v1.py:361
+actual code:
+    async def execute_graph_block(
+actual normalized: 'async def execute_graph_block('
+
+====================================================================================================
+entry-00097 critical_operation  autogpt_platform/backend/backend/api/features/v1.py:375  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+            async for name, data in obj.execute(
+expected normalized: 'async for name, data in obj.execute('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/features/v1.py:375
+actual code:
+            async for name, data in obj.execute(
+actual normalized: 'async for name, data in obj.execute('
+
+====================================================================================================
+entry-00097 trace[0]  autogpt_platform/backend/backend/api/features/v1.py:361  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+    async def execute_graph_block(
+expected normalized: 'async def execute_graph_block('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/features/v1.py:361
+actual code:
+    async def execute_graph_block(
+actual normalized: 'async def execute_graph_block('
+
+====================================================================================================
+entry-00097 trace[1]  autogpt_platform/backend/backend/api/features/v1.py:364  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+        obj = get_block(block_id)
+expected normalized: 'obj = get_block(block_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/features/v1.py:364
+actual code:
+        obj = get_block(block_id)
+actual normalized: 'obj = get_block(block_id)'
+
+====================================================================================================
+entry-00097 trace[2]  autogpt_platform/backend/backend/api/features/v1.py:375  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+            async for name, data in obj.execute(
+expected normalized: 'async for name, data in obj.execute('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/features/v1.py:375
+actual code:
+            async for name, data in obj.execute(
+actual normalized: 'async for name, data in obj.execute('

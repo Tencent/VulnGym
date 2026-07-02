@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00338 entry_point  examples/tts/magpietts_inference.py:367  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    '--checkpoint_files',
+expected normalized: "'--checkpoint_files',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: examples/tts/magpietts_inference.py:367
+actual code:
+            '--checkpoint_files',
+actual normalized: "'--checkpoint_files',"
+
+====================================================================================================
+entry-00338 critical_operation  nemo/collections/tts/modules/magpietts_inference/utils.py:223  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    ckpt = torch.load(config.checkpoint_file, weights_only=False)
+expected normalized: 'ckpt = torch.load(config.checkpoint_file, weights_only=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/modules/magpietts_inference/utils.py:223
+actual code:
+            ckpt = torch.load(config.checkpoint_file, weights_only=False)
+actual normalized: 'ckpt = torch.load(config.checkpoint_file, weights_only=False)'
+
+====================================================================================================
+entry-00338 trace[0]  examples/tts/magpietts_inference.py:367  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    '--checkpoint_files',
+expected normalized: "'--checkpoint_files',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: examples/tts/magpietts_inference.py:367
+actual code:
+            '--checkpoint_files',
+actual normalized: "'--checkpoint_files',"
+
+====================================================================================================
+entry-00338 trace[1]  examples/tts/magpietts_inference.py:582  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    checkpoint_files = args.checkpoint_files.split(",")
+expected normalized: 'checkpoint_files = args.checkpoint_files.split(",")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: examples/tts/magpietts_inference.py:582
+actual code:
+            checkpoint_files = args.checkpoint_files.split(",")
+actual normalized: 'checkpoint_files = args.checkpoint_files.split(",")'
+
+====================================================================================================
+entry-00338 trace[2]  examples/tts/magpietts_inference.py:592  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    checkpoint_file=checkpoint_file,
+expected normalized: 'checkpoint_file=checkpoint_file,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: examples/tts/magpietts_inference.py:592
+actual code:
+                    checkpoint_file=checkpoint_file,
+actual normalized: 'checkpoint_file=checkpoint_file,'
+
+====================================================================================================
+entry-00338 trace[3]  examples/tts/magpietts_inference.py:185  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    model, checkpoint_name = load_magpie_model(model_config)
+expected normalized: 'model, checkpoint_name = load_magpie_model(model_config)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: examples/tts/magpietts_inference.py:185
+actual code:
+        model, checkpoint_name = load_magpie_model(model_config)
+actual normalized: 'model, checkpoint_name = load_magpie_model(model_config)'
+
+====================================================================================================
+entry-00338 trace[4]  nemo/collections/tts/modules/magpietts_inference/utils.py:200  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    if config.hparams_file is not None and config.checkpoint_file is not None:
+expected normalized: 'if config.hparams_file is not None and config.checkpoint_file is not None:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/modules/magpietts_inference/utils.py:200
+actual code:
+        if config.hparams_file is not None and config.checkpoint_file is not None:
+actual normalized: 'if config.hparams_file is not None and config.checkpoint_file is not None:'
+
+====================================================================================================
+entry-00338 trace[5]  nemo/collections/tts/modules/magpietts_inference/utils.py:223  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+    ckpt = torch.load(config.checkpoint_file, weights_only=False)
+expected normalized: 'ckpt = torch.load(config.checkpoint_file, weights_only=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/modules/magpietts_inference/utils.py:223
+actual code:
+            ckpt = torch.load(config.checkpoint_file, weights_only=False)
+actual normalized: 'ckpt = torch.load(config.checkpoint_file, weights_only=False)'

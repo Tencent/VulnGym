@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00332 entry_point  .github/workflows/reusable-release.yaml:81  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+            uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2
+expected normalized: 'uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:81
+actual code:
+            uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2
+actual normalized: 'uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2'
+
+====================================================================================================
+entry-00332 critical_operation  .github/workflows/reusable-release.yaml:111  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}
+expected normalized: 'args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:111
+actual code:
+              args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}
+actual normalized: 'args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}'
+
+====================================================================================================
+entry-00332 trace[0]  .github/workflows/reusable-release.yaml:81  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+            uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2
+expected normalized: 'uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:81
+actual code:
+            uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2
+actual normalized: 'uses: actions/checkout@70379aad1a8b40919ce8b382d3cd7d0315cde1d0 # v6.0.2'
+
+====================================================================================================
+entry-00332 trace[1]  .github/workflows/reusable-release.yaml:83  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              fetch-depth: 0
+expected normalized: 'fetch-depth: 0'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:83
+actual code:
+              fetch-depth: 0
+actual normalized: 'fetch-depth: 0'
+
+====================================================================================================
+entry-00332 trace[2]  .github/workflows/reusable-release.yaml:111  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}
+expected normalized: 'args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:111
+actual code:
+              args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}
+actual normalized: 'args: release --skip=validate -f=${{ inputs.goreleaser_config}} ${{ inputs.goreleaser_options}}'

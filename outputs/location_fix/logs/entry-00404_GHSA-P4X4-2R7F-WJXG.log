@@ -1,0 +1,239 @@
+====================================================================================================
+entry-00404 entry_point  src/agents/bash-tools.exec-host-gateway.ts:77  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    export async function processGatewayAllowlist(
+      params: ProcessGatewayAllowlistParams,
+    ): Promise<ProcessGatewayAllowlistResult> {
+      const { approvals, hostSecurity, hostAsk, askFallback } = resolveExecHostApprovalContext({
+        agentId: params.agentId,
+expected normalized: 'export async function processGatewayAllowlist( params: ProcessGatewayAllowlistParams, ): Promise<ProcessGatewayAllowlistResult> { const { approvals, hostSecurity, hostAsk, askFallback } = resolveExecHostApprovalContext({ agentId: params.agentId,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:77-81
+actual code:
+    export async function processGatewayAllowlist(
+      params: ProcessGatewayAllowlistParams,
+    ): Promise<ProcessGatewayAllowlistResult> {
+      const { approvals, hostSecurity, hostAsk, askFallback } = resolveExecHostApprovalContext({
+        agentId: params.agentId,
+actual normalized: 'export async function processGatewayAllowlist( params: ProcessGatewayAllowlistParams, ): Promise<ProcessGatewayAllowlistResult> { const { approvals, hostSecurity, hostAsk, askFallback } = resolveExecHostApprovalContext({ agentId: params.agentId,'
+
+====================================================================================================
+entry-00404 critical_operation  src/infra/exec-approvals-allowlist.ts:458  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+expected normalized: 'const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:458-462
+actual code:
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+actual normalized: 'const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) {'
+
+====================================================================================================
+entry-00404 trace[0]  src/agents/bash-tools.exec-host-gateway.ts:256  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+          } else if (decision === "allow-always") {
+            approvedByAsk = true;
+            if (hostSecurity === "allowlist" && !requiresInlineEvalApproval) {
+              const patterns = resolveAllowAlwaysPatterns({
+                segments: allowlistEval.segments,
+                cwd: params.workdir,
+                env: params.env,
+                platform: process.platform,
+              });
+              for (const pattern of patterns) {
+expected normalized: '} else if (decision === "allow-always") { approvedByAsk = true; if (hostSecurity === "allowlist" && !requiresInlineEvalApproval) { const patterns = resolveAllowAlwaysPatterns({ segments: allowlistEval.segments, cwd: params.workdir, env: params.env, platform: process.platform, }); for (const pattern of patterns) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:256-265
+actual code:
+          } else if (decision === "allow-always") {
+            approvedByAsk = true;
+            if (hostSecurity === "allowlist" && !requiresInlineEvalApproval) {
+              const patterns = resolveAllowAlwaysPatterns({
+                segments: allowlistEval.segments,
+                cwd: params.workdir,
+                env: params.env,
+                platform: process.platform,
+              });
+              for (const pattern of patterns) {
+actual normalized: '} else if (decision === "allow-always") { approvedByAsk = true; if (hostSecurity === "allowlist" && !requiresInlineEvalApproval) { const patterns = resolveAllowAlwaysPatterns({ segments: allowlistEval.segments, cwd: params.workdir, env: params.env, platform: process.platform, }); for (const pattern of patterns) {'
+
+====================================================================================================
+entry-00404 trace[1]  src/agents/bash-tools.exec-host-gateway.ts:265  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+              for (const pattern of patterns) {
+                if (pattern) {
+                  addAllowlistEntry(approvals.file, params.agentId, pattern);
+                }
+              }
+            }
+expected normalized: 'for (const pattern of patterns) { if (pattern) { addAllowlistEntry(approvals.file, params.agentId, pattern); } } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:265-270
+actual code:
+              for (const pattern of patterns) {
+                if (pattern) {
+                  addAllowlistEntry(approvals.file, params.agentId, pattern);
+                }
+              }
+            }
+actual normalized: 'for (const pattern of patterns) { if (pattern) { addAllowlistEntry(approvals.file, params.agentId, pattern); } } }'
+
+====================================================================================================
+entry-00404 trace[2]  src/infra/exec-approvals-allowlist.ts:567  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    export function resolveAllowAlwaysPatterns(params: {
+      segments: ExecCommandSegment[];
+      cwd?: string;
+      env?: NodeJS.ProcessEnv;
+      platform?: string | null;
+    }): string[] {
+      const patterns = new Set<string>();
+      for (const segment of params.segments) {
+        collectAllowAlwaysPatterns({
+          segment,
+          cwd: params.cwd,
+          env: params.env,
+          platform: params.platform,
+expected normalized: 'export function resolveAllowAlwaysPatterns(params: { segments: ExecCommandSegment[]; cwd?: string; env?: NodeJS.ProcessEnv; platform?: string | null; }): string[] { const patterns = new Set<string>(); for (const segment of params.segments) { collectAllowAlwaysPatterns({ segment, cwd: params.cwd, env: params.env, platform: params.platform,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:567-579
+actual code:
+    export function resolveAllowAlwaysPatterns(params: {
+      segments: ExecCommandSegment[];
+      cwd?: string;
+      env?: NodeJS.ProcessEnv;
+      platform?: string | null;
+    }): string[] {
+      const patterns = new Set<string>();
+      for (const segment of params.segments) {
+        collectAllowAlwaysPatterns({
+          segment,
+          cwd: params.cwd,
+          env: params.env,
+          platform: params.platform,
+actual normalized: 'export function resolveAllowAlwaysPatterns(params: { segments: ExecCommandSegment[]; cwd?: string; env?: NodeJS.ProcessEnv; platform?: string | null; }): string[] { const patterns = new Set<string>(); for (const segment of params.segments) { collectAllowAlwaysPatterns({ segment, cwd: params.cwd, env: params.env, platform: params.platform,'
+
+====================================================================================================
+entry-00404 trace[3]  src/infra/exec-approvals-allowlist.ts:516  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+      if (!trustPlan.shellWrapperExecutable) {
+        params.out.add(candidatePath);
+        return;
+      }
+      const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+        segment,
+        cwd: params.cwd,
+        env: params.env,
+      });
+      if (positionalArgvPath) {
+expected normalized: 'if (!trustPlan.shellWrapperExecutable) { params.out.add(candidatePath); return; } const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({ segment, cwd: params.cwd, env: params.env, }); if (positionalArgvPath) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:516-525
+actual code:
+      if (!trustPlan.shellWrapperExecutable) {
+        params.out.add(candidatePath);
+        return;
+      }
+      const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+        segment,
+        cwd: params.cwd,
+        env: params.env,
+      });
+      if (positionalArgvPath) {
+actual normalized: 'if (!trustPlan.shellWrapperExecutable) { params.out.add(candidatePath); return; } const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({ segment, cwd: params.cwd, env: params.env, }); if (positionalArgvPath) {'
+
+====================================================================================================
+entry-00404 trace[4]  src/infra/exec-approvals-allowlist.ts:454  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+      if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+        return undefined;
+      }
+    
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+expected normalized: 'if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) { return undefined; } const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:454-462
+actual code:
+      if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+        return undefined;
+      }
+    
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+actual normalized: 'if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) { return undefined; } const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) {'
+
+====================================================================================================
+entry-00404 trace[5]  src/infra/exec-approvals.ts:525  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    export function addAllowlistEntry(
+      approvals: ExecApprovalsFile,
+      agentId: string | undefined,
+      pattern: string,
+    ) {
+      const target = agentId ?? DEFAULT_AGENT_ID;
+      const agents = approvals.agents ?? {};
+      const existing = agents[target] ?? {};
+      const allowlist = Array.isArray(existing.allowlist) ? existing.allowlist : [];
+      const trimmed = pattern.trim();
+expected normalized: 'export function addAllowlistEntry( approvals: ExecApprovalsFile, agentId: string | undefined, pattern: string, ) { const target = agentId ?? DEFAULT_AGENT_ID; const agents = approvals.agents ?? {}; const existing = agents[target] ?? {}; const allowlist = Array.isArray(existing.allowlist) ? existing.allowlist : []; const trimmed = pattern.trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals.ts:525-534
+actual code:
+    export function addAllowlistEntry(
+      approvals: ExecApprovalsFile,
+      agentId: string | undefined,
+      pattern: string,
+    ) {
+      const target = agentId ?? DEFAULT_AGENT_ID;
+      const agents = approvals.agents ?? {};
+      const existing = agents[target] ?? {};
+      const allowlist = Array.isArray(existing.allowlist) ? existing.allowlist : [];
+      const trimmed = pattern.trim();
+actual normalized: 'export function addAllowlistEntry( approvals: ExecApprovalsFile, agentId: string | undefined, pattern: string, ) { const target = agentId ?? DEFAULT_AGENT_ID; const agents = approvals.agents ?? {}; const existing = agents[target] ?? {}; const allowlist = Array.isArray(existing.allowlist) ? existing.allowlist : []; const trimmed = pattern.trim();'

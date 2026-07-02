@@ -1,0 +1,316 @@
+====================================================================================================
+entry-00301 entry_point  src/agents/sandbox/fs-bridge.ts:103  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+      }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:103
+actual code:
+      }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (51):
+  [1] .github/workflows/auto-response.yml:119
+                    }
+  [2] .github/workflows/auto-response.yml:128
+                    }
+  [3] .github/workflows/auto-response.yml:133
+                      }
+  [4] .github/workflows/auto-response.yml:134
+                    }
+  [5] .github/workflows/auto-response.yml:148
+                      }
+  [6] .github/workflows/auto-response.yml:156
+                    }
+  [7] .github/workflows/auto-response.yml:162
+                    }
+  [8] .github/workflows/auto-response.yml:168
+                    }
+  [9] .github/workflows/auto-response.yml:176
+                      }
+  [10] .github/workflows/auto-response.yml:179
+                      }
+  [11] .github/workflows/auto-response.yml:191
+                        }
+  [12] .github/workflows/auto-response.yml:192
+                      }
+  [13] .github/workflows/auto-response.yml:193
+                    }
+  [14] .github/workflows/auto-response.yml:203
+                    }
+  [15] .github/workflows/auto-response.yml:209
+                    }
+  [16] .github/workflows/auto-response.yml:213
+                    }
+  [17] .github/workflows/auto-response.yml:225
+                      }
+  [18] .github/workflows/auto-response.yml:226
+                    }
+  [19] .github/workflows/auto-response.yml:234
+                    }
+  [20] .github/workflows/auto-response.yml:238
+                    }
+  [21] .github/workflows/auto-response.yml:244
+                    }
+  [22] .github/workflows/auto-response.yml:249
+                    }
+  [23] .github/workflows/auto-response.yml:252
+                    }
+  [24] .github/workflows/auto-response.yml:258
+                      }
+  [25] .github/workflows/auto-response.yml:259
+                    }
+  [26] .github/workflows/auto-response.yml:269
+                  }
+  [27] .github/workflows/auto-response.yml:284
+                    }
+  [28] .github/workflows/auto-response.yml:291
+                    }
+  [29] .github/workflows/auto-response.yml:301
+                    }
+  [30] .github/workflows/auto-response.yml:310
+                    }
+  [31] .github/workflows/auto-response.yml:312
+                  }
+  [32] .github/workflows/auto-response.yml:330
+                      }
+  [33] .github/workflows/auto-response.yml:333
+                    }
+  [34] .github/workflows/auto-response.yml:334
+                  }
+  [35] .github/workflows/auto-response.yml:349
+                      }
+  [36] .github/workflows/auto-response.yml:350
+                    }
+  [37] .github/workflows/auto-response.yml:351
+                  }
+  [38] .github/workflows/auto-response.yml:356
+                  }
+  [39] .github/workflows/auto-response.yml:373
+                    }
+  [40] .github/workflows/auto-response.yml:382
+                    }
+  [41] .github/workflows/auto-response.yml:391
+                    }
+  [42] .github/workflows/auto-response.yml:392
+                  }
+  [43] .github/workflows/auto-response.yml:414
+                    }
+  [44] .github/workflows/auto-response.yml:430
+                    }
+  [45] .github/workflows/auto-response.yml:439
+                    }
+  [46] .github/workflows/auto-response.yml:440
+                  }
+  [47] .github/workflows/auto-response.yml:451
+                  }
+  [48] .github/workflows/auto-response.yml:455
+                  }
+  [49] .github/workflows/auto-response.yml:460
+                  }
+  [50] .github/workflows/auto-response.yml:478
+                  }
+  [51] .github/workflows/auto-response.yml:487
+                  }
+
+====================================================================================================
+entry-00301 critical_operation  src/agents/sandbox/fs-bridge-path-safety.ts:137  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+        const canonicalParentPath = await this.resolveCanonicalContainerPath({
+expected normalized: 'const canonicalParentPath = await this.resolveCanonicalContainerPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge-path-safety.ts:137
+actual code:
+        const canonicalParentPath = await this.resolveCanonicalContainerPath({
+actual normalized: 'const canonicalParentPath = await this.resolveCanonicalContainerPath({'
+
+====================================================================================================
+entry-00301 trace[0]  src/agents/sandbox/fs-bridge.ts:103  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+      }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:103
+actual code:
+      }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (51):
+  [1] .github/workflows/auto-response.yml:119
+                    }
+  [2] .github/workflows/auto-response.yml:128
+                    }
+  [3] .github/workflows/auto-response.yml:133
+                      }
+  [4] .github/workflows/auto-response.yml:134
+                    }
+  [5] .github/workflows/auto-response.yml:148
+                      }
+  [6] .github/workflows/auto-response.yml:156
+                    }
+  [7] .github/workflows/auto-response.yml:162
+                    }
+  [8] .github/workflows/auto-response.yml:168
+                    }
+  [9] .github/workflows/auto-response.yml:176
+                      }
+  [10] .github/workflows/auto-response.yml:179
+                      }
+  [11] .github/workflows/auto-response.yml:191
+                        }
+  [12] .github/workflows/auto-response.yml:192
+                      }
+  [13] .github/workflows/auto-response.yml:193
+                    }
+  [14] .github/workflows/auto-response.yml:203
+                    }
+  [15] .github/workflows/auto-response.yml:209
+                    }
+  [16] .github/workflows/auto-response.yml:213
+                    }
+  [17] .github/workflows/auto-response.yml:225
+                      }
+  [18] .github/workflows/auto-response.yml:226
+                    }
+  [19] .github/workflows/auto-response.yml:234
+                    }
+  [20] .github/workflows/auto-response.yml:238
+                    }
+  [21] .github/workflows/auto-response.yml:244
+                    }
+  [22] .github/workflows/auto-response.yml:249
+                    }
+  [23] .github/workflows/auto-response.yml:252
+                    }
+  [24] .github/workflows/auto-response.yml:258
+                      }
+  [25] .github/workflows/auto-response.yml:259
+                    }
+  [26] .github/workflows/auto-response.yml:269
+                  }
+  [27] .github/workflows/auto-response.yml:284
+                    }
+  [28] .github/workflows/auto-response.yml:291
+                    }
+  [29] .github/workflows/auto-response.yml:301
+                    }
+  [30] .github/workflows/auto-response.yml:310
+                    }
+  [31] .github/workflows/auto-response.yml:312
+                  }
+  [32] .github/workflows/auto-response.yml:330
+                      }
+  [33] .github/workflows/auto-response.yml:333
+                    }
+  [34] .github/workflows/auto-response.yml:334
+                  }
+  [35] .github/workflows/auto-response.yml:349
+                      }
+  [36] .github/workflows/auto-response.yml:350
+                    }
+  [37] .github/workflows/auto-response.yml:351
+                  }
+  [38] .github/workflows/auto-response.yml:356
+                  }
+  [39] .github/workflows/auto-response.yml:373
+                    }
+  [40] .github/workflows/auto-response.yml:382
+                    }
+  [41] .github/workflows/auto-response.yml:391
+                    }
+  [42] .github/workflows/auto-response.yml:392
+                  }
+  [43] .github/workflows/auto-response.yml:414
+                    }
+  [44] .github/workflows/auto-response.yml:430
+                    }
+  [45] .github/workflows/auto-response.yml:439
+                    }
+  [46] .github/workflows/auto-response.yml:440
+                  }
+  [47] .github/workflows/auto-response.yml:451
+                  }
+  [48] .github/workflows/auto-response.yml:455
+                  }
+  [49] .github/workflows/auto-response.yml:460
+                  }
+  [50] .github/workflows/auto-response.yml:478
+                  }
+  [51] .github/workflows/auto-response.yml:487
+                  }
+
+====================================================================================================
+entry-00301 trace[1]  src/agents/sandbox/fs-bridge.ts:111  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+        signal?: AbortSignal;
+expected normalized: 'signal?: AbortSignal;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:111
+actual code:
+        signal?: AbortSignal;
+actual normalized: 'signal?: AbortSignal;'
+
+====================================================================================================
+entry-00301 trace[2]  src/agents/sandbox/fs-bridge.ts:117  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+          ? params.data
+expected normalized: '? params.data'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:117
+actual code:
+          ? params.data
+actual normalized: '? params.data'
+
+====================================================================================================
+entry-00301 trace[3]  src/agents/sandbox/fs-bridge.ts:121  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+          mkdir: params.mkdir !== false,
+expected normalized: 'mkdir: params.mkdir !== false,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:121
+actual code:
+          mkdir: params.mkdir !== false,
+actual normalized: 'mkdir: params.mkdir !== false,'
+
+====================================================================================================
+entry-00301 trace[4]  src/agents/sandbox/fs-bridge-path-safety.ts:137  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+        const canonicalParentPath = await this.resolveCanonicalContainerPath({
+expected normalized: 'const canonicalParentPath = await this.resolveCanonicalContainerPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge-path-safety.ts:137
+actual code:
+        const canonicalParentPath = await this.resolveCanonicalContainerPath({
+actual normalized: 'const canonicalParentPath = await this.resolveCanonicalContainerPath({'

@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00233 entry_point  apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:42  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+        var command: [String]
+expected normalized: 'var command: [String]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:42
+actual code:
+        var command: [String]
+actual normalized: 'var command: [String]'
+
+====================================================================================================
+entry-00233 critical_operation  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:197  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+                if !inSingle, !inDouble {
+expected normalized: 'if !inSingle, !inDouble {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:197
+actual code:
+                if !inSingle, !inDouble {
+actual normalized: 'if !inSingle, !inDouble {'
+
+====================================================================================================
+entry-00233 trace[0]  apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:765  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+            let response = await self.onExec(payload)
+expected normalized: 'let response = await self.onExec(payload)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:765
+actual code:
+            let response = await self.onExec(payload)
+actual normalized: 'let response = await self.onExec(payload)'
+
+====================================================================================================
+entry-00233 trace[1]  apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:355  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+        static func handle(_ request: ExecHostRequest) async -> ExecHostResponse {
+expected normalized: 'static func handle(_ request: ExecHostRequest) async -> ExecHostResponse {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:355
+actual code:
+        static func handle(_ request: ExecHostRequest) async -> ExecHostResponse {
+actual normalized: 'static func handle(_ request: ExecHostRequest) async -> ExecHostResponse {'
+
+====================================================================================================
+entry-00233 trace[2]  apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:454  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+        private static func buildContext(request: ExecHostRequest, command: [String]) async -> ExecApprovalContext {
+expected normalized: 'private static func buildContext(request: ExecHostRequest, command: [String]) async -> ExecApprovalContext {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:454
+actual code:
+        private static func buildContext(request: ExecHostRequest, command: [String]) async -> ExecApprovalContext {
+actual normalized: 'private static func buildContext(request: ExecHostRequest, command: [String]) async -> ExecApprovalContext {'
+
+====================================================================================================
+entry-00233 trace[3]  apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift:33  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+            let allowlistResolutions = ExecCommandResolution.resolveForAllowlist(
+expected normalized: 'let allowlistResolutions = ExecCommandResolution.resolveForAllowlist('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift:33
+actual code:
+            let allowlistResolutions = ExecCommandResolution.resolveForAllowlist(
+actual normalized: 'let allowlistResolutions = ExecCommandResolution.resolveForAllowlist('
+
+====================================================================================================
+entry-00233 trace[4]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:28  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+            let shell = self.extractShellCommandFromArgv(command: command, rawCommand: rawCommand)
+expected normalized: 'let shell = self.extractShellCommandFromArgv(command: command, rawCommand: rawCommand)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:28
+actual code:
+            let shell = self.extractShellCommandFromArgv(command: command, rawCommand: rawCommand)
+actual normalized: 'let shell = self.extractShellCommandFromArgv(command: command, rawCommand: rawCommand)'
+
+====================================================================================================
+entry-00233 trace[5]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:145  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+        private static func splitShellCommandChain(_ command: String) -> [String]? {
+expected normalized: 'private static func splitShellCommandChain(_ command: String) -> [String]? {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:145
+actual code:
+        private static func splitShellCommandChain(_ command: String) -> [String]? {
+actual normalized: 'private static func splitShellCommandChain(_ command: String) -> [String]? {'
+
+====================================================================================================
+entry-00233 trace[6]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:190  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+                if ch == "\"", !inSingle {
+expected normalized: 'if ch == "\\"", !inSingle {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:190
+actual code:
+                if ch == "\"", !inSingle {
+actual normalized: 'if ch == "\\"", !inSingle {'
+
+====================================================================================================
+entry-00233 trace[7]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:197  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+                if !inSingle, !inDouble {
+expected normalized: 'if !inSingle, !inDouble {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:197
+actual code:
+                if !inSingle, !inDouble {
+actual normalized: 'if !inSingle, !inDouble {'
+
+====================================================================================================
+entry-00233 trace[8]  apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift:38  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+            let allowlistMatches = security == .allowlist
+expected normalized: 'let allowlistMatches = security == .allowlist'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift:38
+actual code:
+            let allowlistMatches = security == .allowlist
+actual normalized: 'let allowlistMatches = security == .allowlist'
+
+====================================================================================================
+entry-00233 trace[9]  apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:447  report=GHSA-9P38-94JF-HGJJ
+repo=https://github.com/openclaw/openclaw
+commit=861718e4dcbd33354b87b84bf5df8c9d92d21307
+expected code:
+            return await self.runCommand(
+expected normalized: 'return await self.runCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift:447
+actual code:
+            return await self.runCommand(
+actual normalized: 'return await self.runCommand('

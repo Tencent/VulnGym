@@ -1,0 +1,141 @@
+====================================================================================================
+entry-00303 entry_point  src/gateway/method-scopes.ts:104  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+        "browser.request",
+expected normalized: '"browser.request",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:104
+actual code:
+        "browser.request",
+actual normalized: '"browser.request",'
+
+====================================================================================================
+entry-00303 critical_operation  src/browser/routes/basic.ts:145  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+        const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);
+expected normalized: 'const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/basic.ts:145
+actual code:
+        const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);
+actual normalized: 'const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);'
+
+====================================================================================================
+entry-00303 trace[0]  src/gateway/method-scopes.ts:98-107  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+        "tts.convert",
+        "tts.setProvider",
+        "voicewake.set",
+        "node.invoke",
+        "chat.send",
+        "chat.abort",
+        "browser.request",
+        "push.test",
+        "node.pending.enqueue",
+      ],
+expected normalized: '"tts.convert", "tts.setProvider", "voicewake.set", "node.invoke", "chat.send", "chat.abort", "browser.request", "push.test", "node.pending.enqueue", ],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:98-107
+actual code:
+        "tts.convert",
+        "tts.setProvider",
+        "voicewake.set",
+        "node.invoke",
+        "chat.send",
+        "chat.abort",
+        "browser.request",
+        "push.test",
+        "node.pending.enqueue",
+      ],
+actual normalized: '"tts.convert", "tts.setProvider", "voicewake.set", "node.invoke", "chat.send", "chat.abort", "browser.request", "push.test", "node.pending.enqueue", ],'
+
+====================================================================================================
+entry-00303 trace[1]  src/gateway/server-methods/browser.ts:143-152  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+      "browser.request": async ({ params, respond, context }) => {
+        const typed = params as BrowserRequestParams;
+        const methodRaw = typeof typed.method === "string" ? typed.method.trim().toUpperCase() : "";
+        const path = typeof typed.path === "string" ? typed.path.trim() : "";
+        const query = typed.query && typeof typed.query === "object" ? typed.query : undefined;
+        const body = typed.body;
+        const timeoutMs =
+          typeof typed.timeoutMs === "number" && Number.isFinite(typed.timeoutMs)
+            ? Math.max(1, Math.floor(typed.timeoutMs))
+            : undefined;
+expected normalized: '"browser.request": async ({ params, respond, context }) => { const typed = params as BrowserRequestParams; const methodRaw = typeof typed.method === "string" ? typed.method.trim().toUpperCase() : ""; const path = typeof typed.path === "string" ? typed.path.trim() : ""; const query = typed.query && typeof typed.query === "object" ? typed.query : undefined; const body = typed.body; const timeoutMs = typeof typed.timeoutMs === "number" && Number.isFinite(typed.timeoutMs) ? Math.max(1, Math.floor(typed.timeoutMs)) : undefined;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/browser.ts:143-152
+actual code:
+      "browser.request": async ({ params, respond, context }) => {
+        const typed = params as BrowserRequestParams;
+        const methodRaw = typeof typed.method === "string" ? typed.method.trim().toUpperCase() : "";
+        const path = typeof typed.path === "string" ? typed.path.trim() : "";
+        const query = typed.query && typeof typed.query === "object" ? typed.query : undefined;
+        const body = typed.body;
+        const timeoutMs =
+          typeof typed.timeoutMs === "number" && Number.isFinite(typed.timeoutMs)
+            ? Math.max(1, Math.floor(typed.timeoutMs))
+            : undefined;
+actual normalized: '"browser.request": async ({ params, respond, context }) => { const typed = params as BrowserRequestParams; const methodRaw = typeof typed.method === "string" ? typed.method.trim().toUpperCase() : ""; const path = typeof typed.path === "string" ? typed.path.trim() : ""; const query = typed.query && typeof typed.query === "object" ? typed.query : undefined; const body = typed.body; const timeoutMs = typeof typed.timeoutMs === "number" && Number.isFinite(typed.timeoutMs) ? Math.max(1, Math.floor(typed.timeoutMs)) : undefined;'
+
+====================================================================================================
+entry-00303 trace[2]  src/gateway/server-methods/browser.ts:247-252  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+        const result = await dispatcher.dispatch({
+          method: methodRaw,
+          path,
+          query,
+          body,
+        });
+expected normalized: 'const result = await dispatcher.dispatch({ method: methodRaw, path, query, body, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/browser.ts:247-252
+actual code:
+        const result = await dispatcher.dispatch({
+          method: methodRaw,
+          path,
+          query,
+          body,
+        });
+actual normalized: 'const result = await dispatcher.dispatch({ method: methodRaw, path, query, body, });'
+
+====================================================================================================
+entry-00303 trace[3]  src/browser/routes/basic.ts:142-145  report=GHSA-VMHQ-CQM9-6P7Q
+repo=https://github.com/openclaw/openclaw
+commit=46a332385d1130ec128a1351418a9ab698dfabf4
+expected code:
+      app.post("/profiles/create", async (req, res) => {
+        const name = toStringOrEmpty((req.body as { name?: unknown })?.name);
+        const color = toStringOrEmpty((req.body as { color?: unknown })?.color);
+        const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);
+expected normalized: 'app.post("/profiles/create", async (req, res) => { const name = toStringOrEmpty((req.body as { name?: unknown })?.name); const color = toStringOrEmpty((req.body as { color?: unknown })?.color); const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/basic.ts:142-145
+actual code:
+      app.post("/profiles/create", async (req, res) => {
+        const name = toStringOrEmpty((req.body as { name?: unknown })?.name);
+        const color = toStringOrEmpty((req.body as { color?: unknown })?.color);
+        const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);
+actual normalized: 'app.post("/profiles/create", async (req, res) => { const name = toStringOrEmpty((req.body as { name?: unknown })?.name); const color = toStringOrEmpty((req.body as { color?: unknown })?.color); const cdpUrl = toStringOrEmpty((req.body as { cdpUrl?: unknown })?.cdpUrl);'

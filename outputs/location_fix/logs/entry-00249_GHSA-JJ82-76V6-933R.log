@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00249 entry_point  src/gateway/node-invoke-system-run-approval.ts:130  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+      const cmdTextResolution = resolveSystemRunCommand({
+expected normalized: 'const cmdTextResolution = resolveSystemRunCommand({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:130
+actual code:
+      const cmdTextResolution = resolveSystemRunCommand({
+actual normalized: 'const cmdTextResolution = resolveSystemRunCommand({'
+
+====================================================================================================
+entry-00249 critical_operation  src/infra/exec-approvals-allowlist.ts:146  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+    export function evaluateExecAllowlist(params: {
+expected normalized: 'export function evaluateExecAllowlist(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:146
+actual code:
+    export function evaluateExecAllowlist(params: {
+actual normalized: 'export function evaluateExecAllowlist(params: {'
+
+====================================================================================================
+entry-00249 trace[0]  src/infra/system-run-command.ts:152  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+      const argv = command.map((v) => String(v));
+expected normalized: 'const argv = command.map((v) => String(v));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:152
+actual code:
+      const argv = command.map((v) => String(v));
+actual normalized: 'const argv = command.map((v) => String(v));'
+
+====================================================================================================
+entry-00249 trace[1]  src/infra/system-run-command.ts:101  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+      const shellCommand = extractShellCommandFromArgv(params.argv);
+expected normalized: 'const shellCommand = extractShellCommandFromArgv(params.argv);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:101
+actual code:
+      const shellCommand = extractShellCommandFromArgv(params.argv);
+actual normalized: 'const shellCommand = extractShellCommandFromArgv(params.argv);'
+
+====================================================================================================
+entry-00249 trace[2]  src/infra/exec-approvals-analysis.ts:104  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+      const rawExecutable = argv[0]?.trim();
+expected normalized: 'const rawExecutable = argv[0]?.trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:104
+actual code:
+      const rawExecutable = argv[0]?.trim();
+actual normalized: 'const rawExecutable = argv[0]?.trim();'
+
+====================================================================================================
+entry-00249 trace[3]  src/infra/exec-approvals-analysis.ts:108  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+expected normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:108
+actual code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+actual normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);'
+
+====================================================================================================
+entry-00249 trace[4]  src/infra/exec-approvals-analysis.ts:201  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+    export function matchAllowlist(
+expected normalized: 'export function matchAllowlist('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:201
+actual code:
+    export function matchAllowlist(
+actual normalized: 'export function matchAllowlist('

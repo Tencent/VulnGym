@@ -1,0 +1,105 @@
+====================================================================================================
+entry-00191 entry_point  packages/nodes-base/nodes/Form/utils/utils.ts:133  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		if (field.fieldType === 'hiddenField') {
+expected normalized: "if (field.fieldType === 'hiddenField') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:133
+actual code:
+    		if (field.fieldType === 'hiddenField') {
+actual normalized: "if (field.fieldType === 'hiddenField') {"
+
+====================================================================================================
+entry-00191 critical_operation  packages/nodes-base/nodes/Form/utils/utils.ts:141  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    export function sanitizeCustomCss(css: string | undefined): string | undefined {
+expected normalized: 'export function sanitizeCustomCss(css: string | undefined): string | undefined {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:141
+actual code:
+    export function sanitizeCustomCss(css: string | undefined): string | undefined {
+actual normalized: 'export function sanitizeCustomCss(css: string | undefined): string | undefined {'
+
+====================================================================================================
+entry-00191 trace[0]  packages/nodes-base/nodes/Form/utils/utils.ts:133  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		if (field.fieldType === 'hiddenField') {
+expected normalized: "if (field.fieldType === 'hiddenField') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:133
+actual code:
+    		if (field.fieldType === 'hiddenField') {
+actual normalized: "if (field.fieldType === 'hiddenField') {"
+
+====================================================================================================
+entry-00191 trace[1]  packages/nodes-base/nodes/Form/utils/utils.ts:135  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		}
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:135
+actual code:
+    		}
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (2):
+  [1] .claude/README.md:30
+        }
+  [2] .claude/README.md:31
+      }
+
+====================================================================================================
+entry-00191 trace[2]  packages/nodes-base/nodes/Form/utils/utils.ts:139  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    };
+expected normalized: '};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:139
+actual code:
+    };
+actual normalized: '};'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (2):
+  [1] .github/scripts/cleanup-ghcr-images.mjs:58
+      };
+  [2] .github/scripts/cleanup-ghcr-images.mjs:63
+      };
+
+====================================================================================================
+entry-00191 trace[3]  packages/nodes-base/nodes/Form/utils/utils.ts:141  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    export function sanitizeCustomCss(css: string | undefined): string | undefined {
+expected normalized: 'export function sanitizeCustomCss(css: string | undefined): string | undefined {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:141
+actual code:
+    export function sanitizeCustomCss(css: string | undefined): string | undefined {
+actual normalized: 'export function sanitizeCustomCss(css: string | undefined): string | undefined {'

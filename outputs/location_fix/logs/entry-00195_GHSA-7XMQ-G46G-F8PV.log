@@ -1,0 +1,122 @@
+====================================================================================================
+entry-00195 entry_point  src/agents/tools/image-tool.ts:481-490  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+                ? await resolveSandboxedBridgeMediaPath({
+                    sandbox: sandboxConfig,
+                    mediaPath: resolvedImage,
+                    inboundFallbackDir: "media/inbound",
+                  })
+                : {
+                    resolved: resolvedImage.startsWith("file://")
+                      ? resolvedImage.slice("file://".length)
+                      : resolvedImage,
+                  };
+expected normalized: '? await resolveSandboxedBridgeMediaPath({ sandbox: sandboxConfig, mediaPath: resolvedImage, inboundFallbackDir: "media/inbound", }) : { resolved: resolvedImage.startsWith("file://") ? resolvedImage.slice("file://".length) : resolvedImage, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/image-tool.ts:481-490
+actual code:
+                ? await resolveSandboxedBridgeMediaPath({
+                    sandbox: sandboxConfig,
+                    mediaPath: resolvedImage,
+                    inboundFallbackDir: "media/inbound",
+                  })
+                : {
+                    resolved: resolvedImage.startsWith("file://")
+                      ? resolvedImage.slice("file://".length)
+                      : resolvedImage,
+                  };
+actual normalized: '? await resolveSandboxedBridgeMediaPath({ sandbox: sandboxConfig, mediaPath: resolvedImage, inboundFallbackDir: "media/inbound", }) : { resolved: resolvedImage.startsWith("file://") ? resolvedImage.slice("file://".length) : resolvedImage, };'
+
+====================================================================================================
+entry-00195 critical_operation  src/agents/tools/image-tool.ts:499-500  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+                    readFile: (filePath) =>
+                      sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),
+expected normalized: 'readFile: (filePath) => sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/image-tool.ts:499-500
+actual code:
+                    readFile: (filePath) =>
+                      sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),
+actual normalized: 'readFile: (filePath) => sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),'
+
+====================================================================================================
+entry-00195 trace[0]  src/agents/tools/image-tool.ts:481-490  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+                ? await resolveSandboxedBridgeMediaPath({
+                    sandbox: sandboxConfig,
+                    mediaPath: resolvedImage,
+                    inboundFallbackDir: "media/inbound",
+                  })
+                : {
+                    resolved: resolvedImage.startsWith("file://")
+                      ? resolvedImage.slice("file://".length)
+                      : resolvedImage,
+                  };
+expected normalized: '? await resolveSandboxedBridgeMediaPath({ sandbox: sandboxConfig, mediaPath: resolvedImage, inboundFallbackDir: "media/inbound", }) : { resolved: resolvedImage.startsWith("file://") ? resolvedImage.slice("file://".length) : resolvedImage, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/image-tool.ts:481-490
+actual code:
+                ? await resolveSandboxedBridgeMediaPath({
+                    sandbox: sandboxConfig,
+                    mediaPath: resolvedImage,
+                    inboundFallbackDir: "media/inbound",
+                  })
+                : {
+                    resolved: resolvedImage.startsWith("file://")
+                      ? resolvedImage.slice("file://".length)
+                      : resolvedImage,
+                  };
+actual normalized: '? await resolveSandboxedBridgeMediaPath({ sandbox: sandboxConfig, mediaPath: resolvedImage, inboundFallbackDir: "media/inbound", }) : { resolved: resolvedImage.startsWith("file://") ? resolvedImage.slice("file://".length) : resolvedImage, };'
+
+====================================================================================================
+entry-00195 trace[1]  src/agents/tools/image-tool.ts:491  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+            const resolvedPath = isDataUrl ? null : resolvedPathInfo.resolved;
+expected normalized: 'const resolvedPath = isDataUrl ? null : resolvedPathInfo.resolved;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/image-tool.ts:491
+actual code:
+            const resolvedPath = isDataUrl ? null : resolvedPathInfo.resolved;
+actual normalized: 'const resolvedPath = isDataUrl ? null : resolvedPathInfo.resolved;'
+
+====================================================================================================
+entry-00195 trace[2]  src/agents/tools/image-tool.ts:496-501  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+                ? await loadWebMedia(resolvedPath ?? resolvedImage, {
+                    maxBytes,
+                    sandboxValidated: true,
+                    readFile: (filePath) =>
+                      sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),
+                  })
+expected normalized: '? await loadWebMedia(resolvedPath ?? resolvedImage, { maxBytes, sandboxValidated: true, readFile: (filePath) => sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }), })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/image-tool.ts:496-501
+actual code:
+                ? await loadWebMedia(resolvedPath ?? resolvedImage, {
+                    maxBytes,
+                    sandboxValidated: true,
+                    readFile: (filePath) =>
+                      sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }),
+                  })
+actual normalized: '? await loadWebMedia(resolvedPath ?? resolvedImage, { maxBytes, sandboxValidated: true, readFile: (filePath) => sandboxConfig.bridge.readFile({ filePath, cwd: sandboxConfig.root }), })'

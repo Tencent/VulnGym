@@ -1,0 +1,105 @@
+====================================================================================================
+entry-00073 entry_point  src/backend/base/langflow/api/v1/monitor.py:151  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.delete("/messages/session/{session_id}", status_code=204)
+expected normalized: '@router.delete("/messages/session/{session_id}", status_code=204)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:151
+actual code:
+    @router.delete("/messages/session/{session_id}", status_code=204)
+actual normalized: '@router.delete("/messages/session/{session_id}", status_code=204)'
+
+====================================================================================================
+entry-00073 critical_operation  src/backend/base/langflow/api/v1/monitor.py:157-161  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            session.exec(
+                delete(MessageTable)
+                .where(col(MessageTable.session_id) == session_id)
+                .execution_options(synchronize_session="fetch")
+            )
+expected normalized: 'session.exec( delete(MessageTable) .where(col(MessageTable.session_id) == session_id) .execution_options(synchronize_session="fetch") )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:157-161
+actual code:
+            session.exec(
+                delete(MessageTable)
+                .where(col(MessageTable.session_id) == session_id)
+                .execution_options(synchronize_session="fetch")
+            )
+actual normalized: 'session.exec( delete(MessageTable) .where(col(MessageTable.session_id) == session_id) .execution_options(synchronize_session="fetch") )'
+
+====================================================================================================
+entry-00073 trace[0]  src/backend/base/langflow/api/v1/monitor.py:151  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.delete("/messages/session/{session_id}", status_code=204)
+expected normalized: '@router.delete("/messages/session/{session_id}", status_code=204)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:151
+actual code:
+    @router.delete("/messages/session/{session_id}", status_code=204)
+actual normalized: '@router.delete("/messages/session/{session_id}", status_code=204)'
+
+====================================================================================================
+entry-00073 trace[1]  src/backend/base/langflow/api/v1/monitor.py:152  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    async def delete_messages_session(
+expected normalized: 'async def delete_messages_session('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:152
+actual code:
+    async def delete_messages_session(
+actual normalized: 'async def delete_messages_session('
+
+====================================================================================================
+entry-00073 trace[2]  src/backend/base/langflow/api/v1/monitor.py:153  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+        session_id: str,
+expected normalized: 'session_id: str,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:153
+actual code:
+        session_id: str,
+actual normalized: 'session_id: str,'
+
+====================================================================================================
+entry-00073 trace[3]  src/backend/base/langflow/api/v1/monitor.py:157-161  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            session.exec(
+                delete(MessageTable)
+                .where(col(MessageTable.session_id) == session_id)
+                .execution_options(synchronize_session="fetch")
+            )
+expected normalized: 'session.exec( delete(MessageTable) .where(col(MessageTable.session_id) == session_id) .execution_options(synchronize_session="fetch") )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:157-161
+actual code:
+            session.exec(
+                delete(MessageTable)
+                .where(col(MessageTable.session_id) == session_id)
+                .execution_options(synchronize_session="fetch")
+            )
+actual normalized: 'session.exec( delete(MessageTable) .where(col(MessageTable.session_id) == session_id) .execution_options(synchronize_session="fetch") )'

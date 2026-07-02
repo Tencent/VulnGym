@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00379 entry_point  src/gateway/server/ws-connection/message-handler.ts:132  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    export function attachGatewayWsMessageHandler(params: {
+expected normalized: 'export function attachGatewayWsMessageHandler(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:132
+actual code:
+    export function attachGatewayWsMessageHandler(params: {
+actual normalized: 'export function attachGatewayWsMessageHandler(params: {'
+
+====================================================================================================
+entry-00379 critical_operation  src/gateway/server/ws-connection/message-handler.ts:898  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+expected normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:898
+actual code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+actual normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+
+====================================================================================================
+entry-00379 trace[0]  src/gateway/server/ws-connection/message-handler.ts:132  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    export function attachGatewayWsMessageHandler(params: {
+expected normalized: 'export function attachGatewayWsMessageHandler(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:132
+actual code:
+    export function attachGatewayWsMessageHandler(params: {
+actual normalized: 'export function attachGatewayWsMessageHandler(params: {'
+
+====================================================================================================
+entry-00379 trace[1]  src/gateway/server/ws-connection/message-handler.ts:344  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:344
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00379 trace[2]  src/gateway/server/ws-connection/message-handler.ts:702  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    if (device && devicePublicKey && !skipPairing) {
+expected normalized: 'if (device && devicePublicKey && !skipPairing) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:702
+actual code:
+            if (device && devicePublicKey && !skipPairing) {
+actual normalized: 'if (device && devicePublicKey && !skipPairing) {'
+
+====================================================================================================
+entry-00379 trace[3]  src/gateway/server/ws-connection/message-handler.ts:868  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    if (scopes.length > 0) {
+expected normalized: 'if (scopes.length > 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:868
+actual code:
+                if (scopes.length > 0) {
+actual normalized: 'if (scopes.length > 0) {'
+
+====================================================================================================
+entry-00379 trace[4]  src/gateway/server/ws-connection/message-handler.ts:883  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    const ok = await requirePairing("scope-upgrade");
+expected normalized: 'const ok = await requirePairing("scope-upgrade");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:883
+actual code:
+                      const ok = await requirePairing("scope-upgrade");
+actual normalized: 'const ok = await requirePairing("scope-upgrade");'
+
+====================================================================================================
+entry-00379 trace[5]  src/gateway/server/ws-connection/handshake-auth-helpers.ts:49  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    export function shouldAllowSilentLocalPairing(params: {
+expected normalized: 'export function shouldAllowSilentLocalPairing(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/handshake-auth-helpers.ts:49
+actual code:
+    export function shouldAllowSilentLocalPairing(params: {
+actual normalized: 'export function shouldAllowSilentLocalPairing(params: {'
+
+====================================================================================================
+entry-00379 trace[6]  src/gateway/server/ws-connection/message-handler.ts:760  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    silent: allowSilentLocalPairing,
+expected normalized: 'silent: allowSilentLocalPairing,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:760
+actual code:
+                  silent: allowSilentLocalPairing,
+actual normalized: 'silent: allowSilentLocalPairing,'
+
+====================================================================================================
+entry-00379 trace[7]  src/gateway/server/ws-connection/message-handler.ts:898  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+expected normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:898
+actual code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+actual normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'

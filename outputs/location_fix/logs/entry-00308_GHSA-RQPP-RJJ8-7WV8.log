@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00308 entry_point  src/gateway/server/ws-connection/message-handler.ts:568  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+              sharedAuthOk,
+expected normalized: 'sharedAuthOk,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:568
+actual code:
+              sharedAuthOk,
+actual normalized: 'sharedAuthOk,'
+
+====================================================================================================
+entry-00308 critical_operation  src/gateway/server/ws-connection/message-handler.ts:646  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+              if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {
+expected normalized: 'if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:646
+actual code:
+              if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {
+actual normalized: 'if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {'
+
+====================================================================================================
+entry-00308 trace[0]  src/gateway/server/ws-connection/message-handler.ts:568  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+              sharedAuthOk,
+expected normalized: 'sharedAuthOk,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:568
+actual code:
+              sharedAuthOk,
+actual normalized: 'sharedAuthOk,'
+
+====================================================================================================
+entry-00308 trace[1]  src/gateway/server/ws-connection/message-handler.ts:646  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+              if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {
+expected normalized: 'if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:646
+actual code:
+              if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {
+actual normalized: 'if (scopes.length > 0 && !controlUiAuthPolicy.allowBypass && !sharedAuthOk) {'

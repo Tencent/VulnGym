@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00319 entry_point  nltk/app/wordnet_app.py:84  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+        def do_GET(self):
+expected normalized: 'def do_GET(self):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:84
+actual code:
+        def do_GET(self):
+actual normalized: 'def do_GET(self):'
+
+====================================================================================================
+entry-00319 critical_operation  nltk/app/wordnet_app.py:93  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+                    os._exit(0)
+expected normalized: 'os._exit(0)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:93
+actual code:
+                    os._exit(0)
+actual normalized: 'os._exit(0)'
+
+====================================================================================================
+entry-00319 trace[0]  nltk/app/wordnet_app.py:86  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+            sp = self.path[1:]
+expected normalized: 'sp = self.path[1:]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:86
+actual code:
+            sp = self.path[1:]
+actual normalized: 'sp = self.path[1:]'
+
+====================================================================================================
+entry-00319 trace[1]  nltk/app/wordnet_app.py:87  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+            if unquote_plus(sp) == "SHUTDOWN THE SERVER":
+expected normalized: 'if unquote_plus(sp) == "SHUTDOWN THE SERVER":'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:87
+actual code:
+            if unquote_plus(sp) == "SHUTDOWN THE SERVER":
+actual normalized: 'if unquote_plus(sp) == "SHUTDOWN THE SERVER":'
+
+====================================================================================================
+entry-00319 trace[2]  nltk/app/wordnet_app.py:88  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+                if server_mode:
+expected normalized: 'if server_mode:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:88
+actual code:
+                if server_mode:
+actual normalized: 'if server_mode:'
+
+====================================================================================================
+entry-00319 trace[3]  nltk/app/wordnet_app.py:219  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+        server_mode = not runBrowser
+expected normalized: 'server_mode = not runBrowser'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:219
+actual code:
+        server_mode = not runBrowser
+actual normalized: 'server_mode = not runBrowser'
+
+====================================================================================================
+entry-00319 trace[4]  nltk/app/wordnet_app.py:242  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+        server = HTTPServer(("", port), MyServerHandler)
+expected normalized: 'server = HTTPServer(("", port), MyServerHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:242
+actual code:
+        server = HTTPServer(("", port), MyServerHandler)
+actual normalized: 'server = HTTPServer(("", port), MyServerHandler)'
+
+====================================================================================================
+entry-00319 trace[5]  nltk/app/wordnet_app.py:93  report=GHSA-JM6W-M3J8-898G
+repo=https://github.com/nltk/nltk
+commit=40d0bc1d484a3458d6a63ecb5ba4957ab16ba14e
+expected code:
+                    os._exit(0)
+expected normalized: 'os._exit(0)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nltk/app/wordnet_app.py:93
+actual code:
+                    os._exit(0)
+actual normalized: 'os._exit(0)'

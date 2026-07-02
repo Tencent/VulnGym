@@ -1,0 +1,166 @@
+====================================================================================================
+entry-00498 entry_point  src/agents/sandbox/types.ts:38  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    cdpSourceRange?: string;  // 可选字段，默认 undefined — 无 source-range 限制时不注入环境变量
+expected normalized: 'cdpSourceRange?: string; // 可选字段，默认 undefined — 无 source-range 限制时不注入环境变量'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/types.ts:38
+actual code:
+      cdpSourceRange?: string;
+actual normalized: 'cdpSourceRange?: string;'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 33 to 43
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 111 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00498 critical_operation  scripts/sandbox-browser-entrypoint.sh:182  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    socat "${SOCAT_LISTEN_ADDR}" "TCP:127.0.0.1:${CHROME_CDP_PORT}" &
+expected normalized: 'socat "${SOCAT_LISTEN_ADDR}" "TCP:127.0.0.1:${CHROME_CDP_PORT}" &'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:182
+actual code:
+    socat "${SOCAT_LISTEN_ADDR}" "TCP:127.0.0.1:${CHROME_CDP_PORT}" &
+actual normalized: 'socat "${SOCAT_LISTEN_ADDR}" "TCP:127.0.0.1:${CHROME_CDP_PORT}" &'
+
+====================================================================================================
+entry-00498 trace[0]  src/agents/sandbox/config.ts:148  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange,  // 无默认值，用户未配置则 undefined
+expected normalized: 'cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange, // 无默认值，用户未配置则 undefined'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/config.ts:148
+actual code:
+        cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange,
+actual normalized: 'cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange,'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 143 to 153
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 276 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00498 trace[1]  src/agents/sandbox/browser.ts:157  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);  // undefined → null/undefined
+expected normalized: 'const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange); // undefined → null/undefined'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:157
+actual code:
+      const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);
+actual normalized: 'const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 152 to 162
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 410 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00498 trace[2]  src/agents/sandbox/browser.ts:270  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    if (cdpSourceRange) {
+      args.push("-e", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`);
+    }  // cdpSourceRange 为 falsy 时跳过，容器内 OPENCLAW_BROWSER_CDP_SOURCE_RANGE 不注入 → 空字符串
+expected normalized: 'if (cdpSourceRange) { args.push("-e", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`); } // cdpSourceRange 为 falsy 时跳过，容器内 OPENCLAW_BROWSER_CDP_SOURCE_RANGE 不注入 → 空字符串'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:270-272
+actual code:
+        if (cdpSourceRange) {
+          args.push("-e", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`);
+        }
+actual normalized: 'if (cdpSourceRange) { args.push("-e", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`); }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 265 to 275
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 410 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00498 trace[3]  scripts/sandbox-browser-entrypoint.sh:12  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    CDP_SOURCE_RANGE="${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}"  // 默认空字符串
+expected normalized: 'CDP_SOURCE_RANGE="${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}" // 默认空字符串'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:12
+actual code:
+    CDP_SOURCE_RANGE="${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}"
+actual normalized: 'CDP_SOURCE_RANGE="${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}"'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 7 to 17
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 207 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00498 trace[4]  scripts/sandbox-browser-entrypoint.sh:178  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    if [[ -n "${CDP_SOURCE_RANGE}" ]]; then
+      SOCAT_LISTEN_ADDR="${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE_RANGE}"
+    fi  // CDP_SOURCE_RANGE 为空 → 跳过 range= 附加，socat 以无限制模式启动
+expected normalized: 'if [[ -n "${CDP_SOURCE_RANGE}" ]]; then SOCAT_LISTEN_ADDR="${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE_RANGE}" fi // CDP_SOURCE_RANGE 为空 → 跳过 range= 附加，socat 以无限制模式启动'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:178-180
+actual code:
+    if [[ -n "${CDP_SOURCE_RANGE}" ]]; then
+      SOCAT_LISTEN_ADDR="${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE_RANGE}"
+    fi
+actual normalized: 'if [[ -n "${CDP_SOURCE_RANGE}" ]]; then SOCAT_LISTEN_ADDR="${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE_RANGE}" fi'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 173 to 183
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 207 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00220 entry_point  src/gateway/server-http.ts:534  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+expected normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:534
+actual code:
+            const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+actual normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+
+====================================================================================================
+entry-00220 critical_operation  src/gateway/security-path.ts:37  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    path: normalizePathSeparators(decoded.toLowerCase()) || "/",
+expected normalized: 'path: normalizePathSeparators(decoded.toLowerCase()) || "/",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:37
+actual code:
+        path: normalizePathSeparators(decoded.toLowerCase()) || "/",
+actual normalized: 'path: normalizePathSeparators(decoded.toLowerCase()) || "/",'
+
+====================================================================================================
+entry-00220 trace[0]  src/gateway/server-http.ts:534  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+expected normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:534
+actual code:
+            const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+actual normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+
+====================================================================================================
+entry-00220 trace[1]  src/gateway/security-path.ts:44  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    const canonical = canonicalizePathForSecurity(pathname);
+expected normalized: 'const canonical = canonicalizePathForSecurity(pathname);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:44
+actual code:
+      const canonical = canonicalizePathForSecurity(pathname);
+actual normalized: 'const canonical = canonicalizePathForSecurity(pathname);'
+
+====================================================================================================
+entry-00220 trace[2]  src/gateway/security-path.ts:37  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    path: normalizePathSeparators(decoded.toLowerCase()) || "/",
+expected normalized: 'path: normalizePathSeparators(decoded.toLowerCase()) || "/",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:37
+actual code:
+        path: normalizePathSeparators(decoded.toLowerCase()) || "/",
+actual normalized: 'path: normalizePathSeparators(decoded.toLowerCase()) || "/",'

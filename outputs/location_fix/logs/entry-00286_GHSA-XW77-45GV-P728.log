@@ -1,0 +1,213 @@
+====================================================================================================
+entry-00286 entry_point  src/gateway/server/plugins-http.ts:36  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      return async (req, res, providedPathContext, dispatchContext) => {
+expected normalized: 'return async (req, res, providedPathContext, dispatchContext) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:36
+actual code:
+      return async (req, res, providedPathContext, dispatchContext) => {
+actual normalized: 'return async (req, res, providedPathContext, dispatchContext) => {'
+
+====================================================================================================
+entry-00286 critical_operation  src/gateway/server-plugins.ts:88  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+        client: createSyntheticOperatorClient(),
+expected normalized: 'client: createSyntheticOperatorClient(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-plugins.ts:88
+actual code:
+        client: createSyntheticOperatorClient(),
+actual normalized: 'client: createSyntheticOperatorClient(),'
+
+====================================================================================================
+entry-00286 trace[0]  src/gateway/server/plugins-http.ts:52-58  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+        if (
+          matchedPluginRoutesRequireGatewayAuth(matchedRoutes) &&
+          dispatchContext?.gatewayAuthSatisfied === false
+        ) {
+          log.warn(`plugin http route blocked without gateway auth (${pathContext.canonicalPath})`);
+          return false;
+        }
+expected normalized: 'if ( matchedPluginRoutesRequireGatewayAuth(matchedRoutes) && dispatchContext?.gatewayAuthSatisfied === false ) { log.warn(`plugin http route blocked without gateway auth (${pathContext.canonicalPath})`); return false; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:52-58
+actual code:
+        if (
+          matchedPluginRoutesRequireGatewayAuth(matchedRoutes) &&
+          dispatchContext?.gatewayAuthSatisfied === false
+        ) {
+          log.warn(`plugin http route blocked without gateway auth (${pathContext.canonicalPath})`);
+          return false;
+        }
+actual normalized: 'if ( matchedPluginRoutesRequireGatewayAuth(matchedRoutes) && dispatchContext?.gatewayAuthSatisfied === false ) { log.warn(`plugin http route blocked without gateway auth (${pathContext.canonicalPath})`); return false; }'
+
+====================================================================================================
+entry-00286 trace[1]  src/gateway/server/plugins-http.ts:60-65  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+        for (const route of matchedRoutes) {
+          try {
+            const handled = await route.handler(req, res);
+            if (handled !== false) {
+              return true;
+            }
+expected normalized: 'for (const route of matchedRoutes) { try { const handled = await route.handler(req, res); if (handled !== false) { return true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:60-65
+actual code:
+        for (const route of matchedRoutes) {
+          try {
+            const handled = await route.handler(req, res);
+            if (handled !== false) {
+              return true;
+            }
+actual normalized: 'for (const route of matchedRoutes) { try { const handled = await route.handler(req, res); if (handled !== false) { return true; }'
+
+====================================================================================================
+entry-00286 trace[2]  src/gateway/server-plugins.ts:67-76  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+    async function dispatchGatewayMethod<T>(
+      method: string,
+      params: Record<string, unknown>,
+    ): Promise<T> {
+      const scope = getPluginRuntimeGatewayRequestScope();
+      const context = scope?.context ?? fallbackGatewayContextState.context;
+      const isWebchatConnect = scope?.isWebchatConnect ?? (() => false);
+      if (!context) {
+        throw new Error(
+          `Plugin subagent dispatch requires a gateway request scope (method: ${method}). No scope set and no fallback context available.`,
+expected normalized: 'async function dispatchGatewayMethod<T>( method: string, params: Record<string, unknown>, ): Promise<T> { const scope = getPluginRuntimeGatewayRequestScope(); const context = scope?.context ?? fallbackGatewayContextState.context; const isWebchatConnect = scope?.isWebchatConnect ?? (() => false); if (!context) { throw new Error( `Plugin subagent dispatch requires a gateway request scope (method: ${method}). No scope set and no fallback context available.`,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-plugins.ts:67-76
+actual code:
+    async function dispatchGatewayMethod<T>(
+      method: string,
+      params: Record<string, unknown>,
+    ): Promise<T> {
+      const scope = getPluginRuntimeGatewayRequestScope();
+      const context = scope?.context ?? fallbackGatewayContextState.context;
+      const isWebchatConnect = scope?.isWebchatConnect ?? (() => false);
+      if (!context) {
+        throw new Error(
+          `Plugin subagent dispatch requires a gateway request scope (method: ${method}). No scope set and no fallback context available.`,
+actual normalized: 'async function dispatchGatewayMethod<T>( method: string, params: Record<string, unknown>, ): Promise<T> { const scope = getPluginRuntimeGatewayRequestScope(); const context = scope?.context ?? fallbackGatewayContextState.context; const isWebchatConnect = scope?.isWebchatConnect ?? (() => false); if (!context) { throw new Error( `Plugin subagent dispatch requires a gateway request scope (method: ${method}). No scope set and no fallback context available.`,'
+
+====================================================================================================
+entry-00286 trace[3]  src/gateway/server-plugins.ts:56-65  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+            id: GATEWAY_CLIENT_IDS.GATEWAY_CLIENT,
+            version: "internal",
+            platform: "node",
+            mode: GATEWAY_CLIENT_MODES.BACKEND,
+          },
+          role: "operator",
+          scopes: ["operator.admin", "operator.approvals", "operator.pairing"],
+        },
+      };
+    }
+expected normalized: 'id: GATEWAY_CLIENT_IDS.GATEWAY_CLIENT, version: "internal", platform: "node", mode: GATEWAY_CLIENT_MODES.BACKEND, }, role: "operator", scopes: ["operator.admin", "operator.approvals", "operator.pairing"], }, }; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-plugins.ts:56-65
+actual code:
+            id: GATEWAY_CLIENT_IDS.GATEWAY_CLIENT,
+            version: "internal",
+            platform: "node",
+            mode: GATEWAY_CLIENT_MODES.BACKEND,
+          },
+          role: "operator",
+          scopes: ["operator.admin", "operator.approvals", "operator.pairing"],
+        },
+      };
+    }
+actual normalized: 'id: GATEWAY_CLIENT_IDS.GATEWAY_CLIENT, version: "internal", platform: "node", mode: GATEWAY_CLIENT_MODES.BACKEND, }, role: "operator", scopes: ["operator.admin", "operator.approvals", "operator.pairing"], }, }; }'
+
+====================================================================================================
+entry-00286 trace[4]  src/gateway/server-methods.ts:51-60  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      const scopes = client.connect.scopes ?? [];
+      if (!isRoleAuthorizedForMethod(role, method)) {
+        return errorShape(ErrorCodes.INVALID_REQUEST, `unauthorized role: ${role}`);
+      }
+      if (role === "node") {
+        return null;
+      }
+      if (scopes.includes(ADMIN_SCOPE)) {
+        return null;
+      }
+expected normalized: 'const scopes = client.connect.scopes ?? []; if (!isRoleAuthorizedForMethod(role, method)) { return errorShape(ErrorCodes.INVALID_REQUEST, `unauthorized role: ${role}`); } if (role === "node") { return null; } if (scopes.includes(ADMIN_SCOPE)) { return null; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods.ts:51-60
+actual code:
+      const scopes = client.connect.scopes ?? [];
+      if (!isRoleAuthorizedForMethod(role, method)) {
+        return errorShape(ErrorCodes.INVALID_REQUEST, `unauthorized role: ${role}`);
+      }
+      if (role === "node") {
+        return null;
+      }
+      if (scopes.includes(ADMIN_SCOPE)) {
+        return null;
+      }
+actual normalized: 'const scopes = client.connect.scopes ?? []; if (!isRoleAuthorizedForMethod(role, method)) { return errorShape(ErrorCodes.INVALID_REQUEST, `unauthorized role: ${role}`); } if (role === "node") { return null; } if (scopes.includes(ADMIN_SCOPE)) { return null; }'
+
+====================================================================================================
+entry-00286 trace[5]  src/gateway/server-plugins.ts:109-118  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+        const payload = await dispatchGatewayMethod<{ messages?: unknown[] }>("sessions.get", {
+          key: params.sessionKey,
+          ...(params.limit != null && { limit: params.limit }),
+        });
+        return { messages: Array.isArray(payload?.messages) ? payload.messages : [] };
+      };
+    
+      return {
+        async run(params) {
+          const payload = await dispatchGatewayMethod<{ runId?: string }>("agent", {
+expected normalized: 'const payload = await dispatchGatewayMethod<{ messages?: unknown[] }>("sessions.get", { key: params.sessionKey, ...(params.limit != null && { limit: params.limit }), }); return { messages: Array.isArray(payload?.messages) ? payload.messages : [] }; }; return { async run(params) { const payload = await dispatchGatewayMethod<{ runId?: string }>("agent", {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-plugins.ts:109-118
+actual code:
+        const payload = await dispatchGatewayMethod<{ messages?: unknown[] }>("sessions.get", {
+          key: params.sessionKey,
+          ...(params.limit != null && { limit: params.limit }),
+        });
+        return { messages: Array.isArray(payload?.messages) ? payload.messages : [] };
+      };
+    
+      return {
+        async run(params) {
+          const payload = await dispatchGatewayMethod<{ runId?: string }>("agent", {
+actual normalized: 'const payload = await dispatchGatewayMethod<{ messages?: unknown[] }>("sessions.get", { key: params.sessionKey, ...(params.limit != null && { limit: params.limit }), }); return { messages: Array.isArray(payload?.messages) ? payload.messages : [] }; }; return { async run(params) { const payload = await dispatchGatewayMethod<{ runId?: string }>("agent", {'

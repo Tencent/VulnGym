@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00284 entry_point  src/pairing/pairing-store.ts:386  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export async function readChannelAllowFromStore(
+expected normalized: 'export async function readChannelAllowFromStore('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/pairing-store.ts:386
+actual code:
+    export async function readChannelAllowFromStore(
+actual normalized: 'export async function readChannelAllowFromStore('
+
+====================================================================================================
+entry-00284 critical_operation  src/security/dm-policy-shared.ts:28  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+expected normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/dm-policy-shared.ts:28
+actual code:
+      const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+actual normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+
+====================================================================================================
+entry-00284 trace[0]  extensions/mattermost/src/mattermost/monitor.ts:405  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    const storeAllowFrom = normalizeAllowList(
+expected normalized: 'const storeAllowFrom = normalizeAllowList('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:405
+actual code:
+        const storeAllowFrom = normalizeAllowList(
+actual normalized: 'const storeAllowFrom = normalizeAllowList('
+
+====================================================================================================
+entry-00284 trace[1]  extensions/mattermost/src/mattermost/monitor.ts:411  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+            const effectiveGroupAllowFrom = Array.from(
+expected normalized: 'const effectiveGroupAllowFrom = Array.from('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:411
+actual code:
+        const effectiveGroupAllowFrom = Array.from(
+actual normalized: 'const effectiveGroupAllowFrom = Array.from('
+
+====================================================================================================
+entry-00284 trace[2]  extensions/mattermost/src/mattermost/monitor.ts:493  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+            if (effectiveGroupAllowFrom.length === 0) {
+expected normalized: 'if (effectiveGroupAllowFrom.length === 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:493
+actual code:
+            if (effectiveGroupAllowFrom.length === 0) {
+actual normalized: 'if (effectiveGroupAllowFrom.length === 0) {'
+
+====================================================================================================
+entry-00284 trace[3]  extensions/mattermost/src/mattermost/monitor.ts:498  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+              logVerboseMessage(`mattermost: drop group sender=${senderId} (not in groupAllowFrom)`);
+expected normalized: 'logVerboseMessage(`mattermost: drop group sender=${senderId} (not in groupAllowFrom)`);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:498
+actual code:
+              logVerboseMessage(`mattermost: drop group sender=${senderId} (not in groupAllowFrom)`);
+actual normalized: 'logVerboseMessage(`mattermost: drop group sender=${senderId} (not in groupAllowFrom)`);'

@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00324 entry_point  src/backend/base/langflow/api/v1/files.py:138  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+    @router.get("/images/{flow_id}/{file_name}")
+expected normalized: '@router.get("/images/{flow_id}/{file_name}")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:138
+actual code:
+    @router.get("/images/{flow_id}/{file_name}")
+actual normalized: '@router.get("/images/{flow_id}/{file_name}")'
+
+====================================================================================================
+entry-00324 critical_operation  src/backend/base/langflow/api/v1/files.py:161  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+            file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)
+expected normalized: 'file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:161
+actual code:
+            file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)
+actual normalized: 'file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)'
+
+====================================================================================================
+entry-00324 trace[0]  src/backend/base/langflow/api/v1/files.py:138  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+    @router.get("/images/{flow_id}/{file_name}")
+expected normalized: '@router.get("/images/{flow_id}/{file_name}")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:138
+actual code:
+    @router.get("/images/{flow_id}/{file_name}")
+actual normalized: '@router.get("/images/{flow_id}/{file_name}")'
+
+====================================================================================================
+entry-00324 trace[1]  src/backend/base/langflow/api/v1/files.py:139  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+    async def download_image(
+expected normalized: 'async def download_image('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:139
+actual code:
+    async def download_image(
+actual normalized: 'async def download_image('
+
+====================================================================================================
+entry-00324 trace[2]  src/backend/base/langflow/api/v1/files.py:141  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+        flow_id: UUID,
+expected normalized: 'flow_id: UUID,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:141
+actual code:
+        flow_id: UUID,
+actual normalized: 'flow_id: UUID,'
+
+====================================================================================================
+entry-00324 trace[3]  src/backend/base/langflow/api/v1/files.py:144  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+        storage_service = get_storage_service()
+expected normalized: 'storage_service = get_storage_service()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:144
+actual code:
+        storage_service = get_storage_service()
+actual normalized: 'storage_service = get_storage_service()'
+
+====================================================================================================
+entry-00324 trace[4]  src/backend/base/langflow/api/v1/files.py:146  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+        flow_id_str = str(flow_id)
+expected normalized: 'flow_id_str = str(flow_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:146
+actual code:
+        flow_id_str = str(flow_id)
+actual normalized: 'flow_id_str = str(flow_id)'
+
+====================================================================================================
+entry-00324 trace[5]  src/backend/base/langflow/api/v1/files.py:157  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+        if not content_type.startswith("image"):
+expected normalized: 'if not content_type.startswith("image"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:157
+actual code:
+        if not content_type.startswith("image"):
+actual normalized: 'if not content_type.startswith("image"):'
+
+====================================================================================================
+entry-00324 trace[6]  src/backend/base/langflow/api/v1/files.py:161  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+            file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)
+expected normalized: 'file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:161
+actual code:
+            file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)
+actual normalized: 'file_content = await storage_service.get_file(flow_id=flow_id_str, file_name=file_name)'
+
+====================================================================================================
+entry-00324 trace[7]  src/backend/base/langflow/api/v1/files.py:162  report=GHSA-7GRX-3XCX-2XV5
+repo=https://github.com/langflow-ai/langflow
+commit=922a49acac1449bebcc50b2e4ac253e7a1235c92
+expected code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+expected normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:162
+actual code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+actual normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'

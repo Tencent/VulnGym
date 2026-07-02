@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00267 entry_point  packages/server/src/routes/nvidia-nim/index.ts:12  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    router.post('/stop-container', nimController.stopContainer)
+expected normalized: "router.post('/stop-container', nimController.stopContainer)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/nvidia-nim/index.ts:12
+actual code:
+    router.post('/stop-container', nimController.stopContainer)
+actual normalized: "router.post('/stop-container', nimController.stopContainer)"
+
+====================================================================================================
+entry-00267 critical_operation  packages/server/src/controllers/nvidia-nim/index.ts:131  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const containerInfo = await NimContainerManager.stopContainer(containerId)
+expected normalized: 'const containerInfo = await NimContainerManager.stopContainer(containerId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:131
+actual code:
+            const containerInfo = await NimContainerManager.stopContainer(containerId)
+actual normalized: 'const containerInfo = await NimContainerManager.stopContainer(containerId)'
+
+====================================================================================================
+entry-00267 trace[0]  packages/server/src/utils/constants.ts:26  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+        '/api/v1/nvidia-nim',
+expected normalized: "'/api/v1/nvidia-nim',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:26
+actual code:
+        '/api/v1/nvidia-nim',
+actual normalized: "'/api/v1/nvidia-nim',"
+
+====================================================================================================
+entry-00267 trace[1]  packages/server/src/index.ts:221  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00267 trace[2]  packages/server/src/index.ts:223  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                            next()
+expected normalized: 'next()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:223
+actual code:
+                            next()
+actual normalized: 'next()'
+
+====================================================================================================
+entry-00267 trace[3]  packages/server/src/controllers/nvidia-nim/index.ts:128  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    const stopContainer = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const stopContainer = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:128
+actual code:
+    const stopContainer = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const stopContainer = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00267 trace[4]  packages/server/src/controllers/nvidia-nim/index.ts:130  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const containerId = req.body.containerId
+expected normalized: 'const containerId = req.body.containerId'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:130
+actual code:
+            const containerId = req.body.containerId
+actual normalized: 'const containerId = req.body.containerId'
+
+====================================================================================================
+entry-00267 trace[5]  packages/server/src/controllers/nvidia-nim/index.ts:131  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const containerInfo = await NimContainerManager.stopContainer(containerId)
+expected normalized: 'const containerInfo = await NimContainerManager.stopContainer(containerId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:131
+actual code:
+            const containerInfo = await NimContainerManager.stopContainer(containerId)
+actual normalized: 'const containerInfo = await NimContainerManager.stopContainer(containerId)'

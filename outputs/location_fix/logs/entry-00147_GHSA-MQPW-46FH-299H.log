@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00147 entry_point  src/gateway/server-methods/chat.ts:457  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+    const ctx: MsgContext = {
+expected normalized: 'const ctx: MsgContext = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:457
+actual code:
+          const ctx: MsgContext = {
+actual normalized: 'const ctx: MsgContext = {'
+
+====================================================================================================
+entry-00147 critical_operation  src/auto-reply/reply/commands-approve.ts:87  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+        await callGateway({
+expected normalized: 'await callGateway({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:87
+actual code:
+        await callGateway({
+actual normalized: 'await callGateway({'
+
+====================================================================================================
+entry-00147 trace[0]  src/gateway/server-methods/chat.ts:451  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+    const clientInfo = client?.connect?.client;
+expected normalized: 'const clientInfo = client?.connect?.client;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:451
+actual code:
+          const clientInfo = client?.connect?.client;
+actual normalized: 'const clientInfo = client?.connect?.client;'
+
+====================================================================================================
+entry-00147 trace[1]  src/gateway/server-methods/chat.ts:457  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+          const ctx: MsgContext = {
+expected normalized: 'const ctx: MsgContext = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:457
+actual code:
+          const ctx: MsgContext = {
+actual normalized: 'const ctx: MsgContext = {'
+
+====================================================================================================
+entry-00147 trace[2]  src/auto-reply/reply/commands-core.ts:53  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+          handleApproveCommand,
+expected normalized: 'handleApproveCommand,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-core.ts:53
+actual code:
+          handleApproveCommand,
+actual normalized: 'handleApproveCommand,'
+
+====================================================================================================
+entry-00147 trace[3]  src/auto-reply/reply/commands-core.ts:109  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+      const allowTextCommands = shouldHandleTextCommands({
+expected normalized: 'const allowTextCommands = shouldHandleTextCommands({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-core.ts:109
+actual code:
+      const allowTextCommands = shouldHandleTextCommands({
+actual normalized: 'const allowTextCommands = shouldHandleTextCommands({'
+
+====================================================================================================
+entry-00147 trace[4]  src/auto-reply/reply/commands-approve.ts:65  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+expected normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:65
+actual code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+actual normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+
+====================================================================================================
+entry-00147 trace[5]  src/auto-reply/reply/commands-approve.ts:74  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+      if (!params.command.isAuthorizedSender) {
+expected normalized: 'if (!params.command.isAuthorizedSender) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:74
+actual code:
+      if (!params.command.isAuthorizedSender) {
+actual normalized: 'if (!params.command.isAuthorizedSender) {'
+
+====================================================================================================
+entry-00147 trace[6]  src/auto-reply/reply/commands-approve.ts:81  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+      if (!parsed.ok) {
+expected normalized: 'if (!parsed.ok) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:81
+actual code:
+      if (!parsed.ok) {
+actual normalized: 'if (!parsed.ok) {'
+
+====================================================================================================
+entry-00147 trace[7]  src/auto-reply/reply/commands-approve.ts:85  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+      const resolvedBy = buildResolvedByLabel(params);
+expected normalized: 'const resolvedBy = buildResolvedByLabel(params);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:85
+actual code:
+      const resolvedBy = buildResolvedByLabel(params);
+actual normalized: 'const resolvedBy = buildResolvedByLabel(params);'
+
+====================================================================================================
+entry-00147 trace[8]  src/auto-reply/reply/commands-approve.ts:87  report=GHSA-MQPW-46FH-299H
+repo=https://github.com/openclaw/openclaw
+commit=66d8117d4483df542d450b9f4bb6dd2a2b769046
+expected code:
+        await callGateway({
+expected normalized: 'await callGateway({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:87
+actual code:
+        await callGateway({
+actual normalized: 'await callGateway({'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00416 entry_point  mlflow/server/job_api.py:114  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    @job_api_router.post("/search", response_model=SearchJobsResponse)
+expected normalized: '@job_api_router.post("/search", response_model=SearchJobsResponse)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:114
+actual code:
+    @job_api_router.post("/search", response_model=SearchJobsResponse)
+actual normalized: '@job_api_router.post("/search", response_model=SearchJobsResponse)'
+
+====================================================================================================
+entry-00416 critical_operation  mlflow/server/auth/__init__.py:2960  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+                return await call_next(request)
+expected normalized: 'return await call_next(request)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2960
+actual code:
+                return await call_next(request)
+actual normalized: 'return await call_next(request)'
+
+====================================================================================================
+entry-00416 trace[0]  mlflow/server/auth/__init__.py:2927  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        return None
+expected normalized: 'return None'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2927
+actual code:
+        return None
+actual normalized: 'return None'
+
+====================================================================================================
+entry-00416 trace[1]  mlflow/server/job_api.py:115  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    def search_jobs(payload: SearchJobPayload) -> SearchJobsResponse:
+expected normalized: 'def search_jobs(payload: SearchJobPayload) -> SearchJobsResponse:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:115
+actual code:
+    def search_jobs(payload: SearchJobPayload) -> SearchJobsResponse:
+actual normalized: 'def search_jobs(payload: SearchJobPayload) -> SearchJobsResponse:'
+
+====================================================================================================
+entry-00416 trace[2]  mlflow/server/job_api.py:122  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+                for job in store.list_jobs(
+expected normalized: 'for job in store.list_jobs('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:122
+actual code:
+                for job in store.list_jobs(
+actual normalized: 'for job in store.list_jobs('

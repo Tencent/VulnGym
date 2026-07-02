@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00066 entry_point  libs/core/langchain_core/prompts/prompt.py:251  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+        @classmethod
+expected normalized: '@classmethod'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:251
+actual code:
+        @classmethod
+actual normalized: '@classmethod'
+
+====================================================================================================
+entry-00066 critical_operation  libs/core/langchain_core/prompts/prompt.py:198  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+            return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)
+expected normalized: 'return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:198
+actual code:
+            return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)
+actual normalized: 'return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)'
+
+====================================================================================================
+entry-00066 trace[0]  libs/core/langchain_core/prompts/prompt.py:251  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+        @classmethod
+expected normalized: '@classmethod'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:251
+actual code:
+        @classmethod
+actual normalized: '@classmethod'
+
+====================================================================================================
+entry-00066 trace[1]  libs/core/langchain_core/prompts/prompt.py:289  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+            input_variables = get_template_variables(template, template_format)
+expected normalized: 'input_variables = get_template_variables(template, template_format)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:289
+actual code:
+            input_variables = get_template_variables(template, template_format)
+actual normalized: 'input_variables = get_template_variables(template, template_format)'
+
+====================================================================================================
+entry-00066 trace[2]  libs/core/langchain_core/prompts/string.py:266  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+        elif template_format == "f-string":
+expected normalized: 'elif template_format == "f-string":'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/string.py:266
+actual code:
+        elif template_format == "f-string":
+actual normalized: 'elif template_format == "f-string":'
+
+====================================================================================================
+entry-00066 trace[3]  libs/core/langchain_core/prompts/prompt.py:188  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+        def format(self, **kwargs: Any) -> str:
+expected normalized: 'def format(self, **kwargs: Any) -> str:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:188
+actual code:
+        def format(self, **kwargs: Any) -> str:
+actual normalized: 'def format(self, **kwargs: Any) -> str:'
+
+====================================================================================================
+entry-00066 trace[4]  libs/core/langchain_core/utils/formatting.py:33  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+            return super().vformat(format_string, args, kwargs)
+expected normalized: 'return super().vformat(format_string, args, kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/formatting.py:33
+actual code:
+            return super().vformat(format_string, args, kwargs)
+actual normalized: 'return super().vformat(format_string, args, kwargs)'
+
+====================================================================================================
+entry-00066 trace[5]  libs/core/langchain_core/prompts/prompt.py:198  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+            return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)
+expected normalized: 'return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/prompt.py:198
+actual code:
+            return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)
+actual normalized: 'return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)'

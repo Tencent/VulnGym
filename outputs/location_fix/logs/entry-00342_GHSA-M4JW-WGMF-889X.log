@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00342 entry_point  nemo/core/classes/mixins/adapter_mixins.py:933  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):
+expected normalized: 'def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/core/classes/mixins/adapter_mixins.py:933
+actual code:
+        def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):
+actual normalized: 'def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):'
+
+====================================================================================================
+entry-00342 critical_operation  nemo/core/classes/mixins/adapter_mixins.py:962  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            state_dict = torch.load(filepath, map_location=map_location, weights_only=False)
+expected normalized: 'state_dict = torch.load(filepath, map_location=map_location, weights_only=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/core/classes/mixins/adapter_mixins.py:962
+actual code:
+            state_dict = torch.load(filepath, map_location=map_location, weights_only=False)
+actual normalized: 'state_dict = torch.load(filepath, map_location=map_location, weights_only=False)'
+
+====================================================================================================
+entry-00342 trace[0]  nemo/core/classes/mixins/adapter_mixins.py:933  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):
+expected normalized: 'def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/core/classes/mixins/adapter_mixins.py:933
+actual code:
+        def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):
+actual normalized: 'def load_adapters(self, filepath: str, name: str = None, map_location: str = None, strict: bool = True):'
+
+====================================================================================================
+entry-00342 trace[1]  nemo/core/classes/mixins/adapter_mixins.py:962  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            state_dict = torch.load(filepath, map_location=map_location, weights_only=False)
+expected normalized: 'state_dict = torch.load(filepath, map_location=map_location, weights_only=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/core/classes/mixins/adapter_mixins.py:962
+actual code:
+            state_dict = torch.load(filepath, map_location=map_location, weights_only=False)
+actual normalized: 'state_dict = torch.load(filepath, map_location=map_location, weights_only=False)'

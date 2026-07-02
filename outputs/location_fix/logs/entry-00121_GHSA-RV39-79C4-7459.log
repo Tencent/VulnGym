@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00121 entry_point  src/gateway/server/ws-connection/message-handler.ts:233  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+      socket.on("message", async (data) => {
+expected normalized: 'socket.on("message", async (data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:233
+actual code:
+      socket.on("message", async (data) => {
+actual normalized: 'socket.on("message", async (data) => {'
+
+====================================================================================================
+entry-00121 critical_operation  src/gateway/server/ws-connection/message-handler.ts:381  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+              const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;
+expected normalized: 'const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:381
+actual code:
+              const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;
+actual normalized: 'const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;'
+
+====================================================================================================
+entry-00121 trace[0]  src/gateway/server/ws-connection/message-handler.ts:233  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+      socket.on("message", async (data) => {
+expected normalized: 'socket.on("message", async (data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:233
+actual code:
+      socket.on("message", async (data) => {
+actual normalized: 'socket.on("message", async (data) => {'
+
+====================================================================================================
+entry-00121 trace[1]  src/gateway/server/ws-connection/message-handler.ts:307  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:307
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00121 trace[2]  src/gateway/server/ws-connection/message-handler.ts:370  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+            const hasTokenAuth = Boolean(connectParams.auth?.token);
+expected normalized: 'const hasTokenAuth = Boolean(connectParams.auth?.token);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:370
+actual code:
+            const hasTokenAuth = Boolean(connectParams.auth?.token);
+actual normalized: 'const hasTokenAuth = Boolean(connectParams.auth?.token);'
+
+====================================================================================================
+entry-00121 trace[3]  src/gateway/server/ws-connection/message-handler.ts:372  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+            const hasSharedAuth = hasTokenAuth || hasPasswordAuth;
+expected normalized: 'const hasSharedAuth = hasTokenAuth || hasPasswordAuth;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:372
+actual code:
+            const hasSharedAuth = hasTokenAuth || hasPasswordAuth;
+actual normalized: 'const hasSharedAuth = hasTokenAuth || hasPasswordAuth;'
+
+====================================================================================================
+entry-00121 trace[4]  src/gateway/server/ws-connection/message-handler.ts:379  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+            const device = disableControlUiDeviceAuth ? null : deviceRaw;
+expected normalized: 'const device = disableControlUiDeviceAuth ? null : deviceRaw;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:379
+actual code:
+            const device = disableControlUiDeviceAuth ? null : deviceRaw;
+actual normalized: 'const device = disableControlUiDeviceAuth ? null : deviceRaw;'
+
+====================================================================================================
+entry-00121 trace[5]  src/gateway/server/ws-connection/message-handler.ts:381  report=GHSA-RV39-79C4-7459
+repo=https://github.com/openclaw/openclaw
+commit=d1ecb46076145deb188abcba8f0699709ea17198
+expected code:
+              const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;
+expected normalized: 'const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:381
+actual code:
+              const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;
+actual normalized: 'const canSkipDevice = allowControlUiBypass ? hasSharedAuth : hasTokenAuth;'

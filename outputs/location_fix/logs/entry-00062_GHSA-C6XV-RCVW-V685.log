@@ -1,0 +1,239 @@
+====================================================================================================
+entry-00062 entry_point  backend/open_webui/routers/retrieval.py:1778  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+        request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)
+expected normalized: 'request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:1778
+actual code:
+        request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)
+actual normalized: 'request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)'
+
+====================================================================================================
+entry-00062 critical_operation  backend/open_webui/retrieval/web/utils.py:556  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+                        async with session.get(
+expected normalized: 'async with session.get('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/web/utils.py:556
+actual code:
+                        async with session.get(
+actual normalized: 'async with session.get('
+
+====================================================================================================
+entry-00062 trace[0]  backend/open_webui/routers/retrieval.py:1778  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+        request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)
+expected normalized: 'request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:1778
+actual code:
+        request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)
+actual normalized: 'request: Request, form_data: ProcessUrlForm, user=Depends(get_verified_user)'
+
+====================================================================================================
+entry-00062 trace[1]  backend/open_webui/routers/retrieval.py:1785  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+            content, docs = get_content_from_url(request, form_data.url)
+expected normalized: 'content, docs = get_content_from_url(request, form_data.url)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:1785
+actual code:
+            content, docs = get_content_from_url(request, form_data.url)
+actual normalized: 'content, docs = get_content_from_url(request, form_data.url)'
+
+====================================================================================================
+entry-00062 trace[2]  backend/open_webui/retrieval/utils.py:78-82  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+    def get_content_from_url(request, url: str) -> str:
+        loader = get_loader(request, url)
+        docs = loader.load()
+        content = " ".join([doc.page_content for doc in docs])
+        return content, docs
+expected normalized: 'def get_content_from_url(request, url: str) -> str: loader = get_loader(request, url) docs = loader.load() content = " ".join([doc.page_content for doc in docs]) return content, docs'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/utils.py:78-82
+actual code:
+    def get_content_from_url(request, url: str) -> str:
+        loader = get_loader(request, url)
+        docs = loader.load()
+        content = " ".join([doc.page_content for doc in docs])
+        return content, docs
+actual normalized: 'def get_content_from_url(request, url: str) -> str: loader = get_loader(request, url) docs = loader.load() content = " ".join([doc.page_content for doc in docs]) return content, docs'
+
+====================================================================================================
+entry-00062 trace[3]  backend/open_webui/retrieval/utils.py:62-71  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+    def get_loader(request, url: str):
+        if is_youtube_url(url):
+            return YoutubeLoader(
+                url,
+                language=request.app.state.config.YOUTUBE_LOADER_LANGUAGE,
+                proxy_url=request.app.state.config.YOUTUBE_LOADER_PROXY_URL,
+            )
+        else:
+            return get_web_loader(
+                url,
+expected normalized: 'def get_loader(request, url: str): if is_youtube_url(url): return YoutubeLoader( url, language=request.app.state.config.YOUTUBE_LOADER_LANGUAGE, proxy_url=request.app.state.config.YOUTUBE_LOADER_PROXY_URL, ) else: return get_web_loader( url,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/utils.py:62-71
+actual code:
+    def get_loader(request, url: str):
+        if is_youtube_url(url):
+            return YoutubeLoader(
+                url,
+                language=request.app.state.config.YOUTUBE_LOADER_LANGUAGE,
+                proxy_url=request.app.state.config.YOUTUBE_LOADER_PROXY_URL,
+            )
+        else:
+            return get_web_loader(
+                url,
+actual normalized: 'def get_loader(request, url: str): if is_youtube_url(url): return YoutubeLoader( url, language=request.app.state.config.YOUTUBE_LOADER_LANGUAGE, proxy_url=request.app.state.config.YOUTUBE_LOADER_PROXY_URL, ) else: return get_web_loader( url,'
+
+====================================================================================================
+entry-00062 trace[4]  backend/open_webui/retrieval/web/utils.py:636-643  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+    def get_web_loader(
+        urls: Union[str, Sequence[str]],
+        verify_ssl: bool = True,
+        requests_per_second: int = 2,
+        trust_env: bool = False,
+    ):
+        # Check if the URLs are valid
+        safe_urls = safe_validate_urls([urls] if isinstance(urls, str) else urls)
+expected normalized: 'def get_web_loader( urls: Union[str, Sequence[str]], verify_ssl: bool = True, requests_per_second: int = 2, trust_env: bool = False, ): # Check if the URLs are valid safe_urls = safe_validate_urls([urls] if isinstance(urls, str) else urls)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/web/utils.py:636-643
+actual code:
+    def get_web_loader(
+        urls: Union[str, Sequence[str]],
+        verify_ssl: bool = True,
+        requests_per_second: int = 2,
+        trust_env: bool = False,
+    ):
+        # Check if the URLs are valid
+        safe_urls = safe_validate_urls([urls] if isinstance(urls, str) else urls)
+actual normalized: 'def get_web_loader( urls: Union[str, Sequence[str]], verify_ssl: bool = True, requests_per_second: int = 2, trust_env: bool = False, ): # Check if the URLs are valid safe_urls = safe_validate_urls([urls] if isinstance(urls, str) else urls)'
+
+====================================================================================================
+entry-00062 trace[5]  backend/open_webui/retrieval/web/utils.py:73-82  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+    def safe_validate_urls(url: Sequence[str]) -> Sequence[str]:
+        valid_urls = []
+        for u in url:
+            try:
+                if validate_url(u):
+                    valid_urls.append(u)
+            except Exception as e:
+                log.debug(f"Invalid URL {u}: {str(e)}")
+                continue
+        return valid_urls
+expected normalized: 'def safe_validate_urls(url: Sequence[str]) -> Sequence[str]: valid_urls = [] for u in url: try: if validate_url(u): valid_urls.append(u) except Exception as e: log.debug(f"Invalid URL {u}: {str(e)}") continue return valid_urls'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/web/utils.py:73-82
+actual code:
+    def safe_validate_urls(url: Sequence[str]) -> Sequence[str]:
+        valid_urls = []
+        for u in url:
+            try:
+                if validate_url(u):
+                    valid_urls.append(u)
+            except Exception as e:
+                log.debug(f"Invalid URL {u}: {str(e)}")
+                continue
+        return valid_urls
+actual normalized: 'def safe_validate_urls(url: Sequence[str]) -> Sequence[str]: valid_urls = [] for u in url: try: if validate_url(u): valid_urls.append(u) except Exception as e: log.debug(f"Invalid URL {u}: {str(e)}") continue return valid_urls'
+
+====================================================================================================
+entry-00062 trace[6]  backend/open_webui/retrieval/web/utils.py:49-58  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+    def validate_url(url: Union[str, Sequence[str]]):
+        if isinstance(url, str):
+            if isinstance(validators.url(url), validators.ValidationError):
+                raise ValueError(ERROR_MESSAGES.INVALID_URL)
+            if not ENABLE_RAG_LOCAL_WEB_FETCH:
+                # Local web fetch is disabled, filter out any URLs that resolve to private IP addresses
+                parsed_url = urllib.parse.urlparse(url)
+                # Get IPv4 and IPv6 addresses
+                ipv4_addresses, ipv6_addresses = resolve_hostname(parsed_url.hostname)
+                # Check if any of the resolved addresses are private
+expected normalized: 'def validate_url(url: Union[str, Sequence[str]]): if isinstance(url, str): if isinstance(validators.url(url), validators.ValidationError): raise ValueError(ERROR_MESSAGES.INVALID_URL) if not ENABLE_RAG_LOCAL_WEB_FETCH: # Local web fetch is disabled, filter out any URLs that resolve to private IP addresses parsed_url = urllib.parse.urlparse(url) # Get IPv4 and IPv6 addresses ipv4_addresses, ipv6_addresses = resolve_hostname(parsed_url.hostname) # Check if any of the resolved addresses are private'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/web/utils.py:49-58
+actual code:
+    def validate_url(url: Union[str, Sequence[str]]):
+        if isinstance(url, str):
+            if isinstance(validators.url(url), validators.ValidationError):
+                raise ValueError(ERROR_MESSAGES.INVALID_URL)
+            if not ENABLE_RAG_LOCAL_WEB_FETCH:
+                # Local web fetch is disabled, filter out any URLs that resolve to private IP addresses
+                parsed_url = urllib.parse.urlparse(url)
+                # Get IPv4 and IPv6 addresses
+                ipv4_addresses, ipv6_addresses = resolve_hostname(parsed_url.hostname)
+                # Check if any of the resolved addresses are private
+actual normalized: 'def validate_url(url: Union[str, Sequence[str]]): if isinstance(url, str): if isinstance(validators.url(url), validators.ValidationError): raise ValueError(ERROR_MESSAGES.INVALID_URL) if not ENABLE_RAG_LOCAL_WEB_FETCH: # Local web fetch is disabled, filter out any URLs that resolve to private IP addresses parsed_url = urllib.parse.urlparse(url) # Get IPv4 and IPv6 addresses ipv4_addresses, ipv6_addresses = resolve_hostname(parsed_url.hostname) # Check if any of the resolved addresses are private'
+
+====================================================================================================
+entry-00062 trace[7]  backend/open_webui/retrieval/web/utils.py:556-563  report=GHSA-C6XV-RCVW-V685
+repo=https://github.com/open-webui/open-webui
+commit=6cdb13d5cb26b7bceebfe0b85723d8a61aebae3b
+expected code:
+                        async with session.get(
+                            url,
+                            **(self.requests_kwargs | kwargs),
+                            allow_redirects=False,
+                        ) as response:
+                            if self.raise_for_status:
+                                response.raise_for_status()
+                            return await response.text()
+expected normalized: 'async with session.get( url, **(self.requests_kwargs | kwargs), allow_redirects=False, ) as response: if self.raise_for_status: response.raise_for_status() return await response.text()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/retrieval/web/utils.py:556-563
+actual code:
+                        async with session.get(
+                            url,
+                            **(self.requests_kwargs | kwargs),
+                            allow_redirects=False,
+                        ) as response:
+                            if self.raise_for_status:
+                                response.raise_for_status()
+                            return await response.text()
+actual normalized: 'async with session.get( url, **(self.requests_kwargs | kwargs), allow_redirects=False, ) as response: if self.raise_for_status: response.raise_for_status() return await response.text()'

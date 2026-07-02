@@ -1,0 +1,143 @@
+====================================================================================================
+entry-00488 entry_point  server/src/routes/agents.ts:2040  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    router.delete("/agents/:id/keys/:keyId", async (req, res) => {  // 入口：外部可达 DELETE 路由，吊销 agent API key
+expected normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => { // 入口：外部可达 DELETE 路由，吊销 agent API key'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2040
+actual code:
+      router.delete("/agents/:id/keys/:keyId", async (req, res) => {
+actual normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2035 to 2045
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00488 critical_operation  server/src/services/agents.ts:606  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) }  // 直接按 keyId 吊销，无公司归属校验
+expected normalized: 'revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) } // 直接按 keyId 吊销，无公司归属校验'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:606
+actual code:
+        revokeKey: async (keyId: string) => {
+actual normalized: 'revokeKey: async (keyId: string) => {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 601 to 611
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 693 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00488 trace[0]  server/src/routes/agents.ts:2041  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    assertBoard(req);  // 仅校验 actor 类型为 board
+expected normalized: 'assertBoard(req); // 仅校验 actor 类型为 board'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2041
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2036 to 2046
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00488 trace[1]  server/src/routes/agents.ts:2042  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    const keyId = req.params.keyId as string;  // 攻击者控制的任意租户密钥 ID
+expected normalized: 'const keyId = req.params.keyId as string; // 攻击者控制的任意租户密钥 ID'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2042
+actual code:
+        const keyId = req.params.keyId as string;
+actual normalized: 'const keyId = req.params.keyId as string;'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2037 to 2047
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00488 trace[2]  server/src/routes/agents.ts:2041  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    // 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）
+expected normalized: '// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2041
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2036 to 2046
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00488 trace[3]  server/src/services/agents.ts:606  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) ... }  // 触发点：无租户验证，直接吊销受害租户合法密钥
+expected normalized: 'revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) ... } // 触发点：无租户验证，直接吊销受害租户合法密钥'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:606
+actual code:
+        revokeKey: async (keyId: string) => {
+actual normalized: 'revokeKey: async (keyId: string) => {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 601 to 611
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 693 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot

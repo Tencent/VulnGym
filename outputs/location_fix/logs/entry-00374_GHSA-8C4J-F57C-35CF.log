@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00374 entry_point  src/backend/base/langflow/api/v1/flows.py:384  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.delete("/{flow_id}", status_code=200)
+expected normalized: '@router.delete("/{flow_id}", status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:384
+actual code:
+    @router.delete("/{flow_id}", status_code=200)
+actual normalized: '@router.delete("/{flow_id}", status_code=200)'
+
+====================================================================================================
+entry-00374 critical_operation  src/backend/base/langflow/api/v1/flows.py:400  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        await cascade_delete_flow(session, flow.id)
+expected normalized: 'await cascade_delete_flow(session, flow.id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:400
+actual code:
+        await cascade_delete_flow(session, flow.id)
+actual normalized: 'await cascade_delete_flow(session, flow.id)'
+
+====================================================================================================
+entry-00374 trace[0]  src/backend/base/langflow/api/v1/flows.py:384  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.delete("/{flow_id}", status_code=200)
+expected normalized: '@router.delete("/{flow_id}", status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:384
+actual code:
+    @router.delete("/{flow_id}", status_code=200)
+actual normalized: '@router.delete("/{flow_id}", status_code=200)'
+
+====================================================================================================
+entry-00374 trace[1]  src/backend/base/langflow/api/v1/flows.py:388  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        flow_id: UUID,
+expected normalized: 'flow_id: UUID,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:388
+actual code:
+        flow_id: UUID,
+actual normalized: 'flow_id: UUID,'
+
+====================================================================================================
+entry-00374 trace[2]  src/backend/base/langflow/api/v1/flows.py:392  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        flow = await _read_flow(
+expected normalized: 'flow = await _read_flow('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:392
+actual code:
+        flow = await _read_flow(
+actual normalized: 'flow = await _read_flow('
+
+====================================================================================================
+entry-00374 trace[3]  src/backend/base/langflow/api/v1/flows.py:400  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        await cascade_delete_flow(session, flow.id)
+expected normalized: 'await cascade_delete_flow(session, flow.id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:400
+actual code:
+        await cascade_delete_flow(session, flow.id)
+actual normalized: 'await cascade_delete_flow(session, flow.id)'

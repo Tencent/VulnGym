@@ -1,0 +1,93 @@
+====================================================================================================
+entry-00187 entry_point  src/browser/server.ts:32  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+      let browserAuth = resolveBrowserControlAuth(cfg);
+expected normalized: 'let browserAuth = resolveBrowserControlAuth(cfg);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server.ts:32
+actual code:
+      let browserAuth = resolveBrowserControlAuth(cfg);
+actual normalized: 'let browserAuth = resolveBrowserControlAuth(cfg);'
+
+====================================================================================================
+entry-00187 critical_operation  src/browser/server-middleware.ts:28  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+      if (!auth.token && !auth.password) {
+expected normalized: 'if (!auth.token && !auth.password) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server-middleware.ts:28
+actual code:
+      if (!auth.token && !auth.password) {
+actual normalized: 'if (!auth.token && !auth.password) {'
+
+====================================================================================================
+entry-00187 trace[0]  src/browser/server.ts:32  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+      let browserAuth = resolveBrowserControlAuth(cfg);
+expected normalized: 'let browserAuth = resolveBrowserControlAuth(cfg);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server.ts:32
+actual code:
+      let browserAuth = resolveBrowserControlAuth(cfg);
+actual normalized: 'let browserAuth = resolveBrowserControlAuth(cfg);'
+
+====================================================================================================
+entry-00187 trace[1]  src/browser/server.ts:39-41  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+      } catch (err) {
+        logServer.warn(`failed to auto-configure browser auth: ${String(err)}`);
+      }
+expected normalized: '} catch (err) { logServer.warn(`failed to auto-configure browser auth: ${String(err)}`); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server.ts:39-41
+actual code:
+      } catch (err) {
+        logServer.warn(`failed to auto-configure browser auth: ${String(err)}`);
+      }
+actual normalized: '} catch (err) { logServer.warn(`failed to auto-configure browser auth: ${String(err)}`); }'
+
+====================================================================================================
+entry-00187 trace[2]  src/browser/server-middleware.ts:24  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    export function installBrowserAuthMiddleware(
+expected normalized: 'export function installBrowserAuthMiddleware('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server-middleware.ts:24
+actual code:
+    export function installBrowserAuthMiddleware(
+actual normalized: 'export function installBrowserAuthMiddleware('
+
+====================================================================================================
+entry-00187 trace[3]  src/browser/server-middleware.ts:28  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+      if (!auth.token && !auth.password) {
+expected normalized: 'if (!auth.token && !auth.password) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/server-middleware.ts:28
+actual code:
+      if (!auth.token && !auth.password) {
+actual normalized: 'if (!auth.token && !auth.password) {'

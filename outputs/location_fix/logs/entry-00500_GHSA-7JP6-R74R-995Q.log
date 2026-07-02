@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00500 entry_point  src/gateway/mcp-http.ts:43  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const requestContext = resolveMcpRequestContext(req, cfg);
+expected normalized: 'const requestContext = resolveMcpRequestContext(req, cfg);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/mcp-http.ts:43
+actual code:
+            const requestContext = resolveMcpRequestContext(req, cfg);
+actual normalized: 'const requestContext = resolveMcpRequestContext(req, cfg);'
+
+====================================================================================================
+entry-00500 critical_operation  extensions/matrix/src/actions.ts:261  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    if (action === "set-profile") {
+expected normalized: 'if (action === "set-profile") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/matrix/src/actions.ts:261
+actual code:
+        if (action === "set-profile") {
+actual normalized: 'if (action === "set-profile") {'
+
+====================================================================================================
+entry-00500 trace[0]  src/gateway/mcp-http.request.ts:91  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    export function resolveMcpRequestContext(
+expected normalized: 'export function resolveMcpRequestContext('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/mcp-http.request.ts:91
+actual code:
+    export function resolveMcpRequestContext(
+actual normalized: 'export function resolveMcpRequestContext('
+
+====================================================================================================
+entry-00500 trace[1]  src/gateway/mcp-http.ts:44  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const scopedTools = toolCache.resolve({
+expected normalized: 'const scopedTools = toolCache.resolve({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/mcp-http.ts:44
+actual code:
+            const scopedTools = toolCache.resolve({
+actual normalized: 'const scopedTools = toolCache.resolve({'
+
+====================================================================================================
+entry-00500 trace[2]  src/gateway/mcp-http.runtime.ts:43  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const next = resolveGatewayScopedTools({
+expected normalized: 'const next = resolveGatewayScopedTools({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/mcp-http.runtime.ts:43
+actual code:
+        const next = resolveGatewayScopedTools({
+actual normalized: 'const next = resolveGatewayScopedTools({'
+
+====================================================================================================
+entry-00500 trace[3]  src/gateway/tool-resolution.ts:71  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const allTools = createOpenClawTools({
+expected normalized: 'const allTools = createOpenClawTools({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/tool-resolution.ts:71
+actual code:
+      const allTools = createOpenClawTools({
+actual normalized: 'const allTools = createOpenClawTools({'
+
+====================================================================================================
+entry-00500 trace[4]  src/agents/openclaw-tools.ts:195  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    : createMessageTool({
+expected normalized: ': createMessageTool({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/openclaw-tools.ts:195
+actual code:
+        : createMessageTool({
+actual normalized: ': createMessageTool({'
+
+====================================================================================================
+entry-00500 trace[5]  src/agents/tools/message-tool.ts:807  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const result = await runMessageActionForTool({
+expected normalized: 'const result = await runMessageActionForTool({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/message-tool.ts:807
+actual code:
+          const result = await runMessageActionForTool({
+actual normalized: 'const result = await runMessageActionForTool({'
+
+====================================================================================================
+entry-00500 trace[6]  src/infra/outbound/message-action-runner.ts:695  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    const handled = await dispatchChannelMessageAction({
+expected normalized: 'const handled = await dispatchChannelMessageAction({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-runner.ts:695
+actual code:
+      const handled = await dispatchChannelMessageAction({
+actual normalized: 'const handled = await dispatchChannelMessageAction({'
+
+====================================================================================================
+entry-00500 trace[7]  src/channels/plugins/message-action-dispatch.ts:30  report=GHSA-7JP6-R74R-995Q
+repo=https://github.com/openclaw/openclaw
+commit=1c1fe8a4059102fef6e738d6ec3b096c7eb5ae19
+expected code:
+    return await plugin.actions.handleAction(ctx);
+expected normalized: 'return await plugin.actions.handleAction(ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/message-action-dispatch.ts:30
+actual code:
+      return await plugin.actions.handleAction(ctx);
+actual normalized: 'return await plugin.actions.handleAction(ctx);'

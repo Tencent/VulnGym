@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00085 entry_point  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:411  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;
+expected normalized: "const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:411
+actual code:
+    				const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;
+actual normalized: "const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;"
+
+====================================================================================================
+entry-00085 critical_operation  packages/cli/src/webhooks/webhook-request-handler.ts:154  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				res.send(sandboxHtmlResponse(body));
+expected normalized: 'res.send(sandboxHtmlResponse(body));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:154
+actual code:
+    				res.send(sandboxHtmlResponse(body));
+actual normalized: 'res.send(sandboxHtmlResponse(body));'
+
+====================================================================================================
+entry-00085 trace[0]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:411  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;
+expected normalized: "const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:411
+actual code:
+    				const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;
+actual normalized: "const responseBodyParameter = this.getNodeParameter('responseBody', 0) as string;"
+
+====================================================================================================
+entry-00085 trace[1]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:405  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    			const hasHtmlContentType =
+expected normalized: 'const hasHtmlContentType ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:405
+actual code:
+    			const hasHtmlContentType =
+actual normalized: 'const hasHtmlContentType ='
+
+====================================================================================================
+entry-00085 trace[2]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:568  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				hasHtmlContentType &&
+expected normalized: 'hasHtmlContentType &&'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:568
+actual code:
+    				hasHtmlContentType &&
+actual normalized: 'hasHtmlContentType &&'
+
+====================================================================================================
+entry-00085 trace[3]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:573  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				responseBody = sandboxHtmlResponse(JSON.stringify(responseBody as string));
+expected normalized: 'responseBody = sandboxHtmlResponse(JSON.stringify(responseBody as string));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:573
+actual code:
+    				responseBody = sandboxHtmlResponse(JSON.stringify(responseBody as string));
+actual normalized: 'responseBody = sandboxHtmlResponse(JSON.stringify(responseBody as string));'
+
+====================================================================================================
+entry-00085 trace[4]  packages/cli/src/webhooks/webhook-request-handler.ts:152  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    			const needsSandbox = contentType && isHtmlRenderedContentType(contentType);
+expected normalized: 'const needsSandbox = contentType && isHtmlRenderedContentType(contentType);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:152
+actual code:
+    			const needsSandbox = contentType && isHtmlRenderedContentType(contentType);
+actual normalized: 'const needsSandbox = contentType && isHtmlRenderedContentType(contentType);'
+
+====================================================================================================
+entry-00085 trace[5]  packages/cli/src/webhooks/webhook-request-handler.ts:154  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    				res.send(sandboxHtmlResponse(body));
+expected normalized: 'res.send(sandboxHtmlResponse(body));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:154
+actual code:
+    				res.send(sandboxHtmlResponse(body));
+actual normalized: 'res.send(sandboxHtmlResponse(body));'

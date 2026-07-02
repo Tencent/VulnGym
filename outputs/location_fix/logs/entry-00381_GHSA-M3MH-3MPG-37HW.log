@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00381 entry_point  src/cli/plugins-install-command.ts:349  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        const result = await installPluginFromPath({
+expected normalized: 'const result = await installPluginFromPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/cli/plugins-install-command.ts:349
+actual code:
+        const result = await installPluginFromPath({
+actual normalized: 'const result = await installPluginFromPath({'
+
+====================================================================================================
+entry-00381 critical_operation  src/infra/install-package-dir.ts:189  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        await sanitizeManifestForNpmInstall(stageDir);
+expected normalized: 'await sanitizeManifestForNpmInstall(stageDir);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/install-package-dir.ts:189
+actual code:
+        await sanitizeManifestForNpmInstall(stageDir);
+actual normalized: 'await sanitizeManifestForNpmInstall(stageDir);'
+
+====================================================================================================
+entry-00381 trace[0]  src/cli/plugins-install-command.ts:349  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        const result = await installPluginFromPath({
+expected normalized: 'const result = await installPluginFromPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/cli/plugins-install-command.ts:349
+actual code:
+        const result = await installPluginFromPath({
+actual normalized: 'const result = await installPluginFromPath({'
+
+====================================================================================================
+entry-00381 trace[1]  src/plugins/install.ts:761  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+    export async function installPluginFromPath(
+expected normalized: 'export async function installPluginFromPath('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/install.ts:761
+actual code:
+    export async function installPluginFromPath(
+actual normalized: 'export async function installPluginFromPath('
+
+====================================================================================================
+entry-00381 trace[2]  src/plugins/install.ts:775  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        return await installPluginFromDir({
+expected normalized: 'return await installPluginFromDir({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/install.ts:775
+actual code:
+        return await installPluginFromDir({
+actual normalized: 'return await installPluginFromDir({'
+
+====================================================================================================
+entry-00381 trace[3]  src/plugins/install.ts:407  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+    async function installPluginFromSourceDir(
+expected normalized: 'async function installPluginFromSourceDir('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/install.ts:407
+actual code:
+    async function installPluginFromSourceDir(
+actual normalized: 'async function installPluginFromSourceDir('
+
+====================================================================================================
+entry-00381 trace[4]  src/plugins/install.ts:560  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+      const deps = manifest.dependencies ?? {};
+expected normalized: 'const deps = manifest.dependencies ?? {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/install.ts:560
+actual code:
+      const deps = manifest.dependencies ?? {};
+actual normalized: 'const deps = manifest.dependencies ?? {};'
+
+====================================================================================================
+entry-00381 trace[5]  src/plugins/install.ts:297  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+      const installRes = await runtime.installPackageDir({
+expected normalized: 'const installRes = await runtime.installPackageDir({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/install.ts:297
+actual code:
+      const installRes = await runtime.installPackageDir({
+actual normalized: 'const installRes = await runtime.installPackageDir({'
+
+====================================================================================================
+entry-00381 trace[6]  src/infra/install-package-dir.ts:177  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        await fs.cp(params.sourceDir, stageDir, { recursive: true });
+expected normalized: 'await fs.cp(params.sourceDir, stageDir, { recursive: true });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/install-package-dir.ts:177
+actual code:
+        await fs.cp(params.sourceDir, stageDir, { recursive: true });
+actual normalized: 'await fs.cp(params.sourceDir, stageDir, { recursive: true });'
+
+====================================================================================================
+entry-00381 trace[7]  src/infra/install-package-dir.ts:188  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+      if (params.hasDeps) {
+expected normalized: 'if (params.hasDeps) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/install-package-dir.ts:188
+actual code:
+      if (params.hasDeps) {
+actual normalized: 'if (params.hasDeps) {'
+
+====================================================================================================
+entry-00381 trace[8]  src/infra/install-package-dir.ts:189  report=GHSA-M3MH-3MPG-37HW
+repo=https://github.com/openclaw/openclaw
+commit=a0b9dc007823dff69832b16419c9511b321d8e1b
+expected code:
+        await sanitizeManifestForNpmInstall(stageDir);
+expected normalized: 'await sanitizeManifestForNpmInstall(stageDir);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/install-package-dir.ts:189
+actual code:
+        await sanitizeManifestForNpmInstall(stageDir);
+actual normalized: 'await sanitizeManifestForNpmInstall(stageDir);'

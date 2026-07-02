@@ -1,0 +1,95 @@
+====================================================================================================
+entry-00490 entry_point  packages/server/src/controllers/documentstore/index.ts:356  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const body = req.body
+expected normalized: 'const body = req.body'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/documentstore/index.ts:356
+actual code:
+            const body = req.body
+actual normalized: 'const body = req.body'
+
+====================================================================================================
+entry-00490 critical_operation  packages/server/src/services/documentstore/index.ts:524  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)
+expected normalized: 'const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/documentstore/index.ts:524
+actual code:
+            const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)
+actual normalized: 'const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)'
+
+====================================================================================================
+entry-00490 trace[0]  packages/server/src/controllers/documentstore/index.ts:356-358  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const body = req.body
+            const updateDocStore = new DocumentStore()
+            Object.assign(updateDocStore, body)
+expected normalized: 'const body = req.body const updateDocStore = new DocumentStore() Object.assign(updateDocStore, body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/documentstore/index.ts:356-358
+actual code:
+            const body = req.body
+            const updateDocStore = new DocumentStore()
+            Object.assign(updateDocStore, body)
+actual normalized: 'const body = req.body const updateDocStore = new DocumentStore() Object.assign(updateDocStore, body)'
+
+====================================================================================================
+entry-00490 trace[1]  packages/server/src/controllers/documentstore/index.ts:349  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const store = await documentStoreService.getDocumentStoreById(req.params.id, workspaceId)
+expected normalized: 'const store = await documentStoreService.getDocumentStoreById(req.params.id, workspaceId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/documentstore/index.ts:349
+actual code:
+            const store = await documentStoreService.getDocumentStoreById(req.params.id, workspaceId)
+actual normalized: 'const store = await documentStoreService.getDocumentStoreById(req.params.id, workspaceId)'
+
+====================================================================================================
+entry-00490 trace[2]  packages/server/src/controllers/documentstore/index.ts:359  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const apiResponse = await documentStoreService.updateDocumentStore(store, updateDocStore)
+expected normalized: 'const apiResponse = await documentStoreService.updateDocumentStore(store, updateDocStore)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/documentstore/index.ts:359
+actual code:
+            const apiResponse = await documentStoreService.updateDocumentStore(store, updateDocStore)
+actual normalized: 'const apiResponse = await documentStoreService.updateDocumentStore(store, updateDocStore)'
+
+====================================================================================================
+entry-00490 trace[3]  packages/server/src/services/documentstore/index.ts:523-524  report=GHSA-3PRP-9GF7-4RXX
+repo=https://github.com/FlowiseAI/Flowise
+commit=9d6a41677759699e886750683ce7753f026b8418
+expected code:
+            const tmpUpdatedDocumentStore = appServer.AppDataSource.getRepository(DocumentStore).merge(documentStore, updatedDocumentStore)
+            const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)
+expected normalized: 'const tmpUpdatedDocumentStore = appServer.AppDataSource.getRepository(DocumentStore).merge(documentStore, updatedDocumentStore) const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/documentstore/index.ts:523-524
+actual code:
+            const tmpUpdatedDocumentStore = appServer.AppDataSource.getRepository(DocumentStore).merge(documentStore, updatedDocumentStore)
+            const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)
+actual normalized: 'const tmpUpdatedDocumentStore = appServer.AppDataSource.getRepository(DocumentStore).merge(documentStore, updatedDocumentStore) const dbResponse = await appServer.AppDataSource.getRepository(DocumentStore).save(tmpUpdatedDocumentStore)'

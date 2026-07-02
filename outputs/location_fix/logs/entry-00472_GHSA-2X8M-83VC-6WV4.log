@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00472 entry_point  packages/components/src/utils.ts:461  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)
+expected normalized: "return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:461
+actual code:
+        return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)
+actual normalized: "return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)"
+
+====================================================================================================
+entry-00472 critical_operation  packages/components/src/httpSecurity.ts:233  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return new Agent({
+expected normalized: 'return new Agent({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:233
+actual code:
+        return new Agent({
+actual normalized: 'return new Agent({'
+
+====================================================================================================
+entry-00472 trace[0]  packages/components/src/utils.ts:461  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)
+expected normalized: "return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:461
+actual code:
+        return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)
+actual normalized: "return await crawl(URLObj.protocol + '//' + URLObj.hostname, modifyURL, [], limit)"
+
+====================================================================================================
+entry-00472 trace[1]  packages/components/src/httpSecurity.ts:222  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:222
+actual code:
+        return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00472 trace[2]  packages/components/src/httpSecurity.ts:233  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return new Agent({
+expected normalized: 'return new Agent({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:233
+actual code:
+        return new Agent({
+actual normalized: 'return new Agent({'

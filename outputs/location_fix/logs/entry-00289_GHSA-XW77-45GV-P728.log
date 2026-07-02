@@ -1,0 +1,90 @@
+====================================================================================================
+entry-00289 entry_point  src/gateway/server/plugins-http.ts:36  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      return async (req, res, providedPathContext, dispatchContext) => {
+expected normalized: 'return async (req, res, providedPathContext, dispatchContext) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:36
+actual code:
+      return async (req, res, providedPathContext, dispatchContext) => {
+actual normalized: 'return async (req, res, providedPathContext, dispatchContext) => {'
+
+====================================================================================================
+entry-00289 critical_operation  src/plugins/runtime/gateway-request-scope.ts:7-10  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+    export type PluginRuntimeGatewayRequestScope = {
+      context: GatewayRequestContext;
+      isWebchatConnect: GatewayRequestOptions["isWebchatConnect"];
+    };
+expected normalized: 'export type PluginRuntimeGatewayRequestScope = { context: GatewayRequestContext; isWebchatConnect: GatewayRequestOptions["isWebchatConnect"]; };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/runtime/gateway-request-scope.ts:7-10
+actual code:
+    export type PluginRuntimeGatewayRequestScope = {
+      context: GatewayRequestContext;
+      isWebchatConnect: GatewayRequestOptions["isWebchatConnect"];
+    };
+actual normalized: 'export type PluginRuntimeGatewayRequestScope = { context: GatewayRequestContext; isWebchatConnect: GatewayRequestOptions["isWebchatConnect"]; };'
+
+====================================================================================================
+entry-00289 trace[0]  src/gateway/server-methods.ts:156  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      await withPluginRuntimeGatewayRequestScope({ context, isWebchatConnect }, invokeHandler);
+expected normalized: 'await withPluginRuntimeGatewayRequestScope({ context, isWebchatConnect }, invokeHandler);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods.ts:156
+actual code:
+      await withPluginRuntimeGatewayRequestScope({ context, isWebchatConnect }, invokeHandler);
+actual normalized: 'await withPluginRuntimeGatewayRequestScope({ context, isWebchatConnect }, invokeHandler);'
+
+====================================================================================================
+entry-00289 trace[1]  src/plugins/runtime/gateway-request-scope.ts:33-38  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      scope: PluginRuntimeGatewayRequestScope,
+      run: () => T,
+    ): T {
+      return pluginRuntimeGatewayRequestScope.run(scope, run);
+    }
+expected normalized: 'scope: PluginRuntimeGatewayRequestScope, run: () => T, ): T { return pluginRuntimeGatewayRequestScope.run(scope, run); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/plugins/runtime/gateway-request-scope.ts:33-37
+actual code:
+      scope: PluginRuntimeGatewayRequestScope,
+      run: () => T,
+    ): T {
+      return pluginRuntimeGatewayRequestScope.run(scope, run);
+    }
+actual normalized: 'scope: PluginRuntimeGatewayRequestScope, run: () => T, ): T { return pluginRuntimeGatewayRequestScope.run(scope, run); }'
+
+====================================================================================================
+entry-00289 trace[2]  src/gateway/server-plugins.ts:71-72  report=GHSA-XW77-45GV-P728
+repo=https://github.com/openclaw/openclaw
+commit=dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f
+expected code:
+      const scope = getPluginRuntimeGatewayRequestScope();
+      const context = scope?.context ?? fallbackGatewayContextState.context;
+expected normalized: 'const scope = getPluginRuntimeGatewayRequestScope(); const context = scope?.context ?? fallbackGatewayContextState.context;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-plugins.ts:71-72
+actual code:
+      const scope = getPluginRuntimeGatewayRequestScope();
+      const context = scope?.context ?? fallbackGatewayContextState.context;
+actual normalized: 'const scope = getPluginRuntimeGatewayRequestScope(); const context = scope?.context ?? fallbackGatewayContextState.context;'

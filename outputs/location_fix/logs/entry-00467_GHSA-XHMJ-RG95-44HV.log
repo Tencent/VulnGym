@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00467 entry_point  packages/server/src/controllers/nodes/index.ts:90  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)
+expected normalized: 'const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nodes/index.ts:90
+actual code:
+            const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)
+actual normalized: 'const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)'
+
+====================================================================================================
+entry-00467 critical_operation  packages/components/src/utils.ts:1671  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                    builtin: builtinDeps,
+expected normalized: 'builtin: builtinDeps,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1671
+actual code:
+                    builtin: builtinDeps,
+actual normalized: 'builtin: builtinDeps,'
+
+====================================================================================================
+entry-00467 trace[0]  packages/server/src/controllers/nodes/index.ts:90  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)
+expected normalized: 'const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nodes/index.ts:90
+actual code:
+            const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)
+actual normalized: 'const apiResponse = await nodesService.executeCustomFunction(req.body, workspaceId, orgId)'
+
+====================================================================================================
+entry-00467 trace[1]  packages/server/src/services/nodes/index.ts:151  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            return await executeCustomNodeFunction(executeData)
+expected normalized: 'return await executeCustomNodeFunction(executeData)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/nodes/index.ts:151
+actual code:
+            return await executeCustomNodeFunction(executeData)
+actual normalized: 'return await executeCustomNodeFunction(executeData)'
+
+====================================================================================================
+entry-00467 trace[2]  packages/server/src/utils/executeCustomNodeFunction.ts:24  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const jsFunction = typeof body?.javascriptFunction === 'string' ? body.javascriptFunction : ''
+expected normalized: "const jsFunction = typeof body?.javascriptFunction === 'string' ? body.javascriptFunction : ''"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/executeCustomNodeFunction.ts:24
+actual code:
+            const jsFunction = typeof body?.javascriptFunction === 'string' ? body.javascriptFunction : ''
+actual normalized: "const jsFunction = typeof body?.javascriptFunction === 'string' ? body.javascriptFunction : ''"
+
+====================================================================================================
+entry-00467 trace[3]  packages/server/src/utils/executeCustomNodeFunction.ts:49  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                    const returnData = await newNodeInstance.init(nodeData, '', options)
+expected normalized: "const returnData = await newNodeInstance.init(nodeData, '', options)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/executeCustomNodeFunction.ts:49
+actual code:
+                    const returnData = await newNodeInstance.init(nodeData, '', options)
+actual normalized: "const returnData = await newNodeInstance.init(nodeData, '', options)"
+
+====================================================================================================
+entry-00467 trace[4]  packages/components/nodes/utilities/CustomFunction/CustomFunction.ts:140  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                const response = await executeJavaScriptCode(javascriptFunction, sandbox)
+expected normalized: 'const response = await executeJavaScriptCode(javascriptFunction, sandbox)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/utilities/CustomFunction/CustomFunction.ts:140
+actual code:
+                const response = await executeJavaScriptCode(javascriptFunction, sandbox)
+actual normalized: 'const response = await executeJavaScriptCode(javascriptFunction, sandbox)'
+
+====================================================================================================
+entry-00467 trace[5]  packages/components/src/utils.ts:1631  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const builtinDeps = process.env.TOOL_FUNCTION_BUILTIN_DEP
+expected normalized: 'const builtinDeps = process.env.TOOL_FUNCTION_BUILTIN_DEP'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1631
+actual code:
+            const builtinDeps = process.env.TOOL_FUNCTION_BUILTIN_DEP
+actual normalized: 'const builtinDeps = process.env.TOOL_FUNCTION_BUILTIN_DEP'
+
+====================================================================================================
+entry-00467 trace[6]  packages/components/src/utils.ts:1640  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const secureWrappers: ICommonObject = {}
+expected normalized: 'const secureWrappers: ICommonObject = {}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1640
+actual code:
+            const secureWrappers: ICommonObject = {}
+actual normalized: 'const secureWrappers: ICommonObject = {}'
+
+====================================================================================================
+entry-00467 trace[7]  packages/components/src/utils.ts:1671  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                    builtin: builtinDeps,
+expected normalized: 'builtin: builtinDeps,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1671
+actual code:
+                    builtin: builtinDeps,
+actual normalized: 'builtin: builtinDeps,'

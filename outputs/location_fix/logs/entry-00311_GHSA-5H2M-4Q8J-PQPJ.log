@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00311 entry_point  src/fastmcp/server/auth/oauth_proxy.py:625  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+    def __init__(
+        self,
+        *,
+        upstream_authorization_endpoint: str,
+        upstream_token_endpoint: str,
+        upstream_client_id: str,
+        upstream_client_secret: str,
+        upstream_revocation_endpoint: str | None = None,
+        token_verifier: TokenVerifier,
+        base_url: AnyHttpUrl | str,
+        redirect_path: str | None = None,
+        ...
+expected normalized: 'def __init__( self, *, upstream_authorization_endpoint: str, upstream_token_endpoint: str, upstream_client_id: str, upstream_client_secret: str, upstream_revocation_endpoint: str | None = None, token_verifier: TokenVerifier, base_url: AnyHttpUrl | str, redirect_path: str | None = None, ...'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:625-636
+actual code:
+        def __init__(
+            self,
+            *,
+            # Upstream server configuration
+            upstream_authorization_endpoint: str,
+            upstream_token_endpoint: str,
+            upstream_client_id: str,
+            upstream_client_secret: str,
+            upstream_revocation_endpoint: str | None = None,
+            # Token validation
+            token_verifier: TokenVerifier,
+            # FastMCP server configuration
+actual normalized: 'def __init__( self, *, # Upstream server configuration upstream_authorization_endpoint: str, upstream_token_endpoint: str, upstream_client_id: str, upstream_client_secret: str, upstream_revocation_endpoint: str | None = None, # Token validation token_verifier: TokenVerifier, # FastMCP server configuration'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 620 to 630
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2189 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00311 critical_operation  src/fastmcp/server/auth/oauth_proxy.py:808  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+    self._jwt_issuer: JWTIssuer = JWTIssuer(
+        issuer=str(self.base_url),
+        audience=f"{str(self.base_url).rstrip("/")}/mcp",
+        signing_key=jwt_signing_key,
+    )
+expected normalized: 'self._jwt_issuer: JWTIssuer = JWTIssuer( issuer=str(self.base_url), audience=f"{str(self.base_url).rstrip("/")}/mcp", signing_key=jwt_signing_key, )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:808-812
+actual code:
+            self._jwt_issuer: JWTIssuer = JWTIssuer(
+                issuer=str(self.base_url),
+                audience=f"{str(self.base_url).rstrip('/')}/mcp",
+                signing_key=jwt_signing_key,
+            )
+actual normalized: 'self._jwt_issuer: JWTIssuer = JWTIssuer( issuer=str(self.base_url), audience=f"{str(self.base_url).rstrip(\'/\')}/mcp", signing_key=jwt_signing_key, )'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 803 to 813
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2189 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00311 trace[0]  src/fastmcp/server/auth/auth.py:131  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+    def get_routes(
+        self,
+        mcp_path: str | None = None,
+    ) -> list[Route]:
+expected normalized: 'def get_routes( self, mcp_path: str | None = None, ) -> list[Route]:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/auth.py:131-134
+actual code:
+        def get_routes(
+            self,
+            mcp_path: str | None = None,
+        ) -> list[Route]:
+actual normalized: 'def get_routes( self, mcp_path: str | None = None, ) -> list[Route]:'
+
+====================================================================================================
+entry-00311 trace[1]  src/fastmcp/server/auth/oauth_proxy.py:1635  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+    def get_routes(
+        self,
+        mcp_path: str | None = None,
+    ) -> list[Route]:
+        """Get OAuth routes with custom handlers for better error UX."""
+        # Get standard OAuth routes from parent class
+        routes = super().get_routes(mcp_path)
+expected normalized: 'def get_routes( self, mcp_path: str | None = None, ) -> list[Route]: """Get OAuth routes with custom handlers for better error UX.""" # Get standard OAuth routes from parent class routes = super().get_routes(mcp_path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:1635-1641
+actual code:
+        def get_routes(
+            self,
+            mcp_path: str | None = None,
+        ) -> list[Route]:
+            """Get OAuth routes with custom handlers for better error UX.
+    
+            This method creates standard OAuth routes and replaces:
+actual normalized: 'def get_routes( self, mcp_path: str | None = None, ) -> list[Route]: """Get OAuth routes with custom handlers for better error UX. This method creates standard OAuth routes and replaces:'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 1630 to 1640
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2189 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00311 trace[2]  src/fastmcp/server/auth/oauth_proxy.py:1651  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+    routes = super().get_routes(mcp_path)
+expected normalized: 'routes = super().get_routes(mcp_path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:1651
+actual code:
+            routes = super().get_routes(mcp_path)
+actual normalized: 'routes = super().get_routes(mcp_path)'

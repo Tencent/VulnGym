@@ -1,0 +1,109 @@
+====================================================================================================
+entry-00499 entry_point  src/security/audit-extra.sync.ts:848  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    const browserExposurePaths: string[] = [];  // 安全审计入口：检查 CDP bridge 是否 unrestricted
+expected normalized: 'const browserExposurePaths: string[] = []; // 安全审计入口：检查 CDP bridge 是否 unrestricted'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/audit-extra.sync.ts:848
+actual code:
+      const browserExposurePaths: string[] = [];
+actual normalized: 'const browserExposurePaths: string[] = [];'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 843 to 853
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1174 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00499 critical_operation  src/security/audit-extra.sync.ts:875  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    checkId: "sandbox.browser_cdp_bridge_unrestricted",
+    severity: "warn",  // 此处应有却缺失的约束：安全审计仅以 warn 级别提示，未阻断容器启动；且仅针对 network=bridge 做检查，其他 network 模式的暴露漏检
+expected normalized: 'checkId: "sandbox.browser_cdp_bridge_unrestricted", severity: "warn", // 此处应有却缺失的约束：安全审计仅以 warn 级别提示，未阻断容器启动；且仅针对 network=bridge 做检查，其他 network 模式的暴露漏检'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/audit-extra.sync.ts:875-876
+actual code:
+          checkId: "sandbox.browser_cdp_bridge_unrestricted",
+          severity: "warn",
+actual normalized: 'checkId: "sandbox.browser_cdp_bridge_unrestricted", severity: "warn",'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 870 to 880
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1174 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00499 trace[0]  src/security/audit-extra.sync.ts:850  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    if (
+      defaultBrowser.enabled &&
+      normalizeOptionalLowercaseString(defaultBrowser.network) === "bridge" &&
+      !defaultBrowser.cdpSourceRange?.trim()
+    ) {  // 仅检查默认 bridge 网络 + 未配置 cdpSourceRange 的情形
+expected normalized: 'if ( defaultBrowser.enabled && normalizeOptionalLowercaseString(defaultBrowser.network) === "bridge" && !defaultBrowser.cdpSourceRange?.trim() ) { // 仅检查默认 bridge 网络 + 未配置 cdpSourceRange 的情形'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/audit-extra.sync.ts:850-854
+actual code:
+      if (
+        defaultBrowser.enabled &&
+        normalizeOptionalLowercaseString(defaultBrowser.network) === "bridge" &&
+        !defaultBrowser.cdpSourceRange?.trim()
+      ) {
+actual normalized: 'if ( defaultBrowser.enabled && normalizeOptionalLowercaseString(defaultBrowser.network) === "bridge" && !defaultBrowser.cdpSourceRange?.trim() ) {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 845 to 855
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1174 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00499 trace[1]  src/security/audit-extra.sync.ts:873  report=GHSA-525J-HQQ2-66R4
+repo=https://github.com/openclaw/openclaw
+commit=67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+expected code:
+    if (browserExposurePaths.length > 0) {
+      findings.push({ checkId: "sandbox.browser_cdp_bridge_unrestricted", severity: "warn", ... })
+    }  // 结果仅为 warn，不阻断流程；且 audit 为离线检查，不影响运行中容器
+expected normalized: 'if (browserExposurePaths.length > 0) { findings.push({ checkId: "sandbox.browser_cdp_bridge_unrestricted", severity: "warn", ... }) } // 结果仅为 warn，不阻断流程；且 audit 为离线检查，不影响运行中容器'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/audit-extra.sync.ts:873-875
+actual code:
+      if (browserExposurePaths.length > 0) {
+        findings.push({
+          checkId: "sandbox.browser_cdp_bridge_unrestricted",
+actual normalized: 'if (browserExposurePaths.length > 0) { findings.push({ checkId: "sandbox.browser_cdp_bridge_unrestricted",'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 868 to 878
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1174 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot

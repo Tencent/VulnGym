@@ -1,0 +1,127 @@
+====================================================================================================
+entry-00328 entry_point  src/gateway/tools-invoke-http.ts:127  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    export async function handleToolsInvokeHttpRequest(
+expected normalized: 'export async function handleToolsInvokeHttpRequest('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/tools-invoke-http.ts:127
+actual code:
+    export async function handleToolsInvokeHttpRequest(
+actual normalized: 'export async function handleToolsInvokeHttpRequest('
+
+====================================================================================================
+entry-00328 critical_operation  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+
+====================================================================================================
+entry-00328 trace[0]  src/gateway/tools-invoke-http.ts:127  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    export async function handleToolsInvokeHttpRequest(
+expected normalized: 'export async function handleToolsInvokeHttpRequest('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/tools-invoke-http.ts:127
+actual code:
+    export async function handleToolsInvokeHttpRequest(
+actual normalized: 'export async function handleToolsInvokeHttpRequest('
+
+====================================================================================================
+entry-00328 trace[1]  src/gateway/auth.ts:261  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+      }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:261
+actual code:
+      }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (17):
+  [1] .github/workflows/auto-response.yml:67
+                  }
+  [2] .github/workflows/auto-response.yml:88
+                      }
+  [3] .github/workflows/auto-response.yml:89
+                    }
+  [4] .github/workflows/auto-response.yml:90
+                  }
+  [5] .github/workflows/auto-response.yml:95
+                  }
+  [6] .github/workflows/auto-response.yml:113
+                    }
+  [7] .github/workflows/auto-response.yml:122
+                    }
+  [8] .github/workflows/auto-response.yml:131
+                    }
+  [9] .github/workflows/auto-response.yml:132
+                  }
+  [10] .github/workflows/auto-response.yml:155
+                    }
+  [11] .github/workflows/auto-response.yml:171
+                    }
+  [12] .github/workflows/auto-response.yml:180
+                    }
+  [13] .github/workflows/auto-response.yml:181
+                  }
+  [14] .github/workflows/auto-response.yml:192
+                  }
+  [15] .github/workflows/auto-response.yml:197
+                  }
+  [16] .github/workflows/auto-response.yml:215
+                  }
+  [17] .github/workflows/auto-response.yml:224
+                  }
+
+====================================================================================================
+entry-00328 trace[2]  src/gateway/auth.ts:271  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+        if (!auth.trustedProxy.userHeader || auth.trustedProxy.userHeader.trim() === "") {
+expected normalized: 'if (!auth.trustedProxy.userHeader || auth.trustedProxy.userHeader.trim() === "") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:271
+actual code:
+        if (!auth.trustedProxy.userHeader || auth.trustedProxy.userHeader.trim() === "") {
+actual normalized: 'if (!auth.trustedProxy.userHeader || auth.trustedProxy.userHeader.trim() === "") {'
+
+====================================================================================================
+entry-00328 trace[3]  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'

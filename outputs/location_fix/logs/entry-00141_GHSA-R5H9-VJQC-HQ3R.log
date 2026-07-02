@@ -1,0 +1,144 @@
+====================================================================================================
+entry-00141 entry_point  extensions/nextcloud-talk/src/inbound.ts:57  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+    export async function handleNextcloudTalkInbound(params: {
+expected normalized: 'export async function handleNextcloudTalkInbound(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:57
+actual code:
+    export async function handleNextcloudTalkInbound(params: {
+actual normalized: 'export async function handleNextcloudTalkInbound(params: {'
+
+====================================================================================================
+entry-00141 critical_operation  extensions/nextcloud-talk/src/policy.ts:150-154  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const outerMatch = resolveNextcloudTalkAllowlistMatch({
+        allowFrom: params.outerAllowFrom,
+        senderId: params.senderId,
+        senderName: params.senderName,
+      });
+expected normalized: 'const outerMatch = resolveNextcloudTalkAllowlistMatch({ allowFrom: params.outerAllowFrom, senderId: params.senderId, senderName: params.senderName, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:150-154
+actual code:
+      const outerMatch = resolveNextcloudTalkAllowlistMatch({
+        allowFrom: params.outerAllowFrom,
+        senderId: params.senderId,
+        senderName: params.senderName,
+      });
+actual normalized: 'const outerMatch = resolveNextcloudTalkAllowlistMatch({ allowFrom: params.outerAllowFrom, senderId: params.senderId, senderName: params.senderName, });'
+
+====================================================================================================
+entry-00141 trace[0]  extensions/nextcloud-talk/src/inbound.ts:57  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+    export async function handleNextcloudTalkInbound(params: {
+expected normalized: 'export async function handleNextcloudTalkInbound(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:57
+actual code:
+    export async function handleNextcloudTalkInbound(params: {
+actual normalized: 'export async function handleNextcloudTalkInbound(params: {'
+
+====================================================================================================
+entry-00141 trace[1]  extensions/nextcloud-talk/src/inbound.ts:140  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      if (isGroup) {
+expected normalized: 'if (isGroup) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:140
+actual code:
+      if (isGroup) {
+actual normalized: 'if (isGroup) {'
+
+====================================================================================================
+entry-00141 trace[2]  extensions/nextcloud-talk/src/inbound.ts:141-147  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+        const groupAllow = resolveNextcloudTalkGroupAllow({
+          groupPolicy,
+          outerAllowFrom: effectiveGroupAllowFrom,
+          innerAllowFrom: roomAllowFrom,
+          senderId,
+          senderName,
+        });
+expected normalized: 'const groupAllow = resolveNextcloudTalkGroupAllow({ groupPolicy, outerAllowFrom: effectiveGroupAllowFrom, innerAllowFrom: roomAllowFrom, senderId, senderName, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:141-147
+actual code:
+        const groupAllow = resolveNextcloudTalkGroupAllow({
+          groupPolicy,
+          outerAllowFrom: effectiveGroupAllowFrom,
+          innerAllowFrom: roomAllowFrom,
+          senderId,
+          senderName,
+        });
+actual normalized: 'const groupAllow = resolveNextcloudTalkGroupAllow({ groupPolicy, outerAllowFrom: effectiveGroupAllowFrom, innerAllowFrom: roomAllowFrom, senderId, senderName, });'
+
+====================================================================================================
+entry-00141 trace[3]  extensions/nextcloud-talk/src/policy.ts:130-136  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+    export function resolveNextcloudTalkGroupAllow(params: {
+      groupPolicy: GroupPolicy;
+      outerAllowFrom: Array<string | number> | undefined;
+      innerAllowFrom: Array<string | number> | undefined;
+      senderId: string;
+      senderName?: string | null;
+    }): { allowed: boolean; outerMatch: AllowlistMatch; innerMatch: AllowlistMatch } {
+expected normalized: 'export function resolveNextcloudTalkGroupAllow(params: { groupPolicy: GroupPolicy; outerAllowFrom: Array<string | number> | undefined; innerAllowFrom: Array<string | number> | undefined; senderId: string; senderName?: string | null; }): { allowed: boolean; outerMatch: AllowlistMatch; innerMatch: AllowlistMatch } {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:130-136
+actual code:
+    export function resolveNextcloudTalkGroupAllow(params: {
+      groupPolicy: GroupPolicy;
+      outerAllowFrom: Array<string | number> | undefined;
+      innerAllowFrom: Array<string | number> | undefined;
+      senderId: string;
+      senderName?: string | null;
+    }): { allowed: boolean; outerMatch: AllowlistMatch; innerMatch: AllowlistMatch } {
+actual normalized: 'export function resolveNextcloudTalkGroupAllow(params: { groupPolicy: GroupPolicy; outerAllowFrom: Array<string | number> | undefined; innerAllowFrom: Array<string | number> | undefined; senderId: string; senderName?: string | null; }): { allowed: boolean; outerMatch: AllowlistMatch; innerMatch: AllowlistMatch } {'
+
+====================================================================================================
+entry-00141 trace[4]  extensions/nextcloud-talk/src/policy.ts:150-154  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const outerMatch = resolveNextcloudTalkAllowlistMatch({
+        allowFrom: params.outerAllowFrom,
+        senderId: params.senderId,
+        senderName: params.senderName,
+      });
+expected normalized: 'const outerMatch = resolveNextcloudTalkAllowlistMatch({ allowFrom: params.outerAllowFrom, senderId: params.senderId, senderName: params.senderName, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:150-154
+actual code:
+      const outerMatch = resolveNextcloudTalkAllowlistMatch({
+        allowFrom: params.outerAllowFrom,
+        senderId: params.senderId,
+        senderName: params.senderName,
+      });
+actual normalized: 'const outerMatch = resolveNextcloudTalkAllowlistMatch({ allowFrom: params.outerAllowFrom, senderId: params.senderId, senderName: params.senderName, });'

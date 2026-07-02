@@ -1,0 +1,127 @@
+====================================================================================================
+entry-00315 entry_point  airflow-core/src/airflow/api_fastapi/execution_api/routes/__init__.py:52  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    authenticated_router.include_router(hitl.router, prefix="/hitlDetails", tags=["Human in the Loop"])
+expected normalized: 'authenticated_router.include_router(hitl.router, prefix="/hitlDetails", tags=["Human in the Loop"])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/__init__.py:52
+actual code:
+    authenticated_router.include_router(hitl.router, prefix="/hitlDetails", tags=["Human in the Loop"])
+actual normalized: 'authenticated_router.include_router(hitl.router, prefix="/hitlDetails", tags=["Human in the Loop"])'
+
+====================================================================================================
+entry-00315 critical_operation  airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:111  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    hitl_detail_model_result = session.execute(
+            select(HITLDetail).where(HITLDetail.ti_id == task_instance_id)
+        ).scalar()
+expected normalized: 'hitl_detail_model_result = session.execute( select(HITLDetail).where(HITLDetail.ti_id == task_instance_id) ).scalar()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:111-113
+actual code:
+        hitl_detail_model_result = session.execute(
+            select(HITLDetail).where(HITLDetail.ti_id == task_instance_id)
+        ).scalar()
+actual normalized: 'hitl_detail_model_result = session.execute( select(HITLDetail).where(HITLDetail.ti_id == task_instance_id) ).scalar()'
+
+====================================================================================================
+entry-00315 trace[0]  airflow-core/src/airflow/api_fastapi/execution_api/routes/__init__.py:40  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    authenticated_router = VersionedAPIRouter(dependencies=[JWTBearerDep])  # type: ignore[list-item]
+expected normalized: 'authenticated_router = VersionedAPIRouter(dependencies=[JWTBearerDep]) # type: ignore[list-item]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/__init__.py:40
+actual code:
+    authenticated_router = VersionedAPIRouter(dependencies=[JWTBearerDep])  # type: ignore[list-item]
+actual normalized: 'authenticated_router = VersionedAPIRouter(dependencies=[JWTBearerDep]) # type: ignore[list-item]'
+
+====================================================================================================
+entry-00315 trace[1]  airflow-core/src/airflow/api_fastapi/execution_api/deps.py:100  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    JWTBearerDep: TIToken = Depends(JWTBearer())
+expected normalized: 'JWTBearerDep: TIToken = Depends(JWTBearer())'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/deps.py:100
+actual code:
+    JWTBearerDep: TIToken = Depends(JWTBearer())
+actual normalized: 'JWTBearerDep: TIToken = Depends(JWTBearer())'
+
+====================================================================================================
+entry-00315 trace[2]  airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:34  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    router = APIRouter()
+expected normalized: 'router = APIRouter()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:34
+actual code:
+    router = APIRouter()
+actual normalized: 'router = APIRouter()'
+
+====================================================================================================
+entry-00315 trace[3]  airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:104  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    @router.patch("/{task_instance_id}")
+expected normalized: '@router.patch("/{task_instance_id}")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:104
+actual code:
+    @router.patch("/{task_instance_id}")
+actual normalized: '@router.patch("/{task_instance_id}")'
+
+====================================================================================================
+entry-00315 trace[4]  airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:111  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    hitl_detail_model_result = session.execute(
+            select(HITLDetail).where(HITLDetail.ti_id == task_instance_id)
+        ).scalar()
+expected normalized: 'hitl_detail_model_result = session.execute( select(HITLDetail).where(HITLDetail.ti_id == task_instance_id) ).scalar()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:111-113
+actual code:
+        hitl_detail_model_result = session.execute(
+            select(HITLDetail).where(HITLDetail.ti_id == task_instance_id)
+        ).scalar()
+actual normalized: 'hitl_detail_model_result = session.execute( select(HITLDetail).where(HITLDetail.ti_id == task_instance_id) ).scalar()'
+
+====================================================================================================
+entry-00315 trace[5]  airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:114  report=GHSA-8X34-9Q3V-H7G8
+repo=https://github.com/apache/airflow
+commit=dba47277f309255c7d40b1001578411d5cb29e2b
+expected code:
+    hitl_detail_model = _check_hitl_detail_exists(hitl_detail_model_result)
+expected normalized: 'hitl_detail_model = _check_hitl_detail_exists(hitl_detail_model_result)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/execution_api/routes/hitl.py:114
+actual code:
+        hitl_detail_model = _check_hitl_detail_exists(hitl_detail_model_result)
+actual normalized: 'hitl_detail_model = _check_hitl_detail_exists(hitl_detail_model_result)'

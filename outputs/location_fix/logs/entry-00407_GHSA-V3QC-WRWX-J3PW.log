@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00407 entry_point  src/agents/tools/gateway-tool.ts:81  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+        execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:81
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00407 critical_operation  src/agents/tools/gateway-tool.ts:200  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+            const result = await callGatewayTool("config.patch", gatewayOpts, {
+expected normalized: 'const result = await callGatewayTool("config.patch", gatewayOpts, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:200
+actual code:
+            const result = await callGatewayTool("config.patch", gatewayOpts, {
+actual normalized: 'const result = await callGatewayTool("config.patch", gatewayOpts, {'
+
+====================================================================================================
+entry-00407 trace[0]  src/agents/tools/gateway-tool.ts:83  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+          const action = readStringParam(params, "action", { required: true });
+expected normalized: 'const action = readStringParam(params, "action", { required: true });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:83
+actual code:
+          const action = readStringParam(params, "action", { required: true });
+actual normalized: 'const action = readStringParam(params, "action", { required: true });'
+
+====================================================================================================
+entry-00407 trace[1]  src/agents/tools/gateway-tool.ts:154  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+          const resolveConfigWriteParams = async (): Promise<{
+expected normalized: 'const resolveConfigWriteParams = async (): Promise<{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:154
+actual code:
+          const resolveConfigWriteParams = async (): Promise<{
+actual normalized: 'const resolveConfigWriteParams = async (): Promise<{'
+
+====================================================================================================
+entry-00407 trace[2]  src/agents/tools/gateway-tool.ts:161  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+            const raw = readStringParam(params, "raw", { required: true });
+expected normalized: 'const raw = readStringParam(params, "raw", { required: true });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:161
+actual code:
+            const raw = readStringParam(params, "raw", { required: true });
+actual normalized: 'const raw = readStringParam(params, "raw", { required: true });'
+
+====================================================================================================
+entry-00407 trace[3]  src/agents/tools/gateway-tool.ts:200  report=GHSA-V3QC-WRWX-J3PW
+repo=https://github.com/openclaw/openclaw
+commit=4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db
+expected code:
+            const result = await callGatewayTool("config.patch", gatewayOpts, {
+expected normalized: 'const result = await callGatewayTool("config.patch", gatewayOpts, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:200
+actual code:
+            const result = await callGatewayTool("config.patch", gatewayOpts, {
+actual normalized: 'const result = await callGatewayTool("config.patch", gatewayOpts, {'

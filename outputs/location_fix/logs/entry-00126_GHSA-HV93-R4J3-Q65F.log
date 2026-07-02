@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00126 entry_point  src/gateway/server-http.ts:163  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    const token = extractHookToken(req);
+expected normalized: 'const token = extractHookToken(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:163
+actual code:
+        const token = extractHookToken(req);
+actual normalized: 'const token = extractHookToken(req);'
+
+====================================================================================================
+entry-00126 critical_operation  src/gateway/server-http.ts:164  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    if (!token || token !== hooksConfig.token) {
+expected normalized: 'if (!token || token !== hooksConfig.token) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:164
+actual code:
+        if (!token || token !== hooksConfig.token) {
+actual normalized: 'if (!token || token !== hooksConfig.token) {'
+
+====================================================================================================
+entry-00126 trace[0]  src/gateway/hooks.ts:93  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    const auth =
+expected normalized: 'const auth ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/hooks.ts:93
+actual code:
+      const auth =
+actual normalized: 'const auth ='
+
+====================================================================================================
+entry-00126 trace[1]  src/gateway/server-http.ts:163  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    const token = extractHookToken(req);
+expected normalized: 'const token = extractHookToken(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:163
+actual code:
+        const token = extractHookToken(req);
+actual normalized: 'const token = extractHookToken(req);'
+
+====================================================================================================
+entry-00126 trace[2]  src/gateway/server-http.ts:164  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    if (!token || token !== hooksConfig.token) {
+expected normalized: 'if (!token || token !== hooksConfig.token) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:164
+actual code:
+        if (!token || token !== hooksConfig.token) {
+actual normalized: 'if (!token || token !== hooksConfig.token) {'
+
+====================================================================================================
+entry-00126 trace[3]  src/gateway/server-http.ts:165  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+    res.statusCode = 401;
+expected normalized: 'res.statusCode = 401;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:165
+actual code:
+          res.statusCode = 401;
+actual normalized: 'res.statusCode = 401;'

@@ -1,0 +1,224 @@
+====================================================================================================
+entry-00355 entry_point  packages/cli/src/controllers/auth.controller.ts:72-80  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    		} else if (isLdapCurrentAuthenticationMethod()) {
+    			const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password);
+    			if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) {
+    				user = preliminaryUser;
+    				usedAuthenticationMethod = 'email';
+    			} else {
+    				const { LdapService } = await import('@/ldap.ee/ldap.service.ee');
+    				user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password);
+    			}
+expected normalized: "} else if (isLdapCurrentAuthenticationMethod()) { const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password); if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) { user = preliminaryUser; usedAuthenticationMethod = 'email'; } else { const { LdapService } = await import('@/ldap.ee/ldap.service.ee'); user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/controllers/auth.controller.ts:72-80
+actual code:
+    		} else if (isLdapCurrentAuthenticationMethod()) {
+    			const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password);
+    			if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) {
+    				user = preliminaryUser;
+    				usedAuthenticationMethod = 'email';
+    			} else {
+    				const { LdapService } = await import('@/ldap.ee/ldap.service.ee');
+    				user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password);
+    			}
+actual normalized: "} else if (isLdapCurrentAuthenticationMethod()) { const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password); if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) { user = preliminaryUser; usedAuthenticationMethod = 'email'; } else { const { LdapService } = await import('@/ldap.ee/ldap.service.ee'); user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password); }"
+
+====================================================================================================
+entry-00355 critical_operation  packages/cli/src/ldap.ee/ldap.service.ee.ts:484-490  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    		if (!ldapAuthIdentity) {
+    			const emailUser = await getUserByEmail(emailAttributeValue);
+    
+    			// check if there is an email user with the same email as the authenticated LDAP user trying to log-in
+    			if (emailUser && emailUser.email === emailAttributeValue) {
+    				const identity = await createLdapAuthIdentity(emailUser, ldapId);
+    				await updateLdapUserOnLocalDb(identity, ldapAttributesValues);
+expected normalized: 'if (!ldapAuthIdentity) { const emailUser = await getUserByEmail(emailAttributeValue); // check if there is an email user with the same email as the authenticated LDAP user trying to log-in if (emailUser && emailUser.email === emailAttributeValue) { const identity = await createLdapAuthIdentity(emailUser, ldapId); await updateLdapUserOnLocalDb(identity, ldapAttributesValues);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/ldap.service.ee.ts:484-490
+actual code:
+    		if (!ldapAuthIdentity) {
+    			const emailUser = await getUserByEmail(emailAttributeValue);
+    
+    			// check if there is an email user with the same email as the authenticated LDAP user trying to log-in
+    			if (emailUser && emailUser.email === emailAttributeValue) {
+    				const identity = await createLdapAuthIdentity(emailUser, ldapId);
+    				await updateLdapUserOnLocalDb(identity, ldapAttributesValues);
+actual normalized: 'if (!ldapAuthIdentity) { const emailUser = await getUserByEmail(emailAttributeValue); // check if there is an email user with the same email as the authenticated LDAP user trying to log-in if (emailUser && emailUser.email === emailAttributeValue) { const identity = await createLdapAuthIdentity(emailUser, ldapId); await updateLdapUserOnLocalDb(identity, ldapAttributesValues);'
+
+====================================================================================================
+entry-00355 trace[0]  packages/cli/src/controllers/auth.controller.ts:72-80  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    		} else if (isLdapCurrentAuthenticationMethod()) {
+    			const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password);
+    			if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) {
+    				user = preliminaryUser;
+    				usedAuthenticationMethod = 'email';
+    			} else {
+    				const { LdapService } = await import('@/ldap.ee/ldap.service.ee');
+    				user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password);
+    			}
+expected normalized: "} else if (isLdapCurrentAuthenticationMethod()) { const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password); if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) { user = preliminaryUser; usedAuthenticationMethod = 'email'; } else { const { LdapService } = await import('@/ldap.ee/ldap.service.ee'); user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/controllers/auth.controller.ts:72-80
+actual code:
+    		} else if (isLdapCurrentAuthenticationMethod()) {
+    			const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password);
+    			if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) {
+    				user = preliminaryUser;
+    				usedAuthenticationMethod = 'email';
+    			} else {
+    				const { LdapService } = await import('@/ldap.ee/ldap.service.ee');
+    				user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password);
+    			}
+actual normalized: "} else if (isLdapCurrentAuthenticationMethod()) { const preliminaryUser = await handleEmailLogin(emailOrLdapLoginId, password); if (preliminaryUser?.role.slug === GLOBAL_OWNER_ROLE.slug) { user = preliminaryUser; usedAuthenticationMethod = 'email'; } else { const { LdapService } = await import('@/ldap.ee/ldap.service.ee'); user = await Container.get(LdapService).handleLdapLogin(emailOrLdapLoginId, password); }"
+
+====================================================================================================
+entry-00355 trace[1]  packages/cli/src/ldap.ee/ldap.service.ee.ts:461-470  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    	async handleLdapLogin(loginId: string, password: string): Promise<User | undefined> {
+    		if (!isLdapEnabled()) return undefined;
+    
+    		if (!this.config.loginEnabled) return undefined;
+    
+    		const { loginIdAttribute, userFilter } = this.config;
+    
+    		const ldapUser = await this.findAndAuthenticateLdapUser(
+    			loginId,
+    			password,
+expected normalized: 'async handleLdapLogin(loginId: string, password: string): Promise<User | undefined> { if (!isLdapEnabled()) return undefined; if (!this.config.loginEnabled) return undefined; const { loginIdAttribute, userFilter } = this.config; const ldapUser = await this.findAndAuthenticateLdapUser( loginId, password,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/ldap.service.ee.ts:461-470
+actual code:
+    	async handleLdapLogin(loginId: string, password: string): Promise<User | undefined> {
+    		if (!isLdapEnabled()) return undefined;
+    
+    		if (!this.config.loginEnabled) return undefined;
+    
+    		const { loginIdAttribute, userFilter } = this.config;
+    
+    		const ldapUser = await this.findAndAuthenticateLdapUser(
+    			loginId,
+    			password,
+actual normalized: 'async handleLdapLogin(loginId: string, password: string): Promise<User | undefined> { if (!isLdapEnabled()) return undefined; if (!this.config.loginEnabled) return undefined; const { loginIdAttribute, userFilter } = this.config; const ldapUser = await this.findAndAuthenticateLdapUser( loginId, password,'
+
+====================================================================================================
+entry-00355 trace[2]  packages/cli/src/ldap.ee/ldap.service.ee.ts:477-483  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    		const [ldapId, ldapAttributesValues] = mapLdapAttributesToUser(ldapUser, this.config);
+    
+    		const { email: emailAttributeValue } = ldapAttributesValues;
+    
+    		if (!ldapId || !emailAttributeValue) return undefined;
+    
+    		const ldapAuthIdentity = await getAuthIdentityByLdapId(ldapId);
+expected normalized: 'const [ldapId, ldapAttributesValues] = mapLdapAttributesToUser(ldapUser, this.config); const { email: emailAttributeValue } = ldapAttributesValues; if (!ldapId || !emailAttributeValue) return undefined; const ldapAuthIdentity = await getAuthIdentityByLdapId(ldapId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/ldap.service.ee.ts:477-483
+actual code:
+    		const [ldapId, ldapAttributesValues] = mapLdapAttributesToUser(ldapUser, this.config);
+    
+    		const { email: emailAttributeValue } = ldapAttributesValues;
+    
+    		if (!ldapId || !emailAttributeValue) return undefined;
+    
+    		const ldapAuthIdentity = await getAuthIdentityByLdapId(ldapId);
+actual normalized: 'const [ldapId, ldapAttributesValues] = mapLdapAttributesToUser(ldapUser, this.config); const { email: emailAttributeValue } = ldapAttributesValues; if (!ldapId || !emailAttributeValue) return undefined; const ldapAuthIdentity = await getAuthIdentityByLdapId(ldapId);'
+
+====================================================================================================
+entry-00355 trace[3]  packages/cli/src/ldap.ee/ldap.service.ee.ts:484  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    		if (!ldapAuthIdentity) {
+expected normalized: 'if (!ldapAuthIdentity) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/ldap.service.ee.ts:484
+actual code:
+    		if (!ldapAuthIdentity) {
+actual normalized: 'if (!ldapAuthIdentity) {'
+
+====================================================================================================
+entry-00355 trace[4]  packages/cli/src/ldap.ee/helpers.ee.ts:111-115  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    export const getUserByEmail = async (email: string): Promise<User | null> => {
+    	return await Container.get(UserRepository).findOne({
+    		where: { email },
+    	});
+    };
+expected normalized: 'export const getUserByEmail = async (email: string): Promise<User | null> => { return await Container.get(UserRepository).findOne({ where: { email }, }); };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/helpers.ee.ts:111-115
+actual code:
+    export const getUserByEmail = async (email: string): Promise<User | null> => {
+    	return await Container.get(UserRepository).findOne({
+    		where: { email },
+    	});
+    };
+actual normalized: 'export const getUserByEmail = async (email: string): Promise<User | null> => { return await Container.get(UserRepository).findOne({ where: { email }, }); };'
+
+====================================================================================================
+entry-00355 trace[5]  packages/cli/src/ldap.ee/helpers.ee.ts:281-285  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    export const createLdapAuthIdentity = async (user: User, ldapId: string) => {
+    	return await Container.get(AuthIdentityRepository).save(AuthIdentity.create(user, ldapId), {
+    		transaction: false,
+    	});
+    };
+expected normalized: 'export const createLdapAuthIdentity = async (user: User, ldapId: string) => { return await Container.get(AuthIdentityRepository).save(AuthIdentity.create(user, ldapId), { transaction: false, }); };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/helpers.ee.ts:281-285
+actual code:
+    export const createLdapAuthIdentity = async (user: User, ldapId: string) => {
+    	return await Container.get(AuthIdentityRepository).save(AuthIdentity.create(user, ldapId), {
+    		transaction: false,
+    	});
+    };
+actual normalized: 'export const createLdapAuthIdentity = async (user: User, ldapId: string) => { return await Container.get(AuthIdentityRepository).save(AuthIdentity.create(user, ldapId), { transaction: false, }); };'
+
+====================================================================================================
+entry-00355 trace[6]  packages/cli/src/ldap.ee/ldap.service.ee.ts:490  report=GHSA-C545-X2RH-82FC
+repo=https://github.com/n8n-io/n8n
+commit=3cdfff7e6cbbc82111dda0303b7a7a1d8b111c28
+expected code:
+    				await updateLdapUserOnLocalDb(identity, ldapAttributesValues);
+expected normalized: 'await updateLdapUserOnLocalDb(identity, ldapAttributesValues);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/ldap.ee/ldap.service.ee.ts:490
+actual code:
+    				await updateLdapUserOnLocalDb(identity, ldapAttributesValues);
+actual normalized: 'await updateLdapUserOnLocalDb(identity, ldapAttributesValues);'

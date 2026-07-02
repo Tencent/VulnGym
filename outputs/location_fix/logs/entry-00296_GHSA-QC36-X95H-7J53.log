@@ -1,0 +1,194 @@
+====================================================================================================
+entry-00296 entry_point  src/node-host/invoke-system-run.ts:185  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+    async function parseSystemRunPhase(
+expected normalized: 'async function parseSystemRunPhase('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:185
+actual code:
+    async function parseSystemRunPhase(
+actual normalized: 'async function parseSystemRunPhase('
+
+====================================================================================================
+entry-00296 critical_operation  src/node-host/invoke-system-run.ts:388  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:388
+actual code:
+      if (
+actual normalized: 'if ('
+
+====================================================================================================
+entry-00296 trace[0]  src/node-host/invoke-system-run.ts:209  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      const approvalPlan =
+expected normalized: 'const approvalPlan ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:209
+actual code:
+      const approvalPlan =
+actual normalized: 'const approvalPlan ='
+
+====================================================================================================
+entry-00296 trace[1]  src/node-host/invoke-system-run-plan.ts:715  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+    export function buildSystemRunApprovalPlan(params: {
+expected normalized: 'export function buildSystemRunApprovalPlan(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:715
+actual code:
+    export function buildSystemRunApprovalPlan(params: {
+actual normalized: 'export function buildSystemRunApprovalPlan(params: {'
+
+====================================================================================================
+entry-00296 trace[2]  src/node-host/invoke-system-run-plan.ts:746  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+expected normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:746
+actual code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+actual normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+
+====================================================================================================
+entry-00296 trace[3]  src/node-host/invoke-system-run-plan.ts:412  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+expected normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:412
+actual code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+actual normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+
+====================================================================================================
+entry-00296 trace[4]  src/node-host/invoke-system-run-plan.ts:422  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (MUTABLE_ARGV1_INTERPRETER_PATTERNS.some((pattern) => pattern.test(executable))) {
+expected normalized: 'if (MUTABLE_ARGV1_INTERPRETER_PATTERNS.some((pattern) => pattern.test(executable))) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:422
+actual code:
+      if (MUTABLE_ARGV1_INTERPRETER_PATTERNS.some((pattern) => pattern.test(executable))) {
+actual normalized: 'if (MUTABLE_ARGV1_INTERPRETER_PATTERNS.some((pattern) => pattern.test(executable))) {'
+
+====================================================================================================
+entry-00296 trace[5]  src/node-host/invoke-system-run-plan.ts:428  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (executable === "bun") {
+expected normalized: 'if (executable === "bun") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:428
+actual code:
+      if (executable === "bun") {
+actual normalized: 'if (executable === "bun") {'
+
+====================================================================================================
+entry-00296 trace[6]  src/infra/exec-safe-bin-runtime-policy.ts:22  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+    const INTERPRETER_LIKE_SAFE_BINS = new Set([
+expected normalized: 'const INTERPRETER_LIKE_SAFE_BINS = new Set(['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-runtime-policy.ts:22
+actual code:
+    const INTERPRETER_LIKE_SAFE_BINS = new Set([
+actual normalized: 'const INTERPRETER_LIKE_SAFE_BINS = new Set(['
+
+====================================================================================================
+entry-00296 trace[7]  src/node-host/invoke-system-run-plan.ts:446  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (!isInterpreterLikeSafeBin(executable)) {
+expected normalized: 'if (!isInterpreterLikeSafeBin(executable)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:446
+actual code:
+      if (!isInterpreterLikeSafeBin(executable)) {
+actual normalized: 'if (!isInterpreterLikeSafeBin(executable)) {'
+
+====================================================================================================
+entry-00296 trace[8]  src/node-host/invoke-system-run-plan.ts:479  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);
+expected normalized: 'const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:479
+actual code:
+      const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);
+actual normalized: 'const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);'
+
+====================================================================================================
+entry-00296 trace[9]  src/node-host/invoke-system-run-plan.ts:763  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+          mutableFileOperand: mutableFileOperand.snapshot ?? undefined,
+expected normalized: 'mutableFileOperand: mutableFileOperand.snapshot ?? undefined,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:763
+actual code:
+          mutableFileOperand: mutableFileOperand.snapshot ?? undefined,
+actual normalized: 'mutableFileOperand: mutableFileOperand.snapshot ?? undefined,'
+
+====================================================================================================
+entry-00296 trace[10]  src/node-host/invoke-system-run.ts:529  report=GHSA-QC36-X95H-7J53
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      const parsed = await parseSystemRunPhase(opts);
+expected normalized: 'const parsed = await parseSystemRunPhase(opts);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:529
+actual code:
+      const parsed = await parseSystemRunPhase(opts);
+actual normalized: 'const parsed = await parseSystemRunPhase(opts);'

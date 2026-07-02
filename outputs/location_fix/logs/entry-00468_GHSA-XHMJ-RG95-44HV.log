@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00468 entry_point  packages/components/src/utils.ts:1494  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export const executeJavaScriptCode = async (
+expected normalized: 'export const executeJavaScriptCode = async ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1494
+actual code:
+    export const executeJavaScriptCode = async (
+actual normalized: 'export const executeJavaScriptCode = async ('
+
+====================================================================================================
+entry-00468 critical_operation  packages/components/src/utils.ts:1685  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)
+expected normalized: 'const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1685
+actual code:
+                const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)
+actual normalized: 'const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)'
+
+====================================================================================================
+entry-00468 trace[0]  packages/components/src/utils.ts:1494  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export const executeJavaScriptCode = async (
+expected normalized: 'export const executeJavaScriptCode = async ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1494
+actual code:
+    export const executeJavaScriptCode = async (
+actual normalized: 'export const executeJavaScriptCode = async ('
+
+====================================================================================================
+entry-00468 trace[1]  packages/components/src/utils.ts:1663  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const defaultNodeVMOptions: any = {
+expected normalized: 'const defaultNodeVMOptions: any = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1663
+actual code:
+            const defaultNodeVMOptions: any = {
+actual normalized: 'const defaultNodeVMOptions: any = {'
+
+====================================================================================================
+entry-00468 trace[2]  packages/components/src/utils.ts:1682  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const vm = new NodeVM(finalNodeVMOptions)
+expected normalized: 'const vm = new NodeVM(finalNodeVMOptions)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1682
+actual code:
+            const vm = new NodeVM(finalNodeVMOptions)
+actual normalized: 'const vm = new NodeVM(finalNodeVMOptions)'
+
+====================================================================================================
+entry-00468 trace[3]  packages/components/src/utils.ts:1685  report=GHSA-XHMJ-RG95-44HV
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)
+expected normalized: 'const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1685
+actual code:
+                const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)
+actual normalized: 'const response = await vm.run(`module.exports = async function() {${code}}()`, __dirname)'

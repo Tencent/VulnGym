@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00505 entry_point  src/node-host/invoke-system-run-plan.ts:1164  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    export function buildSystemRunApprovalPlan(params: {
+expected normalized: 'export function buildSystemRunApprovalPlan(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:1164
+actual code:
+    export function buildSystemRunApprovalPlan(params: {
+actual normalized: 'export function buildSystemRunApprovalPlan(params: {'
+
+====================================================================================================
+entry-00505 critical_operation  src/node-host/invoke-system-run-plan.ts:286  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    function unwrapArgvForMutableOperand(argv: string[]): { argv: string[]; baseIndex: number } {
+expected normalized: 'function unwrapArgvForMutableOperand(argv: string[]): { argv: string[]; baseIndex: number } {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:286
+actual code:
+    function unwrapArgvForMutableOperand(argv: string[]): { argv: string[]; baseIndex: number } {
+actual normalized: 'function unwrapArgvForMutableOperand(argv: string[]): { argv: string[]; baseIndex: number } {'
+
+====================================================================================================
+entry-00505 trace[0]  src/node-host/invoke-system-run-plan.ts:1171  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+      const command = resolveSystemRunCommandRequest({
+expected normalized: 'const command = resolveSystemRunCommandRequest({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:1171
+actual code:
+      const command = resolveSystemRunCommandRequest({
+actual normalized: 'const command = resolveSystemRunCommandRequest({'
+
+====================================================================================================
+entry-00505 trace[1]  src/node-host/invoke-system-run-plan.ts:1195  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+expected normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:1195
+actual code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+actual normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+
+====================================================================================================
+entry-00505 trace[2]  src/node-host/invoke-system-run-plan.ts:926  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+      const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);
+expected normalized: 'const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:926
+actual code:
+      const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);
+actual normalized: 'const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);'
+
+====================================================================================================
+entry-00505 trace[3]  src/node-host/invoke-system-run-plan.ts:749  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+expected normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:749
+actual code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+actual normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+
+====================================================================================================
+entry-00505 trace[4]  src/node-host/invoke-system-run-plan.ts:296  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+        const shellMultiplexerUnwrap = unwrapKnownShellMultiplexerInvocation(current);
+expected normalized: 'const shellMultiplexerUnwrap = unwrapKnownShellMultiplexerInvocation(current);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:296
+actual code:
+        const shellMultiplexerUnwrap = unwrapKnownShellMultiplexerInvocation(current);
+actual normalized: 'const shellMultiplexerUnwrap = unwrapKnownShellMultiplexerInvocation(current);'
+
+====================================================================================================
+entry-00505 trace[5]  src/infra/shell-wrapper-resolution.ts:161  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    export function unwrapKnownShellMultiplexerInvocation(
+expected normalized: 'export function unwrapKnownShellMultiplexerInvocation('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/shell-wrapper-resolution.ts:161
+actual code:
+    export function unwrapKnownShellMultiplexerInvocation(
+actual normalized: 'export function unwrapKnownShellMultiplexerInvocation('
+
+====================================================================================================
+entry-00505 trace[6]  src/node-host/invoke-system-run-plan.ts:745  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    function isMutableScriptRunner(executable: string): boolean {
+expected normalized: 'function isMutableScriptRunner(executable: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:745
+actual code:
+    function isMutableScriptRunner(executable: string): boolean {
+actual normalized: 'function isMutableScriptRunner(executable: string): boolean {'
+
+====================================================================================================
+entry-00505 trace[7]  src/infra/exec-safe-bin-runtime-policy.ts:23  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    const INTERPRETER_LIKE_SAFE_BINS = new Set([
+expected normalized: 'const INTERPRETER_LIKE_SAFE_BINS = new Set(['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-runtime-policy.ts:23
+actual code:
+    const INTERPRETER_LIKE_SAFE_BINS = new Set([
+actual normalized: 'const INTERPRETER_LIKE_SAFE_BINS = new Set(['
+
+====================================================================================================
+entry-00505 trace[8]  src/infra/exec-safe-bin-runtime-policy.ts:69  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+    export function isInterpreterLikeSafeBin(raw: string): boolean {
+expected normalized: 'export function isInterpreterLikeSafeBin(raw: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-runtime-policy.ts:69
+actual code:
+    export function isInterpreterLikeSafeBin(raw: string): boolean {
+actual normalized: 'export function isInterpreterLikeSafeBin(raw: string): boolean {'
+
+====================================================================================================
+entry-00505 trace[9]  src/node-host/invoke-system-run-plan.ts:1200  report=GHSA-2CQ5-MF3V-MX44
+repo=https://github.com/openclaw/openclaw
+commit=0a105c0900de701d2ee9f1abc96b017afbd0afdd
+expected code:
+      if (!mutableFileOperand.ok) {
+expected normalized: 'if (!mutableFileOperand.ok) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:1200
+actual code:
+      if (!mutableFileOperand.ok) {
+actual normalized: 'if (!mutableFileOperand.ok) {'

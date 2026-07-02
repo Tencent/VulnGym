@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00265 entry_point  packages/server/src/routes/nvidia-nim/index.ts:9  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    router.get('/list-running-containers', nimController.listRunningContainers)
+expected normalized: "router.get('/list-running-containers', nimController.listRunningContainers)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/nvidia-nim/index.ts:9
+actual code:
+    router.get('/list-running-containers', nimController.listRunningContainers)
+actual normalized: "router.get('/list-running-containers', nimController.listRunningContainers)"
+
+====================================================================================================
+entry-00265 critical_operation  packages/server/src/controllers/nvidia-nim/index.ts:121  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const containers = await NimContainerManager.listRunningContainers()
+expected normalized: 'const containers = await NimContainerManager.listRunningContainers()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:121
+actual code:
+            const containers = await NimContainerManager.listRunningContainers()
+actual normalized: 'const containers = await NimContainerManager.listRunningContainers()'
+
+====================================================================================================
+entry-00265 trace[0]  packages/server/src/utils/constants.ts:26  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+        '/api/v1/nvidia-nim',
+expected normalized: "'/api/v1/nvidia-nim',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:26
+actual code:
+        '/api/v1/nvidia-nim',
+actual normalized: "'/api/v1/nvidia-nim',"
+
+====================================================================================================
+entry-00265 trace[1]  packages/server/src/index.ts:221  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00265 trace[2]  packages/server/src/index.ts:223  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                            next()
+expected normalized: 'next()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:223
+actual code:
+                            next()
+actual normalized: 'next()'
+
+====================================================================================================
+entry-00265 trace[3]  packages/server/src/controllers/nvidia-nim/index.ts:119  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    const listRunningContainers = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const listRunningContainers = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:119
+actual code:
+    const listRunningContainers = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const listRunningContainers = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00265 trace[4]  packages/server/src/controllers/nvidia-nim/index.ts:121  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const containers = await NimContainerManager.listRunningContainers()
+expected normalized: 'const containers = await NimContainerManager.listRunningContainers()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:121
+actual code:
+            const containers = await NimContainerManager.listRunningContainers()
+actual normalized: 'const containers = await NimContainerManager.listRunningContainers()'

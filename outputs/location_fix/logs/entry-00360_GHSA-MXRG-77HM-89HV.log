@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00360 entry_point  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:787  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								.fieldValues as IDataObject[];
+expected normalized: '.fieldValues as IDataObject[];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:787
+actual code:
+    								.fieldValues as IDataObject[];
+actual normalized: '.fieldValues as IDataObject[];'
+
+====================================================================================================
+entry-00360 critical_operation  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:803  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								customSchemas[schemaName] ??= {};
+expected normalized: 'customSchemas[schemaName] ??= {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:803
+actual code:
+    								customSchemas[schemaName] ??= {};
+actual normalized: 'customSchemas[schemaName] ??= {};'
+
+====================================================================================================
+entry-00360 trace[0]  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:787  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								.fieldValues as IDataObject[];
+expected normalized: '.fieldValues as IDataObject[];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:787
+actual code:
+    								.fieldValues as IDataObject[];
+actual normalized: '.fieldValues as IDataObject[];'
+
+====================================================================================================
+entry-00360 trace[1]  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:803  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								customSchemas[schemaName] ??= {};
+expected normalized: 'customSchemas[schemaName] ??= {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:803
+actual code:
+    								customSchemas[schemaName] ??= {};
+actual normalized: 'customSchemas[schemaName] ??= {};'

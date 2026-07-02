@@ -1,0 +1,137 @@
+====================================================================================================
+entry-00105 entry_point  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:70  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+expected normalized: "fileName = this.getNodeParameter('fileName', itemIndex) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:70
+actual code:
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+actual normalized: "fileName = this.getNodeParameter('fileName', itemIndex) as string;"
+
+====================================================================================================
+entry-00105 critical_operation  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:150-153  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+expected normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, });"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:150-153
+actual code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+actual normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, });"
+
+====================================================================================================
+entry-00105 trace[0]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:69-75  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+    			const options = this.getNodeParameter('options', itemIndex, {});
+    			const flag: number = options.append
+    				? constants.O_APPEND
+    				: constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;
+expected normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex); fileName = this.getNodeParameter('fileName', itemIndex) as string; const options = this.getNodeParameter('options', itemIndex, {}); const flag: number = options.append ? constants.O_APPEND : constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:69-74
+actual code:
+    			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+    			const options = this.getNodeParameter('options', itemIndex, {});
+    			const flag: number = options.append
+    				? constants.O_APPEND
+    				: constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;
+actual normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex); fileName = this.getNodeParameter('fileName', itemIndex) as string; const options = this.getNodeParameter('options', itemIndex, {}); const flag: number = options.append ? constants.O_APPEND : constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;"
+
+====================================================================================================
+entry-00105 trace[1]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:96-100  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			await this.helpers.writeContentToFile(
+    				await this.helpers.resolvePath(fileName),
+    				fileContent,
+    				flag,
+    			);
+expected normalized: 'await this.helpers.writeContentToFile( await this.helpers.resolvePath(fileName), fileContent, flag, );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:96-100
+actual code:
+    			await this.helpers.writeContentToFile(
+    				await this.helpers.resolvePath(fileName),
+    				fileContent,
+    				flag,
+    			);
+actual normalized: 'await this.helpers.writeContentToFile( await this.helpers.resolvePath(fileName), fileContent, flag, );'
+
+====================================================================================================
+entry-00105 trace[2]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:140-149  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			throw new NodeOperationError(
+    				node,
+    				`The file "${String(resolvedFilePath)}" is not writable.`,
+    				{
+    					level: 'warning',
+    				},
+    			);
+    		}
+expected normalized: 'async writeContentToFile(resolvedFilePath, content, flag) { if (isFilePathBlocked(resolvedFilePath)) { throw new NodeOperationError( node, `The file "${String(resolvedFilePath)}" is not writable.`, { level: \'warning\', }, ); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:140-149
+actual code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			throw new NodeOperationError(
+    				node,
+    				`The file "${String(resolvedFilePath)}" is not writable.`,
+    				{
+    					level: 'warning',
+    				},
+    			);
+    		}
+actual normalized: 'async writeContentToFile(resolvedFilePath, content, flag) { if (isFilePathBlocked(resolvedFilePath)) { throw new NodeOperationError( node, `The file "${String(resolvedFilePath)}" is not writable.`, { level: \'warning\', }, ); }'
+
+====================================================================================================
+entry-00105 trace[3]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:150-153  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+expected normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, });"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:150-153
+actual code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+actual normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, });"

@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00264 entry_point  packages/server/src/routes/nvidia-nim/index.ts:7  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    router.get('/get-token', nimController.getToken)
+expected normalized: "router.get('/get-token', nimController.getToken)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/nvidia-nim/index.ts:7
+actual code:
+    router.get('/get-token', nimController.getToken)
+actual normalized: "router.get('/get-token', nimController.getToken)"
+
+====================================================================================================
+entry-00264 critical_operation  packages/server/src/controllers/nvidia-nim/index.ts:17  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })
+expected normalized: "const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:17
+actual code:
+            const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })
+actual normalized: "const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })"
+
+====================================================================================================
+entry-00264 trace[0]  packages/server/src/utils/constants.ts:26  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+        '/api/v1/nvidia-nim',
+expected normalized: "'/api/v1/nvidia-nim',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:26
+actual code:
+        '/api/v1/nvidia-nim',
+actual normalized: "'/api/v1/nvidia-nim',"
+
+====================================================================================================
+entry-00264 trace[1]  packages/server/src/index.ts:209  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const whitelistURLs = WHITELIST_URLS.filter((url) => !denylistURLs.includes(url))
+expected normalized: 'const whitelistURLs = WHITELIST_URLS.filter((url) => !denylistURLs.includes(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:209
+actual code:
+            const whitelistURLs = WHITELIST_URLS.filter((url) => !denylistURLs.includes(url))
+actual normalized: 'const whitelistURLs = WHITELIST_URLS.filter((url) => !denylistURLs.includes(url))'
+
+====================================================================================================
+entry-00264 trace[2]  packages/server/src/index.ts:221  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00264 trace[3]  packages/server/src/index.ts:222  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                        if (isWhitelisted) {
+expected normalized: 'if (isWhitelisted) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:222
+actual code:
+                        if (isWhitelisted) {
+actual normalized: 'if (isWhitelisted) {'
+
+====================================================================================================
+entry-00264 trace[4]  packages/server/src/index.ts:223  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                            next()
+expected normalized: 'next()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:223
+actual code:
+                            next()
+actual normalized: 'next()'
+
+====================================================================================================
+entry-00264 trace[5]  packages/server/src/controllers/nvidia-nim/index.ts:6  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    const getToken = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const getToken = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:6
+actual code:
+    const getToken = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const getToken = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00264 trace[6]  packages/server/src/controllers/nvidia-nim/index.ts:17  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })
+expected normalized: "const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:17
+actual code:
+            const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })
+actual normalized: "const response = await axios.post('https://nts.ngc.nvidia.com/v1/token', data, { headers })"

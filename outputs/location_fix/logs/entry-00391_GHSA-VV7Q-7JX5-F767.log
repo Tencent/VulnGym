@@ -1,0 +1,127 @@
+====================================================================================================
+entry-00391 entry_point  src/fastmcp/utilities/openapi/director.py:23  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        def build(
+expected normalized: 'def build('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:23
+actual code:
+        def build(
+actual normalized: 'def build('
+
+====================================================================================================
+entry-00391 critical_operation  src/fastmcp/utilities/openapi/director.py:194  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        def _build_url(
+expected normalized: 'def _build_url('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:194
+actual code:
+        def _build_url(
+actual normalized: 'def _build_url('
+
+====================================================================================================
+entry-00391 trace[0]  src/fastmcp/utilities/openapi/director.py:23-28  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        def build(
+            self,
+            route: HTTPRoute,
+            flat_args: dict[str, Any],
+            base_url: str = "http://localhost",
+        ) -> httpx.Request:
+expected normalized: 'def build( self, route: HTTPRoute, flat_args: dict[str, Any], base_url: str = "http://localhost", ) -> httpx.Request:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:23-28
+actual code:
+        def build(
+            self,
+            route: HTTPRoute,
+            flat_args: dict[str, Any],
+            base_url: str = "http://localhost",
+        ) -> httpx.Request:
+actual normalized: 'def build( self, route: HTTPRoute, flat_args: dict[str, Any], base_url: str = "http://localhost", ) -> httpx.Request:'
+
+====================================================================================================
+entry-00391 trace[1]  src/fastmcp/utilities/openapi/director.py:40-44  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            logger.debug(
+                f"Building request for {route.method} {route.path} with args: {flat_args}"
+            )
+    
+            # Step 1: Un-flatten arguments into path, query, body, etc. using parameter map
+expected normalized: 'logger.debug( f"Building request for {route.method} {route.path} with args: {flat_args}" ) # Step 1: Un-flatten arguments into path, query, body, etc. using parameter map'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:40-44
+actual code:
+            logger.debug(
+                f"Building request for {route.method} {route.path} with args: {flat_args}"
+            )
+    
+            # Step 1: Un-flatten arguments into path, query, body, etc. using parameter map
+actual normalized: 'logger.debug( f"Building request for {route.method} {route.path} with args: {flat_args}" ) # Step 1: Un-flatten arguments into path, query, body, etc. using parameter map'
+
+====================================================================================================
+entry-00391 trace[2]  src/fastmcp/utilities/openapi/director.py:114-115  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                    if location == "path":
+                        path_params[openapi_name] = value
+expected normalized: 'if location == "path": path_params[openapi_name] = value'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:114-115
+actual code:
+                    if location == "path":
+                        path_params[openapi_name] = value
+actual normalized: 'if location == "path": path_params[openapi_name] = value'
+
+====================================================================================================
+entry-00391 trace[3]  src/fastmcp/utilities/openapi/director.py:194-203  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        def _build_url(
+            self, path_template: str, path_params: dict[str, Any], base_url: str
+        ) -> str:
+            """
+            Build URL by substituting path parameters in the template.
+    
+            Args:
+                path_template: OpenAPI path template (e.g., "/users/{id}")
+                path_params: Path parameter values
+                base_url: Base URL to prepend
+expected normalized: 'def _build_url( self, path_template: str, path_params: dict[str, Any], base_url: str ) -> str: """ Build URL by substituting path parameters in the template. Args: path_template: OpenAPI path template (e.g., "/users/{id}") path_params: Path parameter values base_url: Base URL to prepend'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:194-203
+actual code:
+        def _build_url(
+            self, path_template: str, path_params: dict[str, Any], base_url: str
+        ) -> str:
+            """
+            Build URL by substituting path parameters in the template.
+    
+            Args:
+                path_template: OpenAPI path template (e.g., "/users/{id}")
+                path_params: Path parameter values
+                base_url: Base URL to prepend
+actual normalized: 'def _build_url( self, path_template: str, path_params: dict[str, Any], base_url: str ) -> str: """ Build URL by substituting path parameters in the template. Args: path_template: OpenAPI path template (e.g., "/users/{id}") path_params: Path parameter values base_url: Base URL to prepend'

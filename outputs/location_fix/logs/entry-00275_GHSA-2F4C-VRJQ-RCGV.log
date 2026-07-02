@@ -1,0 +1,185 @@
+====================================================================================================
+entry-00275 entry_point  internal/agent/tools/database_query.go:117  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+expected normalized: 'func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/database_query.go:117
+actual code:
+    func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+actual normalized: 'func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+
+====================================================================================================
+entry-00275 critical_operation  internal/utils/inject.go:819-826  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    	for tableName, alias := range tablesInQuery {
+    		if v.tablesWithTenantID[tableName] {
+    			if tableName == "tenants" {
+    				conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID))
+    			} else {
+    				conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID))
+    			}
+    		}
+expected normalized: 'for tableName, alias := range tablesInQuery { if v.tablesWithTenantID[tableName] { if tableName == "tenants" { conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID)) } else { conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID)) } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/inject.go:819-826
+actual code:
+    	for tableName, alias := range tablesInQuery {
+    		if v.tablesWithTenantID[tableName] {
+    			if tableName == "tenants" {
+    				conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID))
+    			} else {
+    				conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID))
+    			}
+    		}
+actual normalized: 'for tableName, alias := range tablesInQuery { if v.tablesWithTenantID[tableName] { if tableName == "tenants" { conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID)) } else { conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID)) } }'
+
+====================================================================================================
+entry-00275 trace[0]  internal/agent/tools/database_query.go:117  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+expected normalized: 'func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/database_query.go:117
+actual code:
+    func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+actual normalized: 'func (t *DatabaseQueryTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+
+====================================================================================================
+entry-00275 trace[1]  internal/agent/tools/database_query.go:149  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    	securedSQL, err := t.validateAndSecureSQL(input.SQL, tenantID)
+expected normalized: 'securedSQL, err := t.validateAndSecureSQL(input.SQL, tenantID)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/database_query.go:149
+actual code:
+    	securedSQL, err := t.validateAndSecureSQL(input.SQL, tenantID)
+actual normalized: 'securedSQL, err := t.validateAndSecureSQL(input.SQL, tenantID)'
+
+====================================================================================================
+entry-00275 trace[2]  internal/agent/tools/database_query.go:257-261  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    	securedSQL, validationResult, err := utils.ValidateAndSecureSQL(
+    		sqlQuery,
+    		utils.WithSecurityDefaults(tenantID),
+    		utils.WithInjectionRiskCheck(),
+    	)
+expected normalized: 'securedSQL, validationResult, err := utils.ValidateAndSecureSQL( sqlQuery, utils.WithSecurityDefaults(tenantID), utils.WithInjectionRiskCheck(), )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/database_query.go:257-261
+actual code:
+    	securedSQL, validationResult, err := utils.ValidateAndSecureSQL(
+    		sqlQuery,
+    		utils.WithSecurityDefaults(tenantID),
+    		utils.WithInjectionRiskCheck(),
+    	)
+actual normalized: 'securedSQL, validationResult, err := utils.ValidateAndSecureSQL( sqlQuery, utils.WithSecurityDefaults(tenantID), utils.WithInjectionRiskCheck(), )'
+
+====================================================================================================
+entry-00275 trace[3]  internal/utils/inject.go:578  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    func WithSecurityDefaults(tenantID uint64) SQLValidationOption {
+expected normalized: 'func WithSecurityDefaults(tenantID uint64) SQLValidationOption {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/inject.go:578
+actual code:
+    func WithSecurityDefaults(tenantID uint64) SQLValidationOption {
+actual normalized: 'func WithSecurityDefaults(tenantID uint64) SQLValidationOption {'
+
+====================================================================================================
+entry-00275 trace[4]  internal/utils/inject.go:555  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    func WithTenantIsolation(tenantID uint64, tables ...string) SQLValidationOption {
+expected normalized: 'func WithTenantIsolation(tenantID uint64, tables ...string) SQLValidationOption {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/inject.go:555
+actual code:
+    func WithTenantIsolation(tenantID uint64, tables ...string) SQLValidationOption {
+actual normalized: 'func WithTenantIsolation(tenantID uint64, tables ...string) SQLValidationOption {'
+
+====================================================================================================
+entry-00275 trace[5]  internal/utils/inject.go:761  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    func ValidateAndSecureSQL(sql string, opts ...SQLValidationOption) (string, *SQLValidationResult, error) {
+expected normalized: 'func ValidateAndSecureSQL(sql string, opts ...SQLValidationOption) (string, *SQLValidationResult, error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/inject.go:761
+actual code:
+    func ValidateAndSecureSQL(sql string, opts ...SQLValidationOption) (string, *SQLValidationResult, error) {
+actual normalized: 'func ValidateAndSecureSQL(sql string, opts ...SQLValidationOption) (string, *SQLValidationResult, error) {'
+
+====================================================================================================
+entry-00275 trace[6]  internal/agent/tools/database_query.go:164  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    	rows, err := t.db.WithContext(ctx).Raw(securedSQL).Rows()
+expected normalized: 'rows, err := t.db.WithContext(ctx).Raw(securedSQL).Rows()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/database_query.go:164
+actual code:
+    	rows, err := t.db.WithContext(ctx).Raw(securedSQL).Rows()
+actual normalized: 'rows, err := t.db.WithContext(ctx).Raw(securedSQL).Rows()'
+
+====================================================================================================
+entry-00275 trace[7]  internal/utils/inject.go:819-826  report=GHSA-2F4C-VRJQ-RCGV
+repo=https://github.com/Tencent/WeKnora
+commit=de06bb24d319da975ce51bd9668047fe4010e867
+expected code:
+    	for tableName, alias := range tablesInQuery {
+    		if v.tablesWithTenantID[tableName] {
+    			if tableName == "tenants" {
+    				conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID))
+    			} else {
+    				conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID))
+    			}
+    		}
+expected normalized: 'for tableName, alias := range tablesInQuery { if v.tablesWithTenantID[tableName] { if tableName == "tenants" { conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID)) } else { conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID)) } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/inject.go:819-826
+actual code:
+    	for tableName, alias := range tablesInQuery {
+    		if v.tablesWithTenantID[tableName] {
+    			if tableName == "tenants" {
+    				conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID))
+    			} else {
+    				conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID))
+    			}
+    		}
+actual normalized: 'for tableName, alias := range tablesInQuery { if v.tablesWithTenantID[tableName] { if tableName == "tenants" { conditions = append(conditions, fmt.Sprintf("%s.id = %d", alias, v.tenantID)) } else { conditions = append(conditions, fmt.Sprintf("%s.tenant_id = %d", alias, v.tenantID)) } }'

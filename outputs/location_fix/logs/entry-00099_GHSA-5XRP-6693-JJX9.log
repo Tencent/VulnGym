@@ -1,0 +1,113 @@
+====================================================================================================
+entry-00099 entry_point  packages/cli/src/workflows/workflows.controller.ts:539  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    	@Post('/:workflowId/run')
+expected normalized: "@Post('/:workflowId/run')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/workflows/workflows.controller.ts:539
+actual code:
+    	@Post('/:workflowId/run')
+actual normalized: "@Post('/:workflowId/run')"
+
+====================================================================================================
+entry-00099 critical_operation  packages/workflow/src/expression-sandboxing.ts:244  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+expected normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:244
+actual code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+actual normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+
+====================================================================================================
+entry-00099 trace[0]  packages/cli/src/workflows/workflows.controller.ts:539  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    	@Post('/:workflowId/run')
+expected normalized: "@Post('/:workflowId/run')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/workflows/workflows.controller.ts:539
+actual code:
+    	@Post('/:workflowId/run')
+actual normalized: "@Post('/:workflowId/run')"
+
+====================================================================================================
+entry-00099 trace[1]  packages/workflow/src/expression.ts:384-393  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    		if (!isExpression(parameterValue)) {
+    			// Is no expression so return value
+    			return parameterValue;
+    		}
+    
+    		// Is an expression
+    
+    		// Remove the equal sign
+    
+    		parameterValue = parameterValue.substr(1);
+expected normalized: 'if (!isExpression(parameterValue)) { // Is no expression so return value return parameterValue; } // Is an expression // Remove the equal sign parameterValue = parameterValue.substr(1);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:384-393
+actual code:
+    		if (!isExpression(parameterValue)) {
+    			// Is no expression so return value
+    			return parameterValue;
+    		}
+    
+    		// Is an expression
+    
+    		// Remove the equal sign
+    
+    		parameterValue = parameterValue.substr(1);
+actual normalized: 'if (!isExpression(parameterValue)) { // Is no expression so return value return parameterValue; } // Is an expression // Remove the equal sign parameterValue = parameterValue.substr(1);'
+
+====================================================================================================
+entry-00099 trace[2]  packages/workflow/src/expression-evaluator-proxy.ts:9-12  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {
+    	before: [ThisSanitizer],
+    	after: [PrototypeSanitizer, DollarSignValidator],
+    });
+expected normalized: 'const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, { before: [ThisSanitizer], after: [PrototypeSanitizer, DollarSignValidator], });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:9-12
+actual code:
+    const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {
+    	before: [ThisSanitizer],
+    	after: [PrototypeSanitizer, DollarSignValidator],
+    });
+actual normalized: 'const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, { before: [ThisSanitizer], after: [PrototypeSanitizer, DollarSignValidator], });'
+
+====================================================================================================
+entry-00099 trace[3]  packages/workflow/src/expression-sandboxing.ts:244  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+expected normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:244
+actual code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+actual normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'

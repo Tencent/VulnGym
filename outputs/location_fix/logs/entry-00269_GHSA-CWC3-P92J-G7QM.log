@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00269 entry_point  packages/server/src/enterprise/routes/login-method.route.ts:14  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    router.put('/', checkPermission('sso:manage'), loginMethodController.update)
+expected normalized: "router.put('/', checkPermission('sso:manage'), loginMethodController.update)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/login-method.route.ts:14
+actual code:
+    router.put('/', checkPermission('sso:manage'), loginMethodController.update)
+actual normalized: "router.put('/', checkPermission('sso:manage'), loginMethodController.update)"
+
+====================================================================================================
+entry-00269 critical_operation  packages/server/src/enterprise/controllers/login-method.controller.ts:114  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)
+expected normalized: 'identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:114
+actual code:
+                            identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)
+actual normalized: 'identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)'
+
+====================================================================================================
+entry-00269 trace[0]  packages/server/src/enterprise/routes/login-method.route.ts:14  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    router.put('/', checkPermission('sso:manage'), loginMethodController.update)
+expected normalized: "router.put('/', checkPermission('sso:manage'), loginMethodController.update)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/login-method.route.ts:14
+actual code:
+    router.put('/', checkPermission('sso:manage'), loginMethodController.update)
+actual normalized: "router.put('/', checkPermission('sso:manage'), loginMethodController.update)"
+
+====================================================================================================
+entry-00269 trace[1]  packages/server/src/enterprise/controllers/login-method.controller.ts:103  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    public async update(req: Request, res: Response, next: NextFunction) {
+expected normalized: 'public async update(req: Request, res: Response, next: NextFunction) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:103
+actual code:
+        public async update(req: Request, res: Response, next: NextFunction) {
+actual normalized: 'public async update(req: Request, res: Response, next: NextFunction) {'
+
+====================================================================================================
+entry-00269 trace[2]  packages/server/src/enterprise/services/login-method.service.ts:103  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    public async createOrUpdateConfig(body: any) {
+expected normalized: 'public async createOrUpdateConfig(body: any) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/login-method.service.ts:103
+actual code:
+        public async createOrUpdateConfig(body: any) {
+actual normalized: 'public async createOrUpdateConfig(body: any) {'
+
+====================================================================================================
+entry-00269 trace[3]  packages/server/src/enterprise/services/login-method.service.ts:113  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    const createdOrUpdatedByUser = await this.userService.readUserById(userId, queryRunner)
+expected normalized: 'const createdOrUpdatedByUser = await this.userService.readUserById(userId, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/login-method.service.ts:113
+actual code:
+                const createdOrUpdatedByUser = await this.userService.readUserById(userId, queryRunner)
+actual normalized: 'const createdOrUpdatedByUser = await this.userService.readUserById(userId, queryRunner)'
+
+====================================================================================================
+entry-00269 trace[4]  packages/server/src/enterprise/services/login-method.service.ts:115  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    const organization = await this.organizationService.readOrganizationById(organizationId, queryRunner)
+expected normalized: 'const organization = await this.organizationService.readOrganizationById(organizationId, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/login-method.service.ts:115
+actual code:
+                const organization = await this.organizationService.readOrganizationById(organizationId, queryRunner)
+actual normalized: 'const organization = await this.organizationService.readOrganizationById(organizationId, queryRunner)'
+
+====================================================================================================
+entry-00269 trace[5]  packages/server/src/enterprise/services/login-method.service.ts:123  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    const loginMethod = await queryRunner.manager.findOneBy(LoginMethod, { organizationId, name })
+expected normalized: 'const loginMethod = await queryRunner.manager.findOneBy(LoginMethod, { organizationId, name })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/login-method.service.ts:123
+actual code:
+                    const loginMethod = await queryRunner.manager.findOneBy(LoginMethod, { organizationId, name })
+actual normalized: 'const loginMethod = await queryRunner.manager.findOneBy(LoginMethod, { organizationId, name })'
+
+====================================================================================================
+entry-00269 trace[6]  packages/server/src/enterprise/controllers/login-method.controller.ts:107  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    if (loginMethod?.status === 'OK' && loginMethod?.organizationId) {
+expected normalized: "if (loginMethod?.status === 'OK' && loginMethod?.organizationId) {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:107
+actual code:
+                if (loginMethod?.status === 'OK' && loginMethod?.organizationId) {
+actual normalized: "if (loginMethod?.status === 'OK' && loginMethod?.organizationId) {"
+
+====================================================================================================
+entry-00269 trace[7]  packages/server/src/enterprise/controllers/login-method.controller.ts:114  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+                            identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)
+expected normalized: 'identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:114
+actual code:
+                            identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)
+actual normalized: 'identityManager.initializeSsoProvider(appServer.app, provider.providerName, provider.config)'

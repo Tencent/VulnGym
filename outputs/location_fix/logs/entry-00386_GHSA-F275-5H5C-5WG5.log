@@ -1,0 +1,117 @@
+====================================================================================================
+entry-00386 entry_point  extensions/device-pair/index.ts:577-581  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+              if (
+                gatewayClientScopes &&
+                !gatewayClientScopes.includes("operator.pairing") &&
+                !gatewayClientScopes.includes("operator.admin")
+              ) {
+expected normalized: 'if ( gatewayClientScopes && !gatewayClientScopes.includes("operator.pairing") && !gatewayClientScopes.includes("operator.admin") ) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:577-581
+actual code:
+              if (
+                gatewayClientScopes &&
+                !gatewayClientScopes.includes("operator.pairing") &&
+                !gatewayClientScopes.includes("operator.admin")
+              ) {
+actual normalized: 'if ( gatewayClientScopes && !gatewayClientScopes.includes("operator.pairing") && !gatewayClientScopes.includes("operator.admin") ) {'
+
+====================================================================================================
+entry-00386 critical_operation  src/infra/device-pairing.ts:480-482  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+          if (missingScope) {
+            return { status: "forbidden", missingScope };
+          }
+expected normalized: 'if (missingScope) { return { status: "forbidden", missingScope }; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:480-482
+actual code:
+          if (missingScope) {
+            return { status: "forbidden", missingScope };
+          }
+actual normalized: 'if (missingScope) { return { status: "forbidden", missingScope }; }'
+
+====================================================================================================
+entry-00386 trace[0]  extensions/device-pair/index.ts:577-581  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+              if (
+                gatewayClientScopes &&
+                !gatewayClientScopes.includes("operator.pairing") &&
+                !gatewayClientScopes.includes("operator.admin")
+              ) {
+expected normalized: 'if ( gatewayClientScopes && !gatewayClientScopes.includes("operator.pairing") && !gatewayClientScopes.includes("operator.admin") ) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:577-581
+actual code:
+              if (
+                gatewayClientScopes &&
+                !gatewayClientScopes.includes("operator.pairing") &&
+                !gatewayClientScopes.includes("operator.admin")
+              ) {
+actual normalized: 'if ( gatewayClientScopes && !gatewayClientScopes.includes("operator.pairing") && !gatewayClientScopes.includes("operator.admin") ) {'
+
+====================================================================================================
+entry-00386 trace[1]  src/infra/device-pairing.ts:460-462  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+        typeof optionsOrBaseDir === "string" || optionsOrBaseDir === undefined
+          ? undefined
+          : optionsOrBaseDir;
+expected normalized: 'typeof optionsOrBaseDir === "string" || optionsOrBaseDir === undefined ? undefined : optionsOrBaseDir;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:460-462
+actual code:
+        typeof optionsOrBaseDir === "string" || optionsOrBaseDir === undefined
+          ? undefined
+          : optionsOrBaseDir;
+actual normalized: 'typeof optionsOrBaseDir === "string" || optionsOrBaseDir === undefined ? undefined : optionsOrBaseDir;'
+
+====================================================================================================
+entry-00386 trace[2]  src/infra/device-pairing.ts:470  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+        const approvalRole = resolvePendingApprovalRole(pending);
+expected normalized: 'const approvalRole = resolvePendingApprovalRole(pending);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:470
+actual code:
+        const approvalRole = resolvePendingApprovalRole(pending);
+actual normalized: 'const approvalRole = resolvePendingApprovalRole(pending);'
+
+====================================================================================================
+entry-00386 trace[3]  src/infra/device-pairing.ts:480-482  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+          if (missingScope) {
+            return { status: "forbidden", missingScope };
+          }
+expected normalized: 'if (missingScope) { return { status: "forbidden", missingScope }; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:480-482
+actual code:
+          if (missingScope) {
+            return { status: "forbidden", missingScope };
+          }
+actual normalized: 'if (missingScope) { return { status: "forbidden", missingScope }; }'

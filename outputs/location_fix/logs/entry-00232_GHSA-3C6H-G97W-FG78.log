@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00232 entry_point  src/agents/bash-tools.exec.ts:205  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+        execute: async (_toolCallId, args, signal, onUpdate) => {
+expected normalized: 'execute: async (_toolCallId, args, signal, onUpdate) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec.ts:205
+actual code:
+        execute: async (_toolCallId, args, signal, onUpdate) => {
+actual normalized: 'execute: async (_toolCallId, args, signal, onUpdate) => {'
+
+====================================================================================================
+entry-00232 critical_operation  src/infra/exec-safe-bin-policy.ts:304  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+      if (deniedFlags.has(flag)) {
+expected normalized: 'if (deniedFlags.has(flag)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-policy.ts:304
+actual code:
+      if (deniedFlags.has(flag)) {
+actual normalized: 'if (deniedFlags.has(flag)) {'
+
+====================================================================================================
+entry-00232 trace[0]  src/agents/bash-tools.exec.ts:205  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+        execute: async (_toolCallId, args, signal, onUpdate) => {
+expected normalized: 'execute: async (_toolCallId, args, signal, onUpdate) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec.ts:205
+actual code:
+        execute: async (_toolCallId, args, signal, onUpdate) => {
+actual normalized: 'execute: async (_toolCallId, args, signal, onUpdate) => {'
+
+====================================================================================================
+entry-00232 trace[1]  src/agents/bash-tools.exec.ts:418  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+            const gatewayResult = await processGatewayAllowlist({
+expected normalized: 'const gatewayResult = await processGatewayAllowlist({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec.ts:418
+actual code:
+            const gatewayResult = await processGatewayAllowlist({
+actual normalized: 'const gatewayResult = await processGatewayAllowlist({'
+
+====================================================================================================
+entry-00232 trace[2]  src/agents/bash-tools.exec-host-gateway.ts:72  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+      const allowlistEval = evaluateShellAllowlist({
+expected normalized: 'const allowlistEval = evaluateShellAllowlist({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:72
+actual code:
+      const allowlistEval = evaluateShellAllowlist({
+actual normalized: 'const allowlistEval = evaluateShellAllowlist({'
+
+====================================================================================================
+entry-00232 trace[3]  src/infra/exec-approvals-allowlist.ts:134  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+        const safe = isSafeBinUsage({
+expected normalized: 'const safe = isSafeBinUsage({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:134
+actual code:
+        const safe = isSafeBinUsage({
+actual normalized: 'const safe = isSafeBinUsage({'
+
+====================================================================================================
+entry-00232 trace[4]  src/infra/exec-approvals-allowlist.ts:92  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+      return validateSafeBinArgv(argv, profile);
+expected normalized: 'return validateSafeBinArgv(argv, profile);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:92
+actual code:
+      return validateSafeBinArgv(argv, profile);
+actual normalized: 'return validateSafeBinArgv(argv, profile);'
+
+====================================================================================================
+entry-00232 trace[5]  src/infra/exec-safe-bin-policy.ts:394  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+          const nextIndex = consumeLongOptionToken(
+expected normalized: 'const nextIndex = consumeLongOptionToken('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-policy.ts:394
+actual code:
+          const nextIndex = consumeLongOptionToken(
+actual normalized: 'const nextIndex = consumeLongOptionToken('
+
+====================================================================================================
+entry-00232 trace[6]  src/infra/exec-safe-bin-policy.ts:304  report=GHSA-3C6H-G97W-FG78
+repo=https://github.com/openclaw/openclaw
+commit=7b4d2cb5cb8cc971e5eee880a489c227bda375fb
+expected code:
+      if (deniedFlags.has(flag)) {
+expected normalized: 'if (deniedFlags.has(flag)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safe-bin-policy.ts:304
+actual code:
+      if (deniedFlags.has(flag)) {
+actual normalized: 'if (deniedFlags.has(flag)) {'

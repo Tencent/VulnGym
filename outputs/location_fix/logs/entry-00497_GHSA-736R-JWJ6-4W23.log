@@ -1,0 +1,99 @@
+====================================================================================================
+entry-00497 entry_point  src/agents/exec-defaults.ts:56-61  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+    export function canExecRequestNode(params: {
+      cfg?: OpenClawConfig;
+      sessionEntry?: SessionEntry;
+      agentId?: string;
+      sessionKey?: string;
+    }): boolean {
+expected normalized: 'export function canExecRequestNode(params: { cfg?: OpenClawConfig; sessionEntry?: SessionEntry; agentId?: string; sessionKey?: string; }): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/exec-defaults.ts:56-61
+actual code:
+    export function canExecRequestNode(params: {
+      cfg?: OpenClawConfig;
+      sessionEntry?: SessionEntry;
+      agentId?: string;
+      sessionKey?: string;
+    }): boolean {
+actual normalized: 'export function canExecRequestNode(params: { cfg?: OpenClawConfig; sessionEntry?: SessionEntry; agentId?: string; sessionKey?: string; }): boolean {'
+
+====================================================================================================
+entry-00497 critical_operation  src/agents/exec-defaults.ts:63-66  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+      return isRequestedExecTargetAllowed({
+        configuredTarget: host,
+        requestedTarget: "node",
+      });
+expected normalized: 'return isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node", });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/exec-defaults.ts:63-66
+actual code:
+      return isRequestedExecTargetAllowed({
+        configuredTarget: host,
+        requestedTarget: "node",
+      });
+actual normalized: 'return isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node", });'
+
+====================================================================================================
+entry-00497 trace[0]  src/agents/exec-defaults.ts:56-65  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+    export function canExecRequestNode(params: {
+      cfg?: OpenClawConfig;
+      sessionEntry?: SessionEntry;
+      agentId?: string;
+      sessionKey?: string;
+    }): boolean {
+      const { host } = resolveExecConfigState(params);
+      return isRequestedExecTargetAllowed({
+        configuredTarget: host,
+        requestedTarget: "node",
+expected normalized: 'export function canExecRequestNode(params: { cfg?: OpenClawConfig; sessionEntry?: SessionEntry; agentId?: string; sessionKey?: string; }): boolean { const { host } = resolveExecConfigState(params); return isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/exec-defaults.ts:56-65
+actual code:
+    export function canExecRequestNode(params: {
+      cfg?: OpenClawConfig;
+      sessionEntry?: SessionEntry;
+      agentId?: string;
+      sessionKey?: string;
+    }): boolean {
+      const { host } = resolveExecConfigState(params);
+      return isRequestedExecTargetAllowed({
+        configuredTarget: host,
+        requestedTarget: "node",
+actual normalized: 'export function canExecRequestNode(params: { cfg?: OpenClawConfig; sessionEntry?: SessionEntry; agentId?: string; sessionKey?: string; }): boolean { const { host } = resolveExecConfigState(params); return isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node",'
+
+====================================================================================================
+entry-00497 trace[1]  src/agents/exec-defaults.ts:115-118  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+        canRequestNode: isRequestedExecTargetAllowed({
+          configuredTarget: host,
+          requestedTarget: "node",
+        }),
+expected normalized: 'canRequestNode: isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node", }),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/exec-defaults.ts:115-118
+actual code:
+        canRequestNode: isRequestedExecTargetAllowed({
+          configuredTarget: host,
+          requestedTarget: "node",
+        }),
+actual normalized: 'canRequestNode: isRequestedExecTargetAllowed({ configuredTarget: host, requestedTarget: "node", }),'

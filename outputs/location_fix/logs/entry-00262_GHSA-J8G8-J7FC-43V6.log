@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00262 entry_point  packages/server/src/routes/attachments/index.ts:8  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.post('/:chatflowId/:chatId', getMulterStorage().array('files'), attachmentsController.createAttachment)
+expected normalized: "router.post('/:chatflowId/:chatId', getMulterStorage().array('files'), attachmentsController.createAttachment)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/attachments/index.ts:8
+actual code:
+    router.post('/:chatflowId/:chatId', getMulterStorage().array('files'), attachmentsController.createAttachment)
+actual normalized: "router.post('/:chatflowId/:chatId', getMulterStorage().array('files'), attachmentsController.createAttachment)"
+
+====================================================================================================
+entry-00262 critical_operation  packages/server/src/utils/createAttachment.ts:137  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+expected normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:137
+actual code:
+                if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+actual normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'
+
+====================================================================================================
+entry-00262 trace[0]  packages/server/src/utils/constants.ts:25  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    '/api/v1/attachments',
+expected normalized: "'/api/v1/attachments',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:25
+actual code:
+        '/api/v1/attachments',
+actual normalized: "'/api/v1/attachments',"
+
+====================================================================================================
+entry-00262 trace[1]  packages/server/src/index.ts:226  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:226
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00262 trace[2]  packages/server/src/index.ts:227  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    if (isWhitelisted) {
+expected normalized: 'if (isWhitelisted) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:227
+actual code:
+                        if (isWhitelisted) {
+actual normalized: 'if (isWhitelisted) {'
+
+====================================================================================================
+entry-00262 trace[3]  packages/server/src/utils/index.ts:1958  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    return multer({ dest: getUploadPath() })
+expected normalized: 'return multer({ dest: getUploadPath() })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/index.ts:1958
+actual code:
+            return multer({ dest: getUploadPath() })
+actual normalized: 'return multer({ dest: getUploadPath() })'
+
+====================================================================================================
+entry-00262 trace[4]  packages/server/src/utils/createAttachment.ts:124  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    const files = (req.files as Express.Multer.File[]) || []
+expected normalized: 'const files = (req.files as Express.Multer.File[]) || []'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:124
+actual code:
+        const files = (req.files as Express.Multer.File[]) || []
+actual normalized: 'const files = (req.files as Express.Multer.File[]) || []'
+
+====================================================================================================
+entry-00262 trace[5]  packages/server/src/utils/createAttachment.ts:129  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    if (!allowedFileTypes.length) {
+expected normalized: 'if (!allowedFileTypes.length) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:129
+actual code:
+                if (!allowedFileTypes.length) {
+actual normalized: 'if (!allowedFileTypes.length) {'
+
+====================================================================================================
+entry-00262 trace[6]  packages/server/src/utils/createAttachment.ts:137  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+expected normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:137
+actual code:
+                if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+actual normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'

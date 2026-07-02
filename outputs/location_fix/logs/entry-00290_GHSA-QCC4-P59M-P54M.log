@@ -1,0 +1,127 @@
+====================================================================================================
+entry-00290 entry_point  src/agents/apply-patch.ts:94  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+        execute: async (_toolCallId, args, signal) => {
+expected normalized: 'execute: async (_toolCallId, args, signal) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:94
+actual code:
+        execute: async (_toolCallId, args, signal) => {
+actual normalized: 'execute: async (_toolCallId, args, signal) => {'
+
+====================================================================================================
+entry-00290 critical_operation  src/infra/boundary-path.ts:196  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+        const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);
+expected normalized: 'const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/boundary-path.ts:196
+actual code:
+        const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);
+actual normalized: 'const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);'
+
+====================================================================================================
+entry-00290 trace[0]  src/agents/apply-patch.ts:94  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+        execute: async (_toolCallId, args, signal) => {
+expected normalized: 'execute: async (_toolCallId, args, signal) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:94
+actual code:
+        execute: async (_toolCallId, args, signal) => {
+actual normalized: 'execute: async (_toolCallId, args, signal) => {'
+
+====================================================================================================
+entry-00290 trace[1]  src/agents/apply-patch.ts:106  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+          const result = await applyPatch(input, {
+expected normalized: 'const result = await applyPatch(input, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:106
+actual code:
+          const result = await applyPatch(input, {
+actual normalized: 'const result = await applyPatch(input, {'
+
+====================================================================================================
+entry-00290 trace[2]  src/agents/apply-patch.ts:150  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+          const target = await resolvePatchPath(hunk.path, options);
+expected normalized: 'const target = await resolvePatchPath(hunk.path, options);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:150
+actual code:
+          const target = await resolvePatchPath(hunk.path, options);
+actual normalized: 'const target = await resolvePatchPath(hunk.path, options);'
+
+====================================================================================================
+entry-00290 trace[3]  src/agents/apply-patch.ts:281  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+        ? (
+expected normalized: '? ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:281
+actual code:
+        ? (
+actual normalized: '? ('
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (2):
+  [1] src/agents/apply-patch.ts:281
+          ? (
+  [2] src/auto-reply/reply/dispatch-acp.ts:259
+            ? (
+
+====================================================================================================
+entry-00290 trace[4]  src/agents/sandbox-paths.ts:72  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+      await assertNoPathAliasEscape({
+expected normalized: 'await assertNoPathAliasEscape({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox-paths.ts:72
+actual code:
+      await assertNoPathAliasEscape({
+actual normalized: 'await assertNoPathAliasEscape({'
+
+====================================================================================================
+entry-00290 trace[5]  src/infra/boundary-path.ts:196  report=GHSA-QCC4-P59M-P54M
+repo=https://github.com/openclaw/openclaw
+commit=8b5ebff67ba16bb68e26a2a0a22ed9556800009d
+expected code:
+        const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);
+expected normalized: 'const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/boundary-path.ts:196
+actual code:
+        const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);
+actual normalized: 'const linkCanonical = await resolveSymlinkHopPath(lexicalCursor);'

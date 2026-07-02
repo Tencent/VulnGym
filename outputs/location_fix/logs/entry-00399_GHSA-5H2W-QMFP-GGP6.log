@@ -1,0 +1,139 @@
+====================================================================================================
+entry-00399 entry_point  src/gateway/server-methods/chat.ts:2032  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    GatewayClientScopes: client?.connect?.scopes ?? [],
+expected normalized: 'GatewayClientScopes: client?.connect?.scopes ?? [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:2032
+actual code:
+    <line outside file range>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2027 to 2037
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00399 critical_operation  src/auto-reply/reply/directive-handling.persist.ts:92-95  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+          updated = true;
+        }
+expected normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); updated = true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.persist.ts:92-95
+actual code:
+        if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+          updated = true;
+        }
+actual normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); updated = true; }'
+
+====================================================================================================
+entry-00399 trace[0]  src/gateway/server-methods/chat.ts:2032  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    GatewayClientScopes: client?.connect?.scopes ?? [],
+expected normalized: 'GatewayClientScopes: client?.connect?.scopes ?? [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:2032
+actual code:
+    <line outside file range>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2027 to 2037
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00399 trace[1]  src/auto-reply/reply/directive-handling.persist.ts:64-67  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+      const allowInternalExecPersistence = canPersistInternalExecDirective({
+        surface: params.surface,
+        gatewayClientScopes: params.gatewayClientScopes,
+      });
+expected normalized: 'const allowInternalExecPersistence = canPersistInternalExecDirective({ surface: params.surface, gatewayClientScopes: params.gatewayClientScopes, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.persist.ts:64-67
+actual code:
+      const allowInternalExecPersistence = canPersistInternalExecDirective({
+        surface: params.surface,
+        gatewayClientScopes: params.gatewayClientScopes,
+      });
+actual normalized: 'const allowInternalExecPersistence = canPersistInternalExecDirective({ surface: params.surface, gatewayClientScopes: params.gatewayClientScopes, });'
+
+====================================================================================================
+entry-00399 trace[2]  src/auto-reply/reply/directive-handling.persist.ts:92-95  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+          updated = true;
+        }
+expected normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); updated = true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.persist.ts:92-95
+actual code:
+        if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+          updated = true;
+        }
+actual normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); updated = true; }'
+
+====================================================================================================
+entry-00399 trace[3]  src/auto-reply/reply/directive-handling.persist.ts:190-197  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+        if (updated) {
+          sessionEntry.updatedAt = Date.now();
+          sessionStore[sessionKey] = sessionEntry;
+          if (storePath) {
+            await updateSessionStore(storePath, (store) => {
+              store[sessionKey] = sessionEntry;
+            });
+          }
+expected normalized: 'if (updated) { sessionEntry.updatedAt = Date.now(); sessionStore[sessionKey] = sessionEntry; if (storePath) { await updateSessionStore(storePath, (store) => { store[sessionKey] = sessionEntry; }); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.persist.ts:190-197
+actual code:
+        if (updated) {
+          sessionEntry.updatedAt = Date.now();
+          sessionStore[sessionKey] = sessionEntry;
+          if (storePath) {
+            await updateSessionStore(storePath, (store) => {
+              store[sessionKey] = sessionEntry;
+            });
+          }
+actual normalized: 'if (updated) { sessionEntry.updatedAt = Date.now(); sessionStore[sessionKey] = sessionEntry; if (storePath) { await updateSessionStore(storePath, (store) => { store[sessionKey] = sessionEntry; }); }'

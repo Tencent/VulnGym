@@ -1,0 +1,102 @@
+====================================================================================================
+entry-00464 entry_point  airflow-core/src/airflow/example_dags/example_xcom.py:83  report=GHSA-Q2HG-643C-GW8H
+repo=https://github.com/apache/airflow
+commit=df4cb30b116c8628afc465876e08d58f2bcb897b
+expected code:
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+expected normalized: 'f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \''
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/example_dags/example_xcom.py:83
+actual code:
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+actual normalized: 'f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \''
+
+====================================================================================================
+entry-00464 critical_operation  airflow-core/src/airflow/example_dags/example_xcom.py:80-87  report=GHSA-Q2HG-643C-GW8H
+repo=https://github.com/apache/airflow
+commit=df4cb30b116c8628afc465876e08d58f2bcb897b
+expected code:
+        bash_pull = BashOperator(
+            task_id="bash_pull",
+            bash_command='echo "bash pull demo" && '
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+            'echo "finished"',
+            do_xcom_push=False,
+        )
+expected normalized: 'bash_pull = BashOperator( task_id="bash_pull", bash_command=\'echo "bash pull demo" && \' f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \' f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \' \'echo "finished"\', do_xcom_push=False, )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/example_dags/example_xcom.py:80-87
+actual code:
+        bash_pull = BashOperator(
+            task_id="bash_pull",
+            bash_command='echo "bash pull demo" && '
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+            'echo "finished"',
+            do_xcom_push=False,
+        )
+actual normalized: 'bash_pull = BashOperator( task_id="bash_pull", bash_command=\'echo "bash pull demo" && \' f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \' f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \' \'echo "finished"\', do_xcom_push=False, )'
+
+====================================================================================================
+entry-00464 trace[0]  airflow-core/src/airflow/example_dags/example_xcom.py:83  report=GHSA-Q2HG-643C-GW8H
+repo=https://github.com/apache/airflow
+commit=df4cb30b116c8628afc465876e08d58f2bcb897b
+expected code:
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+expected normalized: 'f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \''
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/example_dags/example_xcom.py:83
+actual code:
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+actual normalized: 'f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \''
+
+====================================================================================================
+entry-00464 trace[1]  airflow-core/src/airflow/example_dags/example_xcom.py:84  report=GHSA-Q2HG-643C-GW8H
+repo=https://github.com/apache/airflow
+commit=df4cb30b116c8628afc465876e08d58f2bcb897b
+expected code:
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+expected normalized: 'f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \''
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/example_dags/example_xcom.py:84
+actual code:
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+actual normalized: 'f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \''
+
+====================================================================================================
+entry-00464 trace[2]  airflow-core/src/airflow/example_dags/example_xcom.py:80-87  report=GHSA-Q2HG-643C-GW8H
+repo=https://github.com/apache/airflow
+commit=df4cb30b116c8628afc465876e08d58f2bcb897b
+expected code:
+        bash_pull = BashOperator(
+            task_id="bash_pull",
+            bash_command='echo "bash pull demo" && '
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+            'echo "finished"',
+            do_xcom_push=False,
+        )
+expected normalized: 'bash_pull = BashOperator( task_id="bash_pull", bash_command=\'echo "bash pull demo" && \' f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \' f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \' \'echo "finished"\', do_xcom_push=False, )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/example_dags/example_xcom.py:80-87
+actual code:
+        bash_pull = BashOperator(
+            task_id="bash_pull",
+            bash_command='echo "bash pull demo" && '
+            f'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && '
+            f'echo "The returned_value xcom is {XComArg(bash_push)}" && '
+            'echo "finished"',
+            do_xcom_push=False,
+        )
+actual normalized: 'bash_pull = BashOperator( task_id="bash_pull", bash_command=\'echo "bash pull demo" && \' f\'echo "The xcom pushed manually is {XComArg(bash_push, key="manually_pushed_value")}" && \' f\'echo "The returned_value xcom is {XComArg(bash_push)}" && \' \'echo "finished"\', do_xcom_push=False, )'

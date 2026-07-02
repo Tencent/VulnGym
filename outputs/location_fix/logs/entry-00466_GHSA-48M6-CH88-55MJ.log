@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00466 entry_point  packages/server/src/enterprise/controllers/account.controller.ts:10  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                const data = await accountService.register(req.body)
+expected normalized: 'const data = await accountService.register(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/account.controller.ts:10
+actual code:
+                const data = await accountService.register(req.body)
+actual normalized: 'const data = await accountService.register(req.body)'
+
+====================================================================================================
+entry-00466 critical_operation  packages/server/src/enterprise/services/account.service.ts:230  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)
+expected normalized: 'data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:230
+actual code:
+            data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)
+actual normalized: 'data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)'
+
+====================================================================================================
+entry-00466 trace[0]  packages/server/src/enterprise/routes/account.route.ts:9  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+    router.post('/register', accountController.register)
+expected normalized: "router.post('/register', accountController.register)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/account.route.ts:9
+actual code:
+    router.post('/register', accountController.register)
+actual normalized: "router.post('/register', accountController.register)"
+
+====================================================================================================
+entry-00466 trace[1]  packages/server/src/enterprise/controllers/account.controller.ts:10  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                const data = await accountService.register(req.body)
+expected normalized: 'const data = await accountService.register(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/account.controller.ts:10
+actual code:
+                const data = await accountService.register(req.body)
+actual normalized: 'const data = await accountService.register(req.body)'
+
+====================================================================================================
+entry-00466 trace[2]  packages/server/src/enterprise/services/account.service.ts:227  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            data.organizationUser.organizationId = data.organization.id
+expected normalized: 'data.organizationUser.organizationId = data.organization.id'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:227
+actual code:
+            data.organizationUser.organizationId = data.organization.id
+actual normalized: 'data.organizationUser.organizationId = data.organization.id'
+
+====================================================================================================
+entry-00466 trace[3]  packages/server/src/enterprise/services/account.service.ts:229  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            data.organizationUser.createdBy = data.user.createdBy
+expected normalized: 'data.organizationUser.createdBy = data.user.createdBy'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:229
+actual code:
+            data.organizationUser.createdBy = data.user.createdBy
+actual normalized: 'data.organizationUser.createdBy = data.user.createdBy'
+
+====================================================================================================
+entry-00466 trace[4]  packages/server/src/enterprise/services/account.service.ts:230  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)
+expected normalized: 'data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:230
+actual code:
+            data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)
+actual normalized: 'data.organizationUser = this.organizationUserService.createNewOrganizationUser(data.organizationUser, queryRunner)'

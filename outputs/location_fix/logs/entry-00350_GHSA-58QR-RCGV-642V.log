@@ -1,0 +1,101 @@
+====================================================================================================
+entry-00350 entry_point  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:155  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    let query = this.getNodeParameter('query', 0) as string;
+expected normalized: "let query = this.getNodeParameter('query', 0) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:155
+actual code:
+    	let query = this.getNodeParameter('query', 0) as string;
+actual normalized: "let query = this.getNodeParameter('query', 0) as string;"
+
+====================================================================================================
+entry-00350 critical_operation  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:124  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    		const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));
+expected normalized: 'const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:124
+actual code:
+    		const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));
+actual normalized: 'const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));'
+
+====================================================================================================
+entry-00350 trace[0]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:155  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    let query = this.getNodeParameter('query', 0) as string;
+expected normalized: "let query = this.getNodeParameter('query', 0) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:155
+actual code:
+    	let query = this.getNodeParameter('query', 0) as string;
+actual normalized: "let query = this.getNodeParameter('query', 0) as string;"
+
+====================================================================================================
+entry-00350 trace[1]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:165-171  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    	if (isSelectQuery) {
+    		try {
+    			return await executeSelectWithMappedPairedItems(
+    				node,
+    				inputsData,
+    				query,
+    				returnSuccessItemIfEmpty,
+expected normalized: 'if (isSelectQuery) { try { return await executeSelectWithMappedPairedItems( node, inputsData, query, returnSuccessItemIfEmpty,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:165-171
+actual code:
+    	if (isSelectQuery) {
+    		try {
+    			return await executeSelectWithMappedPairedItems(
+    				node,
+    				inputsData,
+    				query,
+    				returnSuccessItemIfEmpty,
+actual normalized: 'if (isSelectQuery) { try { return await executeSelectWithMappedPairedItems( node, inputsData, query, returnSuccessItemIfEmpty,'
+
+====================================================================================================
+entry-00350 trace[2]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:103  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    	const db: typeof Database = new (alasql as any).Database(node.id);
+expected normalized: 'const db: typeof Database = new (alasql as any).Database(node.id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:103
+actual code:
+    	const db: typeof Database = new (alasql as any).Database(node.id);
+actual normalized: 'const db: typeof Database = new (alasql as any).Database(node.id);'
+
+====================================================================================================
+entry-00350 trace[3]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:124  report=GHSA-58QR-RCGV-642V
+repo=https://github.com/n8n-io/n8n
+commit=ef9e32b27a784d88c034cfe6fb1f25cca2e9bbd3
+expected code:
+    		const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));
+expected normalized: 'const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:124
+actual code:
+    		const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));
+actual normalized: 'const result: IDataObject[] = db.exec(modifySelectQuery(query, inputsData.length));'

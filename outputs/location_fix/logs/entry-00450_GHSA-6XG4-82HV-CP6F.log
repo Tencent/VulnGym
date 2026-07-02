@@ -1,0 +1,199 @@
+====================================================================================================
+entry-00450 entry_point  src/gateway/server/ws-connection/message-handler.ts:344  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:344
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00450 critical_operation  src/gateway/server-methods/chat.ts:1268  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+        if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {
+expected normalized: 'if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1268
+actual code:
+        if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {
+actual normalized: 'if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {'
+
+====================================================================================================
+entry-00450 trace[0]  src/gateway/server/ws-connection/message-handler.ts:344-351  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+            const connectParams = frame.params as ConnectParams;
+            const clientLabel = connectParams.client.displayName ?? connectParams.client.id;
+            const clientMeta = {
+              client: connectParams.client.id,
+              clientDisplayName: connectParams.client.displayName,
+              mode: connectParams.client.mode,
+              version: connectParams.client.version,
+            };
+expected normalized: 'const connectParams = frame.params as ConnectParams; const clientLabel = connectParams.client.displayName ?? connectParams.client.id; const clientMeta = { client: connectParams.client.id, clientDisplayName: connectParams.client.displayName, mode: connectParams.client.mode, version: connectParams.client.version, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:344-351
+actual code:
+            const connectParams = frame.params as ConnectParams;
+            const clientLabel = connectParams.client.displayName ?? connectParams.client.id;
+            const clientMeta = {
+              client: connectParams.client.id,
+              clientDisplayName: connectParams.client.displayName,
+              mode: connectParams.client.mode,
+              version: connectParams.client.version,
+            };
+actual normalized: 'const connectParams = frame.params as ConnectParams; const clientLabel = connectParams.client.displayName ?? connectParams.client.id; const clientMeta = { client: connectParams.client.id, clientDisplayName: connectParams.client.displayName, mode: connectParams.client.mode, version: connectParams.client.version, };'
+
+====================================================================================================
+entry-00450 trace[1]  src/gateway/server/ws-connection/message-handler.ts:1051-1060  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+              connect: connectParams,
+              connId,
+              presenceKey,
+              clientIp: reportedClientIp,
+              canvasHostUrl,
+              canvasCapability,
+              canvasCapabilityExpiresAtMs,
+            };
+            setSocketMaxPayload(socket, MAX_PAYLOAD_BYTES);
+            setClient(nextClient);
+expected normalized: 'connect: connectParams, connId, presenceKey, clientIp: reportedClientIp, canvasHostUrl, canvasCapability, canvasCapabilityExpiresAtMs, }; setSocketMaxPayload(socket, MAX_PAYLOAD_BYTES); setClient(nextClient);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1051-1060
+actual code:
+              connect: connectParams,
+              connId,
+              presenceKey,
+              clientIp: reportedClientIp,
+              canvasHostUrl,
+              canvasCapability,
+              canvasCapabilityExpiresAtMs,
+            };
+            setSocketMaxPayload(socket, MAX_PAYLOAD_BYTES);
+            setClient(nextClient);
+actual normalized: 'connect: connectParams, connId, presenceKey, clientIp: reportedClientIp, canvasHostUrl, canvasCapability, canvasCapabilityExpiresAtMs, }; setSocketMaxPayload(socket, MAX_PAYLOAD_BYTES); setClient(nextClient);'
+
+====================================================================================================
+entry-00450 trace[2]  src/gateway/server/ws-connection/message-handler.ts:1188-1195  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+            await handleGatewayRequest({
+              req,
+              respond,
+              client,
+              isWebchatConnect,
+              extraHandlers,
+              context: buildRequestContext(),
+            });
+expected normalized: 'await handleGatewayRequest({ req, respond, client, isWebchatConnect, extraHandlers, context: buildRequestContext(), });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1188-1195
+actual code:
+            await handleGatewayRequest({
+              req,
+              respond,
+              client,
+              isWebchatConnect,
+              extraHandlers,
+              context: buildRequestContext(),
+            });
+actual normalized: 'await handleGatewayRequest({ req, respond, client, isWebchatConnect, extraHandlers, context: buildRequestContext(), });'
+
+====================================================================================================
+entry-00450 trace[3]  src/gateway/server-methods/chat.ts:292-299  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+    function isAcpBridgeClient(client: GatewayRequestHandlerOptions["client"]): boolean {
+      const info = client?.connect?.client;
+      return (
+        info?.id === GATEWAY_CLIENT_NAMES.CLI &&
+        info?.mode === GATEWAY_CLIENT_MODES.CLI &&
+        info?.displayName === "ACP" &&
+        info?.version === "acp"
+      );
+expected normalized: 'function isAcpBridgeClient(client: GatewayRequestHandlerOptions["client"]): boolean { const info = client?.connect?.client; return ( info?.id === GATEWAY_CLIENT_NAMES.CLI && info?.mode === GATEWAY_CLIENT_MODES.CLI && info?.displayName === "ACP" && info?.version === "acp" );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:292-299
+actual code:
+    function isAcpBridgeClient(client: GatewayRequestHandlerOptions["client"]): boolean {
+      const info = client?.connect?.client;
+      return (
+        info?.id === GATEWAY_CLIENT_NAMES.CLI &&
+        info?.mode === GATEWAY_CLIENT_MODES.CLI &&
+        info?.displayName === "ACP" &&
+        info?.version === "acp"
+      );
+actual normalized: 'function isAcpBridgeClient(client: GatewayRequestHandlerOptions["client"]): boolean { const info = client?.connect?.client; return ( info?.id === GATEWAY_CLIENT_NAMES.CLI && info?.mode === GATEWAY_CLIENT_MODES.CLI && info?.displayName === "ACP" && info?.version === "acp" );'
+
+====================================================================================================
+entry-00450 trace[4]  src/gateway/server-methods/chat.ts:1268-1277  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+        if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {
+          respond(
+            false,
+            undefined,
+            errorShape(
+              ErrorCodes.INVALID_REQUEST,
+              "system provenance fields are reserved for the ACP bridge",
+            ),
+          );
+          return;
+expected normalized: 'if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) { respond( false, undefined, errorShape( ErrorCodes.INVALID_REQUEST, "system provenance fields are reserved for the ACP bridge", ), ); return;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1268-1277
+actual code:
+        if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) {
+          respond(
+            false,
+            undefined,
+            errorShape(
+              ErrorCodes.INVALID_REQUEST,
+              "system provenance fields are reserved for the ACP bridge",
+            ),
+          );
+          return;
+actual normalized: 'if ((p.systemInputProvenance || p.systemProvenanceReceipt) && !isAcpBridgeClient(client)) { respond( false, undefined, errorShape( ErrorCodes.INVALID_REQUEST, "system provenance fields are reserved for the ACP bridge", ), ); return;'
+
+====================================================================================================
+entry-00450 trace[5]  src/gateway/server-methods/chat.ts:1294-1295  report=GHSA-6XG4-82HV-CP6F
+repo=https://github.com/openclaw/openclaw
+commit=83da3cfe31f016841e1deedda1a604696f4c488d
+expected code:
+        const systemInputProvenance = normalizeInputProvenance(p.systemInputProvenance);
+        const systemProvenanceReceipt = systemReceiptResult.receipt;
+expected normalized: 'const systemInputProvenance = normalizeInputProvenance(p.systemInputProvenance); const systemProvenanceReceipt = systemReceiptResult.receipt;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1294-1295
+actual code:
+        const systemInputProvenance = normalizeInputProvenance(p.systemInputProvenance);
+        const systemProvenanceReceipt = systemReceiptResult.receipt;
+actual normalized: 'const systemInputProvenance = normalizeInputProvenance(p.systemInputProvenance); const systemProvenanceReceipt = systemReceiptResult.receipt;'

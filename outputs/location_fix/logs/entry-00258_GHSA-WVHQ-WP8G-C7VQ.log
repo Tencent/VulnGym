@@ -1,0 +1,146 @@
+====================================================================================================
+entry-00258 entry_point  packages/server/src/index.ts:222  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {
+expected normalized: 'if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:222
+actual code:
+                if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {
+actual normalized: 'if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {'
+
+====================================================================================================
+entry-00258 critical_operation  packages/server/src/controllers/credentials/index.ts:104  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)
+expected normalized: 'const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/credentials/index.ts:104
+actual code:
+            const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)
+actual normalized: 'const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)'
+
+====================================================================================================
+entry-00258 trace[0]  packages/server/src/index.ts:222-225  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {
+                    // Step 2: Check if the req path is casesensitive
+                    if (URL_CASE_SENSITIVE_REGEX.test(req.path)) {
+                        // Step 3: Check if the req path is in the whitelist
+expected normalized: 'if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) { // Step 2: Check if the req path is casesensitive if (URL_CASE_SENSITIVE_REGEX.test(req.path)) { // Step 3: Check if the req path is in the whitelist'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:222-225
+actual code:
+                if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) {
+                    // Step 2: Check if the req path is casesensitive
+                    if (URL_CASE_SENSITIVE_REGEX.test(req.path)) {
+                        // Step 3: Check if the req path is in the whitelist
+actual normalized: 'if (URL_CASE_INSENSITIVE_REGEX.test(req.path)) { // Step 2: Check if the req path is casesensitive if (URL_CASE_SENSITIVE_REGEX.test(req.path)) { // Step 3: Check if the req path is in the whitelist'
+
+====================================================================================================
+entry-00258 trace[1]  packages/server/src/routes/index.ts:84  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.use('/credentials', credentialsRouter)
+expected normalized: "router.use('/credentials', credentialsRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:84
+actual code:
+    router.use('/credentials', credentialsRouter)
+actual normalized: "router.use('/credentials', credentialsRouter)"
+
+====================================================================================================
+entry-00258 trace[2]  packages/server/src/routes/credentials/index.ts:14  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.put(['/', '/:id'], checkAnyPermission('credentials:create,credentials:update'), credentialsController.updateCredential)
+expected normalized: "router.put(['/', '/:id'], checkAnyPermission('credentials:create,credentials:update'), credentialsController.updateCredential)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/credentials/index.ts:14
+actual code:
+    router.put(['/', '/:id'], checkAnyPermission('credentials:create,credentials:update'), credentialsController.updateCredential)
+actual normalized: "router.put(['/', '/:id'], checkAnyPermission('credentials:create,credentials:update'), credentialsController.updateCredential)"
+
+====================================================================================================
+entry-00258 trace[3]  packages/server/src/enterprise/rbac/PermissionCheck.ts:24-33  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    export const checkAnyPermission = (permissionsString: string) => {
+        return (req: Request, res: Response, next: NextFunction) => {
+            const user = req.user
+            // if the user is not logged in, return forbidden
+            if (user) {
+                if (user.isOrganizationAdmin) {
+                    return next()
+                }
+                const permissions = user.permissions
+                const permissionIds = permissionsString.split(',')
+expected normalized: "export const checkAnyPermission = (permissionsString: string) => { return (req: Request, res: Response, next: NextFunction) => { const user = req.user // if the user is not logged in, return forbidden if (user) { if (user.isOrganizationAdmin) { return next() } const permissions = user.permissions const permissionIds = permissionsString.split(',')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/rbac/PermissionCheck.ts:24-33
+actual code:
+    export const checkAnyPermission = (permissionsString: string) => {
+        return (req: Request, res: Response, next: NextFunction) => {
+            const user = req.user
+            // if the user is not logged in, return forbidden
+            if (user) {
+                if (user.isOrganizationAdmin) {
+                    return next()
+                }
+                const permissions = user.permissions
+                const permissionIds = permissionsString.split(',')
+actual normalized: "export const checkAnyPermission = (permissionsString: string) => { return (req: Request, res: Response, next: NextFunction) => { const user = req.user // if the user is not logged in, return forbidden if (user) { if (user.isOrganizationAdmin) { return next() } const permissions = user.permissions const permissionIds = permissionsString.split(',')"
+
+====================================================================================================
+entry-00258 trace[4]  packages/server/src/controllers/credentials/index.ts:97-106  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const workspaceId = req.user?.activeWorkspaceId
+            if (!workspaceId) {
+                throw new InternalFlowiseError(
+                    StatusCodes.NOT_FOUND,
+                    `Error: credentialsController.updateCredential - workspace ${workspaceId} not found!`
+                )
+            }
+            const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)
+            return res.json(apiResponse)
+        } catch (error) {
+expected normalized: 'const workspaceId = req.user?.activeWorkspaceId if (!workspaceId) { throw new InternalFlowiseError( StatusCodes.NOT_FOUND, `Error: credentialsController.updateCredential - workspace ${workspaceId} not found!` ) } const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId) return res.json(apiResponse) } catch (error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/credentials/index.ts:97-106
+actual code:
+            const workspaceId = req.user?.activeWorkspaceId
+            if (!workspaceId) {
+                throw new InternalFlowiseError(
+                    StatusCodes.NOT_FOUND,
+                    `Error: credentialsController.updateCredential - workspace ${workspaceId} not found!`
+                )
+            }
+            const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId)
+            return res.json(apiResponse)
+        } catch (error) {
+actual normalized: 'const workspaceId = req.user?.activeWorkspaceId if (!workspaceId) { throw new InternalFlowiseError( StatusCodes.NOT_FOUND, `Error: credentialsController.updateCredential - workspace ${workspaceId} not found!` ) } const apiResponse = await credentialsService.updateCredential(req.params.id, req.body, workspaceId) return res.json(apiResponse) } catch (error) {'

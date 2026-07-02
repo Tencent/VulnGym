@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00424 entry_point  src/gateway/server/ws-connection/message-handler.ts:384  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:384
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00424 critical_operation  src/gateway/node-connect-reconcile.ts:79  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-connect-reconcile.ts:79
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00424 trace[0]  src/gateway/server/ws-connection/message-handler.ts:384  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:384
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00424 trace[1]  src/gateway/server/ws-connection/message-handler.ts:1130  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+            if (role === "node") {
+expected normalized: 'if (role === "node") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1130
+actual code:
+            if (role === "node") {
+actual normalized: 'if (role === "node") {'
+
+====================================================================================================
+entry-00424 trace[2]  src/gateway/server/ws-connection/message-handler.ts:1131  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+              const reconciliation = await reconcileNodePairingOnConnect({
+expected normalized: 'const reconciliation = await reconcileNodePairingOnConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1131
+actual code:
+              const reconciliation = await reconcileNodePairingOnConnect({
+actual normalized: 'const reconciliation = await reconcileNodePairingOnConnect({'
+
+====================================================================================================
+entry-00424 trace[3]  src/gateway/node-connect-reconcile.ts:56  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+      const declared = normalizeDeclaredNodeCommands({
+expected normalized: 'const declared = normalizeDeclaredNodeCommands({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-connect-reconcile.ts:56
+actual code:
+      const declared = normalizeDeclaredNodeCommands({
+actual normalized: 'const declared = normalizeDeclaredNodeCommands({'
+
+====================================================================================================
+entry-00424 trace[4]  src/gateway/node-connect-reconcile.ts:63  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+      if (!params.pairedNode) {
+expected normalized: 'if (!params.pairedNode) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-connect-reconcile.ts:63
+actual code:
+      if (!params.pairedNode) {
+actual normalized: 'if (!params.pairedNode) {'
+
+====================================================================================================
+entry-00424 trace[5]  src/gateway/node-connect-reconcile.ts:79  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-connect-reconcile.ts:79
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00424 trace[6]  src/gateway/server/ws-connection/message-handler.ts:1144  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+              connectParams.commands = reconciliation.effectiveCommands;
+expected normalized: 'connectParams.commands = reconciliation.effectiveCommands;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1144
+actual code:
+              connectParams.commands = reconciliation.effectiveCommands;
+actual normalized: 'connectParams.commands = reconciliation.effectiveCommands;'
+
+====================================================================================================
+entry-00424 trace[7]  src/gateway/node-registry.ts:49  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+        const commands = Array.isArray((connect as { commands?: string[] }).commands)
+expected normalized: 'const commands = Array.isArray((connect as { commands?: string[] }).commands)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-registry.ts:49
+actual code:
+        const commands = Array.isArray((connect as { commands?: string[] }).commands)
+actual normalized: 'const commands = Array.isArray((connect as { commands?: string[] }).commands)'
+
+====================================================================================================
+entry-00424 trace[8]  src/gateway/node-registry.ts:75  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+          commands,
+expected normalized: 'commands,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-registry.ts:75
+actual code:
+          commands,
+actual normalized: 'commands,'
+
+====================================================================================================
+entry-00424 trace[9]  src/gateway/server-methods/nodes.ts:936  report=GHSA-5WJ5-87VQ-39XM
+repo=https://github.com/openclaw/openclaw
+commit=93ab2ac69d25521f285c8c0489b330342980af22
+expected code:
+          const allowed = isNodeCommandAllowed({
+expected normalized: 'const allowed = isNodeCommandAllowed({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:936
+actual code:
+          const allowed = isNodeCommandAllowed({
+actual normalized: 'const allowed = isNodeCommandAllowed({'

@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00299 entry_point  src/auto-reply/reply/commands-config.ts:24  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    } from "../../config/runtime-overrides.js";
+expected normalized: '} from "../../config/runtime-overrides.js";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:24
+actual code:
+    } from "../../config/runtime-overrides.js";
+actual normalized: '} from "../../config/runtime-overrides.js";'
+
+====================================================================================================
+entry-00299 critical_operation  src/auto-reply/reply/commands-config.ts:43  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    if (unauthorized) {
+expected normalized: 'if (unauthorized) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:43
+actual code:
+      if (unauthorized) {
+actual normalized: 'if (unauthorized) {'
+
+====================================================================================================
+entry-00299 trace[0]  src/auto-reply/reply/commands-config.ts:28  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    requireGatewayClientScopeForInternalChannel,
+expected normalized: 'requireGatewayClientScopeForInternalChannel,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:28
+actual code:
+      requireGatewayClientScopeForInternalChannel,
+actual normalized: 'requireGatewayClientScopeForInternalChannel,'
+
+====================================================================================================
+entry-00299 trace[1]  src/auto-reply/reply/command-gates.ts:8  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    export function rejectUnauthorizedCommand(
+expected normalized: 'export function rejectUnauthorizedCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/command-gates.ts:8
+actual code:
+    export function rejectUnauthorizedCommand(
+actual normalized: 'export function rejectUnauthorizedCommand('
+
+====================================================================================================
+entry-00299 trace[2]  src/auto-reply/reply/commands-config.ts:29  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    } from "./command-gates.js";
+expected normalized: '} from "./command-gates.js";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:29
+actual code:
+    } from "./command-gates.js";
+actual normalized: '} from "./command-gates.js";'
+
+====================================================================================================
+entry-00299 trace[3]  src/auto-reply/reply/commands-config.ts:43  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    if (unauthorized) {
+expected normalized: 'if (unauthorized) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:43
+actual code:
+      if (unauthorized) {
+actual normalized: 'if (unauthorized) {'

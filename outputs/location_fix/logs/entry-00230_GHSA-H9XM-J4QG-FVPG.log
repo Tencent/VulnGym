@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00230 entry_point  src/agents/apply-patch.ts:81  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+expected normalized: 'options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:81
+actual code:
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+actual normalized: 'options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},'
+
+====================================================================================================
+entry-00230 critical_operation  src/agents/apply-patch.ts:156  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+        if (hunk.kind === "delete") {
+expected normalized: 'if (hunk.kind === "delete") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:156
+actual code:
+        if (hunk.kind === "delete") {
+actual normalized: 'if (hunk.kind === "delete") {'
+
+====================================================================================================
+entry-00230 trace[0]  src/agents/apply-patch.ts:81  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+expected normalized: 'options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:81
+actual code:
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+actual normalized: 'options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},'
+
+====================================================================================================
+entry-00230 trace[1]  src/agents/apply-patch.ts:120  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+    export async function applyPatch(
+expected normalized: 'export async function applyPatch('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:120
+actual code:
+    export async function applyPatch(
+actual normalized: 'export async function applyPatch('
+
+====================================================================================================
+entry-00230 trace[2]  src/agents/apply-patch.ts:156  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+        if (hunk.kind === "delete") {
+expected normalized: 'if (hunk.kind === "delete") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:156
+actual code:
+        if (hunk.kind === "delete") {
+actual normalized: 'if (hunk.kind === "delete") {'

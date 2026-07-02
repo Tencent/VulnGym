@@ -1,0 +1,146 @@
+====================================================================================================
+entry-00082 entry_point  packages/workflow/src/expression.ts:6  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';
+expected normalized: "import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:6
+actual code:
+    import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';
+actual normalized: "import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';"
+
+====================================================================================================
+entry-00082 critical_operation  packages/workflow/src/expression-evaluator-proxy.ts:10  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	before: [],
+expected normalized: 'before: [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:10
+actual code:
+    	before: [],
+actual normalized: 'before: [],'
+
+====================================================================================================
+entry-00082 trace[0]  packages/workflow/src/expression.ts:6  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';
+expected normalized: "import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:6
+actual code:
+    import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';
+actual normalized: "import { evaluateExpression, setErrorHandler } from './expression-evaluator-proxy';"
+
+====================================================================================================
+entry-00082 trace[1]  packages/workflow/src/expression.ts:205  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    		}
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:205
+actual code:
+    		}
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .bundlemonrc.json:11
+      			}
+  [2] .bundlemonrc.json:18
+      		}
+  [3] .bundlemonrc.json:28
+      		}
+  [4] .bundlemonrc.json:30
+      }
+
+====================================================================================================
+entry-00082 trace[2]  packages/workflow/src/expression.ts:235  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	resolveSimpleParameterValue(
+expected normalized: 'resolveSimpleParameterValue('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:235
+actual code:
+    	resolveSimpleParameterValue(
+actual normalized: 'resolveSimpleParameterValue('
+
+====================================================================================================
+entry-00082 trace[3]  packages/workflow/src/expression-evaluator-proxy.ts:19  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    export const evaluateExpression: Evaluator = (expr, data) => {
+expected normalized: 'export const evaluateExpression: Evaluator = (expr, data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:19
+actual code:
+    export const evaluateExpression: Evaluator = (expr, data) => {
+actual normalized: 'export const evaluateExpression: Evaluator = (expr, data) => {'
+
+====================================================================================================
+entry-00082 trace[4]  packages/workflow/src/expression-evaluator-proxy.ts:13  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    const evaluator: Evaluator = tournamentEvaluator.execute.bind(tournamentEvaluator);
+expected normalized: 'const evaluator: Evaluator = tournamentEvaluator.execute.bind(tournamentEvaluator);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:13
+actual code:
+    const evaluator: Evaluator = tournamentEvaluator.execute.bind(tournamentEvaluator);
+actual normalized: 'const evaluator: Evaluator = tournamentEvaluator.execute.bind(tournamentEvaluator);'
+
+====================================================================================================
+entry-00082 trace[5]  packages/workflow/src/expression-evaluator-proxy.ts:9  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {
+expected normalized: 'const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:9
+actual code:
+    const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {
+actual normalized: 'const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {'
+
+====================================================================================================
+entry-00082 trace[6]  packages/workflow/src/expression-evaluator-proxy.ts:10  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	before: [],
+expected normalized: 'before: [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:10
+actual code:
+    	before: [],
+actual normalized: 'before: [],'

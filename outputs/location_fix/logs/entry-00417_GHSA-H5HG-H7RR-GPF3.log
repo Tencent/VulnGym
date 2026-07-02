@@ -1,0 +1,121 @@
+====================================================================================================
+entry-00417 entry_point  src/node-host/invoke-browser.ts:210  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+expected normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:210
+actual code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+actual normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {'
+
+====================================================================================================
+entry-00417 critical_operation  src/node-host/invoke-browser.ts:247  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const rawQuery = params.query ?? {};
+expected normalized: 'const rawQuery = params.query ?? {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:247
+actual code:
+      const rawQuery = params.query ?? {};
+actual normalized: 'const rawQuery = params.query ?? {};'
+
+====================================================================================================
+entry-00417 trace[0]  src/node-host/invoke-browser.ts:210-211  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+      const params = decodeParams<BrowserProxyParams>(paramsJSON);
+expected normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> { const params = decodeParams<BrowserProxyParams>(paramsJSON);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:210-211
+actual code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+      const params = decodeParams<BrowserProxyParams>(paramsJSON);
+actual normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> { const params = decodeParams<BrowserProxyParams>(paramsJSON);'
+
+====================================================================================================
+entry-00417 trace[1]  src/node-host/invoke-browser.ts:224  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const requestedProfile = typeof params.profile === "string" ? params.profile.trim() : "";
+expected normalized: 'const requestedProfile = typeof params.profile === "string" ? params.profile.trim() : "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:224
+actual code:
+      const requestedProfile = typeof params.profile === "string" ? params.profile.trim() : "";
+actual normalized: 'const requestedProfile = typeof params.profile === "string" ? params.profile.trim() : "";'
+
+====================================================================================================
+entry-00417 trace[2]  src/node-host/invoke-browser.ts:226-235  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      if (allowedProfiles.length > 0) {
+        if (pathValue !== "/profiles") {
+          const profileToCheck = requestedProfile || resolved.defaultProfile;
+          if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: profileToCheck })) {
+            throw new Error("INVALID_REQUEST: browser profile not allowed");
+          }
+        } else if (requestedProfile) {
+          if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: requestedProfile })) {
+            throw new Error("INVALID_REQUEST: browser profile not allowed");
+          }
+expected normalized: 'if (allowedProfiles.length > 0) { if (pathValue !== "/profiles") { const profileToCheck = requestedProfile || resolved.defaultProfile; if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: profileToCheck })) { throw new Error("INVALID_REQUEST: browser profile not allowed"); } } else if (requestedProfile) { if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: requestedProfile })) { throw new Error("INVALID_REQUEST: browser profile not allowed"); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:226-235
+actual code:
+      if (allowedProfiles.length > 0) {
+        if (pathValue !== "/profiles") {
+          const profileToCheck = requestedProfile || resolved.defaultProfile;
+          if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: profileToCheck })) {
+            throw new Error("INVALID_REQUEST: browser profile not allowed");
+          }
+        } else if (requestedProfile) {
+          if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: requestedProfile })) {
+            throw new Error("INVALID_REQUEST: browser profile not allowed");
+          }
+actual normalized: 'if (allowedProfiles.length > 0) { if (pathValue !== "/profiles") { const profileToCheck = requestedProfile || resolved.defaultProfile; if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: profileToCheck })) { throw new Error("INVALID_REQUEST: browser profile not allowed"); } } else if (requestedProfile) { if (!isProfileAllowed({ allowProfiles: allowedProfiles, profile: requestedProfile })) { throw new Error("INVALID_REQUEST: browser profile not allowed"); }'
+
+====================================================================================================
+entry-00417 trace[3]  src/node-host/invoke-browser.ts:247-253  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const rawQuery = params.query ?? {};
+      for (const [key, value] of Object.entries(rawQuery)) {
+        if (value === undefined || value === null) {
+          continue;
+        }
+        query[key] = typeof value === "string" ? value : String(value);
+      }
+expected normalized: 'const rawQuery = params.query ?? {}; for (const [key, value] of Object.entries(rawQuery)) { if (value === undefined || value === null) { continue; } query[key] = typeof value === "string" ? value : String(value); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:247-253
+actual code:
+      const rawQuery = params.query ?? {};
+      for (const [key, value] of Object.entries(rawQuery)) {
+        if (value === undefined || value === null) {
+          continue;
+        }
+        query[key] = typeof value === "string" ? value : String(value);
+      }
+actual normalized: 'const rawQuery = params.query ?? {}; for (const [key, value] of Object.entries(rawQuery)) { if (value === undefined || value === null) { continue; } query[key] = typeof value === "string" ? value : String(value); }'

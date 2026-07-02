@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00087 entry_point  packages/cli/src/webhooks/webhook-helpers.ts:356  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    export async function executeWebhook(
+expected normalized: 'export async function executeWebhook('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:356
+actual code:
+    export async function executeWebhook(
+actual normalized: 'export async function executeWebhook('
+
+====================================================================================================
+entry-00087 critical_operation  packages/nodes-base/nodes/Form/utils/utils.ts:398  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    			returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile(
+expected normalized: 'returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:398
+actual code:
+    			returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile(
+actual normalized: 'returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile('
+
+====================================================================================================
+entry-00087 trace[0]  packages/cli/src/webhooks/webhook-helpers.ts:356  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    export async function executeWebhook(
+expected normalized: 'export async function executeWebhook('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:356
+actual code:
+    export async function executeWebhook(
+actual normalized: 'export async function executeWebhook('
+
+====================================================================================================
+entry-00087 trace[1]  packages/cli/src/webhooks/webhook-helpers.ts:440  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    		await parseRequestBody(req, workflowStartNode, workflow, executionMode, additionalKeys);
+expected normalized: 'await parseRequestBody(req, workflowStartNode, workflow, executionMode, additionalKeys);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:440
+actual code:
+    		await parseRequestBody(req, workflowStartNode, workflow, executionMode, additionalKeys);
+actual normalized: 'await parseRequestBody(req, workflowStartNode, workflow, executionMode, additionalKeys);'
+
+====================================================================================================
+entry-00087 trace[2]  packages/cli/src/webhooks/webhook-helpers.ts:860  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    	const { contentType } = req;
+expected normalized: 'const { contentType } = req;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:860
+actual code:
+    	const { contentType } = req;
+actual normalized: 'const { contentType } = req;'
+
+====================================================================================================
+entry-00087 trace[3]  packages/nodes-base/nodes/Form/utils/utils.ts:616  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    	const returnItem = await prepareFormReturnItem(context, formFields, mode, useWorkflowTimezone);
+expected normalized: 'const returnItem = await prepareFormReturnItem(context, formFields, mode, useWorkflowTimezone);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:616
+actual code:
+    	const returnItem = await prepareFormReturnItem(context, formFields, mode, useWorkflowTimezone);
+actual normalized: 'const returnItem = await prepareFormReturnItem(context, formFields, mode, useWorkflowTimezone);'
+
+====================================================================================================
+entry-00087 trace[4]  packages/nodes-base/nodes/Form/utils/utils.ts:355  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    	const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+expected normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:355
+actual code:
+    	const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+actual normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+
+====================================================================================================
+entry-00087 trace[5]  packages/nodes-base/nodes/Form/utils/utils.ts:365  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    	for (const key of Object.keys(files)) {
+expected normalized: 'for (const key of Object.keys(files)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:365
+actual code:
+    	for (const key of Object.keys(files)) {
+actual normalized: 'for (const key of Object.keys(files)) {'
+
+====================================================================================================
+entry-00087 trace[6]  packages/nodes-base/nodes/Form/utils/utils.ts:391  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    		for (const file of processFiles) {
+expected normalized: 'for (const file of processFiles) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:391
+actual code:
+    		for (const file of processFiles) {
+actual normalized: 'for (const file of processFiles) {'
+
+====================================================================================================
+entry-00087 trace[7]  packages/core/src/binary-data/binary-data.service.ts:79  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    			binaryData.data = await readFile(filePath, { encoding: BINARY_ENCODING });
+expected normalized: 'binaryData.data = await readFile(filePath, { encoding: BINARY_ENCODING });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/binary-data/binary-data.service.ts:79
+actual code:
+    			binaryData.data = await readFile(filePath, { encoding: BINARY_ENCODING });
+actual normalized: 'binaryData.data = await readFile(filePath, { encoding: BINARY_ENCODING });'
+
+====================================================================================================
+entry-00087 trace[8]  packages/nodes-base/nodes/Form/utils/utils.ts:398  report=GHSA-V4PR-FM98-W9PG
+repo=https://github.com/n8n-io/n8n
+commit=e45a4b1073d85d04d6455a4f18482838a7840124
+expected code:
+    			returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile(
+expected normalized: 'returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:398
+actual code:
+    			returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile(
+actual normalized: 'returnItem.binary![binaryPropertyName] = await context.nodeHelpers.copyBinaryFile('

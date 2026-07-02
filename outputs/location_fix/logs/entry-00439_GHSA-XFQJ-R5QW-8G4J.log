@@ -1,0 +1,122 @@
+====================================================================================================
+entry-00439 entry_point  server/src/routes/access.ts:1638-1641  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.post(
+        "/cli-auth/challenges",
+        validate(createCliAuthChallengeSchema),
+        async (req, res) => {
+expected normalized: 'router.post( "/cli-auth/challenges", validate(createCliAuthChallengeSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1638-1641
+actual code:
+      router.post(
+        "/cli-auth/challenges",
+        validate(createCliAuthChallengeSchema),
+        async (req, res) => {
+actual normalized: 'router.post( "/cli-auth/challenges", validate(createCliAuthChallengeSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00439 critical_operation  server/src/routes/access.ts:1648-1657  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          res.status(201).json({
+            id: created.challenge.id,
+            token: created.challengeSecret,
+            boardApiToken: created.pendingBoardToken,
+            approvalPath,
+            approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null,
+            pollPath: `/cli-auth/challenges/${created.challenge.id}`,
+            expiresAt: created.challenge.expiresAt.toISOString(),
+            suggestedPollIntervalMs: 1000,
+          });
+expected normalized: 'res.status(201).json({ id: created.challenge.id, token: created.challengeSecret, boardApiToken: created.pendingBoardToken, approvalPath, approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null, pollPath: `/cli-auth/challenges/${created.challenge.id}`, expiresAt: created.challenge.expiresAt.toISOString(), suggestedPollIntervalMs: 1000, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1648-1657
+actual code:
+          res.status(201).json({
+            id: created.challenge.id,
+            token: created.challengeSecret,
+            boardApiToken: created.pendingBoardToken,
+            approvalPath,
+            approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null,
+            pollPath: `/cli-auth/challenges/${created.challenge.id}`,
+            expiresAt: created.challenge.expiresAt.toISOString(),
+            suggestedPollIntervalMs: 1000,
+          });
+actual normalized: 'res.status(201).json({ id: created.challenge.id, token: created.challengeSecret, boardApiToken: created.pendingBoardToken, approvalPath, approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null, pollPath: `/cli-auth/challenges/${created.challenge.id}`, expiresAt: created.challenge.expiresAt.toISOString(), suggestedPollIntervalMs: 1000, });'
+
+====================================================================================================
+entry-00439 trace[0]  server/src/routes/access.ts:1638-1641  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.post(
+        "/cli-auth/challenges",
+        validate(createCliAuthChallengeSchema),
+        async (req, res) => {
+expected normalized: 'router.post( "/cli-auth/challenges", validate(createCliAuthChallengeSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1638-1641
+actual code:
+      router.post(
+        "/cli-auth/challenges",
+        validate(createCliAuthChallengeSchema),
+        async (req, res) => {
+actual normalized: 'router.post( "/cli-auth/challenges", validate(createCliAuthChallengeSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00439 trace[1]  server/src/routes/access.ts:1642  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          const created = await boardAuth.createCliAuthChallenge(req.body);
+expected normalized: 'const created = await boardAuth.createCliAuthChallenge(req.body);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1642
+actual code:
+          const created = await boardAuth.createCliAuthChallenge(req.body);
+actual normalized: 'const created = await boardAuth.createCliAuthChallenge(req.body);'
+
+====================================================================================================
+entry-00439 trace[2]  server/src/routes/access.ts:1648-1657  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          res.status(201).json({
+            id: created.challenge.id,
+            token: created.challengeSecret,
+            boardApiToken: created.pendingBoardToken,
+            approvalPath,
+            approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null,
+            pollPath: `/cli-auth/challenges/${created.challenge.id}`,
+            expiresAt: created.challenge.expiresAt.toISOString(),
+            suggestedPollIntervalMs: 1000,
+          });
+expected normalized: 'res.status(201).json({ id: created.challenge.id, token: created.challengeSecret, boardApiToken: created.pendingBoardToken, approvalPath, approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null, pollPath: `/cli-auth/challenges/${created.challenge.id}`, expiresAt: created.challenge.expiresAt.toISOString(), suggestedPollIntervalMs: 1000, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1648-1657
+actual code:
+          res.status(201).json({
+            id: created.challenge.id,
+            token: created.challengeSecret,
+            boardApiToken: created.pendingBoardToken,
+            approvalPath,
+            approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null,
+            pollPath: `/cli-auth/challenges/${created.challenge.id}`,
+            expiresAt: created.challenge.expiresAt.toISOString(),
+            suggestedPollIntervalMs: 1000,
+          });
+actual normalized: 'res.status(201).json({ id: created.challenge.id, token: created.challengeSecret, boardApiToken: created.pendingBoardToken, approvalPath, approvalUrl: baseUrl ? `${baseUrl}${approvalPath}` : null, pollPath: `/cli-auth/challenges/${created.challenge.id}`, expiresAt: created.challenge.expiresAt.toISOString(), suggestedPollIntervalMs: 1000, });'

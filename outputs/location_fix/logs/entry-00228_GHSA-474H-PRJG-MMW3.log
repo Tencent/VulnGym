@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00228 entry_point  src/agents/subagent-spawn.ts:493  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+      let childSystemPrompt = buildSubagentSystemPrompt({
+expected normalized: 'let childSystemPrompt = buildSubagentSystemPrompt({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:493
+actual code:
+      let childSystemPrompt = buildSubagentSystemPrompt({
+actual normalized: 'let childSystemPrompt = buildSubagentSystemPrompt({'
+
+====================================================================================================
+entry-00228 critical_operation  src/agents/system-prompt.ts:446  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+        ...(hasSessionsSpawn && acpEnabled
+expected normalized: '...(hasSessionsSpawn && acpEnabled'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/system-prompt.ts:446
+actual code:
+        ...(hasSessionsSpawn && acpEnabled
+actual normalized: '...(hasSessionsSpawn && acpEnabled'
+
+====================================================================================================
+entry-00228 trace[0]  src/agents/subagent-spawn.ts:493  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+      let childSystemPrompt = buildSubagentSystemPrompt({
+expected normalized: 'let childSystemPrompt = buildSubagentSystemPrompt({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/subagent-spawn.ts:493
+actual code:
+      let childSystemPrompt = buildSubagentSystemPrompt({
+actual normalized: 'let childSystemPrompt = buildSubagentSystemPrompt({'
+
+====================================================================================================
+entry-00228 trace[1]  src/agents/system-prompt.ts:235  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+      const acpEnabled = params.acpEnabled !== false;
+expected normalized: 'const acpEnabled = params.acpEnabled !== false;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/system-prompt.ts:235
+actual code:
+      const acpEnabled = params.acpEnabled !== false;
+actual normalized: 'const acpEnabled = params.acpEnabled !== false;'
+
+====================================================================================================
+entry-00228 trace[2]  src/agents/system-prompt.ts:446  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+        ...(hasSessionsSpawn && acpEnabled
+expected normalized: '...(hasSessionsSpawn && acpEnabled'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/system-prompt.ts:446
+actual code:
+        ...(hasSessionsSpawn && acpEnabled
+actual normalized: '...(hasSessionsSpawn && acpEnabled'

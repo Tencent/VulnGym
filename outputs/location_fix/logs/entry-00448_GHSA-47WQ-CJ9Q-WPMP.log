@@ -1,0 +1,93 @@
+====================================================================================================
+entry-00448 entry_point  server/src/routes/agents.ts:2207  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.get("/agents/:id/keys", async (req, res) => {
+expected normalized: 'router.get("/agents/:id/keys", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2207
+actual code:
+      router.get("/agents/:id/keys", async (req, res) => {
+actual normalized: 'router.get("/agents/:id/keys", async (req, res) => {'
+
+====================================================================================================
+entry-00448 critical_operation  server/src/routes/agents.ts:2214  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const keys = await svc.listKeys(id);
+expected normalized: 'const keys = await svc.listKeys(id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2214
+actual code:
+        const keys = await svc.listKeys(id);
+actual normalized: 'const keys = await svc.listKeys(id);'
+
+====================================================================================================
+entry-00448 trace[0]  server/src/routes/agents.ts:2207-2208  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.get("/agents/:id/keys", async (req, res) => {
+        assertBoard(req);
+expected normalized: 'router.get("/agents/:id/keys", async (req, res) => { assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2207-2208
+actual code:
+      router.get("/agents/:id/keys", async (req, res) => {
+        assertBoard(req);
+actual normalized: 'router.get("/agents/:id/keys", async (req, res) => { assertBoard(req);'
+
+====================================================================================================
+entry-00448 trace[1]  server/src/routes/agents.ts:50  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+    import { assertBoard, assertCompanyAccess, assertInstanceAdmin, getActorInfo } from "./authz.js";
+expected normalized: 'import { assertBoard, assertCompanyAccess, assertInstanceAdmin, getActorInfo } from "./authz.js";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:50
+actual code:
+    import { assertBoard, assertCompanyAccess, assertInstanceAdmin, getActorInfo } from "./authz.js";
+actual normalized: 'import { assertBoard, assertCompanyAccess, assertInstanceAdmin, getActorInfo } from "./authz.js";'
+
+====================================================================================================
+entry-00448 trace[2]  server/src/routes/agents.ts:2209  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const id = req.params.id as string;
+expected normalized: 'const id = req.params.id as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2209
+actual code:
+        const id = req.params.id as string;
+actual normalized: 'const id = req.params.id as string;'
+
+====================================================================================================
+entry-00448 trace[3]  server/src/routes/agents.ts:2214-2215  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const keys = await svc.listKeys(id);
+        res.json(keys);
+expected normalized: 'const keys = await svc.listKeys(id); res.json(keys);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2214-2215
+actual code:
+        const keys = await svc.listKeys(id);
+        res.json(keys);
+actual normalized: 'const keys = await svc.listKeys(id); res.json(keys);'

@@ -1,0 +1,101 @@
+====================================================================================================
+entry-00334 entry_point  goreleaser.yml:6  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+        main: ./cmd/trivy/
+expected normalized: 'main: ./cmd/trivy/'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: goreleaser.yml:6
+actual code:
+        main: ./cmd/trivy/
+actual normalized: 'main: ./cmd/trivy/'
+
+====================================================================================================
+entry-00334 critical_operation  .github/workflows/release.yaml:150-153  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              gh workflow run bump-trivy.yaml \
+                --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \
+                --ref master \
+                --field "trivy_version=$VERSION"
+expected normalized: 'gh workflow run bump-trivy.yaml \\ --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \\ --ref master \\ --field "trivy_version=$VERSION"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/release.yaml:150-153
+actual code:
+              gh workflow run bump-trivy.yaml \
+                --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \
+                --ref master \
+                --field "trivy_version=$VERSION"
+actual normalized: 'gh workflow run bump-trivy.yaml \\ --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \\ --ref master \\ --field "trivy_version=$VERSION"'
+
+====================================================================================================
+entry-00334 trace[0]  goreleaser.yml:6  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+        main: ./cmd/trivy/
+expected normalized: 'main: ./cmd/trivy/'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: goreleaser.yml:6
+actual code:
+        main: ./cmd/trivy/
+actual normalized: 'main: ./cmd/trivy/'
+
+====================================================================================================
+entry-00334 trace[1]  .github/workflows/release.yaml:12  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+          goreleaser_config: goreleaser.yml
+expected normalized: 'goreleaser_config: goreleaser.yml'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/release.yaml:12
+actual code:
+          goreleaser_config: goreleaser.yml
+actual normalized: 'goreleaser_config: goreleaser.yml'
+
+====================================================================================================
+entry-00334 trace[2]  .github/workflows/release.yaml:149  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              VERSION="${GITHUB_REF_NAME#v}"
+expected normalized: 'VERSION="${GITHUB_REF_NAME#v}"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/release.yaml:149
+actual code:
+              VERSION="${GITHUB_REF_NAME#v}"
+actual normalized: 'VERSION="${GITHUB_REF_NAME#v}"'
+
+====================================================================================================
+entry-00334 trace[3]  .github/workflows/release.yaml:150-153  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+              gh workflow run bump-trivy.yaml \
+                --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \
+                --ref master \
+                --field "trivy_version=$VERSION"
+expected normalized: 'gh workflow run bump-trivy.yaml \\ --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \\ --ref master \\ --field "trivy_version=$VERSION"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/release.yaml:150-153
+actual code:
+              gh workflow run bump-trivy.yaml \
+                --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \
+                --ref master \
+                --field "trivy_version=$VERSION"
+actual normalized: 'gh workflow run bump-trivy.yaml \\ --repo "$GITHUB_REPOSITORY_OWNER/trivy-action" \\ --ref master \\ --field "trivy_version=$VERSION"'

@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00226 entry_point  src/infra/archive.ts:526  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+    export async function extractArchive(params: {
+expected normalized: 'export async function extractArchive(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:526
+actual code:
+    export async function extractArchive(params: {
+actual normalized: 'export async function extractArchive(params: {'
+
+====================================================================================================
+entry-00226 critical_operation  src/infra/archive.ts:280  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+        return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);
+expected normalized: 'return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:280
+actual code:
+        return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);
+actual normalized: 'return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);'
+
+====================================================================================================
+entry-00226 trace[0]  src/infra/archive.ts:526  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+    export async function extractArchive(params: {
+expected normalized: 'export async function extractArchive(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:526
+actual code:
+    export async function extractArchive(params: {
+actual normalized: 'export async function extractArchive(params: {'
+
+====================================================================================================
+entry-00226 trace[1]  src/infra/archive.ts:439  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+        await prepareZipOutputPath({
+expected normalized: 'await prepareZipOutputPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:439
+actual code:
+        await prepareZipOutputPath({
+actual normalized: 'await prepareZipOutputPath({'
+
+====================================================================================================
+entry-00226 trace[2]  src/infra/archive.ts:352  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+      await assertNoSymlinkTraversal({
+expected normalized: 'await assertNoSymlinkTraversal({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:352
+actual code:
+      await assertNoSymlinkTraversal({
+actual normalized: 'await assertNoSymlinkTraversal({'
+
+====================================================================================================
+entry-00226 trace[3]  src/infra/archive.ts:370  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+      await assertResolvedInsideDestination({
+expected normalized: 'await assertResolvedInsideDestination({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:370
+actual code:
+      await assertResolvedInsideDestination({
+actual normalized: 'await assertResolvedInsideDestination({'
+
+====================================================================================================
+entry-00226 trace[4]  src/infra/archive.ts:451  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+        await writeZipFileEntry({
+expected normalized: 'await writeZipFileEntry({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:451
+actual code:
+        await writeZipFileEntry({
+actual normalized: 'await writeZipFileEntry({'
+
+====================================================================================================
+entry-00226 trace[5]  src/infra/archive.ts:382  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+      const handle = await openZipOutputFile(params.outPath, params.entry.name);
+expected normalized: 'const handle = await openZipOutputFile(params.outPath, params.entry.name);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:382
+actual code:
+      const handle = await openZipOutputFile(params.outPath, params.entry.name);
+actual normalized: 'const handle = await openZipOutputFile(params.outPath, params.entry.name);'
+
+====================================================================================================
+entry-00226 trace[6]  src/infra/archive.ts:280  report=GHSA-R54R-WMMQ-MH84
+repo=https://github.com/openclaw/openclaw
+commit=eb35fb745de55194ab39b124de12c4ecbf24597e
+expected code:
+        return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);
+expected normalized: 'return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/archive.ts:280
+actual code:
+        return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);
+actual normalized: 'return await fs.open(outPath, OPEN_WRITE_FLAGS, 0o666);'

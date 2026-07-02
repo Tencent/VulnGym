@@ -1,0 +1,203 @@
+====================================================================================================
+entry-00134 entry_point  extensions/bluebubbles/src/monitor.ts:1444  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+    ): Promise<boolean> {
+      const url = new URL(req.url ?? "/", "http://localhost");
+      const path = normalizeWebhookPath(url.pathname);
+expected normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage, res: ServerResponse, ): Promise<boolean> { const url = new URL(req.url ?? "/", "http://localhost"); const path = normalizeWebhookPath(url.pathname);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1444-1449
+actual code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+    ): Promise<boolean> {
+      const url = new URL(req.url ?? "/", "http://localhost");
+      const path = normalizeWebhookPath(url.pathname);
+actual normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage, res: ServerResponse, ): Promise<boolean> { const url = new URL(req.url ?? "/", "http://localhost"); const path = normalizeWebhookPath(url.pathname);'
+
+====================================================================================================
+entry-00134 critical_operation  extensions/bluebubbles/src/monitor.ts:1536  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+        const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+        }
+expected normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1536-1539
+actual code:
+        const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+        }
+actual normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true; }'
+
+====================================================================================================
+entry-00134 trace[0]  extensions/bluebubbles/src/monitor.ts:1444  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+expected normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1444-1445
+actual code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+actual normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage,'
+
+====================================================================================================
+entry-00134 trace[1]  extensions/bluebubbles/src/monitor.ts:1521  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+      const matching = targets.filter((target) => {
+        const token = target.account.config.password?.trim();
+        if (!token) {
+          return true;
+        }
+expected normalized: 'const matching = targets.filter((target) => { const token = target.account.config.password?.trim(); if (!token) { return true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1521-1525
+actual code:
+      const matching = targets.filter((target) => {
+        const token = target.account.config.password?.trim();
+        if (!token) {
+          return true;
+        }
+actual normalized: 'const matching = targets.filter((target) => { const token = target.account.config.password?.trim(); if (!token) { return true; }'
+
+====================================================================================================
+entry-00134 trace[2]  extensions/bluebubbles/src/monitor.ts:1526  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+        const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password");
+        const headerToken =
+          req.headers["x-guid"] ??
+          req.headers["x-password"] ??
+          req.headers["x-bluebubbles-guid"] ??
+          req.headers["authorization"];
+        const guid = (Array.isArray(headerToken) ? headerToken[0] : headerToken) ?? guidParam ?? "";
+        if (guid && guid.trim() === token) {
+expected normalized: 'const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password"); const headerToken = req.headers["x-guid"] ?? req.headers["x-password"] ?? req.headers["x-bluebubbles-guid"] ?? req.headers["authorization"]; const guid = (Array.isArray(headerToken) ? headerToken[0] : headerToken) ?? guidParam ?? ""; if (guid && guid.trim() === token) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1526-1533
+actual code:
+        const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password");
+        const headerToken =
+          req.headers["x-guid"] ??
+          req.headers["x-password"] ??
+          req.headers["x-bluebubbles-guid"] ??
+          req.headers["authorization"];
+        const guid = (Array.isArray(headerToken) ? headerToken[0] : headerToken) ?? guidParam ?? "";
+        if (guid && guid.trim() === token) {
+actual normalized: 'const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password"); const headerToken = req.headers["x-guid"] ?? req.headers["x-password"] ?? req.headers["x-bluebubbles-guid"] ?? req.headers["authorization"]; const guid = (Array.isArray(headerToken) ? headerToken[0] : headerToken) ?? guidParam ?? ""; if (guid && guid.trim() === token) {'
+
+====================================================================================================
+entry-00134 trace[3]  extensions/bluebubbles/src/monitor.ts:1533  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+        if (guid && guid.trim() === token) {
+          return true;
+expected normalized: 'if (guid && guid.trim() === token) { return true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1533-1534
+actual code:
+        if (guid && guid.trim() === token) {
+          return true;
+actual normalized: 'if (guid && guid.trim() === token) { return true;'
+
+====================================================================================================
+entry-00134 trace[4]  extensions/bluebubbles/src/monitor.ts:1536  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+        const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+expected normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1536-1538
+actual code:
+        const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+actual normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true;'
+
+====================================================================================================
+entry-00134 trace[5]  extensions/bluebubbles/src/monitor.ts:1552  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+      for (const target of matching) {
+        target.statusSink?.({ lastInboundAt: Date.now() });
+expected normalized: 'for (const target of matching) { target.statusSink?.({ lastInboundAt: Date.now() });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1552-1553
+actual code:
+      for (const target of matching) {
+        target.statusSink?.({ lastInboundAt: Date.now() });
+actual normalized: 'for (const target of matching) { target.statusSink?.({ lastInboundAt: Date.now() });'
+
+====================================================================================================
+entry-00134 trace[6]  extensions/bluebubbles/src/monitor.ts:1563  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+          const debouncer = getOrCreateDebouncer(target);
+          debouncer.enqueue({ message, target }).catch((err) => {
+expected normalized: 'const debouncer = getOrCreateDebouncer(target); debouncer.enqueue({ message, target }).catch((err) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1563-1564
+actual code:
+          const debouncer = getOrCreateDebouncer(target);
+          debouncer.enqueue({ message, target }).catch((err) => {
+actual normalized: 'const debouncer = getOrCreateDebouncer(target); debouncer.enqueue({ message, target }).catch((err) => {'
+
+====================================================================================================
+entry-00134 trace[7]  extensions/bluebubbles/src/monitor.ts:2203  report=GHSA-PCHC-86F6-8758
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+        await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+          ctx: ctxPayload,
+          cfg: config,
+expected normalized: 'await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({ ctx: ctxPayload, cfg: config,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:2203-2205
+actual code:
+        await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+          ctx: ctxPayload,
+          cfg: config,
+actual normalized: 'await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({ ctx: ctxPayload, cfg: config,'

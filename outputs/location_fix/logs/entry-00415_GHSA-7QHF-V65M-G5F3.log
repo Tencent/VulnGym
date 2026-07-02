@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00415 entry_point  mlflow/server/job_api.py:86  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    @job_api_router.patch("/cancel/{job_id}", response_model=Job)
+expected normalized: '@job_api_router.patch("/cancel/{job_id}", response_model=Job)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:86
+actual code:
+    @job_api_router.patch("/cancel/{job_id}", response_model=Job)
+actual normalized: '@job_api_router.patch("/cancel/{job_id}", response_model=Job)'
+
+====================================================================================================
+entry-00415 critical_operation  mlflow/server/auth/__init__.py:2910  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    def _find_fastapi_validator(path: str) -> Callable[[str, StarletteRequest], Awaitable[bool]] | None:
+expected normalized: 'def _find_fastapi_validator(path: str) -> Callable[[str, StarletteRequest], Awaitable[bool]] | None:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2910
+actual code:
+    def _find_fastapi_validator(path: str) -> Callable[[str, StarletteRequest], Awaitable[bool]] | None:
+actual normalized: 'def _find_fastapi_validator(path: str) -> Callable[[str, StarletteRequest], Awaitable[bool]] | None:'
+
+====================================================================================================
+entry-00415 trace[0]  mlflow/server/auth/__init__.py:2925  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    return _get_gateway_validator(path)
+expected normalized: 'return _get_gateway_validator(path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2925
+actual code:
+            return _get_gateway_validator(path)
+actual normalized: 'return _get_gateway_validator(path)'
+
+====================================================================================================
+entry-00415 trace[1]  mlflow/server/job_api.py:87  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    def cancel_job(job_id: str) -> Job:
+expected normalized: 'def cancel_job(job_id: str) -> Job:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:87
+actual code:
+    def cancel_job(job_id: str) -> Job:
+actual normalized: 'def cancel_job(job_id: str) -> Job:'
+
+====================================================================================================
+entry-00415 trace[2]  mlflow/server/jobs/__init__.py:265  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    return job_store.cancel_job(job_id)
+expected normalized: 'return job_store.cancel_job(job_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/jobs/__init__.py:265
+actual code:
+        return job_store.cancel_job(job_id)
+actual normalized: 'return job_store.cancel_job(job_id)'

@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00123 entry_point  src/config/sessions/types.ts:35  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      sessionFile?: string;
+expected normalized: 'sessionFile?: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/types.ts:35
+actual code:
+      sessionFile?: string;
+actual normalized: 'sessionFile?: string;'
+
+====================================================================================================
+entry-00123 critical_operation  src/config/sessions/transcript.ts:75  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\n`, "utf-8");
+expected normalized: 'await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\\n`, "utf-8");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/transcript.ts:75
+actual code:
+      await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\n`, "utf-8");
+actual normalized: 'await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\\n`, "utf-8");'
+
+====================================================================================================
+entry-00123 trace[0]  src/config/sessions/types.ts:35  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      sessionFile?: string;
+expected normalized: 'sessionFile?: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/types.ts:35
+actual code:
+      sessionFile?: string;
+actual normalized: 'sessionFile?: string;'
+
+====================================================================================================
+entry-00123 trace[1]  src/config/sessions/transcript.ts:106  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      const sessionFile =
+expected normalized: 'const sessionFile ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/transcript.ts:106
+actual code:
+      const sessionFile =
+actual normalized: 'const sessionFile ='
+
+====================================================================================================
+entry-00123 trace[2]  src/config/sessions/transcript.ts:109  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      await ensureSessionHeader({ sessionFile, sessionId: entry.sessionId });
+expected normalized: 'await ensureSessionHeader({ sessionFile, sessionId: entry.sessionId });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/transcript.ts:109
+actual code:
+      await ensureSessionHeader({ sessionFile, sessionId: entry.sessionId });
+actual normalized: 'await ensureSessionHeader({ sessionFile, sessionId: entry.sessionId });'
+
+====================================================================================================
+entry-00123 trace[3]  src/config/sessions/transcript.ts:64  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      if (fs.existsSync(params.sessionFile)) {
+expected normalized: 'if (fs.existsSync(params.sessionFile)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/transcript.ts:64
+actual code:
+      if (fs.existsSync(params.sessionFile)) {
+actual normalized: 'if (fs.existsSync(params.sessionFile)) {'
+
+====================================================================================================
+entry-00123 trace[4]  src/config/sessions/transcript.ts:75  report=GHSA-64QX-VPXX-MVQF
+repo=https://github.com/openclaw/openclaw
+commit=3eb6a31b6fcf8268456988bfa8e3637d373438c2
+expected code:
+      await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\n`, "utf-8");
+expected normalized: 'await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\\n`, "utf-8");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/sessions/transcript.ts:75
+actual code:
+      await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\n`, "utf-8");
+actual normalized: 'await fs.promises.writeFile(params.sessionFile, `${JSON.stringify(header)}\\n`, "utf-8");'

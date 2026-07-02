@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00385 entry_point  extensions/device-pair/index.ts:553  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+            const gatewayClientScopes = Array.isArray(ctx.gatewayClientScopes)
+expected normalized: 'const gatewayClientScopes = Array.isArray(ctx.gatewayClientScopes)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:553
+actual code:
+            const gatewayClientScopes = Array.isArray(ctx.gatewayClientScopes)
+actual normalized: 'const gatewayClientScopes = Array.isArray(ctx.gatewayClientScopes)'
+
+====================================================================================================
+entry-00385 critical_operation  src/infra/device-pairing.ts:471  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+        if (approvalRole && options?.callerScopes) {
+expected normalized: 'if (approvalRole && options?.callerScopes) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:471
+actual code:
+        if (approvalRole && options?.callerScopes) {
+actual normalized: 'if (approvalRole && options?.callerScopes) {'
+
+====================================================================================================
+entry-00385 trace[0]  extensions/device-pair/index.ts:576  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+            if (action === "approve") {
+expected normalized: 'if (action === "approve") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:576
+actual code:
+            if (action === "approve") {
+actual normalized: 'if (action === "approve") {'
+
+====================================================================================================
+entry-00385 trace[1]  extensions/device-pair/index.ts:614  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+              const approved = await approveDevicePairing(pending.requestId);
+expected normalized: 'const approved = await approveDevicePairing(pending.requestId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:614
+actual code:
+              const approved = await approveDevicePairing(pending.requestId);
+actual normalized: 'const approved = await approveDevicePairing(pending.requestId);'
+
+====================================================================================================
+entry-00385 trace[2]  src/infra/device-pairing.ts:459  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+      const options =
+expected normalized: 'const options ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:459
+actual code:
+      const options =
+actual normalized: 'const options ='
+
+====================================================================================================
+entry-00385 trace[3]  src/infra/device-pairing.ts:475  report=GHSA-F275-5H5C-5WG5
+repo=https://github.com/openclaw/openclaw
+commit=2e23d44491c621e293925c8a624f6c50c1b762fe
+expected code:
+          const missingScope = resolveMissingRequestedScope({
+expected normalized: 'const missingScope = resolveMissingRequestedScope({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:475
+actual code:
+          const missingScope = resolveMissingRequestedScope({
+actual normalized: 'const missingScope = resolveMissingRequestedScope({'

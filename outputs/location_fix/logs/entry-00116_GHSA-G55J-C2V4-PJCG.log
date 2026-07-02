@@ -1,0 +1,250 @@
+====================================================================================================
+entry-00116 entry_point  src/gateway/server/ws-connection/message-handler.ts:203  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+            const authResult = await authorizeGatewayConnect({
+expected normalized: 'const authResult = await authorizeGatewayConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:203
+actual code:
+            const authResult = await authorizeGatewayConnect({
+actual normalized: 'const authResult = await authorizeGatewayConnect({'
+
+====================================================================================================
+entry-00116 critical_operation  src/signal/daemon.ts:52  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+      const child = spawn(opts.cliPath, args, {
+expected normalized: 'const child = spawn(opts.cliPath, args, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/signal/daemon.ts:52
+actual code:
+      const child = spawn(opts.cliPath, args, {
+actual normalized: 'const child = spawn(opts.cliPath, args, {'
+
+====================================================================================================
+entry-00116 trace[0]  src/gateway/server/ws-connection/message-handler.ts:203  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+            const authResult = await authorizeGatewayConnect({
+expected normalized: 'const authResult = await authorizeGatewayConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:203
+actual code:
+            const authResult = await authorizeGatewayConnect({
+actual normalized: 'const authResult = await authorizeGatewayConnect({'
+
+====================================================================================================
+entry-00116 trace[1]  src/gateway/auth.ts:111-112  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+      const mode: ResolvedGatewayAuth["mode"] =
+        authConfig.mode ?? (password ? "password" : token ? "token" : "none");
+expected normalized: 'const mode: ResolvedGatewayAuth["mode"] = authConfig.mode ?? (password ? "password" : token ? "token" : "none");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:111-112
+actual code:
+      const mode: ResolvedGatewayAuth["mode"] =
+        authConfig.mode ?? (password ? "password" : token ? "token" : "none");
+actual normalized: 'const mode: ResolvedGatewayAuth["mode"] = authConfig.mode ?? (password ? "password" : token ? "token" : "none");'
+
+====================================================================================================
+entry-00116 trace[2]  src/gateway/auth.ts:164-165  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+      if (auth.mode === "none") {
+        return { ok: true, method: "none" };
+expected normalized: 'if (auth.mode === "none") { return { ok: true, method: "none" };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:164-165
+actual code:
+      if (auth.mode === "none") {
+        return { ok: true, method: "none" };
+actual normalized: 'if (auth.mode === "none") { return { ok: true, method: "none" };'
+
+====================================================================================================
+entry-00116 trace[3]  src/gateway/server/ws-connection/message-handler.ts:359-367  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+          void (async () => {
+            await handleGatewayRequest({
+              req,
+              respond,
+              client,
+              isWebchatConnect,
+              extraHandlers,
+              context: buildRequestContext(),
+            });
+expected normalized: 'void (async () => { await handleGatewayRequest({ req, respond, client, isWebchatConnect, extraHandlers, context: buildRequestContext(), });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:359-367
+actual code:
+          void (async () => {
+            await handleGatewayRequest({
+              req,
+              respond,
+              client,
+              isWebchatConnect,
+              extraHandlers,
+              context: buildRequestContext(),
+            });
+actual normalized: 'void (async () => { await handleGatewayRequest({ req, respond, client, isWebchatConnect, extraHandlers, context: buildRequestContext(), });'
+
+====================================================================================================
+entry-00116 trace[4]  src/gateway/server-methods/config.ts:273  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+      "config.apply": async ({ params, respond }) => {
+expected normalized: '"config.apply": async ({ params, respond }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/config.ts:273
+actual code:
+      "config.apply": async ({ params, respond }) => {
+actual normalized: '"config.apply": async ({ params, respond }) => {'
+
+====================================================================================================
+entry-00116 trace[5]  src/gateway/server-methods/config.ts:301-306  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+        const parsedRes = parseConfigJson5(rawValue);
+        if (!parsedRes.ok) {
+          respond(false, undefined, errorShape(ErrorCodes.INVALID_REQUEST, parsedRes.error));
+          return;
+        }
+        const validated = validateConfigObject(parsedRes.parsed);
+expected normalized: 'const parsedRes = parseConfigJson5(rawValue); if (!parsedRes.ok) { respond(false, undefined, errorShape(ErrorCodes.INVALID_REQUEST, parsedRes.error)); return; } const validated = validateConfigObject(parsedRes.parsed);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/config.ts:301-306
+actual code:
+        const parsedRes = parseConfigJson5(rawValue);
+        if (!parsedRes.ok) {
+          respond(false, undefined, errorShape(ErrorCodes.INVALID_REQUEST, parsedRes.error));
+          return;
+        }
+        const validated = validateConfigObject(parsedRes.parsed);
+actual normalized: 'const parsedRes = parseConfigJson5(rawValue); if (!parsedRes.ok) { respond(false, undefined, errorShape(ErrorCodes.INVALID_REQUEST, parsedRes.error)); return; } const validated = validateConfigObject(parsedRes.parsed);'
+
+====================================================================================================
+entry-00116 trace[6]  src/infra/exec-safety.ts:6-10  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+    function isLikelyPath(value: string): boolean {
+      if (value.startsWith(".") || value.startsWith("~")) return true;
+      if (value.includes("/") || value.includes("\\")) return true;
+      return /^[A-Za-z]:[\\/]/.test(value);
+    }
+expected normalized: 'function isLikelyPath(value: string): boolean { if (value.startsWith(".") || value.startsWith("~")) return true; if (value.includes("/") || value.includes("\\\\")) return true; return /^[A-Za-z]:[\\\\/]/.test(value); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-safety.ts:6-10
+actual code:
+    function isLikelyPath(value: string): boolean {
+      if (value.startsWith(".") || value.startsWith("~")) return true;
+      if (value.includes("/") || value.includes("\\")) return true;
+      return /^[A-Za-z]:[\\/]/.test(value);
+    }
+actual normalized: 'function isLikelyPath(value: string): boolean { if (value.startsWith(".") || value.startsWith("~")) return true; if (value.includes("/") || value.includes("\\\\")) return true; return /^[A-Za-z]:[\\\\/]/.test(value); }'
+
+====================================================================================================
+entry-00116 trace[7]  src/gateway/server-methods/config.ts:317  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+        await writeConfigFile(validated.config);
+expected normalized: 'await writeConfigFile(validated.config);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/config.ts:317
+actual code:
+        await writeConfigFile(validated.config);
+actual normalized: 'await writeConfigFile(validated.config);'
+
+====================================================================================================
+entry-00116 trace[8]  src/signal/monitor.ts:286  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+        const cliPath = opts.cliPath ?? accountInfo.config.cliPath ?? "signal-cli";
+expected normalized: 'const cliPath = opts.cliPath ?? accountInfo.config.cliPath ?? "signal-cli";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/signal/monitor.ts:286
+actual code:
+        const cliPath = opts.cliPath ?? accountInfo.config.cliPath ?? "signal-cli";
+actual normalized: 'const cliPath = opts.cliPath ?? accountInfo.config.cliPath ?? "signal-cli";'
+
+====================================================================================================
+entry-00116 trace[9]  src/signal/monitor.ts:289-298  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+        daemonHandle = spawnSignalDaemon({
+          cliPath,
+          account,
+          httpHost,
+          httpPort,
+          receiveMode: opts.receiveMode ?? accountInfo.config.receiveMode,
+          ignoreAttachments: opts.ignoreAttachments ?? accountInfo.config.ignoreAttachments,
+          ignoreStories: opts.ignoreStories ?? accountInfo.config.ignoreStories,
+          sendReadReceipts: opts.sendReadReceipts ?? accountInfo.config.sendReadReceipts,
+          runtime,
+expected normalized: 'daemonHandle = spawnSignalDaemon({ cliPath, account, httpHost, httpPort, receiveMode: opts.receiveMode ?? accountInfo.config.receiveMode, ignoreAttachments: opts.ignoreAttachments ?? accountInfo.config.ignoreAttachments, ignoreStories: opts.ignoreStories ?? accountInfo.config.ignoreStories, sendReadReceipts: opts.sendReadReceipts ?? accountInfo.config.sendReadReceipts, runtime,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/signal/monitor.ts:289-298
+actual code:
+        daemonHandle = spawnSignalDaemon({
+          cliPath,
+          account,
+          httpHost,
+          httpPort,
+          receiveMode: opts.receiveMode ?? accountInfo.config.receiveMode,
+          ignoreAttachments: opts.ignoreAttachments ?? accountInfo.config.ignoreAttachments,
+          ignoreStories: opts.ignoreStories ?? accountInfo.config.ignoreStories,
+          sendReadReceipts: opts.sendReadReceipts ?? accountInfo.config.sendReadReceipts,
+          runtime,
+actual normalized: 'daemonHandle = spawnSignalDaemon({ cliPath, account, httpHost, httpPort, receiveMode: opts.receiveMode ?? accountInfo.config.receiveMode, ignoreAttachments: opts.ignoreAttachments ?? accountInfo.config.ignoreAttachments, ignoreStories: opts.ignoreStories ?? accountInfo.config.ignoreStories, sendReadReceipts: opts.sendReadReceipts ?? accountInfo.config.sendReadReceipts, runtime,'
+
+====================================================================================================
+entry-00116 trace[10]  src/signal/daemon.ts:52  report=GHSA-G55J-C2V4-PJCG
+repo=https://github.com/openclaw/openclaw
+commit=be37b39782e0799ba5b9533561de6d128d50c863
+expected code:
+      const child = spawn(opts.cliPath, args, {
+expected normalized: 'const child = spawn(opts.cliPath, args, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/signal/daemon.ts:52
+actual code:
+      const child = spawn(opts.cliPath, args, {
+actual normalized: 'const child = spawn(opts.cliPath, args, {'

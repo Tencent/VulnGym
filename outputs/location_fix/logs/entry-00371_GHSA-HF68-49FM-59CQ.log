@@ -1,0 +1,167 @@
+====================================================================================================
+entry-00371 entry_point  src/gateway/server-methods/devices.ts:97  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    "device.pair.approve": async ({ params, respond, context }) => {
+expected normalized: '"device.pair.approve": async ({ params, respond, context }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:97
+actual code:
+      "device.pair.approve": async ({ params, respond, context }) => {
+actual normalized: '"device.pair.approve": async ({ params, respond, context }) => {'
+
+====================================================================================================
+entry-00371 critical_operation  src/infra/device-pairing.ts:346  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    tokens[roleForToken] = {
+            token: newToken(),
+            role: roleForToken,
+            scopes: nextScopes,
+            createdAtMs: existingToken?.createdAtMs ?? now,
+            rotatedAtMs: existingToken ? now : undefined,
+            revokedAtMs: undefined,
+            lastUsedAtMs: existingToken?.lastUsedAtMs,
+    };
+expected normalized: 'tokens[roleForToken] = { token: newToken(), role: roleForToken, scopes: nextScopes, createdAtMs: existingToken?.createdAtMs ?? now, rotatedAtMs: existingToken ? now : undefined, revokedAtMs: undefined, lastUsedAtMs: existingToken?.lastUsedAtMs, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:346-354
+actual code:
+          tokens[roleForToken] = {
+            token: newToken(),
+            role: roleForToken,
+            scopes: nextScopes,
+            createdAtMs: existingToken?.createdAtMs ?? now,
+            rotatedAtMs: existingToken ? now : undefined,
+            revokedAtMs: undefined,
+            lastUsedAtMs: existingToken?.lastUsedAtMs,
+          };
+actual normalized: 'tokens[roleForToken] = { token: newToken(), role: roleForToken, scopes: nextScopes, createdAtMs: existingToken?.createdAtMs ?? now, rotatedAtMs: existingToken ? now : undefined, revokedAtMs: undefined, lastUsedAtMs: existingToken?.lastUsedAtMs, };'
+
+====================================================================================================
+entry-00371 trace[0]  src/gateway/server-methods/devices.ts:111  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    const { requestId } = params as { requestId: string };
+expected normalized: 'const { requestId } = params as { requestId: string };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:111
+actual code:
+        const { requestId } = params as { requestId: string };
+actual normalized: 'const { requestId } = params as { requestId: string };'
+
+====================================================================================================
+entry-00371 trace[1]  src/gateway/server-methods/devices.ts:112  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    const approved = await approveDevicePairing(requestId);
+expected normalized: 'const approved = await approveDevicePairing(requestId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:112
+actual code:
+        const approved = await approveDevicePairing(requestId);
+actual normalized: 'const approved = await approveDevicePairing(requestId);'
+
+====================================================================================================
+entry-00371 trace[2]  src/infra/device-pairing.ts:320  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    const pending = state.pendingById[requestId];
+expected normalized: 'const pending = state.pendingById[requestId];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:320
+actual code:
+        const pending = state.pendingById[requestId];
+actual normalized: 'const pending = state.pendingById[requestId];'
+
+====================================================================================================
+entry-00371 trace[3]  src/infra/device-pairing.ts:335  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    const requestedScopes = normalizeDeviceAuthScopes(pending.scopes);
+expected normalized: 'const requestedScopes = normalizeDeviceAuthScopes(pending.scopes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:335
+actual code:
+          const requestedScopes = normalizeDeviceAuthScopes(pending.scopes);
+actual normalized: 'const requestedScopes = normalizeDeviceAuthScopes(pending.scopes);'
+
+====================================================================================================
+entry-00371 trace[4]  src/infra/device-pairing.ts:336  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    const nextScopes =
+            requestedScopes.length > 0
+              ? requestedScopes
+              : normalizeDeviceAuthScopes(
+                  existingToken?.scopes ??
+                    approvedScopes ??
+                    existing?.approvedScopes ??
+                    existing?.scopes,
+                );
+expected normalized: 'const nextScopes = requestedScopes.length > 0 ? requestedScopes : normalizeDeviceAuthScopes( existingToken?.scopes ?? approvedScopes ?? existing?.approvedScopes ?? existing?.scopes, );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:336-344
+actual code:
+          const nextScopes =
+            requestedScopes.length > 0
+              ? requestedScopes
+              : normalizeDeviceAuthScopes(
+                  existingToken?.scopes ??
+                    approvedScopes ??
+                    existing?.approvedScopes ??
+                    existing?.scopes,
+                );
+actual normalized: 'const nextScopes = requestedScopes.length > 0 ? requestedScopes : normalizeDeviceAuthScopes( existingToken?.scopes ?? approvedScopes ?? existing?.approvedScopes ?? existing?.scopes, );'
+
+====================================================================================================
+entry-00371 trace[5]  src/infra/device-pairing.ts:346  report=GHSA-HF68-49FM-59CQ
+repo=https://github.com/openclaw/openclaw
+commit=132e45900904fc981e6ef04259eb37c72f6c165d
+expected code:
+    tokens[roleForToken] = {
+            token: newToken(),
+            role: roleForToken,
+            scopes: nextScopes,
+            createdAtMs: existingToken?.createdAtMs ?? now,
+            rotatedAtMs: existingToken ? now : undefined,
+            revokedAtMs: undefined,
+            lastUsedAtMs: existingToken?.lastUsedAtMs,
+    };
+expected normalized: 'tokens[roleForToken] = { token: newToken(), role: roleForToken, scopes: nextScopes, createdAtMs: existingToken?.createdAtMs ?? now, rotatedAtMs: existingToken ? now : undefined, revokedAtMs: undefined, lastUsedAtMs: existingToken?.lastUsedAtMs, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:346-354
+actual code:
+          tokens[roleForToken] = {
+            token: newToken(),
+            role: roleForToken,
+            scopes: nextScopes,
+            createdAtMs: existingToken?.createdAtMs ?? now,
+            rotatedAtMs: existingToken ? now : undefined,
+            revokedAtMs: undefined,
+            lastUsedAtMs: existingToken?.lastUsedAtMs,
+          };
+actual normalized: 'tokens[roleForToken] = { token: newToken(), role: roleForToken, scopes: nextScopes, createdAtMs: existingToken?.createdAtMs ?? now, rotatedAtMs: existingToken ? now : undefined, revokedAtMs: undefined, lastUsedAtMs: existingToken?.lastUsedAtMs, };'

@@ -1,0 +1,183 @@
+====================================================================================================
+entry-00229 entry_point  src/agents/apply-patch.ts:80  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+    export function createApplyPatchTool(
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+    ): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> {
+expected normalized: 'export function createApplyPatchTool( options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {}, ): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:80-82
+actual code:
+    export function createApplyPatchTool(
+      options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},
+    ): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> {
+actual normalized: 'export function createApplyPatchTool( options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {}, ): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> {'
+
+====================================================================================================
+entry-00229 critical_operation  src/agents/apply-patch.ts:258  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      if (options.sandbox) {
+        const resolved = options.sandbox.bridge.resolvePath({
+          filePath,
+          cwd: options.cwd,
+        });
+        return {
+          resolved: resolved.hostPath,
+          display: resolved.relativePath || resolved.hostPath,
+        };
+expected normalized: 'if (options.sandbox) { const resolved = options.sandbox.bridge.resolvePath({ filePath, cwd: options.cwd, }); return { resolved: resolved.hostPath, display: resolved.relativePath || resolved.hostPath, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:258-266
+actual code:
+      if (options.sandbox) {
+        const resolved = options.sandbox.bridge.resolvePath({
+          filePath,
+          cwd: options.cwd,
+        });
+        return {
+          resolved: resolved.hostPath,
+          display: resolved.relativePath || resolved.hostPath,
+        };
+actual normalized: 'if (options.sandbox) { const resolved = options.sandbox.bridge.resolvePath({ filePath, cwd: options.cwd, }); return { resolved: resolved.hostPath, display: resolved.relativePath || resolved.hostPath, };'
+
+====================================================================================================
+entry-00229 trace[0]  src/agents/pi-tools.ts:302  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      const applyPatchWorkspaceOnly = workspaceOnly || applyPatchConfig?.workspaceOnly !== false;
+expected normalized: 'const applyPatchWorkspaceOnly = workspaceOnly || applyPatchConfig?.workspaceOnly !== false;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:302
+actual code:
+      const applyPatchWorkspaceOnly = workspaceOnly || applyPatchConfig?.workspaceOnly !== false;
+actual normalized: 'const applyPatchWorkspaceOnly = workspaceOnly || applyPatchConfig?.workspaceOnly !== false;'
+
+====================================================================================================
+entry-00229 trace[1]  src/agents/pi-tools.ts:405  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      const applyPatchTool =
+        !applyPatchEnabled || (sandboxRoot && !allowWorkspaceWrites)
+          ? null
+          : createApplyPatchTool({
+              cwd: sandboxRoot ?? workspaceRoot,
+              sandbox:
+                sandboxRoot && allowWorkspaceWrites
+                  ? { root: sandboxRoot, bridge: sandboxFsBridge! }
+                  : undefined,
+              workspaceOnly: applyPatchWorkspaceOnly,
+            });
+expected normalized: 'const applyPatchTool = !applyPatchEnabled || (sandboxRoot && !allowWorkspaceWrites) ? null : createApplyPatchTool({ cwd: sandboxRoot ?? workspaceRoot, sandbox: sandboxRoot && allowWorkspaceWrites ? { root: sandboxRoot, bridge: sandboxFsBridge! } : undefined, workspaceOnly: applyPatchWorkspaceOnly, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:405-415
+actual code:
+      const applyPatchTool =
+        !applyPatchEnabled || (sandboxRoot && !allowWorkspaceWrites)
+          ? null
+          : createApplyPatchTool({
+              cwd: sandboxRoot ?? workspaceRoot,
+              sandbox:
+                sandboxRoot && allowWorkspaceWrites
+                  ? { root: sandboxRoot, bridge: sandboxFsBridge! }
+                  : undefined,
+              workspaceOnly: applyPatchWorkspaceOnly,
+            });
+actual normalized: 'const applyPatchTool = !applyPatchEnabled || (sandboxRoot && !allowWorkspaceWrites) ? null : createApplyPatchTool({ cwd: sandboxRoot ?? workspaceRoot, sandbox: sandboxRoot && allowWorkspaceWrites ? { root: sandboxRoot, bridge: sandboxFsBridge! } : undefined, workspaceOnly: applyPatchWorkspaceOnly, });'
+
+====================================================================================================
+entry-00229 trace[2]  src/agents/apply-patch.ts:105  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+          const result = await applyPatch(input, {
+            cwd,
+            sandbox,
+            workspaceOnly,
+            signal,
+          });
+expected normalized: 'const result = await applyPatch(input, { cwd, sandbox, workspaceOnly, signal, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:105-110
+actual code:
+          const result = await applyPatch(input, {
+            cwd,
+            sandbox,
+            workspaceOnly,
+            signal,
+          });
+actual normalized: 'const result = await applyPatch(input, { cwd, sandbox, workspaceOnly, signal, });'
+
+====================================================================================================
+entry-00229 trace[3]  src/agents/apply-patch.ts:139  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+      const fileOps = resolvePatchFileOps(options);
+expected normalized: 'const fileOps = resolvePatchFileOps(options);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:139
+actual code:
+      const fileOps = resolvePatchFileOps(options);
+actual normalized: 'const fileOps = resolvePatchFileOps(options);'
+
+====================================================================================================
+entry-00229 trace[4]  src/agents/apply-patch.ts:149  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+          const target = await resolvePatchPath(hunk.path, options);
+          await ensureDir(target.resolved, fileOps);
+          await fileOps.writeFile(target.resolved, hunk.contents);
+expected normalized: 'const target = await resolvePatchPath(hunk.path, options); await ensureDir(target.resolved, fileOps); await fileOps.writeFile(target.resolved, hunk.contents);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:149-151
+actual code:
+          const target = await resolvePatchPath(hunk.path, options);
+          await ensureDir(target.resolved, fileOps);
+          await fileOps.writeFile(target.resolved, hunk.contents);
+actual normalized: 'const target = await resolvePatchPath(hunk.path, options); await ensureDir(target.resolved, fileOps); await fileOps.writeFile(target.resolved, hunk.contents);'
+
+====================================================================================================
+entry-00229 trace[5]  src/agents/apply-patch.ts:253  report=GHSA-H9XM-J4QG-FVPG
+repo=https://github.com/openclaw/openclaw
+commit=c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd
+expected code:
+    async function resolvePatchPath(
+      filePath: string,
+      options: ApplyPatchOptions,
+      purpose: "readWrite" | "unlink" = "readWrite",
+    ): Promise<{ resolved: string; display: string }> {
+      if (options.sandbox) {
+expected normalized: 'async function resolvePatchPath( filePath: string, options: ApplyPatchOptions, purpose: "readWrite" | "unlink" = "readWrite", ): Promise<{ resolved: string; display: string }> { if (options.sandbox) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:253-258
+actual code:
+    async function resolvePatchPath(
+      filePath: string,
+      options: ApplyPatchOptions,
+      purpose: "readWrite" | "unlink" = "readWrite",
+    ): Promise<{ resolved: string; display: string }> {
+      if (options.sandbox) {
+actual normalized: 'async function resolvePatchPath( filePath: string, options: ApplyPatchOptions, purpose: "readWrite" | "unlink" = "readWrite", ): Promise<{ resolved: string; display: string }> { if (options.sandbox) {'

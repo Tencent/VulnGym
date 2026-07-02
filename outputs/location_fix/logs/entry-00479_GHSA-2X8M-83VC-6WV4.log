@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00479 entry_point  packages/components/src/utils.ts:456  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+expected normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:456
+actual code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+actual normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00479 critical_operation  packages/components/src/httpSecurity.ts:40  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function checkDenyList(url: string): Promise<void> {
+expected normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:40
+actual code:
+    export async function checkDenyList(url: string): Promise<void> {
+actual normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+
+====================================================================================================
+entry-00479 trace[0]  packages/components/src/utils.ts:456  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+expected normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:456
+actual code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+actual normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00479 trace[1]  packages/components/src/utils.ts:457  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        await checkDenyList(stringURL)
+expected normalized: 'await checkDenyList(stringURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:457
+actual code:
+        await checkDenyList(stringURL)
+actual normalized: 'await checkDenyList(stringURL)'
+
+====================================================================================================
+entry-00479 trace[2]  packages/components/src/httpSecurity.ts:40  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function checkDenyList(url: string): Promise<void> {
+expected normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:40
+actual code:
+    export async function checkDenyList(url: string): Promise<void> {
+actual normalized: 'export async function checkDenyList(url: string): Promise<void> {'

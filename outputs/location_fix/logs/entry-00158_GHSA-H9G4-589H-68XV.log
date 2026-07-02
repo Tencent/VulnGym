@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00158 entry_point  src/agents/sandbox/context.ts:79  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const browser = await ensureSandboxBrowser({
+expected normalized: 'const browser = await ensureSandboxBrowser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/context.ts:79
+actual code:
+      const browser = await ensureSandboxBrowser({
+actual normalized: 'const browser = await ensureSandboxBrowser({'
+
+====================================================================================================
+entry-00158 critical_operation  src/browser/bridge-server.ts:46  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const authToken = params.authToken?.trim();
+expected normalized: 'const authToken = params.authToken?.trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/bridge-server.ts:46
+actual code:
+      const authToken = params.authToken?.trim();
+actual normalized: 'const authToken = params.authToken?.trim();'
+
+====================================================================================================
+entry-00158 trace[0]  src/agents/sandbox/context.ts:79  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const browser = await ensureSandboxBrowser({
+expected normalized: 'const browser = await ensureSandboxBrowser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/context.ts:79
+actual code:
+      const browser = await ensureSandboxBrowser({
+actual normalized: 'const browser = await ensureSandboxBrowser({'
+
+====================================================================================================
+entry-00158 trace[1]  src/agents/sandbox/browser.ts:192  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    return await startBrowserBridgeServer({
+expected normalized: 'return await startBrowserBridgeServer({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:192
+actual code:
+        return await startBrowserBridgeServer({
+actual normalized: 'return await startBrowserBridgeServer({'
+
+====================================================================================================
+entry-00158 trace[2]  src/browser/bridge-server.ts:27  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const host = params.host ?? "127.0.0.1";
+expected normalized: 'const host = params.host ?? "127.0.0.1";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/bridge-server.ts:27
+actual code:
+      const host = params.host ?? "127.0.0.1";
+actual normalized: 'const host = params.host ?? "127.0.0.1";'
+
+====================================================================================================
+entry-00158 trace[3]  src/browser/bridge-server.ts:46  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const authToken = params.authToken?.trim();
+expected normalized: 'const authToken = params.authToken?.trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/bridge-server.ts:46
+actual code:
+      const authToken = params.authToken?.trim();
+actual normalized: 'const authToken = params.authToken?.trim();'
+
+====================================================================================================
+entry-00158 trace[4]  src/browser/bridge-server.ts:68  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    registerBrowserRoutes(app as unknown as BrowserRouteRegistrar, ctx);
+expected normalized: 'registerBrowserRoutes(app as unknown as BrowserRouteRegistrar, ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/bridge-server.ts:68
+actual code:
+      registerBrowserRoutes(app as unknown as BrowserRouteRegistrar, ctx);
+actual normalized: 'registerBrowserRoutes(app as unknown as BrowserRouteRegistrar, ctx);'
+
+====================================================================================================
+entry-00158 trace[5]  src/browser/bridge-server.ts:70  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+    const server = await new Promise<Server>((resolve, reject) => {
+expected normalized: 'const server = await new Promise<Server>((resolve, reject) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/bridge-server.ts:70
+actual code:
+      const server = await new Promise<Server>((resolve, reject) => {
+actual normalized: 'const server = await new Promise<Server>((resolve, reject) => {'

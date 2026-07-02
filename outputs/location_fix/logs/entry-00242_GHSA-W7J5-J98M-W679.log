@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00242 entry_point  scripts/e2e/Dockerfile.qr-import:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM node:22-bookworm
+expected normalized: 'FROM node:22-bookworm'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:1
+actual code:
+    FROM node:22-bookworm
+actual normalized: 'FROM node:22-bookworm'
+
+====================================================================================================
+entry-00242 critical_operation  scripts/e2e/Dockerfile.qr-import:9  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN pnpm install --frozen-lockfile
+expected normalized: 'RUN pnpm install --frozen-lockfile'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:9
+actual code:
+    RUN pnpm install --frozen-lockfile
+actual normalized: 'RUN pnpm install --frozen-lockfile'
+
+====================================================================================================
+entry-00242 trace[0]  scripts/e2e/Dockerfile.qr-import:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM node:22-bookworm
+expected normalized: 'FROM node:22-bookworm'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:1
+actual code:
+    FROM node:22-bookworm
+actual normalized: 'FROM node:22-bookworm'
+
+====================================================================================================
+entry-00242 trace[1]  scripts/e2e/Dockerfile.qr-import:3  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN corepack enable
+expected normalized: 'RUN corepack enable'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:3
+actual code:
+    RUN corepack enable
+actual normalized: 'RUN corepack enable'
+
+====================================================================================================
+entry-00242 trace[2]  scripts/e2e/Dockerfile.qr-import:5  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    WORKDIR /app
+expected normalized: 'WORKDIR /app'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:5
+actual code:
+    WORKDIR /app
+actual normalized: 'WORKDIR /app'
+
+====================================================================================================
+entry-00242 trace[3]  scripts/e2e/Dockerfile.qr-import:7  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    COPY . .
+expected normalized: 'COPY . .'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:7
+actual code:
+    COPY . .
+actual normalized: 'COPY . .'
+
+====================================================================================================
+entry-00242 trace[4]  scripts/e2e/Dockerfile.qr-import:9  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN pnpm install --frozen-lockfile
+expected normalized: 'RUN pnpm install --frozen-lockfile'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile.qr-import:9
+actual code:
+    RUN pnpm install --frozen-lockfile
+actual normalized: 'RUN pnpm install --frozen-lockfile'

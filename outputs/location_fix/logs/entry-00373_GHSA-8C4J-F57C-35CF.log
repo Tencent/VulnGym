@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00373 entry_point  src/backend/base/langflow/api/v1/flows.py:315  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.patch("/{flow_id}", response_model=FlowRead, status_code=200)
+expected normalized: '@router.patch("/{flow_id}", response_model=FlowRead, status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:315
+actual code:
+    @router.patch("/{flow_id}", response_model=FlowRead, status_code=200)
+actual normalized: '@router.patch("/{flow_id}", response_model=FlowRead, status_code=200)'
+
+====================================================================================================
+entry-00373 critical_operation  src/backend/base/langflow/api/v1/flows.py:277  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        stmt = select(Flow).where(Flow.id == flow_id)
+expected normalized: 'stmt = select(Flow).where(Flow.id == flow_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:277
+actual code:
+        stmt = select(Flow).where(Flow.id == flow_id)
+actual normalized: 'stmt = select(Flow).where(Flow.id == flow_id)'
+
+====================================================================================================
+entry-00373 trace[0]  src/backend/base/langflow/api/v1/flows.py:315  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.patch("/{flow_id}", response_model=FlowRead, status_code=200)
+expected normalized: '@router.patch("/{flow_id}", response_model=FlowRead, status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:315
+actual code:
+    @router.patch("/{flow_id}", response_model=FlowRead, status_code=200)
+actual normalized: '@router.patch("/{flow_id}", response_model=FlowRead, status_code=200)'
+
+====================================================================================================
+entry-00373 trace[1]  src/backend/base/langflow/api/v1/flows.py:319  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        flow_id: UUID,
+expected normalized: 'flow_id: UUID,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:319
+actual code:
+        flow_id: UUID,
+actual normalized: 'flow_id: UUID,'
+
+====================================================================================================
+entry-00373 trace[2]  src/backend/base/langflow/api/v1/flows.py:326  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+            db_flow = await _read_flow(
+expected normalized: 'db_flow = await _read_flow('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:326
+actual code:
+            db_flow = await _read_flow(
+actual normalized: 'db_flow = await _read_flow('

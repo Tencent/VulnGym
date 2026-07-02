@@ -1,0 +1,128 @@
+====================================================================================================
+entry-00300 entry_point  src/auto-reply/reply/commands-config.ts:126  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    };
+expected normalized: '};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:126
+actual code:
+          };
+actual normalized: '};'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (7):
+  [1] .github/workflows/auto-response.yml:109
+                  };
+  [2] .github/workflows/auto-response.yml:114
+                  };
+  [3] .github/workflows/auto-response.yml:137
+                  };
+  [4] .github/workflows/auto-response.yml:158
+                  };
+  [5] .github/workflows/auto-response.yml:205
+                  };
+  [6] .github/workflows/auto-response.yml:230
+                  };
+  [7] .github/workflows/auto-response.yml:262
+                  };
+
+====================================================================================================
+entry-00300 critical_operation  src/auto-reply/reply/commands-config.ts:136  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);
+expected normalized: 'const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:136
+actual code:
+        const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);
+actual normalized: 'const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);'
+
+====================================================================================================
+entry-00300 trace[0]  src/auto-reply/reply/commands-config.ts:134  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    const unauthorized = rejectUnauthorizedCommand(params, "/debug");
+expected normalized: 'const unauthorized = rejectUnauthorizedCommand(params, "/debug");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:134
+actual code:
+    <empty>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 129 to 139
+----------------------------------------------------------------------------------------------------
+step=same_file status=unique_match
+detail=search entire original file with 279 lines
+candidates (1):
+  [1] src/auto-reply/reply/commands-config.ts:196
+        const unauthorized = rejectUnauthorizedCommand(params, "/debug");
+
+====================================================================================================
+entry-00300 trace[1]  src/auto-reply/reply/command-gates.ts:8  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    export function rejectUnauthorizedCommand(
+      params: HandleCommandsParams,
+      commandLabel: string,
+    ): CommandHandlerResult | null {
+      if (params.command.isAuthorizedSender) {
+        return null;
+      }
+expected normalized: 'export function rejectUnauthorizedCommand( params: HandleCommandsParams, commandLabel: string, ): CommandHandlerResult | null { if (params.command.isAuthorizedSender) { return null; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/command-gates.ts:8-14
+actual code:
+    export function rejectUnauthorizedCommand(
+      params: HandleCommandsParams,
+      commandLabel: string,
+    ): CommandHandlerResult | null {
+      if (params.command.isAuthorizedSender) {
+        return null;
+      }
+actual normalized: 'export function rejectUnauthorizedCommand( params: HandleCommandsParams, commandLabel: string, ): CommandHandlerResult | null { if (params.command.isAuthorizedSender) { return null; }'
+
+====================================================================================================
+entry-00300 trace[2]  src/auto-reply/reply/commands-config.ts:135  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    if (configCommand.action === "unset") {
+expected normalized: 'if (configCommand.action === "unset") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:135
+actual code:
+      if (configCommand.action === "unset") {
+actual normalized: 'if (configCommand.action === "unset") {'
+
+====================================================================================================
+entry-00300 trace[3]  src/auto-reply/reply/commands-config.ts:136  report=GHSA-R7VR-GR74-94P8
+repo=https://github.com/openclaw/openclaw
+commit=fda49658183dc1afee48143f4de47dedc7590966
+expected code:
+    const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);
+expected normalized: 'const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-config.ts:136
+actual code:
+        const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);
+actual normalized: 'const removed = unsetConfigValueAtPath(parsedBase, parsedWritePath ?? []);'

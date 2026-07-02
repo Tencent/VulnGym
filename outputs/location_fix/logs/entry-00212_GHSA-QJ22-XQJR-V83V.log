@@ -1,0 +1,194 @@
+====================================================================================================
+entry-00212 entry_point  src/telegram/bot-handlers.ts:511  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+      bot.on("message_reaction", async (ctx) => {
+expected normalized: 'bot.on("message_reaction", async (ctx) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:511
+actual code:
+      bot.on("message_reaction", async (ctx) => {
+actual normalized: 'bot.on("message_reaction", async (ctx) => {'
+
+====================================================================================================
+entry-00212 critical_operation  src/telegram/bot-handlers.ts:591-594  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+            enqueueSystemEvent(text, {
+              sessionKey,
+              contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`,
+            });
+expected normalized: 'enqueueSystemEvent(text, { sessionKey, contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:591-594
+actual code:
+            enqueueSystemEvent(text, {
+              sessionKey,
+              contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`,
+            });
+actual normalized: 'enqueueSystemEvent(text, { sessionKey, contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`, });'
+
+====================================================================================================
+entry-00212 trace[0]  src/telegram/bot-handlers.ts:511-519  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+      bot.on("message_reaction", async (ctx) => {
+        try {
+          const reaction = ctx.messageReaction;
+          if (!reaction) {
+            return;
+          }
+          if (shouldSkipUpdate(ctx)) {
+            return;
+          }
+expected normalized: 'bot.on("message_reaction", async (ctx) => { try { const reaction = ctx.messageReaction; if (!reaction) { return; } if (shouldSkipUpdate(ctx)) { return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:511-519
+actual code:
+      bot.on("message_reaction", async (ctx) => {
+        try {
+          const reaction = ctx.messageReaction;
+          if (!reaction) {
+            return;
+          }
+          if (shouldSkipUpdate(ctx)) {
+            return;
+          }
+actual normalized: 'bot.on("message_reaction", async (ctx) => { try { const reaction = ctx.messageReaction; if (!reaction) { return; } if (shouldSkipUpdate(ctx)) { return; }'
+
+====================================================================================================
+entry-00212 trace[1]  src/telegram/bot-handlers.ts:526-535  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+          const reactionMode = telegramCfg.reactionNotifications ?? "own";
+          if (reactionMode === "off") {
+            return;
+          }
+          if (user?.is_bot) {
+            return;
+          }
+          if (reactionMode === "own" && !wasSentByBot(chatId, messageId)) {
+            return;
+          }
+expected normalized: 'const reactionMode = telegramCfg.reactionNotifications ?? "own"; if (reactionMode === "off") { return; } if (user?.is_bot) { return; } if (reactionMode === "own" && !wasSentByBot(chatId, messageId)) { return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:526-535
+actual code:
+          const reactionMode = telegramCfg.reactionNotifications ?? "own";
+          if (reactionMode === "off") {
+            return;
+          }
+          if (user?.is_bot) {
+            return;
+          }
+          if (reactionMode === "own" && !wasSentByBot(chatId, messageId)) {
+            return;
+          }
+actual normalized: 'const reactionMode = telegramCfg.reactionNotifications ?? "own"; if (reactionMode === "off") { return; } if (user?.is_bot) { return; } if (reactionMode === "own" && !wasSentByBot(chatId, messageId)) { return; }'
+
+====================================================================================================
+entry-00212 trace[2]  src/telegram/bot-handlers.ts:538-547  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+          const oldEmojis = new Set(
+            reaction.old_reaction
+              .filter((r): r is ReactionTypeEmoji => r.type === "emoji")
+              .map((r) => r.emoji),
+          );
+          const addedReactions = reaction.new_reaction
+            .filter((r): r is ReactionTypeEmoji => r.type === "emoji")
+            .filter((r) => !oldEmojis.has(r.emoji));
+    
+          if (addedReactions.length === 0) {
+expected normalized: 'const oldEmojis = new Set( reaction.old_reaction .filter((r): r is ReactionTypeEmoji => r.type === "emoji") .map((r) => r.emoji), ); const addedReactions = reaction.new_reaction .filter((r): r is ReactionTypeEmoji => r.type === "emoji") .filter((r) => !oldEmojis.has(r.emoji)); if (addedReactions.length === 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:538-547
+actual code:
+          const oldEmojis = new Set(
+            reaction.old_reaction
+              .filter((r): r is ReactionTypeEmoji => r.type === "emoji")
+              .map((r) => r.emoji),
+          );
+          const addedReactions = reaction.new_reaction
+            .filter((r): r is ReactionTypeEmoji => r.type === "emoji")
+            .filter((r) => !oldEmojis.has(r.emoji));
+    
+          if (addedReactions.length === 0) {
+actual normalized: 'const oldEmojis = new Set( reaction.old_reaction .filter((r): r is ReactionTypeEmoji => r.type === "emoji") .map((r) => r.emoji), ); const addedReactions = reaction.new_reaction .filter((r): r is ReactionTypeEmoji => r.type === "emoji") .filter((r) => !oldEmojis.has(r.emoji)); if (addedReactions.length === 0) {'
+
+====================================================================================================
+entry-00212 trace[3]  src/telegram/bot-handlers.ts:576-585  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+          const parentPeer = buildTelegramParentPeer({ isGroup, resolvedThreadId, chatId });
+          // Fresh config for bindings lookup; other routing inputs are payload-derived.
+          const route = resolveAgentRoute({
+            cfg: loadConfig(),
+            channel: "telegram",
+            accountId,
+            peer: { kind: isGroup ? "group" : "direct", id: peerId },
+            parentPeer,
+          });
+          const sessionKey = route.sessionKey;
+expected normalized: 'const parentPeer = buildTelegramParentPeer({ isGroup, resolvedThreadId, chatId }); // Fresh config for bindings lookup; other routing inputs are payload-derived. const route = resolveAgentRoute({ cfg: loadConfig(), channel: "telegram", accountId, peer: { kind: isGroup ? "group" : "direct", id: peerId }, parentPeer, }); const sessionKey = route.sessionKey;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:576-585
+actual code:
+          const parentPeer = buildTelegramParentPeer({ isGroup, resolvedThreadId, chatId });
+          // Fresh config for bindings lookup; other routing inputs are payload-derived.
+          const route = resolveAgentRoute({
+            cfg: loadConfig(),
+            channel: "telegram",
+            accountId,
+            peer: { kind: isGroup ? "group" : "direct", id: peerId },
+            parentPeer,
+          });
+          const sessionKey = route.sessionKey;
+actual normalized: 'const parentPeer = buildTelegramParentPeer({ isGroup, resolvedThreadId, chatId }); // Fresh config for bindings lookup; other routing inputs are payload-derived. const route = resolveAgentRoute({ cfg: loadConfig(), channel: "telegram", accountId, peer: { kind: isGroup ? "group" : "direct", id: peerId }, parentPeer, }); const sessionKey = route.sessionKey;'
+
+====================================================================================================
+entry-00212 trace[4]  src/telegram/bot-handlers.ts:588-595  report=GHSA-QJ22-XQJR-V83V
+repo=https://github.com/openclaw/openclaw
+commit=c6dfa26f037977b82e91648bee47d99360d604d4
+expected code:
+          for (const r of addedReactions) {
+            const emoji = r.emoji;
+            const text = `Telegram reaction added: ${emoji} by ${senderLabel} on msg ${messageId}`;
+            enqueueSystemEvent(text, {
+              sessionKey,
+              contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`,
+            });
+            logVerbose(`telegram: reaction event enqueued: ${text}`);
+expected normalized: 'for (const r of addedReactions) { const emoji = r.emoji; const text = `Telegram reaction added: ${emoji} by ${senderLabel} on msg ${messageId}`; enqueueSystemEvent(text, { sessionKey, contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`, }); logVerbose(`telegram: reaction event enqueued: ${text}`);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-handlers.ts:588-595
+actual code:
+          for (const r of addedReactions) {
+            const emoji = r.emoji;
+            const text = `Telegram reaction added: ${emoji} by ${senderLabel} on msg ${messageId}`;
+            enqueueSystemEvent(text, {
+              sessionKey,
+              contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`,
+            });
+            logVerbose(`telegram: reaction event enqueued: ${text}`);
+actual normalized: 'for (const r of addedReactions) { const emoji = r.emoji; const text = `Telegram reaction added: ${emoji} by ${senderLabel} on msg ${messageId}`; enqueueSystemEvent(text, { sessionKey, contextKey: `telegram:reaction:add:${chatId}:${messageId}:${user?.id ?? "anon"}:${emoji}`, }); logVerbose(`telegram: reaction event enqueued: ${text}`);'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00433 entry_point  src/google/adk/cli/adk_web_server.py:1816  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/run", response_model_exclude_none=True)
+expected normalized: '@app.post("/run", response_model_exclude_none=True)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1816
+actual code:
+        @app.post("/run", response_model_exclude_none=True)
+actual normalized: '@app.post("/run", response_model_exclude_none=True)'
+
+====================================================================================================
+entry-00433 critical_operation  src/google/adk/cli/utils/agent_loader.py:330  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        agent_or_app = self._perform_load(agent_name)
+expected normalized: 'agent_or_app = self._perform_load(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:330
+actual code:
+        agent_or_app = self._perform_load(agent_name)
+actual normalized: 'agent_or_app = self._perform_load(agent_name)'
+
+====================================================================================================
+entry-00433 trace[0]  src/google/adk/cli/adk_web_server.py:1816  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/run", response_model_exclude_none=True)
+expected normalized: '@app.post("/run", response_model_exclude_none=True)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1816
+actual code:
+        @app.post("/run", response_model_exclude_none=True)
+actual normalized: '@app.post("/run", response_model_exclude_none=True)'
+
+====================================================================================================
+entry-00433 trace[1]  src/google/adk/cli/adk_web_server.py:686  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        envs.load_dotenv_for_agent(os.path.basename(app_name), self.agents_dir)
+expected normalized: 'envs.load_dotenv_for_agent(os.path.basename(app_name), self.agents_dir)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:686
+actual code:
+        envs.load_dotenv_for_agent(os.path.basename(app_name), self.agents_dir)
+actual normalized: 'envs.load_dotenv_for_agent(os.path.basename(app_name), self.agents_dir)'
+
+====================================================================================================
+entry-00433 trace[2]  src/google/adk/cli/utils/agent_loader.py:330  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        agent_or_app = self._perform_load(agent_name)
+expected normalized: 'agent_or_app = self._perform_load(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:330
+actual code:
+        agent_or_app = self._perform_load(agent_name)
+actual normalized: 'agent_or_app = self._perform_load(agent_name)'

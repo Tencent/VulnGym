@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00102 entry_point  mlflow/utils/file_utils.py:768  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+    def get_or_create_nfs_tmp_dir():
+expected normalized: 'def get_or_create_nfs_tmp_dir():'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:768
+actual code:
+    def get_or_create_nfs_tmp_dir():
+actual normalized: 'def get_or_create_nfs_tmp_dir():'
+
+====================================================================================================
+entry-00102 critical_operation  mlflow/utils/file_utils.py:794  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            os.chmod(tmp_nfs_dir, 0o777)
+expected normalized: 'os.chmod(tmp_nfs_dir, 0o777)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:794
+actual code:
+            os.chmod(tmp_nfs_dir, 0o777)
+actual normalized: 'os.chmod(tmp_nfs_dir, 0o777)'
+
+====================================================================================================
+entry-00102 trace[0]  mlflow/utils/file_utils.py:768  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+    def get_or_create_nfs_tmp_dir():
+expected normalized: 'def get_or_create_nfs_tmp_dir():'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:768
+actual code:
+    def get_or_create_nfs_tmp_dir():
+actual normalized: 'def get_or_create_nfs_tmp_dir():'
+
+====================================================================================================
+entry-00102 trace[1]  mlflow/utils/file_utils.py:791  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            tmp_nfs_dir = tempfile.mkdtemp(dir=nfs_root_dir)
+expected normalized: 'tmp_nfs_dir = tempfile.mkdtemp(dir=nfs_root_dir)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:791
+actual code:
+            tmp_nfs_dir = tempfile.mkdtemp(dir=nfs_root_dir)
+actual normalized: 'tmp_nfs_dir = tempfile.mkdtemp(dir=nfs_root_dir)'
+
+====================================================================================================
+entry-00102 trace[2]  mlflow/utils/file_utils.py:794  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            os.chmod(tmp_nfs_dir, 0o777)
+expected normalized: 'os.chmod(tmp_nfs_dir, 0o777)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:794
+actual code:
+            os.chmod(tmp_nfs_dir, 0o777)
+actual normalized: 'os.chmod(tmp_nfs_dir, 0o777)'

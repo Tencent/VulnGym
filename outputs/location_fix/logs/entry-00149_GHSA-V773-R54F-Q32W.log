@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00149 entry_point  src/slack/monitor/slash.ts:541  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          buildSlackSlashCommandMatcher(slashCommand.name),
+expected normalized: 'buildSlackSlashCommandMatcher(slashCommand.name),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:541
+actual code:
+          buildSlackSlashCommandMatcher(slashCommand.name),
+actual normalized: 'buildSlackSlashCommandMatcher(slashCommand.name),'
+
+====================================================================================================
+entry-00149 critical_operation  src/slack/monitor/slash.ts:207  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          let commandAuthorized = true;
+expected normalized: 'let commandAuthorized = true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:207
+actual code:
+          let commandAuthorized = true;
+actual normalized: 'let commandAuthorized = true;'
+
+====================================================================================================
+entry-00149 trace[0]  src/slack/monitor/slash.ts:541  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          buildSlackSlashCommandMatcher(slashCommand.name),
+expected normalized: 'buildSlackSlashCommandMatcher(slashCommand.name),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:541
+actual code:
+          buildSlackSlashCommandMatcher(slashCommand.name),
+actual normalized: 'buildSlackSlashCommandMatcher(slashCommand.name),'
+
+====================================================================================================
+entry-00149 trace[1]  src/slack/monitor/slash.ts:184  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          const isDirectMessage = channelType === "im";
+expected normalized: 'const isDirectMessage = channelType === "im";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:184
+actual code:
+          const isDirectMessage = channelType === "im";
+actual normalized: 'const isDirectMessage = channelType === "im";'
+
+====================================================================================================
+entry-00149 trace[2]  src/slack/monitor/slash.ts:209  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          if (isDirectMessage) {
+expected normalized: 'if (isDirectMessage) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:209
+actual code:
+          if (isDirectMessage) {
+actual normalized: 'if (isDirectMessage) {'
+
+====================================================================================================
+entry-00149 trace[3]  src/slack/monitor/slash.ts:210  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+            if (!ctx.dmEnabled || ctx.dmPolicy === "disabled") {
+expected normalized: 'if (!ctx.dmEnabled || ctx.dmPolicy === "disabled") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:210
+actual code:
+            if (!ctx.dmEnabled || ctx.dmPolicy === "disabled") {
+actual normalized: 'if (!ctx.dmEnabled || ctx.dmPolicy === "disabled") {'
+
+====================================================================================================
+entry-00149 trace[4]  src/slack/monitor/slash.ts:217  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+            if (ctx.dmPolicy !== "open") {
+expected normalized: 'if (ctx.dmPolicy !== "open") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:217
+actual code:
+            if (ctx.dmPolicy !== "open") {
+actual normalized: 'if (ctx.dmPolicy !== "open") {'
+
+====================================================================================================
+entry-00149 trace[5]  src/slack/monitor/slash.ts:326  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+            commandAuthorized = resolveCommandAuthorizedFromAuthorizers({
+expected normalized: 'commandAuthorized = resolveCommandAuthorizedFromAuthorizers({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:326
+actual code:
+            commandAuthorized = resolveCommandAuthorizedFromAuthorizers({
+actual normalized: 'commandAuthorized = resolveCommandAuthorizedFromAuthorizers({'
+
+====================================================================================================
+entry-00149 trace[6]  src/slack/monitor/slash.ts:433  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+            CommandAuthorized: commandAuthorized,
+expected normalized: 'CommandAuthorized: commandAuthorized,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:433
+actual code:
+            CommandAuthorized: commandAuthorized,
+actual normalized: 'CommandAuthorized: commandAuthorized,'
+
+====================================================================================================
+entry-00149 trace[7]  src/slack/monitor/slash.ts:207  report=GHSA-V773-R54F-Q32W
+repo=https://github.com/openclaw/openclaw
+commit=7d4078c7043da9109c7fdba662254a7f9204aea9
+expected code:
+          let commandAuthorized = true;
+expected normalized: 'let commandAuthorized = true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/slash.ts:207
+actual code:
+          let commandAuthorized = true;
+actual normalized: 'let commandAuthorized = true;'

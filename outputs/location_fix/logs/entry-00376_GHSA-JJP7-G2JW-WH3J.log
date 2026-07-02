@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00376 entry_point  backend/open_webui/routers/knowledge.py:589  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+    @router.get("/{id}/files", response_model=KnowledgeFileListResponse)
+expected normalized: '@router.get("/{id}/files", response_model=KnowledgeFileListResponse)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/knowledge.py:589
+actual code:
+    @router.get("/{id}/files", response_model=KnowledgeFileListResponse)
+actual normalized: '@router.get("/{id}/files", response_model=KnowledgeFileListResponse)'
+
+====================================================================================================
+entry-00376 critical_operation  backend/open_webui/routers/retrieval.py:2805  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+                    Files.update_file_by_id(id=file_result.file_id, form_data=file_update)
+expected normalized: 'Files.update_file_by_id(id=file_result.file_id, form_data=file_update)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2805
+actual code:
+                    Files.update_file_by_id(id=file_result.file_id, form_data=file_update)
+actual normalized: 'Files.update_file_by_id(id=file_result.file_id, form_data=file_update)'
+
+====================================================================================================
+entry-00376 trace[0]  backend/open_webui/routers/knowledge.py:589  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+    @router.get("/{id}/files", response_model=KnowledgeFileListResponse)
+expected normalized: '@router.get("/{id}/files", response_model=KnowledgeFileListResponse)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/knowledge.py:589
+actual code:
+    @router.get("/{id}/files", response_model=KnowledgeFileListResponse)
+actual normalized: '@router.get("/{id}/files", response_model=KnowledgeFileListResponse)'
+
+====================================================================================================
+entry-00376 trace[1]  backend/open_webui/routers/knowledge.py:590-599  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+    async def get_knowledge_files_by_id(
+        id: str,
+        query: Optional[str] = None,
+        view_option: Optional[str] = None,
+        order_by: Optional[str] = None,
+        direction: Optional[str] = None,
+        page: Optional[int] = 1,
+        user=Depends(get_verified_user),
+        db: Session = Depends(get_session),
+    ):
+expected normalized: 'async def get_knowledge_files_by_id( id: str, query: Optional[str] = None, view_option: Optional[str] = None, order_by: Optional[str] = None, direction: Optional[str] = None, page: Optional[int] = 1, user=Depends(get_verified_user), db: Session = Depends(get_session), ):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/knowledge.py:590-599
+actual code:
+    async def get_knowledge_files_by_id(
+        id: str,
+        query: Optional[str] = None,
+        view_option: Optional[str] = None,
+        order_by: Optional[str] = None,
+        direction: Optional[str] = None,
+        page: Optional[int] = 1,
+        user=Depends(get_verified_user),
+        db: Session = Depends(get_session),
+    ):
+actual normalized: 'async def get_knowledge_files_by_id( id: str, query: Optional[str] = None, view_option: Optional[str] = None, order_by: Optional[str] = None, direction: Optional[str] = None, page: Optional[int] = 1, user=Depends(get_verified_user), db: Session = Depends(get_session), ):'
+
+====================================================================================================
+entry-00376 trace[2]  backend/open_webui/routers/knowledge.py:639-641  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+        return Knowledges.search_files_by_id(
+            id, user.id, filter=filter, skip=skip, limit=limit, db=db
+        )
+expected normalized: 'return Knowledges.search_files_by_id( id, user.id, filter=filter, skip=skip, limit=limit, db=db )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/knowledge.py:639-641
+actual code:
+        return Knowledges.search_files_by_id(
+            id, user.id, filter=filter, skip=skip, limit=limit, db=db
+        )
+actual normalized: 'return Knowledges.search_files_by_id( id, user.id, filter=filter, skip=skip, limit=limit, db=db )'
+
+====================================================================================================
+entry-00376 trace[3]  backend/open_webui/routers/retrieval.py:2733  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+    @router.post("/process/files/batch")
+expected normalized: '@router.post("/process/files/batch")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2733
+actual code:
+    @router.post("/process/files/batch")
+actual normalized: '@router.post("/process/files/batch")'
+
+====================================================================================================
+entry-00376 trace[4]  backend/open_webui/routers/retrieval.py:2734-2738  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+    async def process_files_batch(
+        request: Request,
+        form_data: BatchProcessFilesForm,
+        user=Depends(get_verified_user),
+    ) -> BatchProcessFilesResponse:
+expected normalized: 'async def process_files_batch( request: Request, form_data: BatchProcessFilesForm, user=Depends(get_verified_user), ) -> BatchProcessFilesResponse:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2734-2738
+actual code:
+    async def process_files_batch(
+        request: Request,
+        form_data: BatchProcessFilesForm,
+        user=Depends(get_verified_user),
+    ) -> BatchProcessFilesResponse:
+actual normalized: 'async def process_files_batch( request: Request, form_data: BatchProcessFilesForm, user=Depends(get_verified_user), ) -> BatchProcessFilesResponse:'
+
+====================================================================================================
+entry-00376 trace[5]  backend/open_webui/routers/retrieval.py:2757  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+        for file in form_data.files:
+expected normalized: 'for file in form_data.files:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2757
+actual code:
+        for file in form_data.files:
+actual normalized: 'for file in form_data.files:'
+
+====================================================================================================
+entry-00376 trace[6]  backend/open_webui/routers/retrieval.py:2759  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+                text_content = file.data.get("content", "")
+expected normalized: 'text_content = file.data.get("content", "")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2759
+actual code:
+                text_content = file.data.get("content", "")
+actual normalized: 'text_content = file.data.get("content", "")'
+
+====================================================================================================
+entry-00376 trace[7]  backend/open_webui/routers/retrieval.py:2805  report=GHSA-JJP7-G2JW-WH3J
+repo=https://github.com/open-webui/open-webui
+commit=1ac3dd4a893e13803e7b889611303c4a7a5cc470
+expected code:
+                    Files.update_file_by_id(id=file_result.file_id, form_data=file_update)
+expected normalized: 'Files.update_file_by_id(id=file_result.file_id, form_data=file_update)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/retrieval.py:2805
+actual code:
+                    Files.update_file_by_id(id=file_result.file_id, form_data=file_update)
+actual normalized: 'Files.update_file_by_id(id=file_result.file_id, form_data=file_update)'

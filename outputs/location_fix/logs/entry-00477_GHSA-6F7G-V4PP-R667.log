@@ -1,0 +1,191 @@
+====================================================================================================
+entry-00477 entry_point  packages/server/src/routes/public-chatbots/index.ts:8  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)  // 入口：无任何认证中间件，path 在 WHITELIST_URLS 白名单中，全局认证中间件直接放行
+expected normalized: "router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig) // 入口：无任何认证中间件，path 在 WHITELIST_URLS 白名单中，全局认证中间件直接放行"
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/public-chatbots/index.ts:8
+actual code:
+    router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)
+actual normalized: "router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)"
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 3 to 13
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 14 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 critical_operation  packages/server/src/services/chatflows/index.ts:391  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // 漏洞触发点：flowData 包含所有节点的 data.credential（credentialId UUID）原样返回给匿名调用者，应在此处删除或脱敏凭据引用字段
+expected normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled } // 漏洞触发点：flowData 包含所有节点的 data.credential（credentialId UUID）原样返回给匿名调用者，应在此处删除或脱敏凭据引用字段'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:391
+actual code:
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+actual normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 386 to 396
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 451 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[0]  packages/server/src/utils/constants.ts:10  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    '/api/v1/public-chatbotConfig',  // 白名单放行条目：中间件 startsWith 匹配后跳过所有认证检查
+expected normalized: "'/api/v1/public-chatbotConfig', // 白名单放行条目：中间件 startsWith 匹配后跳过所有认证检查"
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:10
+actual code:
+        '/api/v1/public-chatbotConfig',
+actual normalized: "'/api/v1/public-chatbotConfig',"
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 5 to 15
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 116 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[1]  packages/server/src/index.ts:221  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))  // 此处判断为 true，执行 next()，完全绕过 JWT/API Key 验证
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url)) // 此处判断为 true，执行 next()，完全绕过 JWT/API Key 验证'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 216 to 226
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 390 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[2]  packages/server/src/index.ts:223  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    if (isWhitelisted) { next() }  // 缺失：应有对 chatbotConfig 端点的 ownership 或访问控制校验
+expected normalized: 'if (isWhitelisted) { next() } // 缺失：应有对 chatbotConfig 端点的 ownership 或访问控制校验'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:223
+actual code:
+                            next()
+actual normalized: 'next()'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 218 to 228
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 390 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[3]  packages/server/src/controllers/chatflows/index.ts:246  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)  // chatflowId 来自路径参数，未验证调用者是否有权访问该 chatflow
+expected normalized: 'const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id) // chatflowId 来自路径参数，未验证调用者是否有权访问该 chatflow'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/chatflows/index.ts:246
+actual code:
+            const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)
+actual normalized: 'const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 241 to 251
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 286 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[4]  packages/server/src/services/chatflows/index.ts:366  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId })  // 直接按 id 查询任意 chatflow，无工作区隔离
+expected normalized: 'const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId }) // 直接按 id 查询任意 chatflow，无工作区隔离'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:366
+actual code:
+            const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({
+actual normalized: 'const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 361 to 371
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 451 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00477 trace[5]  packages/server/src/services/chatflows/index.ts:391  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // flowData 内节点 data.credential 字段包含 credentialId，原样暴露给匿名用户
+expected normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled } // flowData 内节点 data.credential 字段包含 credentialId，原样暴露给匿名用户'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:391
+actual code:
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+actual normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 386 to 396
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 451 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot

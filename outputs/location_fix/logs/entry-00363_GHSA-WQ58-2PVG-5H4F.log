@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00363 entry_point  src/gateway/server-methods/agent.ts:194  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+      agent: async ({ params, respond, context, client, isWebchatConnect }) => {
+expected normalized: 'agent: async ({ params, respond, context, client, isWebchatConnect }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:194
+actual code:
+      agent: async ({ params, respond, context, client, isWebchatConnect }) => {
+actual normalized: 'agent: async ({ params, respond, context, client, isWebchatConnect }) => {'
+
+====================================================================================================
+entry-00363 critical_operation  src/gateway/server-methods/agent.ts:380  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        if (resetCommandMatch && requestedSessionKey) {
+expected normalized: 'if (resetCommandMatch && requestedSessionKey) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:380
+actual code:
+        if (resetCommandMatch && requestedSessionKey) {
+actual normalized: 'if (resetCommandMatch && requestedSessionKey) {'
+
+====================================================================================================
+entry-00363 trace[0]  src/gateway/server-methods/agent.ts:241  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        const senderIsOwner = resolveSenderIsOwnerFromClient(client);
+expected normalized: 'const senderIsOwner = resolveSenderIsOwnerFromClient(client);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:241
+actual code:
+        const senderIsOwner = resolveSenderIsOwnerFromClient(client);
+actual normalized: 'const senderIsOwner = resolveSenderIsOwnerFromClient(client);'
+
+====================================================================================================
+entry-00363 trace[1]  src/gateway/server-methods/agent.ts:242  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        const allowModelOverride = resolveAllowModelOverrideFromClient(client);
+expected normalized: 'const allowModelOverride = resolveAllowModelOverrideFromClient(client);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:242
+actual code:
+        const allowModelOverride = resolveAllowModelOverrideFromClient(client);
+actual normalized: 'const allowModelOverride = resolveAllowModelOverrideFromClient(client);'
+
+====================================================================================================
+entry-00363 trace[2]  src/gateway/server-methods/agent.ts:280  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        let message = (request.message ?? "").trim();
+expected normalized: 'let message = (request.message ?? "").trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:280
+actual code:
+        let message = (request.message ?? "").trim();
+actual normalized: 'let message = (request.message ?? "").trim();'
+
+====================================================================================================
+entry-00363 trace[3]  src/gateway/server-methods/agent.ts:379  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        const resetCommandMatch = message.match(RESET_COMMAND_RE);
+expected normalized: 'const resetCommandMatch = message.match(RESET_COMMAND_RE);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:379
+actual code:
+        const resetCommandMatch = message.match(RESET_COMMAND_RE);
+actual normalized: 'const resetCommandMatch = message.match(RESET_COMMAND_RE);'
+
+====================================================================================================
+entry-00363 trace[4]  src/gateway/server-methods/agent.ts:380  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+        if (resetCommandMatch && requestedSessionKey) {
+expected normalized: 'if (resetCommandMatch && requestedSessionKey) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:380
+actual code:
+        if (resetCommandMatch && requestedSessionKey) {
+actual normalized: 'if (resetCommandMatch && requestedSessionKey) {'
+
+====================================================================================================
+entry-00363 trace[5]  src/gateway/server-methods/agent.ts:382  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+          const resetResult = await runSessionResetFromAgent({
+expected normalized: 'const resetResult = await runSessionResetFromAgent({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:382
+actual code:
+          const resetResult = await runSessionResetFromAgent({
+actual normalized: 'const resetResult = await runSessionResetFromAgent({'
+
+====================================================================================================
+entry-00363 trace[6]  src/gateway/server-methods/agent.ts:89  report=GHSA-WQ58-2PVG-5H4F
+repo=https://github.com/openclaw/openclaw
+commit=041c47419f5a821fd4adcd46dfc7d85a7eda340e
+expected code:
+      const result = await performGatewaySessionReset({
+expected normalized: 'const result = await performGatewaySessionReset({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:89
+actual code:
+      const result = await performGatewaySessionReset({
+actual normalized: 'const result = await performGatewaySessionReset({'

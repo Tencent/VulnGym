@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00150 entry_point  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:167  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        torch.distributed.broadcast(array_size, src, model_parallel_group)
+expected normalized: 'torch.distributed.broadcast(array_size, src, model_parallel_group)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:167
+actual code:
+        torch.distributed.broadcast(array_size, src, model_parallel_group)
+actual normalized: 'torch.distributed.broadcast(array_size, src, model_parallel_group)'
+
+====================================================================================================
+entry-00150 critical_operation  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:172  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        end_strings = pickle.loads(bytes)
+expected normalized: 'end_strings = pickle.loads(bytes)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:172
+actual code:
+        end_strings = pickle.loads(bytes)
+actual normalized: 'end_strings = pickle.loads(bytes)'
+
+====================================================================================================
+entry-00150 trace[0]  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:167  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        torch.distributed.broadcast(array_size, src, model_parallel_group)
+expected normalized: 'torch.distributed.broadcast(array_size, src, model_parallel_group)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:167
+actual code:
+        torch.distributed.broadcast(array_size, src, model_parallel_group)
+actual normalized: 'torch.distributed.broadcast(array_size, src, model_parallel_group)'
+
+====================================================================================================
+entry-00150 trace[1]  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:169  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        string_tensor = torch.empty(array_size[0], dtype=torch.int8, device=torch.cuda.current_device())
+expected normalized: 'string_tensor = torch.empty(array_size[0], dtype=torch.int8, device=torch.cuda.current_device())'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:169
+actual code:
+        string_tensor = torch.empty(array_size[0], dtype=torch.int8, device=torch.cuda.current_device())
+actual normalized: 'string_tensor = torch.empty(array_size[0], dtype=torch.int8, device=torch.cuda.current_device())'
+
+====================================================================================================
+entry-00150 trace[2]  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:171  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        bytes = string_tensor.cpu().numpy().tobytes()
+expected normalized: 'bytes = string_tensor.cpu().numpy().tobytes()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:171
+actual code:
+        bytes = string_tensor.cpu().numpy().tobytes()
+actual normalized: 'bytes = string_tensor.cpu().numpy().tobytes()'
+
+====================================================================================================
+entry-00150 trace[3]  nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:172  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        end_strings = pickle.loads(bytes)
+expected normalized: 'end_strings = pickle.loads(bytes)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/modules/common/audio_text_generation_utils.py:172
+actual code:
+        end_strings = pickle.loads(bytes)
+actual normalized: 'end_strings = pickle.loads(bytes)'

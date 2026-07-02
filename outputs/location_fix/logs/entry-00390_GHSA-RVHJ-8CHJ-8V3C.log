@@ -1,0 +1,141 @@
+====================================================================================================
+entry-00390 entry_point  mlflow/models/cli.py:24  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+    @commands.command("serve")
+expected normalized: '@commands.command("serve")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/models/cli.py:24
+actual code:
+    @commands.command("serve")
+actual normalized: '@commands.command("serve")'
+
+====================================================================================================
+entry-00390 critical_operation  mlflow/utils/environment.py:1014  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+            command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]
+expected normalized: 'command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/environment.py:1014
+actual code:
+            command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]
+actual normalized: 'command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]'
+
+====================================================================================================
+entry-00390 trace[0]  mlflow/models/cli.py:24-25  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+    @commands.command("serve")
+    @cli_args.MODEL_URI
+expected normalized: '@commands.command("serve") @cli_args.MODEL_URI'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/models/cli.py:24-25
+actual code:
+    @commands.command("serve")
+    @cli_args.MODEL_URI
+actual normalized: '@commands.command("serve") @cli_args.MODEL_URI'
+
+====================================================================================================
+entry-00390 trace[1]  mlflow/models/cli.py:100  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+        env_manager = _EnvManager.LOCAL if no_conda else env_manager
+expected normalized: 'env_manager = _EnvManager.LOCAL if no_conda else env_manager'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/models/cli.py:100
+actual code:
+        env_manager = _EnvManager.LOCAL if no_conda else env_manager
+actual normalized: 'env_manager = _EnvManager.LOCAL if no_conda else env_manager'
+
+====================================================================================================
+entry-00390 trace[2]  mlflow/pyfunc/mlserver.py:43-45  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+        cmd_env["MLSERVER_MODEL_URI"] = model_uri
+    
+        return cmd, cmd_env
+expected normalized: 'cmd_env["MLSERVER_MODEL_URI"] = model_uri return cmd, cmd_env'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/mlserver.py:43-45
+actual code:
+        cmd_env["MLSERVER_MODEL_URI"] = model_uri
+    
+        return cmd, cmd_env
+actual normalized: 'cmd_env["MLSERVER_MODEL_URI"] = model_uri return cmd, cmd_env'
+
+====================================================================================================
+entry-00390 trace[3]  mlflow/pyfunc/backend.py:294  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+                command = "exec " + command
+expected normalized: 'command = "exec " + command'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:294
+actual code:
+                command = "exec " + command
+actual normalized: 'command = "exec " + command'
+
+====================================================================================================
+entry-00390 trace[4]  mlflow/pyfunc/backend.py:296-303  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+            if self._env_manager != em.LOCAL:
+                return self.prepare_env(local_path).execute(
+                    command,
+                    command_env,
+                    stdout=stdout,
+                    stderr=stderr,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    synchronous=synchronous,
+expected normalized: 'if self._env_manager != em.LOCAL: return self.prepare_env(local_path).execute( command, command_env, stdout=stdout, stderr=stderr, preexec_fn=setup_sigterm_on_parent_death, synchronous=synchronous,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:296-303
+actual code:
+            if self._env_manager != em.LOCAL:
+                return self.prepare_env(local_path).execute(
+                    command,
+                    command_env,
+                    stdout=stdout,
+                    stderr=stderr,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    synchronous=synchronous,
+actual normalized: 'if self._env_manager != em.LOCAL: return self.prepare_env(local_path).execute( command, command_env, stdout=stdout, stderr=stderr, preexec_fn=setup_sigterm_on_parent_death, synchronous=synchronous,'
+
+====================================================================================================
+entry-00390 trace[5]  mlflow/utils/environment.py:1013-1014  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+            command = separator.join(map(str, self._activate_cmd + command))
+            command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]
+expected normalized: 'command = separator.join(map(str, self._activate_cmd + command)) command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/environment.py:1013-1014
+actual code:
+            command = separator.join(map(str, self._activate_cmd + command))
+            command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]
+actual normalized: 'command = separator.join(map(str, self._activate_cmd + command)) command = ["bash", "-c", command] if not is_windows() else ["cmd", "/c", command]'

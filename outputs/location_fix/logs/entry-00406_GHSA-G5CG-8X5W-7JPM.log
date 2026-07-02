@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00406 entry_point  src/infra/heartbeat-runner.ts:652  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const ctx = {
+expected normalized: 'const ctx = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/heartbeat-runner.ts:652
+actual code:
+      const ctx = {
+actual normalized: 'const ctx = {'
+
+====================================================================================================
+entry-00406 critical_operation  src/auto-reply/command-auth.ts:581  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const senderIsOwner = senderIsOwnerByIdentity || senderIsOwnerByScope || ownerAllowAll;
+expected normalized: 'const senderIsOwner = senderIsOwnerByIdentity || senderIsOwnerByScope || ownerAllowAll;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:581
+actual code:
+      const senderIsOwner = senderIsOwnerByIdentity || senderIsOwnerByScope || ownerAllowAll;
+actual normalized: 'const senderIsOwner = senderIsOwnerByIdentity || senderIsOwnerByScope || ownerAllowAll;'
+
+====================================================================================================
+entry-00406 trace[0]  src/infra/heartbeat-runner.ts:514  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const hasExecCompletion = pendingEvents.some(isExecCompletionEvent);
+expected normalized: 'const hasExecCompletion = pendingEvents.some(isExecCompletionEvent);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/heartbeat-runner.ts:514
+actual code:
+      const hasExecCompletion = pendingEvents.some(isExecCompletionEvent);
+actual normalized: 'const hasExecCompletion = pendingEvents.some(isExecCompletionEvent);'
+
+====================================================================================================
+entry-00406 trace[1]  src/infra/heartbeat-runner.ts:635  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const { sender } = resolveHeartbeatSenderContext({ cfg, entry, delivery });
+expected normalized: 'const { sender } = resolveHeartbeatSenderContext({ cfg, entry, delivery });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/heartbeat-runner.ts:635
+actual code:
+      const { sender } = resolveHeartbeatSenderContext({ cfg, entry, delivery });
+actual normalized: 'const { sender } = resolveHeartbeatSenderContext({ cfg, entry, delivery });'
+
+====================================================================================================
+entry-00406 trace[2]  src/infra/heartbeat-runner.ts:652  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const ctx = {
+expected normalized: 'const ctx = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/heartbeat-runner.ts:652
+actual code:
+      const ctx = {
+actual normalized: 'const ctx = {'
+
+====================================================================================================
+entry-00406 trace[3]  src/infra/heartbeat-runner.ts:732  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const replyResult = await getReplyFromConfig(ctx, replyOpts, cfg);
+expected normalized: 'const replyResult = await getReplyFromConfig(ctx, replyOpts, cfg);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/heartbeat-runner.ts:732
+actual code:
+        const replyResult = await getReplyFromConfig(ctx, replyOpts, cfg);
+actual normalized: 'const replyResult = await getReplyFromConfig(ctx, replyOpts, cfg);'
+
+====================================================================================================
+entry-00406 trace[4]  src/auto-reply/reply/commands-context.ts:18  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const auth = resolveCommandAuthorization({
+expected normalized: 'const auth = resolveCommandAuthorization({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-context.ts:18
+actual code:
+      const auth = resolveCommandAuthorization({
+actual normalized: 'const auth = resolveCommandAuthorization({'
+
+====================================================================================================
+entry-00406 trace[5]  src/auto-reply/command-auth.ts:575  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    const senderIsOwnerByIdentity = Boolean(matchedSender);
+expected normalized: 'const senderIsOwnerByIdentity = Boolean(matchedSender);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:575
+actual code:
+      const senderIsOwnerByIdentity = Boolean(matchedSender);
+actual normalized: 'const senderIsOwnerByIdentity = Boolean(matchedSender);'
+
+====================================================================================================
+entry-00406 trace[6]  src/auto-reply/reply/commands-context.ts:37  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    senderIsOwner: auth.senderIsOwner,
+expected normalized: 'senderIsOwner: auth.senderIsOwner,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-context.ts:37
+actual code:
+        senderIsOwner: auth.senderIsOwner,
+actual normalized: 'senderIsOwner: auth.senderIsOwner,'
+
+====================================================================================================
+entry-00406 trace[7]  src/agents/tool-policy.ts:46  report=GHSA-G5CG-8X5W-7JPM
+repo=https://github.com/openclaw/openclaw
+commit=91f7a6b0fd67b703897e6e307762d471ca09333d
+expected code:
+    export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {
+expected normalized: 'export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tool-policy.ts:46
+actual code:
+    export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {
+actual normalized: 'export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {'

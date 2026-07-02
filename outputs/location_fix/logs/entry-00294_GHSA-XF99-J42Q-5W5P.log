@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00294 entry_point  src/node-host/invoke.ts:493  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (command === "system.run.prepare") {
+expected normalized: 'if (command === "system.run.prepare") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:493
+actual code:
+      if (command === "system.run.prepare") {
+actual normalized: 'if (command === "system.run.prepare") {'
+
+====================================================================================================
+entry-00294 critical_operation  src/node-host/invoke-system-run.ts:388  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:388
+actual code:
+      if (
+actual normalized: 'if ('
+
+====================================================================================================
+entry-00294 trace[0]  src/node-host/invoke.ts:493  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (command === "system.run.prepare") {
+expected normalized: 'if (command === "system.run.prepare") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:493
+actual code:
+      if (command === "system.run.prepare") {
+actual normalized: 'if (command === "system.run.prepare") {'
+
+====================================================================================================
+entry-00294 trace[1]  src/node-host/invoke.ts:502  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+          const prepared = buildSystemRunApprovalPlan(params);
+expected normalized: 'const prepared = buildSystemRunApprovalPlan(params);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:502
+actual code:
+          const prepared = buildSystemRunApprovalPlan(params);
+actual normalized: 'const prepared = buildSystemRunApprovalPlan(params);'
+
+====================================================================================================
+entry-00294 trace[2]  src/node-host/invoke-system-run-plan.ts:746  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+expected normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:746
+actual code:
+      const mutableFileOperand = resolveMutableFileOperandSnapshotSync({
+actual normalized: 'const mutableFileOperand = resolveMutableFileOperandSnapshotSync({'
+
+====================================================================================================
+entry-00294 trace[3]  src/node-host/invoke-system-run-plan.ts:412  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+expected normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:412
+actual code:
+    function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {
+actual normalized: 'function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {'
+
+====================================================================================================
+entry-00294 trace[4]  src/node-host/invoke-system-run-plan.ts:446  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (!isInterpreterLikeSafeBin(executable)) {
+expected normalized: 'if (!isInterpreterLikeSafeBin(executable)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:446
+actual code:
+      if (!isInterpreterLikeSafeBin(executable)) {
+actual normalized: 'if (!isInterpreterLikeSafeBin(executable)) {'
+
+====================================================================================================
+entry-00294 trace[5]  src/node-host/invoke-system-run-plan.ts:480  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (argvIndex === null) {
+expected normalized: 'if (argvIndex === null) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:480
+actual code:
+      if (argvIndex === null) {
+actual normalized: 'if (argvIndex === null) {'
+
+====================================================================================================
+entry-00294 trace[6]  src/node-host/invoke-system-run-plan.ts:763  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+          mutableFileOperand: mutableFileOperand.snapshot ?? undefined,
+expected normalized: 'mutableFileOperand: mutableFileOperand.snapshot ?? undefined,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:763
+actual code:
+          mutableFileOperand: mutableFileOperand.snapshot ?? undefined,
+actual normalized: 'mutableFileOperand: mutableFileOperand.snapshot ?? undefined,'
+
+====================================================================================================
+entry-00294 trace[7]  src/node-host/invoke.ts:516  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (command !== "system.run") {
+expected normalized: 'if (command !== "system.run") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:516
+actual code:
+      if (command !== "system.run") {
+actual normalized: 'if (command !== "system.run") {'
+
+====================================================================================================
+entry-00294 trace[8]  src/node-host/invoke.ts:534  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      await handleSystemRunInvoke({
+expected normalized: 'await handleSystemRunInvoke({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:534
+actual code:
+      await handleSystemRunInvoke({
+actual normalized: 'await handleSystemRunInvoke({'
+
+====================================================================================================
+entry-00294 trace[9]  src/node-host/invoke-system-run.ts:388  report=GHSA-XF99-J42Q-5W5P
+repo=https://github.com/openclaw/openclaw
+commit=a5ceb62d4401d311a4070b80dd9d61395d26c122
+expected code:
+      if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:388
+actual code:
+      if (
+actual normalized: 'if ('

@@ -1,0 +1,143 @@
+====================================================================================================
+entry-00173 entry_point  packages/nodes-base/nodes/Form/utils/utils.ts:405  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    export async function prepareFormReturnItem(
+expected normalized: 'export async function prepareFormReturnItem('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:405
+actual code:
+    export async function prepareFormReturnItem(
+actual normalized: 'export async function prepareFormReturnItem('
+
+====================================================================================================
+entry-00173 critical_operation  packages/nodes-base/nodes/Form/utils/utils.ts:119  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {
+expected normalized: 'export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:119
+actual code:
+    export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {
+actual normalized: 'export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {'
+
+====================================================================================================
+entry-00173 trace[0]  packages/nodes-base/nodes/Form/utils/utils.ts:405  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    export async function prepareFormReturnItem(
+expected normalized: 'export async function prepareFormReturnItem('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:405
+actual code:
+    export async function prepareFormReturnItem(
+actual normalized: 'export async function prepareFormReturnItem('
+
+====================================================================================================
+entry-00173 trace[1]  packages/nodes-base/nodes/Form/utils/utils.ts:411  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    	const req = context.getRequestObject() as MultiPartFormData.Request;
+expected normalized: 'const req = context.getRequestObject() as MultiPartFormData.Request;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:411
+actual code:
+    	const req = context.getRequestObject() as MultiPartFormData.Request;
+actual normalized: 'const req = context.getRequestObject() as MultiPartFormData.Request;'
+
+====================================================================================================
+entry-00173 trace[2]  packages/nodes-base/nodes/Form/Form.node.ts:370-374  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    				const jsonOutput = context.getNodeParameter('jsonOutput', '', {
+    					rawExpressions: true,
+    				}) as string;
+    
+    				fields = tryToParseJsonToFormFields(resolveRawData(context, jsonOutput));
+expected normalized: "const jsonOutput = context.getNodeParameter('jsonOutput', '', { rawExpressions: true, }) as string; fields = tryToParseJsonToFormFields(resolveRawData(context, jsonOutput));"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/Form.node.ts:370-374
+actual code:
+    				const jsonOutput = context.getNodeParameter('jsonOutput', '', {
+    					rawExpressions: true,
+    				}) as string;
+    
+    				fields = tryToParseJsonToFormFields(resolveRawData(context, jsonOutput));
+actual normalized: "const jsonOutput = context.getNodeParameter('jsonOutput', '', { rawExpressions: true, }) as string; fields = tryToParseJsonToFormFields(resolveRawData(context, jsonOutput));"
+
+====================================================================================================
+entry-00173 trace[3]  packages/nodes-base/nodes/Form/utils/utils.ts:663-671  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    		if (options.appendAttribution === false) {
+    			appendAttribution = false;
+    		}
+    
+    		let buttonLabel = 'Submit';
+    
+    		if (options.buttonLabel) {
+    			buttonLabel = options.buttonLabel;
+    		}
+expected normalized: "if (options.appendAttribution === false) { appendAttribution = false; } let buttonLabel = 'Submit'; if (options.buttonLabel) { buttonLabel = options.buttonLabel; }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:663-671
+actual code:
+    		if (options.appendAttribution === false) {
+    			appendAttribution = false;
+    		}
+    
+    		let buttonLabel = 'Submit';
+    
+    		if (options.buttonLabel) {
+    			buttonLabel = options.buttonLabel;
+    		}
+actual normalized: "if (options.appendAttribution === false) { appendAttribution = false; } let buttonLabel = 'Submit'; if (options.buttonLabel) { buttonLabel = options.buttonLabel; }"
+
+====================================================================================================
+entry-00173 trace[4]  packages/nodes-base/nodes/Form/utils/utils.ts:557  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    	const data = prepareFormData({
+expected normalized: 'const data = prepareFormData({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:557
+actual code:
+    	const data = prepareFormData({
+actual normalized: 'const data = prepareFormData({'
+
+====================================================================================================
+entry-00173 trace[5]  packages/nodes-base/nodes/Form/utils/utils.ts:119  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {
+expected normalized: 'export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:119
+actual code:
+    export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {
+actual normalized: 'export const prepareFormFields = (context: IWebhookFunctions, fields: FormFieldsParameter) => {'

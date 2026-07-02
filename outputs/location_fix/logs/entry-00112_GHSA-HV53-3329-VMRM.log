@@ -1,0 +1,171 @@
+====================================================================================================
+entry-00112 entry_point  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:193  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    export async function execute(
+expected normalized: 'export async function execute('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:193
+actual code:
+    export async function execute(
+actual normalized: 'export async function execute('
+
+====================================================================================================
+entry-00112 critical_operation  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:285  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    		const result: IDataObject[] = db.exec(query);
+expected normalized: 'const result: IDataObject[] = db.exec(query);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:285
+actual code:
+    		const result: IDataObject[] = db.exec(query);
+actual normalized: 'const result: IDataObject[] = db.exec(query);'
+
+====================================================================================================
+entry-00112 trace[0]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:193  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    export async function execute(
+expected normalized: 'export async function execute('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:193
+actual code:
+    export async function execute(
+actual normalized: 'export async function execute('
+
+====================================================================================================
+entry-00112 trace[1]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:197  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	disableAlasqlFileAccess();
+expected normalized: 'disableAlasqlFileAccess();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:197
+actual code:
+    	disableAlasqlFileAccess();
+actual normalized: 'disableAlasqlFileAccess();'
+
+====================================================================================================
+entry-00112 trace[2]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:29  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    function disableAlasqlFileAccess() {
+expected normalized: 'function disableAlasqlFileAccess() {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:29
+actual code:
+    function disableAlasqlFileAccess() {
+actual normalized: 'function disableAlasqlFileAccess() {'
+
+====================================================================================================
+entry-00112 trace[3]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:46-54  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	// Also disable the FROM handlers which are used for file operations
+    	if (alasql.from) {
+    		alasql.from.FILE = disabledFunction;
+    		alasql.from.JSON = disabledFunction;
+    		alasql.from.TXT = disabledFunction;
+    		alasql.from.CSV = disabledFunction;
+    		alasql.from.XLSX = disabledFunction;
+    		alasql.from.XLS = disabledFunction;
+    	}
+expected normalized: '// Also disable the FROM handlers which are used for file operations if (alasql.from) { alasql.from.FILE = disabledFunction; alasql.from.JSON = disabledFunction; alasql.from.TXT = disabledFunction; alasql.from.CSV = disabledFunction; alasql.from.XLSX = disabledFunction; alasql.from.XLS = disabledFunction; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:46-54
+actual code:
+    	// Also disable the FROM handlers which are used for file operations
+    	if (alasql.from) {
+    		alasql.from.FILE = disabledFunction;
+    		alasql.from.JSON = disabledFunction;
+    		alasql.from.TXT = disabledFunction;
+    		alasql.from.CSV = disabledFunction;
+    		alasql.from.XLSX = disabledFunction;
+    		alasql.from.XLS = disabledFunction;
+    	}
+actual normalized: '// Also disable the FROM handlers which are used for file operations if (alasql.from) { alasql.from.FILE = disabledFunction; alasql.from.JSON = disabledFunction; alasql.from.TXT = disabledFunction; alasql.from.CSV = disabledFunction; alasql.from.XLSX = disabledFunction; alasql.from.XLS = disabledFunction; }'
+
+====================================================================================================
+entry-00112 trace[4]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:206-208  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	for (const resolvable of getResolvables(query)) {
+    		query = query.replace(resolvable, this.evaluateExpression(resolvable, 0) as string);
+    	}
+expected normalized: 'for (const resolvable of getResolvables(query)) { query = query.replace(resolvable, this.evaluateExpression(resolvable, 0) as string); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:206-208
+actual code:
+    	for (const resolvable of getResolvables(query)) {
+    		query = query.replace(resolvable, this.evaluateExpression(resolvable, 0) as string);
+    	}
+actual normalized: 'for (const resolvable of getResolvables(query)) { query = query.replace(resolvable, this.evaluateExpression(resolvable, 0) as string); }'
+
+====================================================================================================
+entry-00112 trace[5]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:234  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	const db = new alasql.Database(node.id);
+expected normalized: 'const db = new alasql.Database(node.id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:234
+actual code:
+    	const db = new alasql.Database(node.id);
+actual normalized: 'const db = new alasql.Database(node.id);'
+
+====================================================================================================
+entry-00112 trace[6]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:273-274  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    			db.exec(`CREATE TABLE input${i + 1}`);
+    			db.tables[`input${i + 1}`].data = inputData.map((entry) => entry.json);
+expected normalized: 'db.exec(`CREATE TABLE input${i + 1}`); db.tables[`input${i + 1}`].data = inputData.map((entry) => entry.json);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:273-274
+actual code:
+    			db.exec(`CREATE TABLE input${i + 1}`);
+    			db.tables[`input${i + 1}`].data = inputData.map((entry) => entry.json);
+actual normalized: 'db.exec(`CREATE TABLE input${i + 1}`); db.tables[`input${i + 1}`].data = inputData.map((entry) => entry.json);'
+
+====================================================================================================
+entry-00112 trace[7]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:285  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    		const result: IDataObject[] = db.exec(query);
+expected normalized: 'const result: IDataObject[] = db.exec(query);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:285
+actual code:
+    		const result: IDataObject[] = db.exec(query);
+actual normalized: 'const result: IDataObject[] = db.exec(query);'

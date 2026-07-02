@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00513 entry_point  src/agents/tools/session-status-tool.ts:195  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:195
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00513 critical_operation  src/agents/tools/session-status-tool.ts:370  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {
+expected normalized: 'if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:370
+actual code:
+          if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {
+actual normalized: 'if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {'
+
+====================================================================================================
+entry-00513 trace[0]  src/agents/tools/session-status-tool.ts:257  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    const requestedKeyParam = readStringParam(params, "sessionKey");
+expected normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:257
+actual code:
+          const requestedKeyParam = readStringParam(params, "sessionKey");
+actual normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+
+====================================================================================================
+entry-00513 trace[1]  src/agents/tools/session-status-tool.ts:244  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    const visibilityGuard =
+expected normalized: 'const visibilityGuard ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:244
+actual code:
+          const visibilityGuard =
+actual normalized: 'const visibilityGuard ='
+
+====================================================================================================
+entry-00513 trace[2]  src/agents/tools/session-status-tool.ts:277  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    if (requestedKeyRaw.startsWith("agent:")) {
+expected normalized: 'if (requestedKeyRaw.startsWith("agent:")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:277
+actual code:
+          if (requestedKeyRaw.startsWith("agent:")) {
+actual normalized: 'if (requestedKeyRaw.startsWith("agent:")) {'
+
+====================================================================================================
+entry-00513 trace[3]  src/agents/tools/session-status-tool.ts:288  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    const isExplicitAgentKey = requestedKeyRaw.startsWith("agent:");
+expected normalized: 'const isExplicitAgentKey = requestedKeyRaw.startsWith("agent:");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:288
+actual code:
+          const isExplicitAgentKey = requestedKeyRaw.startsWith("agent:");
+actual normalized: 'const isExplicitAgentKey = requestedKeyRaw.startsWith("agent:");'
+
+====================================================================================================
+entry-00513 trace[4]  src/agents/tools/session-status-tool.ts:311  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    !resolved &&
+expected normalized: '!resolved &&'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:311
+actual code:
+            !resolved &&
+actual normalized: '!resolved &&'
+
+====================================================================================================
+entry-00513 trace[5]  src/agents/tools/sessions-resolution.ts:328  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    export async function resolveSessionReference(params: {
+expected normalized: 'export async function resolveSessionReference(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-resolution.ts:328
+actual code:
+    export async function resolveSessionReference(params: {
+actual normalized: 'export async function resolveSessionReference(params: {'
+
+====================================================================================================
+entry-00513 trace[6]  src/agents/tools/sessions-resolution.ts:397  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    export async function resolveVisibleSessionReference(params: {
+expected normalized: 'export async function resolveVisibleSessionReference(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-resolution.ts:397
+actual code:
+    export async function resolveVisibleSessionReference(params: {
+actual normalized: 'export async function resolveVisibleSessionReference(params: {'
+
+====================================================================================================
+entry-00513 trace[7]  src/agents/tools/session-status-tool.ts:332  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    ensureAgentAccess(resolveAgentIdFromSessionKey(visibleSession.key));
+expected normalized: 'ensureAgentAccess(resolveAgentIdFromSessionKey(visibleSession.key));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:332
+actual code:
+              ensureAgentAccess(resolveAgentIdFromSessionKey(visibleSession.key));
+actual normalized: 'ensureAgentAccess(resolveAgentIdFromSessionKey(visibleSession.key));'
+
+====================================================================================================
+entry-00513 trace[8]  src/agents/tools/session-status-tool.ts:365  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    if (!resolved) {
+expected normalized: 'if (!resolved) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:365
+actual code:
+          if (!resolved) {
+actual normalized: 'if (!resolved) {'
+
+====================================================================================================
+entry-00513 trace[9]  src/agents/tools/session-status-tool.ts:370  report=GHSA-Q2QC-744P-66R2
+repo=https://github.com/openclaw/openclaw
+commit=5e8cb22176e9235e224be0bc530699261eb60e53
+expected code:
+    if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {
+expected normalized: 'if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:370
+actual code:
+          if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {
+actual normalized: 'if (visibilityGuard && !requestedKeyRaw.startsWith("agent:")) {'

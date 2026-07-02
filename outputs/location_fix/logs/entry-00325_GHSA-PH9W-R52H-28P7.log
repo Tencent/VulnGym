@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00325 entry_point  src/backend/base/langflow/api/v1/files.py:168  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+    @router.get("/profile_pictures/{folder_name}/{file_name}")
+expected normalized: '@router.get("/profile_pictures/{folder_name}/{file_name}")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:168
+actual code:
+    @router.get("/profile_pictures/{folder_name}/{file_name}")
+actual normalized: '@router.get("/profile_pictures/{folder_name}/{file_name}")'
+
+====================================================================================================
+entry-00325 critical_operation  src/backend/base/langflow/api/v1/files.py:230  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            file_content = await anyio.Path(file_path).read_bytes()
+expected normalized: 'file_content = await anyio.Path(file_path).read_bytes()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:230
+actual code:
+            file_content = await anyio.Path(file_path).read_bytes()
+actual normalized: 'file_content = await anyio.Path(file_path).read_bytes()'
+
+====================================================================================================
+entry-00325 trace[0]  src/backend/base/langflow/api/v1/files.py:168  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+    @router.get("/profile_pictures/{folder_name}/{file_name}")
+expected normalized: '@router.get("/profile_pictures/{folder_name}/{file_name}")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:168
+actual code:
+    @router.get("/profile_pictures/{folder_name}/{file_name}")
+actual normalized: '@router.get("/profile_pictures/{folder_name}/{file_name}")'
+
+====================================================================================================
+entry-00325 trace[1]  src/backend/base/langflow/api/v1/files.py:182  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            if ".." in folder_name or ".." in file_name:
+expected normalized: 'if ".." in folder_name or ".." in file_name:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:182
+actual code:
+            if ".." in folder_name or ".." in file_name:
+actual normalized: 'if ".." in folder_name or ".." in file_name:'
+
+====================================================================================================
+entry-00325 trace[2]  src/backend/base/langflow/api/v1/files.py:193  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            if "/" in file_name or "\\" in file_name:
+expected normalized: 'if "/" in file_name or "\\\\" in file_name:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:193
+actual code:
+            if "/" in file_name or "\\" in file_name:
+actual normalized: 'if "/" in file_name or "\\\\" in file_name:'
+
+====================================================================================================
+entry-00325 trace[3]  src/backend/base/langflow/api/v1/files.py:201  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            file_path = (config_path / "profile_pictures" / folder_name / file_name).resolve()
+expected normalized: 'file_path = (config_path / "profile_pictures" / folder_name / file_name).resolve()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:201
+actual code:
+            file_path = (config_path / "profile_pictures" / folder_name / file_name).resolve()
+actual normalized: 'file_path = (config_path / "profile_pictures" / folder_name / file_name).resolve()'
+
+====================================================================================================
+entry-00325 trace[4]  src/backend/base/langflow/api/v1/files.py:206  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            if not str(file_path).startswith(str(allowed_base)):
+expected normalized: 'if not str(file_path).startswith(str(allowed_base)):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:206
+actual code:
+            if not str(file_path).startswith(str(allowed_base)):
+actual normalized: 'if not str(file_path).startswith(str(allowed_base)):'
+
+====================================================================================================
+entry-00325 trace[5]  src/backend/base/langflow/api/v1/files.py:230  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            file_content = await anyio.Path(file_path).read_bytes()
+expected normalized: 'file_content = await anyio.Path(file_path).read_bytes()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:230
+actual code:
+            file_content = await anyio.Path(file_path).read_bytes()
+actual normalized: 'file_content = await anyio.Path(file_path).read_bytes()'

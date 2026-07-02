@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00219 entry_point  src/gateway/server-http.ts:183  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+      if (!isProtectedPluginRoutePath(params.requestPath)) {
+expected normalized: 'if (!isProtectedPluginRoutePath(params.requestPath)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:183
+actual code:
+      if (!isProtectedPluginRoutePath(params.requestPath)) {
+actual normalized: 'if (!isProtectedPluginRoutePath(params.requestPath)) {'
+
+====================================================================================================
+entry-00219 critical_operation  src/gateway/security-path.ts:19  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    function prefixMatch(pathname: string, prefix: string): boolean {
+expected normalized: 'function prefixMatch(pathname: string, prefix: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:19
+actual code:
+    function prefixMatch(pathname: string, prefix: string): boolean {
+actual normalized: 'function prefixMatch(pathname: string, prefix: string): boolean {'
+
+====================================================================================================
+entry-00219 trace[0]  src/gateway/server-http.ts:183  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+      if (!isProtectedPluginRoutePath(params.requestPath)) {
+expected normalized: 'if (!isProtectedPluginRoutePath(params.requestPath)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:183
+actual code:
+      if (!isProtectedPluginRoutePath(params.requestPath)) {
+actual normalized: 'if (!isProtectedPluginRoutePath(params.requestPath)) {'
+
+====================================================================================================
+entry-00219 trace[1]  src/gateway/server-http.ts:530  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+          if (handlePluginRequest) {
+expected normalized: 'if (handlePluginRequest) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:530
+actual code:
+          if (handlePluginRequest) {
+actual normalized: 'if (handlePluginRequest) {'
+
+====================================================================================================
+entry-00219 trace[2]  src/gateway/security-path.ts:32  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+        decoded = decodeURIComponent(pathname);
+expected normalized: 'decoded = decodeURIComponent(pathname);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:32
+actual code:
+        decoded = decodeURIComponent(pathname);
+actual normalized: 'decoded = decodeURIComponent(pathname);'
+
+====================================================================================================
+entry-00219 trace[3]  src/gateway/security-path.ts:43  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+expected normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:43
+actual code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+actual normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+
+====================================================================================================
+entry-00219 trace[4]  src/gateway/security-path.ts:19  report=GHSA-MWXV-35WR-4VVJ
+repo=https://github.com/openclaw/openclaw
+commit=37a138c554c32abc25347388e68882f787e879f9
+expected code:
+    function prefixMatch(pathname: string, prefix: string): boolean {
+expected normalized: 'function prefixMatch(pathname: string, prefix: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:19
+actual code:
+    function prefixMatch(pathname: string, prefix: string): boolean {
+actual normalized: 'function prefixMatch(pathname: string, prefix: string): boolean {'

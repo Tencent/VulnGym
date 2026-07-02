@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00086 entry_point  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:491  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    if (shouldStream) {
+expected normalized: 'if (shouldStream) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:491
+actual code:
+    				if (shouldStream) {
+actual normalized: 'if (shouldStream) {'
+
+====================================================================================================
+entry-00086 critical_operation  packages/cli/src/webhooks/webhook-request-handler.ts:133  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    streamToSend.pipe(res, { end: false });
+expected normalized: 'streamToSend.pipe(res, { end: false });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:133
+actual code:
+    		streamToSend.pipe(res, { end: false });
+actual normalized: 'streamToSend.pipe(res, { end: false });'
+
+====================================================================================================
+entry-00086 trace[0]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:491  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    if (shouldStream) {
+expected normalized: 'if (shouldStream) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:491
+actual code:
+    				if (shouldStream) {
+actual normalized: 'if (shouldStream) {'
+
+====================================================================================================
+entry-00086 trace[1]  packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:493  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    this.sendChunk('item', 0, rawBody);
+expected normalized: "this.sendChunk('item', 0, rawBody);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/RespondToWebhook/RespondToWebhook.node.ts:493
+actual code:
+    					this.sendChunk('item', 0, rawBody);
+actual normalized: "this.sendChunk('item', 0, rawBody);"
+
+====================================================================================================
+entry-00086 trace[2]  packages/cli/src/webhooks/webhook-request-handler.ts:130  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    const needsSandbox = contentType && isHtmlRenderedContentType(contentType);
+expected normalized: 'const needsSandbox = contentType && isHtmlRenderedContentType(contentType);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:130
+actual code:
+    		const needsSandbox = contentType && isHtmlRenderedContentType(contentType);
+actual normalized: 'const needsSandbox = contentType && isHtmlRenderedContentType(contentType);'
+
+====================================================================================================
+entry-00086 trace[3]  packages/cli/src/webhooks/webhook-request-handler.ts:132  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    const streamToSend = needsSandbox ? stream.pipe(createHtmlSandboxTransformStream()) : stream;
+expected normalized: 'const streamToSend = needsSandbox ? stream.pipe(createHtmlSandboxTransformStream()) : stream;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:132
+actual code:
+    		const streamToSend = needsSandbox ? stream.pipe(createHtmlSandboxTransformStream()) : stream;
+actual normalized: 'const streamToSend = needsSandbox ? stream.pipe(createHtmlSandboxTransformStream()) : stream;'
+
+====================================================================================================
+entry-00086 trace[4]  packages/core/src/html-sandbox.ts:110  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    const prefix = Buffer.from('<iframe srcdoc="', 'utf8');
+expected normalized: 'const prefix = Buffer.from(\'<iframe srcdoc="\', \'utf8\');'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/html-sandbox.ts:110
+actual code:
+    	const prefix = Buffer.from('<iframe srcdoc="', 'utf8');
+actual normalized: 'const prefix = Buffer.from(\'<iframe srcdoc="\', \'utf8\');'
+
+====================================================================================================
+entry-00086 trace[5]  packages/core/src/html-sandbox.ts:111  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    const suffix = Buffer.from(
+expected normalized: 'const suffix = Buffer.from('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/html-sandbox.ts:111
+actual code:
+    	const suffix = Buffer.from(
+actual normalized: 'const suffix = Buffer.from('
+
+====================================================================================================
+entry-00086 trace[6]  packages/cli/src/webhooks/webhook-request-handler.ts:133  report=GHSA-58JC-RCG5-95F3
+repo=https://github.com/n8n-io/n8n
+commit=60670e1e40d304a4c46687a20ecaaf239e729632
+expected code:
+    streamToSend.pipe(res, { end: false });
+expected normalized: 'streamToSend.pipe(res, { end: false });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:133
+actual code:
+    		streamToSend.pipe(res, { end: false });
+actual normalized: 'streamToSend.pipe(res, { end: false });'

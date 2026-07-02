@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00345 entry_point  nemo/collections/speechlm2/parts/pretrained.py:169  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        if ".safetensors" in checkpoint_path:
+expected normalized: 'if ".safetensors" in checkpoint_path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/speechlm2/parts/pretrained.py:169
+actual code:
+        if ".safetensors" in checkpoint_path:
+actual normalized: 'if ".safetensors" in checkpoint_path:'
+
+====================================================================================================
+entry-00345 critical_operation  nemo/collections/speechlm2/parts/pretrained.py:172  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]
+expected normalized: 'checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/speechlm2/parts/pretrained.py:172
+actual code:
+            checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]
+actual normalized: 'checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]'
+
+====================================================================================================
+entry-00345 trace[0]  nemo/collections/speechlm2/parts/pretrained.py:169  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        if ".safetensors" in checkpoint_path:
+expected normalized: 'if ".safetensors" in checkpoint_path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/speechlm2/parts/pretrained.py:169
+actual code:
+        if ".safetensors" in checkpoint_path:
+actual normalized: 'if ".safetensors" in checkpoint_path:'
+
+====================================================================================================
+entry-00345 trace[1]  nemo/collections/speechlm2/parts/pretrained.py:172  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]
+expected normalized: 'checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/speechlm2/parts/pretrained.py:172
+actual code:
+            checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]
+actual normalized: 'checkpoint_state = torch.load(checkpoint_path, weights_only=False, map_location="cpu")["state_dict"]'

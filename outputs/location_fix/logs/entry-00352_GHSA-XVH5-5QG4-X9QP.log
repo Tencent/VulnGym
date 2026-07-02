@@ -1,0 +1,141 @@
+====================================================================================================
+entry-00352 entry_point  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:193-196  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    		const result =
+    			settings.nodeMode === 'runOnceForAllItems'
+    				? await this.runForAllItems(taskId, settings, data, workflow, abortSignal)
+    				: await this.runForEachItem(taskId, settings, data, workflow, abortSignal);
+expected normalized: "const result = settings.nodeMode === 'runOnceForAllItems' ? await this.runForAllItems(taskId, settings, data, workflow, abortSignal) : await this.runForEachItem(taskId, settings, data, workflow, abortSignal);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:193-196
+actual code:
+    		const result =
+    			settings.nodeMode === 'runOnceForAllItems'
+    				? await this.runForAllItems(taskId, settings, data, workflow, abortSignal)
+    				: await this.runForEachItem(taskId, settings, data, workflow, abortSignal);
+actual normalized: "const result = settings.nodeMode === 'runOnceForAllItems' ? await this.runForAllItems(taskId, settings, data, workflow, abortSignal) : await this.runForEachItem(taskId, settings, data, workflow, abortSignal);"
+
+====================================================================================================
+entry-00352 critical_operation  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:263-266  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    				if (this.mode === 'secure') {
+    					taskResult = runInContext(this.createVmExecutableCode(settings.code), context, {
+    						timeout: this.taskTimeout * 1000,
+    					}) as Promise<TaskResultData['result']>;
+expected normalized: "if (this.mode === 'secure') { taskResult = runInContext(this.createVmExecutableCode(settings.code), context, { timeout: this.taskTimeout * 1000, }) as Promise<TaskResultData['result']>;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:263-266
+actual code:
+    				if (this.mode === 'secure') {
+    					taskResult = runInContext(this.createVmExecutableCode(settings.code), context, {
+    						timeout: this.taskTimeout * 1000,
+    					}) as Promise<TaskResultData['result']>;
+actual normalized: "if (this.mode === 'secure') { taskResult = runInContext(this.createVmExecutableCode(settings.code), context, { timeout: this.taskTimeout * 1000, }) as Promise<TaskResultData['result']>;"
+
+====================================================================================================
+entry-00352 trace[0]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:193-196  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    		const result =
+    			settings.nodeMode === 'runOnceForAllItems'
+    				? await this.runForAllItems(taskId, settings, data, workflow, abortSignal)
+    				: await this.runForEachItem(taskId, settings, data, workflow, abortSignal);
+expected normalized: "const result = settings.nodeMode === 'runOnceForAllItems' ? await this.runForAllItems(taskId, settings, data, workflow, abortSignal) : await this.runForEachItem(taskId, settings, data, workflow, abortSignal);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:193-196
+actual code:
+    		const result =
+    			settings.nodeMode === 'runOnceForAllItems'
+    				? await this.runForAllItems(taskId, settings, data, workflow, abortSignal)
+    				: await this.runForEachItem(taskId, settings, data, workflow, abortSignal);
+actual normalized: "const result = settings.nodeMode === 'runOnceForAllItems' ? await this.runForAllItems(taskId, settings, data, workflow, abortSignal) : await this.runForEachItem(taskId, settings, data, workflow, abortSignal);"
+
+====================================================================================================
+entry-00352 trace[1]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:238-244  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    	private async runForAllItems(
+    		taskId: string,
+    		settings: JSExecSettings,
+    		data: JsTaskData,
+    		workflow: Workflow,
+    		signal: AbortSignal,
+    	): Promise<TaskResultData['result']> {
+expected normalized: "private async runForAllItems( taskId: string, settings: JSExecSettings, data: JsTaskData, workflow: Workflow, signal: AbortSignal, ): Promise<TaskResultData['result']> {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:238-244
+actual code:
+    	private async runForAllItems(
+    		taskId: string,
+    		settings: JSExecSettings,
+    		data: JsTaskData,
+    		workflow: Workflow,
+    		signal: AbortSignal,
+    	): Promise<TaskResultData['result']> {
+actual normalized: "private async runForAllItems( taskId: string, settings: JSExecSettings, data: JsTaskData, workflow: Workflow, signal: AbortSignal, ): Promise<TaskResultData['result']> {"
+
+====================================================================================================
+entry-00352 trace[2]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:555-563  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    			module: {},
+    			console: this.buildCustomConsole(taskId),
+    			$getWorkflowStaticData: (type: 'global' | 'node') => workflow.getStaticData(type, node),
+    			...this.getNativeVariables(),
+    			...dataProxy,
+    			...this.buildRpcCallObject(taskId),
+    			...additionalProperties,
+    		});
+    	}
+expected normalized: "module: {}, console: this.buildCustomConsole(taskId), $getWorkflowStaticData: (type: 'global' | 'node') => workflow.getStaticData(type, node), ...this.getNativeVariables(), ...dataProxy, ...this.buildRpcCallObject(taskId), ...additionalProperties, }); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:555-563
+actual code:
+    			module: {},
+    			console: this.buildCustomConsole(taskId),
+    			$getWorkflowStaticData: (type: 'global' | 'node') => workflow.getStaticData(type, node),
+    			...this.getNativeVariables(),
+    			...dataProxy,
+    			...this.buildRpcCallObject(taskId),
+    			...additionalProperties,
+    		});
+    	}
+actual normalized: "module: {}, console: this.buildCustomConsole(taskId), $getWorkflowStaticData: (type: 'global' | 'node') => workflow.getStaticData(type, node), ...this.getNativeVariables(), ...dataProxy, ...this.buildRpcCallObject(taskId), ...additionalProperties, }); }"
+
+====================================================================================================
+entry-00352 trace[3]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:263-266  report=GHSA-XVH5-5QG4-X9QP
+repo=https://github.com/n8n-io/n8n
+commit=4c6b0180bd62b4ec79ae752975398a377b59c204
+expected code:
+    				if (this.mode === 'secure') {
+    					taskResult = runInContext(this.createVmExecutableCode(settings.code), context, {
+    						timeout: this.taskTimeout * 1000,
+    					}) as Promise<TaskResultData['result']>;
+expected normalized: "if (this.mode === 'secure') { taskResult = runInContext(this.createVmExecutableCode(settings.code), context, { timeout: this.taskTimeout * 1000, }) as Promise<TaskResultData['result']>;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:263-266
+actual code:
+    				if (this.mode === 'secure') {
+    					taskResult = runInContext(this.createVmExecutableCode(settings.code), context, {
+    						timeout: this.taskTimeout * 1000,
+    					}) as Promise<TaskResultData['result']>;
+actual normalized: "if (this.mode === 'secure') { taskResult = runInContext(this.createVmExecutableCode(settings.code), context, { timeout: this.taskTimeout * 1000, }) as Promise<TaskResultData['result']>;"

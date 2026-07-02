@@ -1,0 +1,209 @@
+====================================================================================================
+entry-00208 entry_point  src/gateway/node-invoke-system-run-approval.ts:119  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+    export function sanitizeSystemRunParamsForForwarding(opts: {
+expected normalized: 'export function sanitizeSystemRunParamsForForwarding(opts: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:119
+actual code:
+    export function sanitizeSystemRunParamsForForwarding(opts: {
+actual normalized: 'export function sanitizeSystemRunParamsForForwarding(opts: {'
+
+====================================================================================================
+entry-00208 critical_operation  src/node-host/invoke.ts:762  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const result = await runCommand(
+expected normalized: 'const result = await runCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:762
+actual code:
+      const result = await runCommand(
+actual normalized: 'const result = await runCommand('
+
+====================================================================================================
+entry-00208 trace[0]  src/gateway/node-invoke-system-run-approval.ts:119  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+    export function sanitizeSystemRunParamsForForwarding(opts: {
+expected normalized: 'export function sanitizeSystemRunParamsForForwarding(opts: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:119
+actual code:
+    export function sanitizeSystemRunParamsForForwarding(opts: {
+actual normalized: 'export function sanitizeSystemRunParamsForForwarding(opts: {'
+
+====================================================================================================
+entry-00208 trace[1]  src/gateway/node-invoke-system-run-approval.ts:133  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const argv = Array.isArray(p.command) ? p.command.map((v) => String(v)) : [];
+expected normalized: 'const argv = Array.isArray(p.command) ? p.command.map((v) => String(v)) : [];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:133
+actual code:
+      const argv = Array.isArray(p.command) ? p.command.map((v) => String(v)) : [];
+actual normalized: 'const argv = Array.isArray(p.command) ? p.command.map((v) => String(v)) : [];'
+
+====================================================================================================
+entry-00208 trace[2]  src/infra/system-run-command.ts:63  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      if (base0 === "cmd.exe" || base0 === "cmd") {
+expected normalized: 'if (base0 === "cmd.exe" || base0 === "cmd") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:63
+actual code:
+      if (base0 === "cmd.exe" || base0 === "cmd") {
+actual normalized: 'if (base0 === "cmd.exe" || base0 === "cmd") {'
+
+====================================================================================================
+entry-00208 trace[3]  src/infra/system-run-command.ts:83  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const shellCommand = extractShellCommandFromArgv(params.argv);
+expected normalized: 'const shellCommand = extractShellCommandFromArgv(params.argv);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:83
+actual code:
+      const shellCommand = extractShellCommandFromArgv(params.argv);
+actual normalized: 'const shellCommand = extractShellCommandFromArgv(params.argv);'
+
+====================================================================================================
+entry-00208 trace[4]  src/gateway/node-invoke-system-run-approval.ts:47  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+    function getCmdText(params: SystemRunParamsLike): string {
+expected normalized: 'function getCmdText(params: SystemRunParamsLike): string {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:47
+actual code:
+    function getCmdText(params: SystemRunParamsLike): string {
+actual normalized: 'function getCmdText(params: SystemRunParamsLike): string {'
+
+====================================================================================================
+entry-00208 trace[5]  src/gateway/node-invoke-system-run-approval.ts:61  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+    function approvalMatchesRequest(params: SystemRunParamsLike, record: ExecApprovalRecord): boolean {
+expected normalized: 'function approvalMatchesRequest(params: SystemRunParamsLike, record: ExecApprovalRecord): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:61
+actual code:
+    function approvalMatchesRequest(params: SystemRunParamsLike, record: ExecApprovalRecord): boolean {
+actual normalized: 'function approvalMatchesRequest(params: SystemRunParamsLike, record: ExecApprovalRecord): boolean {'
+
+====================================================================================================
+entry-00208 trace[6]  src/gateway/node-invoke-system-run-approval.ts:224  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      if (!approvalMatchesRequest(p, snapshot)) {
+expected normalized: 'if (!approvalMatchesRequest(p, snapshot)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:224
+actual code:
+      if (!approvalMatchesRequest(p, snapshot)) {
+actual normalized: 'if (!approvalMatchesRequest(p, snapshot)) {'
+
+====================================================================================================
+entry-00208 trace[7]  src/node-host/invoke.ts:486  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const argv = params.command.map((item) => String(item));
+expected normalized: 'const argv = params.command.map((item) => String(item));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:486
+actual code:
+      const argv = params.command.map((item) => String(item));
+actual normalized: 'const argv = params.command.map((item) => String(item));'
+
+====================================================================================================
+entry-00208 trace[8]  src/node-host/invoke.ts:663  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const approvedByAsk = approvalDecision !== null || params.approved === true;
+expected normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:663
+actual code:
+      const approvedByAsk = approvalDecision !== null || params.approved === true;
+actual normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+
+====================================================================================================
+entry-00208 trace[9]  src/node-host/invoke.ts:748  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      let execArgv = argv;
+expected normalized: 'let execArgv = argv;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:748
+actual code:
+      let execArgv = argv;
+actual normalized: 'let execArgv = argv;'
+
+====================================================================================================
+entry-00208 trace[10]  src/node-host/invoke.ts:181  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+        const child = spawn(argv[0], argv.slice(1), {
+expected normalized: 'const child = spawn(argv[0], argv.slice(1), {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:181
+actual code:
+        const child = spawn(argv[0], argv.slice(1), {
+actual normalized: 'const child = spawn(argv[0], argv.slice(1), {'
+
+====================================================================================================
+entry-00208 trace[11]  src/node-host/invoke.ts:762  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const result = await runCommand(
+expected normalized: 'const result = await runCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:762
+actual code:
+      const result = await runCommand(
+actual normalized: 'const result = await runCommand('

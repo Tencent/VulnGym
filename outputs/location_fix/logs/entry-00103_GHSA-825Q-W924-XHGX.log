@@ -1,0 +1,159 @@
+====================================================================================================
+entry-00103 entry_point  packages/cli/src/webhooks/webhook-helpers.ts:615  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    		}
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:615
+actual code:
+    		}
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .bundlemonrc.json:11
+      			}
+  [2] .bundlemonrc.json:18
+      		}
+  [3] .bundlemonrc.json:28
+      		}
+  [4] .bundlemonrc.json:30
+      }
+
+====================================================================================================
+entry-00103 critical_operation  packages/core/src/html-sandbox.ts:20  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    	const contentTypeLower = contentType.toLowerCase();
+expected normalized: 'const contentTypeLower = contentType.toLowerCase();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/html-sandbox.ts:20
+actual code:
+    	const contentTypeLower = contentType.toLowerCase();
+actual normalized: 'const contentTypeLower = contentType.toLowerCase();'
+
+====================================================================================================
+entry-00103 trace[0]  packages/cli/src/webhooks/webhook-helpers.ts:615  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    		}
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:615
+actual code:
+    		}
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .bundlemonrc.json:11
+      			}
+  [2] .bundlemonrc.json:18
+      		}
+  [3] .bundlemonrc.json:28
+      		}
+  [4] .bundlemonrc.json:30
+      }
+
+====================================================================================================
+entry-00103 trace[1]  packages/cli/src/webhooks/webhook-helpers.ts:605-614  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    
+    		if (responseMode === 'streaming') {
+    			Container.get(Logger).debug(
+    				`Execution of workflow "${workflow.name}" from with ID ${executionId} is set to streaming`,
+    				{ executionId },
+    			);
+    			// TODO: Add check for streaming nodes here
+    			runData.httpResponse = res;
+    			runData.streamingEnabled = true;
+    			didSendResponse = true;
+expected normalized: 'if (responseMode === \'streaming\') { Container.get(Logger).debug( `Execution of workflow "${workflow.name}" from with ID ${executionId} is set to streaming`, { executionId }, ); // TODO: Add check for streaming nodes here runData.httpResponse = res; runData.streamingEnabled = true; didSendResponse = true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:605-614
+actual code:
+    
+    		if (responseMode === 'streaming') {
+    			Container.get(Logger).debug(
+    				`Execution of workflow "${workflow.name}" from with ID ${executionId} is set to streaming`,
+    				{ executionId },
+    			);
+    			// TODO: Add check for streaming nodes here
+    			runData.httpResponse = res;
+    			runData.streamingEnabled = true;
+    			didSendResponse = true;
+actual normalized: 'if (responseMode === \'streaming\') { Container.get(Logger).debug( `Execution of workflow "${workflow.name}" from with ID ${executionId} is set to streaming`, { executionId }, ); // TODO: Add check for streaming nodes here runData.httpResponse = res; runData.streamingEnabled = true; didSendResponse = true;'
+
+====================================================================================================
+entry-00103 trace[2]  packages/cli/src/webhooks/webhook-request-handler.ts:146-155  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    	private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {
+    		if (headers) {
+    			for (const [name, value] of headers.entries()) {
+    				res.setHeader(name, value);
+    			}
+    		}
+    
+    		const contentType = res.getHeader('content-type') as string | undefined;
+    		const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);
+expected normalized: "private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) { if (headers) { for (const [name, value] of headers.entries()) { res.setHeader(name, value); } } const contentType = res.getHeader('content-type') as string | undefined; const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:146-154
+actual code:
+    	private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {
+    		if (headers) {
+    			for (const [name, value] of headers.entries()) {
+    				res.setHeader(name, value);
+    			}
+    		}
+    
+    		const contentType = res.getHeader('content-type') as string | undefined;
+    		const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);
+actual normalized: "private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) { if (headers) { for (const [name, value] of headers.entries()) { res.setHeader(name, value); } } const contentType = res.getHeader('content-type') as string | undefined; const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);"
+
+====================================================================================================
+entry-00103 trace[3]  packages/core/src/html-sandbox.ts:19-25  report=GHSA-825Q-W924-XHGX
+repo=https://github.com/n8n-io/n8n
+commit=57d6015f2ea0442c24e0449105325b7e36f066df
+expected code:
+    export const isHtmlRenderedContentType = (contentType: string) => {
+    	const contentTypeLower = contentType.toLowerCase();
+    
+    	return (
+    		// The content-type can also contain a charset, e.g. "text/html; charset=utf-8"
+    		contentTypeLower.startsWith('text/html') || contentTypeLower.startsWith('application/xhtml+xml')
+    	);
+expected normalized: 'export const isHtmlRenderedContentType = (contentType: string) => { const contentTypeLower = contentType.toLowerCase(); return ( // The content-type can also contain a charset, e.g. "text/html; charset=utf-8" contentTypeLower.startsWith(\'text/html\') || contentTypeLower.startsWith(\'application/xhtml+xml\') );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/html-sandbox.ts:19-25
+actual code:
+    export const isHtmlRenderedContentType = (contentType: string) => {
+    	const contentTypeLower = contentType.toLowerCase();
+    
+    	return (
+    		// The content-type can also contain a charset, e.g. "text/html; charset=utf-8"
+    		contentTypeLower.startsWith('text/html') || contentTypeLower.startsWith('application/xhtml+xml')
+    	);
+actual normalized: 'export const isHtmlRenderedContentType = (contentType: string) => { const contentTypeLower = contentType.toLowerCase(); return ( // The content-type can also contain a charset, e.g. "text/html; charset=utf-8" contentTypeLower.startsWith(\'text/html\') || contentTypeLower.startsWith(\'application/xhtml+xml\') );'

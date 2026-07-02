@@ -1,0 +1,180 @@
+====================================================================================================
+entry-00396 entry_point  src/auto-reply/reply/commands-approve.ts:110  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      if (!allowTextCommands) {
+expected normalized: 'if (!allowTextCommands) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:110
+actual code:
+      if (!allowTextCommands) {
+actual normalized: 'if (!allowTextCommands) {'
+
+====================================================================================================
+entry-00396 critical_operation  src/auto-reply/reply/commands-approve.ts:198  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+          await callApprovalMethod("exec.approval.resolve");
+expected normalized: 'await callApprovalMethod("exec.approval.resolve");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:198
+actual code:
+          await callApprovalMethod("exec.approval.resolve");
+actual normalized: 'await callApprovalMethod("exec.approval.resolve");'
+
+====================================================================================================
+entry-00396 trace[0]  src/auto-reply/reply/commands-approve.ts:110  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      if (!allowTextCommands) {
+expected normalized: 'if (!allowTextCommands) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:110
+actual code:
+      if (!allowTextCommands) {
+actual normalized: 'if (!allowTextCommands) {'
+
+====================================================================================================
+entry-00396 trace[1]  src/auto-reply/reply/commands-approve.ts:131  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+        const telegramApproverContext = {
+expected normalized: 'const telegramApproverContext = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:131
+actual code:
+        const telegramApproverContext = {
+actual normalized: 'const telegramApproverContext = {'
+
+====================================================================================================
+entry-00396 trace[2]  src/auto-reply/reply/commands-approve.ts:163  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:163
+actual code:
+      }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (36):
+  [1] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:13
+      }
+  [2] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:18
+      }
+  [3] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:35
+          }
+  [4] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:40
+          }
+  [5] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:45
+          }
+  [6] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:50
+          }
+  [7] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:52
+        }
+  [8] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:56
+        }
+  [9] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:59
+        }
+  [10] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:62
+        }
+  [11] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:65
+      }
+  [12] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:74
+        }
+  [13] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:81
+      }
+  [14] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:93
+              }
+  [15] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:96
+              }
+  [16] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:102
+          }
+  [17] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:109
+          }
+  [18] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:122
+          }
+  [19] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:131
+          }
+  [20] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:139
+        }
+  [21] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:144
+        }
+  [22] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:152
+      }
+  [23] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:159
+        }
+  [24] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:183
+        }
+  [25] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:188
+      }
+  [26] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:193
+        }
+  [27] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:196
+        }
+  [28] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:198
+      }
+  [29] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:202
+      }
+  [30] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:206
+      }
+  [31] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:222
+          }
+  [32] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:231
+        }
+  [33] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:241
+        }
+  [34] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:251
+        }
+  [35] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:262
+        }
+  [36] .agents/skills/openclaw-test-heap-leaks/scripts/heapsnapshot-delta.mjs:263
+      }
+
+====================================================================================================
+entry-00396 trace[3]  extensions/discord/src/exec-approvals.ts:6  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+    export function isDiscordExecApprovalClientEnabled(params: {
+expected normalized: 'export function isDiscordExecApprovalClientEnabled(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/discord/src/exec-approvals.ts:6
+actual code:
+    export function isDiscordExecApprovalClientEnabled(params: {
+actual normalized: 'export function isDiscordExecApprovalClientEnabled(params: {'
+
+====================================================================================================
+entry-00396 trace[4]  src/auto-reply/reply/commands-approve.ts:198  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+          await callApprovalMethod("exec.approval.resolve");
+expected normalized: 'await callApprovalMethod("exec.approval.resolve");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:198
+actual code:
+          await callApprovalMethod("exec.approval.resolve");
+actual normalized: 'await callApprovalMethod("exec.approval.resolve");'

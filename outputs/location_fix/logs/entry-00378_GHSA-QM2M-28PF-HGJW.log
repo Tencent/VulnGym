@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00378 entry_point  src/gateway/server-http.ts:340  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+      let pluginGatewayAuthSatisfied = false;
+expected normalized: 'let pluginGatewayAuthSatisfied = false;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:340
+actual code:
+      let pluginGatewayAuthSatisfied = false;
+actual normalized: 'let pluginGatewayAuthSatisfied = false;'
+
+====================================================================================================
+entry-00378 critical_operation  src/gateway/server/plugins-http.ts:36  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+      const scopes =
+expected normalized: 'const scopes ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:36
+actual code:
+      const scopes =
+actual normalized: 'const scopes ='
+
+====================================================================================================
+entry-00378 trace[0]  src/gateway/server-http.ts:357  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+            const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+expected normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:357
+actual code:
+            const pluginAuthOk = await enforcePluginRouteGatewayAuth({
+actual normalized: 'const pluginAuthOk = await enforcePluginRouteGatewayAuth({'
+
+====================================================================================================
+entry-00378 trace[1]  src/gateway/server-http.ts:368  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+            pluginGatewayAuthSatisfied = true;
+expected normalized: 'pluginGatewayAuthSatisfied = true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:368
+actual code:
+            pluginGatewayAuthSatisfied = true;
+actual normalized: 'pluginGatewayAuthSatisfied = true;'
+
+====================================================================================================
+entry-00378 trace[2]  src/gateway/server-http.ts:378  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+              params.handlePluginRequest?.(params.req, params.res, pathContext, {
+expected normalized: 'params.handlePluginRequest?.(params.req, params.res, pathContext, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:378
+actual code:
+              params.handlePluginRequest?.(params.req, params.res, pathContext, {
+actual normalized: 'params.handlePluginRequest?.(params.req, params.res, pathContext, {'
+
+====================================================================================================
+entry-00378 trace[3]  src/gateway/server/plugins-http.ts:85  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+        const requiresGatewayAuth = matchedPluginRoutesRequireGatewayAuth(matchedRoutes);
+expected normalized: 'const requiresGatewayAuth = matchedPluginRoutesRequireGatewayAuth(matchedRoutes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:85
+actual code:
+        const requiresGatewayAuth = matchedPluginRoutesRequireGatewayAuth(matchedRoutes);
+actual normalized: 'const requiresGatewayAuth = matchedPluginRoutesRequireGatewayAuth(matchedRoutes);'
+
+====================================================================================================
+entry-00378 trace[4]  src/gateway/server/plugins-http.ts:90  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+        const runtimeClient = createPluginRouteRuntimeClient({
+expected normalized: 'const runtimeClient = createPluginRouteRuntimeClient({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:90
+actual code:
+        const runtimeClient = createPluginRouteRuntimeClient({
+actual normalized: 'const runtimeClient = createPluginRouteRuntimeClient({'
+
+====================================================================================================
+entry-00378 trace[5]  src/gateway/server/plugins-http.ts:36  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+      const scopes =
+expected normalized: 'const scopes ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:36
+actual code:
+      const scopes =
+actual normalized: 'const scopes ='
+
+====================================================================================================
+entry-00378 trace[6]  src/gateway/server/plugins-http.ts:95  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+        return await withPluginRuntimeGatewayRequestScope(
+expected normalized: 'return await withPluginRuntimeGatewayRequestScope('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:95
+actual code:
+        return await withPluginRuntimeGatewayRequestScope(
+actual normalized: 'return await withPluginRuntimeGatewayRequestScope('
+
+====================================================================================================
+entry-00378 trace[7]  src/gateway/method-scopes.ts:206  report=GHSA-QM2M-28PF-HGJW
+repo=https://github.com/openclaw/openclaw
+commit=21a679e567365a839fb83519916c34d1aa4d3257
+expected code:
+      if (scopes.includes(ADMIN_SCOPE)) {
+expected normalized: 'if (scopes.includes(ADMIN_SCOPE)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:206
+actual code:
+      if (scopes.includes(ADMIN_SCOPE)) {
+actual normalized: 'if (scopes.includes(ADMIN_SCOPE)) {'

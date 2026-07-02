@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00113 entry_point  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:204  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	let query = this.getNodeParameter('query', 0) as string;
+expected normalized: "let query = this.getNodeParameter('query', 0) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:204
+actual code:
+    	let query = this.getNodeParameter('query', 0) as string;
+actual normalized: "let query = this.getNodeParameter('query', 0) as string;"
+
+====================================================================================================
+entry-00113 critical_operation  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:171  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    		const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];
+expected normalized: 'const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:171
+actual code:
+    		const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];
+actual normalized: 'const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];'
+
+====================================================================================================
+entry-00113 trace[0]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:210  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	const isSelectQuery = node.typeVersion >= 3.1 ? query.toLowerCase().startsWith('select') : false;
+expected normalized: "const isSelectQuery = node.typeVersion >= 3.1 ? query.toLowerCase().startsWith('select') : false;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:210
+actual code:
+    	const isSelectQuery = node.typeVersion >= 3.1 ? query.toLowerCase().startsWith('select') : false;
+actual normalized: "const isSelectQuery = node.typeVersion >= 3.1 ? query.toLowerCase().startsWith('select') : false;"
+
+====================================================================================================
+entry-00113 trace[1]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:214  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	if (isSelectQuery) {
+expected normalized: 'if (isSelectQuery) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:214
+actual code:
+    	if (isSelectQuery) {
+actual normalized: 'if (isSelectQuery) {'
+
+====================================================================================================
+entry-00113 trace[2]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:150  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    	const db = new alasql.Database(node.id);
+expected normalized: 'const db = new alasql.Database(node.id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:150
+actual code:
+    	const db = new alasql.Database(node.id);
+actual normalized: 'const db = new alasql.Database(node.id);'
+
+====================================================================================================
+entry-00113 trace[3]  packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:171  report=GHSA-HV53-3329-VMRM
+repo=https://github.com/n8n-io/n8n
+commit=24af748fd3c809920afddfe58bf99c7fce6063d9
+expected code:
+    		const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];
+expected normalized: 'const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Merge/v3/actions/mode/combineBySql.ts:171
+actual code:
+    		const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];
+actual normalized: 'const result = db.exec(modifySelectQuery(query, inputsData.length)) as IDataObject[];'

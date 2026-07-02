@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00137 entry_point  extensions/voice-call/src/runtime.ts:44-47  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const allowNgrokFreeTierLoopbackBypass =
+        config.tunnel?.provider === "ngrok" &&
+        isLoopbackBind(config.serve?.bind) &&
+        (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);
+expected normalized: 'const allowNgrokFreeTierLoopbackBypass = config.tunnel?.provider === "ngrok" && isLoopbackBind(config.serve?.bind) && (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/runtime.ts:44-47
+actual code:
+      const allowNgrokFreeTierLoopbackBypass =
+        config.tunnel?.provider === "ngrok" &&
+        isLoopbackBind(config.serve?.bind) &&
+        (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);
+actual normalized: 'const allowNgrokFreeTierLoopbackBypass = config.tunnel?.provider === "ngrok" && isLoopbackBind(config.serve?.bind) && (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);'
+
+====================================================================================================
+entry-00137 critical_operation  extensions/voice-call/src/webhook-security.ts:201-205  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      if (
+        isNgrokFreeTier &&
+        options?.allowNgrokFreeTierLoopbackBypass &&
+        isLoopbackAddress(ctx.remoteAddress)
+      ) {
+expected normalized: 'if ( isNgrokFreeTier && options?.allowNgrokFreeTierLoopbackBypass && isLoopbackAddress(ctx.remoteAddress) ) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:201-205
+actual code:
+      if (
+        isNgrokFreeTier &&
+        options?.allowNgrokFreeTierLoopbackBypass &&
+        isLoopbackAddress(ctx.remoteAddress)
+      ) {
+actual normalized: 'if ( isNgrokFreeTier && options?.allowNgrokFreeTierLoopbackBypass && isLoopbackAddress(ctx.remoteAddress) ) {'
+
+====================================================================================================
+entry-00137 trace[0]  extensions/voice-call/src/runtime.ts:44-47  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const allowNgrokFreeTierLoopbackBypass =
+        config.tunnel?.provider === "ngrok" &&
+        isLoopbackBind(config.serve?.bind) &&
+        (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);
+expected normalized: 'const allowNgrokFreeTierLoopbackBypass = config.tunnel?.provider === "ngrok" && isLoopbackBind(config.serve?.bind) && (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/runtime.ts:44-47
+actual code:
+      const allowNgrokFreeTierLoopbackBypass =
+        config.tunnel?.provider === "ngrok" &&
+        isLoopbackBind(config.serve?.bind) &&
+        (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);
+actual normalized: 'const allowNgrokFreeTierLoopbackBypass = config.tunnel?.provider === "ngrok" && isLoopbackBind(config.serve?.bind) && (config.tunnel?.allowNgrokFreeTierLoopbackBypass || config.tunnel?.allowNgrokFreeTier || false);'
+
+====================================================================================================
+entry-00137 trace[1]  extensions/voice-call/src/webhook-security.ts:198-199  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const isNgrokFreeTier =
+        verificationUrl.includes(".ngrok-free.app") || verificationUrl.includes(".ngrok.io");
+expected normalized: 'const isNgrokFreeTier = verificationUrl.includes(".ngrok-free.app") || verificationUrl.includes(".ngrok.io");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:198-199
+actual code:
+      const isNgrokFreeTier =
+        verificationUrl.includes(".ngrok-free.app") || verificationUrl.includes(".ngrok.io");
+actual normalized: 'const isNgrokFreeTier = verificationUrl.includes(".ngrok-free.app") || verificationUrl.includes(".ngrok.io");'
+
+====================================================================================================
+entry-00137 trace[2]  extensions/voice-call/src/webhook-security.ts:201-205  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      if (
+        isNgrokFreeTier &&
+        options?.allowNgrokFreeTierLoopbackBypass &&
+        isLoopbackAddress(ctx.remoteAddress)
+      ) {
+expected normalized: 'if ( isNgrokFreeTier && options?.allowNgrokFreeTierLoopbackBypass && isLoopbackAddress(ctx.remoteAddress) ) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:201-205
+actual code:
+      if (
+        isNgrokFreeTier &&
+        options?.allowNgrokFreeTierLoopbackBypass &&
+        isLoopbackAddress(ctx.remoteAddress)
+      ) {
+actual normalized: 'if ( isNgrokFreeTier && options?.allowNgrokFreeTierLoopbackBypass && isLoopbackAddress(ctx.remoteAddress) ) {'

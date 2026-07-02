@@ -1,0 +1,116 @@
+====================================================================================================
+entry-00061 entry_point  packages/ui/src/views/account/index.jsx:702  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    onChange={(e) => setEmail(e.target.value)}
+expected normalized: 'onChange={(e) => setEmail(e.target.value)}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:702
+actual code:
+                                                onChange={(e) => setEmail(e.target.value)}
+actual normalized: 'onChange={(e) => setEmail(e.target.value)}'
+
+====================================================================================================
+entry-00061 critical_operation  packages/ui/src/views/account/index.jsx:205  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const saveProfileResp = await userApi.updateUser(obj)
+expected normalized: 'const saveProfileResp = await userApi.updateUser(obj)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:205
+actual code:
+                const saveProfileResp = await userApi.updateUser(obj)
+actual normalized: 'const saveProfileResp = await userApi.updateUser(obj)'
+
+====================================================================================================
+entry-00061 trace[0]  packages/ui/src/views/account/index.jsx:702  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    onChange={(e) => setEmail(e.target.value)}
+expected normalized: 'onChange={(e) => setEmail(e.target.value)}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:702
+actual code:
+                                                onChange={(e) => setEmail(e.target.value)}
+actual normalized: 'onChange={(e) => setEmail(e.target.value)}'
+
+====================================================================================================
+entry-00061 trace[1]  packages/ui/src/views/account/index.jsx:667  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    <StyledButton onClick={saveProfileData} sx={{ borderRadius: 2, height: 40 }} variant='contained'>
+expected normalized: "<StyledButton onClick={saveProfileData} sx={{ borderRadius: 2, height: 40 }} variant='contained'>"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:667
+actual code:
+                                        <StyledButton onClick={saveProfileData} sx={{ borderRadius: 2, height: 40 }} variant='contained'>
+actual normalized: "<StyledButton onClick={saveProfileData} sx={{ borderRadius: 2, height: 40 }} variant='contained'>"
+
+====================================================================================================
+entry-00061 trace[2]  packages/ui/src/views/account/index.jsx:198  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const saveProfileData = async () => {
+expected normalized: 'const saveProfileData = async () => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:198
+actual code:
+        const saveProfileData = async () => {
+actual normalized: 'const saveProfileData = async () => {'
+
+====================================================================================================
+entry-00061 trace[3]  packages/ui/src/views/account/index.jsx:200-206  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+                const obj = {
+                    id: currentUser.id,
+                    name: profileName,
+                    email: email
+                }
+                const saveProfileResp = await userApi.updateUser(obj)
+                if (saveProfileResp.data) {
+expected normalized: 'const obj = { id: currentUser.id, name: profileName, email: email } const saveProfileResp = await userApi.updateUser(obj) if (saveProfileResp.data) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:200-206
+actual code:
+                const obj = {
+                    id: currentUser.id,
+                    name: profileName,
+                    email: email
+                }
+                const saveProfileResp = await userApi.updateUser(obj)
+                if (saveProfileResp.data) {
+actual normalized: 'const obj = { id: currentUser.id, name: profileName, email: email } const saveProfileResp = await userApi.updateUser(obj) if (saveProfileResp.data) {'
+
+====================================================================================================
+entry-00061 trace[4]  packages/ui/src/views/account/index.jsx:205  report=GHSA-X39M-3393-3QP4
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const saveProfileResp = await userApi.updateUser(obj)
+expected normalized: 'const saveProfileResp = await userApi.updateUser(obj)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:205
+actual code:
+                const saveProfileResp = await userApi.updateUser(obj)
+actual normalized: 'const saveProfileResp = await userApi.updateUser(obj)'

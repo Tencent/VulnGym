@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00120 entry_point  internal/distributed/proxy/service.go:167  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	apiv1 := metricsGinHandler.Group(apiPathPrefix)
+expected normalized: 'apiv1 := metricsGinHandler.Group(apiPathPrefix)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:167
+actual code:
+    	apiv1 := metricsGinHandler.Group(apiPathPrefix)
+actual normalized: 'apiv1 := metricsGinHandler.Group(apiPathPrefix)'
+
+====================================================================================================
+entry-00120 critical_operation  internal/distributed/proxy/service.go:174  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	mhttp.Register(&mhttp.Handler{
+expected normalized: 'mhttp.Register(&mhttp.Handler{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:174
+actual code:
+    	mhttp.Register(&mhttp.Handler{
+actual normalized: 'mhttp.Register(&mhttp.Handler{'
+
+====================================================================================================
+entry-00120 trace[0]  internal/distributed/proxy/service.go:170  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	handlers.RegisterRoutesTo(apiv1)
+expected normalized: 'handlers.RegisterRoutesTo(apiv1)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:170
+actual code:
+    	handlers.RegisterRoutesTo(apiv1)
+actual normalized: 'handlers.RegisterRoutesTo(apiv1)'
+
+====================================================================================================
+entry-00120 trace[1]  internal/distributed/proxy/httpserver/handler.go:73  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	router.POST("/entities", wrapHandler(h.handleInsert))
+expected normalized: 'router.POST("/entities", wrapHandler(h.handleInsert))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/httpserver/handler.go:73
+actual code:
+    	router.POST("/entities", wrapHandler(h.handleInsert))
+actual normalized: 'router.POST("/entities", wrapHandler(h.handleInsert))'
+
+====================================================================================================
+entry-00120 trace[2]  internal/distributed/proxy/httpserver/handler.go:74  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	router.DELETE("/entities", wrapHandler(h.handleDelete))
+expected normalized: 'router.DELETE("/entities", wrapHandler(h.handleDelete))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/httpserver/handler.go:74
+actual code:
+    	router.DELETE("/entities", wrapHandler(h.handleDelete))
+actual normalized: 'router.DELETE("/entities", wrapHandler(h.handleDelete))'
+
+====================================================================================================
+entry-00120 trace[3]  internal/http/server.go:263  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    func Register(h *Handler) {
+expected normalized: 'func Register(h *Handler) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:263
+actual code:
+    func Register(h *Handler) {
+actual normalized: 'func Register(h *Handler) {'
+
+====================================================================================================
+entry-00120 trace[4]  internal/http/server.go:285  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    		server = &http.Server{Handler: metricsServer, Addr: bindAddr, ReadTimeout: 10 * time.Second}
+expected normalized: 'server = &http.Server{Handler: metricsServer, Addr: bindAddr, ReadTimeout: 10 * time.Second}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:285
+actual code:
+    		server = &http.Server{Handler: metricsServer, Addr: bindAddr, ReadTimeout: 10 * time.Second}
+actual normalized: 'server = &http.Server{Handler: metricsServer, Addr: bindAddr, ReadTimeout: 10 * time.Second}'
+
+====================================================================================================
+entry-00120 trace[5]  internal/distributed/proxy/service.go:174  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	mhttp.Register(&mhttp.Handler{
+expected normalized: 'mhttp.Register(&mhttp.Handler{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:174
+actual code:
+    	mhttp.Register(&mhttp.Handler{
+actual normalized: 'mhttp.Register(&mhttp.Handler{'

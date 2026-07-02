@@ -1,0 +1,99 @@
+====================================================================================================
+entry-00447 entry_point  server/src/routes/agents.ts:2218  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+expected normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2218
+actual code:
+      router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+actual normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {'
+
+====================================================================================================
+entry-00447 critical_operation  server/src/routes/agents.ts:2225  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const key = await svc.createApiKey(id, req.body.name);
+expected normalized: 'const key = await svc.createApiKey(id, req.body.name);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2225
+actual code:
+        const key = await svc.createApiKey(id, req.body.name);
+actual normalized: 'const key = await svc.createApiKey(id, req.body.name);'
+
+====================================================================================================
+entry-00447 trace[0]  server/src/routes/agents.ts:2218-2219  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+        assertBoard(req);
+expected normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => { assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2218-2219
+actual code:
+      router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+        assertBoard(req);
+actual normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => { assertBoard(req);'
+
+====================================================================================================
+entry-00447 trace[1]  server/src/routes/authz.ts:10-14  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+    export function assertBoard(req: Request) {
+      if (req.actor.type !== "board") {
+        throw forbidden("Board access required");
+      }
+    }
+expected normalized: 'export function assertBoard(req: Request) { if (req.actor.type !== "board") { throw forbidden("Board access required"); } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/authz.ts:10-14
+actual code:
+    export function assertBoard(req: Request) {
+      if (req.actor.type !== "board") {
+        throw forbidden("Board access required");
+      }
+    }
+actual normalized: 'export function assertBoard(req: Request) { if (req.actor.type !== "board") { throw forbidden("Board access required"); } }'
+
+====================================================================================================
+entry-00447 trace[2]  server/src/routes/agents.ts:2220  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const id = req.params.id as string;
+expected normalized: 'const id = req.params.id as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2220
+actual code:
+        const id = req.params.id as string;
+actual normalized: 'const id = req.params.id as string;'
+
+====================================================================================================
+entry-00447 trace[3]  server/src/routes/agents.ts:2225  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const key = await svc.createApiKey(id, req.body.name);
+expected normalized: 'const key = await svc.createApiKey(id, req.body.name);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2225
+actual code:
+        const key = await svc.createApiKey(id, req.body.name);
+actual normalized: 'const key = await svc.createApiKey(id, req.body.name);'

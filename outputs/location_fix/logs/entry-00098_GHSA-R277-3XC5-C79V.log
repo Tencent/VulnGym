@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00098 entry_point  autogpt_platform/backend/backend/api/external/v1/routes.py:74  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+    @v1_router.post(
+expected normalized: '@v1_router.post('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/external/v1/routes.py:74
+actual code:
+    @v1_router.post(
+actual normalized: '@v1_router.post('
+
+====================================================================================================
+entry-00098 critical_operation  autogpt_platform/backend/backend/api/external/v1/routes.py:86  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+        obj = backend.data.block.get_block(block_id)
+expected normalized: 'obj = backend.data.block.get_block(block_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/external/v1/routes.py:86
+actual code:
+        obj = backend.data.block.get_block(block_id)
+actual normalized: 'obj = backend.data.block.get_block(block_id)'
+
+====================================================================================================
+entry-00098 trace[0]  autogpt_platform/backend/backend/api/external/v1/routes.py:74  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+    @v1_router.post(
+expected normalized: '@v1_router.post('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/external/v1/routes.py:74
+actual code:
+    @v1_router.post(
+actual normalized: '@v1_router.post('
+
+====================================================================================================
+entry-00098 trace[1]  autogpt_platform/backend/backend/api/external/v1/routes.py:86  report=GHSA-R277-3XC5-C79V
+repo=https://github.com/Significant-Gravitas/AutoGPT
+commit=f0c25036082a5e53650ae7230bcfcf9309bbb5d5
+expected code:
+        obj = backend.data.block.get_block(block_id)
+expected normalized: 'obj = backend.data.block.get_block(block_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: autogpt_platform/backend/backend/api/external/v1/routes.py:86
+actual code:
+        obj = backend.data.block.get_block(block_id)
+actual normalized: 'obj = backend.data.block.get_block(block_id)'

@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00469 entry_point  packages/components/src/utils.ts:1494  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export const executeJavaScriptCode = async (
+expected normalized: 'export const executeJavaScriptCode = async ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1494
+actual code:
+    export const executeJavaScriptCode = async (
+actual normalized: 'export const executeJavaScriptCode = async ('
+
+====================================================================================================
+entry-00469 critical_operation  packages/components/src/httpSecurity.ts:88  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const response = await axios(currentConfig)
+expected normalized: 'const response = await axios(currentConfig)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:88
+actual code:
+            const response = await axios(currentConfig)
+actual normalized: 'const response = await axios(currentConfig)'
+
+====================================================================================================
+entry-00469 trace[0]  packages/components/src/utils.ts:1494  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export const executeJavaScriptCode = async (
+expected normalized: 'export const executeJavaScriptCode = async ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1494
+actual code:
+    export const executeJavaScriptCode = async (
+actual normalized: 'export const executeJavaScriptCode = async ('
+
+====================================================================================================
+entry-00469 trace[1]  packages/components/src/utils.ts:1644  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                return await secureAxiosRequest(config)
+expected normalized: 'return await secureAxiosRequest(config)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1644
+actual code:
+                return await secureAxiosRequest(config)
+actual normalized: 'return await secureAxiosRequest(config)'
+
+====================================================================================================
+entry-00469 trace[2]  packages/components/src/httpSecurity.ts:75  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const target = await resolveAndValidate(currentUrl)
+expected normalized: 'const target = await resolveAndValidate(currentUrl)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:75
+actual code:
+            const target = await resolveAndValidate(currentUrl)
+actual normalized: 'const target = await resolveAndValidate(currentUrl)'
+
+====================================================================================================
+entry-00469 trace[3]  packages/components/src/httpSecurity.ts:88  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const response = await axios(currentConfig)
+expected normalized: 'const response = await axios(currentConfig)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:88
+actual code:
+            const response = await axios(currentConfig)
+actual normalized: 'const response = await axios(currentConfig)'

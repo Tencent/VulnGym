@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00291 entry_point  src/gateway/server-methods/devices.ts:149  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+      "device.token.rotate": async ({ params, respond, context }) => {
+expected normalized: '"device.token.rotate": async ({ params, respond, context }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:149
+actual code:
+      "device.token.rotate": async ({ params, respond, context }) => {
+actual normalized: '"device.token.rotate": async ({ params, respond, context }) => {'
+
+====================================================================================================
+entry-00291 critical_operation  src/gateway/server-methods/devices.ts:168  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+        const entry = await rotateDeviceToken({ deviceId, role, scopes });
+expected normalized: 'const entry = await rotateDeviceToken({ deviceId, role, scopes });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:168
+actual code:
+        const entry = await rotateDeviceToken({ deviceId, role, scopes });
+actual normalized: 'const entry = await rotateDeviceToken({ deviceId, role, scopes });'
+
+====================================================================================================
+entry-00291 trace[0]  src/gateway/server-methods.ts:51  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+      const scopes = client.connect.scopes ?? [];
+expected normalized: 'const scopes = client.connect.scopes ?? [];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods.ts:51
+actual code:
+      const scopes = client.connect.scopes ?? [];
+actual normalized: 'const scopes = client.connect.scopes ?? [];'
+
+====================================================================================================
+entry-00291 trace[1]  src/gateway/server-methods.ts:61  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+      const scopeAuth = authorizeOperatorScopesForMethod(method, scopes);
+expected normalized: 'const scopeAuth = authorizeOperatorScopesForMethod(method, scopes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods.ts:61
+actual code:
+      const scopeAuth = authorizeOperatorScopesForMethod(method, scopes);
+actual normalized: 'const scopeAuth = authorizeOperatorScopesForMethod(method, scopes);'
+
+====================================================================================================
+entry-00291 trace[2]  src/gateway/method-scopes.ts:48  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+        "device.token.rotate",
+expected normalized: '"device.token.rotate",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:48
+actual code:
+        "device.token.rotate",
+actual normalized: '"device.token.rotate",'
+
+====================================================================================================
+entry-00291 trace[3]  src/gateway/server-methods/devices.ts:163  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+        const { deviceId, role, scopes } = params as {
+expected normalized: 'const { deviceId, role, scopes } = params as {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/devices.ts:163
+actual code:
+        const { deviceId, role, scopes } = params as {
+actual normalized: 'const { deviceId, role, scopes } = params as {'
+
+====================================================================================================
+entry-00291 trace[4]  src/infra/device-pairing.ts:592  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+        const approvedScopes = normalizeDeviceAuthScopes(
+expected normalized: 'const approvedScopes = normalizeDeviceAuthScopes('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:592
+actual code:
+        const approvedScopes = normalizeDeviceAuthScopes(
+actual normalized: 'const approvedScopes = normalizeDeviceAuthScopes('
+
+====================================================================================================
+entry-00291 trace[5]  src/infra/device-pairing.ts:599  report=GHSA-4JPW-HJ22-2XMC
+repo=https://github.com/openclaw/openclaw
+commit=04e103d10ef7601b05fe1e253a1576d093dfdcf2
+expected code:
+        const next = buildDeviceAuthToken({
+expected normalized: 'const next = buildDeviceAuthToken({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-pairing.ts:599
+actual code:
+        const next = buildDeviceAuthToken({
+actual normalized: 'const next = buildDeviceAuthToken({'

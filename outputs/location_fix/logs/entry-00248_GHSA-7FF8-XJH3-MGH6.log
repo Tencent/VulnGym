@@ -1,0 +1,160 @@
+====================================================================================================
+entry-00248 entry_point  src/node-host/invoke-system-run.ts:262  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+expected normalized: 'export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:262
+actual code:
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+actual normalized: 'export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {'
+
+====================================================================================================
+entry-00248 critical_operation  src/infra/exec-approvals-allowlist.ts:159  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+        if (
+          allowSkills &&
+          segment.resolution?.resolvedPath &&
+          rawExecutable.length > 0 &&
+          !usesExplicitPath &&
+          executableName
+        ) {
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+        }
+expected normalized: 'if ( allowSkills && segment.resolution?.resolvedPath && rawExecutable.length > 0 && !usesExplicitPath && executableName ) { skillAllow = Boolean(params.skillBins?.has(executableName)); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:159-167
+actual code:
+        if (
+          allowSkills &&
+          segment.resolution?.resolvedPath &&
+          rawExecutable.length > 0 &&
+          !usesExplicitPath &&
+          executableName
+        ) {
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+        }
+actual normalized: 'if ( allowSkills && segment.resolution?.resolvedPath && rawExecutable.length > 0 && !usesExplicitPath && executableName ) { skillAllow = Boolean(params.skillBins?.has(executableName)); }'
+
+====================================================================================================
+entry-00248 trace[0]  src/node-host/invoke-system-run.ts:304  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const envOverrides = sanitizeSystemRunEnvOverrides({
+        overrides: opts.params.env ?? undefined,
+        shellWrapper: shellCommand !== null,
+      });
+      const env = opts.sanitizeEnv(envOverrides);
+expected normalized: 'const envOverrides = sanitizeSystemRunEnvOverrides({ overrides: opts.params.env ?? undefined, shellWrapper: shellCommand !== null, }); const env = opts.sanitizeEnv(envOverrides);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:304-308
+actual code:
+      const envOverrides = sanitizeSystemRunEnvOverrides({
+        overrides: opts.params.env ?? undefined,
+        shellWrapper: shellCommand !== null,
+      });
+      const env = opts.sanitizeEnv(envOverrides);
+actual normalized: 'const envOverrides = sanitizeSystemRunEnvOverrides({ overrides: opts.params.env ?? undefined, shellWrapper: shellCommand !== null, }); const env = opts.sanitizeEnv(envOverrides);'
+
+====================================================================================================
+entry-00248 trace[1]  src/infra/exec-command-resolution.ts:51  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    function resolveExecutablePath(rawExecutable: string, cwd?: string, env?: NodeJS.ProcessEnv) {
+      const expanded = rawExecutable.startsWith("~") ? expandHomePrefix(rawExecutable) : rawExecutable;
+      if (expanded.includes("/") || expanded.includes("\\")) {
+        if (path.isAbsolute(expanded)) {
+          return isExecutableFile(expanded) ? expanded : undefined;
+        }
+        const base = cwd && cwd.trim() ? cwd.trim() : process.cwd();
+        const candidate = path.resolve(base, expanded);
+        return isExecutableFile(candidate) ? candidate : undefined;
+      }
+      const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";
+expected normalized: 'function resolveExecutablePath(rawExecutable: string, cwd?: string, env?: NodeJS.ProcessEnv) { const expanded = rawExecutable.startsWith("~") ? expandHomePrefix(rawExecutable) : rawExecutable; if (expanded.includes("/") || expanded.includes("\\\\")) { if (path.isAbsolute(expanded)) { return isExecutableFile(expanded) ? expanded : undefined; } const base = cwd && cwd.trim() ? cwd.trim() : process.cwd(); const candidate = path.resolve(base, expanded); return isExecutableFile(candidate) ? candidate : undefined; } const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-command-resolution.ts:51-61
+actual code:
+    function resolveExecutablePath(rawExecutable: string, cwd?: string, env?: NodeJS.ProcessEnv) {
+      const expanded = rawExecutable.startsWith("~") ? expandHomePrefix(rawExecutable) : rawExecutable;
+      if (expanded.includes("/") || expanded.includes("\\")) {
+        if (path.isAbsolute(expanded)) {
+          return isExecutableFile(expanded) ? expanded : undefined;
+        }
+        const base = cwd && cwd.trim() ? cwd.trim() : process.cwd();
+        const candidate = path.resolve(base, expanded);
+        return isExecutableFile(candidate) ? candidate : undefined;
+      }
+      const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";
+actual normalized: 'function resolveExecutablePath(rawExecutable: string, cwd?: string, env?: NodeJS.ProcessEnv) { const expanded = rawExecutable.startsWith("~") ? expandHomePrefix(rawExecutable) : rawExecutable; if (expanded.includes("/") || expanded.includes("\\\\")) { if (path.isAbsolute(expanded)) { return isExecutableFile(expanded) ? expanded : undefined; } const base = cwd && cwd.trim() ? cwd.trim() : process.cwd(); const candidate = path.resolve(base, expanded); return isExecutableFile(candidate) ? candidate : undefined; } const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";'
+
+====================================================================================================
+entry-00248 trace[2]  src/infra/exec-command-resolution.ts:121  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+      const executableName = resolvedPath ? path.basename(resolvedPath) : rawExecutable;
+expected normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env); const executableName = resolvedPath ? path.basename(resolvedPath) : rawExecutable;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-command-resolution.ts:121-122
+actual code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+      const executableName = resolvedPath ? path.basename(resolvedPath) : rawExecutable;
+actual normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env); const executableName = resolvedPath ? path.basename(resolvedPath) : rawExecutable;'
+
+====================================================================================================
+entry-00248 trace[3]  src/infra/exec-approvals-allowlist.ts:166  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+expected normalized: 'skillAllow = Boolean(params.skillBins?.has(executableName));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:166
+actual code:
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+actual normalized: 'skillAllow = Boolean(params.skillBins?.has(executableName));'
+
+====================================================================================================
+entry-00248 trace[4]  src/node-host/invoke-system-run.ts:465  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const result = await opts.runCommand(
+        execArgv,
+        opts.params.cwd?.trim() || undefined,
+        env,
+        opts.params.timeoutMs ?? undefined,
+      );
+expected normalized: 'const result = await opts.runCommand( execArgv, opts.params.cwd?.trim() || undefined, env, opts.params.timeoutMs ?? undefined, );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:465-470
+actual code:
+      const result = await opts.runCommand(
+        execArgv,
+        opts.params.cwd?.trim() || undefined,
+        env,
+        opts.params.timeoutMs ?? undefined,
+      );
+actual normalized: 'const result = await opts.runCommand( execArgv, opts.params.cwd?.trim() || undefined, env, opts.params.timeoutMs ?? undefined, );'

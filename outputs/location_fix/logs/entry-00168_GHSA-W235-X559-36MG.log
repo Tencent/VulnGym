@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00168 entry_point  src/config/zod-schema.agent-runtime.ts:125  report=GHSA-W235-X559-36MG
+repo=https://github.com/openclaw/openclaw
+commit=d4bdcda32403cb8d1f100ae9e27a82f0ffaa04ca
+expected code:
+        binds: z.array(z.string()).optional(),
+expected normalized: 'binds: z.array(z.string()).optional(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/zod-schema.agent-runtime.ts:125
+actual code:
+        binds: z.array(z.string()).optional(),
+actual normalized: 'binds: z.array(z.string()).optional(),'
+
+====================================================================================================
+entry-00168 critical_operation  src/agents/sandbox/docker.ts:314  report=GHSA-W235-X559-36MG
+repo=https://github.com/openclaw/openclaw
+commit=d4bdcda32403cb8d1f100ae9e27a82f0ffaa04ca
+expected code:
+      if (params.cfg.binds?.length) {
+expected normalized: 'if (params.cfg.binds?.length) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/docker.ts:314
+actual code:
+      if (params.cfg.binds?.length) {
+actual normalized: 'if (params.cfg.binds?.length) {'
+
+====================================================================================================
+entry-00168 trace[0]  src/config/zod-schema.agent-runtime.ts:125  report=GHSA-W235-X559-36MG
+repo=https://github.com/openclaw/openclaw
+commit=d4bdcda32403cb8d1f100ae9e27a82f0ffaa04ca
+expected code:
+        binds: z.array(z.string()).optional(),
+expected normalized: 'binds: z.array(z.string()).optional(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/zod-schema.agent-runtime.ts:125
+actual code:
+        binds: z.array(z.string()).optional(),
+actual normalized: 'binds: z.array(z.string()).optional(),'
+
+====================================================================================================
+entry-00168 trace[1]  src/agents/sandbox/docker.ts:244  report=GHSA-W235-X559-36MG
+repo=https://github.com/openclaw/openclaw
+commit=d4bdcda32403cb8d1f100ae9e27a82f0ffaa04ca
+expected code:
+      const args = ["create", "--name", params.name];
+expected normalized: 'const args = ["create", "--name", params.name];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/docker.ts:244
+actual code:
+      const args = ["create", "--name", params.name];
+actual normalized: 'const args = ["create", "--name", params.name];'
+
+====================================================================================================
+entry-00168 trace[2]  src/agents/sandbox/docker.ts:314  report=GHSA-W235-X559-36MG
+repo=https://github.com/openclaw/openclaw
+commit=d4bdcda32403cb8d1f100ae9e27a82f0ffaa04ca
+expected code:
+      if (params.cfg.binds?.length) {
+expected normalized: 'if (params.cfg.binds?.length) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/docker.ts:314
+actual code:
+      if (params.cfg.binds?.length) {
+actual normalized: 'if (params.cfg.binds?.length) {'

@@ -1,0 +1,148 @@
+====================================================================================================
+entry-00412 entry_point  src/gateway/server-node-events.ts:459  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+        case "notifications.changed": {
+          const obj = parsePayloadObject(evt.payloadJSON);
+          if (!obj) {
+            return;
+          }
+          const change = normalizeNonEmptyString(obj.change)?.toLowerCase();
+          if (change !== "posted" && change !== "removed") {
+            return;
+          }
+          const key = normalizeNonEmptyString(obj.key);
+          if (!key) {
+            return;
+          }
+          const sessionKeyRaw = normalizeNonEmptyString(obj.sessionKey) ?? `node-${nodeId}`;
+          const { canonicalKey: sessionKey } = loadSessionEntry(sessionKeyRaw);
+          const packageName = normalizeNonEmptyString(obj.packageName);
+          const title = compactNotificationEventText(normalizeNonEmptyString(obj.title) ?? "");
+          const text = compactNotificationEventText(normalizeNonEmptyString(obj.text) ?? "");
+expected normalized: 'case "notifications.changed": { const obj = parsePayloadObject(evt.payloadJSON); if (!obj) { return; } const change = normalizeNonEmptyString(obj.change)?.toLowerCase(); if (change !== "posted" && change !== "removed") { return; } const key = normalizeNonEmptyString(obj.key); if (!key) { return; } const sessionKeyRaw = normalizeNonEmptyString(obj.sessionKey) ?? `node-${nodeId}`; const { canonicalKey: sessionKey } = loadSessionEntry(sessionKeyRaw); const packageName = normalizeNonEmptyString(obj.packageName); const title = compactNotificationEventText(normalizeNonEmptyString(obj.title) ?? ""); const text = compactNotificationEventText(normalizeNonEmptyString(obj.text) ?? "");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-node-events.ts:459-476
+actual code:
+        case "notifications.changed": {
+          const obj = parsePayloadObject(evt.payloadJSON);
+          if (!obj) {
+            return;
+          }
+          const change = normalizeNonEmptyString(obj.change)?.toLowerCase();
+          if (change !== "posted" && change !== "removed") {
+            return;
+          }
+          const key = normalizeNonEmptyString(obj.key);
+          if (!key) {
+            return;
+          }
+          const sessionKeyRaw = normalizeNonEmptyString(obj.sessionKey) ?? `node-${nodeId}`;
+          const { canonicalKey: sessionKey } = loadSessionEntry(sessionKeyRaw);
+          const packageName = normalizeNonEmptyString(obj.packageName);
+          const title = compactNotificationEventText(normalizeNonEmptyString(obj.title) ?? "");
+          const text = compactNotificationEventText(normalizeNonEmptyString(obj.text) ?? "");
+actual normalized: 'case "notifications.changed": { const obj = parsePayloadObject(evt.payloadJSON); if (!obj) { return; } const change = normalizeNonEmptyString(obj.change)?.toLowerCase(); if (change !== "posted" && change !== "removed") { return; } const key = normalizeNonEmptyString(obj.key); if (!key) { return; } const sessionKeyRaw = normalizeNonEmptyString(obj.sessionKey) ?? `node-${nodeId}`; const { canonicalKey: sessionKey } = loadSessionEntry(sessionKeyRaw); const packageName = normalizeNonEmptyString(obj.packageName); const title = compactNotificationEventText(normalizeNonEmptyString(obj.title) ?? ""); const text = compactNotificationEventText(normalizeNonEmptyString(obj.text) ?? "");'
+
+====================================================================================================
+entry-00412 critical_operation  src/auto-reply/reply/session-system-events.ts:109  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+      return systemLines
+        .flatMap((line) => line.split("\n").map((subline) => `System: ${subline}`))
+        .join("\n");
+expected normalized: 'return systemLines .flatMap((line) => line.split("\\n").map((subline) => `System: ${subline}`)) .join("\\n");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/session-system-events.ts:109-111
+actual code:
+      return systemLines
+        .flatMap((line) => line.split("\n").map((subline) => `System: ${subline}`))
+        .join("\n");
+actual normalized: 'return systemLines .flatMap((line) => line.split("\\n").map((subline) => `System: ${subline}`)) .join("\\n");'
+
+====================================================================================================
+entry-00412 trace[0]  src/gateway/server-node-events.ts:478-487  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+          let summary = `Notification ${change} (node=${nodeId} key=${key}`;
+          if (packageName) {
+            summary += ` package=${packageName}`;
+          }
+          summary += ")";
+          if (change === "posted") {
+            const messageParts = [title, text].filter(Boolean);
+            if (messageParts.length > 0) {
+              summary += `: ${messageParts.join(" - ")}`;
+            }
+expected normalized: 'let summary = `Notification ${change} (node=${nodeId} key=${key}`; if (packageName) { summary += ` package=${packageName}`; } summary += ")"; if (change === "posted") { const messageParts = [title, text].filter(Boolean); if (messageParts.length > 0) { summary += `: ${messageParts.join(" - ")}`; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-node-events.ts:478-487
+actual code:
+          let summary = `Notification ${change} (node=${nodeId} key=${key}`;
+          if (packageName) {
+            summary += ` package=${packageName}`;
+          }
+          summary += ")";
+          if (change === "posted") {
+            const messageParts = [title, text].filter(Boolean);
+            if (messageParts.length > 0) {
+              summary += `: ${messageParts.join(" - ")}`;
+            }
+actual normalized: 'let summary = `Notification ${change} (node=${nodeId} key=${key}`; if (packageName) { summary += ` package=${packageName}`; } summary += ")"; if (change === "posted") { const messageParts = [title, text].filter(Boolean); if (messageParts.length > 0) { summary += `: ${messageParts.join(" - ")}`; }'
+
+====================================================================================================
+entry-00412 trace[1]  src/infra/system-events.ts:107  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+        ts: Date.now(),
+expected normalized: 'ts: Date.now(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-events.ts:107
+actual code:
+        ts: Date.now(),
+actual normalized: 'ts: Date.now(),'
+
+====================================================================================================
+entry-00412 trace[2]  src/auto-reply/reply/session-system-events.ts:82-91  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+      const queued = drainSystemEventEntries(params.sessionKey);
+      systemLines.push(
+        ...queued
+          .map((event) => {
+            const compacted = compactSystemEvent(event.text);
+            if (!compacted) {
+              return null;
+            }
+            return `[${formatSystemEventTimestamp(event.ts, params.cfg)}] ${compacted}`;
+          })
+expected normalized: 'const queued = drainSystemEventEntries(params.sessionKey); systemLines.push( ...queued .map((event) => { const compacted = compactSystemEvent(event.text); if (!compacted) { return null; } return `[${formatSystemEventTimestamp(event.ts, params.cfg)}] ${compacted}`; })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/session-system-events.ts:82-91
+actual code:
+      const queued = drainSystemEventEntries(params.sessionKey);
+      systemLines.push(
+        ...queued
+          .map((event) => {
+            const compacted = compactSystemEvent(event.text);
+            if (!compacted) {
+              return null;
+            }
+            return `[${formatSystemEventTimestamp(event.ts, params.cfg)}] ${compacted}`;
+          })
+actual normalized: 'const queued = drainSystemEventEntries(params.sessionKey); systemLines.push( ...queued .map((event) => { const compacted = compactSystemEvent(event.text); if (!compacted) { return null; } return `[${formatSystemEventTimestamp(event.ts, params.cfg)}] ${compacted}`; })'

@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00304 entry_point  src/agents/tools/session-status-tool.ts:185  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:185
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00304 critical_operation  src/agents/tools/session-status-tool.ts:388  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    content: [{ type: "text", text: statusText }],
+expected normalized: 'content: [{ type: "text", text: statusText }],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:388
+actual code:
+            content: [{ type: "text", text: statusText }],
+actual normalized: 'content: [{ type: "text", text: statusText }],'
+
+====================================================================================================
+entry-00304 trace[0]  src/agents/tools/session-status-tool.ts:185  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    execute: async (_toolCallId, args) => {
+expected normalized: 'execute: async (_toolCallId, args) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:185
+actual code:
+        execute: async (_toolCallId, args) => {
+actual normalized: 'execute: async (_toolCallId, args) => {'
+
+====================================================================================================
+entry-00304 trace[1]  src/agents/tools/session-status-tool.ts:197  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    const requesterAgentId = resolveAgentIdFromSessionKey(
+expected normalized: 'const requesterAgentId = resolveAgentIdFromSessionKey('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:197
+actual code:
+          const requesterAgentId = resolveAgentIdFromSessionKey(
+actual normalized: 'const requesterAgentId = resolveAgentIdFromSessionKey('
+
+====================================================================================================
+entry-00304 trace[2]  src/agents/tools/session-status-tool.ts:223  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    let storePath = resolveStorePath(cfg.session?.store, { agentId });
+expected normalized: 'let storePath = resolveStorePath(cfg.session?.store, { agentId });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:223
+actual code:
+          let storePath = resolveStorePath(cfg.session?.store, { agentId });
+actual normalized: 'let storePath = resolveStorePath(cfg.session?.store, { agentId });'
+
+====================================================================================================
+entry-00304 trace[3]  src/agents/tools/session-status-tool.ts:261  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    const configured = resolveDefaultModelForAgent({ cfg, agentId });
+expected normalized: 'const configured = resolveDefaultModelForAgent({ cfg, agentId });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:261
+actual code:
+          const configured = resolveDefaultModelForAgent({ cfg, agentId });
+actual normalized: 'const configured = resolveDefaultModelForAgent({ cfg, agentId });'
+
+====================================================================================================
+entry-00304 trace[4]  src/agents/tools/session-status-tool.ts:388  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    content: [{ type: "text", text: statusText }],
+expected normalized: 'content: [{ type: "text", text: statusText }],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:388
+actual code:
+            content: [{ type: "text", text: statusText }],
+actual normalized: 'content: [{ type: "text", text: statusText }],'

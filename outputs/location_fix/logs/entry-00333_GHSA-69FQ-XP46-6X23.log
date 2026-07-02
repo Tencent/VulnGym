@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00333 entry_point  .github/workflows/canary.yaml:16  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+        uses: ./.github/workflows/reusable-release.yaml
+expected normalized: 'uses: ./.github/workflows/reusable-release.yaml'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/canary.yaml:16
+actual code:
+        uses: ./.github/workflows/reusable-release.yaml
+actual normalized: 'uses: ./.github/workflows/reusable-release.yaml'
+
+====================================================================================================
+entry-00333 critical_operation  .github/workflows/reusable-release.yaml:127  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+            uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+expected normalized: 'uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:127
+actual code:
+            uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+actual normalized: 'uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2'
+
+====================================================================================================
+entry-00333 trace[0]  .github/workflows/canary.yaml:16  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+        uses: ./.github/workflows/reusable-release.yaml
+expected normalized: 'uses: ./.github/workflows/reusable-release.yaml'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/canary.yaml:16
+actual code:
+        uses: ./.github/workflows/reusable-release.yaml
+actual normalized: 'uses: ./.github/workflows/reusable-release.yaml'
+
+====================================================================================================
+entry-00333 trace[1]  .github/workflows/canary.yaml:18  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+          goreleaser_config: goreleaser-canary.yml
+expected normalized: 'goreleaser_config: goreleaser-canary.yml'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/canary.yaml:18
+actual code:
+          goreleaser_config: goreleaser-canary.yml
+actual normalized: 'goreleaser_config: goreleaser-canary.yml'
+
+====================================================================================================
+entry-00333 trace[2]  .github/workflows/reusable-release.yaml:108  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+            uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0
+expected normalized: 'uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:108
+actual code:
+            uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0
+actual normalized: 'uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0'
+
+====================================================================================================
+entry-00333 trace[3]  .github/workflows/reusable-release.yaml:127  report=GHSA-69FQ-XP46-6X23
+repo=https://github.com/aquasecurity/trivy
+commit=1885610c6a34811c8296416ae69f568002ef11ec
+expected code:
+            uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+expected normalized: 'uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: .github/workflows/reusable-release.yaml:127
+actual code:
+            uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+actual normalized: 'uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2'

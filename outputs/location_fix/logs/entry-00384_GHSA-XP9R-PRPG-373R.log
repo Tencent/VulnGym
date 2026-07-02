@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00384 entry_point  src/gateway/method-scopes.ts:115  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+    "browser.request",
+expected normalized: '"browser.request",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:115
+actual code:
+        "browser.request",
+actual normalized: '"browser.request",'
+
+====================================================================================================
+entry-00384 critical_operation  src/node-host/invoke-browser.ts:240  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+        if (isPersistentBrowserProfileMutation(method, path)) {
+expected normalized: 'if (isPersistentBrowserProfileMutation(method, path)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:240
+actual code:
+        if (isPersistentBrowserProfileMutation(method, path)) {
+actual normalized: 'if (isPersistentBrowserProfileMutation(method, path)) {'
+
+====================================================================================================
+entry-00384 trace[0]  src/node-host/invoke-browser.ts:215  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+expected normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:215
+actual code:
+    export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {
+actual normalized: 'export async function runBrowserProxyCommand(paramsJSON?: string | null): Promise<string> {'
+
+====================================================================================================
+entry-00384 trace[1]  src/node-host/invoke-browser.ts:229  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+      const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";
+expected normalized: 'const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:229
+actual code:
+      const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";
+actual normalized: 'const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";'
+
+====================================================================================================
+entry-00384 trace[2]  src/node-host/invoke-browser.ts:230  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+      const path = normalizeBrowserRequestPath(pathValue);
+expected normalized: 'const path = normalizeBrowserRequestPath(pathValue);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:230
+actual code:
+      const path = normalizeBrowserRequestPath(pathValue);
+actual normalized: 'const path = normalizeBrowserRequestPath(pathValue);'
+
+====================================================================================================
+entry-00384 trace[3]  src/node-host/invoke-browser.ts:239  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+      if (allowedProfiles.length > 0) {
+expected normalized: 'if (allowedProfiles.length > 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:239
+actual code:
+      if (allowedProfiles.length > 0) {
+actual normalized: 'if (allowedProfiles.length > 0) {'
+
+====================================================================================================
+entry-00384 trace[4]  src/node-host/invoke-browser.ts:240  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+        if (isPersistentBrowserProfileMutation(method, path)) {
+expected normalized: 'if (isPersistentBrowserProfileMutation(method, path)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:240
+actual code:
+        if (isPersistentBrowserProfileMutation(method, path)) {
+actual normalized: 'if (isPersistentBrowserProfileMutation(method, path)) {'
+
+====================================================================================================
+entry-00384 trace[5]  src/node-host/invoke-browser.ts:273  report=GHSA-XP9R-PRPG-373R
+repo=https://github.com/openclaw/openclaw
+commit=4797bbc5b96e2cca5532e43b58915c051746fe37
+expected code:
+        response = await withTimeout(
+expected normalized: 'response = await withTimeout('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:273
+actual code:
+        response = await withTimeout(
+actual normalized: 'response = await withTimeout('

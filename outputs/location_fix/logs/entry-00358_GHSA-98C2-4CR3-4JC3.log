@@ -1,0 +1,177 @@
+====================================================================================================
+entry-00358 entry_point  packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:114  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    		const column = this.getNodeParameter('orderByColumn', index, '') as string;
+expected normalized: "const column = this.getNodeParameter('orderByColumn', index, '') as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:114
+actual code:
+    		const column = this.getNodeParameter('orderByColumn', index, '') as string;
+actual normalized: "const column = this.getNodeParameter('orderByColumn', index, '') as string;"
+
+====================================================================================================
+entry-00358 critical_operation  packages/cli/src/modules/data-table/data-table-rows.repository.ts:692-693  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    		const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`;
+    		query.orderBy(quotedField, direction);
+expected normalized: "const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`; query.orderBy(quotedField, direction);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/modules/data-table/data-table-rows.repository.ts:692-693
+actual code:
+    		const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`;
+    		query.orderBy(quotedField, direction);
+actual normalized: "const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`; query.orderBy(quotedField, direction);"
+
+====================================================================================================
+entry-00358 trace[0]  packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:114  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    		const column = this.getNodeParameter('orderByColumn', index, '') as string;
+expected normalized: "const column = this.getNodeParameter('orderByColumn', index, '') as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:114
+actual code:
+    		const column = this.getNodeParameter('orderByColumn', index, '') as string;
+actual normalized: "const column = this.getNodeParameter('orderByColumn', index, '') as string;"
+
+====================================================================================================
+entry-00358 trace[1]  packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:117  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    			sortBy = [column, direction];
+expected normalized: 'sortBy = [column, direction];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:117
+actual code:
+    			sortBy = [column, direction];
+actual normalized: 'sortBy = [column, direction];'
+
+====================================================================================================
+entry-00358 trace[2]  packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:121  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    	return await executeSelectMany(this, index, dataTableProxy, false, undefined, sortBy);
+expected normalized: 'return await executeSelectMany(this, index, dataTableProxy, false, undefined, sortBy);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/DataTable/actions/row/get.operation.ts:121
+actual code:
+    	return await executeSelectMany(this, index, dataTableProxy, false, undefined, sortBy);
+actual normalized: 'return await executeSelectMany(this, index, dataTableProxy, false, undefined, sortBy);'
+
+====================================================================================================
+entry-00358 trace[3]  packages/nodes-base/nodes/DataTable/common/selectMany.ts:205-210  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    		const { data, count } = await dataTableProxy.getManyRowsAndCount({
+    			skip,
+    			take: limit ? Math.min(take, limit - result.length) : take,
+    			filter,
+    			sortBy,
+    		});
+expected normalized: 'const { data, count } = await dataTableProxy.getManyRowsAndCount({ skip, take: limit ? Math.min(take, limit - result.length) : take, filter, sortBy, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/DataTable/common/selectMany.ts:205-210
+actual code:
+    		const { data, count } = await dataTableProxy.getManyRowsAndCount({
+    			skip,
+    			take: limit ? Math.min(take, limit - result.length) : take,
+    			filter,
+    			sortBy,
+    		});
+actual normalized: 'const { data, count } = await dataTableProxy.getManyRowsAndCount({ skip, take: limit ? Math.min(take, limit - result.length) : take, filter, sortBy, });'
+
+====================================================================================================
+entry-00358 trace[4]  packages/cli/src/modules/data-table/data-table-proxy.service.ts:146  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    				return await dataTableService.getManyRowsAndCount(dataTableId, projectId, options);
+expected normalized: 'return await dataTableService.getManyRowsAndCount(dataTableId, projectId, options);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/modules/data-table/data-table-proxy.service.ts:146
+actual code:
+    				return await dataTableService.getManyRowsAndCount(dataTableId, projectId, options);
+actual normalized: 'return await dataTableService.getManyRowsAndCount(dataTableId, projectId, options);'
+
+====================================================================================================
+entry-00358 trace[5]  packages/cli/src/modules/data-table/data-table.service.ts:236-240  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    			const result = await this.dataTableRowsRepository.getManyAndCount(
+    				dataTableId,
+    				transformedDto,
+    				columns,
+    				em,
+expected normalized: 'const result = await this.dataTableRowsRepository.getManyAndCount( dataTableId, transformedDto, columns, em,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/modules/data-table/data-table.service.ts:236-240
+actual code:
+    			const result = await this.dataTableRowsRepository.getManyAndCount(
+    				dataTableId,
+    				transformedDto,
+    				columns,
+    				em,
+actual normalized: 'const result = await this.dataTableRowsRepository.getManyAndCount( dataTableId, transformedDto, columns, em,'
+
+====================================================================================================
+entry-00358 trace[6]  packages/cli/src/modules/data-table/data-table-rows.repository.ts:686-687  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    		const [field, order] = dto.sortBy;
+    		this.applySortingByField(query, field, order);
+expected normalized: 'const [field, order] = dto.sortBy; this.applySortingByField(query, field, order);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/modules/data-table/data-table-rows.repository.ts:686-687
+actual code:
+    		const [field, order] = dto.sortBy;
+    		this.applySortingByField(query, field, order);
+actual normalized: 'const [field, order] = dto.sortBy; this.applySortingByField(query, field, order);'
+
+====================================================================================================
+entry-00358 trace[7]  packages/cli/src/modules/data-table/data-table-rows.repository.ts:690-693  report=GHSA-98C2-4CR3-4JC3
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    	private applySortingByField(query: QueryBuilder, field: string, direction: 'DESC' | 'ASC'): void {
+    		const dbType = this.dataSource.options.type;
+    		const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`;
+    		query.orderBy(quotedField, direction);
+expected normalized: "private applySortingByField(query: QueryBuilder, field: string, direction: 'DESC' | 'ASC'): void { const dbType = this.dataSource.options.type; const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`; query.orderBy(quotedField, direction);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/modules/data-table/data-table-rows.repository.ts:690-693
+actual code:
+    	private applySortingByField(query: QueryBuilder, field: string, direction: 'DESC' | 'ASC'): void {
+    		const dbType = this.dataSource.options.type;
+    		const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`;
+    		query.orderBy(quotedField, direction);
+actual normalized: "private applySortingByField(query: QueryBuilder, field: string, direction: 'DESC' | 'ASC'): void { const dbType = this.dataSource.options.type; const quotedField = `${quoteIdentifier('dataTable', dbType)}.${quoteIdentifier(field, dbType)}`; query.orderBy(quotedField, direction);"

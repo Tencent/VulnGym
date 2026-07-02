@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00119 entry_point  internal/http/server.go:98  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	Register(&Handler{
+expected normalized: 'Register(&Handler{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:98
+actual code:
+    	Register(&Handler{
+actual normalized: 'Register(&Handler{'
+
+====================================================================================================
+entry-00119 critical_operation  pkg/util/expr/expr.go:95  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	if auth != AuthBypass && authKey != auth {
+expected normalized: 'if auth != AuthBypass && authKey != auth {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: pkg/util/expr/expr.go:95
+actual code:
+    	if auth != AuthBypass && authKey != auth {
+actual normalized: 'if auth != AuthBypass && authKey != auth {'
+
+====================================================================================================
+entry-00119 trace[0]  internal/http/server.go:98  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	Register(&Handler{
+expected normalized: 'Register(&Handler{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:98
+actual code:
+    	Register(&Handler{
+actual normalized: 'Register(&Handler{'
+
+====================================================================================================
+entry-00119 trace[1]  internal/http/server.go:108  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    			code := req.URL.Query().Get("code")
+expected normalized: 'code := req.URL.Query().Get("code")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:108
+actual code:
+    			code := req.URL.Query().Get("code")
+actual normalized: 'code := req.URL.Query().Get("code")'
+
+====================================================================================================
+entry-00119 trace[2]  internal/http/server.go:112  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    			if !expr.HasRegistered("proxy") || passwordVerifyFunc == nil {
+expected normalized: 'if !expr.HasRegistered("proxy") || passwordVerifyFunc == nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:112
+actual code:
+    			if !expr.HasRegistered("proxy") || passwordVerifyFunc == nil {
+actual normalized: 'if !expr.HasRegistered("proxy") || passwordVerifyFunc == nil {'
+
+====================================================================================================
+entry-00119 trace[3]  internal/http/server.go:119  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    			if err := checkExprRootAuth(req); err != nil {
+expected normalized: 'if err := checkExprRootAuth(req); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/http/server.go:119
+actual code:
+    			if err := checkExprRootAuth(req); err != nil {
+actual normalized: 'if err := checkExprRootAuth(req); err != nil {'
+
+====================================================================================================
+entry-00119 trace[4]  pkg/util/expr/expr.go:60  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	authKey = paramtable.Get().EtcdCfg.RootPath.GetValue()
+expected normalized: 'authKey = paramtable.Get().EtcdCfg.RootPath.GetValue()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: pkg/util/expr/expr.go:60
+actual code:
+    	authKey = paramtable.Get().EtcdCfg.RootPath.GetValue()
+actual normalized: 'authKey = paramtable.Get().EtcdCfg.RootPath.GetValue()'
+
+====================================================================================================
+entry-00119 trace[5]  pkg/util/expr/expr.go:95  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	if auth != AuthBypass && authKey != auth {
+expected normalized: 'if auth != AuthBypass && authKey != auth {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: pkg/util/expr/expr.go:95
+actual code:
+    	if auth != AuthBypass && authKey != auth {
+actual normalized: 'if auth != AuthBypass && authKey != auth {'

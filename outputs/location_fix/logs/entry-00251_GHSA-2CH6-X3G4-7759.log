@@ -1,0 +1,110 @@
+====================================================================================================
+entry-00251 entry_point  src/auto-reply/command-auth.ts:218  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+    export function resolveCommandAuthorization(params: {
+expected normalized: 'export function resolveCommandAuthorization(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:218
+actual code:
+    export function resolveCommandAuthorization(params: {
+actual normalized: 'export function resolveCommandAuthorization(params: {'
+
+====================================================================================================
+entry-00251 critical_operation  src/auto-reply/command-auth.ts:328  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+        isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);
+expected normalized: 'isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:328
+actual code:
+        isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);
+actual normalized: 'isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);'
+
+====================================================================================================
+entry-00251 trace[0]  src/auto-reply/command-auth.ts:226  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+      const from = (ctx.From ?? "").trim();
+expected normalized: 'const from = (ctx.From ?? "").trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:226
+actual code:
+      const from = (ctx.From ?? "").trim();
+actual normalized: 'const from = (ctx.From ?? "").trim();'
+
+====================================================================================================
+entry-00251 trace[1]  src/auto-reply/command-auth.ts:290  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+      const senderCandidates = resolveSenderCandidates({
+expected normalized: 'const senderCandidates = resolveSenderCandidates({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:290
+actual code:
+      const senderCandidates = resolveSenderCandidates({
+actual normalized: 'const senderCandidates = resolveSenderCandidates({'
+
+====================================================================================================
+entry-00251 trace[2]  src/auto-reply/command-auth.ts:204  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+      pushCandidate(params.from);
+expected normalized: 'pushCandidate(params.from);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:204
+actual code:
+      pushCandidate(params.from);
+actual normalized: 'pushCandidate(params.from);'
+
+====================================================================================================
+entry-00251 trace[3]  src/auto-reply/command-auth.ts:325  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+          ? senderCandidates.find((candidate) => commandsAllowFromList.includes(candidate))
+expected normalized: '? senderCandidates.find((candidate) => commandsAllowFromList.includes(candidate))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:325
+actual code:
+        const matchedCommandsAllowFrom = commandsAllowFromList.length
+actual normalized: 'const matchedCommandsAllowFrom = commandsAllowFromList.length'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 320 to 330
+candidates (1):
+  [1] src/auto-reply/command-auth.ts:326
+            ? senderCandidates.find((candidate) => commandsAllowFromList.includes(candidate))
+
+====================================================================================================
+entry-00251 trace[4]  src/auto-reply/command-auth.ts:328  report=GHSA-2CH6-X3G4-7759
+repo=https://github.com/openclaw/openclaw
+commit=223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb
+expected code:
+        isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);
+expected normalized: 'isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:328
+actual code:
+        isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);
+actual normalized: 'isAuthorizedSender = commandsAllowAll || Boolean(matchedCommandsAllowFrom);'

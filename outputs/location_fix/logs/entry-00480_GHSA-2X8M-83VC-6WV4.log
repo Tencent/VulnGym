@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00480 entry_point  packages/components/src/utils.ts:1659  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    return await secureFetch(url, options)
+expected normalized: 'return await secureFetch(url, options)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1659
+actual code:
+                return await secureFetch(url, options)
+actual normalized: 'return await secureFetch(url, options)'
+
+====================================================================================================
+entry-00480 critical_operation  packages/components/src/httpSecurity.ts:235  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    cb(null, target.ip, target.family)
+expected normalized: 'cb(null, target.ip, target.family)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:235
+actual code:
+                cb(null, target.ip, target.family)
+actual normalized: 'cb(null, target.ip, target.family)'
+
+====================================================================================================
+entry-00480 trace[0]  packages/components/src/utils.ts:1659  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    return await secureFetch(url, options)
+expected normalized: 'return await secureFetch(url, options)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:1659
+actual code:
+                return await secureFetch(url, options)
+actual normalized: 'return await secureFetch(url, options)'
+
+====================================================================================================
+entry-00480 trace[1]  packages/components/src/httpSecurity.ts:193  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const hostname = u.hostname
+expected normalized: 'const hostname = u.hostname'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:193
+actual code:
+        const hostname = u.hostname
+actual normalized: 'const hostname = u.hostname'
+
+====================================================================================================
+entry-00480 trace[2]  packages/components/src/httpSecurity.ts:209  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const records = await dns.lookup(hostname, { all: true })
+expected normalized: 'const records = await dns.lookup(hostname, { all: true })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:209
+actual code:
+        const records = await dns.lookup(hostname, { all: true })
+actual normalized: 'const records = await dns.lookup(hostname, { all: true })'
+
+====================================================================================================
+entry-00480 trace[3]  packages/components/src/httpSecurity.ts:210  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    if (records.length === 0) {
+expected normalized: 'if (records.length === 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:210
+actual code:
+        if (records.length === 0) {
+actual normalized: 'if (records.length === 0) {'
+
+====================================================================================================
+entry-00480 trace[4]  packages/components/src/httpSecurity.ts:214  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    if (denyList) {
+expected normalized: 'if (denyList) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:214
+actual code:
+        if (denyList) {
+actual normalized: 'if (denyList) {'
+
+====================================================================================================
+entry-00480 trace[5]  packages/components/src/httpSecurity.ts:215  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    for (const r of records) {
+expected normalized: 'for (const r of records) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:215
+actual code:
+            for (const r of records) {
+actual normalized: 'for (const r of records) {'
+
+====================================================================================================
+entry-00480 trace[6]  packages/components/src/httpSecurity.ts:224  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    ip: chosen.address,
+expected normalized: 'ip: chosen.address,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:224
+actual code:
+            ip: chosen.address,
+actual normalized: 'ip: chosen.address,'
+
+====================================================================================================
+entry-00480 trace[7]  packages/components/src/httpSecurity.ts:235  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    cb(null, target.ip, target.family)
+expected normalized: 'cb(null, target.ip, target.family)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:235
+actual code:
+                cb(null, target.ip, target.family)
+actual normalized: 'cb(null, target.ip, target.family)'

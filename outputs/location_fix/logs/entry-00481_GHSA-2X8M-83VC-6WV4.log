@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00481 entry_point  packages/components/src/utils.ts:482  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const resp = await secureFetch(currentURL)
+expected normalized: 'const resp = await secureFetch(currentURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:482
+actual code:
+            const resp = await secureFetch(currentURL)
+actual normalized: 'const resp = await secureFetch(currentURL)'
+
+====================================================================================================
+entry-00481 critical_operation  packages/components/src/httpSecurity.ts:142  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })
+expected normalized: 'const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:142
+actual code:
+            const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })
+actual normalized: 'const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })'
+
+====================================================================================================
+entry-00481 trace[0]  packages/components/src/httpSecurity.ts:139  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const resolved = await resolveAndValidate(currentUrl)
+expected normalized: 'const resolved = await resolveAndValidate(currentUrl)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:139
+actual code:
+            const resolved = await resolveAndValidate(currentUrl)
+actual normalized: 'const resolved = await resolveAndValidate(currentUrl)'
+
+====================================================================================================
+entry-00481 trace[1]  packages/components/src/httpSecurity.ts:190  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        const denyList = denyListString ? denyListString.split(',').map((s) => s.trim()) : null
+expected normalized: "const denyList = denyListString ? denyListString.split(',').map((s) => s.trim()) : null"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:190
+actual code:
+        const denyList = denyListString ? denyListString.split(',').map((s) => s.trim()) : null
+actual normalized: "const denyList = denyListString ? denyListString.split(',').map((s) => s.trim()) : null"

@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00318 entry_point  extensions/synology-chat/src/webhook-handler.ts:46  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+    function parsePayload(body: string): SynologyWebhookPayload | null {
+expected normalized: 'function parsePayload(body: string): SynologyWebhookPayload | null {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:46
+actual code:
+    function parsePayload(body: string): SynologyWebhookPayload | null {
+actual normalized: 'function parsePayload(body: string): SynologyWebhookPayload | null {'
+
+====================================================================================================
+entry-00318 critical_operation  extensions/synology-chat/src/security.ts:28  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+      if (allowedUserIds.length === 0) return true;
+expected normalized: 'if (allowedUserIds.length === 0) return true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/security.ts:28
+actual code:
+      if (allowedUserIds.length === 0) return true;
+actual normalized: 'if (allowedUserIds.length === 0) return true;'
+
+====================================================================================================
+entry-00318 trace[0]  extensions/synology-chat/src/webhook-handler.ts:109  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+      return async (req: IncomingMessage, res: ServerResponse) => {
+expected normalized: 'return async (req: IncomingMessage, res: ServerResponse) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:109
+actual code:
+      return async (req: IncomingMessage, res: ServerResponse) => {
+actual normalized: 'return async (req: IncomingMessage, res: ServerResponse) => {'
+
+====================================================================================================
+entry-00318 trace[1]  extensions/synology-chat/src/webhook-handler.ts:127  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+        const payload = parsePayload(body);
+expected normalized: 'const payload = parsePayload(body);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:127
+actual code:
+        const payload = parsePayload(body);
+actual normalized: 'const payload = parsePayload(body);'
+
+====================================================================================================
+entry-00318 trace[2]  extensions/synology-chat/src/webhook-handler.ts:134  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+        if (!validateToken(payload.token, account.token)) {
+expected normalized: 'if (!validateToken(payload.token, account.token)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:134
+actual code:
+        if (!validateToken(payload.token, account.token)) {
+actual normalized: 'if (!validateToken(payload.token, account.token)) {'
+
+====================================================================================================
+entry-00318 trace[3]  extensions/synology-chat/src/webhook-handler.ts:141  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+        if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:141
+actual code:
+        if (
+actual normalized: 'if ('
+
+====================================================================================================
+entry-00318 trace[4]  extensions/synology-chat/src/security.ts:27  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+    export function checkUserAllowed(userId: string, allowedUserIds: string[]): boolean {
+expected normalized: 'export function checkUserAllowed(userId: string, allowedUserIds: string[]): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/security.ts:27
+actual code:
+    export function checkUserAllowed(userId: string, allowedUserIds: string[]): boolean {
+actual normalized: 'export function checkUserAllowed(userId: string, allowedUserIds: string[]): boolean {'
+
+====================================================================================================
+entry-00318 trace[5]  extensions/synology-chat/src/security.ts:28  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+      if (allowedUserIds.length === 0) return true;
+expected normalized: 'if (allowedUserIds.length === 0) return true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/security.ts:28
+actual code:
+      if (allowedUserIds.length === 0) return true;
+actual normalized: 'if (allowedUserIds.length === 0) return true;'
+
+====================================================================================================
+entry-00318 trace[6]  extensions/synology-chat/src/webhook-handler.ts:183  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+          const sessionKey = `synology-chat-${payload.user_id}`;
+expected normalized: 'const sessionKey = `synology-chat-${payload.user_id}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/webhook-handler.ts:183
+actual code:
+          const sessionKey = `synology-chat-${payload.user_id}`;
+actual normalized: 'const sessionKey = `synology-chat-${payload.user_id}`;'
+
+====================================================================================================
+entry-00318 trace[7]  extensions/synology-chat/src/channel.ts:249  report=GHSA-JQPF-VJ28-9V7R
+repo=https://github.com/openclaw/openclaw
+commit=270ab03e379f9653e15f7033c9830399b66b7e51
+expected code:
+                await rt.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+expected normalized: 'await rt.channel.reply.dispatchReplyWithBufferedBlockDispatcher({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/synology-chat/src/channel.ts:249
+actual code:
+                await rt.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+actual normalized: 'await rt.channel.reply.dispatchReplyWithBufferedBlockDispatcher({'

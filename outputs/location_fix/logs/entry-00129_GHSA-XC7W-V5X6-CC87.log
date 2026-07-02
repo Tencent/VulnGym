@@ -1,0 +1,143 @@
+====================================================================================================
+entry-00129 entry_point  extensions/bluebubbles/src/monitor.ts:1444  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    export async function handleBlueBubblesWebhookRequest(
+expected normalized: 'export async function handleBlueBubblesWebhookRequest('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1444
+actual code:
+    export async function handleBlueBubblesWebhookRequest(
+actual normalized: 'export async function handleBlueBubblesWebhookRequest('
+
+====================================================================================================
+entry-00129 critical_operation  extensions/bluebubbles/src/monitor.ts:1536  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    const remote = req.socket?.remoteAddress ?? "";
+expected normalized: 'const remote = req.socket?.remoteAddress ?? "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1536
+actual code:
+        const remote = req.socket?.remoteAddress ?? "";
+actual normalized: 'const remote = req.socket?.remoteAddress ?? "";'
+
+====================================================================================================
+entry-00129 trace[0]  extensions/bluebubbles/src/monitor.ts:1444-1448  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+    ): Promise<boolean> {
+      const url = new URL(req.url ?? "/", "http://localhost");
+expected normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage, res: ServerResponse, ): Promise<boolean> { const url = new URL(req.url ?? "/", "http://localhost");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1444-1448
+actual code:
+    export async function handleBlueBubblesWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+    ): Promise<boolean> {
+      const url = new URL(req.url ?? "/", "http://localhost");
+actual normalized: 'export async function handleBlueBubblesWebhookRequest( req: IncomingMessage, res: ServerResponse, ): Promise<boolean> { const url = new URL(req.url ?? "/", "http://localhost");'
+
+====================================================================================================
+entry-00129 trace[1]  extensions/bluebubbles/src/monitor.ts:1521-1530  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    const matching = targets.filter((target) => {
+        const token = target.account.config.password?.trim();
+        if (!token) {
+          return true;
+        }
+        const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password");
+        const headerToken =
+          req.headers["x-guid"] ??
+          req.headers["x-password"] ??
+          req.headers["x-bluebubbles-guid"] ??
+expected normalized: 'const matching = targets.filter((target) => { const token = target.account.config.password?.trim(); if (!token) { return true; } const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password"); const headerToken = req.headers["x-guid"] ?? req.headers["x-password"] ?? req.headers["x-bluebubbles-guid"] ??'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1521-1530
+actual code:
+      const matching = targets.filter((target) => {
+        const token = target.account.config.password?.trim();
+        if (!token) {
+          return true;
+        }
+        const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password");
+        const headerToken =
+          req.headers["x-guid"] ??
+          req.headers["x-password"] ??
+          req.headers["x-bluebubbles-guid"] ??
+actual normalized: 'const matching = targets.filter((target) => { const token = target.account.config.password?.trim(); if (!token) { return true; } const guidParam = url.searchParams.get("guid") ?? url.searchParams.get("password"); const headerToken = req.headers["x-guid"] ?? req.headers["x-password"] ?? req.headers["x-bluebubbles-guid"] ??'
+
+====================================================================================================
+entry-00129 trace[2]  extensions/bluebubbles/src/monitor.ts:1536-1541  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+        }
+        return false;
+      });
+expected normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true; } return false; });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1536-1541
+actual code:
+        const remote = req.socket?.remoteAddress ?? "";
+        if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") {
+          return true;
+        }
+        return false;
+      });
+actual normalized: 'const remote = req.socket?.remoteAddress ?? ""; if (remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1") { return true; } return false; });'
+
+====================================================================================================
+entry-00129 trace[3]  extensions/bluebubbles/src/monitor.ts:1552-1561  report=GHSA-XC7W-V5X6-CC87
+repo=https://github.com/openclaw/openclaw
+commit=8dd60fc7d9efb86557ddb249d9b25cbb1ef2d397
+expected code:
+    for (const target of matching) {
+        target.statusSink?.({ lastInboundAt: Date.now() });
+        if (reaction) {
+          processReaction(reaction, target).catch((err) => {
+            target.runtime.error?.(
+              `[${target.account.accountId}] BlueBubbles reaction failed: ${String(err)}`,
+            );
+          });
+        } else if (message) {
+          // Route messages through debouncer to coalesce rapid-fire events
+expected normalized: 'for (const target of matching) { target.statusSink?.({ lastInboundAt: Date.now() }); if (reaction) { processReaction(reaction, target).catch((err) => { target.runtime.error?.( `[${target.account.accountId}] BlueBubbles reaction failed: ${String(err)}`, ); }); } else if (message) { // Route messages through debouncer to coalesce rapid-fire events'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/bluebubbles/src/monitor.ts:1552-1561
+actual code:
+      for (const target of matching) {
+        target.statusSink?.({ lastInboundAt: Date.now() });
+        if (reaction) {
+          processReaction(reaction, target).catch((err) => {
+            target.runtime.error?.(
+              `[${target.account.accountId}] BlueBubbles reaction failed: ${String(err)}`,
+            );
+          });
+        } else if (message) {
+          // Route messages through debouncer to coalesce rapid-fire events
+actual normalized: 'for (const target of matching) { target.statusSink?.({ lastInboundAt: Date.now() }); if (reaction) { processReaction(reaction, target).catch((err) => { target.runtime.error?.( `[${target.account.accountId}] BlueBubbles reaction failed: ${String(err)}`, ); }); } else if (message) { // Route messages through debouncer to coalesce rapid-fire events'

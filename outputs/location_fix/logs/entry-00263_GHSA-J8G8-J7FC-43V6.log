@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00263 entry_point  packages/server/src/utils/createAttachment.ts:124  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+        const files = (req.files as Express.Multer.File[]) || []
+expected normalized: 'const files = (req.files as Express.Multer.File[]) || []'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:124
+actual code:
+        const files = (req.files as Express.Multer.File[]) || []
+actual normalized: 'const files = (req.files as Express.Multer.File[]) || []'
+
+====================================================================================================
+entry-00263 critical_operation  packages/server/src/utils/createAttachment.ts:150  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                const { path: storagePath, totalSize } = await addArrayFilesToStorage(
+expected normalized: 'const { path: storagePath, totalSize } = await addArrayFilesToStorage('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:150
+actual code:
+                const { path: storagePath, totalSize } = await addArrayFilesToStorage(
+actual normalized: 'const { path: storagePath, totalSize } = await addArrayFilesToStorage('
+
+====================================================================================================
+entry-00263 trace[0]  packages/server/src/utils/createAttachment.ts:128  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            for (const file of files) {
+expected normalized: 'for (const file of files) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:128
+actual code:
+            for (const file of files) {
+actual normalized: 'for (const file of files) {'
+
+====================================================================================================
+entry-00263 trace[1]  packages/server/src/utils/createAttachment.ts:137  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+expected normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:137
+actual code:
+                if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {
+actual normalized: 'if (allowedFileTypes.length > 0 && !allowedFileTypes.includes(file.mimetype)) {'
+
+====================================================================================================
+entry-00263 trace[2]  packages/server/src/utils/createAttachment.ts:146  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                const fileBuffer = await getFileFromUpload(file.path ?? file.key)
+expected normalized: 'const fileBuffer = await getFileFromUpload(file.path ?? file.key)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:146
+actual code:
+                const fileBuffer = await getFileFromUpload(file.path ?? file.key)
+actual normalized: 'const fileBuffer = await getFileFromUpload(file.path ?? file.key)'
+
+====================================================================================================
+entry-00263 trace[3]  packages/server/src/utils/createAttachment.ts:149  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')
+expected normalized: "file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:149
+actual code:
+                file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')
+actual normalized: "file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')"
+
+====================================================================================================
+entry-00263 trace[4]  packages/server/src/utils/createAttachment.ts:150  report=GHSA-J8G8-J7FC-43V6
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                const { path: storagePath, totalSize } = await addArrayFilesToStorage(
+expected normalized: 'const { path: storagePath, totalSize } = await addArrayFilesToStorage('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/createAttachment.ts:150
+actual code:
+                const { path: storagePath, totalSize } = await addArrayFilesToStorage(
+actual normalized: 'const { path: storagePath, totalSize } = await addArrayFilesToStorage('

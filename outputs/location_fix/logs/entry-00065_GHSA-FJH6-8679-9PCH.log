@@ -1,0 +1,209 @@
+====================================================================================================
+entry-00065 entry_point  packages/ui/src/views/account/index.jsx:741  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    id='newPassword'
+expected normalized: "id='newPassword'"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:741
+actual code:
+                                                    id='newPassword'
+actual normalized: "id='newPassword'"
+
+====================================================================================================
+entry-00065 critical_operation  packages/server/src/enterprise/services/user.service.ts:164  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const hash = bcrypt.hashSync(newUserData.password, salt)
+expected normalized: 'const hash = bcrypt.hashSync(newUserData.password, salt)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:164
+actual code:
+                    const hash = bcrypt.hashSync(newUserData.password, salt)
+actual normalized: 'const hash = bcrypt.hashSync(newUserData.password, salt)'
+
+====================================================================================================
+entry-00065 trace[0]  packages/ui/src/views/account/index.jsx:741  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+                                                    id='newPassword'
+expected normalized: "id='newPassword'"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:741
+actual code:
+                                                    id='newPassword'
+actual normalized: "id='newPassword'"
+
+====================================================================================================
+entry-00065 trace[1]  packages/ui/src/views/account/index.jsx:241  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const savePassword = async () => {
+expected normalized: 'const savePassword = async () => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:241
+actual code:
+        const savePassword = async () => {
+actual normalized: 'const savePassword = async () => {'
+
+====================================================================================================
+entry-00065 trace[2]  packages/ui/src/views/account/index.jsx:244  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    if (newPassword !== confirmPassword) {
+expected normalized: 'if (newPassword !== confirmPassword) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:244
+actual code:
+                if (newPassword !== confirmPassword) {
+actual normalized: 'if (newPassword !== confirmPassword) {'
+
+====================================================================================================
+entry-00065 trace[3]  packages/ui/src/views/account/index.jsx:268  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const obj = {
+expected normalized: 'const obj = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:268
+actual code:
+                const obj = {
+actual normalized: 'const obj = {'
+
+====================================================================================================
+entry-00065 trace[4]  packages/ui/src/views/account/index.jsx:272  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const saveProfileResp = await userApi.updateUser(obj)
+expected normalized: 'const saveProfileResp = await userApi.updateUser(obj)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/views/account/index.jsx:272
+actual code:
+                const saveProfileResp = await userApi.updateUser(obj)
+actual normalized: 'const saveProfileResp = await userApi.updateUser(obj)'
+
+====================================================================================================
+entry-00065 trace[5]  packages/ui/src/api/user.js:5  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const updateUser = (body) => client.put(`/user`, body)
+expected normalized: 'const updateUser = (body) => client.put(`/user`, body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/ui/src/api/user.js:5
+actual code:
+    const updateUser = (body) => client.put(`/user`, body)
+actual normalized: 'const updateUser = (body) => client.put(`/user`, body)'
+
+====================================================================================================
+entry-00065 trace[6]  packages/server/src/enterprise/controllers/user.controller.ts:52  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    public async update(req: Request, res: Response, next: NextFunction) {
+expected normalized: 'public async update(req: Request, res: Response, next: NextFunction) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/user.controller.ts:52
+actual code:
+        public async update(req: Request, res: Response, next: NextFunction) {
+actual normalized: 'public async update(req: Request, res: Response, next: NextFunction) {'
+
+====================================================================================================
+entry-00065 trace[7]  packages/server/src/enterprise/controllers/user.controller.ts:60  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    if (currentUser.id !== id) {
+expected normalized: 'if (currentUser.id !== id) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/user.controller.ts:60
+actual code:
+                if (currentUser.id !== id) {
+actual normalized: 'if (currentUser.id !== id) {'
+
+====================================================================================================
+entry-00065 trace[8]  packages/server/src/enterprise/controllers/user.controller.ts:63  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    const user = await userService.updateUser(req.body)
+expected normalized: 'const user = await userService.updateUser(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/user.controller.ts:63
+actual code:
+                const user = await userService.updateUser(req.body)
+actual normalized: 'const user = await userService.updateUser(req.body)'
+
+====================================================================================================
+entry-00065 trace[9]  packages/server/src/enterprise/services/user.service.ts:137  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    public async updateUser(newUserData: Partial<User> & { password?: string }) {
+expected normalized: 'public async updateUser(newUserData: Partial<User> & { password?: string }) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:137
+actual code:
+        public async updateUser(newUserData: Partial<User> & { password?: string }) {
+actual normalized: 'public async updateUser(newUserData: Partial<User> & { password?: string }) {'
+
+====================================================================================================
+entry-00065 trace[10]  packages/server/src/enterprise/services/user.service.ts:161  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+    if (newUserData.password) {
+expected normalized: 'if (newUserData.password) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:161
+actual code:
+                if (newUserData.password) {
+actual normalized: 'if (newUserData.password) {'
+
+====================================================================================================
+entry-00065 trace[11]  packages/server/src/enterprise/services/user.service.ts:164  report=GHSA-FJH6-8679-9PCH
+repo=https://github.com/FlowiseAI/Flowise
+commit=1ae1638ed972bcc913611ae9268a972d0ae127ec
+expected code:
+                    const hash = bcrypt.hashSync(newUserData.password, salt)
+expected normalized: 'const hash = bcrypt.hashSync(newUserData.password, salt)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:164
+actual code:
+                    const hash = bcrypt.hashSync(newUserData.password, salt)
+actual normalized: 'const hash = bcrypt.hashSync(newUserData.password, salt)'

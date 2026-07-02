@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00268 entry_point  packages/server/src/controllers/leads/index.ts:22  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+    const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/leads/index.ts:22
+actual code:
+    const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00268 critical_operation  packages/server/src/services/leads/index.ts:28  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+            Object.assign(newLead, body)
+expected normalized: 'Object.assign(newLead, body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/leads/index.ts:28
+actual code:
+            Object.assign(newLead, body)
+actual normalized: 'Object.assign(newLead, body)'
+
+====================================================================================================
+entry-00268 trace[0]  packages/server/src/controllers/leads/index.ts:22  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+    const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/leads/index.ts:22
+actual code:
+    const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const createLeadInChatflow = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00268 trace[1]  packages/server/src/utils/constants.ts:19  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+        '/api/v1/leads',
+expected normalized: "'/api/v1/leads',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:19
+actual code:
+        '/api/v1/leads',
+actual normalized: "'/api/v1/leads',"
+
+====================================================================================================
+entry-00268 trace[2]  packages/server/src/routes/leads/index.ts:6  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+    router.post('/', leadsController.createLeadInChatflow)
+expected normalized: "router.post('/', leadsController.createLeadInChatflow)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/leads/index.ts:6
+actual code:
+    router.post('/', leadsController.createLeadInChatflow)
+actual normalized: "router.post('/', leadsController.createLeadInChatflow)"
+
+====================================================================================================
+entry-00268 trace[3]  packages/server/src/controllers/leads/index.ts:30  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+            const apiResponse = await leadsService.createLead(req.body)
+expected normalized: 'const apiResponse = await leadsService.createLead(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/leads/index.ts:30
+actual code:
+            const apiResponse = await leadsService.createLead(req.body)
+actual normalized: 'const apiResponse = await leadsService.createLead(req.body)'
+
+====================================================================================================
+entry-00268 trace[4]  packages/server/src/services/leads/index.ts:25  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+            const chatId = body.chatId ?? uuidv4()
+expected normalized: 'const chatId = body.chatId ?? uuidv4()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/leads/index.ts:25
+actual code:
+            const chatId = body.chatId ?? uuidv4()
+actual normalized: 'const chatId = body.chatId ?? uuidv4()'
+
+====================================================================================================
+entry-00268 trace[5]  packages/server/src/services/leads/index.ts:27  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+            const newLead = new Lead()
+expected normalized: 'const newLead = new Lead()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/leads/index.ts:27
+actual code:
+            const newLead = new Lead()
+actual normalized: 'const newLead = new Lead()'
+
+====================================================================================================
+entry-00268 trace[6]  packages/server/src/services/leads/index.ts:28  report=GHSA-MQ4R-H2GH-QV7X
+repo=https://github.com/FlowiseAI/Flowise
+commit=c045ceb872c01a583e817480de4fc1a0a4cbf57f
+expected code:
+            Object.assign(newLead, body)
+expected normalized: 'Object.assign(newLead, body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/leads/index.ts:28
+actual code:
+            Object.assign(newLead, body)
+actual normalized: 'Object.assign(newLead, body)'

@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00359 entry_point  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:503  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    						if (additionalFields.customFields) {
+expected normalized: 'if (additionalFields.customFields) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:503
+actual code:
+    						if (additionalFields.customFields) {
+actual normalized: 'if (additionalFields.customFields) {'
+
+====================================================================================================
+entry-00359 critical_operation  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:521  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								customSchemas[schemaName] ??= {};
+expected normalized: 'customSchemas[schemaName] ??= {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:521
+actual code:
+    								customSchemas[schemaName] ??= {};
+actual normalized: 'customSchemas[schemaName] ??= {};'
+
+====================================================================================================
+entry-00359 trace[0]  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:503  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    						if (additionalFields.customFields) {
+expected normalized: 'if (additionalFields.customFields) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:503
+actual code:
+    						if (additionalFields.customFields) {
+actual normalized: 'if (additionalFields.customFields) {'
+
+====================================================================================================
+entry-00359 trace[1]  packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:521  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    								customSchemas[schemaName] ??= {};
+expected normalized: 'customSchemas[schemaName] ??= {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Google/GSuiteAdmin/GSuiteAdmin.node.ts:521
+actual code:
+    								customSchemas[schemaName] ??= {};
+actual normalized: 'customSchemas[schemaName] ??= {};'

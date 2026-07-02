@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00372 entry_point  src/backend/base/langflow/api/v1/flows.py:287  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.get("/{flow_id}", response_model=FlowRead, status_code=200)
+expected normalized: '@router.get("/{flow_id}", response_model=FlowRead, status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:287
+actual code:
+    @router.get("/{flow_id}", response_model=FlowRead, status_code=200)
+actual normalized: '@router.get("/{flow_id}", response_model=FlowRead, status_code=200)'
+
+====================================================================================================
+entry-00372 critical_operation  src/backend/base/langflow/api/v1/flows.py:277  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        stmt = select(Flow).where(Flow.id == flow_id)
+expected normalized: 'stmt = select(Flow).where(Flow.id == flow_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:277
+actual code:
+        stmt = select(Flow).where(Flow.id == flow_id)
+actual normalized: 'stmt = select(Flow).where(Flow.id == flow_id)'
+
+====================================================================================================
+entry-00372 trace[0]  src/backend/base/langflow/api/v1/flows.py:287  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+    @router.get("/{flow_id}", response_model=FlowRead, status_code=200)
+expected normalized: '@router.get("/{flow_id}", response_model=FlowRead, status_code=200)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:287
+actual code:
+    @router.get("/{flow_id}", response_model=FlowRead, status_code=200)
+actual normalized: '@router.get("/{flow_id}", response_model=FlowRead, status_code=200)'
+
+====================================================================================================
+entry-00372 trace[1]  src/backend/base/langflow/api/v1/flows.py:291  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        flow_id: UUID,
+expected normalized: 'flow_id: UUID,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:291
+actual code:
+        flow_id: UUID,
+actual normalized: 'flow_id: UUID,'
+
+====================================================================================================
+entry-00372 trace[2]  src/backend/base/langflow/api/v1/flows.py:295  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        if user_flow := await _read_flow(session, flow_id, current_user.id, get_settings_service()):
+expected normalized: 'if user_flow := await _read_flow(session, flow_id, current_user.id, get_settings_service()):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:295
+actual code:
+        if user_flow := await _read_flow(session, flow_id, current_user.id, get_settings_service()):
+actual normalized: 'if user_flow := await _read_flow(session, flow_id, current_user.id, get_settings_service()):'
+
+====================================================================================================
+entry-00372 trace[3]  src/backend/base/langflow/api/v1/flows.py:276  report=GHSA-8C4J-F57C-35CF
+repo=https://github.com/langflow-ai/langflow
+commit=73c1f203b0205d00928a0af7fa0e0fc93170f03e
+expected code:
+        auth_settings = settings_service.auth_settings
+expected normalized: 'auth_settings = settings_service.auth_settings'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/flows.py:276
+actual code:
+        auth_settings = settings_service.auth_settings
+actual normalized: 'auth_settings = settings_service.auth_settings'

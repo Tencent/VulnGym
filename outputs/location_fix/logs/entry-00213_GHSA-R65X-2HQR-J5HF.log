@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00213 entry_point  src/gateway/server/ws-connection/message-handler.ts:846-849  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+                modelIdentifier: connectParams.client.modelIdentifier,
+                mode: connectParams.client.mode,
+expected normalized: 'platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, modelIdentifier: connectParams.client.modelIdentifier, mode: connectParams.client.mode,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:846-849
+actual code:
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+                modelIdentifier: connectParams.client.modelIdentifier,
+                mode: connectParams.client.mode,
+actual normalized: 'platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, modelIdentifier: connectParams.client.modelIdentifier, mode: connectParams.client.mode,'
+
+====================================================================================================
+entry-00213 critical_operation  src/gateway/server/ws-connection/message-handler.ts:806-815  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+            if (role === "node") {
+              const cfg = loadConfig();
+              const allowlist = resolveNodeCommandAllowlist(cfg, {
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+              });
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+              const filtered = declared
+                .map((cmd) => cmd.trim())
+                .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));
+expected normalized: 'if (role === "node") { const cfg = loadConfig(); const allowlist = resolveNodeCommandAllowlist(cfg, { platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, }); const declared = Array.isArray(connectParams.commands) ? connectParams.commands : []; const filtered = declared .map((cmd) => cmd.trim()) .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:806-815
+actual code:
+            if (role === "node") {
+              const cfg = loadConfig();
+              const allowlist = resolveNodeCommandAllowlist(cfg, {
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+              });
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+              const filtered = declared
+                .map((cmd) => cmd.trim())
+                .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));
+actual normalized: 'if (role === "node") { const cfg = loadConfig(); const allowlist = resolveNodeCommandAllowlist(cfg, { platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, }); const declared = Array.isArray(connectParams.commands) ? connectParams.commands : []; const filtered = declared .map((cmd) => cmd.trim()) .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));'
+
+====================================================================================================
+entry-00213 trace[0]  src/gateway/server/ws-connection/message-handler.ts:846-849  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+                modelIdentifier: connectParams.client.modelIdentifier,
+                mode: connectParams.client.mode,
+expected normalized: 'platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, modelIdentifier: connectParams.client.modelIdentifier, mode: connectParams.client.mode,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:846-849
+actual code:
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+                modelIdentifier: connectParams.client.modelIdentifier,
+                mode: connectParams.client.mode,
+actual normalized: 'platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, modelIdentifier: connectParams.client.modelIdentifier, mode: connectParams.client.mode,'
+
+====================================================================================================
+entry-00213 trace[1]  src/gateway/node-command-policy.ts:98-104  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+    function normalizePlatformId(platform?: string, deviceFamily?: string): string {
+      const raw = (platform ?? "").trim().toLowerCase();
+      if (raw.startsWith("ios")) {
+        return "ios";
+      }
+      if (raw.startsWith("android")) {
+        return "android";
+expected normalized: 'function normalizePlatformId(platform?: string, deviceFamily?: string): string { const raw = (platform ?? "").trim().toLowerCase(); if (raw.startsWith("ios")) { return "ios"; } if (raw.startsWith("android")) { return "android";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-command-policy.ts:98-104
+actual code:
+    function normalizePlatformId(platform?: string, deviceFamily?: string): string {
+      const raw = (platform ?? "").trim().toLowerCase();
+      if (raw.startsWith("ios")) {
+        return "ios";
+      }
+      if (raw.startsWith("android")) {
+        return "android";
+actual normalized: 'function normalizePlatformId(platform?: string, deviceFamily?: string): string { const raw = (platform ?? "").trim().toLowerCase(); if (raw.startsWith("ios")) { return "ios"; } if (raw.startsWith("android")) { return "android";'
+
+====================================================================================================
+entry-00213 trace[2]  src/gateway/server/ws-connection/message-handler.ts:806-815  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+            if (role === "node") {
+              const cfg = loadConfig();
+              const allowlist = resolveNodeCommandAllowlist(cfg, {
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+              });
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+              const filtered = declared
+                .map((cmd) => cmd.trim())
+                .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));
+expected normalized: 'if (role === "node") { const cfg = loadConfig(); const allowlist = resolveNodeCommandAllowlist(cfg, { platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, }); const declared = Array.isArray(connectParams.commands) ? connectParams.commands : []; const filtered = declared .map((cmd) => cmd.trim()) .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:806-815
+actual code:
+            if (role === "node") {
+              const cfg = loadConfig();
+              const allowlist = resolveNodeCommandAllowlist(cfg, {
+                platform: connectParams.client.platform,
+                deviceFamily: connectParams.client.deviceFamily,
+              });
+              const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];
+              const filtered = declared
+                .map((cmd) => cmd.trim())
+                .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));
+actual normalized: 'if (role === "node") { const cfg = loadConfig(); const allowlist = resolveNodeCommandAllowlist(cfg, { platform: connectParams.client.platform, deviceFamily: connectParams.client.deviceFamily, }); const declared = Array.isArray(connectParams.commands) ? connectParams.commands : []; const filtered = declared .map((cmd) => cmd.trim()) .filter((cmd) => cmd.length > 0 && allowlist.has(cmd));'

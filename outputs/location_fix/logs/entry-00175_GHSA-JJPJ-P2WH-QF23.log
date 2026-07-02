@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00175 entry_point  packages/nodes-base/nodes/Code/Code.node.ts:188  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		if (isJsLang && isJsRunner) {
+expected normalized: 'if (isJsLang && isJsRunner) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:188
+actual code:
+    		if (isJsLang && isJsRunner) {
+actual normalized: 'if (isJsLang && isJsRunner) {'
+
+====================================================================================================
+entry-00175 critical_operation  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:172  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    				.forEach((fn) => Object.freeze(fn.prototype));
+expected normalized: '.forEach((fn) => Object.freeze(fn.prototype));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:172
+actual code:
+    				.forEach((fn) => Object.freeze(fn.prototype));
+actual normalized: '.forEach((fn) => Object.freeze(fn.prototype));'
+
+====================================================================================================
+entry-00175 trace[0]  packages/nodes-base/nodes/Code/Code.node.ts:188  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		if (isJsLang && isJsRunner) {
+expected normalized: 'if (isJsLang && isJsRunner) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:188
+actual code:
+    		if (isJsLang && isJsRunner) {
+actual normalized: 'if (isJsLang && isJsRunner) {'
+
+====================================================================================================
+entry-00175 trace[1]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:165  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		if (process.env.NODE_ENV !== 'test') {
+expected normalized: "if (process.env.NODE_ENV !== 'test') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:165
+actual code:
+    		if (process.env.NODE_ENV !== 'test') {
+actual normalized: "if (process.env.NODE_ENV !== 'test') {"
+
+====================================================================================================
+entry-00175 trace[2]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:653  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    	private createVmExecutableCode(code: string) {
+expected normalized: 'private createVmExecutableCode(code: string) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:653
+actual code:
+    	private createVmExecutableCode(code: string) {
+actual normalized: 'private createVmExecutableCode(code: string) {'
+
+====================================================================================================
+entry-00175 trace[3]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:343  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    				if (this.mode === 'secure') {
+expected normalized: "if (this.mode === 'secure') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:343
+actual code:
+    				if (this.mode === 'secure') {
+actual normalized: "if (this.mode === 'secure') {"
+
+====================================================================================================
+entry-00175 trace[4]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:172  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    				.forEach((fn) => Object.freeze(fn.prototype));
+expected normalized: '.forEach((fn) => Object.freeze(fn.prototype));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:172
+actual code:
+    				.forEach((fn) => Object.freeze(fn.prototype));
+actual normalized: '.forEach((fn) => Object.freeze(fn.prototype));'

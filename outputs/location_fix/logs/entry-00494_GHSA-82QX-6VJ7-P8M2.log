@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00494 entry_point  src/commands/channel-setup/discovery.ts:78  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const catalogEntries = listChannelPluginCatalogEntries({ workspaceDir });
+expected normalized: 'const catalogEntries = listChannelPluginCatalogEntries({ workspaceDir });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/discovery.ts:78
+actual code:
+      const catalogEntries = listChannelPluginCatalogEntries({ workspaceDir });
+actual normalized: 'const catalogEntries = listChannelPluginCatalogEntries({ workspaceDir });'
+
+====================================================================================================
+entry-00494 critical_operation  src/commands/channel-setup/discovery.ts:79  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const installedCatalogEntries = catalogEntries.filter(
+expected normalized: 'const installedCatalogEntries = catalogEntries.filter('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/discovery.ts:79
+actual code:
+      const installedCatalogEntries = catalogEntries.filter(
+actual normalized: 'const installedCatalogEntries = catalogEntries.filter('
+
+====================================================================================================
+entry-00494 trace[0]  src/channels/plugins/catalog.ts:331  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+      for (const candidate of manifestEntries) {
+expected normalized: 'for (const candidate of manifestEntries) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:331
+actual code:
+      for (const candidate of manifestEntries) {
+actual normalized: 'for (const candidate of manifestEntries) {'
+
+====================================================================================================
+entry-00494 trace[1]  src/commands/channel-setup/discovery.ts:85  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const installableCatalogEntries = catalogEntries.filter(
+expected normalized: 'const installableCatalogEntries = catalogEntries.filter('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/discovery.ts:85
+actual code:
+      const installableCatalogEntries = catalogEntries.filter(
+actual normalized: 'const installableCatalogEntries = catalogEntries.filter('

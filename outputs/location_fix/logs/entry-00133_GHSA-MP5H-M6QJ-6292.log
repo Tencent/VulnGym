@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00133 entry_point  src/config/zod-schema.providers-core.ts:127  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+        webhookUrl: z.string().optional(),
+expected normalized: 'webhookUrl: z.string().optional(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/zod-schema.providers-core.ts:127
+actual code:
+        webhookUrl: z.string().optional(),
+actual normalized: 'webhookUrl: z.string().optional(),'
+
+====================================================================================================
+entry-00133 critical_operation  src/config/zod-schema.providers-core.ts:128  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+        webhookSecret: z.string().optional().register(sensitive),
+expected normalized: 'webhookSecret: z.string().optional().register(sensitive),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/zod-schema.providers-core.ts:128
+actual code:
+        webhookSecret: z.string().optional().register(sensitive),
+actual normalized: 'webhookSecret: z.string().optional().register(sensitive),'
+
+====================================================================================================
+entry-00133 trace[0]  src/config/zod-schema.providers-core.ts:130  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+        webhookHost: z.string().optional(),
+expected normalized: 'webhookHost: z.string().optional(),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/zod-schema.providers-core.ts:130
+actual code:
+        webhookHost: z.string().optional(),
+actual normalized: 'webhookHost: z.string().optional(),'
+
+====================================================================================================
+entry-00133 trace[1]  src/telegram/webhook.ts:30  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+      secret?: string;
+expected normalized: 'secret?: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:30
+actual code:
+      secret?: string;
+actual normalized: 'secret?: string;'
+
+====================================================================================================
+entry-00133 trace[2]  src/telegram/webhook.ts:51  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+        secretToken: opts.secret,
+expected normalized: 'secretToken: opts.secret,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:51
+actual code:
+        secretToken: opts.secret,
+actual normalized: 'secretToken: opts.secret,'

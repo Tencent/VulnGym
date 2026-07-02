@@ -1,0 +1,94 @@
+====================================================================================================
+entry-00392 entry_point  src/fastmcp/server/providers/openapi/components.py:286  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        async def read(self) -> ResourceResult:
+expected normalized: 'async def read(self) -> ResourceResult:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:286
+actual code:
+        async def read(self) -> ResourceResult:
+actual normalized: 'async def read(self) -> ResourceResult:'
+
+====================================================================================================
+entry-00392 critical_operation  src/fastmcp/server/providers/openapi/components.py:308  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                            path = path.replace(f"{{{param_name}}}", str(param_value))
+expected normalized: 'path = path.replace(f"{{{param_name}}}", str(param_value))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:308
+actual code:
+                            path = path.replace(f"{{{param_name}}}", str(param_value))
+actual normalized: 'path = path.replace(f"{{{param_name}}}", str(param_value))'
+
+====================================================================================================
+entry-00392 trace[0]  src/fastmcp/server/providers/openapi/components.py:286  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        async def read(self) -> ResourceResult:
+expected normalized: 'async def read(self) -> ResourceResult:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:286
+actual code:
+        async def read(self) -> ResourceResult:
+actual normalized: 'async def read(self) -> ResourceResult:'
+
+====================================================================================================
+entry-00392 trace[1]  src/fastmcp/server/providers/openapi/components.py:296-305  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                    if len(parts) > 1:
+                        path_params = {}
+                        param_matches = re.findall(r"\{([^}]+)\}", path)
+                        if param_matches:
+                            param_matches.sort(reverse=True)
+                            expected_param_count = len(parts) - 1
+                            for i, param_name in enumerate(param_matches):
+                                if i < expected_param_count:
+                                    param_value = parts[-1 - i]
+                                    path_params[param_name] = param_value
+expected normalized: 'if len(parts) > 1: path_params = {} param_matches = re.findall(r"\\{([^}]+)\\}", path) if param_matches: param_matches.sort(reverse=True) expected_param_count = len(parts) - 1 for i, param_name in enumerate(param_matches): if i < expected_param_count: param_value = parts[-1 - i] path_params[param_name] = param_value'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:296-305
+actual code:
+                    if len(parts) > 1:
+                        path_params = {}
+                        param_matches = re.findall(r"\{([^}]+)\}", path)
+                        if param_matches:
+                            param_matches.sort(reverse=True)
+                            expected_param_count = len(parts) - 1
+                            for i, param_name in enumerate(param_matches):
+                                if i < expected_param_count:
+                                    param_value = parts[-1 - i]
+                                    path_params[param_name] = param_value
+actual normalized: 'if len(parts) > 1: path_params = {} param_matches = re.findall(r"\\{([^}]+)\\}", path) if param_matches: param_matches.sort(reverse=True) expected_param_count = len(parts) - 1 for i, param_name in enumerate(param_matches): if i < expected_param_count: param_value = parts[-1 - i] path_params[param_name] = param_value'
+
+====================================================================================================
+entry-00392 trace[2]  src/fastmcp/server/providers/openapi/components.py:307-308  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                        for param_name, param_value in path_params.items():
+                            path = path.replace(f"{{{param_name}}}", str(param_value))
+expected normalized: 'for param_name, param_value in path_params.items(): path = path.replace(f"{{{param_name}}}", str(param_value))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:307-308
+actual code:
+                        for param_name, param_value in path_params.items():
+                            path = path.replace(f"{{{param_name}}}", str(param_value))
+actual normalized: 'for param_name, param_value in path_params.items(): path = path.replace(f"{{{param_name}}}", str(param_value))'

@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00115 entry_point  src/shared/protocol.ts:607  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async connect(transport: Transport): Promise<void> {
+expected normalized: 'async connect(transport: Transport): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:607
+actual code:
+        async connect(transport: Transport): Promise<void> {
+actual normalized: 'async connect(transport: Transport): Promise<void> {'
+
+====================================================================================================
+entry-00115 critical_operation  src/shared/protocol.ts:1385  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+            await this._transport.send(jsonrpcNotification, options);
+expected normalized: 'await this._transport.send(jsonrpcNotification, options);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:1385
+actual code:
+            await this._transport.send(jsonrpcNotification, options);
+actual normalized: 'await this._transport.send(jsonrpcNotification, options);'
+
+====================================================================================================
+entry-00115 trace[0]  src/shared/protocol.ts:607  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async connect(transport: Transport): Promise<void> {
+expected normalized: 'async connect(transport: Transport): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:607
+actual code:
+        async connect(transport: Transport): Promise<void> {
+actual normalized: 'async connect(transport: Transport): Promise<void> {'
+
+====================================================================================================
+entry-00115 trace[1]  src/shared/protocol.ts:607  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async connect(transport: Transport): Promise<void> {
+expected normalized: 'async connect(transport: Transport): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:607
+actual code:
+        async connect(transport: Transport): Promise<void> {
+actual normalized: 'async connect(transport: Transport): Promise<void> {'
+
+====================================================================================================
+entry-00115 trace[2]  src/shared/protocol.ts:1278  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async notification(notification: SendNotificationT, options?: NotificationOptions): Promise<void> {
+expected normalized: 'async notification(notification: SendNotificationT, options?: NotificationOptions): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:1278
+actual code:
+        async notification(notification: SendNotificationT, options?: NotificationOptions): Promise<void> {
+actual normalized: 'async notification(notification: SendNotificationT, options?: NotificationOptions): Promise<void> {'
+
+====================================================================================================
+entry-00115 trace[3]  src/shared/protocol.ts:1385  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+            await this._transport.send(jsonrpcNotification, options);
+expected normalized: 'await this._transport.send(jsonrpcNotification, options);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/shared/protocol.ts:1385
+actual code:
+            await this._transport.send(jsonrpcNotification, options);
+actual normalized: 'await this._transport.send(jsonrpcNotification, options);'

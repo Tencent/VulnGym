@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00072 entry_point  src/backend/base/langflow/api/v1/monitor.py:169  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.get("/transactions", response_model=list[TransactionReadResponse])
+expected normalized: '@router.get("/transactions", response_model=list[TransactionReadResponse])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:169
+actual code:
+    @router.get("/transactions", response_model=list[TransactionReadResponse])
+actual normalized: '@router.get("/transactions", response_model=list[TransactionReadResponse])'
+
+====================================================================================================
+entry-00072 critical_operation  src/backend/base/langflow/api/v1/monitor.py:175  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            transactions = get_transactions_by_flow_id(session, flow_id)
+expected normalized: 'transactions = get_transactions_by_flow_id(session, flow_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:175
+actual code:
+            transactions = get_transactions_by_flow_id(session, flow_id)
+actual normalized: 'transactions = get_transactions_by_flow_id(session, flow_id)'
+
+====================================================================================================
+entry-00072 trace[0]  src/backend/base/langflow/api/v1/monitor.py:169  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.get("/transactions", response_model=list[TransactionReadResponse])
+expected normalized: '@router.get("/transactions", response_model=list[TransactionReadResponse])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:169
+actual code:
+    @router.get("/transactions", response_model=list[TransactionReadResponse])
+actual normalized: '@router.get("/transactions", response_model=list[TransactionReadResponse])'
+
+====================================================================================================
+entry-00072 trace[1]  src/backend/base/langflow/api/v1/monitor.py:170  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    async def get_transactions(
+expected normalized: 'async def get_transactions('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:170
+actual code:
+    async def get_transactions(
+actual normalized: 'async def get_transactions('
+
+====================================================================================================
+entry-00072 trace[2]  src/backend/base/langflow/api/v1/monitor.py:175  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            transactions = get_transactions_by_flow_id(session, flow_id)
+expected normalized: 'transactions = get_transactions_by_flow_id(session, flow_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:175
+actual code:
+            transactions = get_transactions_by_flow_id(session, flow_id)
+actual normalized: 'transactions = get_transactions_by_flow_id(session, flow_id)'

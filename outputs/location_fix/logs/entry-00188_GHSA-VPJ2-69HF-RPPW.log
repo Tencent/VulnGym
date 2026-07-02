@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00188 entry_point  src/browser/routes/agent.act.ts:21  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    export function registerBrowserAgentActRoutes(
+expected normalized: 'export function registerBrowserAgentActRoutes('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/agent.act.ts:21
+actual code:
+    export function registerBrowserAgentActRoutes(
+actual normalized: 'export function registerBrowserAgentActRoutes('
+
+====================================================================================================
+entry-00188 critical_operation  src/browser/routes/agent.act.ts:304  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    const result = await pw.evaluateViaPlaywright(evalRequest);
+expected normalized: 'const result = await pw.evaluateViaPlaywright(evalRequest);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/agent.act.ts:304
+actual code:
+                const result = await pw.evaluateViaPlaywright(evalRequest);
+actual normalized: 'const result = await pw.evaluateViaPlaywright(evalRequest);'
+
+====================================================================================================
+entry-00188 trace[0]  src/browser/routes/agent.act.ts:21  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    export function registerBrowserAgentActRoutes(
+expected normalized: 'export function registerBrowserAgentActRoutes('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/agent.act.ts:21
+actual code:
+    export function registerBrowserAgentActRoutes(
+actual normalized: 'export function registerBrowserAgentActRoutes('
+
+====================================================================================================
+entry-00188 trace[1]  src/browser/routes/agent.act.ts:277  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    case "evaluate": {
+expected normalized: 'case "evaluate": {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/agent.act.ts:277
+actual code:
+              case "evaluate": {
+actual normalized: 'case "evaluate": {'
+
+====================================================================================================
+entry-00188 trace[2]  src/browser/routes/agent.act.ts:304  report=GHSA-VPJ2-69HF-RPPW
+repo=https://github.com/openclaw/openclaw
+commit=3a93a7bb1e47070a010cc190d005daa2ada8f0e5
+expected code:
+    const result = await pw.evaluateViaPlaywright(evalRequest);
+expected normalized: 'const result = await pw.evaluateViaPlaywright(evalRequest);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/agent.act.ts:304
+actual code:
+                const result = await pw.evaluateViaPlaywright(evalRequest);
+actual normalized: 'const result = await pw.evaluateViaPlaywright(evalRequest);'

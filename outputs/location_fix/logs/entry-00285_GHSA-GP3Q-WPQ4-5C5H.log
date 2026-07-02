@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00285 entry_point  src/pairing/pairing-store.ts:386  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export async function readChannelAllowFromStore(
+expected normalized: 'export async function readChannelAllowFromStore('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/pairing-store.ts:386
+actual code:
+    export async function readChannelAllowFromStore(
+actual normalized: 'export async function readChannelAllowFromStore('
+
+====================================================================================================
+entry-00285 critical_operation  src/security/dm-policy-shared.ts:28  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+expected normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/dm-policy-shared.ts:28
+actual code:
+      const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+actual normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+
+====================================================================================================
+entry-00285 trace[0]  extensions/mattermost/src/mattermost/monitor.ts:888  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    const storeAllowFrom = normalizeAllowList(
+expected normalized: 'const storeAllowFrom = normalizeAllowList('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:888
+actual code:
+        const storeAllowFrom = normalizeAllowList(
+actual normalized: 'const storeAllowFrom = normalizeAllowList('
+
+====================================================================================================
+entry-00285 trace[1]  extensions/mattermost/src/mattermost/monitor.ts:893  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const reactionAccess = resolveDmGroupAccessWithLists({
+expected normalized: 'const reactionAccess = resolveDmGroupAccessWithLists({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:893
+actual code:
+        const reactionAccess = resolveDmGroupAccessWithLists({
+actual normalized: 'const reactionAccess = resolveDmGroupAccessWithLists({'
+
+====================================================================================================
+entry-00285 trace[2]  src/security/dm-policy-shared.ts:94  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const { effectiveAllowFrom, effectiveGroupAllowFrom } = resolveEffectiveAllowFromLists({
+expected normalized: 'const { effectiveAllowFrom, effectiveGroupAllowFrom } = resolveEffectiveAllowFromLists({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/dm-policy-shared.ts:94
+actual code:
+      const { effectiveAllowFrom, effectiveGroupAllowFrom } = resolveEffectiveAllowFromLists({
+actual normalized: 'const { effectiveAllowFrom, effectiveGroupAllowFrom } = resolveEffectiveAllowFromLists({'
+
+====================================================================================================
+entry-00285 trace[3]  src/security/dm-policy-shared.ts:58  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+          if (!params.isSenderAllowed(effectiveGroupAllowFrom)) {
+expected normalized: 'if (!params.isSenderAllowed(effectiveGroupAllowFrom)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/dm-policy-shared.ts:58
+actual code:
+          if (!params.isSenderAllowed(effectiveGroupAllowFrom)) {
+actual normalized: 'if (!params.isSenderAllowed(effectiveGroupAllowFrom)) {'

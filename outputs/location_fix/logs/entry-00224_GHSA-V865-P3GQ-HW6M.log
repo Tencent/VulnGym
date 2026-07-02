@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00224 entry_point  src/gateway/server-http.ts:426  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+          const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;
+expected normalized: 'const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:426
+actual code:
+          const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;
+actual normalized: 'const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;'
+
+====================================================================================================
+entry-00224 critical_operation  src/gateway/server-http.ts:514  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+            if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {
+expected normalized: 'if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:514
+actual code:
+            if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {
+actual normalized: 'if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {'
+
+====================================================================================================
+entry-00224 trace[0]  src/gateway/server-http.ts:426  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+          const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;
+expected normalized: 'const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:426
+actual code:
+          const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;
+actual normalized: 'const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;'
+
+====================================================================================================
+entry-00224 trace[1]  src/gateway/security-path.ts:125  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function isProtectedPluginRoutePath(pathname: string): boolean {
+expected normalized: 'export function isProtectedPluginRoutePath(pathname: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:125
+actual code:
+    export function isProtectedPluginRoutePath(pathname: string): boolean {
+actual normalized: 'export function isProtectedPluginRoutePath(pathname: string): boolean {'
+
+====================================================================================================
+entry-00224 trace[2]  src/gateway/security-path.ts:107  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+expected normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:107
+actual code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+actual normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+
+====================================================================================================
+entry-00224 trace[3]  src/gateway/security-path.ts:84  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function canonicalizePathForSecurity(pathname: string): SecurityPathCanonicalization {
+expected normalized: 'export function canonicalizePathForSecurity(pathname: string): SecurityPathCanonicalization {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:84
+actual code:
+    export function canonicalizePathForSecurity(pathname: string): SecurityPathCanonicalization {
+actual normalized: 'export function canonicalizePathForSecurity(pathname: string): SecurityPathCanonicalization {'
+
+====================================================================================================
+entry-00224 trace[4]  src/gateway/security-path.ts:8  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    const MAX_PATH_DECODE_PASSES = 3;
+expected normalized: 'const MAX_PATH_DECODE_PASSES = 3;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:8
+actual code:
+    const MAX_PATH_DECODE_PASSES = 3;
+actual normalized: 'const MAX_PATH_DECODE_PASSES = 3;'
+
+====================================================================================================
+entry-00224 trace[5]  src/gateway/security-path.ts:53  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+      for (let pass = 0; pass < maxDecodePasses; pass++) {
+expected normalized: 'for (let pass = 0; pass < maxDecodePasses; pass++) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:53
+actual code:
+      for (let pass = 0; pass < maxDecodePasses; pass++) {
+actual normalized: 'for (let pass = 0; pass < maxDecodePasses; pass++) {'
+
+====================================================================================================
+entry-00224 trace[6]  src/gateway/security-path.ts:107  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+expected normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/security-path.ts:107
+actual code:
+    export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {
+actual normalized: 'export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {'
+
+====================================================================================================
+entry-00224 trace[7]  src/gateway/server-http.ts:514  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+            if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {
+expected normalized: 'if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:514
+actual code:
+            if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {
+actual normalized: 'if ((shouldEnforcePluginGatewayAuth ?? isProtectedPluginRoutePath)(requestPath)) {'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00128 entry_point  src/browser/extension-relay.ts:312  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+      const server = createServer((req, res) => {
+expected normalized: 'const server = createServer((req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:312
+actual code:
+      const server = createServer((req, res) => {
+actual normalized: 'const server = createServer((req, res) => {'
+
+====================================================================================================
+entry-00128 critical_operation  src/browser/extension-relay.ts:355  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);
+expected normalized: 'const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:355
+actual code:
+        const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);
+actual normalized: 'const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);'
+
+====================================================================================================
+entry-00128 trace[0]  src/browser/extension-relay.ts:313  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        const url = new URL(req.url ?? "/", info.baseUrl);
+expected normalized: 'const url = new URL(req.url ?? "/", info.baseUrl);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:313
+actual code:
+        const url = new URL(req.url ?? "/", info.baseUrl);
+actual normalized: 'const url = new URL(req.url ?? "/", info.baseUrl);'
+
+====================================================================================================
+entry-00128 trace[1]  src/browser/extension-relay.ts:355  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);
+expected normalized: 'const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:355
+actual code:
+        const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);
+actual normalized: 'const listPaths = new Set(["/json", "/json/", "/json/list", "/json/list/"]);'
+
+====================================================================================================
+entry-00128 trace[2]  src/browser/extension-relay.ts:362  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+            url: t.targetInfo.url ?? "",
+expected normalized: 'url: t.targetInfo.url ?? "",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:362
+actual code:
+            url: t.targetInfo.url ?? "",
+actual normalized: 'url: t.targetInfo.url ?? "",'

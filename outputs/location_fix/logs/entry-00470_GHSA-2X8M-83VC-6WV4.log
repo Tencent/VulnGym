@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00470 entry_point  packages/components/src/utils.ts:409  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {
+expected normalized: 'async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:409
+actual code:
+    async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {
+actual normalized: 'async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00470 critical_operation  packages/components/src/httpSecurity.ts:234  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            lookup: (_host, _opts, cb) => {
+expected normalized: 'lookup: (_host, _opts, cb) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:234
+actual code:
+            lookup: (_host, _opts, cb) => {
+actual normalized: 'lookup: (_host, _opts, cb) => {'
+
+====================================================================================================
+entry-00470 trace[0]  packages/components/src/utils.ts:409  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {
+expected normalized: 'async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:409
+actual code:
+    async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {
+actual normalized: 'async function crawl(baseURL: string, currentURL: string, pages: string[], limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00470 trace[1]  packages/components/src/httpSecurity.ts:192  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        const u = new URL(url)
+expected normalized: 'const u = new URL(url)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:192
+actual code:
+        const u = new URL(url)
+actual normalized: 'const u = new URL(url)'
+
+====================================================================================================
+entry-00470 trace[2]  packages/components/src/httpSecurity.ts:196  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        if (ipaddr.isValid(hostname)) {
+expected normalized: 'if (ipaddr.isValid(hostname)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:196
+actual code:
+        if (ipaddr.isValid(hostname)) {
+actual normalized: 'if (ipaddr.isValid(hostname)) {'
+
+====================================================================================================
+entry-00470 trace[3]  packages/components/src/httpSecurity.ts:234  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            lookup: (_host, _opts, cb) => {
+expected normalized: 'lookup: (_host, _opts, cb) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:234
+actual code:
+            lookup: (_host, _opts, cb) => {
+actual normalized: 'lookup: (_host, _opts, cb) => {'

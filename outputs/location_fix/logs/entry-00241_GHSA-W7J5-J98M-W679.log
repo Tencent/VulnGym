@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00241 entry_point  scripts/e2e/Dockerfile:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM node:22-bookworm
+expected normalized: 'FROM node:22-bookworm'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:1
+actual code:
+    FROM node:22-bookworm
+actual normalized: 'FROM node:22-bookworm'
+
+====================================================================================================
+entry-00241 critical_operation  scripts/e2e/Dockerfile:23  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    CMD ["bash"]
+expected normalized: 'CMD ["bash"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:23
+actual code:
+    CMD ["bash"]
+actual normalized: 'CMD ["bash"]'
+
+====================================================================================================
+entry-00241 trace[0]  scripts/e2e/Dockerfile:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM node:22-bookworm
+expected normalized: 'FROM node:22-bookworm'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:1
+actual code:
+    FROM node:22-bookworm
+actual normalized: 'FROM node:22-bookworm'
+
+====================================================================================================
+entry-00241 trace[1]  scripts/e2e/Dockerfile:3  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN corepack enable
+expected normalized: 'RUN corepack enable'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:3
+actual code:
+    RUN corepack enable
+actual normalized: 'RUN corepack enable'
+
+====================================================================================================
+entry-00241 trace[2]  scripts/e2e/Dockerfile:5  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    WORKDIR /app
+expected normalized: 'WORKDIR /app'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:5
+actual code:
+    WORKDIR /app
+actual normalized: 'WORKDIR /app'
+
+====================================================================================================
+entry-00241 trace[3]  scripts/e2e/Dockerfile:19  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN pnpm install --frozen-lockfile
+expected normalized: 'RUN pnpm install --frozen-lockfile'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:19
+actual code:
+    RUN pnpm install --frozen-lockfile
+actual normalized: 'RUN pnpm install --frozen-lockfile'
+
+====================================================================================================
+entry-00241 trace[4]  scripts/e2e/Dockerfile:20  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN pnpm build
+expected normalized: 'RUN pnpm build'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:20
+actual code:
+    RUN pnpm build
+actual normalized: 'RUN pnpm build'
+
+====================================================================================================
+entry-00241 trace[5]  scripts/e2e/Dockerfile:21  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN pnpm ui:build
+expected normalized: 'RUN pnpm ui:build'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:21
+actual code:
+    RUN pnpm ui:build
+actual normalized: 'RUN pnpm ui:build'
+
+====================================================================================================
+entry-00241 trace[6]  scripts/e2e/Dockerfile:23  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    CMD ["bash"]
+expected normalized: 'CMD ["bash"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/e2e/Dockerfile:23
+actual code:
+    CMD ["bash"]
+actual normalized: 'CMD ["bash"]'

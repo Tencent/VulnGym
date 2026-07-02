@@ -1,0 +1,143 @@
+====================================================================================================
+entry-00486 entry_point  server/src/routes/agents.ts:2012  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    router.get("/agents/:id/keys", async (req, res) => {  // 入口：外部可达 GET 路由，无公司归属校验
+expected normalized: 'router.get("/agents/:id/keys", async (req, res) => { // 入口：外部可达 GET 路由，无公司归属校验'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2012
+actual code:
+      router.get("/agents/:id/keys", async (req, res) => {
+actual normalized: 'router.get("/agents/:id/keys", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2007 to 2017
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00486 critical_operation  server/src/services/agents.ts:595  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 直接用攻击者传入的 id 查询任意租户密钥，无 companyId 过滤
+expected normalized: 'listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id)) // 直接用攻击者传入的 id 查询任意租户密钥，无 companyId 过滤'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:595
+actual code:
+        listKeys: (id: string) =>
+actual normalized: 'listKeys: (id: string) =>'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 590 to 600
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 693 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00486 trace[0]  server/src/routes/agents.ts:2013  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    assertBoard(req);  // 仅校验 actor 类型为 board，不校验所属公司
+expected normalized: 'assertBoard(req); // 仅校验 actor 类型为 board，不校验所属公司'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2013
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2008 to 2018
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00486 trace[1]  server/src/routes/agents.ts:2014  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    const id = req.params.id as string;  // 路径参数直接使用，可传入任意租户的 agent UUID
+expected normalized: 'const id = req.params.id as string; // 路径参数直接使用，可传入任意租户的 agent UUID'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2014
+actual code:
+        const id = req.params.id as string;
+actual normalized: 'const id = req.params.id as string;'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2009 to 2019
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00486 trace[2]  server/src/routes/agents.ts:2013  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    // 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司
+expected normalized: '// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2013
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2008 to 2018
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 2435 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00486 trace[3]  server/src/services/agents.ts:595  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 触发点：无租户边界，返回受害租户密钥列表
+expected normalized: 'listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id)) // 触发点：无租户边界，返回受害租户密钥列表'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:595
+actual code:
+        listKeys: (id: string) =>
+actual normalized: 'listKeys: (id: string) =>'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 590 to 600
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 693 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot

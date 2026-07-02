@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00330 entry_point  src/gateway/http-auth-helpers.ts:7  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    export async function authorizeGatewayBearerRequestOrReply(params: {
+expected normalized: 'export async function authorizeGatewayBearerRequestOrReply(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/http-auth-helpers.ts:7
+actual code:
+    export async function authorizeGatewayBearerRequestOrReply(params: {
+actual normalized: 'export async function authorizeGatewayBearerRequestOrReply(params: {'
+
+====================================================================================================
+entry-00330 critical_operation  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+
+====================================================================================================
+entry-00330 trace[0]  src/gateway/http-auth-helpers.ts:7  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    export async function authorizeGatewayBearerRequestOrReply(params: {
+expected normalized: 'export async function authorizeGatewayBearerRequestOrReply(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/http-auth-helpers.ts:7
+actual code:
+    export async function authorizeGatewayBearerRequestOrReply(params: {
+actual normalized: 'export async function authorizeGatewayBearerRequestOrReply(params: {'
+
+====================================================================================================
+entry-00330 trace[1]  src/gateway/http-auth-helpers.ts:14  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+      const token = getBearerToken(params.req);
+expected normalized: 'const token = getBearerToken(params.req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/http-auth-helpers.ts:14
+actual code:
+      const token = getBearerToken(params.req);
+actual normalized: 'const token = getBearerToken(params.req);'
+
+====================================================================================================
+entry-00330 trace[2]  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'

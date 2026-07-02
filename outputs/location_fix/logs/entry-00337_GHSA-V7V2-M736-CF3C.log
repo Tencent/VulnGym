@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00337 entry_point  nemo/utils/callbacks/nemo_model_checkpoint.py:212  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def on_save_checkpoint(self, trainer, pl_module, checkpoint):
+expected normalized: 'def on_save_checkpoint(self, trainer, pl_module, checkpoint):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:212
+actual code:
+        def on_save_checkpoint(self, trainer, pl_module, checkpoint):
+actual normalized: 'def on_save_checkpoint(self, trainer, pl_module, checkpoint):'
+
+====================================================================================================
+entry-00337 critical_operation  nemo/utils/callbacks/nemo_model_checkpoint.py:240  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)
+expected normalized: "checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:240
+actual code:
+                checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)
+actual normalized: "checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)"
+
+====================================================================================================
+entry-00337 trace[0]  nemo/utils/callbacks/nemo_model_checkpoint.py:212  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def on_save_checkpoint(self, trainer, pl_module, checkpoint):
+expected normalized: 'def on_save_checkpoint(self, trainer, pl_module, checkpoint):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:212
+actual code:
+        def on_save_checkpoint(self, trainer, pl_module, checkpoint):
+actual normalized: 'def on_save_checkpoint(self, trainer, pl_module, checkpoint):'
+
+====================================================================================================
+entry-00337 trace[1]  nemo/utils/callbacks/nemo_model_checkpoint.py:226  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                maybe_injected_best_model_path = inject_model_parallel_rank(self.best_model_path)
+expected normalized: 'maybe_injected_best_model_path = inject_model_parallel_rank(self.best_model_path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:226
+actual code:
+                maybe_injected_best_model_path = inject_model_parallel_rank(self.best_model_path)
+actual normalized: 'maybe_injected_best_model_path = inject_model_parallel_rank(self.best_model_path)'
+
+====================================================================================================
+entry-00337 trace[2]  nemo/utils/callbacks/nemo_model_checkpoint.py:230  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+            if self.save_best_model:
+expected normalized: 'if self.save_best_model:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:230
+actual code:
+            if self.save_best_model:
+actual normalized: 'if self.save_best_model:'
+
+====================================================================================================
+entry-00337 trace[3]  nemo/utils/callbacks/nemo_model_checkpoint.py:231  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                if not os.path.exists(maybe_injected_best_model_path):
+expected normalized: 'if not os.path.exists(maybe_injected_best_model_path):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:231
+actual code:
+                if not os.path.exists(maybe_injected_best_model_path):
+actual normalized: 'if not os.path.exists(maybe_injected_best_model_path):'
+
+====================================================================================================
+entry-00337 trace[4]  nemo/utils/callbacks/nemo_model_checkpoint.py:240  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)
+expected normalized: "checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/utils/callbacks/nemo_model_checkpoint.py:240
+actual code:
+                checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)
+actual normalized: "checkpoint = torch.load(maybe_injected_best_model_path, map_location='cpu', weights_only=False)"

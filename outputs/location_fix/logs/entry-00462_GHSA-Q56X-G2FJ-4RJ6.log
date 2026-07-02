@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00462 entry_point  onnx/external_data_helper.py:186  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+    def save_external_data(tensor: TensorProto, base_path: str) -> None:
+expected normalized: 'def save_external_data(tensor: TensorProto, base_path: str) -> None:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:186
+actual code:
+    def save_external_data(tensor: TensorProto, base_path: str) -> None:
+actual normalized: 'def save_external_data(tensor: TensorProto, base_path: str) -> None:'
+
+====================================================================================================
+entry-00462 critical_operation  onnx/external_data_helper.py:202  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+            with open(external_data_file_path, "ab"):
+expected normalized: 'with open(external_data_file_path, "ab"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:202
+actual code:
+            with open(external_data_file_path, "ab"):
+actual normalized: 'with open(external_data_file_path, "ab"):'
+
+====================================================================================================
+entry-00462 trace[0]  onnx/external_data_helper.py:186  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+    def save_external_data(tensor: TensorProto, base_path: str) -> None:
+expected normalized: 'def save_external_data(tensor: TensorProto, base_path: str) -> None:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:186
+actual code:
+    def save_external_data(tensor: TensorProto, base_path: str) -> None:
+actual normalized: 'def save_external_data(tensor: TensorProto, base_path: str) -> None:'
+
+====================================================================================================
+entry-00462 trace[1]  onnx/external_data_helper.py:197  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+        if not tensor.HasField("raw_data"):
+expected normalized: 'if not tensor.HasField("raw_data"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:197
+actual code:
+        if not tensor.HasField("raw_data"):
+actual normalized: 'if not tensor.HasField("raw_data"):'
+
+====================================================================================================
+entry-00462 trace[2]  onnx/external_data_helper.py:202  report=GHSA-Q56X-G2FJ-4RJ6
+repo=https://github.com/onnx/onnx
+commit=bca0315ff3e56bb5847509ca32fadb8d87f680e1
+expected code:
+            with open(external_data_file_path, "ab"):
+expected normalized: 'with open(external_data_file_path, "ab"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: onnx/external_data_helper.py:202
+actual code:
+            with open(external_data_file_path, "ab"):
+actual normalized: 'with open(external_data_file_path, "ab"):'
