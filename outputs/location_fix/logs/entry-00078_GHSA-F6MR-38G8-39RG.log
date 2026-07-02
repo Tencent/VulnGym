@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00078 entry_point  server/routes.go:1524  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    r.POST("/api/generate", s.GenerateHandler)
+expected normalized: 'r.POST("/api/generate", s.GenerateHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1524
+actual code:
+    	r.POST("/api/generate", s.GenerateHandler)
+actual normalized: 'r.POST("/api/generate", s.GenerateHandler)'
+
+====================================================================================================
+entry-00078 critical_operation  server/routes.go:176  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    func (s *Server) GenerateHandler(c *gin.Context) {
+expected normalized: 'func (s *Server) GenerateHandler(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:176
+actual code:
+    func (s *Server) GenerateHandler(c *gin.Context) {
+actual normalized: 'func (s *Server) GenerateHandler(c *gin.Context) {'
+
+====================================================================================================
+entry-00078 trace[0]  server/routes.go:1524  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    r.POST("/api/generate", s.GenerateHandler)
+expected normalized: 'r.POST("/api/generate", s.GenerateHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1524
+actual code:
+    	r.POST("/api/generate", s.GenerateHandler)
+actual normalized: 'r.POST("/api/generate", s.GenerateHandler)'
+
+====================================================================================================
+entry-00078 trace[1]  server/routes.go:176  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    func (s *Server) GenerateHandler(c *gin.Context) {
+expected normalized: 'func (s *Server) GenerateHandler(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:176
+actual code:
+    func (s *Server) GenerateHandler(c *gin.Context) {
+actual normalized: 'func (s *Server) GenerateHandler(c *gin.Context) {'

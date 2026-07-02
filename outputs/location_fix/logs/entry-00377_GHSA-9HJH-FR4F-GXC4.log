@@ -1,0 +1,125 @@
+====================================================================================================
+entry-00377 entry_point  src/gateway/server/ws-connection/message-handler.ts:345  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:345
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00377 critical_operation  src/gateway/server/ws-connection/message-handler.ts:703  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+            if (device && devicePublicKey && !skipPairing) {
+expected normalized: 'if (device && devicePublicKey && !skipPairing) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:703
+actual code:
+            if (device && devicePublicKey && !skipPairing) {
+actual normalized: 'if (device && devicePublicKey && !skipPairing) {'
+
+====================================================================================================
+entry-00377 trace[0]  src/gateway/server/ws-connection/message-handler.ts:345  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+            const connectParams = frame.params as ConnectParams;
+expected normalized: 'const connectParams = frame.params as ConnectParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:345
+actual code:
+            const connectParams = frame.params as ConnectParams;
+actual normalized: 'const connectParams = frame.params as ConnectParams;'
+
+====================================================================================================
+entry-00377 trace[1]  src/gateway/server/ws-connection/handshake-auth-helpers.ts:63-72  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+    export function shouldSkipBackendSelfPairing(params: {
+      connectParams: ConnectParams;
+      isLocalClient: boolean;
+      hasBrowserOriginHeader: boolean;
+      sharedAuthOk: boolean;
+      authMethod: GatewayAuthResult["method"];
+    }): boolean {
+      const isGatewayBackendClient =
+        params.connectParams.client.id === GATEWAY_CLIENT_IDS.GATEWAY_CLIENT &&
+        params.connectParams.client.mode === GATEWAY_CLIENT_MODES.BACKEND;
+expected normalized: 'export function shouldSkipBackendSelfPairing(params: { connectParams: ConnectParams; isLocalClient: boolean; hasBrowserOriginHeader: boolean; sharedAuthOk: boolean; authMethod: GatewayAuthResult["method"]; }): boolean { const isGatewayBackendClient = params.connectParams.client.id === GATEWAY_CLIENT_IDS.GATEWAY_CLIENT && params.connectParams.client.mode === GATEWAY_CLIENT_MODES.BACKEND;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/handshake-auth-helpers.ts:63-72
+actual code:
+    export function shouldSkipBackendSelfPairing(params: {
+      connectParams: ConnectParams;
+      isLocalClient: boolean;
+      hasBrowserOriginHeader: boolean;
+      sharedAuthOk: boolean;
+      authMethod: GatewayAuthResult["method"];
+    }): boolean {
+      const isGatewayBackendClient =
+        params.connectParams.client.id === GATEWAY_CLIENT_IDS.GATEWAY_CLIENT &&
+        params.connectParams.client.mode === GATEWAY_CLIENT_MODES.BACKEND;
+actual normalized: 'export function shouldSkipBackendSelfPairing(params: { connectParams: ConnectParams; isLocalClient: boolean; hasBrowserOriginHeader: boolean; sharedAuthOk: boolean; authMethod: GatewayAuthResult["method"]; }): boolean { const isGatewayBackendClient = params.connectParams.client.id === GATEWAY_CLIENT_IDS.GATEWAY_CLIENT && params.connectParams.client.mode === GATEWAY_CLIENT_MODES.BACKEND;'
+
+====================================================================================================
+entry-00377 trace[2]  src/gateway/server/ws-connection/message-handler.ts:689-698  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+            const skipPairing =
+              shouldSkipBackendSelfPairing({
+                connectParams,
+                isLocalClient,
+                hasBrowserOriginHeader,
+                sharedAuthOk,
+                authMethod,
+              }) ||
+              shouldSkipControlUiPairing(
+                controlUiAuthPolicy,
+expected normalized: 'const skipPairing = shouldSkipBackendSelfPairing({ connectParams, isLocalClient, hasBrowserOriginHeader, sharedAuthOk, authMethod, }) || shouldSkipControlUiPairing( controlUiAuthPolicy,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:689-698
+actual code:
+            const skipPairing =
+              shouldSkipBackendSelfPairing({
+                connectParams,
+                isLocalClient,
+                hasBrowserOriginHeader,
+                sharedAuthOk,
+                authMethod,
+              }) ||
+              shouldSkipControlUiPairing(
+                controlUiAuthPolicy,
+actual normalized: 'const skipPairing = shouldSkipBackendSelfPairing({ connectParams, isLocalClient, hasBrowserOriginHeader, sharedAuthOk, authMethod, }) || shouldSkipControlUiPairing( controlUiAuthPolicy,'
+
+====================================================================================================
+entry-00377 trace[3]  src/gateway/server/ws-connection/message-handler.ts:703  report=GHSA-9HJH-FR4F-GXC4
+repo=https://github.com/openclaw/openclaw
+commit=b5d785f1a59a56c3471f2cef328f7c9a6c15f3e7
+expected code:
+            if (device && devicePublicKey && !skipPairing) {
+expected normalized: 'if (device && devicePublicKey && !skipPairing) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:703
+actual code:
+            if (device && devicePublicKey && !skipPairing) {
+actual normalized: 'if (device && devicePublicKey && !skipPairing) {'

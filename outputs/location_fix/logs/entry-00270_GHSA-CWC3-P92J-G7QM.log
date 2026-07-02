@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00270 entry_point  packages/server/src/enterprise/routes/login-method.route.ts:8  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    router.get('/', loginMethodController.read)
+expected normalized: "router.get('/', loginMethodController.read)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/login-method.route.ts:8
+actual code:
+    router.get('/', loginMethodController.read)
+actual normalized: "router.get('/', loginMethodController.read)"
+
+====================================================================================================
+entry-00270 critical_operation  packages/server/src/enterprise/controllers/login-method.controller.ts:86  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+                } else if (query.organizationId) {
+expected normalized: '} else if (query.organizationId) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:86
+actual code:
+                } else if (query.organizationId) {
+actual normalized: '} else if (query.organizationId) {'
+
+====================================================================================================
+entry-00270 trace[0]  packages/server/src/enterprise/routes/login-method.route.ts:8  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+    router.get('/', loginMethodController.read)
+expected normalized: "router.get('/', loginMethodController.read)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/login-method.route.ts:8
+actual code:
+    router.get('/', loginMethodController.read)
+actual normalized: "router.get('/', loginMethodController.read)"
+
+====================================================================================================
+entry-00270 trace[1]  packages/server/src/enterprise/controllers/login-method.controller.ts:69  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+                const query = req.query as Partial<LoginMethod>
+expected normalized: 'const query = req.query as Partial<LoginMethod>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:69
+actual code:
+                const query = req.query as Partial<LoginMethod>
+actual normalized: 'const query = req.query as Partial<LoginMethod>'
+
+====================================================================================================
+entry-00270 trace[2]  packages/server/src/enterprise/controllers/login-method.controller.ts:86  report=GHSA-CWC3-P92J-G7QM
+repo=https://github.com/FlowiseAI/Flowise
+commit=af81d87063b63829459ffdad3d05008dfbd2a238
+expected code:
+                } else if (query.organizationId) {
+expected normalized: '} else if (query.organizationId) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/login-method.controller.ts:86
+actual code:
+                } else if (query.organizationId) {
+actual normalized: '} else if (query.organizationId) {'

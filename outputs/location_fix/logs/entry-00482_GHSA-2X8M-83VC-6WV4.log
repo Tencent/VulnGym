@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00482 entry_point  packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:60  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {
+expected normalized: "private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:60
+actual code:
+        private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {
+actual normalized: "private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {"
+
+====================================================================================================
+entry-00482 critical_operation  packages/components/src/httpSecurity.ts:222  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:222
+actual code:
+        return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00482 trace[0]  packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:60  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {
+expected normalized: "private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:60
+actual code:
+        private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {
+actual normalized: "private async scrapeSingleUrl(url: string): Promise<Omit<ScrapedPageData, 'url'> & { foundLinks: string[] }> {"
+
+====================================================================================================
+entry-00482 trace[1]  packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:62  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                const response = await secureFetch(url, { timeout: this.timeoutMs, redirect: 'follow', follow: 5 })
+expected normalized: "const response = await secureFetch(url, { timeout: this.timeoutMs, redirect: 'follow', follow: 5 })"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/tools/WebScraperTool/WebScraperTool.ts:62
+actual code:
+                const response = await secureFetch(url, { timeout: this.timeoutMs, redirect: 'follow', follow: 5 })
+actual normalized: "const response = await secureFetch(url, { timeout: this.timeoutMs, redirect: 'follow', follow: 5 })"
+
+====================================================================================================
+entry-00482 trace[2]  packages/components/src/httpSecurity.ts:222  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:222
+actual code:
+        return {
+actual normalized: 'return {'

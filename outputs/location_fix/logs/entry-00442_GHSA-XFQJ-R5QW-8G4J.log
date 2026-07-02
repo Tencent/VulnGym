@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00442 entry_point  server/src/routes/access.ts:1929  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/:skillName", (req, res) => {
+expected normalized: 'router.get("/skills/:skillName", (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1929
+actual code:
+      router.get("/skills/:skillName", (req, res) => {
+actual normalized: 'router.get("/skills/:skillName", (req, res) => {'
+
+====================================================================================================
+entry-00442 critical_operation  server/src/routes/access.ts:1933  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.type("text/markdown").send(markdown);
+expected normalized: 'res.type("text/markdown").send(markdown);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1933
+actual code:
+        res.type("text/markdown").send(markdown);
+actual normalized: 'res.type("text/markdown").send(markdown);'
+
+====================================================================================================
+entry-00442 trace[0]  server/src/routes/access.ts:1929  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/:skillName", (req, res) => {
+expected normalized: 'router.get("/skills/:skillName", (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1929
+actual code:
+      router.get("/skills/:skillName", (req, res) => {
+actual normalized: 'router.get("/skills/:skillName", (req, res) => {'
+
+====================================================================================================
+entry-00442 trace[1]  server/src/routes/access.ts:1933  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.type("text/markdown").send(markdown);
+expected normalized: 'res.type("text/markdown").send(markdown);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1933
+actual code:
+        res.type("text/markdown").send(markdown);
+actual normalized: 'res.type("text/markdown").send(markdown);'

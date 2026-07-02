@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00209 entry_point  src/node-host/invoke.ts:488  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const consistency = validateSystemRunCommandConsistency({
+expected normalized: 'const consistency = validateSystemRunCommandConsistency({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:488
+actual code:
+      const consistency = validateSystemRunCommandConsistency({
+actual normalized: 'const consistency = validateSystemRunCommandConsistency({'
+
+====================================================================================================
+entry-00209 critical_operation  src/node-host/invoke.ts:624  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+          await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });
+expected normalized: 'await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:624
+actual code:
+          await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });
+actual normalized: 'await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });'
+
+====================================================================================================
+entry-00209 trace[0]  src/node-host/invoke.ts:488  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const consistency = validateSystemRunCommandConsistency({
+expected normalized: 'const consistency = validateSystemRunCommandConsistency({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:488
+actual code:
+      const consistency = validateSystemRunCommandConsistency({
+actual normalized: 'const consistency = validateSystemRunCommandConsistency({'
+
+====================================================================================================
+entry-00209 trace[1]  src/node-host/invoke.ts:498  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+      const cmdText = consistency.cmdText;
+expected normalized: 'const cmdText = consistency.cmdText;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:498
+actual code:
+      const cmdText = consistency.cmdText;
+actual normalized: 'const cmdText = consistency.cmdText;'
+
+====================================================================================================
+entry-00209 trace[2]  src/node-host/invoke.ts:624  report=GHSA-5V6X-RFC3-7QFR
+repo=https://github.com/openclaw/openclaw
+commit=5cc631cc9cd14b123918c673f1580a35b78d16ff
+expected code:
+          await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });
+expected normalized: 'await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:624
+actual code:
+          await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });
+actual normalized: 'await sendExecFinishedEvent({ client, sessionKey, runId, cmdText, result });'

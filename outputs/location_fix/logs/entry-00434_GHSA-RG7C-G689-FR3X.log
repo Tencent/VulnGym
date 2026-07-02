@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00434 entry_point  src/google/adk/cli/fast_api.py:422  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/builder/save", response_model_exclude_none=True)
+expected normalized: '@app.post("/builder/save", response_model_exclude_none=True)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:422
+actual code:
+        @app.post("/builder/save", response_model_exclude_none=True)
+actual normalized: '@app.post("/builder/save", response_model_exclude_none=True)'
+
+====================================================================================================
+entry-00434 critical_operation  src/google/adk/agents/config_agent_utils.py:198  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        return obj(*positional_args, **kwargs)
+expected normalized: 'return obj(*positional_args, **kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/agents/config_agent_utils.py:198
+actual code:
+        return obj(*positional_args, **kwargs)
+actual normalized: 'return obj(*positional_args, **kwargs)'
+
+====================================================================================================
+entry-00434 trace[0]  src/google/adk/cli/fast_api.py:422  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/builder/save", response_model_exclude_none=True)
+expected normalized: '@app.post("/builder/save", response_model_exclude_none=True)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:422
+actual code:
+        @app.post("/builder/save", response_model_exclude_none=True)
+actual normalized: '@app.post("/builder/save", response_model_exclude_none=True)'
+
+====================================================================================================
+entry-00434 trace[1]  src/google/adk/cli/utils/agent_loader.py:248  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        if root_agent := self._load_from_yaml_config(actual_agent_name, agents_dir):
+expected normalized: 'if root_agent := self._load_from_yaml_config(actual_agent_name, agents_dir):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:248
+actual code:
+        if root_agent := self._load_from_yaml_config(actual_agent_name, agents_dir):
+actual normalized: 'if root_agent := self._load_from_yaml_config(actual_agent_name, agents_dir):'
+
+====================================================================================================
+entry-00434 trace[2]  src/google/adk/agents/config_agent_utils.py:83  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+    def _load_config_from_path(config_path: str) -> AgentConfig:
+expected normalized: 'def _load_config_from_path(config_path: str) -> AgentConfig:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/agents/config_agent_utils.py:83
+actual code:
+    def _load_config_from_path(config_path: str) -> AgentConfig:
+actual normalized: 'def _load_config_from_path(config_path: str) -> AgentConfig:'
+
+====================================================================================================
+entry-00434 trace[3]  src/google/adk/agents/config_agent_utils.py:175  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+    def resolve_code_reference(code_config: CodeConfig) -> Any:
+expected normalized: 'def resolve_code_reference(code_config: CodeConfig) -> Any:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/agents/config_agent_utils.py:175
+actual code:
+    def resolve_code_reference(code_config: CodeConfig) -> Any:
+actual normalized: 'def resolve_code_reference(code_config: CodeConfig) -> Any:'
+
+====================================================================================================
+entry-00434 trace[4]  src/google/adk/agents/config_agent_utils.py:191  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+      module = importlib.import_module(module_path)
+expected normalized: 'module = importlib.import_module(module_path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/agents/config_agent_utils.py:191
+actual code:
+      module = importlib.import_module(module_path)
+actual normalized: 'module = importlib.import_module(module_path)'
+
+====================================================================================================
+entry-00434 trace[5]  src/google/adk/agents/config_agent_utils.py:198  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        return obj(*positional_args, **kwargs)
+expected normalized: 'return obj(*positional_args, **kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/agents/config_agent_utils.py:198
+actual code:
+        return obj(*positional_args, **kwargs)
+actual normalized: 'return obj(*positional_args, **kwargs)'

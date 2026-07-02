@@ -1,0 +1,182 @@
+====================================================================================================
+entry-00400 entry_point  src/gateway/server-methods/chat.ts:1452  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    CommandAuthorized: true,
+            GatewayClientScopes: client?.connect?.scopes,
+expected normalized: 'CommandAuthorized: true, GatewayClientScopes: client?.connect?.scopes,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1452-1453
+actual code:
+            CommandAuthorized: true,
+            MessageSid: clientRunId,
+actual normalized: 'CommandAuthorized: true, MessageSid: clientRunId,'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 1447 to 1457
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00400 critical_operation  src/auto-reply/reply/session.ts:254  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    const resetAuthorized = resolveCommandAuthorization({
+        ctx,
+        cfg,
+        commandAuthorized,
+      }).isAuthorizedSender;
+expected normalized: 'const resetAuthorized = resolveCommandAuthorization({ ctx, cfg, commandAuthorized, }).isAuthorizedSender;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/session.ts:254-258
+actual code:
+      const resetAuthorized = resolveCommandAuthorization({
+        ctx,
+        cfg,
+        commandAuthorized,
+      }).isAuthorizedSender;
+actual normalized: 'const resetAuthorized = resolveCommandAuthorization({ ctx, cfg, commandAuthorized, }).isAuthorizedSender;'
+
+====================================================================================================
+entry-00400 trace[0]  src/gateway/server-methods/chat.ts:1452-1457  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    CommandAuthorized: true,
+            MessageSid: clientRunId,
+            SenderId: clientInfo?.id,
+            SenderName: clientInfo?.displayName,
+            SenderUsername: clientInfo?.displayName,
+            GatewayClientScopes: client?.connect?.scopes,
+expected normalized: 'CommandAuthorized: true, MessageSid: clientRunId, SenderId: clientInfo?.id, SenderName: clientInfo?.displayName, SenderUsername: clientInfo?.displayName, GatewayClientScopes: client?.connect?.scopes,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1452-1457
+actual code:
+            CommandAuthorized: true,
+            MessageSid: clientRunId,
+            SenderId: clientInfo?.id,
+            SenderName: clientInfo?.displayName,
+            SenderUsername: clientInfo?.displayName,
+            GatewayClientScopes: client?.connect?.scopes,
+actual normalized: 'CommandAuthorized: true, MessageSid: clientRunId, SenderId: clientInfo?.id, SenderName: clientInfo?.displayName, SenderUsername: clientInfo?.displayName, GatewayClientScopes: client?.connect?.scopes,'
+
+====================================================================================================
+entry-00400 trace[1]  src/gateway/server-methods/chat.ts:1542  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    void dispatchInboundMessage({
+expected normalized: 'void dispatchInboundMessage({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1542
+actual code:
+          void dispatchInboundMessage({
+actual normalized: 'void dispatchInboundMessage({'
+
+====================================================================================================
+entry-00400 trace[2]  src/auto-reply/reply/get-reply.ts:210  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    const commandAuthorized = finalized.CommandAuthorized;
+expected normalized: 'const commandAuthorized = finalized.CommandAuthorized;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/get-reply.ts:210
+actual code:
+      const commandAuthorized = finalized.CommandAuthorized;
+actual normalized: 'const commandAuthorized = finalized.CommandAuthorized;'
+
+====================================================================================================
+entry-00400 trace[3]  src/auto-reply/reply/get-reply.ts:216-220  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    const sessionState = await initSessionState({
+        ctx: finalized,
+        cfg,
+        commandAuthorized,
+      });
+expected normalized: 'const sessionState = await initSessionState({ ctx: finalized, cfg, commandAuthorized, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/get-reply.ts:216-220
+actual code:
+      const sessionState = await initSessionState({
+        ctx: finalized,
+        cfg,
+        commandAuthorized,
+      });
+actual normalized: 'const sessionState = await initSessionState({ ctx: finalized, cfg, commandAuthorized, });'
+
+====================================================================================================
+entry-00400 trace[4]  src/auto-reply/reply/session.ts:254-258  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    const resetAuthorized = resolveCommandAuthorization({
+        ctx,
+        cfg,
+        commandAuthorized,
+      }).isAuthorizedSender;
+expected normalized: 'const resetAuthorized = resolveCommandAuthorization({ ctx, cfg, commandAuthorized, }).isAuthorizedSender;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/session.ts:254-258
+actual code:
+      const resetAuthorized = resolveCommandAuthorization({
+        ctx,
+        cfg,
+        commandAuthorized,
+      }).isAuthorizedSender;
+actual normalized: 'const resetAuthorized = resolveCommandAuthorization({ ctx, cfg, commandAuthorized, }).isAuthorizedSender;'
+
+====================================================================================================
+entry-00400 trace[5]  src/auto-reply/reply/session.ts:284-293  report=GHSA-5R8F-96GM-5J6G
+repo=https://github.com/openclaw/openclaw
+commit=aa66ae1fc797d3298cc409ed2c5da69a89950a45
+expected code:
+    if (!resetAuthorized) {
+          break;
+        }
+        const triggerLower = trigger.toLowerCase();
+        if (trimmedBodyLower === triggerLower || strippedForResetLower === triggerLower) {
+          if (shouldBypassAcpResetForTrigger(triggerLower)) {
+            // ACP-bound conversations handle /new and /reset in command handling
+            // so the bound ACP runtime can be reset in place without rotating the
+            // normal OpenClaw session/transcript.
+            break;
+expected normalized: 'if (!resetAuthorized) { break; } const triggerLower = trigger.toLowerCase(); if (trimmedBodyLower === triggerLower || strippedForResetLower === triggerLower) { if (shouldBypassAcpResetForTrigger(triggerLower)) { // ACP-bound conversations handle /new and /reset in command handling // so the bound ACP runtime can be reset in place without rotating the // normal OpenClaw session/transcript. break;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/session.ts:284-293
+actual code:
+        if (!resetAuthorized) {
+          break;
+        }
+        const triggerLower = trigger.toLowerCase();
+        if (trimmedBodyLower === triggerLower || strippedForResetLower === triggerLower) {
+          if (shouldBypassAcpResetForTrigger(triggerLower)) {
+            // ACP-bound conversations handle /new and /reset in command handling
+            // so the bound ACP runtime can be reset in place without rotating the
+            // normal OpenClaw session/transcript.
+            break;
+actual normalized: 'if (!resetAuthorized) { break; } const triggerLower = trigger.toLowerCase(); if (trimmedBodyLower === triggerLower || strippedForResetLower === triggerLower) { if (shouldBypassAcpResetForTrigger(triggerLower)) { // ACP-bound conversations handle /new and /reset in command handling // so the bound ACP runtime can be reset in place without rotating the // normal OpenClaw session/transcript. break;'

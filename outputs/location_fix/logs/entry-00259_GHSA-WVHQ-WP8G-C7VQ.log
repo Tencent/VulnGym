@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00259 entry_point  packages/server/src/index.ts:321  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            this.app.use('/api/v1', flowiseApiV1Router)
+expected normalized: "this.app.use('/api/v1', flowiseApiV1Router)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:321
+actual code:
+            this.app.use('/api/v1', flowiseApiV1Router)
+actual normalized: "this.app.use('/api/v1', flowiseApiV1Router)"
+
+====================================================================================================
+entry-00259 critical_operation  packages/server/src/controllers/chat-messages/index.ts:125  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await chatMessagesService.getAllInternalChatMessages(
+expected normalized: 'const apiResponse = await chatMessagesService.getAllInternalChatMessages('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/chat-messages/index.ts:125
+actual code:
+            const apiResponse = await chatMessagesService.getAllInternalChatMessages(
+actual normalized: 'const apiResponse = await chatMessagesService.getAllInternalChatMessages('
+
+====================================================================================================
+entry-00259 trace[0]  packages/server/src/index.ts:321  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            this.app.use('/api/v1', flowiseApiV1Router)
+expected normalized: "this.app.use('/api/v1', flowiseApiV1Router)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:321
+actual code:
+            this.app.use('/api/v1', flowiseApiV1Router)
+actual normalized: "this.app.use('/api/v1', flowiseApiV1Router)"
+
+====================================================================================================
+entry-00259 trace[1]  packages/server/src/routes/index.ts:93  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.use('/internal-chatmessage', internalChatmessagesRouter)
+expected normalized: "router.use('/internal-chatmessage', internalChatmessagesRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:93
+actual code:
+    router.use('/internal-chatmessage', internalChatmessagesRouter)
+actual normalized: "router.use('/internal-chatmessage', internalChatmessagesRouter)"
+
+====================================================================================================
+entry-00259 trace[2]  packages/server/src/routes/internal-chat-messages/index.ts:8  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.get(['/', '/:id'], chatMessagesController.getAllInternalChatMessages)
+expected normalized: "router.get(['/', '/:id'], chatMessagesController.getAllInternalChatMessages)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/internal-chat-messages/index.ts:8
+actual code:
+    router.get(['/', '/:id'], chatMessagesController.getAllInternalChatMessages)
+actual normalized: "router.get(['/', '/:id'], chatMessagesController.getAllInternalChatMessages)"
+
+====================================================================================================
+entry-00259 trace[3]  packages/server/src/controllers/chat-messages/index.ts:110  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    const getAllInternalChatMessages = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const getAllInternalChatMessages = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/chat-messages/index.ts:110
+actual code:
+    const getAllInternalChatMessages = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const getAllInternalChatMessages = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00259 trace[4]  packages/server/src/controllers/chat-messages/index.ts:125  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await chatMessagesService.getAllInternalChatMessages(
+expected normalized: 'const apiResponse = await chatMessagesService.getAllInternalChatMessages('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/chat-messages/index.ts:125
+actual code:
+            const apiResponse = await chatMessagesService.getAllInternalChatMessages(
+actual normalized: 'const apiResponse = await chatMessagesService.getAllInternalChatMessages('

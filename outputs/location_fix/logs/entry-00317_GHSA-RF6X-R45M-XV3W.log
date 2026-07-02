@@ -1,0 +1,92 @@
+====================================================================================================
+entry-00317 entry_point  src/backend/base/langflow/api/v1/api_key.py:44  report=GHSA-RF6X-R45M-XV3W
+repo=https://github.com/langflow-ai/langflow
+commit=36eea7ee9db1ce6119dfd85364f870a219ea2f7c
+expected code:
+    @router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])
+expected normalized: '@router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/api_key.py:44
+actual code:
+    @router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])
+actual normalized: '@router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])'
+
+====================================================================================================
+entry-00317 critical_operation  src/backend/base/langflow/services/database/models/api_key/crud.py:45  report=GHSA-RF6X-R45M-XV3W
+repo=https://github.com/langflow-ai/langflow
+commit=36eea7ee9db1ce6119dfd85364f870a219ea2f7c
+expected code:
+        api_key = await session.get(ApiKey, api_key_id)
+expected normalized: 'api_key = await session.get(ApiKey, api_key_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/database/models/api_key/crud.py:45
+actual code:
+        api_key = await session.get(ApiKey, api_key_id)
+actual normalized: 'api_key = await session.get(ApiKey, api_key_id)'
+
+====================================================================================================
+entry-00317 trace[0]  src/backend/base/langflow/api/v1/api_key.py:44-48  report=GHSA-RF6X-R45M-XV3W
+repo=https://github.com/langflow-ai/langflow
+commit=36eea7ee9db1ce6119dfd85364f870a219ea2f7c
+expected code:
+    @router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])
+    async def delete_api_key_route(
+        api_key_id: UUID,
+        db: DbSession,
+    ):
+expected normalized: '@router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)]) async def delete_api_key_route( api_key_id: UUID, db: DbSession, ):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/api_key.py:44-48
+actual code:
+    @router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)])
+    async def delete_api_key_route(
+        api_key_id: UUID,
+        db: DbSession,
+    ):
+actual normalized: '@router.delete("/{api_key_id}", dependencies=[Depends(auth_utils.get_current_active_user)]) async def delete_api_key_route( api_key_id: UUID, db: DbSession, ):'
+
+====================================================================================================
+entry-00317 trace[1]  src/backend/base/langflow/api/v1/api_key.py:50  report=GHSA-RF6X-R45M-XV3W
+repo=https://github.com/langflow-ai/langflow
+commit=36eea7ee9db1ce6119dfd85364f870a219ea2f7c
+expected code:
+            await delete_api_key(db, api_key_id)
+expected normalized: 'await delete_api_key(db, api_key_id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/api_key.py:50
+actual code:
+            await delete_api_key(db, api_key_id)
+actual normalized: 'await delete_api_key(db, api_key_id)'
+
+====================================================================================================
+entry-00317 trace[2]  src/backend/base/langflow/services/database/models/api_key/crud.py:44-49  report=GHSA-RF6X-R45M-XV3W
+repo=https://github.com/langflow-ai/langflow
+commit=36eea7ee9db1ce6119dfd85364f870a219ea2f7c
+expected code:
+    async def delete_api_key(session: AsyncSession, api_key_id: UUID) -> None:
+        api_key = await session.get(ApiKey, api_key_id)
+        if api_key is None:
+            msg = "API Key not found"
+            raise ValueError(msg)
+        await session.delete(api_key)
+expected normalized: 'async def delete_api_key(session: AsyncSession, api_key_id: UUID) -> None: api_key = await session.get(ApiKey, api_key_id) if api_key is None: msg = "API Key not found" raise ValueError(msg) await session.delete(api_key)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/database/models/api_key/crud.py:44-49
+actual code:
+    async def delete_api_key(session: AsyncSession, api_key_id: UUID) -> None:
+        api_key = await session.get(ApiKey, api_key_id)
+        if api_key is None:
+            msg = "API Key not found"
+            raise ValueError(msg)
+        await session.delete(api_key)
+actual normalized: 'async def delete_api_key(session: AsyncSession, api_key_id: UUID) -> None: api_key = await session.get(ApiKey, api_key_id) if api_key is None: msg = "API Key not found" raise ValueError(msg) await session.delete(api_key)'

@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00201 entry_point  src/gateway/openresponses-http.ts:246  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    return agentCommand(
+expected normalized: 'return agentCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/openresponses-http.ts:246
+actual code:
+      return agentCommand(
+actual normalized: 'return agentCommand('
+
+====================================================================================================
+entry-00201 critical_operation  src/commands/agent.ts:197  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    senderIsOwner: true,
+expected normalized: 'senderIsOwner: true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/agent.ts:197
+actual code:
+        senderIsOwner: true,
+actual normalized: 'senderIsOwner: true,'
+
+====================================================================================================
+entry-00201 trace[0]  src/gateway/openresponses-http.ts:246  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    return agentCommand(
+expected normalized: 'return agentCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/openresponses-http.ts:246
+actual code:
+      return agentCommand(
+actual normalized: 'return agentCommand('
+
+====================================================================================================
+entry-00201 trace[1]  src/commands/agent.ts:197  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    senderIsOwner: true,
+expected normalized: 'senderIsOwner: true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/agent.ts:197
+actual code:
+        senderIsOwner: true,
+actual normalized: 'senderIsOwner: true,'

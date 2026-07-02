@@ -1,0 +1,99 @@
+====================================================================================================
+entry-00190 entry_point  packages/cli/src/webhooks/webhook-helpers.ts:849  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    data: {
+expected normalized: 'data: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:849
+actual code:
+    								data: {
+actual normalized: 'data: {'
+
+====================================================================================================
+entry-00190 critical_operation  packages/cli/src/webhooks/webhook-request-handler.ts:169  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    if (responseHeader) {
+expected normalized: 'if (responseHeader) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:169
+actual code:
+    		if (responseHeader) {
+actual normalized: 'if (responseHeader) {'
+
+====================================================================================================
+entry-00190 trace[0]  packages/cli/src/webhooks/webhook-helpers.ts:849  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    data: {
+expected normalized: 'data: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:849
+actual code:
+    								data: {
+actual normalized: 'data: {'
+
+====================================================================================================
+entry-00190 trace[1]  packages/cli/src/webhooks/webhook-helpers.ts:850  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    message:
+expected normalized: 'message:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-helpers.ts:850
+actual code:
+    									message:
+actual normalized: 'message:'
+
+====================================================================================================
+entry-00190 trace[2]  packages/cli/src/webhooks/webhook-request-handler.ts:167  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    ) {
+expected normalized: ') {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:167
+actual code:
+    	) {
+actual normalized: ') {'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (3):
+  [1] .github/scripts/cleanup-ghcr-images.mjs:133
+      				) {
+  [2] packages/@n8n/ai-utilities/README.md:155
+        ) {
+  [3] packages/@n8n/ai-utilities/README.md:370
+        ) {
+
+====================================================================================================
+entry-00190 trace[3]  packages/cli/src/webhooks/webhook-request-handler.ts:169  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    if (responseHeader) {
+expected normalized: 'if (responseHeader) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/webhooks/webhook-request-handler.ts:169
+actual code:
+    		if (responseHeader) {
+actual normalized: 'if (responseHeader) {'

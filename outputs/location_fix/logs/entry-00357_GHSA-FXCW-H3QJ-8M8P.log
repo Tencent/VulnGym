@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00357 entry_point  packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:71  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	createCredential: [
+expected normalized: 'createCredential: ['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:71
+actual code:
+    	createCredential: [
+actual normalized: 'createCredential: ['
+
+====================================================================================================
+entry-00357 critical_operation  packages/cli/src/public-api/v1/handlers/credentials/credentials.service.ts:56  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    export async function saveCredential(
+expected normalized: 'export async function saveCredential('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/public-api/v1/handlers/credentials/credentials.service.ts:56
+actual code:
+    export async function saveCredential(
+actual normalized: 'export async function saveCredential('
+
+====================================================================================================
+entry-00357 trace[0]  packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:71  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	createCredential: [
+expected normalized: 'createCredential: ['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:71
+actual code:
+    	createCredential: [
+actual normalized: 'createCredential: ['
+
+====================================================================================================
+entry-00357 trace[1]  packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:86  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    				const savedCredential = await saveCredential(newCredential, req.user, encryptedData);
+expected normalized: 'const savedCredential = await saveCredential(newCredential, req.user, encryptedData);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/public-api/v1/handlers/credentials/credentials.handler.ts:86
+actual code:
+    				const savedCredential = await saveCredential(newCredential, req.user, encryptedData);
+actual normalized: 'const savedCredential = await saveCredential(newCredential, req.user, encryptedData);'
+
+====================================================================================================
+entry-00357 trace[2]  packages/cli/src/public-api/v1/handlers/credentials/credentials.service.ts:56  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    export async function saveCredential(
+expected normalized: 'export async function saveCredential('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/public-api/v1/handlers/credentials/credentials.service.ts:56
+actual code:
+    export async function saveCredential(
+actual normalized: 'export async function saveCredential('

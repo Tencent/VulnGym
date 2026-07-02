@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00380 entry_point  src/gateway/server/ws-connection/message-handler.ts:220  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+      const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);
+expected normalized: 'const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:220
+actual code:
+      const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);
+actual normalized: 'const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);'
+
+====================================================================================================
+entry-00380 critical_operation  src/gateway/server/ws-connection/message-handler.ts:898  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+expected normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:898
+actual code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+actual normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+
+====================================================================================================
+entry-00380 trace[0]  src/gateway/server/ws-connection/message-handler.ts:220  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+      const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);
+expected normalized: 'const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:220
+actual code:
+      const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);
+actual normalized: 'const isLocalClient = isLocalDirectRequest(upgradeReq, trustedProxies, allowRealIpFallback);'
+
+====================================================================================================
+entry-00380 trace[1]  src/gateway/server/ws-connection/message-handler.ts:876  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+                    const scopesAllowed = roleScopesAllow({
+expected normalized: 'const scopesAllowed = roleScopesAllow({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:876
+actual code:
+                    const scopesAllowed = roleScopesAllow({
+actual normalized: 'const scopesAllowed = roleScopesAllow({'
+
+====================================================================================================
+entry-00380 trace[2]  src/gateway/server/ws-connection/message-handler.ts:883  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+                      const ok = await requirePairing("scope-upgrade");
+expected normalized: 'const ok = await requirePairing("scope-upgrade");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:883
+actual code:
+                      const ok = await requirePairing("scope-upgrade");
+actual normalized: 'const ok = await requirePairing("scope-upgrade");'
+
+====================================================================================================
+entry-00380 trace[3]  src/gateway/server/ws-connection/handshake-auth-helpers.ts:49  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+    export function shouldAllowSilentLocalPairing(params: {
+expected normalized: 'export function shouldAllowSilentLocalPairing(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/handshake-auth-helpers.ts:49
+actual code:
+    export function shouldAllowSilentLocalPairing(params: {
+actual normalized: 'export function shouldAllowSilentLocalPairing(params: {'
+
+====================================================================================================
+entry-00380 trace[4]  src/gateway/server/ws-connection/message-handler.ts:760  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+                  silent: allowSilentLocalPairing,
+expected normalized: 'silent: allowSilentLocalPairing,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:760
+actual code:
+                  silent: allowSilentLocalPairing,
+actual normalized: 'silent: allowSilentLocalPairing,'
+
+====================================================================================================
+entry-00380 trace[5]  src/gateway/server/ws-connection/message-handler.ts:898  report=GHSA-FQW4-MPH7-2VR8
+repo=https://github.com/openclaw/openclaw
+commit=19d91aaa8f93587ea086c0b9b4673d9b7b874f74
+expected code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+expected normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:898
+actual code:
+              ? await ensureDeviceToken({ deviceId: device.id, role, scopes })
+actual normalized: '? await ensureDeviceToken({ deviceId: device.id, role, scopes })'

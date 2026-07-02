@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00250 entry_point  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:56  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+        static func resolve(command: [String], cwd: String?, env: [String: String]?) -> ExecCommandResolution? {
+expected normalized: 'static func resolve(command: [String], cwd: String?, env: [String: String]?) -> ExecCommandResolution? {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:56
+actual code:
+        static func resolve(command: [String], cwd: String?, env: [String: String]?) -> ExecCommandResolution? {
+actual normalized: 'static func resolve(command: [String], cwd: String?, env: [String: String]?) -> ExecCommandResolution? {'
+
+====================================================================================================
+entry-00250 critical_operation  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:57  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+            guard let raw = command.first?.trimmingCharacters(in: .whitespacesAndNewlines), !raw.isEmpty else {
+expected normalized: 'guard let raw = command.first?.trimmingCharacters(in: .whitespacesAndNewlines), !raw.isEmpty else {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:57
+actual code:
+            guard let raw = command.first?.trimmingCharacters(in: .whitespacesAndNewlines), !raw.isEmpty else {
+actual normalized: 'guard let raw = command.first?.trimmingCharacters(in: .whitespacesAndNewlines), !raw.isEmpty else {'
+
+====================================================================================================
+entry-00250 trace[0]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:60  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+            return self.resolveExecutable(rawExecutable: raw, cwd: cwd, env: env)
+expected normalized: 'return self.resolveExecutable(rawExecutable: raw, cwd: cwd, env: env)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:60
+actual code:
+            return self.resolveExecutable(rawExecutable: raw, cwd: cwd, env: env)
+actual normalized: 'return self.resolveExecutable(rawExecutable: raw, cwd: cwd, env: env)'
+
+====================================================================================================
+entry-00250 trace[1]  apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:122  report=GHSA-JJ82-76V6-933R
+repo=https://github.com/openclaw/openclaw
+commit=48c0acc26f177be2b508c104429ff3badb5aaec8
+expected code:
+            if ["sh", "bash", "zsh", "dash", "ksh"].contains(base0) {
+expected normalized: 'if ["sh", "bash", "zsh", "dash", "ksh"].contains(base0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: apps/macos/Sources/OpenClaw/ExecCommandResolution.swift:122
+actual code:
+            if ["sh", "bash", "zsh", "dash", "ksh"].contains(base0) {
+actual normalized: 'if ["sh", "bash", "zsh", "dash", "ksh"].contains(base0) {'

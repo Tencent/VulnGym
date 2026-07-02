@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00244 entry_point  scripts/docker/install-sh-nonroot/Dockerfile:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM ubuntu:24.04
+expected normalized: 'FROM ubuntu:24.04'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:1
+actual code:
+    FROM ubuntu:24.04
+actual normalized: 'FROM ubuntu:24.04'
+
+====================================================================================================
+entry-00244 critical_operation  scripts/docker/install-sh-nonroot/Dockerfile:29  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]
+expected normalized: 'ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:29
+actual code:
+    ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]
+actual normalized: 'ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]'
+
+====================================================================================================
+entry-00244 trace[0]  scripts/docker/install-sh-nonroot/Dockerfile:1  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    FROM ubuntu:24.04
+expected normalized: 'FROM ubuntu:24.04'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:1
+actual code:
+    FROM ubuntu:24.04
+actual normalized: 'FROM ubuntu:24.04'
+
+====================================================================================================
+entry-00244 trace[1]  scripts/docker/install-sh-nonroot/Dockerfile:3  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN set -eux; \
+expected normalized: 'RUN set -eux; \\'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:3
+actual code:
+    RUN set -eux; \
+actual normalized: 'RUN set -eux; \\'
+
+====================================================================================================
+entry-00244 trace[2]  scripts/docker/install-sh-nonroot/Dockerfile:17  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN useradd -m -s /bin/bash app \
+expected normalized: 'RUN useradd -m -s /bin/bash app \\'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:17
+actual code:
+    RUN useradd -m -s /bin/bash app \
+actual normalized: 'RUN useradd -m -s /bin/bash app \\'
+
+====================================================================================================
+entry-00244 trace[3]  scripts/docker/install-sh-nonroot/Dockerfile:18  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+      && echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/app
+expected normalized: '&& echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/app'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:18
+actual code:
+      && echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/app
+actual normalized: '&& echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/app'
+
+====================================================================================================
+entry-00244 trace[4]  scripts/docker/install-sh-nonroot/Dockerfile:20  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    USER app
+expected normalized: 'USER app'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:20
+actual code:
+    USER app
+actual normalized: 'USER app'
+
+====================================================================================================
+entry-00244 trace[5]  scripts/docker/install-sh-nonroot/Dockerfile:27  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    RUN sudo chmod +x /usr/local/bin/openclaw-install-nonroot
+expected normalized: 'RUN sudo chmod +x /usr/local/bin/openclaw-install-nonroot'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:27
+actual code:
+    RUN sudo chmod +x /usr/local/bin/openclaw-install-nonroot
+actual normalized: 'RUN sudo chmod +x /usr/local/bin/openclaw-install-nonroot'
+
+====================================================================================================
+entry-00244 trace[6]  scripts/docker/install-sh-nonroot/Dockerfile:29  report=GHSA-W7J5-J98M-W679
+repo=https://github.com/openclaw/openclaw
+commit=c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1
+expected code:
+    ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]
+expected normalized: 'ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/docker/install-sh-nonroot/Dockerfile:29
+actual code:
+    ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]
+actual normalized: 'ENTRYPOINT ["/usr/local/bin/openclaw-install-nonroot"]'

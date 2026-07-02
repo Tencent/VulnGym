@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00495 entry_point  src/commands/channel-setup/plugin-install.ts:277  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+        getChannelPluginCatalogEntry(params.channel, {
+expected normalized: 'getChannelPluginCatalogEntry(params.channel, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/plugin-install.ts:277
+actual code:
+        getChannelPluginCatalogEntry(params.channel, {
+actual normalized: 'getChannelPluginCatalogEntry(params.channel, {'
+
+====================================================================================================
+entry-00495 critical_operation  src/commands/channel-setup/plugin-install.ts:276  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+      return (
+expected normalized: 'return ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/plugin-install.ts:276
+actual code:
+      return (
+actual normalized: 'return ('
+
+====================================================================================================
+entry-00495 trace[0]  src/commands/channel-setup/plugin-install.ts:277  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+        getChannelPluginCatalogEntry(params.channel, {
+expected normalized: 'getChannelPluginCatalogEntry(params.channel, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/plugin-install.ts:277
+actual code:
+        getChannelPluginCatalogEntry(params.channel, {
+actual normalized: 'getChannelPluginCatalogEntry(params.channel, {'
+
+====================================================================================================
+entry-00495 trace[1]  src/channels/plugins/catalog.ts:387  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    export function getChannelPluginCatalogEntry(
+expected normalized: 'export function getChannelPluginCatalogEntry('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:387
+actual code:
+    export function getChannelPluginCatalogEntry(
+actual normalized: 'export function getChannelPluginCatalogEntry('
+
+====================================================================================================
+entry-00495 trace[2]  src/channels/plugins/catalog.ts:332  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+        if (options.excludeWorkspace && candidate.origin === "workspace") {
+expected normalized: 'if (options.excludeWorkspace && candidate.origin === "workspace") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:332
+actual code:
+        if (options.excludeWorkspace && candidate.origin === "workspace") {
+actual normalized: 'if (options.excludeWorkspace && candidate.origin === "workspace") {'
+
+====================================================================================================
+entry-00495 trace[3]  src/commands/channel-setup/plugin-install.ts:276  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+      return (
+expected normalized: 'return ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/channel-setup/plugin-install.ts:276
+actual code:
+      return (
+actual normalized: 'return ('

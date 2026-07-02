@@ -1,0 +1,224 @@
+====================================================================================================
+entry-00398 entry_point  src/gateway/server-methods/chat.ts:2032  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    GatewayClientScopes: client?.connect?.scopes ?? [],
+expected normalized: 'GatewayClientScopes: client?.connect?.scopes ?? [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:2032
+actual code:
+    <line outside file range>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2027 to 2037
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00398 critical_operation  src/auto-reply/reply/directive-handling.impl.ts:319-328  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    const shouldPersistSessionEntry =
+        (directives.hasThinkDirective && Boolean(directives.thinkLevel)) ||
+        (directives.hasFastDirective && directives.fastMode !== undefined) ||
+        (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) ||
+        (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) ||
+        (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) ||
+        (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) ||
+        Boolean(modelSelection) ||
+        directives.hasQueueDirective ||
+        shouldDowngradeXHigh;
+expected normalized: 'const shouldPersistSessionEntry = (directives.hasThinkDirective && Boolean(directives.thinkLevel)) || (directives.hasFastDirective && directives.fastMode !== undefined) || (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) || (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) || (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) || (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) || Boolean(modelSelection) || directives.hasQueueDirective || shouldDowngradeXHigh;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.impl.ts:319-328
+actual code:
+      const shouldPersistSessionEntry =
+        (directives.hasThinkDirective && Boolean(directives.thinkLevel)) ||
+        (directives.hasFastDirective && directives.fastMode !== undefined) ||
+        (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) ||
+        (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) ||
+        (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) ||
+        (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) ||
+        Boolean(modelSelection) ||
+        directives.hasQueueDirective ||
+        shouldDowngradeXHigh;
+actual normalized: 'const shouldPersistSessionEntry = (directives.hasThinkDirective && Boolean(directives.thinkLevel)) || (directives.hasFastDirective && directives.fastMode !== undefined) || (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) || (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) || (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) || (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) || Boolean(modelSelection) || directives.hasQueueDirective || shouldDowngradeXHigh;'
+
+====================================================================================================
+entry-00398 trace[0]  src/gateway/server-methods/chat.ts:2011-2020  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    GatewayClientScopes: client?.connect?.scopes ?? [],
+expected normalized: 'GatewayClientScopes: client?.connect?.scopes ?? [],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:2011
+actual code:
+    <line outside file range>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2006 to 2016
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00398 trace[1]  src/gateway/server-methods/chat.ts:2173  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    void dispatchInboundMessage({
+      ctx,
+      cfg,
+      dispatcher,
+      ...
+    });
+expected normalized: 'void dispatchInboundMessage({ ctx, cfg, dispatcher, ... });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:2173
+actual code:
+    <line outside file range>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 2168 to 2178
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 1774 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00398 trace[2]  src/auto-reply/reply/directive-handling.impl.ts:98-101  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    const allowInternalExecPersistence = canPersistInternalExecDirective({
+        surface: params.surface,
+        gatewayClientScopes: params.gatewayClientScopes,
+      });
+expected normalized: 'const allowInternalExecPersistence = canPersistInternalExecDirective({ surface: params.surface, gatewayClientScopes: params.gatewayClientScopes, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.impl.ts:98-101
+actual code:
+      const allowInternalExecPersistence = canPersistInternalExecDirective({
+        surface: params.surface,
+        gatewayClientScopes: params.gatewayClientScopes,
+      });
+actual normalized: 'const allowInternalExecPersistence = canPersistInternalExecDirective({ surface: params.surface, gatewayClientScopes: params.gatewayClientScopes, });'
+
+====================================================================================================
+entry-00398 trace[3]  src/auto-reply/reply/directive-handling.impl.ts:319-328  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    const shouldPersistSessionEntry =
+        (directives.hasThinkDirective && Boolean(directives.thinkLevel)) ||
+        (directives.hasFastDirective && directives.fastMode !== undefined) ||
+        (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) ||
+        (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) ||
+        (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) ||
+        (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) ||
+        Boolean(modelSelection) ||
+        directives.hasQueueDirective ||
+        shouldDowngradeXHigh;
+expected normalized: 'const shouldPersistSessionEntry = (directives.hasThinkDirective && Boolean(directives.thinkLevel)) || (directives.hasFastDirective && directives.fastMode !== undefined) || (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) || (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) || (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) || (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) || Boolean(modelSelection) || directives.hasQueueDirective || shouldDowngradeXHigh;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.impl.ts:319-328
+actual code:
+      const shouldPersistSessionEntry =
+        (directives.hasThinkDirective && Boolean(directives.thinkLevel)) ||
+        (directives.hasFastDirective && directives.fastMode !== undefined) ||
+        (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) ||
+        (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) ||
+        (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) ||
+        (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) ||
+        Boolean(modelSelection) ||
+        directives.hasQueueDirective ||
+        shouldDowngradeXHigh;
+actual normalized: 'const shouldPersistSessionEntry = (directives.hasThinkDirective && Boolean(directives.thinkLevel)) || (directives.hasFastDirective && directives.fastMode !== undefined) || (directives.hasVerboseDirective && Boolean(directives.verboseLevel)) || (directives.hasReasoningDirective && Boolean(directives.reasoningLevel)) || (directives.hasElevatedDirective && Boolean(directives.elevatedLevel)) || (directives.hasExecDirective && directives.hasExecOptions && allowInternalExecPersistence) || Boolean(modelSelection) || directives.hasQueueDirective || shouldDowngradeXHigh;'
+
+====================================================================================================
+entry-00398 trace[4]  src/auto-reply/reply/directive-handling.impl.ts:345-347  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+        }
+expected normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.impl.ts:345-347
+actual code:
+        if (directives.hasVerboseDirective && directives.verboseLevel) {
+          applyVerboseOverride(sessionEntry, directives.verboseLevel);
+        }
+actual normalized: 'if (directives.hasVerboseDirective && directives.verboseLevel) { applyVerboseOverride(sessionEntry, directives.verboseLevel); }'
+
+====================================================================================================
+entry-00398 trace[5]  src/auto-reply/reply/directive-handling.impl.ts:413-421  report=GHSA-5H2W-QMFP-GGP6
+repo=https://github.com/openclaw/openclaw
+commit=55cd272fe1a6822ec9be91022a257f195fe1639a
+expected code:
+    sessionEntry.updatedAt = Date.now();
+    sessionStore[sessionKey] = sessionEntry;
+    if (storePath) {
+      await updateSessionStore(storePath, (store) => {
+        store[sessionKey] = sessionEntry;
+      });
+    }
+expected normalized: 'sessionEntry.updatedAt = Date.now(); sessionStore[sessionKey] = sessionEntry; if (storePath) { await updateSessionStore(storePath, (store) => { store[sessionKey] = sessionEntry; }); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/directive-handling.impl.ts:413-419
+actual code:
+        }
+        if (modelSelection && modelSelectionUpdated) {
+          requestLiveSessionModelSwitch({
+            sessionEntry,
+            selection: {
+              provider: modelSelection.provider,
+              model: modelSelection.model,
+actual normalized: '} if (modelSelection && modelSelectionUpdated) { requestLiveSessionModelSwitch({ sessionEntry, selection: { provider: modelSelection.provider, model: modelSelection.model,'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 408 to 418
+----------------------------------------------------------------------------------------------------
+step=same_file status=unique_match
+detail=search entire original file with 551 lines
+candidates (1):
+  [1] src/auto-reply/reply/directive-handling.impl.ts:407-413
+          sessionEntry.updatedAt = Date.now();
+          sessionStore[sessionKey] = sessionEntry;
+          if (storePath) {
+            await updateSessionStore(storePath, (store) => {
+              store[sessionKey] = sessionEntry;
+            });
+          }

@@ -1,0 +1,111 @@
+====================================================================================================
+entry-00081 entry_point  internal/handler/mcp_service.go:356  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {
+expected normalized: 'func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/mcp_service.go:356
+actual code:
+    func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {
+actual normalized: 'func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {'
+
+====================================================================================================
+entry-00081 critical_operation  internal/mcp/client.go:120  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	case types.MCPTransportStdio:
+expected normalized: 'case types.MCPTransportStdio:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/mcp/client.go:120
+actual code:
+    	case types.MCPTransportStdio:
+actual normalized: 'case types.MCPTransportStdio:'
+
+====================================================================================================
+entry-00081 trace[0]  internal/handler/mcp_service.go:356  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {
+expected normalized: 'func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/mcp_service.go:356
+actual code:
+    func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {
+actual normalized: 'func (h *MCPServiceHandler) GetMCPServiceTools(c *gin.Context) {'
+
+====================================================================================================
+entry-00081 trace[1]  internal/application/service/mcp_service.go:321-323  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	// Get or create client
+    	client, err := s.mcpManager.GetOrCreateClient(service)
+    	if err != nil {
+expected normalized: '// Get or create client client, err := s.mcpManager.GetOrCreateClient(service) if err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/application/service/mcp_service.go:321-323
+actual code:
+    	// Get or create client
+    	client, err := s.mcpManager.GetOrCreateClient(service)
+    	if err != nil {
+actual normalized: '// Get or create client client, err := s.mcpManager.GetOrCreateClient(service) if err != nil {'
+
+====================================================================================================
+entry-00081 trace[2]  internal/mcp/manager.go:47-48  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	if service.TransportType == types.MCPTransportStdio {
+    		return m.createStdioClient(service)
+expected normalized: 'if service.TransportType == types.MCPTransportStdio { return m.createStdioClient(service)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/mcp/manager.go:47-48
+actual code:
+    	if service.TransportType == types.MCPTransportStdio {
+    		return m.createStdioClient(service)
+actual normalized: 'if service.TransportType == types.MCPTransportStdio { return m.createStdioClient(service)'
+
+====================================================================================================
+entry-00081 trace[3]  internal/mcp/client.go:120-128  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	case types.MCPTransportStdio:
+    		if config.Service.StdioConfig == nil {
+    			return nil, fmt.Errorf("stdio_config is required for stdio transport")
+    		}
+    
+    		// Convert env vars map to []string format (KEY=value)
+    		envVars := make([]string, 0, len(config.Service.EnvVars))
+    		for key, value := range config.Service.EnvVars {
+    			envVars = append(envVars, fmt.Sprintf("%s=%s", key, value))
+expected normalized: 'case types.MCPTransportStdio: if config.Service.StdioConfig == nil { return nil, fmt.Errorf("stdio_config is required for stdio transport") } // Convert env vars map to []string format (KEY=value) envVars := make([]string, 0, len(config.Service.EnvVars)) for key, value := range config.Service.EnvVars { envVars = append(envVars, fmt.Sprintf("%s=%s", key, value))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/mcp/client.go:120-128
+actual code:
+    	case types.MCPTransportStdio:
+    		if config.Service.StdioConfig == nil {
+    			return nil, fmt.Errorf("stdio_config is required for stdio transport")
+    		}
+    
+    		// Convert env vars map to []string format (KEY=value)
+    		envVars := make([]string, 0, len(config.Service.EnvVars))
+    		for key, value := range config.Service.EnvVars {
+    			envVars = append(envVars, fmt.Sprintf("%s=%s", key, value))
+actual normalized: 'case types.MCPTransportStdio: if config.Service.StdioConfig == nil { return nil, fmt.Errorf("stdio_config is required for stdio transport") } // Convert env vars map to []string format (KEY=value) envVars := make([]string, 0, len(config.Service.EnvVars)) for key, value := range config.Service.EnvVars { envVars = append(envVars, fmt.Sprintf("%s=%s", key, value))'

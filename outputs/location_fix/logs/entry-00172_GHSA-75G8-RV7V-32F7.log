@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00172 entry_point  packages/nodes-base/nodes/Form/utils/utils.ts:413  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+expected normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:413
+actual code:
+    	const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+actual normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+
+====================================================================================================
+entry-00172 critical_operation  packages/nodes-base/nodes/Form/utils/utils.ts:127  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);
+expected normalized: 'html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:127
+actual code:
+    				html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);
+actual normalized: 'html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);'
+
+====================================================================================================
+entry-00172 trace[0]  packages/nodes-base/nodes/Form/utils/utils.ts:413  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+expected normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:413
+actual code:
+    	const bodyData = (context.getBodyData().data as IDataObject) ?? {};
+actual normalized: 'const bodyData = (context.getBodyData().data as IDataObject) ?? {};'
+
+====================================================================================================
+entry-00172 trace[1]  packages/nodes-base/nodes/Form/utils/utils.ts:485  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    addFormResponseDataToReturnItem(returnItem, formFields, bodyData, context.getNode().typeVersion);
+expected normalized: 'addFormResponseDataToReturnItem(returnItem, formFields, bodyData, context.getNode().typeVersion);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:485
+actual code:
+    	addFormResponseDataToReturnItem(returnItem, formFields, bodyData, context.getNode().typeVersion);
+actual normalized: 'addFormResponseDataToReturnItem(returnItem, formFields, bodyData, context.getNode().typeVersion);'
+
+====================================================================================================
+entry-00172 trace[2]  packages/nodes-base/nodes/Form/utils/utils.ts:401  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    		returnItem.json[name] = value;
+expected normalized: 'returnItem.json[name] = value;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:401
+actual code:
+    		returnItem.json[name] = value;
+actual normalized: 'returnItem.json[name] = value;'
+
+====================================================================================================
+entry-00172 trace[3]  packages/nodes-base/nodes/Form/Form.node.ts:382  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    			fields = context.getNodeParameter('formFields.values', []) as FormFieldsParameter;
+expected normalized: "fields = context.getNodeParameter('formFields.values', []) as FormFieldsParameter;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/Form.node.ts:382
+actual code:
+    			fields = context.getNodeParameter('formFields.values', []) as FormFieldsParameter;
+actual normalized: "fields = context.getNodeParameter('formFields.values', []) as FormFieldsParameter;"
+
+====================================================================================================
+entry-00172 trace[4]  packages/nodes-base/nodes/Form/Form.node.ts:398  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    			return await renderFormNode(context, res, trigger, fields, mode);
+expected normalized: 'return await renderFormNode(context, res, trigger, fields, mode);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/Form.node.ts:398
+actual code:
+    			return await renderFormNode(context, res, trigger, fields, mode);
+actual normalized: 'return await renderFormNode(context, res, trigger, fields, mode);'
+
+====================================================================================================
+entry-00172 trace[5]  packages/nodes-base/nodes/Form/utils/utils.ts:555  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    formFields = prepareFormFields(context, formFields);
+expected normalized: 'formFields = prepareFormFields(context, formFields);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:555
+actual code:
+    	formFields = prepareFormFields(context, formFields);
+actual normalized: 'formFields = prepareFormFields(context, formFields);'
+
+====================================================================================================
+entry-00172 trace[6]  packages/nodes-base/nodes/Form/utils/utils.ts:126  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    			for (const resolvable of getResolvables(html)) {
+expected normalized: 'for (const resolvable of getResolvables(html)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:126
+actual code:
+    			for (const resolvable of getResolvables(html)) {
+actual normalized: 'for (const resolvable of getResolvables(html)) {'
+
+====================================================================================================
+entry-00172 trace[7]  packages/nodes-base/nodes/Form/utils/utils.ts:127  report=GHSA-75G8-RV7V-32F7
+repo=https://github.com/n8n-io/n8n
+commit=3f02194f6d17bc2b8c682e38a891413e48cbd0c1
+expected code:
+    				html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);
+expected normalized: 'html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Form/utils/utils.ts:127
+actual code:
+    				html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);
+actual normalized: 'html = html.replace(resolvable, context.evaluateExpression(resolvable) as string);'

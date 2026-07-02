@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00473 entry_point  packages/server/src/services/fetch-links/index.ts:6  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {
+expected normalized: 'const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/fetch-links/index.ts:6
+actual code:
+    const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {
+actual normalized: 'const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {'
+
+====================================================================================================
+entry-00473 critical_operation  packages/components/src/httpSecurity.ts:42  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        if (!httpDenyListString) return
+expected normalized: 'if (!httpDenyListString) return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:42
+actual code:
+        if (!httpDenyListString) return
+actual normalized: 'if (!httpDenyListString) return'
+
+====================================================================================================
+entry-00473 trace[0]  packages/server/src/services/fetch-links/index.ts:6  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {
+expected normalized: 'const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/fetch-links/index.ts:6
+actual code:
+    const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {
+actual normalized: 'const getAllLinks = async (requestUrl: string, relativeLinksMethod: string, queryLimit: string): Promise<any> => {'
+
+====================================================================================================
+entry-00473 trace[1]  packages/server/src/services/fetch-links/index.ts:9  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            await checkDenyList(url)
+expected normalized: 'await checkDenyList(url)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/fetch-links/index.ts:9
+actual code:
+            await checkDenyList(url)
+actual normalized: 'await checkDenyList(url)'
+
+====================================================================================================
+entry-00473 trace[2]  packages/components/src/httpSecurity.ts:41  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        const httpDenyListString: string | undefined = process.env.HTTP_DENY_LIST
+expected normalized: 'const httpDenyListString: string | undefined = process.env.HTTP_DENY_LIST'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:41
+actual code:
+        const httpDenyListString: string | undefined = process.env.HTTP_DENY_LIST
+actual normalized: 'const httpDenyListString: string | undefined = process.env.HTTP_DENY_LIST'
+
+====================================================================================================
+entry-00473 trace[3]  packages/components/src/httpSecurity.ts:42  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        if (!httpDenyListString) return
+expected normalized: 'if (!httpDenyListString) return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:42
+actual code:
+        if (!httpDenyListString) return
+actual normalized: 'if (!httpDenyListString) return'

@@ -1,0 +1,209 @@
+====================================================================================================
+entry-00410 entry_point  src/agents/pi-tools.ts:379-386  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        if (tool.name === readTool.name) {
+          if (sandboxRoot) {
+            const sandboxed = createSandboxedReadTool({
+              root: sandboxRoot,
+              bridge: sandboxFsBridge!,
+              modelContextWindowTokens: options?.modelContextWindowTokens,
+              imageSanitization,
+            });
+expected normalized: 'if (tool.name === readTool.name) { if (sandboxRoot) { const sandboxed = createSandboxedReadTool({ root: sandboxRoot, bridge: sandboxFsBridge!, modelContextWindowTokens: options?.modelContextWindowTokens, imageSanitization, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:379-386
+actual code:
+        if (tool.name === readTool.name) {
+          if (sandboxRoot) {
+            const sandboxed = createSandboxedReadTool({
+              root: sandboxRoot,
+              bridge: sandboxFsBridge!,
+              modelContextWindowTokens: options?.modelContextWindowTokens,
+              imageSanitization,
+            });
+actual normalized: 'if (tool.name === readTool.name) { if (sandboxRoot) { const sandboxed = createSandboxedReadTool({ root: sandboxRoot, bridge: sandboxFsBridge!, modelContextWindowTokens: options?.modelContextWindowTokens, imageSanitization, });'
+
+====================================================================================================
+entry-00410 critical_operation  src/agents/sandbox/remote-fs-bridge.ts:73-77  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        const result = await this.runRemoteScript({
+          script: 'set -eu\ncat -- "$1"',
+          args: [canonical],
+          signal: params.signal,
+        });
+expected normalized: 'const result = await this.runRemoteScript({ script: \'set -eu\\ncat -- "$1"\', args: [canonical], signal: params.signal, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/remote-fs-bridge.ts:73-77
+actual code:
+        const result = await this.runRemoteScript({
+          script: 'set -eu\ncat -- "$1"',
+          args: [canonical],
+          signal: params.signal,
+        });
+actual normalized: 'const result = await this.runRemoteScript({ script: \'set -eu\\ncat -- "$1"\', args: [canonical], signal: params.signal, });'
+
+====================================================================================================
+entry-00410 trace[0]  src/agents/pi-tools.ts:379-386  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        if (tool.name === readTool.name) {
+          if (sandboxRoot) {
+            const sandboxed = createSandboxedReadTool({
+              root: sandboxRoot,
+              bridge: sandboxFsBridge!,
+              modelContextWindowTokens: options?.modelContextWindowTokens,
+              imageSanitization,
+            });
+expected normalized: 'if (tool.name === readTool.name) { if (sandboxRoot) { const sandboxed = createSandboxedReadTool({ root: sandboxRoot, bridge: sandboxFsBridge!, modelContextWindowTokens: options?.modelContextWindowTokens, imageSanitization, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:379-386
+actual code:
+        if (tool.name === readTool.name) {
+          if (sandboxRoot) {
+            const sandboxed = createSandboxedReadTool({
+              root: sandboxRoot,
+              bridge: sandboxFsBridge!,
+              modelContextWindowTokens: options?.modelContextWindowTokens,
+              imageSanitization,
+            });
+actual normalized: 'if (tool.name === readTool.name) { if (sandboxRoot) { const sandboxed = createSandboxedReadTool({ root: sandboxRoot, bridge: sandboxFsBridge!, modelContextWindowTokens: options?.modelContextWindowTokens, imageSanitization, });'
+
+====================================================================================================
+entry-00410 trace[1]  src/agents/pi-tools.read.ts:670-671  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        readFile: (absolutePath: string) =>
+          params.bridge.readFile({ filePath: absolutePath, cwd: params.root }),
+expected normalized: 'readFile: (absolutePath: string) => params.bridge.readFile({ filePath: absolutePath, cwd: params.root }),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.read.ts:670-671
+actual code:
+        readFile: (absolutePath: string) =>
+          params.bridge.readFile({ filePath: absolutePath, cwd: params.root }),
+actual normalized: 'readFile: (absolutePath: string) => params.bridge.readFile({ filePath: absolutePath, cwd: params.root }),'
+
+====================================================================================================
+entry-00410 trace[2]  src/agents/sandbox/remote-fs-bridge.ts:58-67  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        filePath: string;
+        cwd?: string;
+        signal?: AbortSignal;
+      }): Promise<Buffer> {
+        const target = this.resolveTarget(params);
+        const canonical = await this.resolveCanonicalPath({
+          containerPath: target.containerPath,
+          action: "read files",
+          signal: params.signal,
+        });
+expected normalized: 'filePath: string; cwd?: string; signal?: AbortSignal; }): Promise<Buffer> { const target = this.resolveTarget(params); const canonical = await this.resolveCanonicalPath({ containerPath: target.containerPath, action: "read files", signal: params.signal, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/remote-fs-bridge.ts:58-67
+actual code:
+        filePath: string;
+        cwd?: string;
+        signal?: AbortSignal;
+      }): Promise<Buffer> {
+        const target = this.resolveTarget(params);
+        const canonical = await this.resolveCanonicalPath({
+          containerPath: target.containerPath,
+          action: "read files",
+          signal: params.signal,
+        });
+actual normalized: 'filePath: string; cwd?: string; signal?: AbortSignal; }): Promise<Buffer> { const target = this.resolveTarget(params); const canonical = await this.resolveCanonicalPath({ containerPath: target.containerPath, action: "read files", signal: params.signal, });'
+
+====================================================================================================
+entry-00410 trace[3]  src/agents/sandbox/remote-fs-bridge.ts:391-400  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+          args: [params.containerPath, params.allowFinalSymlinkForUnlink ? "1" : "0"],
+          signal: params.signal,
+        });
+        const canonical = normalizeContainerPath(result.stdout.toString("utf8").trim());
+        if (!this.resolveMountByContainerPath(this.getMounts(), canonical)) {
+          throw new Error(
+            `Sandbox path escapes allowed mounts; cannot ${params.action}: ${params.containerPath}`,
+          );
+        }
+        return canonical;
+expected normalized: 'args: [params.containerPath, params.allowFinalSymlinkForUnlink ? "1" : "0"], signal: params.signal, }); const canonical = normalizeContainerPath(result.stdout.toString("utf8").trim()); if (!this.resolveMountByContainerPath(this.getMounts(), canonical)) { throw new Error( `Sandbox path escapes allowed mounts; cannot ${params.action}: ${params.containerPath}`, ); } return canonical;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/remote-fs-bridge.ts:391-400
+actual code:
+          args: [params.containerPath, params.allowFinalSymlinkForUnlink ? "1" : "0"],
+          signal: params.signal,
+        });
+        const canonical = normalizeContainerPath(result.stdout.toString("utf8").trim());
+        if (!this.resolveMountByContainerPath(this.getMounts(), canonical)) {
+          throw new Error(
+            `Sandbox path escapes allowed mounts; cannot ${params.action}: ${params.containerPath}`,
+          );
+        }
+        return canonical;
+actual normalized: 'args: [params.containerPath, params.allowFinalSymlinkForUnlink ? "1" : "0"], signal: params.signal, }); const canonical = normalizeContainerPath(result.stdout.toString("utf8").trim()); if (!this.resolveMountByContainerPath(this.getMounts(), canonical)) { throw new Error( `Sandbox path escapes allowed mounts; cannot ${params.action}: ${params.containerPath}`, ); } return canonical;'
+
+====================================================================================================
+entry-00410 trace[4]  src/agents/sandbox/remote-fs-bridge.ts:68-72  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        await this.assertNoHardlinkedFile({
+          containerPath: canonical,
+          action: "read files",
+          signal: params.signal,
+        });
+expected normalized: 'await this.assertNoHardlinkedFile({ containerPath: canonical, action: "read files", signal: params.signal, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/remote-fs-bridge.ts:68-72
+actual code:
+        await this.assertNoHardlinkedFile({
+          containerPath: canonical,
+          action: "read files",
+          signal: params.signal,
+        });
+actual normalized: 'await this.assertNoHardlinkedFile({ containerPath: canonical, action: "read files", signal: params.signal, });'
+
+====================================================================================================
+entry-00410 trace[5]  src/agents/sandbox/remote-fs-bridge.ts:73-77  report=GHSA-9P3R-HH9G-5CMG
+repo=https://github.com/openclaw/openclaw
+commit=7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d
+expected code:
+        const result = await this.runRemoteScript({
+          script: 'set -eu\ncat -- "$1"',
+          args: [canonical],
+          signal: params.signal,
+        });
+expected normalized: 'const result = await this.runRemoteScript({ script: \'set -eu\\ncat -- "$1"\', args: [canonical], signal: params.signal, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/remote-fs-bridge.ts:73-77
+actual code:
+        const result = await this.runRemoteScript({
+          script: 'set -eu\ncat -- "$1"',
+          args: [canonical],
+          signal: params.signal,
+        });
+actual normalized: 'const result = await this.runRemoteScript({ script: \'set -eu\\ncat -- "$1"\', args: [canonical], signal: params.signal, });'

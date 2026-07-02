@@ -1,0 +1,106 @@
+====================================================================================================
+entry-00260 entry_point  packages/server/src/index.ts:229  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                        } else if (req.headers['x-request-from'] === 'internal') {
+expected normalized: "} else if (req.headers['x-request-from'] === 'internal') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:229
+actual code:
+                        } else if (req.headers['x-request-from'] === 'internal') {
+actual normalized: "} else if (req.headers['x-request-from'] === 'internal') {"
+
+====================================================================================================
+entry-00260 critical_operation  packages/server/src/controllers/apikey/index.ts:30  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)
+expected normalized: 'const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/apikey/index.ts:30
+actual code:
+            const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)
+actual normalized: 'const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)'
+
+====================================================================================================
+entry-00260 trace[0]  packages/server/src/index.ts:229-230  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                        } else if (req.headers['x-request-from'] === 'internal') {
+                            verifyToken(req, res, next)
+expected normalized: "} else if (req.headers['x-request-from'] === 'internal') { verifyToken(req, res, next)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:229-230
+actual code:
+                        } else if (req.headers['x-request-from'] === 'internal') {
+                            verifyToken(req, res, next)
+actual normalized: "} else if (req.headers['x-request-from'] === 'internal') { verifyToken(req, res, next)"
+
+====================================================================================================
+entry-00260 trace[1]  packages/server/src/enterprise/middleware/passport/index.ts:427  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            req.user = user
+expected normalized: 'req.user = user'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/middleware/passport/index.ts:427
+actual code:
+            req.user = user
+actual normalized: 'req.user = user'
+
+====================================================================================================
+entry-00260 trace[2]  packages/server/src/enterprise/rbac/PermissionCheck.ts:10  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                if (user.isOrganizationAdmin) {
+expected normalized: 'if (user.isOrganizationAdmin) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/rbac/PermissionCheck.ts:10
+actual code:
+                if (user.isOrganizationAdmin) {
+actual normalized: 'if (user.isOrganizationAdmin) {'
+
+====================================================================================================
+entry-00260 trace[3]  packages/server/src/routes/apikey/index.ts:7  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.post('/', checkPermission('apikeys:create'), apikeyController.createApiKey)
+expected normalized: "router.post('/', checkPermission('apikeys:create'), apikeyController.createApiKey)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/apikey/index.ts:7
+actual code:
+    router.post('/', checkPermission('apikeys:create'), apikeyController.createApiKey)
+actual normalized: "router.post('/', checkPermission('apikeys:create'), apikeyController.createApiKey)"
+
+====================================================================================================
+entry-00260 trace[4]  packages/server/src/controllers/apikey/index.ts:30  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)
+expected normalized: 'const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/apikey/index.ts:30
+actual code:
+            const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)
+actual normalized: 'const apiResponse = await apikeyService.createApiKey(req.body.keyName, req.user?.activeWorkspaceId)'

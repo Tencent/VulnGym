@@ -1,0 +1,204 @@
+====================================================================================================
+entry-00148 entry_point  extensions/googlechat/src/monitor.ts:148  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+    export async function handleGoogleChatWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+expected normalized: 'export async function handleGoogleChatWebhookRequest( req: IncomingMessage, res: ServerResponse,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:148-150
+actual code:
+    export async function handleGoogleChatWebhookRequest(
+      req: IncomingMessage,
+      res: ServerResponse,
+actual normalized: 'export async function handleGoogleChatWebhookRequest( req: IncomingMessage, res: ServerResponse,'
+
+====================================================================================================
+entry-00148 critical_operation  extensions/googlechat/src/monitor.ts:273  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      processGoogleChatEvent(event, selected).catch((err) => {
+        selected?.runtime.error?.(
+          `[${selected.account.accountId}] Google Chat webhook failed: ${String(err)}`,
+        );
+      });
+expected normalized: 'processGoogleChatEvent(event, selected).catch((err) => { selected?.runtime.error?.( `[${selected.account.accountId}] Google Chat webhook failed: ${String(err)}`, ); });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:273-277
+actual code:
+      processGoogleChatEvent(event, selected).catch((err) => {
+        selected?.runtime.error?.(
+          `[${selected.account.accountId}] Google Chat webhook failed: ${String(err)}`,
+        );
+      });
+actual normalized: 'processGoogleChatEvent(event, selected).catch((err) => { selected?.runtime.error?.( `[${selected.account.accountId}] Google Chat webhook failed: ${String(err)}`, ); });'
+
+====================================================================================================
+entry-00148 trace[0]  extensions/googlechat/src/monitor.ts:152  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      const url = new URL(req.url ?? "/", "http://localhost");
+      const path = normalizeWebhookPath(url.pathname);
+expected normalized: 'const url = new URL(req.url ?? "/", "http://localhost"); const path = normalizeWebhookPath(url.pathname);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:152-153
+actual code:
+      const url = new URL(req.url ?? "/", "http://localhost");
+      const path = normalizeWebhookPath(url.pathname);
+actual normalized: 'const url = new URL(req.url ?? "/", "http://localhost"); const path = normalizeWebhookPath(url.pathname);'
+
+====================================================================================================
+entry-00148 trace[1]  extensions/googlechat/src/monitor.ts:154  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      const targets = webhookTargets.get(path);
+expected normalized: 'const targets = webhookTargets.get(path);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:154
+actual code:
+      const targets = webhookTargets.get(path);
+actual normalized: 'const targets = webhookTargets.get(path);'
+
+====================================================================================================
+entry-00148 trace[2]  extensions/googlechat/src/monitor.ts:247  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      const effectiveBearer = authHeaderNow.toLowerCase().startsWith("bearer ")
+        ? authHeaderNow.slice("bearer ".length)
+        : bearer;
+expected normalized: 'const effectiveBearer = authHeaderNow.toLowerCase().startsWith("bearer ") ? authHeaderNow.slice("bearer ".length) : bearer;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:247-249
+actual code:
+      const effectiveBearer = authHeaderNow.toLowerCase().startsWith("bearer ")
+        ? authHeaderNow.slice("bearer ".length)
+        : bearer;
+actual normalized: 'const effectiveBearer = authHeaderNow.toLowerCase().startsWith("bearer ") ? authHeaderNow.slice("bearer ".length) : bearer;'
+
+====================================================================================================
+entry-00148 trace[3]  extensions/googlechat/src/monitor.ts:251  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      let selected: WebhookTarget | undefined;
+expected normalized: 'let selected: WebhookTarget | undefined;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:251
+actual code:
+      let selected: WebhookTarget | undefined;
+actual normalized: 'let selected: WebhookTarget | undefined;'
+
+====================================================================================================
+entry-00148 trace[4]  extensions/googlechat/src/monitor.ts:252  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      for (const target of targets) {
+expected normalized: 'for (const target of targets) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:252
+actual code:
+      for (const target of targets) {
+actual normalized: 'for (const target of targets) {'
+
+====================================================================================================
+entry-00148 trace[5]  extensions/googlechat/src/monitor.ts:255  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+        const verification = await verifyGoogleChatRequest({
+          bearer: effectiveBearer,
+          audienceType,
+          audience,
+        });
+expected normalized: 'const verification = await verifyGoogleChatRequest({ bearer: effectiveBearer, audienceType, audience, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:255-259
+actual code:
+        const verification = await verifyGoogleChatRequest({
+          bearer: effectiveBearer,
+          audienceType,
+          audience,
+        });
+actual normalized: 'const verification = await verifyGoogleChatRequest({ bearer: effectiveBearer, audienceType, audience, });'
+
+====================================================================================================
+entry-00148 trace[6]  extensions/googlechat/src/monitor.ts:260  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+        if (verification.ok) {
+          selected = target;
+          break;
+        }
+expected normalized: 'if (verification.ok) { selected = target; break; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:260-263
+actual code:
+        if (verification.ok) {
+          selected = target;
+          break;
+        }
+actual normalized: 'if (verification.ok) { selected = target; break; }'
+
+====================================================================================================
+entry-00148 trace[7]  extensions/googlechat/src/monitor.ts:266  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      if (!selected) {
+        res.statusCode = 401;
+        res.end("unauthorized");
+        return true;
+      }
+expected normalized: 'if (!selected) { res.statusCode = 401; res.end("unauthorized"); return true; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:266-270
+actual code:
+      if (!selected) {
+        res.statusCode = 401;
+        res.end("unauthorized");
+        return true;
+      }
+actual normalized: 'if (!selected) { res.statusCode = 401; res.end("unauthorized"); return true; }'
+
+====================================================================================================
+entry-00148 trace[8]  extensions/googlechat/src/monitor.ts:272  report=GHSA-RQ6G-PX6M-C248
+repo=https://github.com/openclaw/openclaw
+commit=9dce3d8bf83f13c067bc3c32291643d2f1f10a06
+expected code:
+      selected.statusSink?.({ lastInboundAt: Date.now() });
+expected normalized: 'selected.statusSink?.({ lastInboundAt: Date.now() });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/googlechat/src/monitor.ts:272
+actual code:
+      selected.statusSink?.({ lastInboundAt: Date.now() });
+actual normalized: 'selected.statusSink?.({ lastInboundAt: Date.now() });'

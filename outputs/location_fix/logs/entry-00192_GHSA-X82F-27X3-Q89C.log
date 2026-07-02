@@ -1,0 +1,162 @@
+====================================================================================================
+entry-00192 entry_point  src/gateway/server-methods/agents.ts:666  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      "agents.files.set": async ({ params, respond }) => {
+expected normalized: '"agents.files.set": async ({ params, respond }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agents.ts:666
+actual code:
+      "agents.files.set": async ({ params, respond }) => {
+actual normalized: '"agents.files.set": async ({ params, respond }) => {'
+
+====================================================================================================
+entry-00192 critical_operation  src/infra/fs-safe.ts:225  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);
+expected normalized: 'handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/fs-safe.ts:225
+actual code:
+        handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);
+actual normalized: 'handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);'
+
+====================================================================================================
+entry-00192 trace[0]  src/gateway/server-methods/agents.ts:666  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      "agents.files.set": async ({ params, respond }) => {
+expected normalized: '"agents.files.set": async ({ params, respond }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agents.ts:666
+actual code:
+      "agents.files.set": async ({ params, respond }) => {
+actual normalized: '"agents.files.set": async ({ params, respond }) => {'
+
+====================================================================================================
+entry-00192 trace[1]  src/gateway/server-methods/agents.ts:703-710  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        const content = String(params.content ?? "");
+        try {
+          await writeFileWithinRoot({
+            rootDir: workspaceDir,
+            relativePath: name,
+            data: content,
+            encoding: "utf8",
+          });
+expected normalized: 'const content = String(params.content ?? ""); try { await writeFileWithinRoot({ rootDir: workspaceDir, relativePath: name, data: content, encoding: "utf8", });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agents.ts:703-710
+actual code:
+        const content = String(params.content ?? "");
+        try {
+          await writeFileWithinRoot({
+            rootDir: workspaceDir,
+            relativePath: name,
+            data: content,
+            encoding: "utf8",
+          });
+actual normalized: 'const content = String(params.content ?? ""); try { await writeFileWithinRoot({ rootDir: workspaceDir, relativePath: name, data: content, encoding: "utf8", });'
+
+====================================================================================================
+entry-00192 trace[2]  src/infra/fs-safe.ts:190-199  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      const resolved = path.resolve(rootWithSep, params.relativePath);
+      if (!isPathInside(rootWithSep, resolved)) {
+        throw new SafeOpenError("invalid-path", "path escapes root");
+      }
+      try {
+        await assertNoPathAliasEscape({
+          absolutePath: resolved,
+          rootPath: rootReal,
+          boundaryLabel: "root",
+        });
+expected normalized: 'const resolved = path.resolve(rootWithSep, params.relativePath); if (!isPathInside(rootWithSep, resolved)) { throw new SafeOpenError("invalid-path", "path escapes root"); } try { await assertNoPathAliasEscape({ absolutePath: resolved, rootPath: rootReal, boundaryLabel: "root", });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/fs-safe.ts:190-199
+actual code:
+      const resolved = path.resolve(rootWithSep, params.relativePath);
+      if (!isPathInside(rootWithSep, resolved)) {
+        throw new SafeOpenError("invalid-path", "path escapes root");
+      }
+      try {
+        await assertNoPathAliasEscape({
+          absolutePath: resolved,
+          rootPath: rootReal,
+          boundaryLabel: "root",
+        });
+actual normalized: 'const resolved = path.resolve(rootWithSep, params.relativePath); if (!isPathInside(rootWithSep, resolved)) { throw new SafeOpenError("invalid-path", "path escapes root"); } try { await assertNoPathAliasEscape({ absolutePath: resolved, rootPath: rootReal, boundaryLabel: "root", });'
+
+====================================================================================================
+entry-00192 trace[3]  src/infra/fs-safe.ts:42-46  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    const OPEN_WRITE_FLAGS =
+      fsConstants.O_WRONLY |
+      fsConstants.O_CREAT |
+      fsConstants.O_TRUNC |
+      (SUPPORTS_NOFOLLOW ? fsConstants.O_NOFOLLOW : 0);
+expected normalized: 'const OPEN_WRITE_FLAGS = fsConstants.O_WRONLY | fsConstants.O_CREAT | fsConstants.O_TRUNC | (SUPPORTS_NOFOLLOW ? fsConstants.O_NOFOLLOW : 0);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/fs-safe.ts:42-46
+actual code:
+    const OPEN_WRITE_FLAGS =
+      fsConstants.O_WRONLY |
+      fsConstants.O_CREAT |
+      fsConstants.O_TRUNC |
+      (SUPPORTS_NOFOLLOW ? fsConstants.O_NOFOLLOW : 0);
+actual normalized: 'const OPEN_WRITE_FLAGS = fsConstants.O_WRONLY | fsConstants.O_CREAT | fsConstants.O_TRUNC | (SUPPORTS_NOFOLLOW ? fsConstants.O_NOFOLLOW : 0);'
+
+====================================================================================================
+entry-00192 trace[4]  src/infra/fs-safe.ts:236-245  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      try {
+        const [stat, lstat] = await Promise.all([handle.stat(), fs.lstat(ioPath)]);
+        if (lstat.isSymbolicLink() || !stat.isFile()) {
+          throw new SafeOpenError("invalid-path", "path is not a regular file under root");
+        }
+        if (stat.nlink > 1) {
+          throw new SafeOpenError("invalid-path", "hardlinked path not allowed");
+        }
+        if (!sameFileIdentity(stat, lstat)) {
+          throw new SafeOpenError("path-mismatch", "path changed during write");
+expected normalized: 'try { const [stat, lstat] = await Promise.all([handle.stat(), fs.lstat(ioPath)]); if (lstat.isSymbolicLink() || !stat.isFile()) { throw new SafeOpenError("invalid-path", "path is not a regular file under root"); } if (stat.nlink > 1) { throw new SafeOpenError("invalid-path", "hardlinked path not allowed"); } if (!sameFileIdentity(stat, lstat)) { throw new SafeOpenError("path-mismatch", "path changed during write");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/fs-safe.ts:236-245
+actual code:
+      try {
+        const [stat, lstat] = await Promise.all([handle.stat(), fs.lstat(ioPath)]);
+        if (lstat.isSymbolicLink() || !stat.isFile()) {
+          throw new SafeOpenError("invalid-path", "path is not a regular file under root");
+        }
+        if (stat.nlink > 1) {
+          throw new SafeOpenError("invalid-path", "hardlinked path not allowed");
+        }
+        if (!sameFileIdentity(stat, lstat)) {
+          throw new SafeOpenError("path-mismatch", "path changed during write");
+actual normalized: 'try { const [stat, lstat] = await Promise.all([handle.stat(), fs.lstat(ioPath)]); if (lstat.isSymbolicLink() || !stat.isFile()) { throw new SafeOpenError("invalid-path", "path is not a regular file under root"); } if (stat.nlink > 1) { throw new SafeOpenError("invalid-path", "hardlinked path not allowed"); } if (!sameFileIdentity(stat, lstat)) { throw new SafeOpenError("path-mismatch", "path changed during write");'

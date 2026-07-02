@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00348 entry_point  nemo/collections/tts/models/magpietts_preference_optimization.py:226  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):
+expected normalized: "def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:226
+actual code:
+        def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):
+actual normalized: "def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):"
+
+====================================================================================================
+entry-00348 critical_operation  nemo/collections/tts/models/magpietts_preference_optimization.py:235  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)['state_dict']
+expected normalized: 'torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)[\'state_dict\']'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:235
+actual code:
+                torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)['state_dict']
+actual normalized: 'torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)[\'state_dict\']'
+
+====================================================================================================
+entry-00348 trace[0]  nemo/collections/tts/models/magpietts_preference_optimization.py:226  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):
+expected normalized: "def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:226
+actual code:
+        def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):
+actual normalized: "def __init__(self, cfg: DictConfig, trainer: 'Trainer' = None):"
+
+====================================================================================================
+entry-00348 trace[1]  nemo/collections/tts/models/magpietts_preference_optimization.py:228  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            ref_model_cfg = copy.deepcopy(cfg)
+expected normalized: 'ref_model_cfg = copy.deepcopy(cfg)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:228
+actual code:
+            ref_model_cfg = copy.deepcopy(cfg)
+actual normalized: 'ref_model_cfg = copy.deepcopy(cfg)'
+
+====================================================================================================
+entry-00348 trace[2]  nemo/collections/tts/models/magpietts_preference_optimization.py:234  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            self._reference_model.load_state_dict(
+expected normalized: 'self._reference_model.load_state_dict('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:234
+actual code:
+            self._reference_model.load_state_dict(
+actual normalized: 'self._reference_model.load_state_dict('
+
+====================================================================================================
+entry-00348 trace[3]  nemo/collections/tts/models/magpietts_preference_optimization.py:235  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)['state_dict']
+expected normalized: 'torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)[\'state_dict\']'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/tts/models/magpietts_preference_optimization.py:235
+actual code:
+                torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)['state_dict']
+actual normalized: 'torch.load(cfg.reference_model_ckpt_path, map_location="cpu", weights_only=False)[\'state_dict\']'

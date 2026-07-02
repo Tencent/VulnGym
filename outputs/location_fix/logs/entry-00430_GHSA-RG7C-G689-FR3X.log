@@ -1,0 +1,131 @@
+====================================================================================================
+entry-00430 entry_point  src/google/adk/cli/adk_web_server.py:972-974  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          @app.get("/dev/build_graph/{app_name}")
+          async def get_app_info(app_name: str) -> Any:
+            runner = await self.get_runner_async(app_name)
+expected normalized: '@app.get("/dev/build_graph/{app_name}") async def get_app_info(app_name: str) -> Any: runner = await self.get_runner_async(app_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:972-974
+actual code:
+          @app.get("/dev/build_graph/{app_name}")
+          async def get_app_info(app_name: str) -> Any:
+            runner = await self.get_runner_async(app_name)
+actual normalized: '@app.get("/dev/build_graph/{app_name}") async def get_app_info(app_name: str) -> Any: runner = await self.get_runner_async(app_name)'
+
+====================================================================================================
+entry-00430 critical_operation  src/google/adk/cli/utils/agent_loader.py:74  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(agent_name)
+expected normalized: 'module_candidate = importlib.import_module(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:74
+actual code:
+          module_candidate = importlib.import_module(agent_name)
+actual normalized: 'module_candidate = importlib.import_module(agent_name)'
+
+====================================================================================================
+entry-00430 trace[0]  src/google/adk/cli/adk_web_server.py:972-974  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          @app.get("/dev/build_graph/{app_name}")
+          async def get_app_info(app_name: str) -> Any:
+            runner = await self.get_runner_async(app_name)
+expected normalized: '@app.get("/dev/build_graph/{app_name}") async def get_app_info(app_name: str) -> Any: runner = await self.get_runner_async(app_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:972-974
+actual code:
+          @app.get("/dev/build_graph/{app_name}")
+          async def get_app_info(app_name: str) -> Any:
+            runner = await self.get_runner_async(app_name)
+actual normalized: '@app.get("/dev/build_graph/{app_name}") async def get_app_info(app_name: str) -> Any: runner = await self.get_runner_async(app_name)'
+
+====================================================================================================
+entry-00430 trace[1]  src/google/adk/cli/adk_web_server.py:687  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        agent_or_app = self.agent_loader.load_agent(app_name)
+expected normalized: 'agent_or_app = self.agent_loader.load_agent(app_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:687
+actual code:
+        agent_or_app = self.agent_loader.load_agent(app_name)
+actual normalized: 'agent_or_app = self.agent_loader.load_agent(app_name)'
+
+====================================================================================================
+entry-00430 trace[2]  src/google/adk/cli/utils/agent_loader.py:330  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        agent_or_app = self._perform_load(agent_name)
+expected normalized: 'agent_or_app = self._perform_load(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:330
+actual code:
+        agent_or_app = self._perform_load(agent_name)
+actual normalized: 'agent_or_app = self._perform_load(agent_name)'
+
+====================================================================================================
+entry-00430 trace[3]  src/google/adk/cli/utils/agent_loader.py:190  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+      def _perform_load(self, agent_name: str) -> Union[BaseAgent, App]:
+expected normalized: 'def _perform_load(self, agent_name: str) -> Union[BaseAgent, App]:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:190
+actual code:
+      def _perform_load(self, agent_name: str) -> Union[BaseAgent, App]:
+actual normalized: 'def _perform_load(self, agent_name: str) -> Union[BaseAgent, App]:'
+
+====================================================================================================
+entry-00430 trace[4]  src/google/adk/cli/utils/agent_loader.py:66-68  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+      def _load_from_module_or_package(
+          self, agent_name: str
+      ) -> Optional[Union[BaseAgent, App]]:
+expected normalized: 'def _load_from_module_or_package( self, agent_name: str ) -> Optional[Union[BaseAgent, App]]:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:66-68
+actual code:
+      def _load_from_module_or_package(
+          self, agent_name: str
+      ) -> Optional[Union[BaseAgent, App]]:
+actual normalized: 'def _load_from_module_or_package( self, agent_name: str ) -> Optional[Union[BaseAgent, App]]:'
+
+====================================================================================================
+entry-00430 trace[5]  src/google/adk/cli/utils/agent_loader.py:74  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(agent_name)
+expected normalized: 'module_candidate = importlib.import_module(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:74
+actual code:
+          module_candidate = importlib.import_module(agent_name)
+actual normalized: 'module_candidate = importlib.import_module(agent_name)'

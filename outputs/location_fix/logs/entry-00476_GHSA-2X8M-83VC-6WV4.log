@@ -1,0 +1,146 @@
+====================================================================================================
+entry-00476 entry_point  packages/components/src/utils.ts:456  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+expected normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:456
+actual code:
+    export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {
+actual normalized: 'export async function webCrawl(stringURL: string, limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00476 critical_operation  packages/components/src/httpSecurity.ts:51  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const addresses = await dns.lookup(hostname, { all: true })
+expected normalized: 'const addresses = await dns.lookup(hostname, { all: true })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:51
+actual code:
+            const addresses = await dns.lookup(hostname, { all: true })
+actual normalized: 'const addresses = await dns.lookup(hostname, { all: true })'
+
+====================================================================================================
+entry-00476 trace[0]  packages/components/src/utils.ts:457  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    await checkDenyList(stringURL)
+expected normalized: 'await checkDenyList(stringURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:457
+actual code:
+        await checkDenyList(stringURL)
+actual normalized: 'await checkDenyList(stringURL)'
+
+====================================================================================================
+entry-00476 trace[1]  packages/components/src/httpSecurity.ts:51  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const addresses = await dns.lookup(hostname, { all: true })
+expected normalized: 'const addresses = await dns.lookup(hostname, { all: true })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:51
+actual code:
+            const addresses = await dns.lookup(hostname, { all: true })
+actual normalized: 'const addresses = await dns.lookup(hostname, { all: true })'
+
+====================================================================================================
+entry-00476 trace[2]  packages/components/src/httpSecurity.ts:52-54  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    for (const address of addresses) {
+                isDeniedIP(address.address, httpDenyList)
+            }
+expected normalized: 'for (const address of addresses) { isDeniedIP(address.address, httpDenyList) }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:52-54
+actual code:
+            for (const address of addresses) {
+                isDeniedIP(address.address, httpDenyList)
+            }
+actual normalized: 'for (const address of addresses) { isDeniedIP(address.address, httpDenyList) }'
+
+====================================================================================================
+entry-00476 trace[3]  packages/components/src/utils.ts:426  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const resp = await secureFetch(currentURL)
+expected normalized: 'const resp = await secureFetch(currentURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:426
+actual code:
+            const resp = await secureFetch(currentURL)
+actual normalized: 'const resp = await secureFetch(currentURL)'
+
+====================================================================================================
+entry-00476 trace[4]  packages/components/src/httpSecurity.ts:209  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const records = await dns.lookup(hostname, { all: true })
+expected normalized: 'const records = await dns.lookup(hostname, { all: true })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:209
+actual code:
+        const records = await dns.lookup(hostname, { all: true })
+actual normalized: 'const records = await dns.lookup(hostname, { all: true })'
+
+====================================================================================================
+entry-00476 trace[5]  packages/components/src/httpSecurity.ts:214-218  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    if (denyList) {
+            for (const r of records) {
+                isDeniedIP(r.address, denyList)
+            }
+        }
+expected normalized: 'if (denyList) { for (const r of records) { isDeniedIP(r.address, denyList) } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:214-218
+actual code:
+        if (denyList) {
+            for (const r of records) {
+                isDeniedIP(r.address, denyList)
+            }
+        }
+actual normalized: 'if (denyList) { for (const r of records) { isDeniedIP(r.address, denyList) } }'
+
+====================================================================================================
+entry-00476 trace[6]  packages/components/src/httpSecurity.ts:142  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })
+expected normalized: 'const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:142
+actual code:
+            const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })
+actual normalized: 'const response = await fetch(currentUrl, { ...currentInit, agent: () => agent })'

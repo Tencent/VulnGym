@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00156 entry_point  nemo/collections/llm/gpt/model/baichuan.py:107  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        def apply(self, output_path: Path) -> Path:
+expected normalized: 'def apply(self, output_path: Path) -> Path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/baichuan.py:107
+actual code:
+        def apply(self, output_path: Path) -> Path:
+actual normalized: 'def apply(self, output_path: Path) -> Path:'
+
+====================================================================================================
+entry-00156 critical_operation  nemo/collections/llm/gpt/model/baichuan.py:119  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+expected normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/baichuan.py:119
+actual code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+actual normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+
+====================================================================================================
+entry-00156 trace[0]  nemo/collections/llm/gpt/model/baichuan.py:107  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        def apply(self, output_path: Path) -> Path:
+expected normalized: 'def apply(self, output_path: Path) -> Path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/baichuan.py:107
+actual code:
+        def apply(self, output_path: Path) -> Path:
+actual normalized: 'def apply(self, output_path: Path) -> Path:'
+
+====================================================================================================
+entry-00156 trace[1]  nemo/collections/llm/gpt/model/baichuan.py:117  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            from transformers import AutoModelForCausalLM
+expected normalized: 'from transformers import AutoModelForCausalLM'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/baichuan.py:117
+actual code:
+            from transformers import AutoModelForCausalLM
+actual normalized: 'from transformers import AutoModelForCausalLM'
+
+====================================================================================================
+entry-00156 trace[2]  nemo/collections/llm/gpt/model/baichuan.py:119  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+expected normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/baichuan.py:119
+actual code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+actual normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"

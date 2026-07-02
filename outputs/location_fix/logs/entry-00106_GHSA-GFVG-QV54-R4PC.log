@@ -1,0 +1,132 @@
+====================================================================================================
+entry-00106 entry_point  packages/nodes-base/nodes/Git/Git.node.ts:291  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    				const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;
+expected normalized: "const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:291
+actual code:
+    				const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;
+actual normalized: "const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;"
+
+====================================================================================================
+entry-00106 critical_operation  packages/nodes-base/nodes/Git/Git.node.ts:326-331  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    				const gitOptions: Partial<SimpleGitOptions> = {
+    					baseDir: resolvedRepositoryPath,
+    					config: gitConfig,
+    				};
+    
+    				const git: SimpleGit = simpleGit(gitOptions)
+expected normalized: 'const gitOptions: Partial<SimpleGitOptions> = { baseDir: resolvedRepositoryPath, config: gitConfig, }; const git: SimpleGit = simpleGit(gitOptions)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:326-331
+actual code:
+    				const gitOptions: Partial<SimpleGitOptions> = {
+    					baseDir: resolvedRepositoryPath,
+    					config: gitConfig,
+    				};
+    
+    				const git: SimpleGit = simpleGit(gitOptions)
+actual normalized: 'const gitOptions: Partial<SimpleGitOptions> = { baseDir: resolvedRepositoryPath, config: gitConfig, }; const git: SimpleGit = simpleGit(gitOptions)'
+
+====================================================================================================
+entry-00106 trace[0]  packages/nodes-base/nodes/Git/Git.node.ts:291-299  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    				const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;
+    				const resolvedRepositoryPath = await this.helpers.resolvePath(repositoryPath);
+    				const isFilePathBlocked = this.helpers.isFilePathBlocked(resolvedRepositoryPath);
+    				if (isFilePathBlocked) {
+    					throw new NodeOperationError(
+    						this.getNode(),
+    						'Access to the repository path is not allowed',
+    					);
+    				}
+expected normalized: "const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string; const resolvedRepositoryPath = await this.helpers.resolvePath(repositoryPath); const isFilePathBlocked = this.helpers.isFilePathBlocked(resolvedRepositoryPath); if (isFilePathBlocked) { throw new NodeOperationError( this.getNode(), 'Access to the repository path is not allowed', ); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:291-299
+actual code:
+    				const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string;
+    				const resolvedRepositoryPath = await this.helpers.resolvePath(repositoryPath);
+    				const isFilePathBlocked = this.helpers.isFilePathBlocked(resolvedRepositoryPath);
+    				if (isFilePathBlocked) {
+    					throw new NodeOperationError(
+    						this.getNode(),
+    						'Access to the repository path is not allowed',
+    					);
+    				}
+actual normalized: "const repositoryPath = this.getNodeParameter('repositoryPath', itemIndex, '') as string; const resolvedRepositoryPath = await this.helpers.resolvePath(repositoryPath); const isFilePathBlocked = this.helpers.isFilePathBlocked(resolvedRepositoryPath); if (isFilePathBlocked) { throw new NodeOperationError( this.getNode(), 'Access to the repository path is not allowed', ); }"
+
+====================================================================================================
+entry-00106 trace[1]  packages/nodes-base/nodes/Git/Git.node.ts:303-310  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    				if (operation === 'clone') {
+    					// Create repository folder if it does not exist
+    					try {
+    						await access(resolvedRepositoryPath);
+    					} catch (error) {
+    						await mkdir(resolvedRepositoryPath);
+    					}
+    				}
+expected normalized: "if (operation === 'clone') { // Create repository folder if it does not exist try { await access(resolvedRepositoryPath); } catch (error) { await mkdir(resolvedRepositoryPath); } }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:303-310
+actual code:
+    				if (operation === 'clone') {
+    					// Create repository folder if it does not exist
+    					try {
+    						await access(resolvedRepositoryPath);
+    					} catch (error) {
+    						await mkdir(resolvedRepositoryPath);
+    					}
+    				}
+actual normalized: "if (operation === 'clone') { // Create repository folder if it does not exist try { await access(resolvedRepositoryPath); } catch (error) { await mkdir(resolvedRepositoryPath); } }"
+
+====================================================================================================
+entry-00106 trace[2]  packages/nodes-base/nodes/Git/Git.node.ts:326-335  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    				const gitOptions: Partial<SimpleGitOptions> = {
+    					baseDir: resolvedRepositoryPath,
+    					config: gitConfig,
+    				};
+    
+    				const git: SimpleGit = simpleGit(gitOptions)
+    					// Tell git not to ask for any information via the terminal like for
+    					// example the username. As nobody will be able to answer it would
+    					// n8n keep on waiting forever.
+    					.env('GIT_TERMINAL_PROMPT', '0');
+expected normalized: "const gitOptions: Partial<SimpleGitOptions> = { baseDir: resolvedRepositoryPath, config: gitConfig, }; const git: SimpleGit = simpleGit(gitOptions) // Tell git not to ask for any information via the terminal like for // example the username. As nobody will be able to answer it would // n8n keep on waiting forever. .env('GIT_TERMINAL_PROMPT', '0');"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:326-335
+actual code:
+    				const gitOptions: Partial<SimpleGitOptions> = {
+    					baseDir: resolvedRepositoryPath,
+    					config: gitConfig,
+    				};
+    
+    				const git: SimpleGit = simpleGit(gitOptions)
+    					// Tell git not to ask for any information via the terminal like for
+    					// example the username. As nobody will be able to answer it would
+    					// n8n keep on waiting forever.
+    					.env('GIT_TERMINAL_PROMPT', '0');
+actual normalized: "const gitOptions: Partial<SimpleGitOptions> = { baseDir: resolvedRepositoryPath, config: gitConfig, }; const git: SimpleGit = simpleGit(gitOptions) // Tell git not to ask for any information via the terminal like for // example the username. As nobody will be able to answer it would // n8n keep on waiting forever. .env('GIT_TERMINAL_PROMPT', '0');"

@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00114 entry_point  src/server/webStandardStreamableHttp.ts:321  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {
+expected normalized: 'async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:321
+actual code:
+        async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {
+actual normalized: 'async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {'
+
+====================================================================================================
+entry-00114 critical_operation  src/server/webStandardStreamableHttp.ts:938  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+            const streamId = this._requestToStreamMapping.get(requestId);
+expected normalized: 'const streamId = this._requestToStreamMapping.get(requestId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:938
+actual code:
+            const streamId = this._requestToStreamMapping.get(requestId);
+actual normalized: 'const streamId = this._requestToStreamMapping.get(requestId);'
+
+====================================================================================================
+entry-00114 trace[0]  src/server/webStandardStreamableHttp.ts:321  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+        async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {
+expected normalized: 'async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:321
+actual code:
+        async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {
+actual normalized: 'async handleRequest(req: Request, options?: HandleRequestOptions): Promise<Response> {'
+
+====================================================================================================
+entry-00114 trace[1]  src/server/webStandardStreamableHttp.ts:678  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+                const streamId = crypto.randomUUID();
+expected normalized: 'const streamId = crypto.randomUUID();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:678
+actual code:
+                const streamId = crypto.randomUUID();
+actual normalized: 'const streamId = crypto.randomUUID();'
+
+====================================================================================================
+entry-00114 trace[2]  src/server/webStandardStreamableHttp.ts:700  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+                                this._requestToStreamMapping.set(message.id, streamId);
+expected normalized: 'this._requestToStreamMapping.set(message.id, streamId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:700
+actual code:
+                                this._requestToStreamMapping.set(message.id, streamId);
+actual normalized: 'this._requestToStreamMapping.set(message.id, streamId);'
+
+====================================================================================================
+entry-00114 trace[3]  src/server/webStandardStreamableHttp.ts:751  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+                        this._requestToStreamMapping.set(message.id, streamId);
+expected normalized: 'this._requestToStreamMapping.set(message.id, streamId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:751
+actual code:
+                        this._requestToStreamMapping.set(message.id, streamId);
+actual normalized: 'this._requestToStreamMapping.set(message.id, streamId);'
+
+====================================================================================================
+entry-00114 trace[4]  src/server/webStandardStreamableHttp.ts:938  report=GHSA-345P-7CG4-V4C7
+repo=https://github.com/modelcontextprotocol/typescript-sdk
+commit=50d9fa3cd12e807e7963bcb9e1548786d3d5d941
+expected code:
+            const streamId = this._requestToStreamMapping.get(requestId);
+expected normalized: 'const streamId = this._requestToStreamMapping.get(requestId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/server/webStandardStreamableHttp.ts:938
+actual code:
+            const streamId = this._requestToStreamMapping.get(requestId);
+actual normalized: 'const streamId = this._requestToStreamMapping.get(requestId);'

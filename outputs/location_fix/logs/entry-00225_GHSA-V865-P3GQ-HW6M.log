@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00225 entry_point  src/gateway/server-http.ts:513  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+          if (handlePluginRequest) {
+expected normalized: 'if (handlePluginRequest) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:513
+actual code:
+          if (handlePluginRequest) {
+actual normalized: 'if (handlePluginRequest) {'
+
+====================================================================================================
+entry-00225 critical_operation  src/gateway/server/plugins-http.ts:35  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function shouldEnforceGatewayAuthForPluginPath(
+expected normalized: 'export function shouldEnforceGatewayAuthForPluginPath('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:35
+actual code:
+    export function shouldEnforceGatewayAuthForPluginPath(
+actual normalized: 'export function shouldEnforceGatewayAuthForPluginPath('
+
+====================================================================================================
+entry-00225 trace[0]  src/gateway/server-http.ts:513  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+          if (handlePluginRequest) {
+expected normalized: 'if (handlePluginRequest) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:513
+actual code:
+          if (handlePluginRequest) {
+actual normalized: 'if (handlePluginRequest) {'
+
+====================================================================================================
+entry-00225 trace[1]  src/gateway/server/plugins-http.ts:35  report=GHSA-V865-P3GQ-HW6M
+repo=https://github.com/openclaw/openclaw
+commit=44270c533b09e8d7e87fbeecc0b1c69a6ee98452
+expected code:
+    export function shouldEnforceGatewayAuthForPluginPath(
+expected normalized: 'export function shouldEnforceGatewayAuthForPluginPath('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/plugins-http.ts:35
+actual code:
+    export function shouldEnforceGatewayAuthForPluginPath(
+actual normalized: 'export function shouldEnforceGatewayAuthForPluginPath('

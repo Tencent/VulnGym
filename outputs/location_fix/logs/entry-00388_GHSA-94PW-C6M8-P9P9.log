@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00388 entry_point  src/gateway/server-methods/chat.ts:1225  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+      "chat.send": async ({ params, respond, context, client }) => {
+expected normalized: '"chat.send": async ({ params, respond, context, client }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1225
+actual code:
+      "chat.send": async ({ params, respond, context, client }) => {
+actual normalized: '"chat.send": async ({ params, respond, context, client }) => {'
+
+====================================================================================================
+entry-00388 critical_operation  src/auto-reply/reply/commands-allowlist.ts:186  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+        await addChannelAllowFromStoreEntry(storeEntry);
+expected normalized: 'await addChannelAllowFromStoreEntry(storeEntry);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-allowlist.ts:186
+actual code:
+        await addChannelAllowFromStoreEntry(storeEntry);
+actual normalized: 'await addChannelAllowFromStoreEntry(storeEntry);'
+
+====================================================================================================
+entry-00388 trace[0]  src/gateway/server-methods/chat.ts:1432  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+            CommandAuthorized: true,
+expected normalized: 'CommandAuthorized: true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1432
+actual code:
+            CommandAuthorized: true,
+actual normalized: 'CommandAuthorized: true,'
+
+====================================================================================================
+entry-00388 trace[1]  src/gateway/server-methods/chat.ts:1437  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+            GatewayClientScopes: client?.connect?.scopes,
+expected normalized: 'GatewayClientScopes: client?.connect?.scopes,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/chat.ts:1437
+actual code:
+            GatewayClientScopes: client?.connect?.scopes,
+actual normalized: 'GatewayClientScopes: client?.connect?.scopes,'
+
+====================================================================================================
+entry-00388 trace[2]  src/auto-reply/command-auth.ts:604  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+        isAuthorizedSender = commandAuthorized && isOwnerForCommands;
+expected normalized: 'isAuthorizedSender = commandAuthorized && isOwnerForCommands;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/command-auth.ts:604
+actual code:
+        isAuthorizedSender = commandAuthorized && isOwnerForCommands;
+actual normalized: 'isAuthorizedSender = commandAuthorized && isOwnerForCommands;'
+
+====================================================================================================
+entry-00388 trace[3]  src/auto-reply/reply/commands-allowlist.ts:251  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+      const unauthorized = rejectUnauthorizedCommand(params, "/allowlist");
+expected normalized: 'const unauthorized = rejectUnauthorizedCommand(params, "/allowlist");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-allowlist.ts:251
+actual code:
+      const unauthorized = rejectUnauthorizedCommand(params, "/allowlist");
+actual normalized: 'const unauthorized = rejectUnauthorizedCommand(params, "/allowlist");'
+
+====================================================================================================
+entry-00388 trace[4]  src/auto-reply/reply/commands-allowlist.ts:395  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+      const shouldUpdateConfig = parsed.target !== "store";
+expected normalized: 'const shouldUpdateConfig = parsed.target !== "store";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-allowlist.ts:395
+actual code:
+      const shouldUpdateConfig = parsed.target !== "store";
+actual normalized: 'const shouldUpdateConfig = parsed.target !== "store";'
+
+====================================================================================================
+entry-00388 trace[5]  src/auto-reply/reply/commands-allowlist.ts:174  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+    async function updatePairingStoreAllowlist(params: {
+expected normalized: 'async function updatePairingStoreAllowlist(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-allowlist.ts:174
+actual code:
+    async function updatePairingStoreAllowlist(params: {
+actual normalized: 'async function updatePairingStoreAllowlist(params: {'
+
+====================================================================================================
+entry-00388 trace[6]  src/auto-reply/reply/commands-allowlist.ts:186  report=GHSA-94PW-C6M8-P9P9
+repo=https://github.com/openclaw/openclaw
+commit=561acd16751c4062bb1c09c559cf63d1df9d3560
+expected code:
+        await addChannelAllowFromStoreEntry(storeEntry);
+expected normalized: 'await addChannelAllowFromStoreEntry(storeEntry);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-allowlist.ts:186
+actual code:
+        await addChannelAllowFromStoreEntry(storeEntry);
+actual normalized: 'await addChannelAllowFromStoreEntry(storeEntry);'

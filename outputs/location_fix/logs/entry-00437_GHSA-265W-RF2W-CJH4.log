@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00437 entry_point  server/src/routes/agents.ts:1870  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {
+expected normalized: 'router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:1870
+actual code:
+      router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {
+actual normalized: 'router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00437 critical_operation  server/src/services/workspace-runtime.ts:746  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      const proc = await executeProcess({
+expected normalized: 'const proc = await executeProcess({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:746
+actual code:
+      const proc = await executeProcess({
+actual normalized: 'const proc = await executeProcess({'
+
+====================================================================================================
+entry-00437 trace[0]  server/src/routes/agents.ts:1870  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {
+expected normalized: 'router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:1870
+actual code:
+      router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {
+actual normalized: 'router.patch("/agents/:id", validate(updateAgentSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00437 trace[1]  server/src/routes/agents.ts:1877  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        await assertCanUpdateAgent(req, existing);
+expected normalized: 'await assertCanUpdateAgent(req, existing);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:1877
+actual code:
+        await assertCanUpdateAgent(req, existing);
+actual normalized: 'await assertCanUpdateAgent(req, existing);'
+
+====================================================================================================
+entry-00437 trace[2]  server/src/routes/agents.ts:1887  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        if (hasOwn(patchData, "adapterConfig")) {
+expected normalized: 'if (hasOwn(patchData, "adapterConfig")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:1887
+actual code:
+        if (hasOwn(patchData, "adapterConfig")) {
+actual normalized: 'if (hasOwn(patchData, "adapterConfig")) {'
+
+====================================================================================================
+entry-00437 trace[3]  server/src/routes/agents.ts:1967  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        const agent = await svc.update(id, patchData, {
+expected normalized: 'const agent = await svc.update(id, patchData, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:1967
+actual code:
+        const agent = await svc.update(id, patchData, {
+actual normalized: 'const agent = await svc.update(id, patchData, {'
+
+====================================================================================================
+entry-00437 trace[4]  server/src/services/workspace-runtime.ts:980  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+    export async function realizeExecutionWorkspace(input: {
+expected normalized: 'export async function realizeExecutionWorkspace(input: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:980
+actual code:
+    export async function realizeExecutionWorkspace(input: {
+actual normalized: 'export async function realizeExecutionWorkspace(input: {'
+
+====================================================================================================
+entry-00437 trace[5]  server/src/services/workspace-runtime.ts:987  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      const rawStrategy = parseObject(input.config.workspaceStrategy);
+expected normalized: 'const rawStrategy = parseObject(input.config.workspaceStrategy);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:987
+actual code:
+      const rawStrategy = parseObject(input.config.workspaceStrategy);
+actual normalized: 'const rawStrategy = parseObject(input.config.workspaceStrategy);'
+
+====================================================================================================
+entry-00437 trace[6]  server/src/services/workspace-runtime.ts:1044  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        await provisionExecutionWorktree({
+expected normalized: 'await provisionExecutionWorktree({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:1044
+actual code:
+        await provisionExecutionWorktree({
+actual normalized: 'await provisionExecutionWorktree({'
+
+====================================================================================================
+entry-00437 trace[7]  server/src/services/workspace-runtime.ts:901  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      const provisionCommand = asString(input.strategy.provisionCommand, "").trim();
+expected normalized: 'const provisionCommand = asString(input.strategy.provisionCommand, "").trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:901
+actual code:
+      const provisionCommand = asString(input.strategy.provisionCommand, "").trim();
+actual normalized: 'const provisionCommand = asString(input.strategy.provisionCommand, "").trim();'
+
+====================================================================================================
+entry-00437 trace[8]  server/src/services/workspace-runtime.ts:905  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      await recordWorkspaceCommandOperation(input.recorder, {
+expected normalized: 'await recordWorkspaceCommandOperation(input.recorder, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:905
+actual code:
+      await recordWorkspaceCommandOperation(input.recorder, {
+actual normalized: 'await recordWorkspaceCommandOperation(input.recorder, {'
+
+====================================================================================================
+entry-00437 trace[9]  server/src/services/workspace-runtime.ts:746  report=GHSA-265W-RF2W-CJH4
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      const proc = await executeProcess({
+expected normalized: 'const proc = await executeProcess({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:746
+actual code:
+      const proc = await executeProcess({
+actual normalized: 'const proc = await executeProcess({'

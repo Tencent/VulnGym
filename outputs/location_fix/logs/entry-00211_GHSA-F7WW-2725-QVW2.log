@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00211 entry_point  src/gateway/server-methods/exec-approval.ts:127  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+          const record = manager.create(request, timeoutMs, explicitId);
+expected normalized: 'const record = manager.create(request, timeoutMs, explicitId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:127
+actual code:
+          const record = manager.create(request, timeoutMs, explicitId);
+actual normalized: 'const record = manager.create(request, timeoutMs, explicitId);'
+
+====================================================================================================
+entry-00211 critical_operation  src/node-host/invoke-system-run.ts:659  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+      const execArgv = resolveSystemRunExecArgv({
+expected normalized: 'const execArgv = resolveSystemRunExecArgv({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:659
+actual code:
+      const execArgv = resolveSystemRunExecArgv({
+actual normalized: 'const execArgv = resolveSystemRunExecArgv({'
+
+====================================================================================================
+entry-00211 trace[0]  src/gateway/server-methods/exec-approval.ts:127  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+          const record = manager.create(request, timeoutMs, explicitId);
+expected normalized: 'const record = manager.create(request, timeoutMs, explicitId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:127
+actual code:
+          const record = manager.create(request, timeoutMs, explicitId);
+actual normalized: 'const record = manager.create(request, timeoutMs, explicitId);'
+
+====================================================================================================
+entry-00211 trace[1]  src/infra/system-run-approval-binding.ts:56  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+    export function buildSystemRunApprovalBindingV1(params: {
+expected normalized: 'export function buildSystemRunApprovalBindingV1(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-approval-binding.ts:56
+actual code:
+    export function buildSystemRunApprovalBindingV1(params: {
+actual normalized: 'export function buildSystemRunApprovalBindingV1(params: {'
+
+====================================================================================================
+entry-00211 trace[2]  src/gateway/node-invoke-system-run-approval.ts:209  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+      const approvalMatch = evaluateSystemRunApprovalMatch({
+expected normalized: 'const approvalMatch = evaluateSystemRunApprovalMatch({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:209
+actual code:
+      const approvalMatch = evaluateSystemRunApprovalMatch({
+actual normalized: 'const approvalMatch = evaluateSystemRunApprovalMatch({'
+
+====================================================================================================
+entry-00211 trace[3]  src/node-host/invoke-system-run.ts:659  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+      const execArgv = resolveSystemRunExecArgv({
+expected normalized: 'const execArgv = resolveSystemRunExecArgv({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:659
+actual code:
+      const execArgv = resolveSystemRunExecArgv({
+actual normalized: 'const execArgv = resolveSystemRunExecArgv({'

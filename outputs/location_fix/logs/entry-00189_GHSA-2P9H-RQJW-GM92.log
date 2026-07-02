@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00189 entry_point  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:819  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    					allowedFilesMimeTypes: options.allowedFilesMimeTypes,
+expected normalized: 'allowedFilesMimeTypes: options.allowedFilesMimeTypes,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:819
+actual code:
+    					allowedFilesMimeTypes: options.allowedFilesMimeTypes,
+actual normalized: 'allowedFilesMimeTypes: options.allowedFilesMimeTypes,'
+
+====================================================================================================
+entry-00189 critical_operation  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:158  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    						allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},
+expected normalized: 'allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:158
+actual code:
+    						allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},
+actual normalized: 'allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},'
+
+====================================================================================================
+entry-00189 trace[0]  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:819  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    					allowedFilesMimeTypes: options.allowedFilesMimeTypes,
+expected normalized: 'allowedFilesMimeTypes: options.allowedFilesMimeTypes,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:819
+actual code:
+    					allowedFilesMimeTypes: options.allowedFilesMimeTypes,
+actual normalized: 'allowedFilesMimeTypes: options.allowedFilesMimeTypes,'
+
+====================================================================================================
+entry-00189 trace[1]  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:807  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    				const page = createPage({
+expected normalized: 'const page = createPage({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/ChatTrigger.node.ts:807
+actual code:
+    				const page = createPage({
+actual normalized: 'const page = createPage({'
+
+====================================================================================================
+entry-00189 trace[2]  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:80  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    	const sanitizedAllowedFilesMimeTypes = allowedFilesMimeTypes?.toString() ?? '';
+expected normalized: "const sanitizedAllowedFilesMimeTypes = allowedFilesMimeTypes?.toString() ?? '';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:80
+actual code:
+    	const sanitizedAllowedFilesMimeTypes = allowedFilesMimeTypes?.toString() ?? '';
+actual normalized: "const sanitizedAllowedFilesMimeTypes = allowedFilesMimeTypes?.toString() ?? '';"
+
+====================================================================================================
+entry-00189 trace[3]  packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:158  report=GHSA-2P9H-RQJW-GM92
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    						allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},
+expected normalized: 'allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/templates.ts:158
+actual code:
+    						allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},
+actual normalized: 'allowedFilesMimeTypes: ${JSON.stringify(sanitizedAllowedFilesMimeTypes)},'

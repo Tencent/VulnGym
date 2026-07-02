@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00245 entry_point  src/node-host/invoke-system-run.ts:262  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+expected normalized: 'export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:262
+actual code:
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+actual normalized: 'export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {'
+
+====================================================================================================
+entry-00245 critical_operation  src/infra/exec-approvals-allowlist.ts:159  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+        if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:159
+actual code:
+        if (
+actual normalized: 'if ('
+
+====================================================================================================
+entry-00245 trace[0]  src/node-host/invoke-system-run.ts:313  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const bins = autoAllowSkills ? await opts.skillBins.current() : new Set<string>();
+expected normalized: 'const bins = autoAllowSkills ? await opts.skillBins.current() : new Set<string>();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:313
+actual code:
+      const bins = autoAllowSkills ? await opts.skillBins.current() : new Set<string>();
+actual normalized: 'const bins = autoAllowSkills ? await opts.skillBins.current() : new Set<string>();'
+
+====================================================================================================
+entry-00245 trace[1]  src/node-host/invoke-system-run.ts:138  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    function evaluateSystemRunAllowlist(params: {
+expected normalized: 'function evaluateSystemRunAllowlist(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:138
+actual code:
+    function evaluateSystemRunAllowlist(params: {
+actual normalized: 'function evaluateSystemRunAllowlist(params: {'
+
+====================================================================================================
+entry-00245 trace[2]  src/infra/exec-approvals-allowlist.ts:108  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    function evaluateSegments(
+expected normalized: 'function evaluateSegments('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:108
+actual code:
+    function evaluateSegments(
+actual normalized: 'function evaluateSegments('
+
+====================================================================================================
+entry-00245 trace[3]  src/infra/exec-approvals-allowlist.ts:155  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+        const rawExecutable = segment.resolution?.rawExecutable?.trim() ?? "";
+expected normalized: 'const rawExecutable = segment.resolution?.rawExecutable?.trim() ?? "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:155
+actual code:
+        const rawExecutable = segment.resolution?.rawExecutable?.trim() ?? "";
+actual normalized: 'const rawExecutable = segment.resolution?.rawExecutable?.trim() ?? "";'
+
+====================================================================================================
+entry-00245 trace[4]  src/infra/exec-command-resolution.ts:110  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+    export function resolveCommandResolutionFromArgv(
+expected normalized: 'export function resolveCommandResolutionFromArgv('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-command-resolution.ts:110
+actual code:
+    export function resolveCommandResolutionFromArgv(
+actual normalized: 'export function resolveCommandResolutionFromArgv('
+
+====================================================================================================
+entry-00245 trace[5]  src/infra/exec-approvals-allowlist.ts:166  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+expected normalized: 'skillAllow = Boolean(params.skillBins?.has(executableName));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:166
+actual code:
+          skillAllow = Boolean(params.skillBins?.has(executableName));
+actual normalized: 'skillAllow = Boolean(params.skillBins?.has(executableName));'
+
+====================================================================================================
+entry-00245 trace[6]  src/infra/exec-approvals-allowlist.ts:168  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+        const by: ExecSegmentSatisfiedBy = match
+expected normalized: 'const by: ExecSegmentSatisfiedBy = match'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:168
+actual code:
+        const by: ExecSegmentSatisfiedBy = match
+actual normalized: 'const by: ExecSegmentSatisfiedBy = match'
+
+====================================================================================================
+entry-00245 trace[7]  src/node-host/exec-policy.ts:85  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const requiresAsk = requiresExecApproval({
+expected normalized: 'const requiresAsk = requiresExecApproval({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/exec-policy.ts:85
+actual code:
+      const requiresAsk = requiresExecApproval({
+actual normalized: 'const requiresAsk = requiresExecApproval({'
+
+====================================================================================================
+entry-00245 trace[8]  src/node-host/invoke-system-run.ts:465  report=GHSA-7FF8-XJH3-MGH6
+repo=https://github.com/openclaw/openclaw
+commit=204d9fb404838221df19cc46b30e4cf53209d038
+expected code:
+      const result = await opts.runCommand(
+expected normalized: 'const result = await opts.runCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:465
+actual code:
+      const result = await opts.runCommand(
+actual normalized: 'const result = await opts.runCommand('

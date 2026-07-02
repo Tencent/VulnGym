@@ -1,0 +1,276 @@
+====================================================================================================
+entry-00458 entry_point  src/gateway/server/ws-connection/message-handler.ts:264  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+      socket.on("message", async (data) => {
+expected normalized: 'socket.on("message", async (data) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:264
+actual code:
+      socket.on("message", async (data) => {
+actual normalized: 'socket.on("message", async (data) => {'
+
+====================================================================================================
+entry-00458 critical_operation  src/gateway/server/ws-connection/message-handler.ts:549  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+              if (
+                !device &&
+                (decision.kind !== "allow" ||
+                  (!controlUiAuthPolicy.allowBypass &&
+                    !preserveInsecureLocalControlUiScopes &&
+                    (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk)))
+              ) {
+                clearUnboundScopes();
+              }
+expected normalized: 'if ( !device && (decision.kind !== "allow" || (!controlUiAuthPolicy.allowBypass && !preserveInsecureLocalControlUiScopes && (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk))) ) { clearUnboundScopes(); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:549-557
+actual code:
+              if (
+                !device &&
+                (decision.kind !== "allow" ||
+                  (!controlUiAuthPolicy.allowBypass &&
+                    !preserveInsecureLocalControlUiScopes &&
+                    (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk)))
+              ) {
+                clearUnboundScopes();
+              }
+actual normalized: 'if ( !device && (decision.kind !== "allow" || (!controlUiAuthPolicy.allowBypass && !preserveInsecureLocalControlUiScopes && (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk))) ) { clearUnboundScopes(); }'
+
+====================================================================================================
+entry-00458 trace[0]  src/gateway/server/ws-connection/message-handler.ts:393  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+            const roleRaw = connectParams.role ?? "operator";
+            const role = parseGatewayRole(roleRaw);
+expected normalized: 'const roleRaw = connectParams.role ?? "operator"; const role = parseGatewayRole(roleRaw);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:393-394
+actual code:
+            const roleRaw = connectParams.role ?? "operator";
+            const role = parseGatewayRole(roleRaw);
+actual normalized: 'const roleRaw = connectParams.role ?? "operator"; const role = parseGatewayRole(roleRaw);'
+
+====================================================================================================
+entry-00458 trace[1]  src/gateway/server/ws-connection/message-handler.ts:466  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+            let {
+              authResult,
+              authOk,
+              authMethod,
+              sharedAuthOk,
+              bootstrapTokenCandidate,
+              deviceTokenCandidate,
+              deviceTokenCandidateSource,
+            } = await resolveConnectAuthState({
+expected normalized: 'let { authResult, authOk, authMethod, sharedAuthOk, bootstrapTokenCandidate, deviceTokenCandidate, deviceTokenCandidateSource, } = await resolveConnectAuthState({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:466-474
+actual code:
+            let {
+              authResult,
+              authOk,
+              authMethod,
+              sharedAuthOk,
+              bootstrapTokenCandidate,
+              deviceTokenCandidate,
+              deviceTokenCandidateSource,
+            } = await resolveConnectAuthState({
+actual normalized: 'let { authResult, authOk, authMethod, sharedAuthOk, bootstrapTokenCandidate, deviceTokenCandidate, deviceTokenCandidateSource, } = await resolveConnectAuthState({'
+
+====================================================================================================
+entry-00458 trace[2]  src/gateway/server/ws-connection/auth-context.ts:151  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+      const sharedAuthOk =
+        (sharedAuthResult?.ok === true &&
+          (sharedAuthResult.method === "token" || sharedAuthResult.method === "password")) ||
+        (authResult.ok && authResult.method === "trusted-proxy");
+expected normalized: 'const sharedAuthOk = (sharedAuthResult?.ok === true && (sharedAuthResult.method === "token" || sharedAuthResult.method === "password")) || (authResult.ok && authResult.method === "trusted-proxy");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/auth-context.ts:151-154
+actual code:
+      const sharedAuthOk =
+        (sharedAuthResult?.ok === true &&
+          (sharedAuthResult.method === "token" || sharedAuthResult.method === "password")) ||
+        (authResult.ok && authResult.method === "trusted-proxy");
+actual normalized: 'const sharedAuthOk = (sharedAuthResult?.ok === true && (sharedAuthResult.method === "token" || sharedAuthResult.method === "password")) || (authResult.ok && authResult.method === "trusted-proxy");'
+
+====================================================================================================
+entry-00458 trace[3]  src/gateway/server/ws-connection/message-handler.ts:522  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+            const handleMissingDeviceIdentity = (): boolean => {
+              const trustedProxyAuthOk = isTrustedProxyControlUiOperatorAuth({
+                isControlUi,
+                role,
+                authMode: resolvedAuth.mode,
+                authOk,
+expected normalized: 'const handleMissingDeviceIdentity = (): boolean => { const trustedProxyAuthOk = isTrustedProxyControlUiOperatorAuth({ isControlUi, role, authMode: resolvedAuth.mode, authOk,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:522-527
+actual code:
+            const handleMissingDeviceIdentity = (): boolean => {
+              const trustedProxyAuthOk = isTrustedProxyControlUiOperatorAuth({
+                isControlUi,
+                role,
+                authMode: resolvedAuth.mode,
+                authOk,
+actual normalized: 'const handleMissingDeviceIdentity = (): boolean => { const trustedProxyAuthOk = isTrustedProxyControlUiOperatorAuth({ isControlUi, role, authMode: resolvedAuth.mode, authOk,'
+
+====================================================================================================
+entry-00458 trace[4]  src/gateway/server/ws-connection/connect-policy.ts:62  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+    export function isTrustedProxyControlUiOperatorAuth(params: {
+      isControlUi: boolean;
+      role: GatewayRole;
+      authMode: string;
+      authOk: boolean;
+      authMethod: string | undefined;
+    }): boolean {
+      return (
+        params.isControlUi &&
+        params.role === "operator" &&
+expected normalized: 'export function isTrustedProxyControlUiOperatorAuth(params: { isControlUi: boolean; role: GatewayRole; authMode: string; authOk: boolean; authMethod: string | undefined; }): boolean { return ( params.isControlUi && params.role === "operator" &&'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/connect-policy.ts:62-71
+actual code:
+    export function isTrustedProxyControlUiOperatorAuth(params: {
+      isControlUi: boolean;
+      role: GatewayRole;
+      authMode: string;
+      authOk: boolean;
+      authMethod: string | undefined;
+    }): boolean {
+      return (
+        params.isControlUi &&
+        params.role === "operator" &&
+actual normalized: 'export function isTrustedProxyControlUiOperatorAuth(params: { isControlUi: boolean; role: GatewayRole; authMode: string; authOk: boolean; authMethod: string | undefined; }): boolean { return ( params.isControlUi && params.role === "operator" &&'
+
+====================================================================================================
+entry-00458 trace[5]  src/gateway/server/ws-connection/message-handler.ts:535  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+              const decision = evaluateMissingDeviceIdentity({
+                hasDeviceIdentity: Boolean(device),
+                role,
+                isControlUi,
+                controlUiAuthPolicy,
+                trustedProxyAuthOk,
+                sharedAuthOk,
+                authOk,
+                hasSharedAuth,
+                isLocalClient,
+              });
+expected normalized: 'const decision = evaluateMissingDeviceIdentity({ hasDeviceIdentity: Boolean(device), role, isControlUi, controlUiAuthPolicy, trustedProxyAuthOk, sharedAuthOk, authOk, hasSharedAuth, isLocalClient, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:535-545
+actual code:
+              const decision = evaluateMissingDeviceIdentity({
+                hasDeviceIdentity: Boolean(device),
+                role,
+                isControlUi,
+                controlUiAuthPolicy,
+                trustedProxyAuthOk,
+                sharedAuthOk,
+                authOk,
+                hasSharedAuth,
+                isLocalClient,
+              });
+actual normalized: 'const decision = evaluateMissingDeviceIdentity({ hasDeviceIdentity: Boolean(device), role, isControlUi, controlUiAuthPolicy, trustedProxyAuthOk, sharedAuthOk, authOk, hasSharedAuth, isLocalClient, });'
+
+====================================================================================================
+entry-00458 trace[6]  src/gateway/server/ws-connection/connect-policy.ts:119  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+      if (roleCanSkipDeviceIdentity(params.role, params.sharedAuthOk)) {
+        return { kind: "allow" };
+      }
+expected normalized: 'if (roleCanSkipDeviceIdentity(params.role, params.sharedAuthOk)) { return { kind: "allow" }; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/connect-policy.ts:119-121
+actual code:
+      if (roleCanSkipDeviceIdentity(params.role, params.sharedAuthOk)) {
+        return { kind: "allow" };
+      }
+actual normalized: 'if (roleCanSkipDeviceIdentity(params.role, params.sharedAuthOk)) { return { kind: "allow" }; }'
+
+====================================================================================================
+entry-00458 trace[7]  src/gateway/role-policy.ts:14  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+    export function roleCanSkipDeviceIdentity(role: GatewayRole, sharedAuthOk: boolean): boolean {
+      return role === "operator" && sharedAuthOk;
+    }
+expected normalized: 'export function roleCanSkipDeviceIdentity(role: GatewayRole, sharedAuthOk: boolean): boolean { return role === "operator" && sharedAuthOk; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/role-policy.ts:14-16
+actual code:
+    export function roleCanSkipDeviceIdentity(role: GatewayRole, sharedAuthOk: boolean): boolean {
+      return role === "operator" && sharedAuthOk;
+    }
+actual normalized: 'export function roleCanSkipDeviceIdentity(role: GatewayRole, sharedAuthOk: boolean): boolean { return role === "operator" && sharedAuthOk; }'
+
+====================================================================================================
+entry-00458 trace[8]  src/gateway/server/ws-connection/message-handler.ts:549  report=GHSA-G374-MGGX-P6XC
+repo=https://github.com/openclaw/openclaw
+commit=566fb73d9da2d73c0be0d9b8e5b762e4dcd8e81d
+expected code:
+              if (
+                !device &&
+                (decision.kind !== "allow" ||
+                  (!controlUiAuthPolicy.allowBypass &&
+                    !preserveInsecureLocalControlUiScopes &&
+                    (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk)))
+              ) {
+                clearUnboundScopes();
+              }
+expected normalized: 'if ( !device && (decision.kind !== "allow" || (!controlUiAuthPolicy.allowBypass && !preserveInsecureLocalControlUiScopes && (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk))) ) { clearUnboundScopes(); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:549-557
+actual code:
+              if (
+                !device &&
+                (decision.kind !== "allow" ||
+                  (!controlUiAuthPolicy.allowBypass &&
+                    !preserveInsecureLocalControlUiScopes &&
+                    (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk)))
+              ) {
+                clearUnboundScopes();
+              }
+actual normalized: 'if ( !device && (decision.kind !== "allow" || (!controlUiAuthPolicy.allowBypass && !preserveInsecureLocalControlUiScopes && (authMethod === "token" || authMethod === "password" || trustedProxyAuthOk))) ) { clearUnboundScopes(); }'

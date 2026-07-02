@@ -1,0 +1,92 @@
+====================================================================================================
+entry-00512 entry_point  packages/workflow/src/expression.ts:524  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    	private renderExpression(expression: string, data: IWorkflowDataProxyData) {
+expected normalized: 'private renderExpression(expression: string, data: IWorkflowDataProxyData) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:524
+actual code:
+    	private renderExpression(expression: string, data: IWorkflowDataProxyData) {
+actual normalized: 'private renderExpression(expression: string, data: IWorkflowDataProxyData) {'
+
+====================================================================================================
+entry-00512 critical_operation  packages/@n8n/expression-runtime/src/runtime/reset.ts:46  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    	globalThis.__data.__sanitize = __sanitize;
+expected normalized: 'globalThis.__data.__sanitize = __sanitize;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/runtime/reset.ts:46
+actual code:
+    	globalThis.__data.__sanitize = __sanitize;
+actual normalized: 'globalThis.__data.__sanitize = __sanitize;'
+
+====================================================================================================
+entry-00512 trace[0]  packages/workflow/src/expression.ts:524  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    	private renderExpression(expression: string, data: IWorkflowDataProxyData) {
+expected normalized: 'private renderExpression(expression: string, data: IWorkflowDataProxyData) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:524
+actual code:
+    	private renderExpression(expression: string, data: IWorkflowDataProxyData) {
+actual normalized: 'private renderExpression(expression: string, data: IWorkflowDataProxyData) {'
+
+====================================================================================================
+entry-00512 trace[1]  packages/workflow/src/expression-sandboxing.ts:493-502  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    				path.replace(
+    					b.memberExpression(
+    						// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+    						node.object as any,
+    						// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    						b.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [
+    							// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    							node.property as any,
+    						]),
+    						true,
+expected normalized: 'path.replace( b.memberExpression( // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any node.object as any, // eslint-disable-next-line @typescript-eslint/no-unsafe-argument b.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [ // eslint-disable-next-line @typescript-eslint/no-explicit-any node.property as any, ]), true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:493-502
+actual code:
+    				path.replace(
+    					b.memberExpression(
+    						// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+    						node.object as any,
+    						// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    						b.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [
+    							// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    							node.property as any,
+    						]),
+    						true,
+actual normalized: 'path.replace( b.memberExpression( // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any node.object as any, // eslint-disable-next-line @typescript-eslint/no-unsafe-argument b.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [ // eslint-disable-next-line @typescript-eslint/no-explicit-any node.property as any, ]), true,'
+
+====================================================================================================
+entry-00512 trace[2]  packages/@n8n/expression-runtime/src/runtime/reset.ts:46  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    	globalThis.__data.__sanitize = __sanitize;
+expected normalized: 'globalThis.__data.__sanitize = __sanitize;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/runtime/reset.ts:46
+actual code:
+    	globalThis.__data.__sanitize = __sanitize;
+actual normalized: 'globalThis.__data.__sanitize = __sanitize;'

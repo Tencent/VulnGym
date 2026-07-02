@@ -1,0 +1,355 @@
+====================================================================================================
+entry-00405 entry_point  src/node-host/invoke-system-run.ts:619  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    error: result.error ?? null,
+        }),
+      );
+    }
+    
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+      const parsed = await parseSystemRunPhase(opts);
+      if (!parsed) {
+        return;
+      }
+      const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);
+expected normalized: 'error: result.error ?? null, }), ); } export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> { const parsed = await parseSystemRunPhase(opts); if (!parsed) { return; } const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:619-629
+actual code:
+    export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+      const parsed = await parseSystemRunPhase(opts);
+      if (!parsed) {
+        return;
+      }
+      const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);
+      if (!policyPhase) {
+        return;
+      }
+      await executeSystemRunPhase(opts, policyPhase);
+    }
+actual normalized: 'export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> { const parsed = await parseSystemRunPhase(opts); if (!parsed) { return; } const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed); if (!policyPhase) { return; } await executeSystemRunPhase(opts, policyPhase); }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 614 to 624
+candidates (1):
+  [1] src/node-host/invoke-system-run.ts:614-624
+            error: result.error ?? null,
+          }),
+        );
+      }
+      
+      export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+        const parsed = await parseSystemRunPhase(opts);
+        if (!parsed) {
+          return;
+        }
+        const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);
+
+====================================================================================================
+entry-00405 critical_operation  src/infra/exec-approvals-allowlist.ts:458  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    }
+      if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+        return undefined;
+      }
+    
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+        return undefined;
+expected normalized: '} if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) { return undefined; } const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) { return undefined;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:458-468
+actual code:
+      const carriedExecutable = argv
+        .slice(inlineMatch.valueTokenIndex + 1)
+        .map((token) => token.trim())
+        .find((token) => token.length > 0);
+      if (!carriedExecutable) {
+        return undefined;
+      }
+    
+      const resolution = resolveCommandResolutionFromArgv([carriedExecutable], params.cwd, params.env);
+      return resolveExecutionTargetCandidatePath(resolution, params.cwd);
+    }
+actual normalized: 'const carriedExecutable = argv .slice(inlineMatch.valueTokenIndex + 1) .map((token) => token.trim()) .find((token) => token.length > 0); if (!carriedExecutable) { return undefined; } const resolution = resolveCommandResolutionFromArgv([carriedExecutable], params.cwd, params.env); return resolveExecutionTargetCandidatePath(resolution, params.cwd); }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 453 to 463
+candidates (1):
+  [1] src/infra/exec-approvals-allowlist.ts:453-463
+        }
+        if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+          return undefined;
+        }
+      
+        const carriedExecutable = argv
+          .slice(inlineMatch.valueTokenIndex + 1)
+          .map((token) => token.trim())
+          .find((token) => token.length > 0);
+        if (!carriedExecutable) {
+          return undefined;
+
+====================================================================================================
+entry-00405 trace[0]  src/node-host/invoke-system-run.ts:547  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    await sendSystemRunCompleted(opts, phase.execution, result, JSON.stringify(result));
+          return;
+        }
+      }
+    
+      if (
+        phase.policy.approvalDecision === "allow-always" &&
+        phase.security === "allowlist" &&
+        phase.inlineEvalHit === null
+      ) {
+        if (phase.policy.analysisOk) {
+expected normalized: 'await sendSystemRunCompleted(opts, phase.execution, result, JSON.stringify(result)); return; } } if ( phase.policy.approvalDecision === "allow-always" && phase.security === "allowlist" && phase.inlineEvalHit === null ) { if (phase.policy.analysisOk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:547-557
+actual code:
+      if (
+        phase.policy.approvalDecision === "allow-always" &&
+        phase.security === "allowlist" &&
+        phase.inlineEvalHit === null
+      ) {
+        if (phase.policy.analysisOk) {
+          const patterns = resolveAllowAlwaysPatterns({
+            segments: phase.segments,
+            cwd: phase.cwd,
+            env: phase.env,
+            platform: process.platform,
+actual normalized: 'if ( phase.policy.approvalDecision === "allow-always" && phase.security === "allowlist" && phase.inlineEvalHit === null ) { if (phase.policy.analysisOk) { const patterns = resolveAllowAlwaysPatterns({ segments: phase.segments, cwd: phase.cwd, env: phase.env, platform: process.platform,'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 542 to 552
+candidates (1):
+  [1] src/node-host/invoke-system-run.ts:542-552
+            await sendSystemRunCompleted(opts, phase.execution, result, JSON.stringify(result));
+            return;
+          }
+        }
+      
+        if (
+          phase.policy.approvalDecision === "allow-always" &&
+          phase.security === "allowlist" &&
+          phase.inlineEvalHit === null
+        ) {
+          if (phase.policy.analysisOk) {
+
+====================================================================================================
+entry-00405 trace[1]  src/node-host/invoke-system-run.ts:559  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    segments: phase.segments,
+            cwd: phase.cwd,
+            env: phase.env,
+            platform: process.platform,
+          });
+          for (const pattern of patterns) {
+            if (pattern) {
+              addAllowlistEntry(phase.approvals.file, phase.agentId, pattern);
+            }
+          }
+        }
+expected normalized: 'segments: phase.segments, cwd: phase.cwd, env: phase.env, platform: process.platform, }); for (const pattern of patterns) { if (pattern) { addAllowlistEntry(phase.approvals.file, phase.agentId, pattern); } } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:559-569
+actual code:
+          for (const pattern of patterns) {
+            if (pattern) {
+              addAllowlistEntry(phase.approvals.file, phase.agentId, pattern);
+            }
+          }
+        }
+      }
+    
+      if (phase.allowlistMatches.length > 0) {
+        const seen = new Set<string>();
+        for (const match of phase.allowlistMatches) {
+actual normalized: 'for (const pattern of patterns) { if (pattern) { addAllowlistEntry(phase.approvals.file, phase.agentId, pattern); } } } } if (phase.allowlistMatches.length > 0) { const seen = new Set<string>(); for (const match of phase.allowlistMatches) {'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 554 to 564
+candidates (1):
+  [1] src/node-host/invoke-system-run.ts:554-564
+              segments: phase.segments,
+              cwd: phase.cwd,
+              env: phase.env,
+              platform: process.platform,
+            });
+            for (const pattern of patterns) {
+              if (pattern) {
+                addAllowlistEntry(phase.approvals.file, phase.agentId, pattern);
+              }
+            }
+          }
+
+====================================================================================================
+entry-00405 trace[2]  src/infra/exec-approvals-allowlist.ts:567  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    /**
+     * Derive persisted allowlist patterns for an "allow always" decision.
+     * When a command is wrapped in a shell (for example `zsh -lc "<cmd>"`),
+     * persist the inner executable(s) rather than the shell binary.
+     */
+    export function resolveAllowAlwaysPatterns(params: {
+      segments: ExecCommandSegment[];
+      cwd?: string;
+      env?: NodeJS.ProcessEnv;
+      platform?: string | null;
+    }): string[] {
+expected normalized: '/** * Derive persisted allowlist patterns for an "allow always" decision. * When a command is wrapped in a shell (for example `zsh -lc "<cmd>"`), * persist the inner executable(s) rather than the shell binary. */ export function resolveAllowAlwaysPatterns(params: { segments: ExecCommandSegment[]; cwd?: string; env?: NodeJS.ProcessEnv; platform?: string | null; }): string[] {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:567-577
+actual code:
+    export function resolveAllowAlwaysPatterns(params: {
+      segments: ExecCommandSegment[];
+      cwd?: string;
+      env?: NodeJS.ProcessEnv;
+      platform?: string | null;
+    }): string[] {
+      const patterns = new Set<string>();
+      for (const segment of params.segments) {
+        collectAllowAlwaysPatterns({
+          segment,
+          cwd: params.cwd,
+actual normalized: 'export function resolveAllowAlwaysPatterns(params: { segments: ExecCommandSegment[]; cwd?: string; env?: NodeJS.ProcessEnv; platform?: string | null; }): string[] { const patterns = new Set<string>(); for (const segment of params.segments) { collectAllowAlwaysPatterns({ segment, cwd: params.cwd,'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 562 to 572
+candidates (1):
+  [1] src/infra/exec-approvals-allowlist.ts:562-572
+      /**
+       * Derive persisted allowlist patterns for an "allow always" decision.
+       * When a command is wrapped in a shell (for example `zsh -lc "<cmd>"`),
+       * persist the inner executable(s) rather than the shell binary.
+       */
+      export function resolveAllowAlwaysPatterns(params: {
+        segments: ExecCommandSegment[];
+        cwd?: string;
+        env?: NodeJS.ProcessEnv;
+        platform?: string | null;
+      }): string[] {
+
+====================================================================================================
+entry-00405 trace[3]  src/infra/exec-approvals-allowlist.ts:520  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    }
+      if (!trustPlan.shellWrapperExecutable) {
+        params.out.add(candidatePath);
+        return;
+      }
+      const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+        segment,
+        cwd: params.cwd,
+        env: params.env,
+      });
+      if (positionalArgvPath) {
+expected normalized: '} if (!trustPlan.shellWrapperExecutable) { params.out.add(candidatePath); return; } const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({ segment, cwd: params.cwd, env: params.env, }); if (positionalArgvPath) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:520-530
+actual code:
+      const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+        segment,
+        cwd: params.cwd,
+        env: params.env,
+      });
+      if (positionalArgvPath) {
+        params.out.add(positionalArgvPath);
+        return;
+      }
+      const inlineCommand =
+        trustPlan.shellInlineCommand ?? extractShellWrapperInlineCommand(segment.argv);
+actual normalized: 'const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({ segment, cwd: params.cwd, env: params.env, }); if (positionalArgvPath) { params.out.add(positionalArgvPath); return; } const inlineCommand = trustPlan.shellInlineCommand ?? extractShellWrapperInlineCommand(segment.argv);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 515 to 525
+candidates (1):
+  [1] src/infra/exec-approvals-allowlist.ts:515-525
+        }
+        if (!trustPlan.shellWrapperExecutable) {
+          params.out.add(candidatePath);
+          return;
+        }
+        const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+          segment,
+          cwd: params.cwd,
+          env: params.env,
+        });
+        if (positionalArgvPath) {
+
+====================================================================================================
+entry-00405 trace[4]  src/infra/exec-approvals.ts:364  report=GHSA-P4X4-2R7F-WJXG
+repo=https://github.com/openclaw/openclaw
+commit=7ce2670043dbb29aa18cb123c04be4b5097b16cb
+expected code:
+    } catch {
+        return normalizeExecApprovals({ version: 1, agents: {} });
+      }
+    }
+    
+    export function saveExecApprovals(file: ExecApprovalsFile) {
+      const filePath = resolveExecApprovalsPath();
+      ensureDir(filePath);
+      fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\n`, { mode: 0o600 });
+      try {
+        fs.chmodSync(filePath, 0o600);
+expected normalized: '} catch { return normalizeExecApprovals({ version: 1, agents: {} }); } } export function saveExecApprovals(file: ExecApprovalsFile) { const filePath = resolveExecApprovalsPath(); ensureDir(filePath); fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\\n`, { mode: 0o600 }); try { fs.chmodSync(filePath, 0o600);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals.ts:364-374
+actual code:
+    export function saveExecApprovals(file: ExecApprovalsFile) {
+      const filePath = resolveExecApprovalsPath();
+      ensureDir(filePath);
+      fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\n`, { mode: 0o600 });
+      try {
+        fs.chmodSync(filePath, 0o600);
+      } catch {
+        // best-effort on platforms without chmod
+      }
+    }
+actual normalized: 'export function saveExecApprovals(file: ExecApprovalsFile) { const filePath = resolveExecApprovalsPath(); ensureDir(filePath); fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\\n`, { mode: 0o600 }); try { fs.chmodSync(filePath, 0o600); } catch { // best-effort on platforms without chmod } }'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 359 to 369
+candidates (1):
+  [1] src/infra/exec-approvals.ts:359-369
+        } catch {
+          return normalizeExecApprovals({ version: 1, agents: {} });
+        }
+      }
+      
+      export function saveExecApprovals(file: ExecApprovalsFile) {
+        const filePath = resolveExecApprovalsPath();
+        ensureDir(filePath);
+        fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\n`, { mode: 0o600 });
+        try {
+          fs.chmodSync(filePath, 0o600);

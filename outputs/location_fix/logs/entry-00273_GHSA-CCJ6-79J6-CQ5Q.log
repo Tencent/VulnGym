@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00273 entry_point  internal/router/router.go:310  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    		tenantRoutes.DELETE("/:id", handler.DeleteTenant)
+expected normalized: 'tenantRoutes.DELETE("/:id", handler.DeleteTenant)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/router/router.go:310
+actual code:
+    		tenantRoutes.DELETE("/:id", handler.DeleteTenant)
+actual normalized: 'tenantRoutes.DELETE("/:id", handler.DeleteTenant)'
+
+====================================================================================================
+entry-00273 critical_operation  internal/handler/tenant.go:220  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    	if err := h.service.DeleteTenant(ctx, id); err != nil {
+expected normalized: 'if err := h.service.DeleteTenant(ctx, id); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:220
+actual code:
+    	if err := h.service.DeleteTenant(ctx, id); err != nil {
+actual normalized: 'if err := h.service.DeleteTenant(ctx, id); err != nil {'
+
+====================================================================================================
+entry-00273 trace[0]  internal/middleware/auth.go:131  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    				c.Set(types.TenantIDContextKey.String(), targetTenantID)
+expected normalized: 'c.Set(types.TenantIDContextKey.String(), targetTenantID)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/middleware/auth.go:131
+actual code:
+    				c.Set(types.TenantIDContextKey.String(), targetTenantID)
+actual normalized: 'c.Set(types.TenantIDContextKey.String(), targetTenantID)'
+
+====================================================================================================
+entry-00273 trace[1]  internal/handler/tenant.go:206  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    func (h *TenantHandler) DeleteTenant(c *gin.Context) {
+expected normalized: 'func (h *TenantHandler) DeleteTenant(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:206
+actual code:
+    func (h *TenantHandler) DeleteTenant(c *gin.Context) {
+actual normalized: 'func (h *TenantHandler) DeleteTenant(c *gin.Context) {'
+
+====================================================================================================
+entry-00273 trace[2]  internal/handler/tenant.go:211  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+expected normalized: 'id, err := strconv.ParseUint(c.Param("id"), 10, 64)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:211
+actual code:
+    	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+actual normalized: 'id, err := strconv.ParseUint(c.Param("id"), 10, 64)'
+
+====================================================================================================
+entry-00273 trace[3]  internal/handler/tenant.go:215  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    		return
+expected normalized: 'return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:215
+actual code:
+    		return
+actual normalized: 'return'
+
+====================================================================================================
+entry-00273 trace[4]  internal/handler/tenant.go:220  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    	if err := h.service.DeleteTenant(ctx, id); err != nil {
+expected normalized: 'if err := h.service.DeleteTenant(ctx, id); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:220
+actual code:
+    	if err := h.service.DeleteTenant(ctx, id); err != nil {
+actual normalized: 'if err := h.service.DeleteTenant(ctx, id); err != nil {'

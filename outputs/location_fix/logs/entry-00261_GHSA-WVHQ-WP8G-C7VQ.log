@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00261 entry_point  packages/server/src/index.ts:226  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:226
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00261 critical_operation  packages/server/src/controllers/internal-predictions/index.ts:49  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await utilBuildChatflow(req, true)
+expected normalized: 'const apiResponse = await utilBuildChatflow(req, true)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/internal-predictions/index.ts:49
+actual code:
+            const apiResponse = await utilBuildChatflow(req, true)
+actual normalized: 'const apiResponse = await utilBuildChatflow(req, true)'
+
+====================================================================================================
+entry-00261 trace[0]  packages/server/src/index.ts:226  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:226
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00261 trace[1]  packages/server/src/enterprise/middleware/passport/index.ts:429  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+        })(req, res, next)
+expected normalized: '})(req, res, next)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/middleware/passport/index.ts:429
+actual code:
+        })(req, res, next)
+actual normalized: '})(req, res, next)'
+
+====================================================================================================
+entry-00261 trace[2]  packages/server/src/routes/index.ts:94  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.use('/internal-prediction', internalPredictionRouter)
+expected normalized: "router.use('/internal-prediction', internalPredictionRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:94
+actual code:
+    router.use('/internal-prediction', internalPredictionRouter)
+actual normalized: "router.use('/internal-prediction', internalPredictionRouter)"
+
+====================================================================================================
+entry-00261 trace[3]  packages/server/src/controllers/internal-predictions/index.ts:49  report=GHSA-WVHQ-WP8G-C7VQ
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const apiResponse = await utilBuildChatflow(req, true)
+expected normalized: 'const apiResponse = await utilBuildChatflow(req, true)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/internal-predictions/index.ts:49
+actual code:
+            const apiResponse = await utilBuildChatflow(req, true)
+actual normalized: 'const apiResponse = await utilBuildChatflow(req, true)'

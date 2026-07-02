@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00368 entry_point  src/auto-reply/reply/commands-acp.ts:59  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {
+expected normalized: 'export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:59
+actual code:
+    export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {
+actual normalized: 'export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {'
+
+====================================================================================================
+entry-00368 critical_operation  src/auto-reply/reply/commands-acp.ts:81  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    const handler = ACP_ACTION_HANDLERS[action];
+expected normalized: 'const handler = ACP_ACTION_HANDLERS[action];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:81
+actual code:
+      const handler = ACP_ACTION_HANDLERS[action];
+actual normalized: 'const handler = ACP_ACTION_HANDLERS[action];'
+
+====================================================================================================
+entry-00368 trace[0]  src/auto-reply/reply/commands-acp.ts:69  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    if (!params.command.isAuthorizedSender) {
+expected normalized: 'if (!params.command.isAuthorizedSender) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:69
+actual code:
+      if (!params.command.isAuthorizedSender) {
+actual normalized: 'if (!params.command.isAuthorizedSender) {'
+
+====================================================================================================
+entry-00368 trace[1]  src/auto-reply/reply/commands-acp.ts:74  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+      const rest = normalized.slice(COMMAND.length).trim();
+expected normalized: 'const rest = normalized.slice(COMMAND.length).trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:74
+actual code:
+      const rest = normalized.slice(COMMAND.length).trim();
+actual normalized: 'const rest = normalized.slice(COMMAND.length).trim();'
+
+====================================================================================================
+entry-00368 trace[2]  src/auto-reply/reply/commands-acp.ts:77  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+      if (action === "help") {
+expected normalized: 'if (action === "help") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:77
+actual code:
+      if (action === "help") {
+actual normalized: 'if (action === "help") {'
+
+====================================================================================================
+entry-00368 trace[3]  src/auto-reply/reply/commands-acp.ts:81  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    const handler = ACP_ACTION_HANDLERS[action];
+expected normalized: 'const handler = ACP_ACTION_HANDLERS[action];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:81
+actual code:
+      const handler = ACP_ACTION_HANDLERS[action];
+actual normalized: 'const handler = ACP_ACTION_HANDLERS[action];'

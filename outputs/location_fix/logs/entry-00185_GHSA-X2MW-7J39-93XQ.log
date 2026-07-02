@@ -1,0 +1,127 @@
+====================================================================================================
+entry-00185 entry_point  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:46  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    				default: false,
+expected normalized: 'default: false,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:46
+actual code:
+    				default: false,
+actual normalized: 'default: false,'
+
+====================================================================================================
+entry-00185 critical_operation  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:48  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:48
+actual code:
+    }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .bundlemonrc.json:11
+      			}
+  [2] .bundlemonrc.json:18
+      		}
+  [3] .bundlemonrc.json:28
+      		}
+  [4] .bundlemonrc.json:30
+      }
+
+====================================================================================================
+entry-00185 trace[0]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:46  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    				default: false,
+expected normalized: 'default: false,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:46
+actual code:
+    				default: false,
+actual normalized: 'default: false,'
+
+====================================================================================================
+entry-00185 trace[1]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:75-82  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    
+    			item = items[itemIndex];
+    
+    			const newItem: INodeExecutionData = {
+    				json: {},
+    				pairedItem: {
+    					item: itemIndex,
+    				},
+expected normalized: 'item = items[itemIndex]; const newItem: INodeExecutionData = { json: {}, pairedItem: { item: itemIndex, },'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:75-82
+actual code:
+    
+    			item = items[itemIndex];
+    
+    			const newItem: INodeExecutionData = {
+    				json: {},
+    				pairedItem: {
+    					item: itemIndex,
+    				},
+actual normalized: 'item = items[itemIndex]; const newItem: INodeExecutionData = { json: {}, pairedItem: { item: itemIndex, },'
+
+====================================================================================================
+entry-00185 trace[2]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:65  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    	return false;
+expected normalized: 'return false;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:65
+actual code:
+    	return false;
+actual normalized: 'return false;'
+
+====================================================================================================
+entry-00185 trace[3]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:48  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:48
+actual code:
+    }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .bundlemonrc.json:11
+      			}
+  [2] .bundlemonrc.json:18
+      		}
+  [3] .bundlemonrc.json:28
+      		}
+  [4] .bundlemonrc.json:30
+      }

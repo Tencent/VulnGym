@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00194 entry_point  src/infra/outbound/message-action-runner.ts:776  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      await normalizeSandboxMediaParams({
+expected normalized: 'await normalizeSandboxMediaParams({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-runner.ts:776
+actual code:
+      await normalizeSandboxMediaParams({
+actual normalized: 'await normalizeSandboxMediaParams({'
+
+====================================================================================================
+entry-00194 critical_operation  src/infra/outbound/message-action-params.ts:216  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          readFile: (filePath: string) => fs.readFile(filePath),
+expected normalized: 'readFile: (filePath: string) => fs.readFile(filePath),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-params.ts:216
+actual code:
+          readFile: (filePath: string) => fs.readFile(filePath),
+actual normalized: 'readFile: (filePath: string) => fs.readFile(filePath),'
+
+====================================================================================================
+entry-00194 trace[0]  src/infra/outbound/message-action-runner.ts:776  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      await normalizeSandboxMediaParams({
+expected normalized: 'await normalizeSandboxMediaParams({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-runner.ts:776
+actual code:
+      await normalizeSandboxMediaParams({
+actual normalized: 'await normalizeSandboxMediaParams({'
+
+====================================================================================================
+entry-00194 trace[1]  src/infra/outbound/message-action-runner.ts:781  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      await hydrateAttachmentParamsForAction({
+expected normalized: 'await hydrateAttachmentParamsForAction({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-runner.ts:781
+actual code:
+      await hydrateAttachmentParamsForAction({
+actual normalized: 'await hydrateAttachmentParamsForAction({'
+
+====================================================================================================
+entry-00194 trace[2]  src/infra/outbound/message-action-params.ts:258  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+        const media = await loadWebMedia(
+expected normalized: 'const media = await loadWebMedia('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-params.ts:258
+actual code:
+        const media = await loadWebMedia(
+actual normalized: 'const media = await loadWebMedia('
+
+====================================================================================================
+entry-00194 trace[3]  src/infra/outbound/message-action-params.ts:212  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      if (params.policy.mode === "sandbox") {
+expected normalized: 'if (params.policy.mode === "sandbox") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-params.ts:212
+actual code:
+      if (params.policy.mode === "sandbox") {
+actual normalized: 'if (params.policy.mode === "sandbox") {'
+
+====================================================================================================
+entry-00194 trace[4]  src/infra/outbound/message-action-params.ts:216  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          readFile: (filePath: string) => fs.readFile(filePath),
+expected normalized: 'readFile: (filePath: string) => fs.readFile(filePath),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/outbound/message-action-params.ts:216
+actual code:
+          readFile: (filePath: string) => fs.readFile(filePath),
+actual normalized: 'readFile: (filePath: string) => fs.readFile(filePath),'

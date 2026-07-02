@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00079 entry_point  server/routes.go:1504  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	r.POST("/api/push", s.PushHandler)
+expected normalized: 'r.POST("/api/push", s.PushHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1504
+actual code:
+    	r.POST("/api/push", s.PushHandler)
+actual normalized: 'r.POST("/api/push", s.PushHandler)'
+
+====================================================================================================
+entry-00079 critical_operation  server/routes.go:941  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    		if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {
+expected normalized: 'if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:941
+actual code:
+    		if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {
+actual normalized: 'if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {'
+
+====================================================================================================
+entry-00079 trace[0]  server/routes.go:1504  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	r.POST("/api/push", s.PushHandler)
+expected normalized: 'r.POST("/api/push", s.PushHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1504
+actual code:
+    	r.POST("/api/push", s.PushHandler)
+actual normalized: 'r.POST("/api/push", s.PushHandler)'
+
+====================================================================================================
+entry-00079 trace[1]  server/routes.go:899  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    func (s *Server) PushHandler(c *gin.Context) {
+expected normalized: 'func (s *Server) PushHandler(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:899
+actual code:
+    func (s *Server) PushHandler(c *gin.Context) {
+actual normalized: 'func (s *Server) PushHandler(c *gin.Context) {'
+
+====================================================================================================
+entry-00079 trace[2]  server/routes.go:941  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    		if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {
+expected normalized: 'if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:941
+actual code:
+    		if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {
+actual normalized: 'if err := PushModel(ctx, name.DisplayShortest(), regOpts, fn); err != nil {'

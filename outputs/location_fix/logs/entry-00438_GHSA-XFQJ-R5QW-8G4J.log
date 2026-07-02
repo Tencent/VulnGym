@@ -1,0 +1,69 @@
+====================================================================================================
+entry-00438 entry_point  server/src/routes/activity.ts:83  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/heartbeat-runs/:runId/issues", async (req, res) => {
+expected normalized: 'router.get("/heartbeat-runs/:runId/issues", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/activity.ts:83
+actual code:
+      router.get("/heartbeat-runs/:runId/issues", async (req, res) => {
+actual normalized: 'router.get("/heartbeat-runs/:runId/issues", async (req, res) => {'
+
+====================================================================================================
+entry-00438 critical_operation  server/src/routes/activity.ts:87  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          res.json([]);
+expected normalized: 'res.json([]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/activity.ts:87
+actual code:
+          res.json([]);
+actual normalized: 'res.json([]);'
+
+====================================================================================================
+entry-00438 trace[0]  server/src/routes/activity.ts:83-84  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/heartbeat-runs/:runId/issues", async (req, res) => {
+        const runId = req.params.runId as string;
+expected normalized: 'router.get("/heartbeat-runs/:runId/issues", async (req, res) => { const runId = req.params.runId as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/activity.ts:83-84
+actual code:
+      router.get("/heartbeat-runs/:runId/issues", async (req, res) => {
+        const runId = req.params.runId as string;
+actual normalized: 'router.get("/heartbeat-runs/:runId/issues", async (req, res) => { const runId = req.params.runId as string;'
+
+====================================================================================================
+entry-00438 trace[1]  server/src/routes/activity.ts:85-89  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        const run = await heartbeat.getRun(runId);
+        if (!run) {
+          res.json([]);
+          return;
+        }
+expected normalized: 'const run = await heartbeat.getRun(runId); if (!run) { res.json([]); return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/activity.ts:85-89
+actual code:
+        const run = await heartbeat.getRun(runId);
+        if (!run) {
+          res.json([]);
+          return;
+        }
+actual normalized: 'const run = await heartbeat.getRun(runId); if (!run) { res.json([]); return; }'

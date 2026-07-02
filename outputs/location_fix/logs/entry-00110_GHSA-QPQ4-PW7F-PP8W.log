@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00110 entry_point  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:109  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    	let contentToRender = props.content;
+expected normalized: 'let contentToRender = props.content;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:109
+actual code:
+    	let contentToRender = props.content;
+actual normalized: 'let contentToRender = props.content;'
+
+====================================================================================================
+entry-00110 critical_operation  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:163  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    	return safeHtml;
+expected normalized: 'return safeHtml;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:163
+actual code:
+    	return safeHtml;
+actual normalized: 'return safeHtml;'
+
+====================================================================================================
+entry-00110 trace[0]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:109  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    	let contentToRender = props.content;
+expected normalized: 'let contentToRender = props.content;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:109
+actual code:
+    	let contentToRender = props.content;
+actual normalized: 'let contentToRender = props.content;'
+
+====================================================================================================
+entry-00110 trace[1]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:113  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    	const html = md.render(contentToRender);
+expected normalized: 'const html = md.render(contentToRender);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:113
+actual code:
+    	const html = md.render(contentToRender);
+actual normalized: 'const html = md.render(contentToRender);'
+
+====================================================================================================
+entry-00110 trace[2]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:32  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    		const match = YOUTUBE_TAG_REGEX.exec(src.slice(pos));
+expected normalized: 'const match = YOUTUBE_TAG_REGEX.exec(src.slice(pos));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:32
+actual code:
+    		const match = YOUTUBE_TAG_REGEX.exec(src.slice(pos));
+actual normalized: 'const match = YOUTUBE_TAG_REGEX.exec(src.slice(pos));'
+
+====================================================================================================
+entry-00110 trace[3]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:37  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    			token.meta = { videoId: match[1] };
+expected normalized: 'token.meta = { videoId: match[1] };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:37
+actual code:
+    			token.meta = { videoId: match[1] };
+actual normalized: 'token.meta = { videoId: match[1] };'
+
+====================================================================================================
+entry-00110 trace[4]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:55  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    			`src="${youtubeUrl}${videoId}"`,
+expected normalized: '`src="${youtubeUrl}${videoId}"`,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/youtube.ts:55
+actual code:
+    			`src="${youtubeUrl}${videoId}"`,
+actual normalized: '`src="${youtubeUrl}${videoId}"`,'
+
+====================================================================================================
+entry-00110 trace[5]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:134  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    					if (YOUTUBE_EMBED_SRC_REGEX.test(value)) {
+expected normalized: 'if (YOUTUBE_EMBED_SRC_REGEX.test(value)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:134
+actual code:
+    					if (YOUTUBE_EMBED_SRC_REGEX.test(value)) {
+actual normalized: 'if (YOUTUBE_EMBED_SRC_REGEX.test(value)) {'
+
+====================================================================================================
+entry-00110 trace[6]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:135  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    						return `src=${friendlyAttrValue(value)}`;
+expected normalized: 'return `src=${friendlyAttrValue(value)}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:135
+actual code:
+    						return `src=${friendlyAttrValue(value)}`;
+actual normalized: 'return `src=${friendlyAttrValue(value)}`;'
+
+====================================================================================================
+entry-00110 trace[7]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:163  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    	return safeHtml;
+expected normalized: 'return safeHtml;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:163
+actual code:
+    	return safeHtml;
+actual normalized: 'return safeHtml;'

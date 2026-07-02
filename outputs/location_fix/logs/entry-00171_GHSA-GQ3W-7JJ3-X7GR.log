@@ -1,0 +1,204 @@
+====================================================================================================
+entry-00171 entry_point  mlflow/server/auth/basic_auth.ini:5  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+    admin_password = password
+expected normalized: 'admin_password = password'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/basic_auth.ini:5
+actual code:
+    admin_password = password
+actual normalized: 'admin_password = password'
+
+====================================================================================================
+entry-00171 critical_operation  mlflow/server/auth/__init__.py:493-494  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+        if sender_is_admin():
+            return
+expected normalized: 'if sender_is_admin(): return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:493-494
+actual code:
+        if sender_is_admin():
+            return
+actual normalized: 'if sender_is_admin(): return'
+
+====================================================================================================
+entry-00171 trace[0]  mlflow/server/auth/basic_auth.ini:5  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+    admin_password = password
+expected normalized: 'admin_password = password'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/basic_auth.ini:5
+actual code:
+    admin_password = password
+actual normalized: 'admin_password = password'
+
+====================================================================================================
+entry-00171 trace[1]  mlflow/server/auth/config.py:30  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+            admin_password=config["mlflow"]["admin_password"],
+expected normalized: 'admin_password=config["mlflow"]["admin_password"],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/config.py:30
+actual code:
+            admin_password=config["mlflow"]["admin_password"],
+actual normalized: 'admin_password=config["mlflow"]["admin_password"],'
+
+====================================================================================================
+entry-00171 trace[2]  mlflow/server/auth/__init__.py:129  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+    auth_config = read_auth_config()
+expected normalized: 'auth_config = read_auth_config()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:129
+actual code:
+    auth_config = read_auth_config()
+actual normalized: 'auth_config = read_auth_config()'
+
+====================================================================================================
+entry-00171 trace[3]  mlflow/server/auth/__init__.py:973  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+        create_admin_user(auth_config.admin_username, auth_config.admin_password)
+expected normalized: 'create_admin_user(auth_config.admin_username, auth_config.admin_password)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:973
+actual code:
+        create_admin_user(auth_config.admin_username, auth_config.admin_password)
+actual normalized: 'create_admin_user(auth_config.admin_username, auth_config.admin_password)'
+
+====================================================================================================
+entry-00171 trace[4]  mlflow/server/auth/__init__.py:684-687  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+    def create_admin_user(username, password):
+        if not store.has_user(username):
+            try:
+                store.create_user(username, password, is_admin=True)
+expected normalized: 'def create_admin_user(username, password): if not store.has_user(username): try: store.create_user(username, password, is_admin=True)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:684-687
+actual code:
+    def create_admin_user(username, password):
+        if not store.has_user(username):
+            try:
+                store.create_user(username, password, is_admin=True)
+actual normalized: 'def create_admin_user(username, password): if not store.has_user(username): try: store.create_user(username, password, is_admin=True)'
+
+====================================================================================================
+entry-00171 trace[5]  mlflow/server/auth/__init__.py:463-472  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+    def authenticate_request_basic_auth() -> Union[Authorization, Response]:
+        """Authenticate the request using basic auth."""
+        if request.authorization is None:
+            return make_basic_auth_response()
+    
+        username = request.authorization.username
+        password = request.authorization.password
+        if store.authenticate_user(username, password):
+            return request.authorization
+        else:
+expected normalized: 'def authenticate_request_basic_auth() -> Union[Authorization, Response]: """Authenticate the request using basic auth.""" if request.authorization is None: return make_basic_auth_response() username = request.authorization.username password = request.authorization.password if store.authenticate_user(username, password): return request.authorization else:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:463-472
+actual code:
+    def authenticate_request_basic_auth() -> Union[Authorization, Response]:
+        """Authenticate the request using basic auth."""
+        if request.authorization is None:
+            return make_basic_auth_response()
+    
+        username = request.authorization.username
+        password = request.authorization.password
+        if store.authenticate_user(username, password):
+            return request.authorization
+        else:
+actual normalized: 'def authenticate_request_basic_auth() -> Union[Authorization, Response]: """Authenticate the request using basic auth.""" if request.authorization is None: return make_basic_auth_response() username = request.authorization.username password = request.authorization.password if store.authenticate_user(username, password): return request.authorization else:'
+
+====================================================================================================
+entry-00171 trace[6]  mlflow/server/auth/sqlalchemy_store.py:35-41  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+        def authenticate_user(self, username: str, password: str) -> bool:
+            with self.ManagedSessionMaker() as session:
+                try:
+                    user = self._get_user(session, username)
+                    return check_password_hash(user.password_hash, password)
+                except MlflowException:
+                    return False
+expected normalized: 'def authenticate_user(self, username: str, password: str) -> bool: with self.ManagedSessionMaker() as session: try: user = self._get_user(session, username) return check_password_hash(user.password_hash, password) except MlflowException: return False'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/sqlalchemy_store.py:35-41
+actual code:
+        def authenticate_user(self, username: str, password: str) -> bool:
+            with self.ManagedSessionMaker() as session:
+                try:
+                    user = self._get_user(session, username)
+                    return check_password_hash(user.password_hash, password)
+                except MlflowException:
+                    return False
+actual normalized: 'def authenticate_user(self, username: str, password: str) -> bool: with self.ManagedSessionMaker() as session: try: user = self._get_user(session, username) return check_password_hash(user.password_hash, password) except MlflowException: return False'
+
+====================================================================================================
+entry-00171 trace[7]  mlflow/server/auth/__init__.py:482  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+        authorization = authenticate_request()
+expected normalized: 'authorization = authenticate_request()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:482
+actual code:
+        authorization = authenticate_request()
+actual normalized: 'authorization = authenticate_request()'
+
+====================================================================================================
+entry-00171 trace[8]  mlflow/server/auth/__init__.py:493-494  report=GHSA-GQ3W-7JJ3-X7GR
+repo=https://github.com/mlflow/mlflow
+commit=83b9416cf1cf13216406c81842a5c98c5b1f06fc
+expected code:
+        if sender_is_admin():
+            return
+expected normalized: 'if sender_is_admin(): return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:493-494
+actual code:
+        if sender_is_admin():
+            return
+actual normalized: 'if sender_is_admin(): return'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00214 entry_point  src/gateway/client.ts:272  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+          const payload = buildDeviceAuthPayload({
+expected normalized: 'const payload = buildDeviceAuthPayload({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/client.ts:272
+actual code:
+          const payload = buildDeviceAuthPayload({
+actual normalized: 'const payload = buildDeviceAuthPayload({'
+
+====================================================================================================
+entry-00214 critical_operation  src/gateway/server/ws-connection/auth-context.ts:195  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+        const tokenCheck = await params.verifyDeviceToken({
+expected normalized: 'const tokenCheck = await params.verifyDeviceToken({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/auth-context.ts:195
+actual code:
+        const tokenCheck = await params.verifyDeviceToken({
+actual normalized: 'const tokenCheck = await params.verifyDeviceToken({'
+
+====================================================================================================
+entry-00214 trace[0]  src/gateway/client.ts:272  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+          const payload = buildDeviceAuthPayload({
+expected normalized: 'const payload = buildDeviceAuthPayload({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/client.ts:272
+actual code:
+          const payload = buildDeviceAuthPayload({
+actual normalized: 'const payload = buildDeviceAuthPayload({'
+
+====================================================================================================
+entry-00214 trace[1]  src/gateway/device-auth.ts:12  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+    export function buildDeviceAuthPayload(params: DeviceAuthPayloadParams): string {
+expected normalized: 'export function buildDeviceAuthPayload(params: DeviceAuthPayloadParams): string {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/device-auth.ts:12
+actual code:
+    export function buildDeviceAuthPayload(params: DeviceAuthPayloadParams): string {
+actual normalized: 'export function buildDeviceAuthPayload(params: DeviceAuthPayloadParams): string {'
+
+====================================================================================================
+entry-00214 trace[2]  src/gateway/server/ws-connection/auth-context.ts:195  report=GHSA-R65X-2HQR-J5HF
+repo=https://github.com/openclaw/openclaw
+commit=cf311978ea6117256659f29c902a7a441f63def3
+expected code:
+        const tokenCheck = await params.verifyDeviceToken({
+expected normalized: 'const tokenCheck = await params.verifyDeviceToken({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/auth-context.ts:195
+actual code:
+        const tokenCheck = await params.verifyDeviceToken({
+actual normalized: 'const tokenCheck = await params.verifyDeviceToken({'

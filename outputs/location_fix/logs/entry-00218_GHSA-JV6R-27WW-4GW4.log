@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00218 entry_point  src/pairing/pairing-store.ts:386  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export async function readChannelAllowFromStore(
+expected normalized: 'export async function readChannelAllowFromStore('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/pairing-store.ts:386
+actual code:
+    export async function readChannelAllowFromStore(
+actual normalized: 'export async function readChannelAllowFromStore('
+
+====================================================================================================
+entry-00218 critical_operation  src/telegram/bot-message-context.ts:198  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const effectiveDmAllow = normalizeAllowFromWithStore({ allowFrom, storeAllowFrom, dmPolicy });
+expected normalized: 'const effectiveDmAllow = normalizeAllowFromWithStore({ allowFrom, storeAllowFrom, dmPolicy });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-message-context.ts:198
+actual code:
+      const effectiveDmAllow = normalizeAllowFromWithStore({ allowFrom, storeAllowFrom, dmPolicy });
+actual normalized: 'const effectiveDmAllow = normalizeAllowFromWithStore({ allowFrom, storeAllowFrom, dmPolicy });'
+
+====================================================================================================
+entry-00218 trace[0]  src/telegram/bot-access.ts:56  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export const normalizeAllowFromWithStore = (params: {
+expected normalized: 'export const normalizeAllowFromWithStore = (params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-access.ts:56
+actual code:
+    export const normalizeAllowFromWithStore = (params: {
+actual normalized: 'export const normalizeAllowFromWithStore = (params: {'
+
+====================================================================================================
+entry-00218 trace[1]  src/telegram/bot-access.ts:1  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    import { firstDefined, isSenderIdAllowed, mergeAllowFromSources } from "../channels/allow-from.js";
+expected normalized: 'import { firstDefined, isSenderIdAllowed, mergeAllowFromSources } from "../channels/allow-from.js";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/bot-access.ts:1
+actual code:
+    import { firstDefined, isSenderIdAllowed, mergeAllowFromSources } from "../channels/allow-from.js";
+actual normalized: 'import { firstDefined, isSenderIdAllowed, mergeAllowFromSources } from "../channels/allow-from.js";'
+
+====================================================================================================
+entry-00218 trace[2]  src/channels/allow-from.ts:1  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export function mergeAllowFromSources(params: {
+expected normalized: 'export function mergeAllowFromSources(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/allow-from.ts:1
+actual code:
+    export function mergeAllowFromSources(params: {
+actual normalized: 'export function mergeAllowFromSources(params: {'

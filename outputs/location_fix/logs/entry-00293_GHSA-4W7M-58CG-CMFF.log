@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00293 entry_point  src/agents/tools/subagents-tool.ts:349  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+    export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {
+expected normalized: 'export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:349
+actual code:
+    export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {
+actual normalized: 'export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {'
+
+====================================================================================================
+entry-00293 critical_operation  src/agents/tools/subagents-tool.ts:653  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+              const response = await callGateway<{ runId: string }>({
+expected normalized: 'const response = await callGateway<{ runId: string }>({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:653
+actual code:
+              const response = await callGateway<{ runId: string }>({
+actual normalized: 'const response = await callGateway<{ runId: string }>({'
+
+====================================================================================================
+entry-00293 trace[0]  src/agents/tools/subagents-tool.ts:230  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:230
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00293 trace[1]  src/agents/tools/subagents-tool.ts:559  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+            const resolved = resolveSubagentTarget(runs, target, {
+expected normalized: 'const resolved = resolveSubagentTarget(runs, target, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:559
+actual code:
+            const resolved = resolveSubagentTarget(runs, target, {
+actual normalized: 'const resolved = resolveSubagentTarget(runs, target, {'
+
+====================================================================================================
+entry-00293 trace[2]  src/agents/tools/subagents-tool.ts:581  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+            if (
+expected normalized: 'if ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:581
+actual code:
+            if (
+actual normalized: 'if ('
+
+====================================================================================================
+entry-00293 trace[3]  src/agents/tools/subagents-tool.ts:612  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+            markSubagentRunForSteerRestart(resolved.entry.runId);
+expected normalized: 'markSubagentRunForSteerRestart(resolved.entry.runId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:612
+actual code:
+            markSubagentRunForSteerRestart(resolved.entry.runId);
+actual normalized: 'markSubagentRunForSteerRestart(resolved.entry.runId);'
+
+====================================================================================================
+entry-00293 trace[4]  src/agents/tools/subagents-tool.ts:625  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+            if (sessionId) {
+expected normalized: 'if (sessionId) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:625
+actual code:
+            if (sessionId) {
+actual normalized: 'if (sessionId) {'
+
+====================================================================================================
+entry-00293 trace[5]  src/agents/tools/subagents-tool.ts:653  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+              const response = await callGateway<{ runId: string }>({
+expected normalized: 'const response = await callGateway<{ runId: string }>({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:653
+actual code:
+              const response = await callGateway<{ runId: string }>({
+actual normalized: 'const response = await callGateway<{ runId: string }>({'

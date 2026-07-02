@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00492 entry_point  packages/server/src/utils/constants.ts:41  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        '/api/v1/text-to-speech/generate',
+expected normalized: "'/api/v1/text-to-speech/generate',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:41
+actual code:
+        '/api/v1/text-to-speech/generate',
+actual normalized: "'/api/v1/text-to-speech/generate',"
+
+====================================================================================================
+entry-00492 critical_operation  packages/components/src/textToSpeech.ts:34  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        const credentialData = await getCredentialData(credentialId ?? '', options)
+expected normalized: "const credentialData = await getCredentialData(credentialId ?? '', options)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/textToSpeech.ts:34
+actual code:
+                        const credentialData = await getCredentialData(credentialId ?? '', options)
+actual normalized: "const credentialData = await getCredentialData(credentialId ?? '', options)"
+
+====================================================================================================
+entry-00492 trace[0]  packages/server/src/utils/constants.ts:41  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        '/api/v1/text-to-speech/generate',
+expected normalized: "'/api/v1/text-to-speech/generate',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:41
+actual code:
+        '/api/v1/text-to-speech/generate',
+actual normalized: "'/api/v1/text-to-speech/generate',"
+
+====================================================================================================
+entry-00492 trace[1]  packages/server/src/index.ts:221  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00492 trace[2]  packages/server/src/index.ts:222  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        if (isWhitelisted) {
+expected normalized: 'if (isWhitelisted) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:222
+actual code:
+                        if (isWhitelisted) {
+actual normalized: 'if (isWhitelisted) {'
+
+====================================================================================================
+entry-00492 trace[3]  packages/server/src/routes/text-to-speech/index.ts:6  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.post('/generate', textToSpeechController.generateTextToSpeech)
+expected normalized: "router.post('/generate', textToSpeechController.generateTextToSpeech)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/text-to-speech/index.ts:6
+actual code:
+    router.post('/generate', textToSpeechController.generateTextToSpeech)
+actual normalized: "router.post('/generate', textToSpeechController.generateTextToSpeech)"
+
+====================================================================================================
+entry-00492 trace[4]  packages/server/src/controllers/text-to-speech/index.ts:18  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                credentialId: bodyCredentialId,
+expected normalized: 'credentialId: bodyCredentialId,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/text-to-speech/index.ts:18
+actual code:
+                credentialId: bodyCredentialId,
+actual normalized: 'credentialId: bodyCredentialId,'
+
+====================================================================================================
+entry-00492 trace[5]  packages/server/src/controllers/text-to-speech/index.ts:58  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            } else {
+expected normalized: '} else {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/text-to-speech/index.ts:58
+actual code:
+            } else {
+actual normalized: '} else {'
+
+====================================================================================================
+entry-00492 trace[6]  packages/server/src/controllers/text-to-speech/index.ts:95  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const textToSpeechConfig = {
+expected normalized: 'const textToSpeechConfig = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/text-to-speech/index.ts:95
+actual code:
+            const textToSpeechConfig = {
+actual normalized: 'const textToSpeechConfig = {'
+
+====================================================================================================
+entry-00492 trace[7]  packages/server/src/controllers/text-to-speech/index.ts:108  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                await convertTextToSpeechStream(
+expected normalized: 'await convertTextToSpeechStream('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/text-to-speech/index.ts:108
+actual code:
+                await convertTextToSpeechStream(
+actual normalized: 'await convertTextToSpeechStream('
+
+====================================================================================================
+entry-00492 trace[8]  packages/components/src/textToSpeech.ts:33  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        const credentialId = textToSpeechConfig.credentialId as string
+expected normalized: 'const credentialId = textToSpeechConfig.credentialId as string'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/textToSpeech.ts:33
+actual code:
+                        const credentialId = textToSpeechConfig.credentialId as string
+actual normalized: 'const credentialId = textToSpeechConfig.credentialId as string'
+
+====================================================================================================
+entry-00492 trace[9]  packages/components/src/textToSpeech.ts:34  report=GHSA-5FW2-MWHH-9947
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        const credentialData = await getCredentialData(credentialId ?? '', options)
+expected normalized: "const credentialData = await getCredentialData(credentialId ?? '', options)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/textToSpeech.ts:34
+actual code:
+                        const credentialData = await getCredentialData(credentialId ?? '', options)
+actual normalized: "const credentialData = await getCredentialData(credentialId ?? '', options)"

@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00272 entry_point  internal/router/router.go:309  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    tenantRoutes.PUT("/:id", handler.UpdateTenant)
+expected normalized: 'tenantRoutes.PUT("/:id", handler.UpdateTenant)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/router/router.go:309
+actual code:
+    		tenantRoutes.PUT("/:id", handler.UpdateTenant)
+actual normalized: 'tenantRoutes.PUT("/:id", handler.UpdateTenant)'
+
+====================================================================================================
+entry-00272 critical_operation  internal/handler/tenant.go:170  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)
+expected normalized: 'updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:170
+actual code:
+    	updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)
+actual normalized: 'updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)'
+
+====================================================================================================
+entry-00272 trace[0]  internal/middleware/auth.go:131  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    c.Set(types.TenantIDContextKey.String(), targetTenantID)
+expected normalized: 'c.Set(types.TenantIDContextKey.String(), targetTenantID)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/middleware/auth.go:131
+actual code:
+    				c.Set(types.TenantIDContextKey.String(), targetTenantID)
+actual normalized: 'c.Set(types.TenantIDContextKey.String(), targetTenantID)'
+
+====================================================================================================
+entry-00272 trace[1]  internal/handler/tenant.go:148  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    func (h *TenantHandler) UpdateTenant(c *gin.Context) {
+expected normalized: 'func (h *TenantHandler) UpdateTenant(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:148
+actual code:
+    func (h *TenantHandler) UpdateTenant(c *gin.Context) {
+actual normalized: 'func (h *TenantHandler) UpdateTenant(c *gin.Context) {'
+
+====================================================================================================
+entry-00272 trace[2]  internal/handler/tenant.go:153  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+expected normalized: 'id, err := strconv.ParseUint(c.Param("id"), 10, 64)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:153
+actual code:
+    	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+actual normalized: 'id, err := strconv.ParseUint(c.Param("id"), 10, 64)'
+
+====================================================================================================
+entry-00272 trace[3]  internal/handler/tenant.go:157  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    return
+expected normalized: 'return'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:157
+actual code:
+    		return
+actual normalized: 'return'
+
+====================================================================================================
+entry-00272 trace[4]  internal/handler/tenant.go:169  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    tenantData.ID = id
+expected normalized: 'tenantData.ID = id'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:169
+actual code:
+    	tenantData.ID = id
+actual normalized: 'tenantData.ID = id'
+
+====================================================================================================
+entry-00272 trace[5]  internal/handler/tenant.go:170  report=GHSA-CCJ6-79J6-CQ5Q
+repo=https://github.com/Tencent/WeKnora
+commit=10b6c98078dc5206c8fd00d3eebe5535a7571eb4
+expected code:
+    updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)
+expected normalized: 'updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/tenant.go:170
+actual code:
+    	updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)
+actual normalized: 'updatedTenant, err := h.service.UpdateTenant(ctx, &tenantData)'

@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00347 entry_point  nemo/collections/llm/gpt/model/hyena.py:827  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    weights_path = hf_hub_download(
+expected normalized: 'weights_path = hf_hub_download('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/hyena.py:827
+actual code:
+                    weights_path = hf_hub_download(
+actual normalized: 'weights_path = hf_hub_download('
+
+====================================================================================================
+entry-00347 critical_operation  nemo/collections/llm/gpt/model/hyena.py:873  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            return torch.load(weights_path, map_location='cpu', weights_only=False)
+expected normalized: "return torch.load(weights_path, map_location='cpu', weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/hyena.py:873
+actual code:
+            return torch.load(weights_path, map_location='cpu', weights_only=False)
+actual normalized: "return torch.load(weights_path, map_location='cpu', weights_only=False)"
+
+====================================================================================================
+entry-00347 trace[0]  nemo/collections/llm/gpt/model/hyena.py:827  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    weights_path = hf_hub_download(
+expected normalized: 'weights_path = hf_hub_download('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/hyena.py:827
+actual code:
+                    weights_path = hf_hub_download(
+actual normalized: 'weights_path = hf_hub_download('
+
+====================================================================================================
+entry-00347 trace[1]  nemo/collections/llm/gpt/model/hyena.py:873  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            return torch.load(weights_path, map_location='cpu', weights_only=False)
+expected normalized: "return torch.load(weights_path, map_location='cpu', weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/hyena.py:873
+actual code:
+            return torch.load(weights_path, map_location='cpu', weights_only=False)
+actual normalized: "return torch.load(weights_path, map_location='cpu', weights_only=False)"

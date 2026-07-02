@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00419 entry_point  litellm/proxy/auth/user_api_key_auth.py:1209  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    async def user_api_key_auth(
+expected normalized: 'async def user_api_key_auth('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/user_api_key_auth.py:1209
+actual code:
+    async def user_api_key_auth(
+actual normalized: 'async def user_api_key_auth('
+
+====================================================================================================
+entry-00419 critical_operation  litellm/proxy/auth/handle_jwt.py:506  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    cache_key = f"oidc_userinfo_{token[:20]}"  # Use first 20 chars of token as cache key
+expected normalized: 'cache_key = f"oidc_userinfo_{token[:20]}" # Use first 20 chars of token as cache key'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/handle_jwt.py:506
+actual code:
+            cache_key = f"oidc_userinfo_{token[:20]}"  # Use first 20 chars of token as cache key
+actual normalized: 'cache_key = f"oidc_userinfo_{token[:20]}" # Use first 20 chars of token as cache key'
+
+====================================================================================================
+entry-00419 trace[0]  litellm/proxy/auth/user_api_key_auth.py:1236  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    user_api_key_auth_obj = await _user_api_key_auth_builder(
+expected normalized: 'user_api_key_auth_obj = await _user_api_key_auth_builder('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/user_api_key_auth.py:1236
+actual code:
+        user_api_key_auth_obj = await _user_api_key_auth_builder(
+actual normalized: 'user_api_key_auth_obj = await _user_api_key_auth_builder('
+
+====================================================================================================
+entry-00419 trace[1]  litellm/proxy/auth/user_api_key_auth.py:500  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    if general_settings.get("enable_jwt_auth", False) is True:
+expected normalized: 'if general_settings.get("enable_jwt_auth", False) is True:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/user_api_key_auth.py:500
+actual code:
+            if general_settings.get("enable_jwt_auth", False) is True:
+actual normalized: 'if general_settings.get("enable_jwt_auth", False) is True:'
+
+====================================================================================================
+entry-00419 trace[2]  litellm/proxy/auth/handle_jwt.py:1146  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    if jwt_handler.litellm_jwtauth.oidc_userinfo_enabled:
+expected normalized: 'if jwt_handler.litellm_jwtauth.oidc_userinfo_enabled:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/handle_jwt.py:1146
+actual code:
+            if jwt_handler.litellm_jwtauth.oidc_userinfo_enabled:
+actual normalized: 'if jwt_handler.litellm_jwtauth.oidc_userinfo_enabled:'
+
+====================================================================================================
+entry-00419 trace[3]  litellm/proxy/auth/handle_jwt.py:506  report=GHSA-JJHC-V7C2-5HH6
+repo=https://github.com/BerriAI/litellm
+commit=24f847b84c947e13b765edaf172f646fd1b06297
+expected code:
+    cache_key = f"oidc_userinfo_{token[:20]}"  # Use first 20 chars of token as cache key
+expected normalized: 'cache_key = f"oidc_userinfo_{token[:20]}" # Use first 20 chars of token as cache key'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: litellm/proxy/auth/handle_jwt.py:506
+actual code:
+            cache_key = f"oidc_userinfo_{token[:20]}"  # Use first 20 chars of token as cache key
+actual normalized: 'cache_key = f"oidc_userinfo_{token[:20]}" # Use first 20 chars of token as cache key'

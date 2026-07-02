@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00478 entry_point  packages/server/src/routes/oauth2/index.ts:307  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.post('/refresh/:credentialId', async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: "router.post('/refresh/:credentialId', async (req: Request, res: Response, next: NextFunction) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:307
+actual code:
+    router.post('/refresh/:credentialId', async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: "router.post('/refresh/:credentialId', async (req: Request, res: Response, next: NextFunction) => {"
+
+====================================================================================================
+entry-00478 critical_operation  packages/server/src/routes/oauth2/index.ts:355  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {
+expected normalized: 'const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:355
+actual code:
+            const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {
+actual normalized: 'const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {'
+
+====================================================================================================
+entry-00478 trace[0]  packages/server/src/utils/constants.ts:40  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    '/api/v1/oauth2-credential/refresh',
+expected normalized: "'/api/v1/oauth2-credential/refresh',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:40
+actual code:
+        '/api/v1/oauth2-credential/refresh',
+actual normalized: "'/api/v1/oauth2-credential/refresh',"
+
+====================================================================================================
+entry-00478 trace[1]  packages/server/src/index.ts:222  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    if (isWhitelisted) {
+expected normalized: 'if (isWhitelisted) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:222
+actual code:
+                        if (isWhitelisted) {
+actual normalized: 'if (isWhitelisted) {'
+
+====================================================================================================
+entry-00478 trace[2]  packages/server/src/routes/oauth2/index.ts:309  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const { credentialId } = req.params
+expected normalized: 'const { credentialId } = req.params'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:309
+actual code:
+            const { credentialId } = req.params
+actual normalized: 'const { credentialId } = req.params'
+
+====================================================================================================
+entry-00478 trace[3]  packages/server/src/routes/oauth2/index.ts:314  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const credential = await credentialRepository.findOneBy({
+expected normalized: 'const credential = await credentialRepository.findOneBy({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:314
+actual code:
+            const credential = await credentialRepository.findOneBy({
+actual normalized: 'const credential = await credentialRepository.findOneBy({'
+
+====================================================================================================
+entry-00478 trace[4]  packages/server/src/routes/oauth2/index.ts:325  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const decryptedData = await decryptCredentialData(credential.encryptedData)
+expected normalized: 'const decryptedData = await decryptCredentialData(credential.encryptedData)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:325
+actual code:
+            const decryptedData = await decryptCredentialData(credential.encryptedData)
+actual normalized: 'const decryptedData = await decryptCredentialData(credential.encryptedData)'
+
+====================================================================================================
+entry-00478 trace[5]  packages/server/src/routes/oauth2/index.ts:355  report=GHSA-6F7G-V4PP-R667
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {
+expected normalized: 'const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/oauth2/index.ts:355
+actual code:
+            const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {
+actual normalized: 'const tokenResponse = await axios.post(tokenUrl, new URLSearchParams(refreshRequestData).toString(), {'

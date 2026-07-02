@@ -1,0 +1,152 @@
+====================================================================================================
+entry-00389 entry_point  mlflow/pyfunc/backend.py:229-231  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+        def serve(
+            self,
+            model_uri,
+expected normalized: 'def serve( self, model_uri,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:229-231
+actual code:
+        def serve(
+            self,
+            model_uri,
+actual normalized: 'def serve( self, model_uri,'
+
+====================================================================================================
+entry-00389 critical_operation  mlflow/pyfunc/backend.py:311-317  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+                child_proc = subprocess.Popen(
+                    command,
+                    env=command_env,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    stdout=stdout,
+                    stderr=stderr,
+                )
+expected normalized: 'child_proc = subprocess.Popen( command, env=command_env, preexec_fn=setup_sigterm_on_parent_death, stdout=stdout, stderr=stderr, )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:311-317
+actual code:
+                child_proc = subprocess.Popen(
+                    command,
+                    env=command_env,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    stdout=stdout,
+                    stderr=stderr,
+                )
+actual normalized: 'child_proc = subprocess.Popen( command, env=command_env, preexec_fn=setup_sigterm_on_parent_death, stdout=stdout, stderr=stderr, )'
+
+====================================================================================================
+entry-00389 trace[0]  mlflow/pyfunc/backend.py:229-231  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+        def serve(
+            self,
+            model_uri,
+expected normalized: 'def serve( self, model_uri,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:229-231
+actual code:
+        def serve(
+            self,
+            model_uri,
+actual normalized: 'def serve( self, model_uri,'
+
+====================================================================================================
+entry-00389 trace[1]  mlflow/pyfunc/backend.py:244  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+            local_path = _download_artifact_from_uri(model_uri)
+expected normalized: 'local_path = _download_artifact_from_uri(model_uri)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:244
+actual code:
+            local_path = _download_artifact_from_uri(model_uri)
+actual normalized: 'local_path = _download_artifact_from_uri(model_uri)'
+
+====================================================================================================
+entry-00389 trace[2]  mlflow/pyfunc/mlserver.py:10-18  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+    def get_cmd(
+        model_uri: str,
+        port: int | None = None,
+        host: str | None = None,
+        timeout: int | None = None,
+        nworkers: int | None = None,
+        model_name: str | None = None,
+        model_version: str | None = None,
+    ) -> tuple[str, dict[str, str]]:
+expected normalized: 'def get_cmd( model_uri: str, port: int | None = None, host: str | None = None, timeout: int | None = None, nworkers: int | None = None, model_name: str | None = None, model_version: str | None = None, ) -> tuple[str, dict[str, str]]:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/mlserver.py:10-18
+actual code:
+    def get_cmd(
+        model_uri: str,
+        port: int | None = None,
+        host: str | None = None,
+        timeout: int | None = None,
+        nworkers: int | None = None,
+        model_name: str | None = None,
+        model_version: str | None = None,
+    ) -> tuple[str, dict[str, str]]:
+actual normalized: 'def get_cmd( model_uri: str, port: int | None = None, host: str | None = None, timeout: int | None = None, nworkers: int | None = None, model_name: str | None = None, model_version: str | None = None, ) -> tuple[str, dict[str, str]]:'
+
+====================================================================================================
+entry-00389 trace[3]  mlflow/pyfunc/backend.py:309  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+                    command = ["bash", "-c", command]
+expected normalized: 'command = ["bash", "-c", command]'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:309
+actual code:
+                    command = ["bash", "-c", command]
+actual normalized: 'command = ["bash", "-c", command]'
+
+====================================================================================================
+entry-00389 trace[4]  mlflow/pyfunc/backend.py:311-317  report=GHSA-RVHJ-8CHJ-8V3C
+repo=https://github.com/mlflow/mlflow
+commit=d1312edfca36c7acae0d064ef6a094eded88e14f
+expected code:
+                child_proc = subprocess.Popen(
+                    command,
+                    env=command_env,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    stdout=stdout,
+                    stderr=stderr,
+                )
+expected normalized: 'child_proc = subprocess.Popen( command, env=command_env, preexec_fn=setup_sigterm_on_parent_death, stdout=stdout, stderr=stderr, )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/backend.py:311-317
+actual code:
+                child_proc = subprocess.Popen(
+                    command,
+                    env=command_env,
+                    preexec_fn=setup_sigterm_on_parent_death,
+                    stdout=stdout,
+                    stderr=stderr,
+                )
+actual normalized: 'child_proc = subprocess.Popen( command, env=command_env, preexec_fn=setup_sigterm_on_parent_death, stdout=stdout, stderr=stderr, )'

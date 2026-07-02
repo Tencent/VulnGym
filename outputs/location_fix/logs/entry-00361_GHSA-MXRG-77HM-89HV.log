@@ -1,0 +1,86 @@
+====================================================================================================
+entry-00361 entry_point  packages/nodes-base/nodes/Xml/Xml.node.ts:236  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);
+expected normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Xml/Xml.node.ts:236
+actual code:
+    		const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);
+actual normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);"
+
+====================================================================================================
+entry-00361 critical_operation  packages/nodes-base/nodes/Xml/Xml.node.ts:253  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    let item: INodeExecutionData;
+expected normalized: 'let item: INodeExecutionData;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Xml/Xml.node.ts:253
+actual code:
+    		let item: INodeExecutionData;
+actual normalized: 'let item: INodeExecutionData;'
+
+====================================================================================================
+entry-00361 trace[0]  packages/nodes-base/nodes/Xml/Xml.node.ts:236  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);
+expected normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Xml/Xml.node.ts:236
+actual code:
+    		const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);
+actual normalized: "const dataPropertyName = this.getNodeParameter('dataPropertyName', 0);"
+
+====================================================================================================
+entry-00361 trace[1]  packages/nodes-base/nodes/Xml/Xml.node.ts:250  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    );
+expected normalized: ');'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Xml/Xml.node.ts:250
+actual code:
+    			);
+actual normalized: ');'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (4):
+  [1] .github/actions/ci-filter/__tests__/ci-filter.test.ts:38
+      		);
+  [2] .github/scripts/bump-versions.mjs:49
+      );
+  [3] .github/scripts/bump-versions.mjs:83
+      	);
+  [4] .github/scripts/bump-versions.mjs:98
+      				);
+
+====================================================================================================
+entry-00361 trace[2]  packages/nodes-base/nodes/Xml/Xml.node.ts:253  report=GHSA-MXRG-77HM-89HV
+repo=https://github.com/n8n-io/n8n
+commit=732f2a3d3ddba59fb6e51bf2534fd33792a2cde3
+expected code:
+    let item: INodeExecutionData;
+expected normalized: 'let item: INodeExecutionData;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Xml/Xml.node.ts:253
+actual code:
+    		let item: INodeExecutionData;
+actual normalized: 'let item: INodeExecutionData;'

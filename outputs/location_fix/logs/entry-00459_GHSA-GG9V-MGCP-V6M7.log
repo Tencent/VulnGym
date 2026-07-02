@@ -1,0 +1,179 @@
+====================================================================================================
+entry-00459 entry_point  extensions/device-pair/index.ts:518  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    const issuedBootstrap = await issueDeviceBootstrapToken();
+expected normalized: 'const issuedBootstrap = await issueDeviceBootstrapToken();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:518
+actual code:
+      const issuedBootstrap = await issueDeviceBootstrapToken();
+actual normalized: 'const issuedBootstrap = await issueDeviceBootstrapToken();'
+
+====================================================================================================
+entry-00459 critical_operation  src/infra/device-bootstrap.ts:150  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    return { ok: true };
+expected normalized: 'return { ok: true };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:150
+actual code:
+        return { ok: true };
+actual normalized: 'return { ok: true };'
+
+====================================================================================================
+entry-00459 trace[0]  extensions/device-pair/index.ts:518  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    const issuedBootstrap = await issueDeviceBootstrapToken();
+expected normalized: 'const issuedBootstrap = await issueDeviceBootstrapToken();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:518
+actual code:
+      const issuedBootstrap = await issueDeviceBootstrapToken();
+actual normalized: 'const issuedBootstrap = await issueDeviceBootstrapToken();'
+
+====================================================================================================
+entry-00459 trace[1]  src/infra/device-bootstrap.ts:63  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    export async function issueDeviceBootstrapToken(
+expected normalized: 'export async function issueDeviceBootstrapToken('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:63
+actual code:
+    export async function issueDeviceBootstrapToken(
+actual normalized: 'export async function issueDeviceBootstrapToken('
+
+====================================================================================================
+entry-00459 trace[2]  src/infra/device-bootstrap.ts:72  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    state[token] = {
+expected normalized: 'state[token] = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:72
+actual code:
+        state[token] = {
+actual normalized: 'state[token] = {'
+
+====================================================================================================
+entry-00459 trace[3]  extensions/device-pair/index.ts:519  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/device-pair/index.ts:519
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00459 trace[4]  src/pairing/setup-code.ts:383  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    url: urlResult.url,
+expected normalized: 'url: urlResult.url,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/setup-code.ts:383
+actual code:
+          url: urlResult.url,
+actual normalized: 'url: urlResult.url,'
+
+====================================================================================================
+entry-00459 trace[5]  src/infra/device-bootstrap.ts:117  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    export async function verifyDeviceBootstrapToken(params: {
+expected normalized: 'export async function verifyDeviceBootstrapToken(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:117
+actual code:
+    export async function verifyDeviceBootstrapToken(params: {
+actual normalized: 'export async function verifyDeviceBootstrapToken(params: {'
+
+====================================================================================================
+entry-00459 trace[6]  src/infra/device-bootstrap.ts:131  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    const found = Object.entries(state).find(([, candidate]) =>
+expected normalized: 'const found = Object.entries(state).find(([, candidate]) =>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:131
+actual code:
+        const found = Object.entries(state).find(([, candidate]) =>
+actual normalized: 'const found = Object.entries(state).find(([, candidate]) =>'
+
+====================================================================================================
+entry-00459 trace[7]  src/infra/device-bootstrap.ts:139  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    const deviceId = params.deviceId.trim();
+expected normalized: 'const deviceId = params.deviceId.trim();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:139
+actual code:
+        const deviceId = params.deviceId.trim();
+actual normalized: 'const deviceId = params.deviceId.trim();'
+
+====================================================================================================
+entry-00459 trace[8]  src/infra/device-bootstrap.ts:142  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    if (!deviceId || !publicKey || !role) {
+expected normalized: 'if (!deviceId || !publicKey || !role) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:142
+actual code:
+        if (!deviceId || !publicKey || !role) {
+actual normalized: 'if (!deviceId || !publicKey || !role) {'
+
+====================================================================================================
+entry-00459 trace[9]  src/infra/device-bootstrap.ts:150  report=GHSA-GG9V-MGCP-V6M7
+repo=https://github.com/openclaw/openclaw
+commit=4580d585ffa43d8b3fc2b71ead902f07db38f513
+expected code:
+    return { ok: true };
+expected normalized: 'return { ok: true };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:150
+actual code:
+        return { ok: true };
+actual normalized: 'return { ok: true };'

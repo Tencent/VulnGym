@@ -1,0 +1,125 @@
+====================================================================================================
+entry-00320 entry_point  src/backend/base/langflow/api/v2/files.py:163-166  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+            try:
+                root_filename, file_extension = new_filename.rsplit(".", 1)
+            except ValueError:
+                root_filename, file_extension = new_filename, ""
+expected normalized: 'try: root_filename, file_extension = new_filename.rsplit(".", 1) except ValueError: root_filename, file_extension = new_filename, ""'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:163-166
+actual code:
+            try:
+                root_filename, file_extension = new_filename.rsplit(".", 1)
+            except ValueError:
+                root_filename, file_extension = new_filename, ""
+actual normalized: 'try: root_filename, file_extension = new_filename.rsplit(".", 1) except ValueError: root_filename, file_extension = new_filename, ""'
+
+====================================================================================================
+entry-00320 critical_operation  src/backend/base/langflow/services/storage/local.py:120  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+                async with async_open(str(file_path), mode) as f:
+expected normalized: 'async with async_open(str(file_path), mode) as f:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/storage/local.py:120
+actual code:
+                async with async_open(str(file_path), mode) as f:
+actual normalized: 'async with async_open(str(file_path), mode) as f:'
+
+====================================================================================================
+entry-00320 trace[0]  src/backend/base/langflow/api/v2/files.py:163-166  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+            try:
+                root_filename, file_extension = new_filename.rsplit(".", 1)
+            except ValueError:
+                root_filename, file_extension = new_filename, ""
+expected normalized: 'try: root_filename, file_extension = new_filename.rsplit(".", 1) except ValueError: root_filename, file_extension = new_filename, ""'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:163-166
+actual code:
+            try:
+                root_filename, file_extension = new_filename.rsplit(".", 1)
+            except ValueError:
+                root_filename, file_extension = new_filename, ""
+actual normalized: 'try: root_filename, file_extension = new_filename.rsplit(".", 1) except ValueError: root_filename, file_extension = new_filename, ""'
+
+====================================================================================================
+entry-00320 trace[1]  src/backend/base/langflow/api/v2/files.py:205-214  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+                    for my_file in files:
+                        match = re.search(r"\((\d+)\)(?=\.\w+$|$)", my_file.name)
+                        if match:
+                            counts.append(int(match.group(1)))
+    
+                    count = max(counts) if counts else 0
+                    root_filename = f"{root_filename} ({count + 1})"
+    
+                # Create the unique filename with extension for storage
+                unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename
+expected normalized: 'for my_file in files: match = re.search(r"\\((\\d+)\\)(?=\\.\\w+$|$)", my_file.name) if match: counts.append(int(match.group(1))) count = max(counts) if counts else 0 root_filename = f"{root_filename} ({count + 1})" # Create the unique filename with extension for storage unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:205-214
+actual code:
+                    for my_file in files:
+                        match = re.search(r"\((\d+)\)(?=\.\w+$|$)", my_file.name)
+                        if match:
+                            counts.append(int(match.group(1)))
+    
+                    count = max(counts) if counts else 0
+                    root_filename = f"{root_filename} ({count + 1})"
+    
+                # Create the unique filename with extension for storage
+                unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename
+actual normalized: 'for my_file in files: match = re.search(r"\\((\\d+)\\)(?=\\.\\w+$|$)", my_file.name) if match: counts.append(int(match.group(1))) count = max(counts) if counts else 0 root_filename = f"{root_filename} ({count + 1})" # Create the unique filename with extension for storage unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename'
+
+====================================================================================================
+entry-00320 trace[2]  src/backend/base/langflow/api/v2/files.py:119-122  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+        if not file_content:
+            file_content = await file.read()
+        if not file_name:
+            file_name = file.filename
+expected normalized: 'if not file_content: file_content = await file.read() if not file_name: file_name = file.filename'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:119-122
+actual code:
+        if not file_content:
+            file_content = await file.read()
+        if not file_name:
+            file_name = file.filename
+actual normalized: 'if not file_content: file_content = await file.read() if not file_name: file_name = file.filename'
+
+====================================================================================================
+entry-00320 trace[3]  src/backend/base/langflow/services/storage/local.py:120  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+                async with async_open(str(file_path), mode) as f:
+expected normalized: 'async with async_open(str(file_path), mode) as f:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/storage/local.py:120
+actual code:
+                async with async_open(str(file_path), mode) as f:
+actual normalized: 'async with async_open(str(file_path), mode) as f:'

@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00199 entry_point  src/gateway/server-methods/agent.ts:594  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        void agentCommand(
+expected normalized: 'void agentCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:594
+actual code:
+        void agentCommand(
+actual normalized: 'void agentCommand('
+
+====================================================================================================
+entry-00199 critical_operation  src/agents/pi-tools.ts:501  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);
+expected normalized: 'const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:501
+actual code:
+      const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);
+actual normalized: 'const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);'
+
+====================================================================================================
+entry-00199 trace[0]  src/gateway/server-methods/agent.ts:594  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        void agentCommand(
+expected normalized: 'void agentCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:594
+actual code:
+        void agentCommand(
+actual normalized: 'void agentCommand('
+
+====================================================================================================
+entry-00199 trace[1]  src/gateway/method-scopes.ts:79  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      [WRITE_SCOPE]: [
+expected normalized: '[WRITE_SCOPE]: ['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:79
+actual code:
+      [WRITE_SCOPE]: [
+actual normalized: '[WRITE_SCOPE]: ['
+
+====================================================================================================
+entry-00199 trace[2]  src/gateway/server-methods/agent.ts:594  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        void agentCommand(
+expected normalized: 'void agentCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/agent.ts:594
+actual code:
+        void agentCommand(
+actual normalized: 'void agentCommand('
+
+====================================================================================================
+entry-00199 trace[3]  src/commands/agent.ts:729  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+              return runAgentAttempt({
+expected normalized: 'return runAgentAttempt({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/agent.ts:729
+actual code:
+              return runAgentAttempt({
+actual normalized: 'return runAgentAttempt({'
+
+====================================================================================================
+entry-00199 trace[4]  src/agents/pi-tools.ts:500  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      const senderIsOwner = options?.senderIsOwner === true;
+expected normalized: 'const senderIsOwner = options?.senderIsOwner === true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:500
+actual code:
+      const senderIsOwner = options?.senderIsOwner === true;
+actual normalized: 'const senderIsOwner = options?.senderIsOwner === true;'
+
+====================================================================================================
+entry-00199 trace[5]  src/agents/tool-policy.ts:41  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {
+expected normalized: 'export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tool-policy.ts:41
+actual code:
+    export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {
+actual normalized: 'export function applyOwnerOnlyToolPolicy(tools: AnyAgentTool[], senderIsOwner: boolean) {'
+
+====================================================================================================
+entry-00199 trace[6]  src/agents/tools/gateway-tool.ts:75  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        ownerOnly: true,
+expected normalized: 'ownerOnly: true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/gateway-tool.ts:75
+actual code:
+        ownerOnly: true,
+actual normalized: 'ownerOnly: true,'
+
+====================================================================================================
+entry-00199 trace[7]  src/agents/tools/cron-tool.ts:212  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        ownerOnly: true,
+expected normalized: 'ownerOnly: true,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/cron-tool.ts:212
+actual code:
+        ownerOnly: true,
+actual normalized: 'ownerOnly: true,'
+
+====================================================================================================
+entry-00199 trace[8]  src/agents/pi-tools.ts:501  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+      const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);
+expected normalized: 'const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:501
+actual code:
+      const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);
+actual normalized: 'const toolsByAuthorization = applyOwnerOnlyToolPolicy(toolsForMessageProvider, senderIsOwner);'

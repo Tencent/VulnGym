@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00101 entry_point  mlflow/pyfunc/__init__.py:2049  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+    def spark_udf(
+expected normalized: 'def spark_udf('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/__init__.py:2049
+actual code:
+    def spark_udf(
+actual normalized: 'def spark_udf('
+
+====================================================================================================
+entry-00101 critical_operation  mlflow/utils/file_utils.py:761  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            os.chmod(tmp_dir, 0o777)
+expected normalized: 'os.chmod(tmp_dir, 0o777)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:761
+actual code:
+            os.chmod(tmp_dir, 0o777)
+actual normalized: 'os.chmod(tmp_dir, 0o777)'
+
+====================================================================================================
+entry-00101 trace[0]  mlflow/pyfunc/__init__.py:2049  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+    def spark_udf(
+expected normalized: 'def spark_udf('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/__init__.py:2049
+actual code:
+    def spark_udf(
+actual normalized: 'def spark_udf('
+
+====================================================================================================
+entry-00101 trace[1]  mlflow/pyfunc/__init__.py:2334  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+        local_model_path = _download_artifact_from_uri(
+expected normalized: 'local_model_path = _download_artifact_from_uri('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/__init__.py:2334
+actual code:
+        local_model_path = _download_artifact_from_uri(
+actual normalized: 'local_model_path = _download_artifact_from_uri('
+
+====================================================================================================
+entry-00101 trace[2]  mlflow/pyfunc/__init__.py:1482  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+    def _create_model_downloading_tmp_dir(should_use_nfs):
+expected normalized: 'def _create_model_downloading_tmp_dir(should_use_nfs):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/pyfunc/__init__.py:1482
+actual code:
+    def _create_model_downloading_tmp_dir(should_use_nfs):
+actual normalized: 'def _create_model_downloading_tmp_dir(should_use_nfs):'
+
+====================================================================================================
+entry-00101 trace[3]  mlflow/utils/file_utils.py:758  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            tmp_dir = tempfile.mkdtemp()
+expected normalized: 'tmp_dir = tempfile.mkdtemp()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:758
+actual code:
+            tmp_dir = tempfile.mkdtemp()
+actual normalized: 'tmp_dir = tempfile.mkdtemp()'
+
+====================================================================================================
+entry-00101 trace[4]  mlflow/utils/file_utils.py:761  report=GHSA-4X5P-F36R-MXXR
+repo=https://github.com/mlflow/mlflow
+commit=ba41980d604d7fd7964b038945989a5077d1a645
+expected code:
+            os.chmod(tmp_dir, 0o777)
+expected normalized: 'os.chmod(tmp_dir, 0o777)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/utils/file_utils.py:761
+actual code:
+            os.chmod(tmp_dir, 0o777)
+actual normalized: 'os.chmod(tmp_dir, 0o777)'

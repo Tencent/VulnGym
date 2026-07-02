@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00136 entry_point  extensions/voice-call/src/webhook-security.ts:73  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+    export function reconstructWebhookUrl(ctx: WebhookContext): string {
+expected normalized: 'export function reconstructWebhookUrl(ctx: WebhookContext): string {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:73
+actual code:
+    export function reconstructWebhookUrl(ctx: WebhookContext): string {
+actual normalized: 'export function reconstructWebhookUrl(ctx: WebhookContext): string {'
+
+====================================================================================================
+entry-00136 critical_operation  extensions/voice-call/src/webhook-security.ts:430  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+          url: verificationUrl,
+expected normalized: 'url: verificationUrl,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:430
+actual code:
+          url: verificationUrl,
+actual normalized: 'url: verificationUrl,'
+
+====================================================================================================
+entry-00136 trace[0]  extensions/voice-call/src/webhook-security.ts:73  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+    export function reconstructWebhookUrl(ctx: WebhookContext): string {
+expected normalized: 'export function reconstructWebhookUrl(ctx: WebhookContext): string {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:73
+actual code:
+    export function reconstructWebhookUrl(ctx: WebhookContext): string {
+actual normalized: 'export function reconstructWebhookUrl(ctx: WebhookContext): string {'
+
+====================================================================================================
+entry-00136 trace[1]  extensions/voice-call/src/webhook-security.ts:398  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const reconstructed = reconstructWebhookUrl(ctx);
+expected normalized: 'const reconstructed = reconstructWebhookUrl(ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:398
+actual code:
+      const reconstructed = reconstructWebhookUrl(ctx);
+actual normalized: 'const reconstructed = reconstructWebhookUrl(ctx);'
+
+====================================================================================================
+entry-00136 trace[2]  extensions/voice-call/src/webhook-security.ts:399  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      let verificationUrl = reconstructed;
+expected normalized: 'let verificationUrl = reconstructed;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:399
+actual code:
+      let verificationUrl = reconstructed;
+actual normalized: 'let verificationUrl = reconstructed;'
+
+====================================================================================================
+entry-00136 trace[3]  extensions/voice-call/src/providers/plivo.ts:463  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+          const u = new URL(reconstructWebhookUrl(ctx));
+expected normalized: 'const u = new URL(reconstructWebhookUrl(ctx));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/providers/plivo.ts:463
+actual code:
+          const u = new URL(reconstructWebhookUrl(ctx));
+actual normalized: 'const u = new URL(reconstructWebhookUrl(ctx));'
+
+====================================================================================================
+entry-00136 trace[4]  extensions/voice-call/src/webhook-security.ts:430  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+          url: verificationUrl,
+expected normalized: 'url: verificationUrl,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:430
+actual code:
+          url: verificationUrl,
+actual normalized: 'url: verificationUrl,'

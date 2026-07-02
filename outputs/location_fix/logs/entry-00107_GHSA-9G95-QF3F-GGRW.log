@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00107 entry_point  packages/nodes-base/nodes/Git/Git.node.ts:350  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    					const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;
+expected normalized: "const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:350
+actual code:
+    					const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;
+actual normalized: "const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;"
+
+====================================================================================================
+entry-00107 critical_operation  packages/nodes-base/nodes/Git/Git.node.ts:352  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    					await git.add(pathsToAdd.split(','));
+expected normalized: "await git.add(pathsToAdd.split(','));"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:352
+actual code:
+    					await git.add(pathsToAdd.split(','));
+actual normalized: "await git.add(pathsToAdd.split(','));"
+
+====================================================================================================
+entry-00107 trace[0]  packages/nodes-base/nodes/Git/Git.node.ts:350  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    					const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;
+expected normalized: "const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:350
+actual code:
+    					const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;
+actual normalized: "const pathsToAdd = this.getNodeParameter('pathsToAdd', itemIndex, '') as string;"
+
+====================================================================================================
+entry-00107 trace[1]  packages/nodes-base/nodes/Git/Git.node.ts:352  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    					await git.add(pathsToAdd.split(','));
+expected normalized: "await git.add(pathsToAdd.split(','));"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:352
+actual code:
+    					await git.add(pathsToAdd.split(','));
+actual normalized: "await git.add(pathsToAdd.split(','));"

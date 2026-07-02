@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00196 entry_point  src/agents/pi-embedded-runner/run/images.ts:206  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    const resolved = await resolveSandboxedBridgeMediaPath({
+expected normalized: 'const resolved = await resolveSandboxedBridgeMediaPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:206
+actual code:
+            const resolved = await resolveSandboxedBridgeMediaPath({
+actual normalized: 'const resolved = await resolveSandboxedBridgeMediaPath({'
+
+====================================================================================================
+entry-00196 critical_operation  src/agents/pi-embedded-runner/run/images.ts:238  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    readFile: (filePath) =>
+expected normalized: 'readFile: (filePath) =>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:238
+actual code:
+              readFile: (filePath) =>
+actual normalized: 'readFile: (filePath) =>'
+
+====================================================================================================
+entry-00196 trace[0]  src/agents/pi-embedded-runner/run/images.ts:206  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    const resolved = await resolveSandboxedBridgeMediaPath({
+expected normalized: 'const resolved = await resolveSandboxedBridgeMediaPath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:206
+actual code:
+            const resolved = await resolveSandboxedBridgeMediaPath({
+actual normalized: 'const resolved = await resolveSandboxedBridgeMediaPath({'
+
+====================================================================================================
+entry-00196 trace[1]  src/agents/pi-embedded-runner/run/images.ts:214  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    targetPath = resolved.resolved;
+expected normalized: 'targetPath = resolved.resolved;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:214
+actual code:
+            targetPath = resolved.resolved;
+actual normalized: 'targetPath = resolved.resolved;'
+
+====================================================================================================
+entry-00196 trace[2]  src/agents/pi-embedded-runner/run/images.ts:234  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    const media = options?.sandbox
+expected normalized: 'const media = options?.sandbox'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:234
+actual code:
+        const media = options?.sandbox
+actual normalized: 'const media = options?.sandbox'
+
+====================================================================================================
+entry-00196 trace[3]  src/web/media.ts:360  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    data = await readFileOverride(mediaUrl);
+expected normalized: 'data = await readFileOverride(mediaUrl);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/web/media.ts:360
+actual code:
+        data = await readFileOverride(mediaUrl);
+actual normalized: 'data = await readFileOverride(mediaUrl);'
+
+====================================================================================================
+entry-00196 trace[4]  src/agents/pi-embedded-runner/run/images.ts:238  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+    readFile: (filePath) =>
+expected normalized: 'readFile: (filePath) =>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:238
+actual code:
+              readFile: (filePath) =>
+actual normalized: 'readFile: (filePath) =>'

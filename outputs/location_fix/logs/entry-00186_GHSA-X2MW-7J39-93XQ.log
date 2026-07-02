@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00186 entry_point  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:70  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+expected normalized: "fileName = this.getNodeParameter('fileName', itemIndex) as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:70
+actual code:
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+actual normalized: "fileName = this.getNodeParameter('fileName', itemIndex) as string;"
+
+====================================================================================================
+entry-00186 critical_operation  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:61  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    	if (allowedPaths.length) {
+expected normalized: 'if (allowedPaths.length) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:61
+actual code:
+    	if (allowedPaths.length) {
+actual normalized: 'if (allowedPaths.length) {'
+
+====================================================================================================
+entry-00186 trace[0]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:62-71  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    export async function execute(this: IExecuteFunctions, items: INodeExecutionData[]) {
+    	const returnData: INodeExecutionData[] = [];
+    	let fileName;
+    
+    	let item: INodeExecutionData;
+    	for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
+    		try {
+    			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+    			const options = this.getNodeParameter('options', itemIndex, {});
+expected normalized: "export async function execute(this: IExecuteFunctions, items: INodeExecutionData[]) { const returnData: INodeExecutionData[] = []; let fileName; let item: INodeExecutionData; for (let itemIndex = 0; itemIndex < items.length; itemIndex++) { try { const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex); fileName = this.getNodeParameter('fileName', itemIndex) as string; const options = this.getNodeParameter('options', itemIndex, {});"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:62-71
+actual code:
+    export async function execute(this: IExecuteFunctions, items: INodeExecutionData[]) {
+    	const returnData: INodeExecutionData[] = [];
+    	let fileName;
+    
+    	let item: INodeExecutionData;
+    	for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
+    		try {
+    			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+    			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+    			const options = this.getNodeParameter('options', itemIndex, {});
+actual normalized: "export async function execute(this: IExecuteFunctions, items: INodeExecutionData[]) { const returnData: INodeExecutionData[] = []; let fileName; let item: INodeExecutionData; for (let itemIndex = 0; itemIndex < items.length; itemIndex++) { try { const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex); fileName = this.getNodeParameter('fileName', itemIndex) as string; const options = this.getNodeParameter('options', itemIndex, {});"
+
+====================================================================================================
+entry-00186 trace[1]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:128-132  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+    	},
+expected normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, }); },"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:128-132
+actual code:
+    		return await fsWriteFile(resolvedFilePath, content, {
+    			encoding: 'binary',
+    			flag: (flag ?? 0) | constants.O_NOFOLLOW,
+    		});
+    	},
+actual normalized: "return await fsWriteFile(resolvedFilePath, content, { encoding: 'binary', flag: (flag ?? 0) | constants.O_NOFOLLOW, }); },"
+
+====================================================================================================
+entry-00186 trace[2]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:61-63  report=GHSA-X2MW-7J39-93XQ
+repo=https://github.com/n8n-io/n8n
+commit=538181cbe32a92616df5e00d7ffaf4d568557f4f
+expected code:
+    	if (allowedPaths.length) {
+    		return !allowedPaths.some((allowedPath) => isContainedWithin(allowedPath, resolvedFilePath));
+    	}
+expected normalized: 'if (allowedPaths.length) { return !allowedPaths.some((allowedPath) => isContainedWithin(allowedPath, resolvedFilePath)); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:61-63
+actual code:
+    	if (allowedPaths.length) {
+    		return !allowedPaths.some((allowedPath) => isContainedWithin(allowedPath, resolvedFilePath));
+    	}
+actual normalized: 'if (allowedPaths.length) { return !allowedPaths.some((allowedPath) => isContainedWithin(allowedPath, resolvedFilePath)); }'

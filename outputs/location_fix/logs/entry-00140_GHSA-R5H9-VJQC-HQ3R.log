@@ -1,0 +1,159 @@
+====================================================================================================
+entry-00140 entry_point  extensions/nextcloud-talk/src/monitor.ts:81  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {
+expected normalized: 'const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/monitor.ts:81
+actual code:
+      const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {
+actual normalized: 'const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {'
+
+====================================================================================================
+entry-00140 critical_operation  extensions/nextcloud-talk/src/policy.ts:46  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      if (senderName && allowFrom.includes(senderName)) {
+expected normalized: 'if (senderName && allowFrom.includes(senderName)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:46
+actual code:
+      if (senderName && allowFrom.includes(senderName)) {
+actual normalized: 'if (senderName && allowFrom.includes(senderName)) {'
+
+====================================================================================================
+entry-00140 trace[0]  extensions/nextcloud-talk/src/monitor.ts:81  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {
+expected normalized: 'const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/monitor.ts:81
+actual code:
+      const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {
+actual normalized: 'const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {'
+
+====================================================================================================
+entry-00140 trace[1]  extensions/nextcloud-talk/src/monitor.ts:52-61  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      return {
+        messageId: String(payload.object.id),
+        roomToken: payload.target.id,
+        roomName: payload.target.name,
+        senderId: payload.actor.id,
+        senderName: payload.actor.name,
+        text: payload.object.content || payload.object.name || "",
+        mediaType: payload.object.mediaType || "text/plain",
+        timestamp: Date.now(),
+        isGroupChat,
+expected normalized: 'return { messageId: String(payload.object.id), roomToken: payload.target.id, roomName: payload.target.name, senderId: payload.actor.id, senderName: payload.actor.name, text: payload.object.content || payload.object.name || "", mediaType: payload.object.mediaType || "text/plain", timestamp: Date.now(), isGroupChat,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/monitor.ts:52-61
+actual code:
+      return {
+        messageId: String(payload.object.id),
+        roomToken: payload.target.id,
+        roomName: payload.target.name,
+        senderId: payload.actor.id,
+        senderName: payload.actor.name,
+        text: payload.object.content || payload.object.name || "",
+        mediaType: payload.object.mediaType || "text/plain",
+        timestamp: Date.now(),
+        isGroupChat,
+actual normalized: 'return { messageId: String(payload.object.id), roomToken: payload.target.id, roomName: payload.target.name, senderId: payload.actor.id, senderName: payload.actor.name, text: payload.object.content || payload.object.name || "", mediaType: payload.object.mediaType || "text/plain", timestamp: Date.now(), isGroupChat,'
+
+====================================================================================================
+entry-00140 trace[2]  extensions/nextcloud-talk/src/inbound.ts:79  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const senderName = message.senderName;
+expected normalized: 'const senderName = message.senderName;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:79
+actual code:
+      const senderName = message.senderName;
+actual normalized: 'const senderName = message.senderName;'
+
+====================================================================================================
+entry-00140 trace[3]  extensions/nextcloud-talk/src/inbound.ts:158-162  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+          const dmAllowed = resolveNextcloudTalkAllowlistMatch({
+            allowFrom: effectiveAllowFrom,
+            senderId,
+            senderName,
+          }).allowed;
+expected normalized: 'const dmAllowed = resolveNextcloudTalkAllowlistMatch({ allowFrom: effectiveAllowFrom, senderId, senderName, }).allowed;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/inbound.ts:158-162
+actual code:
+          const dmAllowed = resolveNextcloudTalkAllowlistMatch({
+            allowFrom: effectiveAllowFrom,
+            senderId,
+            senderName,
+          }).allowed;
+actual normalized: 'const dmAllowed = resolveNextcloudTalkAllowlistMatch({ allowFrom: effectiveAllowFrom, senderId, senderName, }).allowed;'
+
+====================================================================================================
+entry-00140 trace[4]  extensions/nextcloud-talk/src/policy.ts:29-33  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+    export function resolveNextcloudTalkAllowlistMatch(params: {
+      allowFrom: Array<string | number> | undefined;
+      senderId: string;
+      senderName?: string | null;
+    }): AllowlistMatch<"wildcard" | "id" | "name"> {
+expected normalized: 'export function resolveNextcloudTalkAllowlistMatch(params: { allowFrom: Array<string | number> | undefined; senderId: string; senderName?: string | null; }): AllowlistMatch<"wildcard" | "id" | "name"> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:29-33
+actual code:
+    export function resolveNextcloudTalkAllowlistMatch(params: {
+      allowFrom: Array<string | number> | undefined;
+      senderId: string;
+      senderName?: string | null;
+    }): AllowlistMatch<"wildcard" | "id" | "name"> {
+actual normalized: 'export function resolveNextcloudTalkAllowlistMatch(params: { allowFrom: Array<string | number> | undefined; senderId: string; senderName?: string | null; }): AllowlistMatch<"wildcard" | "id" | "name"> {'
+
+====================================================================================================
+entry-00140 trace[5]  extensions/nextcloud-talk/src/policy.ts:45-48  report=GHSA-R5H9-VJQC-HQ3R
+repo=https://github.com/openclaw/openclaw
+commit=bbe9cb30224af989782d42d6de8e8053abaee51b
+expected code:
+      const senderName = params.senderName ? normalizeAllowEntry(params.senderName) : "";
+      if (senderName && allowFrom.includes(senderName)) {
+        return { allowed: true, matchKey: senderName, matchSource: "name" };
+      }
+expected normalized: 'const senderName = params.senderName ? normalizeAllowEntry(params.senderName) : ""; if (senderName && allowFrom.includes(senderName)) { return { allowed: true, matchKey: senderName, matchSource: "name" }; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nextcloud-talk/src/policy.ts:45-48
+actual code:
+      const senderName = params.senderName ? normalizeAllowEntry(params.senderName) : "";
+      if (senderName && allowFrom.includes(senderName)) {
+        return { allowed: true, matchKey: senderName, matchSource: "name" };
+      }
+actual normalized: 'const senderName = params.senderName ? normalizeAllowEntry(params.senderName) : ""; if (senderName && allowFrom.includes(senderName)) { return { allowed: true, matchKey: senderName, matchSource: "name" }; }'

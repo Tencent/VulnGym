@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00413 entry_point  mlflow/server/job_api.py:68  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    @job_api_router.post("/", response_model=Job)
+expected normalized: '@job_api_router.post("/", response_model=Job)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:68
+actual code:
+    @job_api_router.post("/", response_model=Job)
+actual normalized: '@job_api_router.post("/", response_model=Job)'
+
+====================================================================================================
+entry-00413 critical_operation  mlflow/server/auth/__init__.py:2958  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+            validator = _find_fastapi_validator(path)
+expected normalized: 'validator = _find_fastapi_validator(path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2958
+actual code:
+            validator = _find_fastapi_validator(path)
+actual normalized: 'validator = _find_fastapi_validator(path)'
+
+====================================================================================================
+entry-00413 trace[0]  mlflow/server/fastapi_app.py:89  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        fastapi_app.include_router(job_api_router)
+expected normalized: 'fastapi_app.include_router(job_api_router)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/fastapi_app.py:89
+actual code:
+        fastapi_app.include_router(job_api_router)
+actual normalized: 'fastapi_app.include_router(job_api_router)'
+
+====================================================================================================
+entry-00413 trace[1]  mlflow/server/auth/__init__.py:2950  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        async def fastapi_permission_middleware(request, call_next):
+expected normalized: 'async def fastapi_permission_middleware(request, call_next):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2950
+actual code:
+        async def fastapi_permission_middleware(request, call_next):
+actual normalized: 'async def fastapi_permission_middleware(request, call_next):'
+
+====================================================================================================
+entry-00413 trace[2]  mlflow/server/auth/__init__.py:2959  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+            if validator is None:
+expected normalized: 'if validator is None:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2959
+actual code:
+            if validator is None:
+actual normalized: 'if validator is None:'
+
+====================================================================================================
+entry-00413 trace[3]  mlflow/server/job_api.py:69  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    def submit_job(payload: SubmitJobPayload) -> Job:
+expected normalized: 'def submit_job(payload: SubmitJobPayload) -> Job:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:69
+actual code:
+    def submit_job(payload: SubmitJobPayload) -> Job:
+actual normalized: 'def submit_job(payload: SubmitJobPayload) -> Job:'
+
+====================================================================================================
+entry-00413 trace[4]  mlflow/server/jobs/utils.py:553  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    def _load_function(fullname: str) -> Callable[..., Any]:
+expected normalized: 'def _load_function(fullname: str) -> Callable[..., Any]:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/jobs/utils.py:553
+actual code:
+    def _load_function(fullname: str) -> Callable[..., Any]:
+actual normalized: 'def _load_function(fullname: str) -> Callable[..., Any]:'
+
+====================================================================================================
+entry-00413 trace[5]  mlflow/server/jobs/__init__.py:221  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        huey_instance.submit_task(
+expected normalized: 'huey_instance.submit_task('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/jobs/__init__.py:221
+actual code:
+        huey_instance.submit_task(
+actual normalized: 'huey_instance.submit_task('

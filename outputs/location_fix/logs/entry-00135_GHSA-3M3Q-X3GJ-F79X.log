@@ -1,0 +1,178 @@
+====================================================================================================
+entry-00135 entry_point  extensions/voice-call/src/webhook-security.ts:74  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const { headers } = ctx;
+expected normalized: 'const { headers } = ctx;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:74
+actual code:
+      const { headers } = ctx;
+actual normalized: 'const { headers } = ctx;'
+
+====================================================================================================
+entry-00135 critical_operation  extensions/voice-call/src/webhook-security.ts:425  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+        const ok = validatePlivoV3Signature({
+expected normalized: 'const ok = validatePlivoV3Signature({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:425
+actual code:
+        const ok = validatePlivoV3Signature({
+actual normalized: 'const ok = validatePlivoV3Signature({'
+
+====================================================================================================
+entry-00135 trace[0]  extensions/voice-call/src/webhook-security.ts:74  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const { headers } = ctx;
+expected normalized: 'const { headers } = ctx;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:74
+actual code:
+      const { headers } = ctx;
+actual normalized: 'const { headers } = ctx;'
+
+====================================================================================================
+entry-00135 trace[1]  extensions/voice-call/src/webhook-security.ts:76  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const proto = getHeader(headers, "x-forwarded-proto") || "https";
+expected normalized: 'const proto = getHeader(headers, "x-forwarded-proto") || "https";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:76
+actual code:
+      const proto = getHeader(headers, "x-forwarded-proto") || "https";
+actual normalized: 'const proto = getHeader(headers, "x-forwarded-proto") || "https";'
+
+====================================================================================================
+entry-00135 trace[2]  extensions/voice-call/src/webhook-security.ts:78-83  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const forwardedHost =
+        getHeader(headers, "x-forwarded-host") ||
+        getHeader(headers, "x-original-host") ||
+        getHeader(headers, "ngrok-forwarded-host") ||
+        getHeader(headers, "host") ||
+        "";
+expected normalized: 'const forwardedHost = getHeader(headers, "x-forwarded-host") || getHeader(headers, "x-original-host") || getHeader(headers, "ngrok-forwarded-host") || getHeader(headers, "host") || "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:78-83
+actual code:
+      const forwardedHost =
+        getHeader(headers, "x-forwarded-host") ||
+        getHeader(headers, "x-original-host") ||
+        getHeader(headers, "ngrok-forwarded-host") ||
+        getHeader(headers, "host") ||
+        "";
+actual normalized: 'const forwardedHost = getHeader(headers, "x-forwarded-host") || getHeader(headers, "x-original-host") || getHeader(headers, "ngrok-forwarded-host") || getHeader(headers, "host") || "";'
+
+====================================================================================================
+entry-00135 trace[3]  extensions/voice-call/src/webhook-security.ts:95  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const host = forwardedHost.split(":")[0] || forwardedHost;
+expected normalized: 'const host = forwardedHost.split(":")[0] || forwardedHost;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:95
+actual code:
+      const host = forwardedHost.split(":")[0] || forwardedHost;
+actual normalized: 'const host = forwardedHost.split(":")[0] || forwardedHost;'
+
+====================================================================================================
+entry-00135 trace[4]  extensions/voice-call/src/webhook-security.ts:97  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      return `${proto}://${host}${path}`;
+expected normalized: 'return `${proto}://${host}${path}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:97
+actual code:
+      return `${proto}://${host}${path}`;
+actual normalized: 'return `${proto}://${host}${path}`;'
+
+====================================================================================================
+entry-00135 trace[5]  extensions/voice-call/src/webhook-security.ts:100-102  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+    function buildTwilioVerificationUrl(ctx: WebhookContext, publicUrl?: string): string {
+      if (!publicUrl) {
+        return reconstructWebhookUrl(ctx);
+expected normalized: 'function buildTwilioVerificationUrl(ctx: WebhookContext, publicUrl?: string): string { if (!publicUrl) { return reconstructWebhookUrl(ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:100-102
+actual code:
+    function buildTwilioVerificationUrl(ctx: WebhookContext, publicUrl?: string): string {
+      if (!publicUrl) {
+        return reconstructWebhookUrl(ctx);
+actual normalized: 'function buildTwilioVerificationUrl(ctx: WebhookContext, publicUrl?: string): string { if (!publicUrl) { return reconstructWebhookUrl(ctx);'
+
+====================================================================================================
+entry-00135 trace[6]  extensions/voice-call/src/webhook-security.ts:185  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const verificationUrl = buildTwilioVerificationUrl(ctx, options?.publicUrl);
+expected normalized: 'const verificationUrl = buildTwilioVerificationUrl(ctx, options?.publicUrl);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:185
+actual code:
+      const verificationUrl = buildTwilioVerificationUrl(ctx, options?.publicUrl);
+actual normalized: 'const verificationUrl = buildTwilioVerificationUrl(ctx, options?.publicUrl);'
+
+====================================================================================================
+entry-00135 trace[7]  extensions/voice-call/src/webhook-security.ts:191  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+      const isValid = validateTwilioSignature(authToken, signature, verificationUrl, params);
+expected normalized: 'const isValid = validateTwilioSignature(authToken, signature, verificationUrl, params);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:191
+actual code:
+      const isValid = validateTwilioSignature(authToken, signature, verificationUrl, params);
+actual normalized: 'const isValid = validateTwilioSignature(authToken, signature, verificationUrl, params);'
+
+====================================================================================================
+entry-00135 trace[8]  extensions/voice-call/src/webhook-security.ts:425  report=GHSA-3M3Q-X3GJ-F79X
+repo=https://github.com/openclaw/openclaw
+commit=fa4b28d7af7464b07271bfef6c028e4135548f44
+expected code:
+        const ok = validatePlivoV3Signature({
+expected normalized: 'const ok = validatePlivoV3Signature({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook-security.ts:425
+actual code:
+        const ok = validatePlivoV3Signature({
+actual normalized: 'const ok = validatePlivoV3Signature({'

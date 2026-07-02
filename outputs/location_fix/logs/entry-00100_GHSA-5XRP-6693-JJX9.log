@@ -1,0 +1,158 @@
+====================================================================================================
+entry-00100 entry_point  packages/workflow/src/expression.ts:368  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    	resolveSimpleParameterValue(
+expected normalized: 'resolveSimpleParameterValue('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:368
+actual code:
+    	resolveSimpleParameterValue(
+actual normalized: 'resolveSimpleParameterValue('
+
+====================================================================================================
+entry-00100 critical_operation  packages/workflow/src/expression-sandboxing.ts:330-336  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    export const sanitizer = (value: unknown): unknown => {
+    	const propertyKey = String(value);
+    	if (!isSafeObjectProperty(propertyKey)) {
+    		throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`);
+    	}
+    	return propertyKey;
+    };
+expected normalized: 'export const sanitizer = (value: unknown): unknown => { const propertyKey = String(value); if (!isSafeObjectProperty(propertyKey)) { throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`); } return propertyKey; };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:330-336
+actual code:
+    export const sanitizer = (value: unknown): unknown => {
+    	const propertyKey = String(value);
+    	if (!isSafeObjectProperty(propertyKey)) {
+    		throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`);
+    	}
+    	return propertyKey;
+    };
+actual normalized: 'export const sanitizer = (value: unknown): unknown => { const propertyKey = String(value); if (!isSafeObjectProperty(propertyKey)) { throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`); } return propertyKey; };'
+
+====================================================================================================
+entry-00100 trace[0]  packages/workflow/src/expression.ts:368-377  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    	resolveSimpleParameterValue(
+    		parameterValue: NodeParameterValue,
+    		siblingParameters: INodeParameters,
+    		runExecutionData: IRunExecutionData | null,
+    		runIndex: number,
+    		itemIndex: number,
+    		activeNodeName: string,
+    		connectionInputData: INodeExecutionData[],
+    		mode: WorkflowExecuteMode,
+    		additionalKeys: IWorkflowDataProxyAdditionalKeys,
+expected normalized: 'resolveSimpleParameterValue( parameterValue: NodeParameterValue, siblingParameters: INodeParameters, runExecutionData: IRunExecutionData | null, runIndex: number, itemIndex: number, activeNodeName: string, connectionInputData: INodeExecutionData[], mode: WorkflowExecuteMode, additionalKeys: IWorkflowDataProxyAdditionalKeys,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:368-377
+actual code:
+    	resolveSimpleParameterValue(
+    		parameterValue: NodeParameterValue,
+    		siblingParameters: INodeParameters,
+    		runExecutionData: IRunExecutionData | null,
+    		runIndex: number,
+    		itemIndex: number,
+    		activeNodeName: string,
+    		connectionInputData: INodeExecutionData[],
+    		mode: WorkflowExecuteMode,
+    		additionalKeys: IWorkflowDataProxyAdditionalKeys,
+actual normalized: 'resolveSimpleParameterValue( parameterValue: NodeParameterValue, siblingParameters: INodeParameters, runExecutionData: IRunExecutionData | null, runIndex: number, itemIndex: number, activeNodeName: string, connectionInputData: INodeExecutionData[], mode: WorkflowExecuteMode, additionalKeys: IWorkflowDataProxyAdditionalKeys,'
+
+====================================================================================================
+entry-00100 trace[1]  packages/workflow/src/expression.ts:434-438  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    		Object.defineProperty(data, sanitizerName, {
+    			value: sanitizer,
+    			writable: false,
+    			configurable: false,
+    		});
+expected normalized: 'Object.defineProperty(data, sanitizerName, { value: sanitizer, writable: false, configurable: false, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:434-438
+actual code:
+    		Object.defineProperty(data, sanitizerName, {
+    			value: sanitizer,
+    			writable: false,
+    			configurable: false,
+    		});
+actual normalized: 'Object.defineProperty(data, sanitizerName, { value: sanitizer, writable: false, configurable: false, });'
+
+====================================================================================================
+entry-00100 trace[2]  packages/workflow/src/expression.ts:452-453  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    		const extendedExpression = extendSyntax(parameterValue);
+    		const returnValue = this.renderExpression(extendedExpression, data);
+expected normalized: 'const extendedExpression = extendSyntax(parameterValue); const returnValue = this.renderExpression(extendedExpression, data);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:452-453
+actual code:
+    		const extendedExpression = extendSyntax(parameterValue);
+    		const returnValue = this.renderExpression(extendedExpression, data);
+actual normalized: 'const extendedExpression = extendSyntax(parameterValue); const returnValue = this.renderExpression(extendedExpression, data);'
+
+====================================================================================================
+entry-00100 trace[3]  packages/workflow/src/expression-sandboxing.ts:11-12  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    export const sanitizerName = '__sanitize';
+    const sanitizerIdentifier = b.identifier(sanitizerName);
+expected normalized: "export const sanitizerName = '__sanitize'; const sanitizerIdentifier = b.identifier(sanitizerName);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:11-12
+actual code:
+    export const sanitizerName = '__sanitize';
+    const sanitizerIdentifier = b.identifier(sanitizerName);
+actual normalized: "export const sanitizerName = '__sanitize'; const sanitizerIdentifier = b.identifier(sanitizerName);"
+
+====================================================================================================
+entry-00100 trace[4]  packages/workflow/src/expression-sandboxing.ts:330-336  report=GHSA-5XRP-6693-JJX9
+repo=https://github.com/n8n-io/n8n
+commit=8ab4492e8c0b743455e51fc111441d8d5010a6ad
+expected code:
+    export const sanitizer = (value: unknown): unknown => {
+    	const propertyKey = String(value);
+    	if (!isSafeObjectProperty(propertyKey)) {
+    		throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`);
+    	}
+    	return propertyKey;
+    };
+expected normalized: 'export const sanitizer = (value: unknown): unknown => { const propertyKey = String(value); if (!isSafeObjectProperty(propertyKey)) { throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`); } return propertyKey; };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:330-336
+actual code:
+    export const sanitizer = (value: unknown): unknown => {
+    	const propertyKey = String(value);
+    	if (!isSafeObjectProperty(propertyKey)) {
+    		throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`);
+    	}
+    	return propertyKey;
+    };
+actual normalized: 'export const sanitizer = (value: unknown): unknown => { const propertyKey = String(value); if (!isSafeObjectProperty(propertyKey)) { throw new ExpressionError(`Cannot access "${propertyKey}" due to security concerns`); } return propertyKey; };'

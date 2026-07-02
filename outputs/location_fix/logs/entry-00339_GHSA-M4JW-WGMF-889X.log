@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00339 entry_point  nemo/collections/multimodal/speech_llm/models/modular_models.py:1088  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            if cfg.model.peft.restore_from_path:
+expected normalized: 'if cfg.model.peft.restore_from_path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1088
+actual code:
+            if cfg.model.peft.restore_from_path:
+actual normalized: 'if cfg.model.peft.restore_from_path:'
+
+====================================================================================================
+entry-00339 critical_operation  nemo/collections/multimodal/speech_llm/models/modular_models.py:1095  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']
+expected normalized: "torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1095
+actual code:
+                    torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']
+actual normalized: "torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']"
+
+====================================================================================================
+entry-00339 trace[0]  nemo/collections/multimodal/speech_llm/models/modular_models.py:1088  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            if cfg.model.peft.restore_from_path:
+expected normalized: 'if cfg.model.peft.restore_from_path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1088
+actual code:
+            if cfg.model.peft.restore_from_path:
+actual normalized: 'if cfg.model.peft.restore_from_path:'
+
+====================================================================================================
+entry-00339 trace[1]  nemo/collections/multimodal/speech_llm/models/modular_models.py:1095  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']
+expected normalized: "torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1095
+actual code:
+                    torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']
+actual normalized: "torch_state_dict = torch.load(cfg.model.peft.restore_from_path, weights_only=False)['state_dict']"

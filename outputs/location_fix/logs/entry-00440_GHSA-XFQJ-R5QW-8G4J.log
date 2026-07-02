@@ -1,0 +1,80 @@
+====================================================================================================
+entry-00440 entry_point  server/src/routes/access.ts:1909  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/available", (_req, res) => {
+expected normalized: 'router.get("/skills/available", (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1909
+actual code:
+      router.get("/skills/available", (_req, res) => {
+actual normalized: 'router.get("/skills/available", (_req, res) => {'
+
+====================================================================================================
+entry-00440 critical_operation  server/src/routes/access.ts:1910  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.json({ skills: listAvailableSkills() });
+expected normalized: 'res.json({ skills: listAvailableSkills() });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1910
+actual code:
+        res.json({ skills: listAvailableSkills() });
+actual normalized: 'res.json({ skills: listAvailableSkills() });'
+
+====================================================================================================
+entry-00440 trace[0]  server/src/routes/access.ts:1909  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/available", (_req, res) => {
+expected normalized: 'router.get("/skills/available", (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1909
+actual code:
+      router.get("/skills/available", (_req, res) => {
+actual normalized: 'router.get("/skills/available", (_req, res) => {'
+
+====================================================================================================
+entry-00440 trace[1]  server/src/middleware/auth.ts:74-75  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          if (runIdHeader) req.actor.runId = runIdHeader;
+          next();
+expected normalized: 'if (runIdHeader) req.actor.runId = runIdHeader; next();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/middleware/auth.ts:74-75
+actual code:
+          if (runIdHeader) req.actor.runId = runIdHeader;
+          next();
+actual normalized: 'if (runIdHeader) req.actor.runId = runIdHeader; next();'
+
+====================================================================================================
+entry-00440 trace[2]  server/src/routes/access.ts:1909-1911  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/available", (_req, res) => {
+        res.json({ skills: listAvailableSkills() });
+      });
+expected normalized: 'router.get("/skills/available", (_req, res) => { res.json({ skills: listAvailableSkills() }); });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1909-1911
+actual code:
+      router.get("/skills/available", (_req, res) => {
+        res.json({ skills: listAvailableSkills() });
+      });
+actual normalized: 'router.get("/skills/available", (_req, res) => { res.json({ skills: listAvailableSkills() }); });'

@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00309 entry_point  src/gateway/server/ws-connection/message-handler.ts:510  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];
+expected normalized: 'let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:510
+actual code:
+            let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];
+actual normalized: 'let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];'
+
+====================================================================================================
+entry-00309 critical_operation  src/gateway/server/ws-connection/message-handler.ts:645  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            const clearUnboundScopes = () => {
+expected normalized: 'const clearUnboundScopes = () => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:645
+actual code:
+            const clearUnboundScopes = () => {
+actual normalized: 'const clearUnboundScopes = () => {'
+
+====================================================================================================
+entry-00309 trace[0]  src/gateway/server/ws-connection/message-handler.ts:510  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];
+expected normalized: 'let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:510
+actual code:
+            let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];
+actual normalized: 'let scopes = Array.isArray(connectParams.scopes) ? connectParams.scopes : [];'
+
+====================================================================================================
+entry-00309 trace[1]  src/gateway/server/ws-connection/message-handler.ts:571  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            } = await resolveConnectAuthState({
+expected normalized: '} = await resolveConnectAuthState({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:571
+actual code:
+            } = await resolveConnectAuthState({
+actual normalized: '} = await resolveConnectAuthState({'
+
+====================================================================================================
+entry-00309 trace[2]  src/gateway/server/ws-connection/message-handler.ts:645  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            const clearUnboundScopes = () => {
+expected normalized: 'const clearUnboundScopes = () => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:645
+actual code:
+            const clearUnboundScopes = () => {
+actual normalized: 'const clearUnboundScopes = () => {'
+
+====================================================================================================
+entry-00309 trace[3]  src/gateway/server/ws-connection/message-handler.ts:651  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            const handleMissingDeviceIdentity = (): boolean => {
+expected normalized: 'const handleMissingDeviceIdentity = (): boolean => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:651
+actual code:
+            const handleMissingDeviceIdentity = (): boolean => {
+actual normalized: 'const handleMissingDeviceIdentity = (): boolean => {'
+
+====================================================================================================
+entry-00309 trace[4]  src/gateway/server/ws-connection/message-handler.ts:702  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            if (!handleMissingDeviceIdentity()) {
+expected normalized: 'if (!handleMissingDeviceIdentity()) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:702
+actual code:
+            if (!handleMissingDeviceIdentity()) {
+actual normalized: 'if (!handleMissingDeviceIdentity()) {'
+
+====================================================================================================
+entry-00309 trace[5]  src/gateway/server/ws-connection/message-handler.ts:801  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+              shouldSkipBackendSelfPairing({
+expected normalized: 'shouldSkipBackendSelfPairing({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:801
+actual code:
+              shouldSkipBackendSelfPairing({
+actual normalized: 'shouldSkipBackendSelfPairing({'
+
+====================================================================================================
+entry-00309 trace[6]  src/gateway/server/ws-connection/message-handler.ts:1112  report=GHSA-RQPP-RJJ8-7WV8
+repo=https://github.com/openclaw/openclaw
+commit=55f47e5ce658bf3bdcb3eac3a2a5b4ed4aa9f5ce
+expected code:
+            setClient(nextClient);
+expected normalized: 'setClient(nextClient);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:1112
+actual code:
+            setClient(nextClient);
+actual normalized: 'setClient(nextClient);'

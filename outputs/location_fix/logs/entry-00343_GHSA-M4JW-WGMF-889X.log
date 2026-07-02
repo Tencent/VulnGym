@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00343 entry_point  nemo/collections/common/callbacks/ema.py:136  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+expected normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:136
+actual code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+actual normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+
+====================================================================================================
+entry-00343 critical_operation  nemo/collections/common/callbacks/ema.py:138  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+expected normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:138
+actual code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+actual normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+
+====================================================================================================
+entry-00343 trace[0]  nemo/collections/common/callbacks/ema.py:136  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+expected normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:136
+actual code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+actual normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+
+====================================================================================================
+entry-00343 trace[1]  nemo/collections/common/callbacks/ema.py:138  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+expected normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:138
+actual code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+actual normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"

@@ -1,0 +1,135 @@
+====================================================================================================
+entry-00305 entry_point  src/agents/tools/session-status-tool.ts:191  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    const requestedKeyParam = readStringParam(params, "sessionKey");
+expected normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:191
+actual code:
+          const requestedKeyParam = readStringParam(params, "sessionKey");
+actual normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+
+====================================================================================================
+entry-00305 critical_operation  src/agents/tools/session-status-tool.ts:387  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    return {
+            content: [{ type: "text", text: statusText }],
+            details: {
+              ok: true,
+              sessionKey: resolved.key,
+              changedModel,
+              statusText,
+expected normalized: 'return { content: [{ type: "text", text: statusText }], details: { ok: true, sessionKey: resolved.key, changedModel, statusText,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:387-393
+actual code:
+          return {
+            content: [{ type: "text", text: statusText }],
+            details: {
+              ok: true,
+              sessionKey: resolved.key,
+              changedModel,
+              statusText,
+actual normalized: 'return { content: [{ type: "text", text: statusText }], details: { ok: true, sessionKey: resolved.key, changedModel, statusText,'
+
+====================================================================================================
+entry-00305 trace[0]  src/agents/tools/session-status-tool.ts:215  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    if (requestedKeyRaw.startsWith("agent:")) {
+            ensureAgentAccess(resolveAgentIdFromSessionKey(requestedKeyRaw));
+          }
+expected normalized: 'if (requestedKeyRaw.startsWith("agent:")) { ensureAgentAccess(resolveAgentIdFromSessionKey(requestedKeyRaw)); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:215-217
+actual code:
+          if (requestedKeyRaw.startsWith("agent:")) {
+            ensureAgentAccess(resolveAgentIdFromSessionKey(requestedKeyRaw));
+          }
+actual normalized: 'if (requestedKeyRaw.startsWith("agent:")) { ensureAgentAccess(resolveAgentIdFromSessionKey(requestedKeyRaw)); }'
+
+====================================================================================================
+entry-00305 trace[1]  src/agents/tools/session-status-tool.ts:227  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    let resolved = resolveSessionEntry({
+            store,
+            keyRaw: requestedKeyRaw,
+            alias,
+            mainKey,
+expected normalized: 'let resolved = resolveSessionEntry({ store, keyRaw: requestedKeyRaw, alias, mainKey,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:227-231
+actual code:
+          let resolved = resolveSessionEntry({
+            store,
+            keyRaw: requestedKeyRaw,
+            alias,
+            mainKey,
+actual normalized: 'let resolved = resolveSessionEntry({ store, keyRaw: requestedKeyRaw, alias, mainKey,'
+
+====================================================================================================
+entry-00305 trace[2]  src/agents/tools/session-status-tool.ts:357  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    const statusText = buildStatusMessage({
+            config: cfg,
+            agent: {
+              ...agentDefaults,
+              model: agentModel,
+            },
+expected normalized: 'const statusText = buildStatusMessage({ config: cfg, agent: { ...agentDefaults, model: agentModel, },'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:357-362
+actual code:
+          const statusText = buildStatusMessage({
+            config: cfg,
+            agent: {
+              ...agentDefaults,
+              model: agentModel,
+            },
+actual normalized: 'const statusText = buildStatusMessage({ config: cfg, agent: { ...agentDefaults, model: agentModel, },'
+
+====================================================================================================
+entry-00305 trace[3]  src/agents/tools/session-status-tool.ts:387  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+    return {
+            content: [{ type: "text", text: statusText }],
+            details: {
+              ok: true,
+              sessionKey: resolved.key,
+              changedModel,
+              statusText,
+expected normalized: 'return { content: [{ type: "text", text: statusText }], details: { ok: true, sessionKey: resolved.key, changedModel, statusText,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:387-393
+actual code:
+          return {
+            content: [{ type: "text", text: statusText }],
+            details: {
+              ok: true,
+              sessionKey: resolved.key,
+              changedModel,
+              statusText,
+actual normalized: 'return { content: [{ type: "text", text: statusText }], details: { ok: true, sessionKey: resolved.key, changedModel, statusText,'

@@ -1,0 +1,141 @@
+====================================================================================================
+entry-00197 entry_point  src/media/server.ts:35-36  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      app.get("/media/:id", async (req, res) => {
+        const id = req.params.id;
+expected normalized: 'app.get("/media/:id", async (req, res) => { const id = req.params.id;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:35-36
+actual code:
+      app.get("/media/:id", async (req, res) => {
+        const id = req.params.id;
+actual normalized: 'app.get("/media/:id", async (req, res) => { const id = req.params.id;'
+
+====================================================================================================
+entry-00197 critical_operation  src/media/server.ts:57  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          const data = await handle.readFile();
+expected normalized: 'const data = await handle.readFile();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:57
+actual code:
+          const data = await handle.readFile();
+actual normalized: 'const data = await handle.readFile();'
+
+====================================================================================================
+entry-00197 trace[0]  src/media/server.ts:35-36  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+      app.get("/media/:id", async (req, res) => {
+        const id = req.params.id;
+expected normalized: 'app.get("/media/:id", async (req, res) => { const id = req.params.id;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:35-36
+actual code:
+      app.get("/media/:id", async (req, res) => {
+        const id = req.params.id;
+actual normalized: 'app.get("/media/:id", async (req, res) => { const id = req.params.id;'
+
+====================================================================================================
+entry-00197 trace[1]  src/media/server.ts:37  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+        if (!isValidMediaId(id)) {
+expected normalized: 'if (!isValidMediaId(id)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:37
+actual code:
+        if (!isValidMediaId(id)) {
+actual normalized: 'if (!isValidMediaId(id)) {'
+
+====================================================================================================
+entry-00197 trace[2]  src/media/server.ts:42-44  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          const { handle, realPath, stat } = await openFileWithinRoot({
+            rootDir: mediaDir,
+            relativePath: id,
+expected normalized: 'const { handle, realPath, stat } = await openFileWithinRoot({ rootDir: mediaDir, relativePath: id,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:42-44
+actual code:
+          const { handle, realPath, stat } = await openFileWithinRoot({
+            rootDir: mediaDir,
+            relativePath: id,
+actual normalized: 'const { handle, realPath, stat } = await openFileWithinRoot({ rootDir: mediaDir, relativePath: id,'
+
+====================================================================================================
+entry-00197 trace[3]  src/media/server.ts:46-49  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          if (stat.size > MAX_MEDIA_BYTES) {
+            await handle.close().catch(() => {});
+            res.status(413).send("too large");
+            return;
+expected normalized: 'if (stat.size > MAX_MEDIA_BYTES) { await handle.close().catch(() => {}); res.status(413).send("too large"); return;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:46-49
+actual code:
+          if (stat.size > MAX_MEDIA_BYTES) {
+            await handle.close().catch(() => {});
+            res.status(413).send("too large");
+            return;
+actual normalized: 'if (stat.size > MAX_MEDIA_BYTES) { await handle.close().catch(() => {}); res.status(413).send("too large"); return;'
+
+====================================================================================================
+entry-00197 trace[4]  src/media/server.ts:51-55  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          if (Date.now() - stat.mtimeMs > ttlMs) {
+            await handle.close().catch(() => {});
+            await fs.rm(realPath).catch(() => {});
+            res.status(410).send("expired");
+            return;
+expected normalized: 'if (Date.now() - stat.mtimeMs > ttlMs) { await handle.close().catch(() => {}); await fs.rm(realPath).catch(() => {}); res.status(410).send("expired"); return;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:51-55
+actual code:
+          if (Date.now() - stat.mtimeMs > ttlMs) {
+            await handle.close().catch(() => {});
+            await fs.rm(realPath).catch(() => {});
+            res.status(410).send("expired");
+            return;
+actual normalized: 'if (Date.now() - stat.mtimeMs > ttlMs) { await handle.close().catch(() => {}); await fs.rm(realPath).catch(() => {}); res.status(410).send("expired"); return;'
+
+====================================================================================================
+entry-00197 trace[5]  src/media/server.ts:57  report=GHSA-7XMQ-G46G-F8PV
+repo=https://github.com/openclaw/openclaw
+commit=4320cde91d9574d65dd240f8b033463cc723d6a6
+expected code:
+          const data = await handle.readFile();
+expected normalized: 'const data = await handle.readFile();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/media/server.ts:57
+actual code:
+          const data = await handle.readFile();
+actual normalized: 'const data = await handle.readFile();'

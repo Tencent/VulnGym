@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00493 entry_point  src/flows/channel-setup.ts:150  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    for (const entry of listChannelPluginCatalogEntries({ workspaceDir })) {
+expected normalized: 'for (const entry of listChannelPluginCatalogEntries({ workspaceDir })) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/flows/channel-setup.ts:150
+actual code:
+        for (const entry of listChannelPluginCatalogEntries({ workspaceDir })) {
+actual normalized: 'for (const entry of listChannelPluginCatalogEntries({ workspaceDir })) {'
+
+====================================================================================================
+entry-00493 critical_operation  src/flows/channel-setup.ts:160  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    void loadScopedChannelPlugin(channel, entry.pluginId);
+expected normalized: 'void loadScopedChannelPlugin(channel, entry.pluginId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/flows/channel-setup.ts:160
+actual code:
+          void loadScopedChannelPlugin(channel, entry.pluginId);
+actual normalized: 'void loadScopedChannelPlugin(channel, entry.pluginId);'
+
+====================================================================================================
+entry-00493 trace[0]  src/channels/plugins/catalog.ts:325  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const manifestEntries = listChannelCatalogEntries({
+expected normalized: 'const manifestEntries = listChannelCatalogEntries({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:325
+actual code:
+      const manifestEntries = listChannelCatalogEntries({
+actual normalized: 'const manifestEntries = listChannelCatalogEntries({'
+
+====================================================================================================
+entry-00493 trace[1]  src/channels/plugins/catalog.ts:347  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const priority = ORIGIN_PRIORITY[candidate.origin] ?? 99;
+expected normalized: 'const priority = ORIGIN_PRIORITY[candidate.origin] ?? 99;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:347
+actual code:
+        const priority = ORIGIN_PRIORITY[candidate.origin] ?? 99;
+actual normalized: 'const priority = ORIGIN_PRIORITY[candidate.origin] ?? 99;'
+
+====================================================================================================
+entry-00493 trace[2]  src/channels/plugins/catalog.ts:348  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const existing = resolved.get(entry.id);
+expected normalized: 'const existing = resolved.get(entry.id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/plugins/catalog.ts:348
+actual code:
+        const existing = resolved.get(entry.id);
+actual normalized: 'const existing = resolved.get(entry.id);'
+
+====================================================================================================
+entry-00493 trace[3]  src/flows/channel-setup.ts:155  report=GHSA-82QX-6VJ7-P8M2
+repo=https://github.com/openclaw/openclaw
+commit=65b781f9ae3a0d0463dda4b4c6710d8f0b3a2bad
+expected code:
+    const explicitlyEnabled =
+expected normalized: 'const explicitlyEnabled ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/flows/channel-setup.ts:155
+actual code:
+          const explicitlyEnabled =
+actual normalized: 'const explicitlyEnabled ='

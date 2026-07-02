@@ -1,0 +1,257 @@
+====================================================================================================
+entry-00090 entry_point  packages/nodes-base/nodes/Code/Code.node.ts:120  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    	async execute(this: IExecuteFunctions) {
+expected normalized: 'async execute(this: IExecuteFunctions) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:120
+actual code:
+    	async execute(this: IExecuteFunctions) {
+actual normalized: 'async execute(this: IExecuteFunctions) {'
+
+====================================================================================================
+entry-00090 critical_operation  packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:45-50  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		this.vm = new NodeVM({
+    			console: 'redirect',
+    			sandbox: context,
+    			require: options?.resolver ?? vmResolver,
+    			wasm: false,
+    		});
+expected normalized: "this.vm = new NodeVM({ console: 'redirect', sandbox: context, require: options?.resolver ?? vmResolver, wasm: false, });"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:45-50
+actual code:
+    		this.vm = new NodeVM({
+    			console: 'redirect',
+    			sandbox: context,
+    			require: options?.resolver ?? vmResolver,
+    			wasm: false,
+    		});
+actual normalized: "this.vm = new NodeVM({ console: 'redirect', sandbox: context, require: options?.resolver ?? vmResolver, wasm: false, });"
+
+====================================================================================================
+entry-00090 trace[0]  packages/nodes-base/nodes/Code/Code.node.ts:120  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    	async execute(this: IExecuteFunctions) {
+expected normalized: 'async execute(this: IExecuteFunctions) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:120
+actual code:
+    	async execute(this: IExecuteFunctions) {
+actual normalized: 'async execute(this: IExecuteFunctions) {'
+
+====================================================================================================
+entry-00090 trace[1]  packages/nodes-base/nodes/Code/Code.node.ts:129-131  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		const runnersConfig = Container.get(TaskRunnersConfig);
+    		const isJsRunner = runnersConfig.enabled;
+    		const isPyRunner = runnersConfig.isNativePythonRunnerEnabled;
+expected normalized: 'const runnersConfig = Container.get(TaskRunnersConfig); const isJsRunner = runnersConfig.enabled; const isPyRunner = runnersConfig.isNativePythonRunnerEnabled;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:129-131
+actual code:
+    		const runnersConfig = Container.get(TaskRunnersConfig);
+    		const isJsRunner = runnersConfig.enabled;
+    		const isPyRunner = runnersConfig.isNativePythonRunnerEnabled;
+actual normalized: 'const runnersConfig = Container.get(TaskRunnersConfig); const isJsRunner = runnersConfig.enabled; const isPyRunner = runnersConfig.isNativePythonRunnerEnabled;'
+
+====================================================================================================
+entry-00090 trace[2]  packages/nodes-base/nodes/Code/Code.node.ts:142-149  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		if (isJsLang && isJsRunner) {
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+    			const sandbox = new JsTaskRunnerSandbox(code, nodeMode, workflowMode, this);
+    			const numInputItems = this.getInputData().length;
+    
+    			return nodeMode === 'runOnceForAllItems'
+    				? [await sandbox.runCodeAllItems()]
+    				: [await sandbox.runCodeForEachItem(numInputItems)];
+expected normalized: "if (isJsLang && isJsRunner) { const code = this.getNodeParameter(codeParameterName, 0) as string; const sandbox = new JsTaskRunnerSandbox(code, nodeMode, workflowMode, this); const numInputItems = this.getInputData().length; return nodeMode === 'runOnceForAllItems' ? [await sandbox.runCodeAllItems()] : [await sandbox.runCodeForEachItem(numInputItems)];"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:142-149
+actual code:
+    		if (isJsLang && isJsRunner) {
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+    			const sandbox = new JsTaskRunnerSandbox(code, nodeMode, workflowMode, this);
+    			const numInputItems = this.getInputData().length;
+    
+    			return nodeMode === 'runOnceForAllItems'
+    				? [await sandbox.runCodeAllItems()]
+    				: [await sandbox.runCodeForEachItem(numInputItems)];
+actual normalized: "if (isJsLang && isJsRunner) { const code = this.getNodeParameter(codeParameterName, 0) as string; const sandbox = new JsTaskRunnerSandbox(code, nodeMode, workflowMode, this); const numInputItems = this.getInputData().length; return nodeMode === 'runOnceForAllItems' ? [await sandbox.runCodeAllItems()] : [await sandbox.runCodeForEachItem(numInputItems)];"
+
+====================================================================================================
+entry-00090 trace[3]  packages/nodes-base/nodes/Code/Code.node.ts:174-183  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		const getSandbox = (index = 0) => {
+    			const code = this.getNodeParameter(codeParameterName, index) as string;
+    
+    			const context = getSandboxContext.call(this, index);
+    			if (nodeMode === 'runOnceForAllItems') {
+    				context.items = context.$input.all();
+    			} else {
+    				context.item = context.$input.item;
+    			}
+expected normalized: "const getSandbox = (index = 0) => { const code = this.getNodeParameter(codeParameterName, index) as string; const context = getSandboxContext.call(this, index); if (nodeMode === 'runOnceForAllItems') { context.items = context.$input.all(); } else { context.item = context.$input.item; }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:174-182
+actual code:
+    		const getSandbox = (index = 0) => {
+    			const code = this.getNodeParameter(codeParameterName, index) as string;
+    
+    			const context = getSandboxContext.call(this, index);
+    			if (nodeMode === 'runOnceForAllItems') {
+    				context.items = context.$input.all();
+    			} else {
+    				context.item = context.$input.item;
+    			}
+actual normalized: "const getSandbox = (index = 0) => { const code = this.getNodeParameter(codeParameterName, index) as string; const context = getSandboxContext.call(this, index); if (nodeMode === 'runOnceForAllItems') { context.items = context.$input.all(); } else { context.item = context.$input.item; }"
+
+====================================================================================================
+entry-00090 trace[4]  packages/nodes-base/nodes/Code/Sandbox.ts:24-33  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    export function getSandboxContext(
+    	this: IExecuteFunctions | ISupplyDataFunctions,
+    	index: number,
+    ): SandboxContext {
+    	const helpers = {
+    		...this.helpers,
+    		httpRequestWithAuthentication: this.helpers.httpRequestWithAuthentication.bind(this),
+    		requestWithAuthenticationPaginated: this.helpers.requestWithAuthenticationPaginated.bind(this),
+    	};
+    	return {
+expected normalized: 'export function getSandboxContext( this: IExecuteFunctions | ISupplyDataFunctions, index: number, ): SandboxContext { const helpers = { ...this.helpers, httpRequestWithAuthentication: this.helpers.httpRequestWithAuthentication.bind(this), requestWithAuthenticationPaginated: this.helpers.requestWithAuthenticationPaginated.bind(this), }; return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Sandbox.ts:24-33
+actual code:
+    export function getSandboxContext(
+    	this: IExecuteFunctions | ISupplyDataFunctions,
+    	index: number,
+    ): SandboxContext {
+    	const helpers = {
+    		...this.helpers,
+    		httpRequestWithAuthentication: this.helpers.httpRequestWithAuthentication.bind(this),
+    		requestWithAuthenticationPaginated: this.helpers.requestWithAuthenticationPaginated.bind(this),
+    	};
+    	return {
+actual normalized: 'export function getSandboxContext( this: IExecuteFunctions | ISupplyDataFunctions, index: number, ): SandboxContext { const helpers = { ...this.helpers, httpRequestWithAuthentication: this.helpers.httpRequestWithAuthentication.bind(this), requestWithAuthenticationPaginated: this.helpers.requestWithAuthenticationPaginated.bind(this), }; return {'
+
+====================================================================================================
+entry-00090 trace[5]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:75-84  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    function isFilePathBlocked(resolvedFilePath: ResolvedFilePath): boolean {
+    	const allowedPaths = getAllowedPaths();
+    	const blockFileAccessToN8nFiles = process.env[BLOCK_FILE_ACCESS_TO_N8N_FILES] !== 'false';
+    
+    	const restrictedPaths = blockFileAccessToN8nFiles ? getN8nRestrictedPaths() : [];
+    	if (
+    		restrictedPaths.some((restrictedPath) => isContainedWithin(restrictedPath, resolvedFilePath))
+    	) {
+    		return true;
+    	}
+expected normalized: "function isFilePathBlocked(resolvedFilePath: ResolvedFilePath): boolean { const allowedPaths = getAllowedPaths(); const blockFileAccessToN8nFiles = process.env[BLOCK_FILE_ACCESS_TO_N8N_FILES] !== 'false'; const restrictedPaths = blockFileAccessToN8nFiles ? getN8nRestrictedPaths() : []; if ( restrictedPaths.some((restrictedPath) => isContainedWithin(restrictedPath, resolvedFilePath)) ) { return true; }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:75-84
+actual code:
+    function isFilePathBlocked(resolvedFilePath: ResolvedFilePath): boolean {
+    	const allowedPaths = getAllowedPaths();
+    	const blockFileAccessToN8nFiles = process.env[BLOCK_FILE_ACCESS_TO_N8N_FILES] !== 'false';
+    
+    	const restrictedPaths = blockFileAccessToN8nFiles ? getN8nRestrictedPaths() : [];
+    	if (
+    		restrictedPaths.some((restrictedPath) => isContainedWithin(restrictedPath, resolvedFilePath))
+    	) {
+    		return true;
+    	}
+actual normalized: "function isFilePathBlocked(resolvedFilePath: ResolvedFilePath): boolean { const allowedPaths = getAllowedPaths(); const blockFileAccessToN8nFiles = process.env[BLOCK_FILE_ACCESS_TO_N8N_FILES] !== 'false'; const restrictedPaths = blockFileAccessToN8nFiles ? getN8nRestrictedPaths() : []; if ( restrictedPaths.some((restrictedPath) => isContainedWithin(restrictedPath, resolvedFilePath)) ) { return true; }"
+
+====================================================================================================
+entry-00090 trace[6]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:97-106  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    export const getFileSystemHelperFunctions = (node: INode): FileSystemHelperFunctions => ({
+    	async createReadStream(resolvedFilePath) {
+    		// Get the device and inode number of the path we're checking.
+    		const pathIdentity = await fsStat(resolvedFilePath);
+    		// Check that the path is allowed.
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			const allowedPaths = getAllowedPaths();
+    			const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : '';
+    			throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, {
+    				level: 'warning',
+expected normalized: "export const getFileSystemHelperFunctions = (node: INode): FileSystemHelperFunctions => ({ async createReadStream(resolvedFilePath) { // Get the device and inode number of the path we're checking. const pathIdentity = await fsStat(resolvedFilePath); // Check that the path is allowed. if (isFilePathBlocked(resolvedFilePath)) { const allowedPaths = getAllowedPaths(); const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : ''; throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, { level: 'warning',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:97-106
+actual code:
+    export const getFileSystemHelperFunctions = (node: INode): FileSystemHelperFunctions => ({
+    	async createReadStream(resolvedFilePath) {
+    		// Get the device and inode number of the path we're checking.
+    		const pathIdentity = await fsStat(resolvedFilePath);
+    		// Check that the path is allowed.
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			const allowedPaths = getAllowedPaths();
+    			const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : '';
+    			throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, {
+    				level: 'warning',
+actual normalized: "export const getFileSystemHelperFunctions = (node: INode): FileSystemHelperFunctions => ({ async createReadStream(resolvedFilePath) { // Get the device and inode number of the path we're checking. const pathIdentity = await fsStat(resolvedFilePath); // Check that the path is allowed. if (isFilePathBlocked(resolvedFilePath)) { const allowedPaths = getAllowedPaths(); const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : ''; throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, { level: 'warning',"
+
+====================================================================================================
+entry-00090 trace[7]  packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:45-50  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		this.vm = new NodeVM({
+    			console: 'redirect',
+    			sandbox: context,
+    			require: options?.resolver ?? vmResolver,
+    			wasm: false,
+    		});
+expected normalized: "this.vm = new NodeVM({ console: 'redirect', sandbox: context, require: options?.resolver ?? vmResolver, wasm: false, });"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:45-50
+actual code:
+    		this.vm = new NodeVM({
+    			console: 'redirect',
+    			sandbox: context,
+    			require: options?.resolver ?? vmResolver,
+    			wasm: false,
+    		});
+actual normalized: "this.vm = new NodeVM({ console: 'redirect', sandbox: context, require: options?.resolver ?? vmResolver, wasm: false, });"

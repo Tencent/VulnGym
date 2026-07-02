@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00254 entry_point  src/slack/monitor/events/interactions.ts:675  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      registerModalLifecycleHandler({
+expected normalized: 'registerModalLifecycleHandler({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:675
+actual code:
+      registerModalLifecycleHandler({
+actual normalized: 'registerModalLifecycleHandler({'
+
+====================================================================================================
+entry-00254 critical_operation  src/slack/monitor/events/interactions.ts:485  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+expected normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:485
+actual code:
+      enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+actual normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+
+====================================================================================================
+entry-00254 trace[0]  src/slack/monitor/events/interactions.ts:675-681  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      registerModalLifecycleHandler({
+        register: (matcher, handler) => ctx.app.view(matcher, handler),
+        matcher: modalMatcher,
+        ctx,
+        interactionType: "view_submission",
+        contextPrefix: "slack:interaction:view",
+      });
+expected normalized: 'registerModalLifecycleHandler({ register: (matcher, handler) => ctx.app.view(matcher, handler), matcher: modalMatcher, ctx, interactionType: "view_submission", contextPrefix: "slack:interaction:view", });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:675-681
+actual code:
+      registerModalLifecycleHandler({
+        register: (matcher, handler) => ctx.app.view(matcher, handler),
+        matcher: modalMatcher,
+        ctx,
+        interactionType: "view_submission",
+        contextPrefix: "slack:interaction:view",
+      });
+actual normalized: 'registerModalLifecycleHandler({ register: (matcher, handler) => ctx.app.view(matcher, handler), matcher: modalMatcher, ctx, interactionType: "view_submission", contextPrefix: "slack:interaction:view", });'
+
+====================================================================================================
+entry-00254 trace[1]  src/slack/monitor/events/interactions.ts:452-461  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+    function emitSlackModalLifecycleEvent(params: {
+      ctx: SlackMonitorContext;
+      body: SlackModalBody;
+      interactionType: SlackModalInteractionKind;
+      contextPrefix: "slack:interaction:view" | "slack:interaction:view-closed";
+    }): void {
+      const { callbackId, userId, viewId, sessionRouting, payload } = resolveSlackModalEventBase({
+        ctx: params.ctx,
+        body: params.body,
+      });
+expected normalized: 'function emitSlackModalLifecycleEvent(params: { ctx: SlackMonitorContext; body: SlackModalBody; interactionType: SlackModalInteractionKind; contextPrefix: "slack:interaction:view" | "slack:interaction:view-closed"; }): void { const { callbackId, userId, viewId, sessionRouting, payload } = resolveSlackModalEventBase({ ctx: params.ctx, body: params.body, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:452-461
+actual code:
+    function emitSlackModalLifecycleEvent(params: {
+      ctx: SlackMonitorContext;
+      body: SlackModalBody;
+      interactionType: SlackModalInteractionKind;
+      contextPrefix: "slack:interaction:view" | "slack:interaction:view-closed";
+    }): void {
+      const { callbackId, userId, viewId, sessionRouting, payload } = resolveSlackModalEventBase({
+        ctx: params.ctx,
+        body: params.body,
+      });
+actual normalized: 'function emitSlackModalLifecycleEvent(params: { ctx: SlackMonitorContext; body: SlackModalBody; interactionType: SlackModalInteractionKind; contextPrefix: "slack:interaction:view" | "slack:interaction:view-closed"; }): void { const { callbackId, userId, viewId, sessionRouting, payload } = resolveSlackModalEventBase({ ctx: params.ctx, body: params.body, });'
+
+====================================================================================================
+entry-00254 trace[2]  src/slack/modal-metadata.ts:13  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+    export function parseSlackModalPrivateMetadata(raw: unknown): SlackModalPrivateMetadata {
+expected normalized: 'export function parseSlackModalPrivateMetadata(raw: unknown): SlackModalPrivateMetadata {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/modal-metadata.ts:13
+actual code:
+    export function parseSlackModalPrivateMetadata(raw: unknown): SlackModalPrivateMetadata {
+actual normalized: 'export function parseSlackModalPrivateMetadata(raw: unknown): SlackModalPrivateMetadata {'
+
+====================================================================================================
+entry-00254 trace[3]  src/slack/monitor/events/interactions.ts:485  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+expected normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:485
+actual code:
+      enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+actual normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'

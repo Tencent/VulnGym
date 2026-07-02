@@ -1,0 +1,103 @@
+====================================================================================================
+entry-00130 entry_point  src/telegram/webhook.ts:23  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+    export async function startTelegramWebhook(opts: {
+expected normalized: 'export async function startTelegramWebhook(opts: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:23
+actual code:
+    export async function startTelegramWebhook(opts: {
+actual normalized: 'export async function startTelegramWebhook(opts: {'
+
+====================================================================================================
+entry-00130 critical_operation  src/telegram/webhook.ts:50-52  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+      const handler = webhookCallback(bot, "http", {
+        secretToken: opts.secret,
+      });
+expected normalized: 'const handler = webhookCallback(bot, "http", { secretToken: opts.secret, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:50-52
+actual code:
+      const handler = webhookCallback(bot, "http", {
+        secretToken: opts.secret,
+      });
+actual normalized: 'const handler = webhookCallback(bot, "http", { secretToken: opts.secret, });'
+
+====================================================================================================
+entry-00130 trace[0]  src/telegram/webhook.ts:30  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+    secret?: string;
+expected normalized: 'secret?: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:30
+actual code:
+      secret?: string;
+actual normalized: 'secret?: string;'
+
+====================================================================================================
+entry-00130 trace[1]  src/telegram/webhook.ts:50-52  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+      const handler = webhookCallback(bot, "http", {
+        secretToken: opts.secret,
+      });
+expected normalized: 'const handler = webhookCallback(bot, "http", { secretToken: opts.secret, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:50-52
+actual code:
+      const handler = webhookCallback(bot, "http", {
+        secretToken: opts.secret,
+      });
+actual normalized: 'const handler = webhookCallback(bot, "http", { secretToken: opts.secret, });'
+
+====================================================================================================
+entry-00130 trace[2]  src/telegram/webhook.ts:81  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+    const handled = handler(req, res);
+expected normalized: 'const handled = handler(req, res);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:81
+actual code:
+        const handled = handler(req, res);
+actual normalized: 'const handled = handler(req, res);'
+
+====================================================================================================
+entry-00130 trace[3]  src/telegram/webhook.ts:126-129  report=GHSA-MP5H-M6QJ-6292
+repo=https://github.com/openclaw/openclaw
+commit=f8c404a4852170147aa3d1a0e8a70c6bdf79ecb7
+expected code:
+          bot.api.setWebhook(publicUrl, {
+            secret_token: opts.secret,
+            allowed_updates: resolveTelegramAllowedUpdates(),
+          }),
+expected normalized: 'bot.api.setWebhook(publicUrl, { secret_token: opts.secret, allowed_updates: resolveTelegramAllowedUpdates(), }),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/telegram/webhook.ts:126-129
+actual code:
+          bot.api.setWebhook(publicUrl, {
+            secret_token: opts.secret,
+            allowed_updates: resolveTelegramAllowedUpdates(),
+          }),
+actual normalized: 'bot.api.setWebhook(publicUrl, { secret_token: opts.secret, allowed_updates: resolveTelegramAllowedUpdates(), }),'

@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00365 entry_point  extensions/nostr/src/nostr-bus.ts:490  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+      const sub = pool.subscribeMany(
+expected normalized: 'const sub = pool.subscribeMany('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:490
+actual code:
+      const sub = pool.subscribeMany(
+actual normalized: 'const sub = pool.subscribeMany('
+
+====================================================================================================
+entry-00365 critical_operation  extensions/nostr/src/nostr-bus.ts:451  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+            plaintext = decrypt(sk, event.pubkey, event.content);
+expected normalized: 'plaintext = decrypt(sk, event.pubkey, event.content);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:451
+actual code:
+            plaintext = decrypt(sk, event.pubkey, event.content);
+actual normalized: 'plaintext = decrypt(sk, event.pubkey, event.content);'
+
+====================================================================================================
+entry-00365 trace[0]  extensions/nostr/src/nostr-bus.ts:490  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+      const sub = pool.subscribeMany(
+expected normalized: 'const sub = pool.subscribeMany('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:490
+actual code:
+      const sub = pool.subscribeMany(
+actual normalized: 'const sub = pool.subscribeMany('
+
+====================================================================================================
+entry-00365 trace[1]  extensions/nostr/src/nostr-bus.ts:438  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          if (!verifyEvent(event)) {
+expected normalized: 'if (!verifyEvent(event)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:438
+actual code:
+          if (!verifyEvent(event)) {
+actual normalized: 'if (!verifyEvent(event)) {'
+
+====================================================================================================
+entry-00365 trace[2]  extensions/nostr/src/nostr-bus.ts:445  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          seen.add(event.id);
+expected normalized: 'seen.add(event.id);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:445
+actual code:
+          seen.add(event.id);
+actual normalized: 'seen.add(event.id);'
+
+====================================================================================================
+entry-00365 trace[3]  extensions/nostr/src/nostr-bus.ts:451  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+            plaintext = decrypt(sk, event.pubkey, event.content);
+expected normalized: 'plaintext = decrypt(sk, event.pubkey, event.content);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:451
+actual code:
+            plaintext = decrypt(sk, event.pubkey, event.content);
+actual normalized: 'plaintext = decrypt(sk, event.pubkey, event.content);'

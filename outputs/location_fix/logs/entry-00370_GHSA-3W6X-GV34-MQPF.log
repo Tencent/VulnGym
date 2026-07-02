@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00370 entry_point  src/auto-reply/reply/commands-acp.ts:59  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {
+expected normalized: 'export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:59
+actual code:
+    export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {
+actual normalized: 'export const handleAcpCommand: CommandHandler = async (params, allowTextCommands) => {'
+
+====================================================================================================
+entry-00370 critical_operation  src/auto-reply/reply/commands-acp/runtime-options.ts:152  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    export async function handleAcpSetModeAction(
+expected normalized: 'export async function handleAcpSetModeAction('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp/runtime-options.ts:152
+actual code:
+    export async function handleAcpSetModeAction(
+actual normalized: 'export async function handleAcpSetModeAction('
+
+====================================================================================================
+entry-00370 trace[0]  src/auto-reply/reply/commands-acp.ts:46  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+      status: handleAcpStatusAction,
+expected normalized: 'status: handleAcpStatusAction,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:46
+actual code:
+      status: handleAcpStatusAction,
+actual normalized: 'status: handleAcpStatusAction,'
+
+====================================================================================================
+entry-00370 trace[1]  src/auto-reply/reply/commands-acp.ts:81  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+      const handler = ACP_ACTION_HANDLERS[action];
+expected normalized: 'const handler = ACP_ACTION_HANDLERS[action];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp.ts:81
+actual code:
+      const handler = ACP_ACTION_HANDLERS[action];
+actual normalized: 'const handler = ACP_ACTION_HANDLERS[action];'
+
+====================================================================================================
+entry-00370 trace[2]  src/auto-reply/reply/commands-acp/runtime-options.ts:152  report=GHSA-3W6X-GV34-MQPF
+repo=https://github.com/openclaw/openclaw
+commit=a47722de7e3c9cbda8d5512747ca7e3bb8f6ee66
+expected code:
+    export async function handleAcpSetModeAction(
+expected normalized: 'export async function handleAcpSetModeAction('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-acp/runtime-options.ts:152
+actual code:
+    export async function handleAcpSetModeAction(
+actual normalized: 'export async function handleAcpSetModeAction('

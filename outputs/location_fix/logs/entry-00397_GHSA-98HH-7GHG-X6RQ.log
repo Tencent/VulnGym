@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00397 entry_point  src/auto-reply/reply/commands-approve.ts:109  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+expected normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:109
+actual code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+actual normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+
+====================================================================================================
+entry-00397 critical_operation  src/auto-reply/reply/commands-approve.ts:189  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+          await callApprovalMethod("plugin.approval.resolve");
+expected normalized: 'await callApprovalMethod("plugin.approval.resolve");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:189
+actual code:
+          await callApprovalMethod("plugin.approval.resolve");
+actual normalized: 'await callApprovalMethod("plugin.approval.resolve");'
+
+====================================================================================================
+entry-00397 trace[0]  src/auto-reply/reply/commands-approve.ts:109  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+expected normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:109
+actual code:
+    export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {
+actual normalized: 'export const handleApproveCommand: CommandHandler = async (params, allowTextCommands) => {'
+
+====================================================================================================
+entry-00397 trace[1]  src/auto-reply/reply/commands-approve.ts:118  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      if (!params.command.isAuthorizedSender) {
+expected normalized: 'if (!params.command.isAuthorizedSender) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:118
+actual code:
+      if (!params.command.isAuthorizedSender) {
+actual normalized: 'if (!params.command.isAuthorizedSender) {'
+
+====================================================================================================
+entry-00397 trace[2]  src/auto-reply/reply/commands-approve.ts:128  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      const isPluginId = parsed.id.startsWith("plugin:");
+expected normalized: 'const isPluginId = parsed.id.startsWith("plugin:");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:128
+actual code:
+      const isPluginId = parsed.id.startsWith("plugin:");
+actual normalized: 'const isPluginId = parsed.id.startsWith("plugin:");'
+
+====================================================================================================
+entry-00397 trace[3]  src/auto-reply/reply/commands-approve.ts:130  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      if (params.command.channel === "telegram") {
+expected normalized: 'if (params.command.channel === "telegram") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:130
+actual code:
+      if (params.command.channel === "telegram") {
+actual normalized: 'if (params.command.channel === "telegram") {'
+
+====================================================================================================
+entry-00397 trace[4]  src/auto-reply/reply/commands-approve.ts:157  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+        if (isPluginId && !isTelegramExecApprovalApprover(telegramApproverContext)) {
+expected normalized: 'if (isPluginId && !isTelegramExecApprovalApprover(telegramApproverContext)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:157
+actual code:
+        if (isPluginId && !isTelegramExecApprovalApprover(telegramApproverContext)) {
+actual normalized: 'if (isPluginId && !isTelegramExecApprovalApprover(telegramApproverContext)) {'
+
+====================================================================================================
+entry-00397 trace[5]  src/auto-reply/reply/commands-approve.ts:187  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+      if (isPluginId) {
+expected normalized: 'if (isPluginId) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:187
+actual code:
+      if (isPluginId) {
+actual normalized: 'if (isPluginId) {'
+
+====================================================================================================
+entry-00397 trace[6]  src/auto-reply/reply/commands-approve.ts:189  report=GHSA-98HH-7GHG-X6RQ
+repo=https://github.com/openclaw/openclaw
+commit=be00fcfccba108f88dc3d4380146c6e058770b03
+expected code:
+          await callApprovalMethod("plugin.approval.resolve");
+expected normalized: 'await callApprovalMethod("plugin.approval.resolve");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/auto-reply/reply/commands-approve.ts:189
+actual code:
+          await callApprovalMethod("plugin.approval.resolve");
+actual normalized: 'await callApprovalMethod("plugin.approval.resolve");'

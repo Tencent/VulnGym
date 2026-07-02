@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00302 entry_point  src/agents/sandbox/fs-bridge.ts:188  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+      async stat(params: {
+expected normalized: 'async stat(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:188
+actual code:
+      async stat(params: {
+actual normalized: 'async stat(params: {'
+
+====================================================================================================
+entry-00302 critical_operation  src/agents/sandbox/fs-bridge-shell-command-plans.ts:105  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+    export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {
+expected normalized: 'export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge-shell-command-plans.ts:105
+actual code:
+    export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {
+actual normalized: 'export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {'
+
+====================================================================================================
+entry-00302 trace[0]  src/agents/sandbox/fs-bridge.ts:188  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+      async stat(params: {
+expected normalized: 'async stat(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:188
+actual code:
+      async stat(params: {
+actual normalized: 'async stat(params: {'
+
+====================================================================================================
+entry-00302 trace[1]  src/agents/sandbox/fs-bridge.ts:193  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+        const target = this.resolveResolvedPath(params);
+expected normalized: 'const target = this.resolveResolvedPath(params);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:193
+actual code:
+        const target = this.resolveResolvedPath(params);
+actual normalized: 'const target = this.resolveResolvedPath(params);'
+
+====================================================================================================
+entry-00302 trace[2]  src/agents/sandbox/fs-bridge.ts:194  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+        const result = await this.runPlannedCommand(buildStatPlan(target), params.signal);
+expected normalized: 'const result = await this.runPlannedCommand(buildStatPlan(target), params.signal);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:194
+actual code:
+        const result = await this.runPlannedCommand(buildStatPlan(target), params.signal);
+actual normalized: 'const result = await this.runPlannedCommand(buildStatPlan(target), params.signal);'
+
+====================================================================================================
+entry-00302 trace[3]  src/agents/sandbox/fs-bridge.ts:273  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+      }): Promise<string> {
+expected normalized: '}): Promise<string> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge.ts:273
+actual code:
+      }): Promise<string> {
+actual normalized: '}): Promise<string> {'
+
+====================================================================================================
+entry-00302 trace[4]  src/agents/sandbox/fs-bridge-shell-command-plans.ts:105  report=GHSA-MJ4P-RC52-M843
+repo=https://github.com/openclaw/openclaw
+commit=3caab9260cb0a0064e6a37b2de3bedc8a547e599
+expected code:
+    export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {
+expected normalized: 'export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/fs-bridge-shell-command-plans.ts:105
+actual code:
+    export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {
+actual normalized: 'export function buildStatPlan(target: SandboxResolvedFsPath): SandboxFsCommandPlan {'

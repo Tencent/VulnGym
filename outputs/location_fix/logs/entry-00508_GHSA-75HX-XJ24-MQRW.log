@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00508 entry_point  src/http-server-single-session.ts:985  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.get('/health', (req, res) => {
+expected normalized: "app.get('/health', (req, res) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:985
+actual code:
+        app.get('/health', (req, res) => {
+actual normalized: "app.get('/health', (req, res) => {"
+
+====================================================================================================
+entry-00508 critical_operation  src/http-server-single-session.ts:992  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          res.json({ 
+expected normalized: 'res.json({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:992
+actual code:
+          res.json({
+actual normalized: 'res.json({'
+
+====================================================================================================
+entry-00508 trace[0]  src/http-server-single-session.ts:985  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.get('/health', (req, res) => {
+expected normalized: "app.get('/health', (req, res) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:985
+actual code:
+        app.get('/health', (req, res) => {
+actual normalized: "app.get('/health', (req, res) => {"
+
+====================================================================================================
+entry-00508 trace[1]  src/http-server-single-session.ts:986  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const activeTransports = Object.keys(this.transports);
+expected normalized: 'const activeTransports = Object.keys(this.transports);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:986
+actual code:
+          const activeTransports = Object.keys(this.transports);
+actual normalized: 'const activeTransports = Object.keys(this.transports);'
+
+====================================================================================================
+entry-00508 trace[2]  src/http-server-single-session.ts:988  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const sessionMetrics = this.getSessionMetrics();
+expected normalized: 'const sessionMetrics = this.getSessionMetrics();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:988
+actual code:
+          const sessionMetrics = this.getSessionMetrics();
+actual normalized: 'const sessionMetrics = this.getSessionMetrics();'
+
+====================================================================================================
+entry-00508 trace[3]  src/http-server-single-session.ts:990  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const isDefaultToken = this.authToken === 'REPLACE_THIS_AUTH_TOKEN_32_CHARS_MIN_abcdefgh';
+expected normalized: "const isDefaultToken = this.authToken === 'REPLACE_THIS_AUTH_TOKEN_32_CHARS_MIN_abcdefgh';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:990
+actual code:
+          const isDefaultToken = this.authToken === 'REPLACE_THIS_AUTH_TOKEN_32_CHARS_MIN_abcdefgh';
+actual normalized: "const isDefaultToken = this.authToken === 'REPLACE_THIS_AUTH_TOKEN_32_CHARS_MIN_abcdefgh';"
+
+====================================================================================================
+entry-00508 trace[4]  src/http-server-single-session.ts:992  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          res.json({ 
+expected normalized: 'res.json({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:992
+actual code:
+          res.json({
+actual normalized: 'res.json({'

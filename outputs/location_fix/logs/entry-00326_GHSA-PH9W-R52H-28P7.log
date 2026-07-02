@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00326 entry_point  src/backend/base/langflow/api/v1/files.py:169  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+    async def download_profile_picture(
+expected normalized: 'async def download_profile_picture('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:169
+actual code:
+    async def download_profile_picture(
+actual normalized: 'async def download_profile_picture('
+
+====================================================================================================
+entry-00326 critical_operation  src/backend/base/langflow/api/v1/files.py:231  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+expected normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:231
+actual code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+actual normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'
+
+====================================================================================================
+entry-00326 trace[0]  src/backend/base/langflow/api/v1/files.py:169  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+    async def download_profile_picture(
+expected normalized: 'async def download_profile_picture('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:169
+actual code:
+    async def download_profile_picture(
+actual normalized: 'async def download_profile_picture('
+
+====================================================================================================
+entry-00326 trace[1]  src/backend/base/langflow/api/v1/files.py:197  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            config_dir = settings_service.settings.config_dir
+expected normalized: 'config_dir = settings_service.settings.config_dir'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:197
+actual code:
+            config_dir = settings_service.settings.config_dir
+actual normalized: 'config_dir = settings_service.settings.config_dir'
+
+====================================================================================================
+entry-00326 trace[2]  src/backend/base/langflow/api/v1/files.py:205  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            allowed_base = (config_path / "profile_pictures").resolve()
+expected normalized: 'allowed_base = (config_path / "profile_pictures").resolve()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:205
+actual code:
+            allowed_base = (config_path / "profile_pictures").resolve()
+actual normalized: 'allowed_base = (config_path / "profile_pictures").resolve()'
+
+====================================================================================================
+entry-00326 trace[3]  src/backend/base/langflow/api/v1/files.py:211  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            if not file_path.exists():
+expected normalized: 'if not file_path.exists():'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:211
+actual code:
+            if not file_path.exists():
+actual normalized: 'if not file_path.exists():'
+
+====================================================================================================
+entry-00326 trace[4]  src/backend/base/langflow/api/v1/files.py:215  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+                package_path = (package_base / folder_name / file_name).resolve()
+expected normalized: 'package_path = (package_base / folder_name / file_name).resolve()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:215
+actual code:
+                package_path = (package_base / folder_name / file_name).resolve()
+actual normalized: 'package_path = (package_base / folder_name / file_name).resolve()'
+
+====================================================================================================
+entry-00326 trace[5]  src/backend/base/langflow/api/v1/files.py:219  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+                if not str(package_path).startswith(str(allowed_package_base)):
+expected normalized: 'if not str(package_path).startswith(str(allowed_package_base)):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:219
+actual code:
+                if not str(package_path).startswith(str(allowed_package_base)):
+actual normalized: 'if not str(package_path).startswith(str(allowed_package_base)):'
+
+====================================================================================================
+entry-00326 trace[6]  src/backend/base/langflow/api/v1/files.py:231  report=GHSA-PH9W-R52H-28P7
+repo=https://github.com/langflow-ai/langflow
+commit=198fab1dc7d4e018fd92767e226b6da6057cd704
+expected code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+expected normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/files.py:231
+actual code:
+            return StreamingResponse(BytesIO(file_content), media_type=content_type)
+actual normalized: 'return StreamingResponse(BytesIO(file_content), media_type=content_type)'

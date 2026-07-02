@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00154 entry_point  nemo/export/tensorrt_llm.py:1671  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+                pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))
+expected normalized: "pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/tensorrt_llm.py:1671
+actual code:
+                pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))
+actual normalized: "pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))"
+
+====================================================================================================
+entry-00154 critical_operation  nemo/export/tensorrt_llm.py:1674  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+                        self.ptuning_tables = pickle.load(f)
+expected normalized: 'self.ptuning_tables = pickle.load(f)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/tensorrt_llm.py:1674
+actual code:
+                        self.ptuning_tables = pickle.load(f)
+actual normalized: 'self.ptuning_tables = pickle.load(f)'
+
+====================================================================================================
+entry-00154 trace[0]  nemo/export/tensorrt_llm.py:1671  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+                pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))
+expected normalized: "pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/tensorrt_llm.py:1671
+actual code:
+                pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))
+actual normalized: "pt_path = Path(os.path.join(self.model_dir, 'prompt_tables.pkl'))"
+
+====================================================================================================
+entry-00154 trace[1]  nemo/export/tensorrt_llm.py:1673  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+                    with open(pt_path, 'rb') as f:
+expected normalized: "with open(pt_path, 'rb') as f:"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/tensorrt_llm.py:1673
+actual code:
+                    with open(pt_path, 'rb') as f:
+actual normalized: "with open(pt_path, 'rb') as f:"
+
+====================================================================================================
+entry-00154 trace[2]  nemo/export/tensorrt_llm.py:1674  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+                        self.ptuning_tables = pickle.load(f)
+expected normalized: 'self.ptuning_tables = pickle.load(f)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/tensorrt_llm.py:1674
+actual code:
+                        self.ptuning_tables = pickle.load(f)
+actual normalized: 'self.ptuning_tables = pickle.load(f)'

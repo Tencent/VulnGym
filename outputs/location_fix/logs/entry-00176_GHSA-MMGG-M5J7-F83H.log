@@ -1,0 +1,170 @@
+====================================================================================================
+entry-00176 entry_point  packages/nodes-base/nodes/Code/Code.node.ts:206  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+expected normalized: 'const code = this.getNodeParameter(codeParameterName, 0) as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:206
+actual code:
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+actual normalized: 'const code = this.getNodeParameter(codeParameterName, 0) as string;'
+
+====================================================================================================
+entry-00176 critical_operation  packages/@n8n/task-runner-python/src/constants.py:126  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    BLOCKED_ATTRIBUTES = {
+expected normalized: 'BLOCKED_ATTRIBUTES = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner-python/src/constants.py:126
+actual code:
+    BLOCKED_ATTRIBUTES = {
+actual normalized: 'BLOCKED_ATTRIBUTES = {'
+
+====================================================================================================
+entry-00176 trace[0]  packages/nodes-base/nodes/Code/Code.node.ts:206  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+expected normalized: 'const code = this.getNodeParameter(codeParameterName, 0) as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:206
+actual code:
+    			const code = this.getNodeParameter(codeParameterName, 0) as string;
+actual normalized: 'const code = this.getNodeParameter(codeParameterName, 0) as string;'
+
+====================================================================================================
+entry-00176 trace[1]  packages/nodes-base/nodes/Code/Code.node.ts:207  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			const sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);
+expected normalized: 'const sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:207
+actual code:
+    			const sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);
+actual normalized: 'const sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);'
+
+====================================================================================================
+entry-00176 trace[2]  packages/nodes-base/nodes/Code/Code.node.ts:209  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			return [await sandbox.runUsingIncomingItems()];
+expected normalized: 'return [await sandbox.runUsingIncomingItems()];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:209
+actual code:
+    			return [await sandbox.runUsingIncomingItems()];
+actual normalized: 'return [await sandbox.runUsingIncomingItems()];'
+
+====================================================================================================
+entry-00176 trace[3]  packages/nodes-base/nodes/Code/PythonTaskRunnerSandbox.ts:62-65  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>(
+    			'python',
+    			taskSettings,
+    			itemIndex,
+expected normalized: "const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>( 'python', taskSettings, itemIndex,"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/PythonTaskRunnerSandbox.ts:62-65
+actual code:
+    		const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>(
+    			'python',
+    			taskSettings,
+    			itemIndex,
+actual normalized: "const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>( 'python', taskSettings, itemIndex,"
+
+====================================================================================================
+entry-00176 trace[4]  packages/@n8n/task-runner-python/src/task_runner.py:321  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+                self.analyzer.validate(task_settings.code)
+expected normalized: 'self.analyzer.validate(task_settings.code)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner-python/src/task_runner.py:321
+actual code:
+                self.analyzer.validate(task_settings.code)
+actual normalized: 'self.analyzer.validate(task_settings.code)'
+
+====================================================================================================
+entry-00176 trace[5]  packages/@n8n/task-runner-python/src/task_analyzer.py:63-69  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+        def visit_Attribute(self, node: ast.Attribute) -> None:
+            """Detect access to unsafe attributes that could bypass security restrictions."""
+    
+            if node.attr in BLOCKED_ATTRIBUTES:
+                self._add_violation(
+                    node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr)
+                )
+expected normalized: 'def visit_Attribute(self, node: ast.Attribute) -> None: """Detect access to unsafe attributes that could bypass security restrictions.""" if node.attr in BLOCKED_ATTRIBUTES: self._add_violation( node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr) )'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner-python/src/task_analyzer.py:63-69
+actual code:
+        def visit_Attribute(self, node: ast.Attribute) -> None:
+            """Detect access to unsafe attributes that could bypass security restrictions."""
+    
+            if node.attr in BLOCKED_ATTRIBUTES:
+                self._add_violation(
+                    node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr)
+                )
+actual normalized: 'def visit_Attribute(self, node: ast.Attribute) -> None: """Detect access to unsafe attributes that could bypass security restrictions.""" if node.attr in BLOCKED_ATTRIBUTES: self._add_violation( node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr) )'
+
+====================================================================================================
+entry-00176 trace[6]  packages/@n8n/task-runner-python/src/constants.py:126-135  report=GHSA-MMGG-M5J7-F83H
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    BLOCKED_ATTRIBUTES = {
+        # runtime attributes
+        "__subclasses__",
+        "__globals__",
+        "__builtins__",
+        "__traceback__",
+        "tb_frame",
+        "tb_next",
+        "f_back",
+        "f_globals",
+expected normalized: 'BLOCKED_ATTRIBUTES = { # runtime attributes "__subclasses__", "__globals__", "__builtins__", "__traceback__", "tb_frame", "tb_next", "f_back", "f_globals",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner-python/src/constants.py:126-135
+actual code:
+    BLOCKED_ATTRIBUTES = {
+        # runtime attributes
+        "__subclasses__",
+        "__globals__",
+        "__builtins__",
+        "__traceback__",
+        "tb_frame",
+        "tb_next",
+        "f_back",
+        "f_globals",
+actual normalized: 'BLOCKED_ATTRIBUTES = { # runtime attributes "__subclasses__", "__globals__", "__builtins__", "__traceback__", "tb_frame", "tb_next", "f_back", "f_globals",'

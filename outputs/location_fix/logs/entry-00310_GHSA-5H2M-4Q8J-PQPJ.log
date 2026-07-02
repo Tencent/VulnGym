@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00310 entry_point  src/fastmcp/server/auth/oauth_proxy.py:992  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+        @override
+expected normalized: '@override'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:992
+actual code:
+        @override
+actual normalized: '@override'
+
+====================================================================================================
+entry-00310 critical_operation  src/fastmcp/server/auth/oauth_proxy.py:810  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+                audience=f"{str(self.base_url).rstrip('/')}/mcp",
+expected normalized: 'audience=f"{str(self.base_url).rstrip(\'/\')}/mcp",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:810
+actual code:
+                audience=f"{str(self.base_url).rstrip('/')}/mcp",
+actual normalized: 'audience=f"{str(self.base_url).rstrip(\'/\')}/mcp",'
+
+====================================================================================================
+entry-00310 trace[0]  src/fastmcp/server/auth/oauth_proxy.py:992  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+        @override
+expected normalized: '@override'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:992
+actual code:
+        @override
+actual normalized: '@override'
+
+====================================================================================================
+entry-00310 trace[1]  src/fastmcp/server/auth/oauth_proxy.py:1036  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+                resource=getattr(params, "resource", None),
+expected normalized: 'resource=getattr(params, "resource", None),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:1036
+actual code:
+                resource=getattr(params, "resource", None),
+actual normalized: 'resource=getattr(params, "resource", None),'
+
+====================================================================================================
+entry-00310 trace[2]  src/fastmcp/server/auth/oauth_proxy.py:810  report=GHSA-5H2M-4Q8J-PQPJ
+repo=https://github.com/jlowin/fastmcp
+commit=6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3
+expected code:
+                audience=f"{str(self.base_url).rstrip('/')}/mcp",
+expected normalized: 'audience=f"{str(self.base_url).rstrip(\'/\')}/mcp",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/auth/oauth_proxy.py:810
+actual code:
+                audience=f"{str(self.base_url).rstrip('/')}/mcp",
+actual normalized: 'audience=f"{str(self.base_url).rstrip(\'/\')}/mcp",'

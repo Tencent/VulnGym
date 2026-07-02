@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00323 entry_point  src/agents/bash-tools.exec-host-node.ts:44  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    export async function executeNodeHostCommand(
+expected normalized: 'export async function executeNodeHostCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:44
+actual code:
+    export async function executeNodeHostCommand(
+actual normalized: 'export async function executeNodeHostCommand('
+
+====================================================================================================
+entry-00323 critical_operation  src/agents/bash-tools.exec-host-node.ts:244  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+            await callGatewayTool(
+expected normalized: 'await callGatewayTool('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:244
+actual code:
+            await callGatewayTool(
+actual normalized: 'await callGatewayTool('
+
+====================================================================================================
+entry-00323 trace[0]  src/agents/bash-tools.exec-host-node.ts:44  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    export async function executeNodeHostCommand(
+expected normalized: 'export async function executeNodeHostCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:44
+actual code:
+    export async function executeNodeHostCommand(
+actual normalized: 'export async function executeNodeHostCommand('
+
+====================================================================================================
+entry-00323 trace[1]  src/agents/bash-tools.exec-host-node.ts:102  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+      if (hostAsk === "on-miss" && hostSecurity === "allowlist" && analysisOk) {
+expected normalized: 'if (hostAsk === "on-miss" && hostSecurity === "allowlist" && analysisOk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:102
+actual code:
+      if (hostAsk === "on-miss" && hostSecurity === "allowlist" && analysisOk) {
+actual normalized: 'if (hostAsk === "on-miss" && hostSecurity === "allowlist" && analysisOk) {'
+
+====================================================================================================
+entry-00323 trace[2]  src/agents/bash-tools.exec-host-node.ts:217  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+          } else if (decision === "allow-always") {
+expected normalized: '} else if (decision === "allow-always") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:217
+actual code:
+          } else if (decision === "allow-always") {
+actual normalized: '} else if (decision === "allow-always") {'
+
+====================================================================================================
+entry-00323 trace[3]  src/agents/bash-tools.exec-host-node.ts:244  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+            await callGatewayTool(
+expected normalized: 'await callGatewayTool('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:244
+actual code:
+            await callGatewayTool(
+actual normalized: 'await callGatewayTool('

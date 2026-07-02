@@ -1,0 +1,145 @@
+====================================================================================================
+entry-00231 entry_point  src/config/env-vars.ts:12  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+        for (const [key, value] of Object.entries(envConfig.vars)) {
+expected normalized: 'for (const [key, value] of Object.entries(envConfig.vars)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/env-vars.ts:12
+actual code:
+        for (const [key, value] of Object.entries(envConfig.vars)) {
+actual normalized: 'for (const [key, value] of Object.entries(envConfig.vars)) {'
+
+====================================================================================================
+entry-00231 critical_operation  src/daemon/schtasks.ts:160  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+          lines.push(`set ${key}=${value}`);
+expected normalized: 'lines.push(`set ${key}=${value}`);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/daemon/schtasks.ts:160
+actual code:
+          lines.push(`set ${key}=${value}`);
+actual normalized: 'lines.push(`set ${key}=${value}`);'
+
+====================================================================================================
+entry-00231 trace[0]  src/config/env-vars.ts:12  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+        for (const [key, value] of Object.entries(envConfig.vars)) {
+expected normalized: 'for (const [key, value] of Object.entries(envConfig.vars)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/config/env-vars.ts:12
+actual code:
+        for (const [key, value] of Object.entries(envConfig.vars)) {
+actual normalized: 'for (const [key, value] of Object.entries(envConfig.vars)) {'
+
+====================================================================================================
+entry-00231 trace[1]  src/commands/daemon-install-helpers.ts:69-72  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+      const environment: Record<string, string | undefined> = {
+        ...collectConfigEnvVars(params.config),
+      };
+      Object.assign(environment, serviceEnvironment);
+expected normalized: 'const environment: Record<string, string | undefined> = { ...collectConfigEnvVars(params.config), }; Object.assign(environment, serviceEnvironment);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/daemon-install-helpers.ts:69-72
+actual code:
+      const environment: Record<string, string | undefined> = {
+        ...collectConfigEnvVars(params.config),
+      };
+      Object.assign(environment, serviceEnvironment);
+actual normalized: 'const environment: Record<string, string | undefined> = { ...collectConfigEnvVars(params.config), }; Object.assign(environment, serviceEnvironment);'
+
+====================================================================================================
+entry-00231 trace[2]  src/commands/daemon-install-helpers.ts:74  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+      return { programArguments, workingDirectory, environment };
+expected normalized: 'return { programArguments, workingDirectory, environment };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/daemon-install-helpers.ts:74
+actual code:
+      return { programArguments, workingDirectory, environment };
+actual normalized: 'return { programArguments, workingDirectory, environment };'
+
+====================================================================================================
+entry-00231 trace[3]  src/cli/daemon-cli/install.ts:168-173  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+          await service.install({
+            env: process.env,
+            stdout,
+            programArguments,
+            workingDirectory,
+            environment,
+expected normalized: 'await service.install({ env: process.env, stdout, programArguments, workingDirectory, environment,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/cli/daemon-cli/install.ts:168-173
+actual code:
+          await service.install({
+            env: process.env,
+            stdout,
+            programArguments,
+            workingDirectory,
+            environment,
+actual normalized: 'await service.install({ env: process.env, stdout, programArguments, workingDirectory, environment,'
+
+====================================================================================================
+entry-00231 trace[4]  src/daemon/schtasks.ts:189-194  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+      const script = buildTaskScript({
+        description: taskDescription,
+        programArguments,
+        workingDirectory,
+        environment,
+      });
+expected normalized: 'const script = buildTaskScript({ description: taskDescription, programArguments, workingDirectory, environment, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/daemon/schtasks.ts:189-194
+actual code:
+      const script = buildTaskScript({
+        description: taskDescription,
+        programArguments,
+        workingDirectory,
+        environment,
+      });
+actual normalized: 'const script = buildTaskScript({ description: taskDescription, programArguments, workingDirectory, environment, });'
+
+====================================================================================================
+entry-00231 trace[5]  src/daemon/schtasks.ts:160  report=GHSA-PJ5X-38RW-6FPH
+repo=https://github.com/openclaw/openclaw
+commit=c45f3c5b004c8d63dc0e282e2176f8c9355d24f1
+expected code:
+          lines.push(`set ${key}=${value}`);
+expected normalized: 'lines.push(`set ${key}=${value}`);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/daemon/schtasks.ts:160
+actual code:
+          lines.push(`set ${key}=${value}`);
+actual normalized: 'lines.push(`set ${key}=${value}`);'

@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00336 entry_point  nemo/collections/common/callbacks/ema.py:119  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def on_load_checkpoint(
+expected normalized: 'def on_load_checkpoint('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:119
+actual code:
+        def on_load_checkpoint(
+actual normalized: 'def on_load_checkpoint('
+
+====================================================================================================
+entry-00336 critical_operation  nemo/collections/common/callbacks/ema.py:138  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+expected normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:138
+actual code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+actual normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+
+====================================================================================================
+entry-00336 trace[0]  nemo/collections/common/callbacks/ema.py:119  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def on_load_checkpoint(
+expected normalized: 'def on_load_checkpoint('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:119
+actual code:
+        def on_load_checkpoint(
+actual normalized: 'def on_load_checkpoint('
+
+====================================================================================================
+entry-00336 trace[1]  nemo/collections/common/callbacks/ema.py:125  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+            ckpt_path = trainer.ckpt_path
+expected normalized: 'ckpt_path = trainer.ckpt_path'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:125
+actual code:
+            ckpt_path = trainer.ckpt_path
+actual normalized: 'ckpt_path = trainer.ckpt_path'
+
+====================================================================================================
+entry-00336 trace[2]  nemo/collections/common/callbacks/ema.py:136  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+expected normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:136
+actual code:
+                ema_path = ckpt_path.replace(ext, f'-EMA{ext}')
+actual normalized: "ema_path = ckpt_path.replace(ext, f'-EMA{ext}')"
+
+====================================================================================================
+entry-00336 trace[3]  nemo/collections/common/callbacks/ema.py:137  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                if os.path.exists(ema_path):
+expected normalized: 'if os.path.exists(ema_path):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:137
+actual code:
+                if os.path.exists(ema_path):
+actual normalized: 'if os.path.exists(ema_path):'
+
+====================================================================================================
+entry-00336 trace[4]  nemo/collections/common/callbacks/ema.py:138  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+expected normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/common/callbacks/ema.py:138
+actual code:
+                    ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)
+actual normalized: "ema_state_dict = torch.load(ema_path, map_location=torch.device('cpu'), weights_only=False)"

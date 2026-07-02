@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00307 entry_point  src/agents/tools/session-status-tool.ts:191  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          const requestedKeyParam = readStringParam(params, "sessionKey");
+expected normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:191
+actual code:
+          const requestedKeyParam = readStringParam(params, "sessionKey");
+actual normalized: 'const requestedKeyParam = readStringParam(params, "sessionKey");'
+
+====================================================================================================
+entry-00307 critical_operation  src/agents/tools/session-status-tool.ts:387  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:387
+actual code:
+          return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00307 trace[0]  src/agents/tools/session-status-tool.ts:215  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          if (requestedKeyRaw.startsWith("agent:")) {
+expected normalized: 'if (requestedKeyRaw.startsWith("agent:")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:215
+actual code:
+          if (requestedKeyRaw.startsWith("agent:")) {
+actual normalized: 'if (requestedKeyRaw.startsWith("agent:")) {'
+
+====================================================================================================
+entry-00307 trace[1]  src/agents/tools/session-status-tool.ts:227  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          let resolved = resolveSessionEntry({
+expected normalized: 'let resolved = resolveSessionEntry({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:227
+actual code:
+          let resolved = resolveSessionEntry({
+actual normalized: 'let resolved = resolveSessionEntry({'
+
+====================================================================================================
+entry-00307 trace[2]  src/agents/tools/session-status-tool.ts:357  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          const statusText = buildStatusMessage({
+expected normalized: 'const statusText = buildStatusMessage({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:357
+actual code:
+          const statusText = buildStatusMessage({
+actual normalized: 'const statusText = buildStatusMessage({'
+
+====================================================================================================
+entry-00307 trace[3]  src/agents/tools/session-status-tool.ts:387  report=GHSA-WCXR-59V9-RXR8
+repo=https://github.com/openclaw/openclaw
+commit=12dc299cdef3759486b52033e78b550d985c3371
+expected code:
+          return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/session-status-tool.ts:387
+actual code:
+          return {
+actual normalized: 'return {'

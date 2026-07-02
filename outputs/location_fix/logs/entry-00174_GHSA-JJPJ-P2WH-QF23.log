@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00174 entry_point  packages/nodes-base/nodes/Code/Code.node.ts:181  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			throw new PythonDisabledError();
+expected normalized: 'throw new PythonDisabledError();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:181
+actual code:
+    			throw new PythonDisabledError();
+actual normalized: 'throw new PythonDisabledError();'
+
+====================================================================================================
+entry-00174 critical_operation  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:643  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			module: {},
+expected normalized: 'module: {},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:643
+actual code:
+    			module: {},
+actual normalized: 'module: {},'
+
+====================================================================================================
+entry-00174 trace[0]  packages/nodes-base/nodes/Code/Code.node.ts:181  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			throw new PythonDisabledError();
+expected normalized: 'throw new PythonDisabledError();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:181
+actual code:
+    			throw new PythonDisabledError();
+actual normalized: 'throw new PythonDisabledError();'
+
+====================================================================================================
+entry-00174 trace[1]  packages/nodes-base/nodes/Code/Code.node.ts:186  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		const codeParameterName = isPyLang ? 'pythonCode' : 'jsCode';
+expected normalized: "const codeParameterName = isPyLang ? 'pythonCode' : 'jsCode';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:186
+actual code:
+    		const codeParameterName = isPyLang ? 'pythonCode' : 'jsCode';
+actual normalized: "const codeParameterName = isPyLang ? 'pythonCode' : 'jsCode';"
+
+====================================================================================================
+entry-00174 trace[2]  packages/nodes-base/nodes/Code/JsTaskRunnerSandbox.ts:33  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>(
+expected normalized: 'const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/JsTaskRunnerSandbox.ts:33
+actual code:
+    		const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>(
+actual normalized: 'const executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>('
+
+====================================================================================================
+entry-00174 trace[3]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:185  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		const { taskId, settings } = taskParams;
+expected normalized: 'const { taskId, settings } = taskParams;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:185
+actual code:
+    		const { taskId, settings } = taskParams;
+actual normalized: 'const { taskId, settings } = taskParams;'
+
+====================================================================================================
+entry-00174 trace[4]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:328  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		const context = this.buildContext(taskId, workflow, data.node, dataProxy, {
+expected normalized: 'const context = this.buildContext(taskId, workflow, data.node, dataProxy, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:328
+actual code:
+    		const context = this.buildContext(taskId, workflow, data.node, dataProxy, {
+actual normalized: 'const context = this.buildContext(taskId, workflow, data.node, dataProxy, {'
+
+====================================================================================================
+entry-00174 trace[5]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:640  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    		return createContext({
+expected normalized: 'return createContext({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:640
+actual code:
+    		return createContext({
+actual normalized: 'return createContext({'
+
+====================================================================================================
+entry-00174 trace[6]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:643  report=GHSA-JJPJ-P2WH-QF23
+repo=https://github.com/n8n-io/n8n
+commit=3af9095245be3aaad6bc16622f379f79c6c6068f
+expected code:
+    			module: {},
+expected normalized: 'module: {},'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:643
+actual code:
+    			module: {},
+actual normalized: 'module: {},'

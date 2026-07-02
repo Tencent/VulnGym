@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00227 entry_point  src/agents/tools/sessions-spawn-tool.ts:60  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+    export function createSessionsSpawnTool(opts?: {
+expected normalized: 'export function createSessionsSpawnTool(opts?: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:60
+actual code:
+    export function createSessionsSpawnTool(opts?: {
+actual normalized: 'export function createSessionsSpawnTool(opts?: {'
+
+====================================================================================================
+entry-00227 critical_operation  src/agents/tools/sessions-spawn-tool.ts:129  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+            const result = await spawnAcpDirect(
+expected normalized: 'const result = await spawnAcpDirect('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:129
+actual code:
+            const result = await spawnAcpDirect(
+actual normalized: 'const result = await spawnAcpDirect('
+
+====================================================================================================
+entry-00227 trace[0]  src/agents/tools/sessions-spawn-tool.ts:60  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+    export function createSessionsSpawnTool(opts?: {
+expected normalized: 'export function createSessionsSpawnTool(opts?: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:60
+actual code:
+    export function createSessionsSpawnTool(opts?: {
+actual normalized: 'export function createSessionsSpawnTool(opts?: {'
+
+====================================================================================================
+entry-00227 trace[1]  src/agents/tools/sessions-spawn-tool.ts:121  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+          if (runtime === "acp") {
+expected normalized: 'if (runtime === "acp") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:121
+actual code:
+          if (runtime === "acp") {
+actual normalized: 'if (runtime === "acp") {'
+
+====================================================================================================
+entry-00227 trace[2]  src/agents/acp-spawn.ts:48  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+    export type SpawnAcpContext = {
+expected normalized: 'export type SpawnAcpContext = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/acp-spawn.ts:48
+actual code:
+    export type SpawnAcpContext = {
+actual normalized: 'export type SpawnAcpContext = {'
+
+====================================================================================================
+entry-00227 trace[3]  src/agents/acp-spawn.ts:220  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+    export async function spawnAcpDirect(
+expected normalized: 'export async function spawnAcpDirect('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/acp-spawn.ts:220
+actual code:
+    export async function spawnAcpDirect(
+actual normalized: 'export async function spawnAcpDirect('
+
+====================================================================================================
+entry-00227 trace[4]  src/agents/tools/sessions-spawn-tool.ts:129  report=GHSA-474H-PRJG-MMW3
+repo=https://github.com/openclaw/openclaw
+commit=a78ec81ae6016bbe2bd1d8824cbffb7518a47c10
+expected code:
+            const result = await spawnAcpDirect(
+expected normalized: 'const result = await spawnAcpDirect('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/sessions-spawn-tool.ts:129
+actual code:
+            const result = await spawnAcpDirect(
+actual normalized: 'const result = await spawnAcpDirect('

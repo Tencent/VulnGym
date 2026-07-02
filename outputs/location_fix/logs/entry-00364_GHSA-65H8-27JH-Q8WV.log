@@ -1,0 +1,194 @@
+====================================================================================================
+entry-00364 entry_point  extensions/nostr/src/nostr-bus.ts:494  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          onevent: handleEvent,
+expected normalized: 'onevent: handleEvent,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:494
+actual code:
+          onevent: handleEvent,
+actual normalized: 'onevent: handleEvent,'
+
+====================================================================================================
+entry-00364 critical_operation  extensions/nostr/src/nostr-bus.ts:449  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          let plaintext: string;
+expected normalized: 'let plaintext: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:449
+actual code:
+          let plaintext: string;
+actual normalized: 'let plaintext: string;'
+
+====================================================================================================
+entry-00364 trace[0]  extensions/nostr/src/nostr-bus.ts:494  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          onevent: handleEvent,
+expected normalized: 'onevent: handleEvent,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:494
+actual code:
+          onevent: handleEvent,
+actual normalized: 'onevent: handleEvent,'
+
+====================================================================================================
+entry-00364 trace[1]  extensions/nostr/src/nostr-bus.ts:401  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+      async function handleEvent(event: Event): Promise<void> {
+expected normalized: 'async function handleEvent(event: Event): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:401
+actual code:
+      async function handleEvent(event: Event): Promise<void> {
+actual normalized: 'async function handleEvent(event: Event): Promise<void> {'
+
+====================================================================================================
+entry-00364 trace[2]  extensions/nostr/src/nostr-bus.ts:406  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          if (seen.peek(event.id) || inflight.has(event.id)) {
+expected normalized: 'if (seen.peek(event.id) || inflight.has(event.id)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:406
+actual code:
+          if (seen.peek(event.id) || inflight.has(event.id)) {
+actual normalized: 'if (seen.peek(event.id) || inflight.has(event.id)) {'
+
+====================================================================================================
+entry-00364 trace[3]  extensions/nostr/src/nostr-bus.ts:413  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          if (event.pubkey === pk) {
+expected normalized: 'if (event.pubkey === pk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:413
+actual code:
+          if (event.pubkey === pk) {
+actual normalized: 'if (event.pubkey === pk) {'
+
+====================================================================================================
+entry-00364 trace[4]  extensions/nostr/src/nostr-bus.ts:419  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          if (event.created_at < since) {
+expected normalized: 'if (event.created_at < since) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:419
+actual code:
+          if (event.created_at < since) {
+actual normalized: 'if (event.created_at < since) {'
+
+====================================================================================================
+entry-00364 trace[5]  extensions/nostr/src/nostr-bus.ts:425  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          let targetsUs = false;
+expected normalized: 'let targetsUs = false;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:425
+actual code:
+          let targetsUs = false;
+actual normalized: 'let targetsUs = false;'
+
+====================================================================================================
+entry-00364 trace[6]  extensions/nostr/src/nostr-bus.ts:446  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          metrics.emit("memory.seen_tracker_size", seen.size());
+expected normalized: 'metrics.emit("memory.seen_tracker_size", seen.size());'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:446
+actual code:
+          metrics.emit("memory.seen_tracker_size", seen.size());
+actual normalized: 'metrics.emit("memory.seen_tracker_size", seen.size());'
+
+====================================================================================================
+entry-00364 trace[7]  extensions/nostr/src/nostr-bus.ts:452  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+            metrics.emit("decrypt.success");
+expected normalized: 'metrics.emit("decrypt.success");'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:452
+actual code:
+            metrics.emit("decrypt.success");
+actual normalized: 'metrics.emit("decrypt.success");'
+
+====================================================================================================
+entry-00364 trace[8]  extensions/nostr/src/nostr-bus.ts:476  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          await onMessage(event.pubkey, plaintext, replyTo);
+expected normalized: 'await onMessage(event.pubkey, plaintext, replyTo);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:476
+actual code:
+          await onMessage(event.pubkey, plaintext, replyTo);
+actual normalized: 'await onMessage(event.pubkey, plaintext, replyTo);'
+
+====================================================================================================
+entry-00364 trace[9]  extensions/nostr/src/channel.ts:233  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+            onMessage: async (senderPubkey, text, reply) => {
+expected normalized: 'onMessage: async (senderPubkey, text, reply) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/channel.ts:233
+actual code:
+            onMessage: async (senderPubkey, text, reply) => {
+actual normalized: 'onMessage: async (senderPubkey, text, reply) => {'
+
+====================================================================================================
+entry-00364 trace[10]  extensions/nostr/src/nostr-bus.ts:449  report=GHSA-65H8-27JH-Q8WV
+repo=https://github.com/openclaw/openclaw
+commit=a94ec3b79be9c8ee2cfd2e7a31067e94debc1912
+expected code:
+          let plaintext: string;
+expected normalized: 'let plaintext: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/nostr/src/nostr-bus.ts:449
+actual code:
+          let plaintext: string;
+actual normalized: 'let plaintext: string;'

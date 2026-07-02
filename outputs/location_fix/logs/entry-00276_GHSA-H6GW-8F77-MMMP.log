@@ -1,0 +1,194 @@
+====================================================================================================
+entry-00276 entry_point  internal/agent/tools/web_fetch.go:89  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+expected normalized: 'func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:89
+actual code:
+    func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+actual normalized: 'func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+
+====================================================================================================
+entry-00276 critical_operation  internal/agent/tools/web_fetch.go:413  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    		chromedp.Navigate(targetURL),
+expected normalized: 'chromedp.Navigate(targetURL),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:413
+actual code:
+    		chromedp.Navigate(targetURL),
+actual normalized: 'chromedp.Navigate(targetURL),'
+
+====================================================================================================
+entry-00276 trace[0]  internal/agent/tools/web_fetch.go:89  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+expected normalized: 'func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:89
+actual code:
+    func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {
+actual normalized: 'func (t *WebFetchTool) Execute(ctx context.Context, args json.RawMessage) (*types.ToolResult, error) {'
+
+====================================================================================================
+entry-00276 trace[1]  internal/agent/tools/web_fetch.go:119  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    		params := webFetchParams{
+expected normalized: 'params := webFetchParams{'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:119
+actual code:
+    		params := webFetchParams{
+actual normalized: 'params := webFetchParams{'
+
+====================================================================================================
+entry-00276 trace[2]  internal/agent/tools/web_fetch.go:127  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    			if err := t.validateParams(p); err != nil {
+expected normalized: 'if err := t.validateParams(p); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:127
+actual code:
+    			if err := t.validateParams(p); err != nil {
+actual normalized: 'if err := t.validateParams(p); err != nil {'
+
+====================================================================================================
+entry-00276 trace[3]  internal/agent/tools/web_fetch.go:250  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	if safe, reason := utils.IsSSRFSafeURL(p.URL); !safe {
+expected normalized: 'if safe, reason := utils.IsSSRFSafeURL(p.URL); !safe {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:250
+actual code:
+    	if safe, reason := utils.IsSSRFSafeURL(p.URL); !safe {
+actual normalized: 'if safe, reason := utils.IsSSRFSafeURL(p.URL); !safe {'
+
+====================================================================================================
+entry-00276 trace[4]  internal/utils/security.go:356  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	ips, err := net.LookupIP(hostname)
+expected normalized: 'ips, err := net.LookupIP(hostname)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/utils/security.go:356
+actual code:
+    	ips, err := net.LookupIP(hostname)
+actual normalized: 'ips, err := net.LookupIP(hostname)'
+
+====================================================================================================
+entry-00276 trace[5]  internal/agent/tools/web_fetch.go:140  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    			output, data, err := t.executeFetch(ctx, p)
+expected normalized: 'output, data, err := t.executeFetch(ctx, p)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:140
+actual code:
+    			output, data, err := t.executeFetch(ctx, p)
+actual normalized: 'output, data, err := t.executeFetch(ctx, p)'
+
+====================================================================================================
+entry-00276 trace[6]  internal/agent/tools/web_fetch.go:264  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	finalURL := t.normalizeGitHubURL(params.URL)
+expected normalized: 'finalURL := t.normalizeGitHubURL(params.URL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:264
+actual code:
+    	finalURL := t.normalizeGitHubURL(params.URL)
+actual normalized: 'finalURL := t.normalizeGitHubURL(params.URL)'
+
+====================================================================================================
+entry-00276 trace[7]  internal/agent/tools/web_fetch.go:266  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	htmlContent, method, err := t.fetchHTMLContent(ctx, finalURL)
+expected normalized: 'htmlContent, method, err := t.fetchHTMLContent(ctx, finalURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:266
+actual code:
+    	htmlContent, method, err := t.fetchHTMLContent(ctx, finalURL)
+actual normalized: 'htmlContent, method, err := t.fetchHTMLContent(ctx, finalURL)'
+
+====================================================================================================
+entry-00276 trace[8]  internal/agent/tools/web_fetch.go:365  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	html, err := t.fetchWithChromedp(ctx, targetURL)
+expected normalized: 'html, err := t.fetchWithChromedp(ctx, targetURL)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:365
+actual code:
+    	html, err := t.fetchWithChromedp(ctx, targetURL)
+actual normalized: 'html, err := t.fetchWithChromedp(ctx, targetURL)'
+
+====================================================================================================
+entry-00276 trace[9]  internal/agent/tools/web_fetch.go:389  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    	opts := append(
+expected normalized: 'opts := append('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:389
+actual code:
+    	opts := append(
+actual normalized: 'opts := append('
+
+====================================================================================================
+entry-00276 trace[10]  internal/agent/tools/web_fetch.go:413  report=GHSA-H6GW-8F77-MMMP
+repo=https://github.com/Tencent/WeKnora
+commit=a5d1233b969f66219cf183ec43349089169f1f88
+expected code:
+    		chromedp.Navigate(targetURL),
+expected normalized: 'chromedp.Navigate(targetURL),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/agent/tools/web_fetch.go:413
+actual code:
+    		chromedp.Navigate(targetURL),
+actual normalized: 'chromedp.Navigate(targetURL),'

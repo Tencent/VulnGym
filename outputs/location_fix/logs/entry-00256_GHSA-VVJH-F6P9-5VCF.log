@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00256 entry_point  src/gateway/server-http.ts:495  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      async function handleRequest(req: IncomingMessage, res: ServerResponse) {
+expected normalized: 'async function handleRequest(req: IncomingMessage, res: ServerResponse) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:495
+actual code:
+      async function handleRequest(req: IncomingMessage, res: ServerResponse) {
+actual normalized: 'async function handleRequest(req: IncomingMessage, res: ServerResponse) {'
+
+====================================================================================================
+entry-00256 critical_operation  src/gateway/server-http.ts:172  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {
+expected normalized: 'if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:172
+actual code:
+      if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {
+actual normalized: 'if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {'
+
+====================================================================================================
+entry-00256 trace[0]  src/gateway/server-http.ts:495  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      async function handleRequest(req: IncomingMessage, res: ServerResponse) {
+expected normalized: 'async function handleRequest(req: IncomingMessage, res: ServerResponse) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:495
+actual code:
+      async function handleRequest(req: IncomingMessage, res: ServerResponse) {
+actual normalized: 'async function handleRequest(req: IncomingMessage, res: ServerResponse) {'
+
+====================================================================================================
+entry-00256 trace[1]  src/gateway/server-http.ts:568  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+            if (isCanvasPath(requestPath)) {
+expected normalized: 'if (isCanvasPath(requestPath)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:568
+actual code:
+            if (isCanvasPath(requestPath)) {
+actual normalized: 'if (isCanvasPath(requestPath)) {'
+
+====================================================================================================
+entry-00256 trace[2]  src/gateway/server-http.ts:569  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+              const ok = await authorizeCanvasRequest({
+expected normalized: 'const ok = await authorizeCanvasRequest({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:569
+actual code:
+              const ok = await authorizeCanvasRequest({
+actual normalized: 'const ok = await authorizeCanvasRequest({'
+
+====================================================================================================
+entry-00256 trace[3]  src/gateway/server-http.ts:527  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+              const token = getBearerToken(req);
+expected normalized: 'const token = getBearerToken(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:527
+actual code:
+              const token = getBearerToken(req);
+actual normalized: 'const token = getBearerToken(req);'
+
+====================================================================================================
+entry-00256 trace[4]  src/gateway/server-http.ts:152  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      const clientIp = resolveGatewayClientIp({
+expected normalized: 'const clientIp = resolveGatewayClientIp({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:152
+actual code:
+      const clientIp = resolveGatewayClientIp({
+actual normalized: 'const clientIp = resolveGatewayClientIp({'
+
+====================================================================================================
+entry-00256 trace[5]  src/gateway/server-http.ts:165  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      if (!isPrivateOrLoopbackAddress(clientIp)) {
+expected normalized: 'if (!isPrivateOrLoopbackAddress(clientIp)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:165
+actual code:
+      if (!isPrivateOrLoopbackAddress(clientIp)) {
+actual normalized: 'if (!isPrivateOrLoopbackAddress(clientIp)) {'
+
+====================================================================================================
+entry-00256 trace[6]  src/gateway/server-http.ts:112  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+    function hasAuthorizedNodeWsClientForIp(clients: Set<GatewayWsClient>, clientIp: string): boolean {
+expected normalized: 'function hasAuthorizedNodeWsClientForIp(clients: Set<GatewayWsClient>, clientIp: string): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:112
+actual code:
+    function hasAuthorizedNodeWsClientForIp(clients: Set<GatewayWsClient>, clientIp: string): boolean {
+actual normalized: 'function hasAuthorizedNodeWsClientForIp(clients: Set<GatewayWsClient>, clientIp: string): boolean {'
+
+====================================================================================================
+entry-00256 trace[7]  src/gateway/server-http.ts:172  report=GHSA-VVJH-F6P9-5VCF
+repo=https://github.com/openclaw/openclaw
+commit=f76f98b26896a7b01f3b2335bb34618c13655b10
+expected code:
+      if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {
+expected normalized: 'if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:172
+actual code:
+      if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {
+actual normalized: 'if (hasAuthorizedNodeWsClientForIp(clients, clientIp)) {'

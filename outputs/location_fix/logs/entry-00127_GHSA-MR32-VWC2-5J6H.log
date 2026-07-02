@@ -1,0 +1,184 @@
+====================================================================================================
+entry-00127 entry_point  src/browser/extension-relay.ts:426  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+      server.on("upgrade", (req, socket, head) => {
+expected normalized: 'server.on("upgrade", (req, socket, head) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:426
+actual code:
+      server.on("upgrade", (req, socket, head) => {
+actual normalized: 'server.on("upgrade", (req, socket, head) => {'
+
+====================================================================================================
+entry-00127 critical_operation  src/browser/extension-relay.ts:447  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        if (pathname === "/cdp") {
+          if (!extensionWs) {
+            rejectUpgrade(socket, 503, "Extension not connected");
+            return;
+          }
+          wssCdp.handleUpgrade(req, socket, head, (ws) => {
+            wssCdp.emit("connection", ws, req);
+          });
+          return;
+        }
+expected normalized: 'if (pathname === "/cdp") { if (!extensionWs) { rejectUpgrade(socket, 503, "Extension not connected"); return; } wssCdp.handleUpgrade(req, socket, head, (ws) => { wssCdp.emit("connection", ws, req); }); return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:447-456
+actual code:
+        if (pathname === "/cdp") {
+          if (!extensionWs) {
+            rejectUpgrade(socket, 503, "Extension not connected");
+            return;
+          }
+          wssCdp.handleUpgrade(req, socket, head, (ws) => {
+            wssCdp.emit("connection", ws, req);
+          });
+          return;
+        }
+actual normalized: 'if (pathname === "/cdp") { if (!extensionWs) { rejectUpgrade(socket, 503, "Extension not connected"); return; } wssCdp.handleUpgrade(req, socket, head, (ws) => { wssCdp.emit("connection", ws, req); }); return; }'
+
+====================================================================================================
+entry-00127 trace[0]  src/browser/extension-relay.ts:429  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        const remote = req.socket.remoteAddress;
+expected normalized: 'const remote = req.socket.remoteAddress;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:429
+actual code:
+        const remote = req.socket.remoteAddress;
+actual normalized: 'const remote = req.socket.remoteAddress;'
+
+====================================================================================================
+entry-00127 trace[1]  src/browser/extension-relay.ts:431  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        if (!isLoopbackAddress(remote)) {
+          rejectUpgrade(socket, 403, "Forbidden");
+          return;
+        }
+expected normalized: 'if (!isLoopbackAddress(remote)) { rejectUpgrade(socket, 403, "Forbidden"); return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:431-434
+actual code:
+        if (!isLoopbackAddress(remote)) {
+          rejectUpgrade(socket, 403, "Forbidden");
+          return;
+        }
+actual normalized: 'if (!isLoopbackAddress(remote)) { rejectUpgrade(socket, 403, "Forbidden"); return; }'
+
+====================================================================================================
+entry-00127 trace[2]  src/browser/extension-relay.ts:447  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+        if (pathname === "/cdp") {
+expected normalized: 'if (pathname === "/cdp") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:447
+actual code:
+        if (pathname === "/cdp") {
+actual normalized: 'if (pathname === "/cdp") {'
+
+====================================================================================================
+entry-00127 trace[3]  src/browser/extension-relay.ts:452  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+          wssCdp.handleUpgrade(req, socket, head, (ws) => {
+            wssCdp.emit("connection", ws, req);
+          });
+expected normalized: 'wssCdp.handleUpgrade(req, socket, head, (ws) => { wssCdp.emit("connection", ws, req); });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:452-454
+actual code:
+          wssCdp.handleUpgrade(req, socket, head, (ws) => {
+            wssCdp.emit("connection", ws, req);
+          });
+actual normalized: 'wssCdp.handleUpgrade(req, socket, head, (ws) => { wssCdp.emit("connection", ws, req); });'
+
+====================================================================================================
+entry-00127 trace[4]  src/browser/extension-relay.ts:592  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+      wssCdp.on("connection", (ws) => {
+        cdpClients.add(ws);
+expected normalized: 'wssCdp.on("connection", (ws) => { cdpClients.add(ws);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:592-593
+actual code:
+      wssCdp.on("connection", (ws) => {
+        cdpClients.add(ws);
+actual normalized: 'wssCdp.on("connection", (ws) => { cdpClients.add(ws);'
+
+====================================================================================================
+entry-00127 trace[5]  src/browser/extension-relay.ts:619  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+            const result = await routeCdpCommand(cmd);
+expected normalized: 'const result = await routeCdpCommand(cmd);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:619
+actual code:
+            const result = await routeCdpCommand(cmd);
+actual normalized: 'const result = await routeCdpCommand(cmd);'
+
+====================================================================================================
+entry-00127 trace[6]  src/browser/extension-relay.ts:297  report=GHSA-MR32-VWC2-5J6H
+repo=https://github.com/openclaw/openclaw
+commit=e4f7155369e0789a95836cd77d6452848f98f804
+expected code:
+          default: {
+            const id = nextExtensionId++;
+            return await sendToExtension({
+              id,
+              method: "forwardCDPCommand",
+              params: {
+                method: cmd.method,
+                sessionId: cmd.sessionId,
+                params: cmd.params,
+              },
+            });
+expected normalized: 'default: { const id = nextExtensionId++; return await sendToExtension({ id, method: "forwardCDPCommand", params: { method: cmd.method, sessionId: cmd.sessionId, params: cmd.params, }, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/extension-relay.ts:297-307
+actual code:
+          default: {
+            const id = nextExtensionId++;
+            return await sendToExtension({
+              id,
+              method: "forwardCDPCommand",
+              params: {
+                method: cmd.method,
+                sessionId: cmd.sessionId,
+                params: cmd.params,
+              },
+            });
+actual normalized: 'default: { const id = nextExtensionId++; return await sendToExtension({ id, method: "forwardCDPCommand", params: { method: cmd.method, sessionId: cmd.sessionId, params: cmd.params, }, });'

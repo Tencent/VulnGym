@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00331 entry_point  src/gateway/server/ws-connection/message-handler.ts:349  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    let authResult: GatewayAuthResult = await authorizeGatewayConnect({
+expected normalized: 'let authResult: GatewayAuthResult = await authorizeGatewayConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:349
+actual code:
+            let authResult: GatewayAuthResult = await authorizeGatewayConnect({
+actual normalized: 'let authResult: GatewayAuthResult = await authorizeGatewayConnect({'
+
+====================================================================================================
+entry-00331 critical_operation  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+
+====================================================================================================
+entry-00331 trace[0]  src/gateway/server/ws-connection/message-handler.ts:349  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    let authResult: GatewayAuthResult = await authorizeGatewayConnect({
+expected normalized: 'let authResult: GatewayAuthResult = await authorizeGatewayConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server/ws-connection/message-handler.ts:349
+actual code:
+            let authResult: GatewayAuthResult = await authorizeGatewayConnect({
+actual normalized: 'let authResult: GatewayAuthResult = await authorizeGatewayConnect({'
+
+====================================================================================================
+entry-00331 trace[1]  src/gateway/auth.ts:380  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+    const tailscaleCheck = await resolveVerifiedTailscaleUser({
+expected normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:380
+actual code:
+        const tailscaleCheck = await resolveVerifiedTailscaleUser({
+actual normalized: 'const tailscaleCheck = await resolveVerifiedTailscaleUser({'

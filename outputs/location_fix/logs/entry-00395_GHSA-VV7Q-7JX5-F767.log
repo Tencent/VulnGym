@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00395 entry_point  src/fastmcp/server/providers/openapi/components.py:402  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        async def create_resource(
+expected normalized: 'async def create_resource('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:402
+actual code:
+        async def create_resource(
+actual normalized: 'async def create_resource('
+
+====================================================================================================
+entry-00395 critical_operation  src/fastmcp/server/providers/openapi/components.py:294  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                    parts = resource_uri.split("/")
+expected normalized: 'parts = resource_uri.split("/")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:294
+actual code:
+                    parts = resource_uri.split("/")
+actual normalized: 'parts = resource_uri.split("/")'
+
+====================================================================================================
+entry-00395 trace[0]  src/fastmcp/server/providers/openapi/components.py:402  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+        async def create_resource(
+expected normalized: 'async def create_resource('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:402
+actual code:
+        async def create_resource(
+actual normalized: 'async def create_resource('
+
+====================================================================================================
+entry-00395 trace[1]  src/fastmcp/server/providers/openapi/components.py:411  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            return OpenAPIResource(
+expected normalized: 'return OpenAPIResource('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:411
+actual code:
+            return OpenAPIResource(
+actual normalized: 'return OpenAPIResource('
+
+====================================================================================================
+entry-00395 trace[2]  src/fastmcp/server/providers/openapi/components.py:290  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                resource_uri = str(self.uri)
+expected normalized: 'resource_uri = str(self.uri)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:290
+actual code:
+                resource_uri = str(self.uri)
+actual normalized: 'resource_uri = str(self.uri)'
+
+====================================================================================================
+entry-00395 trace[3]  src/fastmcp/server/providers/openapi/components.py:294  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                    parts = resource_uri.split("/")
+expected normalized: 'parts = resource_uri.split("/")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:294
+actual code:
+                    parts = resource_uri.split("/")
+actual normalized: 'parts = resource_uri.split("/")'

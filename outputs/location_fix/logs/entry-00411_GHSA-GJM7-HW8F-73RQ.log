@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00411 entry_point  src/gateway/server-methods/nodes.ts:1033  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+      "node.event": async ({ params, respond, context, client }) => {
+expected normalized: '"node.event": async ({ params, respond, context, client }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:1033
+actual code:
+      "node.event": async ({ params, respond, context, client }) => {
+actual normalized: '"node.event": async ({ params, respond, context, client }) => {'
+
+====================================================================================================
+entry-00411 critical_operation  src/agents/pi-tools.ts:76  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+    function applyMessageProviderToolPolicy(
+      tools: AnyAgentTool[],
+      messageProvider?: string,
+    ): AnyAgentTool[] {
+      const normalizedProvider = normalizeMessageProvider(messageProvider);
+      if (!normalizedProvider) {
+        return tools;
+      }
+      const deniedTools = TOOL_DENY_BY_MESSAGE_PROVIDER[normalizedProvider];
+      if (!deniedTools || deniedTools.length === 0) {
+        return tools;
+      }
+      const deniedSet = new Set(deniedTools);
+      return tools.filter((tool) => !deniedSet.has(tool.name));
+    }
+expected normalized: 'function applyMessageProviderToolPolicy( tools: AnyAgentTool[], messageProvider?: string, ): AnyAgentTool[] { const normalizedProvider = normalizeMessageProvider(messageProvider); if (!normalizedProvider) { return tools; } const deniedTools = TOOL_DENY_BY_MESSAGE_PROVIDER[normalizedProvider]; if (!deniedTools || deniedTools.length === 0) { return tools; } const deniedSet = new Set(deniedTools); return tools.filter((tool) => !deniedSet.has(tool.name)); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:76-90
+actual code:
+    function applyMessageProviderToolPolicy(
+      tools: AnyAgentTool[],
+      messageProvider?: string,
+    ): AnyAgentTool[] {
+      const normalizedProvider = normalizeMessageProvider(messageProvider);
+      if (!normalizedProvider) {
+        return tools;
+      }
+      const deniedTools = TOOL_DENY_BY_MESSAGE_PROVIDER[normalizedProvider];
+      if (!deniedTools || deniedTools.length === 0) {
+        return tools;
+      }
+      const deniedSet = new Set(deniedTools);
+      return tools.filter((tool) => !deniedSet.has(tool.name));
+    }
+actual normalized: 'function applyMessageProviderToolPolicy( tools: AnyAgentTool[], messageProvider?: string, ): AnyAgentTool[] { const normalizedProvider = normalizeMessageProvider(messageProvider); if (!normalizedProvider) { return tools; } const deniedTools = TOOL_DENY_BY_MESSAGE_PROVIDER[normalizedProvider]; if (!deniedTools || deniedTools.length === 0) { return tools; } const deniedSet = new Set(deniedTools); return tools.filter((tool) => !deniedSet.has(tool.name)); }'
+
+====================================================================================================
+entry-00411 trace[0]  src/gateway/server-methods/nodes.ts:1072-1076  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+          await handleNodeEvent(nodeContext, nodeId, {
+            event: p.event,
+            payloadJSON,
+          });
+          respond(true, { ok: true }, undefined);
+expected normalized: 'await handleNodeEvent(nodeContext, nodeId, { event: p.event, payloadJSON, }); respond(true, { ok: true }, undefined);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:1072-1076
+actual code:
+          await handleNodeEvent(nodeContext, nodeId, {
+            event: p.event,
+            payloadJSON,
+          });
+          respond(true, { ok: true }, undefined);
+actual normalized: 'await handleNodeEvent(nodeContext, nodeId, { event: p.event, payloadJSON, }); respond(true, { ok: true }, undefined);'
+
+====================================================================================================
+entry-00411 trace[1]  src/gateway/server-node-events.ts:448-457  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+              messageChannel: "node",
+              senderIsOwner: false,
+              allowModelOverride: false,
+            },
+            defaultRuntime,
+            ctx.deps,
+          ).catch((err) => {
+            ctx.logGateway.warn(`agent failed node=${nodeId}: ${formatForLog(err)}`);
+          });
+          return;
+expected normalized: 'messageChannel: "node", senderIsOwner: false, allowModelOverride: false, }, defaultRuntime, ctx.deps, ).catch((err) => { ctx.logGateway.warn(`agent failed node=${nodeId}: ${formatForLog(err)}`); }); return;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-node-events.ts:448-457
+actual code:
+              messageChannel: "node",
+              senderIsOwner: false,
+              allowModelOverride: false,
+            },
+            defaultRuntime,
+            ctx.deps,
+          ).catch((err) => {
+            ctx.logGateway.warn(`agent failed node=${nodeId}: ${formatForLog(err)}`);
+          });
+          return;
+actual normalized: 'messageChannel: "node", senderIsOwner: false, allowModelOverride: false, }, defaultRuntime, ctx.deps, ).catch((err) => { ctx.logGateway.warn(`agent failed node=${nodeId}: ${formatForLog(err)}`); }); return;'
+
+====================================================================================================
+entry-00411 trace[2]  src/agents/pi-embedded-runner/compact.ts:432  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+        const resolvedMessageProvider = params.messageChannel ?? params.messageProvider;
+expected normalized: 'const resolvedMessageProvider = params.messageChannel ?? params.messageProvider;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/compact.ts:432
+actual code:
+        const resolvedMessageProvider = params.messageChannel ?? params.messageProvider;
+actual normalized: 'const resolvedMessageProvider = params.messageChannel ?? params.messageProvider;'
+
+====================================================================================================
+entry-00411 trace[3]  src/agents/pi-tools.ts:568-571  report=GHSA-GJM7-HW8F-73RQ
+repo=https://github.com/openclaw/openclaw
+commit=9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69
+expected code:
+      const toolsForMessageProvider = applyMessageProviderToolPolicy(
+        toolsForMemoryFlush,
+        options?.messageProvider,
+      );
+expected normalized: 'const toolsForMessageProvider = applyMessageProviderToolPolicy( toolsForMemoryFlush, options?.messageProvider, );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.ts:568-571
+actual code:
+      const toolsForMessageProvider = applyMessageProviderToolPolicy(
+        toolsForMemoryFlush,
+        options?.messageProvider,
+      );
+actual normalized: 'const toolsForMessageProvider = applyMessageProviderToolPolicy( toolsForMemoryFlush, options?.messageProvider, );'

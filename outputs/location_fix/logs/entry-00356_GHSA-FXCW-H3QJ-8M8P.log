@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00356 entry_point  packages/cli/src/credentials/credentials.controller.ts:175  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	async createCredentials(
+expected normalized: 'async createCredentials('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.controller.ts:175
+actual code:
+    	async createCredentials(
+actual normalized: 'async createCredentials('
+
+====================================================================================================
+entry-00356 critical_operation  packages/cli/src/credentials/credentials.service.ts:880  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {
+expected normalized: 'private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.service.ts:880
+actual code:
+    	private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {
+actual normalized: 'private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {'
+
+====================================================================================================
+entry-00356 trace[0]  packages/cli/src/credentials/credentials.controller.ts:175  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	async createCredentials(
+expected normalized: 'async createCredentials('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.controller.ts:175
+actual code:
+    	async createCredentials(
+actual normalized: 'async createCredentials('
+
+====================================================================================================
+entry-00356 trace[1]  packages/cli/src/credentials/credentials.controller.ts:180  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    		const newCredential = await this.credentialsService.createUnmanagedCredential(
+expected normalized: 'const newCredential = await this.credentialsService.createUnmanagedCredential('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.controller.ts:180
+actual code:
+    		const newCredential = await this.credentialsService.createUnmanagedCredential(
+actual normalized: 'const newCredential = await this.credentialsService.createUnmanagedCredential('
+
+====================================================================================================
+entry-00356 trace[2]  packages/cli/src/credentials/credentials.service.ts:876  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	async createUnmanagedCredential(dto: CreateCredentialDto, user: User) {
+expected normalized: 'async createUnmanagedCredential(dto: CreateCredentialDto, user: User) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.service.ts:876
+actual code:
+    	async createUnmanagedCredential(dto: CreateCredentialDto, user: User) {
+actual normalized: 'async createUnmanagedCredential(dto: CreateCredentialDto, user: User) {'
+
+====================================================================================================
+entry-00356 trace[3]  packages/cli/src/credentials/credentials.service.ts:936  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	private async createCredential(opts: CreateCredentialOptions, user: User) {
+expected normalized: 'private async createCredential(opts: CreateCredentialOptions, user: User) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.service.ts:936
+actual code:
+    	private async createCredential(opts: CreateCredentialOptions, user: User) {
+actual normalized: 'private async createCredential(opts: CreateCredentialOptions, user: User) {'
+
+====================================================================================================
+entry-00356 trace[4]  packages/cli/src/credentials/credentials.service.ts:937  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    		this.checkCredentialData(opts.type, opts.data as ICredentialDataDecryptedObject);
+expected normalized: 'this.checkCredentialData(opts.type, opts.data as ICredentialDataDecryptedObject);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.service.ts:937
+actual code:
+    		this.checkCredentialData(opts.type, opts.data as ICredentialDataDecryptedObject);
+actual normalized: 'this.checkCredentialData(opts.type, opts.data as ICredentialDataDecryptedObject);'
+
+====================================================================================================
+entry-00356 trace[5]  packages/cli/src/credentials/credentials.service.ts:880  report=GHSA-FXCW-H3QJ-8M8P
+repo=https://github.com/n8n-io/n8n
+commit=6d2e489e54d1d463dcd40e8b9c46fcd36c09f5e1
+expected code:
+    	private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {
+expected normalized: 'private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/cli/src/credentials/credentials.service.ts:880
+actual code:
+    	private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {
+actual normalized: 'private checkCredentialData(type: string, data: ICredentialDataDecryptedObject) {'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00510 entry_point  extensions/feishu/src/monitor.transport.ts:91  report=GHSA-VJQW-W5JR-G9W5
+repo=https://github.com/openclaw/openclaw
+commit=99170e2408682819c00e54aa2a3e5928a583838f
+expected code:
+      const webhookHandler = Lark.adaptDefault(path, eventDispatcher, { autoChallenge: true });
+expected normalized: 'const webhookHandler = Lark.adaptDefault(path, eventDispatcher, { autoChallenge: true });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/monitor.transport.ts:91
+actual code:
+      const webhookHandler = Lark.adaptDefault(path, eventDispatcher, { autoChallenge: true });
+actual normalized: 'const webhookHandler = Lark.adaptDefault(path, eventDispatcher, { autoChallenge: true });'
+
+====================================================================================================
+entry-00510 critical_operation  extensions/feishu/src/monitor.account.ts:480  report=GHSA-VJQW-W5JR-G9W5
+repo=https://github.com/openclaw/openclaw
+commit=99170e2408682819c00e54aa2a3e5928a583838f
+expected code:
+            const promise = handleFeishuCardAction({
+expected normalized: 'const promise = handleFeishuCardAction({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/monitor.account.ts:480
+actual code:
+            const promise = handleFeishuCardAction({
+actual normalized: 'const promise = handleFeishuCardAction({'
+
+====================================================================================================
+entry-00510 trace[0]  extensions/feishu/src/monitor.account.ts:543  report=GHSA-VJQW-W5JR-G9W5
+repo=https://github.com/openclaw/openclaw
+commit=99170e2408682819c00e54aa2a3e5928a583838f
+expected code:
+      const eventDispatcher = createEventDispatcher(account);
+expected normalized: 'const eventDispatcher = createEventDispatcher(account);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/monitor.account.ts:543
+actual code:
+      const eventDispatcher = createEventDispatcher(account);
+actual normalized: 'const eventDispatcher = createEventDispatcher(account);'
+
+====================================================================================================
+entry-00510 trace[1]  extensions/feishu/src/client.ts:173  report=GHSA-VJQW-W5JR-G9W5
+repo=https://github.com/openclaw/openclaw
+commit=99170e2408682819c00e54aa2a3e5928a583838f
+expected code:
+    export function createEventDispatcher(account: ResolvedFeishuAccount): Lark.EventDispatcher {
+expected normalized: 'export function createEventDispatcher(account: ResolvedFeishuAccount): Lark.EventDispatcher {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/client.ts:173
+actual code:
+    export function createEventDispatcher(account: ResolvedFeishuAccount): Lark.EventDispatcher {
+actual normalized: 'export function createEventDispatcher(account: ResolvedFeishuAccount): Lark.EventDispatcher {'
+
+====================================================================================================
+entry-00510 trace[2]  extensions/feishu/src/monitor.account.ts:477  report=GHSA-VJQW-W5JR-G9W5
+repo=https://github.com/openclaw/openclaw
+commit=99170e2408682819c00e54aa2a3e5928a583838f
+expected code:
+        "card.action.trigger": async (data: unknown) => {
+expected normalized: '"card.action.trigger": async (data: unknown) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/monitor.account.ts:477
+actual code:
+        "card.action.trigger": async (data: unknown) => {
+actual normalized: '"card.action.trigger": async (data: unknown) => {'

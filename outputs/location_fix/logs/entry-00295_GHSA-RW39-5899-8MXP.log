@@ -1,0 +1,209 @@
+====================================================================================================
+entry-00295 entry_point  src/node-host/invoke-system-run.ts:184  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+    async function parseSystemRunPhase(
+expected normalized: 'async function parseSystemRunPhase('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:184
+actual code:
+    async function parseSystemRunPhase(
+actual normalized: 'async function parseSystemRunPhase('
+
+====================================================================================================
+entry-00295 critical_operation  src/node-host/invoke-system-run.ts:503  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+expected normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:503
+actual code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+actual normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+
+====================================================================================================
+entry-00295 trace[0]  src/node-host/invoke-system-run.ts:184  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+    async function parseSystemRunPhase(
+expected normalized: 'async function parseSystemRunPhase('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:184
+actual code:
+    async function parseSystemRunPhase(
+actual normalized: 'async function parseSystemRunPhase('
+
+====================================================================================================
+entry-00295 trace[1]  src/infra/exec-wrapper-resolution.ts:650  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const payload = extractShellWrapperPayload(argv, wrapper);
+expected normalized: 'const payload = extractShellWrapperPayload(argv, wrapper);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-wrapper-resolution.ts:650
+actual code:
+      const payload = extractShellWrapperPayload(argv, wrapper);
+actual normalized: 'const payload = extractShellWrapperPayload(argv, wrapper);'
+
+====================================================================================================
+entry-00295 trace[2]  src/infra/exec-wrapper-resolution.ts:655  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      return { isWrapper: true, command: rawCommand ?? payload };
+expected normalized: 'return { isWrapper: true, command: rawCommand ?? payload };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-wrapper-resolution.ts:655
+actual code:
+      return { isWrapper: true, command: rawCommand ?? payload };
+actual normalized: 'return { isWrapper: true, command: rawCommand ?? payload };'
+
+====================================================================================================
+entry-00295 trace[3]  src/infra/system-run-command.ts:115  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const inferred =
+expected normalized: 'const inferred ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:115
+actual code:
+      const inferred =
+actual normalized: 'const inferred ='
+
+====================================================================================================
+entry-00295 trace[4]  src/infra/system-run-command.ts:143  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+        cmdText: raw ?? inferred,
+expected normalized: 'cmdText: raw ?? inferred,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-command.ts:143
+actual code:
+        cmdText: raw ?? inferred,
+actual normalized: 'cmdText: raw ?? inferred,'
+
+====================================================================================================
+entry-00295 trace[5]  src/node-host/invoke-system-run-plan.ts:653  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const rawCommand = hardening.argvChanged
+expected normalized: 'const rawCommand = hardening.argvChanged'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:653
+actual code:
+      const rawCommand = hardening.argvChanged
+actual normalized: 'const rawCommand = hardening.argvChanged'
+
+====================================================================================================
+entry-00295 trace[6]  src/node-host/invoke-system-run-plan.ts:668  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+          rawCommand,
+expected normalized: 'rawCommand,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run-plan.ts:668
+actual code:
+          rawCommand,
+actual normalized: 'rawCommand,'
+
+====================================================================================================
+entry-00295 trace[7]  src/infra/system-run-approval-context.ts:69  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+        commandText: plan ? (plan.rawCommand ?? formatExecCommand(plan.argv)) : fallbackCommand,
+expected normalized: 'commandText: plan ? (plan.rawCommand ?? formatExecCommand(plan.argv)) : fallbackCommand,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/system-run-approval-context.ts:69
+actual code:
+        commandText: plan ? (plan.rawCommand ?? formatExecCommand(plan.argv)) : fallbackCommand,
+actual normalized: 'commandText: plan ? (plan.rawCommand ?? formatExecCommand(plan.argv)) : fallbackCommand,'
+
+====================================================================================================
+entry-00295 trace[8]  src/gateway/server-methods/exec-approval.ts:77  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+          const effectiveCommandText = approvalContext.commandText;
+expected normalized: 'const effectiveCommandText = approvalContext.commandText;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:77
+actual code:
+          const effectiveCommandText = approvalContext.commandText;
+actual normalized: 'const effectiveCommandText = approvalContext.commandText;'
+
+====================================================================================================
+entry-00295 trace[9]  src/gateway/server-methods/exec-approval.ts:124  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+            command: effectiveCommandText,
+expected normalized: 'command: effectiveCommandText,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:124
+actual code:
+            command: effectiveCommandText,
+actual normalized: 'command: effectiveCommandText,'
+
+====================================================================================================
+entry-00295 trace[10]  src/node-host/invoke-system-run.ts:493  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const execArgv = resolveSystemRunExecArgv({
+expected normalized: 'const execArgv = resolveSystemRunExecArgv({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:493
+actual code:
+      const execArgv = resolveSystemRunExecArgv({
+actual normalized: 'const execArgv = resolveSystemRunExecArgv({'
+
+====================================================================================================
+entry-00295 trace[11]  src/node-host/invoke-system-run.ts:503  report=GHSA-RW39-5899-8MXP
+repo=https://github.com/openclaw/openclaw
+commit=8eac9394170e2218a55fab774c310ff9bcaad19f
+expected code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+expected normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:503
+actual code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+actual normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'

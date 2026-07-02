@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00465 entry_point  packages/server/src/enterprise/controllers/account.controller.ts:10  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                const data = await accountService.register(req.body)
+expected normalized: 'const data = await accountService.register(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/account.controller.ts:10
+actual code:
+                const data = await accountService.register(req.body)
+actual normalized: 'const data = await accountService.register(req.body)'
+
+====================================================================================================
+entry-00465 critical_operation  packages/server/src/enterprise/services/user.service.ts:101  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            const userObj = queryRunner.manager.create(User, data)
+expected normalized: 'const userObj = queryRunner.manager.create(User, data)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:101
+actual code:
+            const userObj = queryRunner.manager.create(User, data)
+actual normalized: 'const userObj = queryRunner.manager.create(User, data)'
+
+====================================================================================================
+entry-00465 trace[0]  packages/server/src/routes/index.ts:136  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+    router.use('/account', accountRouter)
+expected normalized: "router.use('/account', accountRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:136
+actual code:
+    router.use('/account', accountRouter)
+actual normalized: "router.use('/account', accountRouter)"
+
+====================================================================================================
+entry-00465 trace[1]  packages/server/src/enterprise/routes/account.route.ts:9  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+    router.post('/register', accountController.register)
+expected normalized: "router.post('/register', accountController.register)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/account.route.ts:9
+actual code:
+    router.post('/register', accountController.register)
+actual normalized: "router.post('/register', accountController.register)"
+
+====================================================================================================
+entry-00465 trace[2]  packages/server/src/enterprise/controllers/account.controller.ts:10  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                const data = await accountService.register(req.body)
+expected normalized: 'const data = await accountService.register(req.body)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/account.controller.ts:10
+actual code:
+                const data = await accountService.register(req.body)
+actual normalized: 'const data = await accountService.register(req.body)'
+
+====================================================================================================
+entry-00465 trace[3]  packages/server/src/enterprise/services/account.service.ts:280  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+        public async register(data: AccountDTO) {
+expected normalized: 'public async register(data: AccountDTO) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:280
+actual code:
+        public async register(data: AccountDTO) {
+actual normalized: 'public async register(data: AccountDTO) {'
+
+====================================================================================================
+entry-00465 trace[4]  packages/server/src/enterprise/services/account.service.ts:250  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                data = await this.createRegisterAccount(data, queryRunner)
+expected normalized: 'data = await this.createRegisterAccount(data, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:250
+actual code:
+                data = await this.createRegisterAccount(data, queryRunner)
+actual normalized: 'data = await this.createRegisterAccount(data, queryRunner)'
+
+====================================================================================================
+entry-00465 trace[5]  packages/server/src/enterprise/services/account.service.ts:130  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+                    data.user = await this.userService.createNewUser(data.user, queryRunner)
+expected normalized: 'data.user = await this.userService.createNewUser(data.user, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:130
+actual code:
+                    data.user = await this.userService.createNewUser(data.user, queryRunner)
+actual normalized: 'data.user = await this.userService.createNewUser(data.user, queryRunner)'
+
+====================================================================================================
+entry-00465 trace[6]  packages/server/src/enterprise/services/user.service.ts:82  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+        public async createNewUser(data: Partial<User>, queryRunner: QueryRunner) {
+expected normalized: 'public async createNewUser(data: Partial<User>, queryRunner: QueryRunner) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:82
+actual code:
+        public async createNewUser(data: Partial<User>, queryRunner: QueryRunner) {
+actual normalized: 'public async createNewUser(data: Partial<User>, queryRunner: QueryRunner) {'
+
+====================================================================================================
+entry-00465 trace[7]  packages/server/src/enterprise/services/user.service.ts:101  report=GHSA-48M6-CH88-55MJ
+repo=https://github.com/FlowiseAI/Flowise
+commit=4b1b8ba376db92ba2974b70c9faee05444157dd9
+expected code:
+            const userObj = queryRunner.manager.create(User, data)
+expected normalized: 'const userObj = queryRunner.manager.create(User, data)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/user.service.ts:101
+actual code:
+            const userObj = queryRunner.manager.create(User, data)
+actual normalized: 'const userObj = queryRunner.manager.create(User, data)'

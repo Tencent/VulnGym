@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00394 entry_point  src/fastmcp/utilities/openapi/director.py:54  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            url = self._build_url(route.path, path_params, base_url)
+expected normalized: 'url = self._build_url(route.path, path_params, base_url)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:54
+actual code:
+            url = self._build_url(route.path, path_params, base_url)
+actual normalized: 'url = self._build_url(route.path, path_params, base_url)'
+
+====================================================================================================
+entry-00394 critical_operation  src/fastmcp/server/providers/openapi/components.py:209  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                response = await self._client.send(request)
+expected normalized: 'response = await self._client.send(request)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:209
+actual code:
+                response = await self._client.send(request)
+actual normalized: 'response = await self._client.send(request)'
+
+====================================================================================================
+entry-00394 trace[0]  src/fastmcp/utilities/openapi/director.py:54  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            url = self._build_url(route.path, path_params, base_url)
+expected normalized: 'url = self._build_url(route.path, path_params, base_url)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:54
+actual code:
+            url = self._build_url(route.path, path_params, base_url)
+actual normalized: 'url = self._build_url(route.path, path_params, base_url)'
+
+====================================================================================================
+entry-00394 trace[1]  src/fastmcp/utilities/openapi/director.py:208-212  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            # Substitute path parameters
+            url_path = path_template
+            for param_name, param_value in path_params.items():
+                placeholder = f"{{{param_name}}}"
+                if placeholder in url_path:
+expected normalized: '# Substitute path parameters url_path = path_template for param_name, param_value in path_params.items(): placeholder = f"{{{param_name}}}" if placeholder in url_path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:208-212
+actual code:
+            # Substitute path parameters
+            url_path = path_template
+            for param_name, param_value in path_params.items():
+                placeholder = f"{{{param_name}}}"
+                if placeholder in url_path:
+actual normalized: '# Substitute path parameters url_path = path_template for param_name, param_value in path_params.items(): placeholder = f"{{{param_name}}}" if placeholder in url_path:'
+
+====================================================================================================
+entry-00394 trace[2]  src/fastmcp/utilities/openapi/director.py:71-73  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+            return httpx.Request(
+                method=method,
+                url=url,
+expected normalized: 'return httpx.Request( method=method, url=url,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/utilities/openapi/director.py:71-73
+actual code:
+            return httpx.Request(
+                method=method,
+                url=url,
+actual normalized: 'return httpx.Request( method=method, url=url,'
+
+====================================================================================================
+entry-00394 trace[3]  src/fastmcp/server/providers/openapi/components.py:201-210  report=GHSA-VV7Q-7JX5-F767
+repo=https://github.com/PrefectHQ/fastmcp
+commit=c861862aededc7294cea5634d77e6926444ca101
+expected code:
+                ) from e
+    
+            # Send the request and process the response.
+            try:
+                logger.debug(
+                    f"run - sending request; headers: {_redact_headers(request.headers)}"
+                )
+    
+                response = await self._client.send(request)
+                response.raise_for_status()
+expected normalized: ') from e # Send the request and process the response. try: logger.debug( f"run - sending request; headers: {_redact_headers(request.headers)}" ) response = await self._client.send(request) response.raise_for_status()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/fastmcp/server/providers/openapi/components.py:201-210
+actual code:
+                ) from e
+    
+            # Send the request and process the response.
+            try:
+                logger.debug(
+                    f"run - sending request; headers: {_redact_headers(request.headers)}"
+                )
+    
+                response = await self._client.send(request)
+                response.raise_for_status()
+actual normalized: ') from e # Send the request and process the response. try: logger.debug( f"run - sending request; headers: {_redact_headers(request.headers)}" ) response = await self._client.send(request) response.raise_for_status()'

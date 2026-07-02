@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00446 entry_point  server/src/routes/execution-workspaces.ts:423  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {
+expected normalized: 'router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/execution-workspaces.ts:423
+actual code:
+      router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {
+actual normalized: 'router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00446 critical_operation  server/src/services/workspace-runtime.ts:479  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        const child = spawn(input.command, input.args, {
+expected normalized: 'const child = spawn(input.command, input.args, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:479
+actual code:
+        const child = spawn(input.command, input.args, {
+actual normalized: 'const child = spawn(input.command, input.args, {'
+
+====================================================================================================
+entry-00446 trace[0]  server/src/routes/execution-workspaces.ts:423  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {
+expected normalized: 'router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/execution-workspaces.ts:423
+actual code:
+      router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {
+actual normalized: 'router.patch("/execution-workspaces/:id", validate(updateExecutionWorkspaceSchema), async (req, res) => {'
+
+====================================================================================================
+entry-00446 trace[1]  server/src/routes/execution-workspaces.ts:448  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          patch.metadata = req.body.config === undefined
+expected normalized: 'patch.metadata = req.body.config === undefined'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/execution-workspaces.ts:448
+actual code:
+          patch.metadata = req.body.config === undefined
+actual normalized: 'patch.metadata = req.body.config === undefined'
+
+====================================================================================================
+entry-00446 trace[2]  server/src/routes/execution-workspaces.ts:454  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        const configForCleanup = readExecutionWorkspaceConfig(
+expected normalized: 'const configForCleanup = readExecutionWorkspaceConfig('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/execution-workspaces.ts:454
+actual code:
+        const configForCleanup = readExecutionWorkspaceConfig(
+actual normalized: 'const configForCleanup = readExecutionWorkspaceConfig('
+
+====================================================================================================
+entry-00446 trace[3]  server/src/routes/execution-workspaces.ts:535  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+              cleanupCommand: configForCleanup?.cleanupCommand ?? null,
+expected normalized: 'cleanupCommand: configForCleanup?.cleanupCommand ?? null,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/execution-workspaces.ts:535
+actual code:
+              cleanupCommand: configForCleanup?.cleanupCommand ?? null,
+actual normalized: 'cleanupCommand: configForCleanup?.cleanupCommand ?? null,'
+
+====================================================================================================
+entry-00446 trace[4]  server/src/services/workspace-runtime.ts:1339  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      const cleanupCommands = [
+expected normalized: 'const cleanupCommands = ['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:1339
+actual code:
+      const cleanupCommands = [
+actual normalized: 'const cleanupCommands = ['
+
+====================================================================================================
+entry-00446 trace[5]  server/src/services/workspace-runtime.ts:1352  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          await recordWorkspaceCommandOperation(input.recorder, {
+expected normalized: 'await recordWorkspaceCommandOperation(input.recorder, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:1352
+actual code:
+          await recordWorkspaceCommandOperation(input.recorder, {
+actual normalized: 'await recordWorkspaceCommandOperation(input.recorder, {'
+
+====================================================================================================
+entry-00446 trace[6]  server/src/services/workspace-runtime.ts:851  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+          const shell = resolveShell();
+expected normalized: 'const shell = resolveShell();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:851
+actual code:
+          const shell = resolveShell();
+actual normalized: 'const shell = resolveShell();'
+
+====================================================================================================
+entry-00446 trace[7]  server/src/services/workspace-runtime.ts:479  report=GHSA-VR7G-88FQ-VHQ3
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        const child = spawn(input.command, input.args, {
+expected normalized: 'const child = spawn(input.command, input.args, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/workspace-runtime.ts:479
+actual code:
+        const child = spawn(input.command, input.args, {
+actual normalized: 'const child = spawn(input.command, input.args, {'

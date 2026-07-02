@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00083 entry_point  packages/workflow/src/expression.ts:56  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	static initializeGlobalContext(data: IDataObject) {
+expected normalized: 'static initializeGlobalContext(data: IDataObject) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:56
+actual code:
+    	static initializeGlobalContext(data: IDataObject) {
+actual normalized: 'static initializeGlobalContext(data: IDataObject) {'
+
+====================================================================================================
+entry-00083 critical_operation  packages/workflow/src/utils.ts:332  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	return value !== null && typeof value === 'object' && value.hasOwnProperty(key);
+expected normalized: "return value !== null && typeof value === 'object' && value.hasOwnProperty(key);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/utils.ts:332
+actual code:
+    	return value !== null && typeof value === 'object' && value.hasOwnProperty(key);
+actual normalized: "return value !== null && typeof value === 'object' && value.hasOwnProperty(key);"
+
+====================================================================================================
+entry-00083 trace[0]  packages/workflow/src/expression.ts:56  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	static initializeGlobalContext(data: IDataObject) {
+expected normalized: 'static initializeGlobalContext(data: IDataObject) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:56
+actual code:
+    	static initializeGlobalContext(data: IDataObject) {
+actual normalized: 'static initializeGlobalContext(data: IDataObject) {'
+
+====================================================================================================
+entry-00083 trace[1]  packages/workflow/src/expression-evaluator-proxy.ts:11  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	after: [PrototypeSanitizer, DollarSignValidator],
+expected normalized: 'after: [PrototypeSanitizer, DollarSignValidator],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-evaluator-proxy.ts:11
+actual code:
+    	after: [PrototypeSanitizer, DollarSignValidator],
+actual normalized: 'after: [PrototypeSanitizer, DollarSignValidator],'
+
+====================================================================================================
+entry-00083 trace[2]  packages/workflow/src/expression-sandboxing.ts:121  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+expected normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:121
+actual code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+actual normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+
+====================================================================================================
+entry-00083 trace[3]  packages/workflow/src/expression-sandboxing.ts:134  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    				if (!isSafeObjectProperty(node.property.name)) {
+expected normalized: 'if (!isSafeObjectProperty(node.property.name)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:134
+actual code:
+    				if (!isSafeObjectProperty(node.property.name)) {
+actual normalized: 'if (!isSafeObjectProperty(node.property.name)) {'
+
+====================================================================================================
+entry-00083 trace[4]  packages/workflow/src/utils.ts:339  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+     * setting untrusted properties can alter the object's prototype chain and introduce vulnerabilities.
+expected normalized: "* setting untrusted properties can alter the object's prototype chain and introduce vulnerabilities."
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/utils.ts:339
+actual code:
+     * setting untrusted properties can alter the object's prototype chain and introduce vulnerabilities.
+actual normalized: "* setting untrusted properties can alter the object's prototype chain and introduce vulnerabilities."
+
+====================================================================================================
+entry-00083 trace[5]  packages/workflow/src/utils.ts:332  report=GHSA-V98V-FF95-F3CP
+repo=https://github.com/n8n-io/n8n
+commit=008cd8d08369ad188625fb5efaa6fa3707c1548e
+expected code:
+    	return value !== null && typeof value === 'object' && value.hasOwnProperty(key);
+expected normalized: "return value !== null && typeof value === 'object' && value.hasOwnProperty(key);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/utils.ts:332
+actual code:
+    	return value !== null && typeof value === 'object' && value.hasOwnProperty(key);
+actual normalized: "return value !== null && typeof value === 'object' && value.hasOwnProperty(key);"

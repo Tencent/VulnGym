@@ -1,0 +1,152 @@
+====================================================================================================
+entry-00104 entry_point  packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:84  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));
+expected normalized: "fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:84
+actual code:
+    			fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));
+actual normalized: "fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));"
+
+====================================================================================================
+entry-00104 critical_operation  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:115  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    		const stream = createReadStream(resolvedFilePath, {
+expected normalized: 'const stream = createReadStream(resolvedFilePath, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:115
+actual code:
+    		const stream = createReadStream(resolvedFilePath, {
+actual normalized: 'const stream = createReadStream(resolvedFilePath, {'
+
+====================================================================================================
+entry-00104 trace[0]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:84  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));
+expected normalized: "fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:84
+actual code:
+    			fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));
+actual normalized: "fileSelector = String(this.getNodeParameter('fileSelector', itemIndex));"
+
+====================================================================================================
+entry-00104 trace[1]  packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:103-107  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    			for (const filePath of files) {
+    				const stream = await this.helpers.createReadStream(
+    					await this.helpers.resolvePath(filePath),
+    				);
+    				const binaryData = await this.helpers.prepareBinaryData(stream, filePath);
+expected normalized: 'for (const filePath of files) { const stream = await this.helpers.createReadStream( await this.helpers.resolvePath(filePath), ); const binaryData = await this.helpers.prepareBinaryData(stream, filePath);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Files/ReadWriteFile/actions/read.operation.ts:103-107
+actual code:
+    			for (const filePath of files) {
+    				const stream = await this.helpers.createReadStream(
+    					await this.helpers.resolvePath(filePath),
+    				);
+    				const binaryData = await this.helpers.prepareBinaryData(stream, filePath);
+actual normalized: 'for (const filePath of files) { const stream = await this.helpers.createReadStream( await this.helpers.resolvePath(filePath), ); const binaryData = await this.helpers.prepareBinaryData(stream, filePath);'
+
+====================================================================================================
+entry-00104 trace[2]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:91-98  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    	async createReadStream(resolvedFilePath) {
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			const allowedPaths = getAllowedPaths();
+    			const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : '';
+    			throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, {
+    				level: 'warning',
+    			});
+    		}
+expected normalized: "async createReadStream(resolvedFilePath) { if (isFilePathBlocked(resolvedFilePath)) { const allowedPaths = getAllowedPaths(); const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : ''; throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, { level: 'warning', }); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:91-98
+actual code:
+    	async createReadStream(resolvedFilePath) {
+    		if (isFilePathBlocked(resolvedFilePath)) {
+    			const allowedPaths = getAllowedPaths();
+    			const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : '';
+    			throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, {
+    				level: 'warning',
+    			});
+    		}
+actual normalized: "async createReadStream(resolvedFilePath) { if (isFilePathBlocked(resolvedFilePath)) { const allowedPaths = getAllowedPaths(); const message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : ''; throw new NodeOperationError(node, `Access to the file is not allowed.${message}`, { level: 'warning', }); }"
+
+====================================================================================================
+entry-00104 trace[3]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:100-109  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    		try {
+    			await fsAccess(resolvedFilePath);
+    		} catch (error) {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    			throw error.code === 'ENOENT'
+    				? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    					new NodeOperationError(node, error, {
+    						message: `The file "${String(resolvedFilePath)}" could not be accessed.`,
+    						level: 'warning',
+    					})
+expected normalized: 'try { await fsAccess(resolvedFilePath); } catch (error) { // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access throw error.code === \'ENOENT\' ? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument new NodeOperationError(node, error, { message: `The file "${String(resolvedFilePath)}" could not be accessed.`, level: \'warning\', })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:100-109
+actual code:
+    		try {
+    			await fsAccess(resolvedFilePath);
+    		} catch (error) {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    			throw error.code === 'ENOENT'
+    				? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    					new NodeOperationError(node, error, {
+    						message: `The file "${String(resolvedFilePath)}" could not be accessed.`,
+    						level: 'warning',
+    					})
+actual normalized: 'try { await fsAccess(resolvedFilePath); } catch (error) { // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access throw error.code === \'ENOENT\' ? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument new NodeOperationError(node, error, { message: `The file "${String(resolvedFilePath)}" could not be accessed.`, level: \'warning\', })'
+
+====================================================================================================
+entry-00104 trace[4]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:113-117  report=GHSA-GFVG-QV54-R4PC
+repo=https://github.com/n8n-io/n8n
+commit=911d3771ce23dda2eb00a9d2c446e37f8223a9e9
+expected code:
+    		// Use O_NOFOLLOW to prevent createReadStream from following symlinks. We require that the path
+    		// already be resolved beforehand.
+    		const stream = createReadStream(resolvedFilePath, {
+    			flags: (constants.O_RDONLY | constants.O_NOFOLLOW) as unknown as string,
+    		});
+expected normalized: '// Use O_NOFOLLOW to prevent createReadStream from following symlinks. We require that the path // already be resolved beforehand. const stream = createReadStream(resolvedFilePath, { flags: (constants.O_RDONLY | constants.O_NOFOLLOW) as unknown as string, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:113-117
+actual code:
+    		// Use O_NOFOLLOW to prevent createReadStream from following symlinks. We require that the path
+    		// already be resolved beforehand.
+    		const stream = createReadStream(resolvedFilePath, {
+    			flags: (constants.O_RDONLY | constants.O_NOFOLLOW) as unknown as string,
+    		});
+actual normalized: '// Use O_NOFOLLOW to prevent createReadStream from following symlinks. We require that the path // already be resolved beforehand. const stream = createReadStream(resolvedFilePath, { flags: (constants.O_RDONLY | constants.O_NOFOLLOW) as unknown as string, });'

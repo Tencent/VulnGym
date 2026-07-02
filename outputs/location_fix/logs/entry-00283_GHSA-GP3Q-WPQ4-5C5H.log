@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00283 entry_point  src/pairing/pairing-store.ts:386  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export async function readChannelAllowFromStore(
+expected normalized: 'export async function readChannelAllowFromStore('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/pairing-store.ts:386
+actual code:
+    export async function readChannelAllowFromStore(
+actual normalized: 'export async function readChannelAllowFromStore('
+
+====================================================================================================
+entry-00283 critical_operation  src/security/dm-policy-shared.ts:28  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+expected normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/security/dm-policy-shared.ts:28
+actual code:
+      const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);
+actual normalized: 'const effectiveGroupAllowFrom = normalizeStringEntries([...groupBase, ...storeAllowFrom]);'
+
+====================================================================================================
+entry-00283 trace[0]  src/line/bot-handlers.ts:119  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const storeAllowFrom = await readChannelAllowFromStore("line").catch(() => []);
+expected normalized: 'const storeAllowFrom = await readChannelAllowFromStore("line").catch(() => []);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/line/bot-handlers.ts:119
+actual code:
+      const storeAllowFrom = await readChannelAllowFromStore("line").catch(() => []);
+actual normalized: 'const storeAllowFrom = await readChannelAllowFromStore("line").catch(() => []);'
+
+====================================================================================================
+entry-00283 trace[1]  src/line/bot-handlers.ts:130  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const groupAllowFrom = firstDefined(
+expected normalized: 'const groupAllowFrom = firstDefined('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/line/bot-handlers.ts:130
+actual code:
+      const groupAllowFrom = firstDefined(
+actual normalized: 'const groupAllowFrom = firstDefined('
+
+====================================================================================================
+entry-00283 trace[2]  src/line/bot-handlers.ts:135  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const effectiveGroupAllow = normalizeAllowFromWithStore({
+expected normalized: 'const effectiveGroupAllow = normalizeAllowFromWithStore({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/line/bot-handlers.ts:135
+actual code:
+      const effectiveGroupAllow = normalizeAllowFromWithStore({
+actual normalized: 'const effectiveGroupAllow = normalizeAllowFromWithStore({'
+
+====================================================================================================
+entry-00283 trace[3]  src/channels/allow-from.ts:1  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export function mergeAllowFromSources(params: {
+expected normalized: 'export function mergeAllowFromSources(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/channels/allow-from.ts:1
+actual code:
+    export function mergeAllowFromSources(params: {
+actual normalized: 'export function mergeAllowFromSources(params: {'
+
+====================================================================================================
+entry-00283 trace[4]  src/line/bot-handlers.ts:182  report=GHSA-GP3Q-WPQ4-5C5H
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+          if (!isSenderAllowed({ allow: effectiveGroupAllow, senderId })) {
+expected normalized: 'if (!isSenderAllowed({ allow: effectiveGroupAllow, senderId })) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/line/bot-handlers.ts:182
+actual code:
+          if (!isSenderAllowed({ allow: effectiveGroupAllow, senderId })) {
+actual normalized: 'if (!isSenderAllowed({ allow: effectiveGroupAllow, senderId })) {'

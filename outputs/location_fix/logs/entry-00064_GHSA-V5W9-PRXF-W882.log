@@ -1,0 +1,152 @@
+====================================================================================================
+entry-00064 entry_point  packages/server/src/routes/index.ts:134  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+    router.use('/account', accountRouter)
+expected normalized: "router.use('/account', accountRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:134
+actual code:
+    router.use('/account', accountRouter)
+actual normalized: "router.use('/account', accountRouter)"
+
+====================================================================================================
+entry-00064 critical_operation  packages/server/src/enterprise/services/account.service.ts:199-203  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+                        data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner)
+                        data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE
+                        data.workspaceUser.role = data.organizationUser.role
+                        data.user.status = UserStatus.ACTIVE
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+expected normalized: 'data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner) data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE data.workspaceUser.role = data.organizationUser.role data.user.status = UserStatus.ACTIVE data.user = await this.userService.createNewUser(data.user, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:199-203
+actual code:
+                        data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner)
+                        data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE
+                        data.workspaceUser.role = data.organizationUser.role
+                        data.user.status = UserStatus.ACTIVE
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+actual normalized: 'data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner) data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE data.workspaceUser.role = data.organizationUser.role data.user.status = UserStatus.ACTIVE data.user = await this.userService.createNewUser(data.user, queryRunner)'
+
+====================================================================================================
+entry-00064 trace[0]  packages/server/src/routes/index.ts:134  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+    router.use('/account', accountRouter)
+expected normalized: "router.use('/account', accountRouter)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/index.ts:134
+actual code:
+    router.use('/account', accountRouter)
+actual normalized: "router.use('/account', accountRouter)"
+
+====================================================================================================
+entry-00064 trace[1]  packages/server/src/utils/constants.ts:6  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+    export const WHITELIST_URLS = [
+expected normalized: 'export const WHITELIST_URLS = ['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:6
+actual code:
+    export const WHITELIST_URLS = [
+actual normalized: 'export const WHITELIST_URLS = ['
+
+====================================================================================================
+entry-00064 trace[2]  packages/server/src/index.ts:184  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+            const whitelistURLs = WHITELIST_URLS
+expected normalized: 'const whitelistURLs = WHITELIST_URLS'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:184
+actual code:
+            const whitelistURLs = WHITELIST_URLS
+actual normalized: 'const whitelistURLs = WHITELIST_URLS'
+
+====================================================================================================
+entry-00064 trace[3]  packages/server/src/enterprise/routes/account.route.ts:7  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+    const accountController = new AccountController()
+expected normalized: 'const accountController = new AccountController()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/account.route.ts:7
+actual code:
+    const accountController = new AccountController()
+actual normalized: 'const accountController = new AccountController()'
+
+====================================================================================================
+entry-00064 trace[4]  packages/server/src/enterprise/services/account.service.ts:168-169  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+                case Platform.ENTERPRISE: {
+                    if (data.user.tempToken) {
+expected normalized: 'case Platform.ENTERPRISE: { if (data.user.tempToken) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:168-169
+actual code:
+                case Platform.ENTERPRISE: {
+                    if (data.user.tempToken) {
+actual normalized: 'case Platform.ENTERPRISE: { if (data.user.tempToken) {'
+
+====================================================================================================
+entry-00064 trace[5]  packages/server/src/enterprise/services/account.service.ts:203  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+expected normalized: 'data.user = await this.userService.createNewUser(data.user, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:203
+actual code:
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+actual normalized: 'data.user = await this.userService.createNewUser(data.user, queryRunner)'
+
+====================================================================================================
+entry-00064 trace[6]  packages/server/src/enterprise/services/account.service.ts:199-203  report=GHSA-V5W9-PRXF-W882
+repo=https://github.com/FlowiseAI/Flowise
+commit=7c803f4e0bd9e7a794a4ef2a2b45e58adff61a50
+expected code:
+                        data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner)
+                        data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE
+                        data.workspaceUser.role = data.organizationUser.role
+                        data.user.status = UserStatus.ACTIVE
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+expected normalized: 'data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner) data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE data.workspaceUser.role = data.organizationUser.role data.user.status = UserStatus.ACTIVE data.user = await this.userService.createNewUser(data.user, queryRunner)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:199-203
+actual code:
+                        data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner)
+                        data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE
+                        data.workspaceUser.role = data.organizationUser.role
+                        data.user.status = UserStatus.ACTIVE
+                        data.user = await this.userService.createNewUser(data.user, queryRunner)
+actual normalized: 'data.organizationUser.role = await this.roleService.readGeneralRoleByName(GeneralRole.OWNER, queryRunner) data.workspace.name = WorkspaceName.DEFAULT_WORKSPACE data.workspaceUser.role = data.organizationUser.role data.user.status = UserStatus.ACTIVE data.user = await this.userService.createNewUser(data.user, queryRunner)'

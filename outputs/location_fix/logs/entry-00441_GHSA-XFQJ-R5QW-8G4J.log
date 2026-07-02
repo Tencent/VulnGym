@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00441 entry_point  server/src/routes/access.ts:1913  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/index", (_req, res) => {
+expected normalized: 'router.get("/skills/index", (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1913
+actual code:
+      router.get("/skills/index", (_req, res) => {
+actual normalized: 'router.get("/skills/index", (_req, res) => {'
+
+====================================================================================================
+entry-00441 critical_operation  server/src/routes/access.ts:1914  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.json({
+expected normalized: 'res.json({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1914
+actual code:
+        res.json({
+actual normalized: 'res.json({'
+
+====================================================================================================
+entry-00441 trace[0]  server/src/routes/access.ts:1913  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/skills/index", (_req, res) => {
+expected normalized: 'router.get("/skills/index", (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1913
+actual code:
+      router.get("/skills/index", (_req, res) => {
+actual normalized: 'router.get("/skills/index", (_req, res) => {'
+
+====================================================================================================
+entry-00441 trace[1]  server/src/routes/access.ts:1914  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.json({
+expected normalized: 'res.json({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/access.ts:1914
+actual code:
+        res.json({
+actual normalized: 'res.json({'

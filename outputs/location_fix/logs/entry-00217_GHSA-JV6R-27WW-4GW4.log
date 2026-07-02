@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00217 entry_point  src/pairing/pairing-store.ts:386  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+    export async function readChannelAllowFromStore(
+expected normalized: 'export async function readChannelAllowFromStore('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/pairing/pairing-store.ts:386
+actual code:
+    export async function readChannelAllowFromStore(
+actual normalized: 'export async function readChannelAllowFromStore('
+
+====================================================================================================
+entry-00217 critical_operation  extensions/mattermost/src/mattermost/monitor.ts:411  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const effectiveGroupAllowFrom = Array.from(
+expected normalized: 'const effectiveGroupAllowFrom = Array.from('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:411
+actual code:
+        const effectiveGroupAllowFrom = Array.from(
+actual normalized: 'const effectiveGroupAllowFrom = Array.from('
+
+====================================================================================================
+entry-00217 trace[0]  extensions/mattermost/src/mattermost/monitor.ts:360  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+      const handlePost = async (
+expected normalized: 'const handlePost = async ('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:360
+actual code:
+      const handlePost = async (
+actual normalized: 'const handlePost = async ('
+
+====================================================================================================
+entry-00217 trace[1]  extensions/mattermost/src/mattermost/monitor.ts:402  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const dmPolicy = account.config.dmPolicy ?? "pairing";
+expected normalized: 'const dmPolicy = account.config.dmPolicy ?? "pairing";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:402
+actual code:
+        const dmPolicy = account.config.dmPolicy ?? "pairing";
+actual normalized: 'const dmPolicy = account.config.dmPolicy ?? "pairing";'
+
+====================================================================================================
+entry-00217 trace[2]  extensions/mattermost/src/mattermost/monitor.ts:405  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const storeAllowFrom = normalizeAllowList(
+expected normalized: 'const storeAllowFrom = normalizeAllowList('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:405
+actual code:
+        const storeAllowFrom = normalizeAllowList(
+actual normalized: 'const storeAllowFrom = normalizeAllowList('
+
+====================================================================================================
+entry-00217 trace[3]  extensions/mattermost/src/mattermost/monitor.ts:410  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const effectiveAllowFrom = Array.from(new Set([...configAllowFrom, ...storeAllowFrom]));
+expected normalized: 'const effectiveAllowFrom = Array.from(new Set([...configAllowFrom, ...storeAllowFrom]));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:410
+actual code:
+        const effectiveAllowFrom = Array.from(new Set([...configAllowFrom, ...storeAllowFrom]));
+actual normalized: 'const effectiveAllowFrom = Array.from(new Set([...configAllowFrom, ...storeAllowFrom]));'
+
+====================================================================================================
+entry-00217 trace[4]  extensions/mattermost/src/mattermost/monitor.ts:411  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+        const effectiveGroupAllowFrom = Array.from(
+expected normalized: 'const effectiveGroupAllowFrom = Array.from('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:411
+actual code:
+        const effectiveGroupAllowFrom = Array.from(
+actual normalized: 'const effectiveGroupAllowFrom = Array.from('
+
+====================================================================================================
+entry-00217 trace[5]  extensions/mattermost/src/mattermost/monitor.ts:492  report=GHSA-JV6R-27WW-4GW4
+repo=https://github.com/openclaw/openclaw
+commit=d08dafb08fee1e36ef929d6ccfdc322fdf52cee6
+expected code:
+          if (groupPolicy === "allowlist") {
+expected normalized: 'if (groupPolicy === "allowlist") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/mattermost/src/mattermost/monitor.ts:492
+actual code:
+          if (groupPolicy === "allowlist") {
+actual normalized: 'if (groupPolicy === "allowlist") {'

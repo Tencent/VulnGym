@@ -1,0 +1,182 @@
+====================================================================================================
+entry-00091 entry_point  packages/nodes-base/nodes/Code/Code.node.ts:204  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		if (nodeMode === 'runOnceForAllItems') {
+expected normalized: "if (nodeMode === 'runOnceForAllItems') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:204
+actual code:
+    		if (nodeMode === 'runOnceForAllItems') {
+actual normalized: "if (nodeMode === 'runOnceForAllItems') {"
+
+====================================================================================================
+entry-00091 critical_operation  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:165-174  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		// Get the device and inode number of the path we're checking, if it exists.
+    		// This establishes the file's identity before we open it.
+    		let pathIdentity;
+    		let fileExists = true;
+    		try {
+    			pathIdentity = await fsStat(resolvedFilePath);
+    		} catch (error) {
+    			// NOTE: for some reason instanceof Error does not work here in tests,
+    			// so we just look for the code to catch ENOENT.
+expected normalized: "async writeContentToFile(resolvedFilePath, content, flag) { // Get the device and inode number of the path we're checking, if it exists. // This establishes the file's identity before we open it. let pathIdentity; let fileExists = true; try { pathIdentity = await fsStat(resolvedFilePath); } catch (error) { // NOTE: for some reason instanceof Error does not work here in tests, // so we just look for the code to catch ENOENT."
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:165-174
+actual code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		// Get the device and inode number of the path we're checking, if it exists.
+    		// This establishes the file's identity before we open it.
+    		let pathIdentity;
+    		let fileExists = true;
+    		try {
+    			pathIdentity = await fsStat(resolvedFilePath);
+    		} catch (error) {
+    			// NOTE: for some reason instanceof Error does not work here in tests,
+    			// so we just look for the code to catch ENOENT.
+actual normalized: "async writeContentToFile(resolvedFilePath, content, flag) { // Get the device and inode number of the path we're checking, if it exists. // This establishes the file's identity before we open it. let pathIdentity; let fileExists = true; try { pathIdentity = await fsStat(resolvedFilePath); } catch (error) { // NOTE: for some reason instanceof Error does not work here in tests, // so we just look for the code to catch ENOENT."
+
+====================================================================================================
+entry-00091 trace[0]  packages/nodes-base/nodes/Code/Code.node.ts:204  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    		if (nodeMode === 'runOnceForAllItems') {
+expected normalized: "if (nodeMode === 'runOnceForAllItems') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:204
+actual code:
+    		if (nodeMode === 'runOnceForAllItems') {
+actual normalized: "if (nodeMode === 'runOnceForAllItems') {"
+
+====================================================================================================
+entry-00091 trace[1]  packages/nodes-base/nodes/Code/Code.node.ts:186-195  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    			sandbox.on(
+    				'output',
+    				workflowMode === 'manual'
+    					? this.sendMessageToUI.bind(this)
+    					: CODE_ENABLE_STDOUT === 'true'
+    						? (...args) =>
+    								console.log(`[Workflow "${this.getWorkflow().id}"][Node "${node.name}"]`, ...args)
+    						: () => {},
+    			);
+    			return sandbox;
+expected normalized: 'sandbox.on( \'output\', workflowMode === \'manual\' ? this.sendMessageToUI.bind(this) : CODE_ENABLE_STDOUT === \'true\' ? (...args) => console.log(`[Workflow "${this.getWorkflow().id}"][Node "${node.name}"]`, ...args) : () => {}, ); return sandbox;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Code.node.ts:186-195
+actual code:
+    			sandbox.on(
+    				'output',
+    				workflowMode === 'manual'
+    					? this.sendMessageToUI.bind(this)
+    					: CODE_ENABLE_STDOUT === 'true'
+    						? (...args) =>
+    								console.log(`[Workflow "${this.getWorkflow().id}"][Node "${node.name}"]`, ...args)
+    						: () => {},
+    			);
+    			return sandbox;
+actual normalized: 'sandbox.on( \'output\', workflowMode === \'manual\' ? this.sendMessageToUI.bind(this) : CODE_ENABLE_STDOUT === \'true\' ? (...args) => console.log(`[Workflow "${this.getWorkflow().id}"][Node "${node.name}"]`, ...args) : () => {}, ); return sandbox;'
+
+====================================================================================================
+entry-00091 trace[2]  packages/nodes-base/nodes/Code/Sandbox.ts:18-22  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    export interface SandboxContext extends IWorkflowDataProxyData {
+    	$getNodeParameter: IExecuteFunctions['getNodeParameter'];
+    	$getWorkflowStaticData: IExecuteFunctions['getWorkflowStaticData'];
+    	helpers: IExecuteFunctions['helpers'];
+    }
+expected normalized: "export interface SandboxContext extends IWorkflowDataProxyData { $getNodeParameter: IExecuteFunctions['getNodeParameter']; $getWorkflowStaticData: IExecuteFunctions['getWorkflowStaticData']; helpers: IExecuteFunctions['helpers']; }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/Sandbox.ts:18-22
+actual code:
+    export interface SandboxContext extends IWorkflowDataProxyData {
+    	$getNodeParameter: IExecuteFunctions['getNodeParameter'];
+    	$getWorkflowStaticData: IExecuteFunctions['getWorkflowStaticData'];
+    	helpers: IExecuteFunctions['helpers'];
+    }
+actual normalized: "export interface SandboxContext extends IWorkflowDataProxyData { $getNodeParameter: IExecuteFunctions['getNodeParameter']; $getWorkflowStaticData: IExecuteFunctions['getWorkflowStaticData']; helpers: IExecuteFunctions['helpers']; }"
+
+====================================================================================================
+entry-00091 trace[3]  packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:55-63  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    	async runCode<T = unknown>(): Promise<T> {
+    		const script = `module.exports = async function() {${this.jsCode}\n}()`;
+    		try {
+    			const executionResult = (await this.vm.run(script, __dirname)) as T;
+    			return executionResult;
+    		} catch (error) {
+    			throw new ExecutionError(error);
+    		}
+    	}
+expected normalized: 'async runCode<T = unknown>(): Promise<T> { const script = `module.exports = async function() {${this.jsCode}\\n}()`; try { const executionResult = (await this.vm.run(script, __dirname)) as T; return executionResult; } catch (error) { throw new ExecutionError(error); } }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Code/JavaScriptSandbox.ts:55-63
+actual code:
+    	async runCode<T = unknown>(): Promise<T> {
+    		const script = `module.exports = async function() {${this.jsCode}\n}()`;
+    		try {
+    			const executionResult = (await this.vm.run(script, __dirname)) as T;
+    			return executionResult;
+    		} catch (error) {
+    			throw new ExecutionError(error);
+    		}
+    	}
+actual normalized: 'async runCode<T = unknown>(): Promise<T> { const script = `module.exports = async function() {${this.jsCode}\\n}()`; try { const executionResult = (await this.vm.run(script, __dirname)) as T; return executionResult; } catch (error) { throw new ExecutionError(error); } }'
+
+====================================================================================================
+entry-00091 trace[4]  packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:165-174  report=GHSA-J4P8-H8MH-RH8Q
+repo=https://github.com/n8n-io/n8n
+commit=e7d95055d1ab260ae91f8ba358310211476bd677
+expected code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		// Get the device and inode number of the path we're checking, if it exists.
+    		// This establishes the file's identity before we open it.
+    		let pathIdentity;
+    		let fileExists = true;
+    		try {
+    			pathIdentity = await fsStat(resolvedFilePath);
+    		} catch (error) {
+    			// NOTE: for some reason instanceof Error does not work here in tests,
+    			// so we just look for the code to catch ENOENT.
+expected normalized: "async writeContentToFile(resolvedFilePath, content, flag) { // Get the device and inode number of the path we're checking, if it exists. // This establishes the file's identity before we open it. let pathIdentity; let fileExists = true; try { pathIdentity = await fsStat(resolvedFilePath); } catch (error) { // NOTE: for some reason instanceof Error does not work here in tests, // so we just look for the code to catch ENOENT."
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:165-174
+actual code:
+    	async writeContentToFile(resolvedFilePath, content, flag) {
+    		// Get the device and inode number of the path we're checking, if it exists.
+    		// This establishes the file's identity before we open it.
+    		let pathIdentity;
+    		let fileExists = true;
+    		try {
+    			pathIdentity = await fsStat(resolvedFilePath);
+    		} catch (error) {
+    			// NOTE: for some reason instanceof Error does not work here in tests,
+    			// so we just look for the code to catch ENOENT.
+actual normalized: "async writeContentToFile(resolvedFilePath, content, flag) { // Get the device and inode number of the path we're checking, if it exists. // This establishes the file's identity before we open it. let pathIdentity; let fileExists = true; try { pathIdentity = await fsStat(resolvedFilePath); } catch (error) { // NOTE: for some reason instanceof Error does not work here in tests, // so we just look for the code to catch ENOENT."

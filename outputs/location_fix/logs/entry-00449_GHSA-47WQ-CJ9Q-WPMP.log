@@ -1,0 +1,84 @@
+====================================================================================================
+entry-00449 entry_point  server/src/routes/agents.ts:2240  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.delete("/agents/:id/keys/:keyId", async (req, res) => {
+expected normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2240
+actual code:
+      router.delete("/agents/:id/keys/:keyId", async (req, res) => {
+actual normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => {'
+
+====================================================================================================
+entry-00449 critical_operation  server/src/routes/agents.ts:2255  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const revoked = await svc.revokeKey(agent.id, keyId);
+expected normalized: 'const revoked = await svc.revokeKey(agent.id, keyId);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2255
+actual code:
+        const revoked = await svc.revokeKey(agent.id, keyId);
+actual normalized: 'const revoked = await svc.revokeKey(agent.id, keyId);'
+
+====================================================================================================
+entry-00449 trace[0]  server/src/routes/agents.ts:2240-2241  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+      router.delete("/agents/:id/keys/:keyId", async (req, res) => {
+        assertBoard(req);
+expected normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => { assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2240-2241
+actual code:
+      router.delete("/agents/:id/keys/:keyId", async (req, res) => {
+        assertBoard(req);
+actual normalized: 'router.delete("/agents/:id/keys/:keyId", async (req, res) => { assertBoard(req);'
+
+====================================================================================================
+entry-00449 trace[1]  server/src/routes/agents.ts:2243  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const keyId = req.params.keyId as string;
+expected normalized: 'const keyId = req.params.keyId as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2243
+actual code:
+        const keyId = req.params.keyId as string;
+actual normalized: 'const keyId = req.params.keyId as string;'
+
+====================================================================================================
+entry-00449 trace[2]  server/src/routes/agents.ts:2255-2259  report=GHSA-47WQ-CJ9Q-WPMP
+repo=https://github.com/paperclipai/paperclip
+commit=549ef11c14b2b05f89220e80cecc41e78be95439
+expected code:
+        const revoked = await svc.revokeKey(agent.id, keyId);
+        if (!revoked) {
+          res.status(404).json({ error: "Key not found" });
+          return;
+        }
+expected normalized: 'const revoked = await svc.revokeKey(agent.id, keyId); if (!revoked) { res.status(404).json({ error: "Key not found" }); return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2255-2259
+actual code:
+        const revoked = await svc.revokeKey(agent.id, keyId);
+        if (!revoked) {
+          res.status(404).json({ error: "Key not found" });
+          return;
+        }
+actual normalized: 'const revoked = await svc.revokeKey(agent.id, keyId); if (!revoked) { res.status(404).json({ error: "Key not found" }); return; }'

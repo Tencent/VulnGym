@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00340 entry_point  nemo/collections/multimodal/speech_llm/models/modular_models.py:1097  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:
+expected normalized: 'elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1097
+actual code:
+            elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:
+actual normalized: 'elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:'
+
+====================================================================================================
+entry-00340 critical_operation  nemo/collections/multimodal/speech_llm/models/modular_models.py:1114  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                        model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)
+expected normalized: 'model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1114
+actual code:
+                        model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)
+actual normalized: 'model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)'
+
+====================================================================================================
+entry-00340 trace[0]  nemo/collections/multimodal/speech_llm/models/modular_models.py:1097  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:
+expected normalized: 'elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1097
+actual code:
+            elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:
+actual normalized: 'elif cfg.model.peft.restore_from_ckpt.checkpoint_dir and cfg.model.peft.restore_from_ckpt.checkpoint_name:'
+
+====================================================================================================
+entry-00340 trace[1]  nemo/collections/multimodal/speech_llm/models/modular_models.py:1098  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                checkpoint_path = os.path.join(
+expected normalized: 'checkpoint_path = os.path.join('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1098
+actual code:
+                checkpoint_path = os.path.join(
+actual normalized: 'checkpoint_path = os.path.join('
+
+====================================================================================================
+entry-00340 trace[2]  nemo/collections/multimodal/speech_llm/models/modular_models.py:1114  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                        model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)
+expected normalized: 'model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/models/modular_models.py:1114
+actual code:
+                        model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)
+actual normalized: 'model.load_state_dict(torch.load(checkpoint_path, weights_only=False), strict=False)'

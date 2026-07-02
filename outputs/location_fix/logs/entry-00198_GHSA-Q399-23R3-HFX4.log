@@ -1,0 +1,281 @@
+====================================================================================================
+entry-00198 entry_point  src/agents/bash-tools.exec-host-node.ts:198-207  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+          const registration = await registerExecApprovalRequestForHost({
+            approvalId,
+            command: params.command,
+            commandArgv: argv,
+            env: nodeEnv,
+            workdir: params.workdir,
+            host: "node",
+            nodeId,
+            security: hostSecurity,
+            ask: hostAsk,
+expected normalized: 'const registration = await registerExecApprovalRequestForHost({ approvalId, command: params.command, commandArgv: argv, env: nodeEnv, workdir: params.workdir, host: "node", nodeId, security: hostSecurity, ask: hostAsk,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:198-207
+actual code:
+          const registration = await registerExecApprovalRequestForHost({
+            approvalId,
+            command: params.command,
+            commandArgv: argv,
+            env: nodeEnv,
+            workdir: params.workdir,
+            host: "node",
+            nodeId,
+            security: hostSecurity,
+            ask: hostAsk,
+actual normalized: 'const registration = await registerExecApprovalRequestForHost({ approvalId, command: params.command, commandArgv: argv, env: nodeEnv, workdir: params.workdir, host: "node", nodeId, security: hostSecurity, ask: hostAsk,'
+
+====================================================================================================
+entry-00198 critical_operation  src/agents/bash-tools.exec-host-node.ts:284-288  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+            await callGatewayTool(
+              "node.invoke",
+              { timeoutMs: invokeTimeoutMs },
+              buildInvokeParams(approvedByAsk, approvalDecision, approvalId),
+            );
+expected normalized: 'await callGatewayTool( "node.invoke", { timeoutMs: invokeTimeoutMs }, buildInvokeParams(approvedByAsk, approvalDecision, approvalId), );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:284-288
+actual code:
+            await callGatewayTool(
+              "node.invoke",
+              { timeoutMs: invokeTimeoutMs },
+              buildInvokeParams(approvedByAsk, approvalDecision, approvalId),
+            );
+actual normalized: 'await callGatewayTool( "node.invoke", { timeoutMs: invokeTimeoutMs }, buildInvokeParams(approvedByAsk, approvalDecision, approvalId), );'
+
+====================================================================================================
+entry-00198 trace[0]  src/agents/bash-tools.exec-host-node.ts:198-207  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+          const registration = await registerExecApprovalRequestForHost({
+            approvalId,
+            command: params.command,
+            commandArgv: argv,
+            env: nodeEnv,
+            workdir: params.workdir,
+            host: "node",
+            nodeId,
+            security: hostSecurity,
+            ask: hostAsk,
+expected normalized: 'const registration = await registerExecApprovalRequestForHost({ approvalId, command: params.command, commandArgv: argv, env: nodeEnv, workdir: params.workdir, host: "node", nodeId, security: hostSecurity, ask: hostAsk,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:198-207
+actual code:
+          const registration = await registerExecApprovalRequestForHost({
+            approvalId,
+            command: params.command,
+            commandArgv: argv,
+            env: nodeEnv,
+            workdir: params.workdir,
+            host: "node",
+            nodeId,
+            security: hostSecurity,
+            ask: hostAsk,
+actual normalized: 'const registration = await registerExecApprovalRequestForHost({ approvalId, command: params.command, commandArgv: argv, env: nodeEnv, workdir: params.workdir, host: "node", nodeId, security: hostSecurity, ask: hostAsk,'
+
+====================================================================================================
+entry-00198 trace[1]  src/infra/node-shell.ts:1-9  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+    export function buildNodeShellCommand(command: string, platform?: string | null) {
+      const normalized = String(platform ?? "")
+        .trim()
+        .toLowerCase();
+      if (normalized.startsWith("win")) {
+        return ["cmd.exe", "/d", "/s", "/c", command];
+      }
+      return ["/bin/sh", "-lc", command];
+    }
+expected normalized: 'export function buildNodeShellCommand(command: string, platform?: string | null) { const normalized = String(platform ?? "") .trim() .toLowerCase(); if (normalized.startsWith("win")) { return ["cmd.exe", "/d", "/s", "/c", command]; } return ["/bin/sh", "-lc", command]; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/node-shell.ts:1-9
+actual code:
+    export function buildNodeShellCommand(command: string, platform?: string | null) {
+      const normalized = String(platform ?? "")
+        .trim()
+        .toLowerCase();
+      if (normalized.startsWith("win")) {
+        return ["cmd.exe", "/d", "/s", "/c", command];
+      }
+      return ["/bin/sh", "-lc", command];
+    }
+actual normalized: 'export function buildNodeShellCommand(command: string, platform?: string | null) { const normalized = String(platform ?? "") .trim() .toLowerCase(); if (normalized.startsWith("win")) { return ["cmd.exe", "/d", "/s", "/c", command]; } return ["/bin/sh", "-lc", command]; }'
+
+====================================================================================================
+entry-00198 trace[2]  src/agents/bash-tools.exec-host-node.ts:97  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+      const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);
+expected normalized: 'const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:97
+actual code:
+      const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);
+actual normalized: 'const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);'
+
+====================================================================================================
+entry-00198 trace[3]  src/infra/exec-command-resolution.ts:9-17  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+    export type CommandResolution = {
+      rawExecutable: string;
+      resolvedPath?: string;
+      executableName: string;
+      effectiveArgv?: string[];
+      wrapperChain?: string[];
+      policyBlocked?: boolean;
+      blockedWrapper?: string;
+    };
+expected normalized: 'export type CommandResolution = { rawExecutable: string; resolvedPath?: string; executableName: string; effectiveArgv?: string[]; wrapperChain?: string[]; policyBlocked?: boolean; blockedWrapper?: string; };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-command-resolution.ts:9-17
+actual code:
+    export type CommandResolution = {
+      rawExecutable: string;
+      resolvedPath?: string;
+      executableName: string;
+      effectiveArgv?: string[];
+      wrapperChain?: string[];
+      policyBlocked?: boolean;
+      blockedWrapper?: string;
+    };
+actual normalized: 'export type CommandResolution = { rawExecutable: string; resolvedPath?: string; executableName: string; effectiveArgv?: string[]; wrapperChain?: string[]; policyBlocked?: boolean; blockedWrapper?: string; };'
+
+====================================================================================================
+entry-00198 trace[4]  src/infra/exec-approvals-analysis.ts:629-638  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+    function resolvePlannedSegmentArgv(segment: ExecCommandSegment): string[] | null {
+      if (segment.resolution?.policyBlocked === true) {
+        return null;
+      }
+      const baseArgv =
+        segment.resolution?.effectiveArgv && segment.resolution.effectiveArgv.length > 0
+          ? segment.resolution.effectiveArgv
+          : segment.argv;
+      if (baseArgv.length === 0) {
+        return null;
+expected normalized: 'function resolvePlannedSegmentArgv(segment: ExecCommandSegment): string[] | null { if (segment.resolution?.policyBlocked === true) { return null; } const baseArgv = segment.resolution?.effectiveArgv && segment.resolution.effectiveArgv.length > 0 ? segment.resolution.effectiveArgv : segment.argv; if (baseArgv.length === 0) { return null;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:629-638
+actual code:
+    function resolvePlannedSegmentArgv(segment: ExecCommandSegment): string[] | null {
+      if (segment.resolution?.policyBlocked === true) {
+        return null;
+      }
+      const baseArgv =
+        segment.resolution?.effectiveArgv && segment.resolution.effectiveArgv.length > 0
+          ? segment.resolution.effectiveArgv
+          : segment.argv;
+      if (baseArgv.length === 0) {
+        return null;
+actual normalized: 'function resolvePlannedSegmentArgv(segment: ExecCommandSegment): string[] | null { if (segment.resolution?.policyBlocked === true) { return null; } const baseArgv = segment.resolution?.effectiveArgv && segment.resolution.effectiveArgv.length > 0 ? segment.resolution.effectiveArgv : segment.argv; if (baseArgv.length === 0) { return null;'
+
+====================================================================================================
+entry-00198 trace[5]  src/agents/bash-tools.exec-host-node.ts:164-173  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+      const buildInvokeParams = (
+        approvedByAsk: boolean,
+        approvalDecision: "allow-once" | "allow-always" | null,
+        runId?: string,
+      ) =>
+        ({
+          nodeId,
+          command: "system.run",
+          params: {
+            command: argv,
+expected normalized: 'const buildInvokeParams = ( approvedByAsk: boolean, approvalDecision: "allow-once" | "allow-always" | null, runId?: string, ) => ({ nodeId, command: "system.run", params: { command: argv,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:164-173
+actual code:
+      const buildInvokeParams = (
+        approvedByAsk: boolean,
+        approvalDecision: "allow-once" | "allow-always" | null,
+        runId?: string,
+      ) =>
+        ({
+          nodeId,
+          command: "system.run",
+          params: {
+            command: argv,
+actual normalized: 'const buildInvokeParams = ( approvedByAsk: boolean, approvalDecision: "allow-once" | "allow-always" | null, runId?: string, ) => ({ nodeId, command: "system.run", params: { command: argv,'
+
+====================================================================================================
+entry-00198 trace[6]  src/agents/bash-tools.exec-host-node.ts:254-260  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+          } else if (decision === "allow-once") {
+            approvedByAsk = true;
+            approvalDecision = "allow-once";
+          } else if (decision === "allow-always") {
+            approvedByAsk = true;
+            approvalDecision = "allow-always";
+          }
+expected normalized: '} else if (decision === "allow-once") { approvedByAsk = true; approvalDecision = "allow-once"; } else if (decision === "allow-always") { approvedByAsk = true; approvalDecision = "allow-always"; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:254-260
+actual code:
+          } else if (decision === "allow-once") {
+            approvedByAsk = true;
+            approvalDecision = "allow-once";
+          } else if (decision === "allow-always") {
+            approvedByAsk = true;
+            approvalDecision = "allow-always";
+          }
+actual normalized: '} else if (decision === "allow-once") { approvedByAsk = true; approvalDecision = "allow-once"; } else if (decision === "allow-always") { approvedByAsk = true; approvalDecision = "allow-always"; }'
+
+====================================================================================================
+entry-00198 trace[7]  src/agents/bash-tools.exec-host-node.ts:284-288  report=GHSA-Q399-23R3-HFX4
+repo=https://github.com/openclaw/openclaw
+commit=1636f7ff5fd78afc1bd7bc80a7970478d0821138
+expected code:
+            await callGatewayTool(
+              "node.invoke",
+              { timeoutMs: invokeTimeoutMs },
+              buildInvokeParams(approvedByAsk, approvalDecision, approvalId),
+            );
+expected normalized: 'await callGatewayTool( "node.invoke", { timeoutMs: invokeTimeoutMs }, buildInvokeParams(approvedByAsk, approvalDecision, approvalId), );'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-node.ts:284-288
+actual code:
+            await callGatewayTool(
+              "node.invoke",
+              { timeoutMs: invokeTimeoutMs },
+              buildInvokeParams(approvedByAsk, approvalDecision, approvalId),
+            );
+actual normalized: 'await callGatewayTool( "node.invoke", { timeoutMs: invokeTimeoutMs }, buildInvokeParams(approvedByAsk, approvalDecision, approvalId), );'

@@ -1,0 +1,165 @@
+====================================================================================================
+entry-00429 entry_point  packages/server/src/utils/constants.ts:10  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        '/api/v1/public-chatbotConfig',
+expected normalized: "'/api/v1/public-chatbotConfig',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:10
+actual code:
+        '/api/v1/public-chatbotConfig',
+actual normalized: "'/api/v1/public-chatbotConfig',"
+
+====================================================================================================
+entry-00429 critical_operation  packages/server/src/services/chatflows/index.ts:391  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+expected normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:391
+actual code:
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+actual normalized: 'return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }'
+
+====================================================================================================
+entry-00429 trace[0]  packages/server/src/utils/constants.ts:6-10  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export const WHITELIST_URLS = [
+        '/api/v1/verify/apikey/',
+        '/api/v1/chatflows/apikey/',
+        '/api/v1/public-chatflows',
+        '/api/v1/public-chatbotConfig',
+expected normalized: "export const WHITELIST_URLS = [ '/api/v1/verify/apikey/', '/api/v1/chatflows/apikey/', '/api/v1/public-chatflows', '/api/v1/public-chatbotConfig',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:6-10
+actual code:
+    export const WHITELIST_URLS = [
+        '/api/v1/verify/apikey/',
+        '/api/v1/chatflows/apikey/',
+        '/api/v1/public-chatflows',
+        '/api/v1/public-chatbotConfig',
+actual normalized: "export const WHITELIST_URLS = [ '/api/v1/verify/apikey/', '/api/v1/chatflows/apikey/', '/api/v1/public-chatflows', '/api/v1/public-chatbotConfig',"
+
+====================================================================================================
+entry-00429 trace[1]  packages/server/src/index.ts:221-223  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+                        if (isWhitelisted) {
+                            next()
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url)) if (isWhitelisted) { next()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221-223
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+                        if (isWhitelisted) {
+                            next()
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url)) if (isWhitelisted) { next()'
+
+====================================================================================================
+entry-00429 trace[2]  packages/server/src/routes/public-chatbots/index.ts:8  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)
+expected normalized: "router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/public-chatbots/index.ts:8
+actual code:
+    router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)
+actual normalized: "router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)"
+
+====================================================================================================
+entry-00429 trace[3]  packages/server/src/controllers/chatflows/index.ts:246  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+            const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)
+expected normalized: 'const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/chatflows/index.ts:246
+actual code:
+            const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)
+actual normalized: 'const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)'
+
+====================================================================================================
+entry-00429 trace[4]  packages/server/src/services/chatflows/index.ts:363-371  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    const getSinglePublicChatbotConfig = async (chatflowId: string): Promise<any> => {
+        try {
+            const appServer = getRunningExpressApp()
+            const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({
+                id: chatflowId
+            })
+            if (!dbResponse) {
+                throw new InternalFlowiseError(StatusCodes.NOT_FOUND, `Chatflow ${chatflowId} not found`)
+            }
+expected normalized: 'const getSinglePublicChatbotConfig = async (chatflowId: string): Promise<any> => { try { const appServer = getRunningExpressApp() const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId }) if (!dbResponse) { throw new InternalFlowiseError(StatusCodes.NOT_FOUND, `Chatflow ${chatflowId} not found`) }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:363-371
+actual code:
+    const getSinglePublicChatbotConfig = async (chatflowId: string): Promise<any> => {
+        try {
+            const appServer = getRunningExpressApp()
+            const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({
+                id: chatflowId
+            })
+            if (!dbResponse) {
+                throw new InternalFlowiseError(StatusCodes.NOT_FOUND, `Chatflow ${chatflowId} not found`)
+            }
+actual normalized: 'const getSinglePublicChatbotConfig = async (chatflowId: string): Promise<any> => { try { const appServer = getRunningExpressApp() const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId }) if (!dbResponse) { throw new InternalFlowiseError(StatusCodes.NOT_FOUND, `Chatflow ${chatflowId} not found`) }'
+
+====================================================================================================
+entry-00429 trace[5]  packages/server/src/services/chatflows/index.ts:382-391  report=GHSA-4JPM-CGX2-8H37
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                    if (ttsConfig) {
+                        Object.keys(ttsConfig).forEach((provider) => {
+                            if (provider !== 'none' && ttsConfig?.[provider]?.status) {
+                                isTTSEnabled = true
+                            }
+                        })
+                    }
+                    delete parsedConfig.allowedOrigins
+                    delete parsedConfig.allowedOriginsError
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+expected normalized: "if (ttsConfig) { Object.keys(ttsConfig).forEach((provider) => { if (provider !== 'none' && ttsConfig?.[provider]?.status) { isTTSEnabled = true } }) } delete parsedConfig.allowedOrigins delete parsedConfig.allowedOriginsError return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/services/chatflows/index.ts:382-391
+actual code:
+                    if (ttsConfig) {
+                        Object.keys(ttsConfig).forEach((provider) => {
+                            if (provider !== 'none' && ttsConfig?.[provider]?.status) {
+                                isTTSEnabled = true
+                            }
+                        })
+                    }
+                    delete parsedConfig.allowedOrigins
+                    delete parsedConfig.allowedOriginsError
+                    return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }
+actual normalized: "if (ttsConfig) { Object.keys(ttsConfig).forEach((provider) => { if (provider !== 'none' && ttsConfig?.[provider]?.status) { isTTSEnabled = true } }) } delete parsedConfig.allowedOrigins delete parsedConfig.allowedOriginsError return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }"

@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00393 entry_point  src/commands/onboard-remote.ts:74  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      if (wantsDiscover) {
+expected normalized: 'if (wantsDiscover) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:74
+actual code:
+      if (wantsDiscover) {
+actual normalized: 'if (wantsDiscover) {'
+
+====================================================================================================
+entry-00393 critical_operation  src/commands/onboard-remote.ts:225  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:225
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00393 trace[0]  src/commands/onboard-remote.ts:74  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      if (wantsDiscover) {
+expected normalized: 'if (wantsDiscover) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:74
+actual code:
+      if (wantsDiscover) {
+actual normalized: 'if (wantsDiscover) {'
+
+====================================================================================================
+entry-00393 trace[1]  src/commands/onboard-remote.ts:79  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+        const beacons = await discoverGatewayBeacons({ timeoutMs: 2000, wideAreaDomain });
+expected normalized: 'const beacons = await discoverGatewayBeacons({ timeoutMs: 2000, wideAreaDomain });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:79
+actual code:
+        const beacons = await discoverGatewayBeacons({ timeoutMs: 2000, wideAreaDomain });
+actual normalized: 'const beacons = await discoverGatewayBeacons({ timeoutMs: 2000, wideAreaDomain });'
+
+====================================================================================================
+entry-00393 trace[2]  src/commands/onboard-remote.ts:82  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+        if (beacons.length > 0) {
+expected normalized: 'if (beacons.length > 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:82
+actual code:
+        if (beacons.length > 0) {
+actual normalized: 'if (beacons.length > 0) {'
+
+====================================================================================================
+entry-00393 trace[3]  src/commands/onboard-remote.ts:93  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+          if (selection !== "manual") {
+expected normalized: 'if (selection !== "manual") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:93
+actual code:
+          if (selection !== "manual") {
+actual normalized: 'if (selection !== "manual") {'
+
+====================================================================================================
+entry-00393 trace[4]  src/commands/onboard-remote.ts:100  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      if (selectedBeacon) {
+expected normalized: 'if (selectedBeacon) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:100
+actual code:
+      if (selectedBeacon) {
+actual normalized: 'if (selectedBeacon) {'
+
+====================================================================================================
+entry-00393 trace[5]  src/commands/onboard-remote.ts:114  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+          if (mode === "direct") {
+expected normalized: 'if (mode === "direct") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:114
+actual code:
+          if (mode === "direct") {
+actual normalized: 'if (mode === "direct") {'
+
+====================================================================================================
+entry-00393 trace[6]  src/commands/onboard-remote.ts:138  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      const urlInput = await prompter.text({
+expected normalized: 'const urlInput = await prompter.text({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:138
+actual code:
+      const urlInput = await prompter.text({
+actual normalized: 'const urlInput = await prompter.text({'
+
+====================================================================================================
+entry-00393 trace[7]  src/commands/onboard-remote.ts:143  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      const url = ensureWsUrl(String(urlInput));
+expected normalized: 'const url = ensureWsUrl(String(urlInput));'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:143
+actual code:
+      const url = ensureWsUrl(String(urlInput));
+actual normalized: 'const url = ensureWsUrl(String(urlInput));'
+
+====================================================================================================
+entry-00393 trace[8]  src/commands/onboard-remote.ts:225  report=GHSA-3CW3-5VXW-G2H3
+repo=https://github.com/openclaw/openclaw
+commit=c9d68fb9c2e6e11f9aa311d1ffc81d64659b2ca2
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/onboard-remote.ts:225
+actual code:
+      return {
+actual normalized: 'return {'

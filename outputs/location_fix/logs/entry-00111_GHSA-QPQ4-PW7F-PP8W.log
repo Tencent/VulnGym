@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00111 entry_point  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:104  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    imageUrls[image.id] = image.url;
+expected normalized: 'imageUrls[image.id] = image.url;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:104
+actual code:
+    			imageUrls[image.id] = image.url;
+actual normalized: 'imageUrls[image.id] = image.url;'
+
+====================================================================================================
+entry-00111 critical_operation  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:121  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    return attributeValue ? `src=${attributeValue}` : '';
+expected normalized: "return attributeValue ? `src=${attributeValue}` : '';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:121
+actual code:
+    					return attributeValue ? `src=${attributeValue}` : '';
+actual normalized: "return attributeValue ? `src=${attributeValue}` : '';"
+
+====================================================================================================
+entry-00111 trace[0]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:104  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    imageUrls[image.id] = image.url;
+expected normalized: 'imageUrls[image.id] = image.url;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:104
+actual code:
+    			imageUrls[image.id] = image.url;
+actual normalized: 'imageUrls[image.id] = image.url;'
+
+====================================================================================================
+entry-00111 trace[1]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:118  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    if (value.match(fileIdRegex)) {
+expected normalized: 'if (value.match(fileIdRegex)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:118
+actual code:
+    				if (value.match(fileIdRegex)) {
+actual normalized: 'if (value.match(fileIdRegex)) {'
+
+====================================================================================================
+entry-00111 trace[2]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:119  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    const id = value.split('fileId:')[1];
+expected normalized: "const id = value.split('fileId:')[1];"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:119
+actual code:
+    					const id = value.split('fileId:')[1];
+actual normalized: "const id = value.split('fileId:')[1];"
+
+====================================================================================================
+entry-00111 trace[3]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:120  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    const attributeValue = friendlyAttrValue(imageUrls[id]);
+expected normalized: 'const attributeValue = friendlyAttrValue(imageUrls[id]);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:120
+actual code:
+    					const attributeValue = friendlyAttrValue(imageUrls[id]);
+actual normalized: 'const attributeValue = friendlyAttrValue(imageUrls[id]);'
+
+====================================================================================================
+entry-00111 trace[4]  packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:121  report=GHSA-QPQ4-PW7F-PP8W
+repo=https://github.com/n8n-io/n8n
+commit=8a5d4d5746f55a2fbb1566508bccfa729a304b60
+expected code:
+    return attributeValue ? `src=${attributeValue}` : '';
+expected normalized: "return attributeValue ? `src=${attributeValue}` : '';"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/frontend/@n8n/design-system/src/components/N8nMarkdown/Markdown.vue:121
+actual code:
+    					return attributeValue ? `src=${attributeValue}` : '';
+actual normalized: "return attributeValue ? `src=${attributeValue}` : '';"

@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00507 entry_point  src/http-server-single-session.ts:1067  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.get('/mcp', async (req, res) => {
+expected normalized: "app.get('/mcp', async (req, res) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1067
+actual code:
+        app.get('/mcp', async (req, res) => {
+actual normalized: "app.get('/mcp', async (req, res) => {"
+
+====================================================================================================
+entry-00507 critical_operation  src/http-server-single-session.ts:1074  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+              await existingTransport.handleRequest(req, res, undefined);
+expected normalized: 'await existingTransport.handleRequest(req, res, undefined);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1074
+actual code:
+              await existingTransport.handleRequest(req, res, undefined);
+actual normalized: 'await existingTransport.handleRequest(req, res, undefined);'
+
+====================================================================================================
+entry-00507 trace[0]  src/http-server-single-session.ts:1067  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.get('/mcp', async (req, res) => {
+expected normalized: "app.get('/mcp', async (req, res) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1067
+actual code:
+        app.get('/mcp', async (req, res) => {
+actual normalized: "app.get('/mcp', async (req, res) => {"
+
+====================================================================================================
+entry-00507 trace[1]  src/http-server-single-session.ts:1067  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.get('/mcp', async (req, res) => {
+expected normalized: "app.get('/mcp', async (req, res) => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1067
+actual code:
+        app.get('/mcp', async (req, res) => {
+actual normalized: "app.get('/mcp', async (req, res) => {"
+
+====================================================================================================
+entry-00507 trace[2]  src/http-server-single-session.ts:1069  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const sessionId = req.headers['mcp-session-id'] as string | undefined;
+expected normalized: "const sessionId = req.headers['mcp-session-id'] as string | undefined;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1069
+actual code:
+          const sessionId = req.headers['mcp-session-id'] as string | undefined;
+actual normalized: "const sessionId = req.headers['mcp-session-id'] as string | undefined;"
+
+====================================================================================================
+entry-00507 trace[3]  src/http-server-single-session.ts:1070  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const existingTransport = sessionId ? this.transports[sessionId] : undefined;
+expected normalized: 'const existingTransport = sessionId ? this.transports[sessionId] : undefined;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1070
+actual code:
+          const existingTransport = sessionId ? this.transports[sessionId] : undefined;
+actual normalized: 'const existingTransport = sessionId ? this.transports[sessionId] : undefined;'
+
+====================================================================================================
+entry-00507 trace[4]  src/http-server-single-session.ts:1071  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          if (existingTransport && existingTransport instanceof StreamableHTTPServerTransport) {
+expected normalized: 'if (existingTransport && existingTransport instanceof StreamableHTTPServerTransport) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1071
+actual code:
+          if (existingTransport && existingTransport instanceof StreamableHTTPServerTransport) {
+actual normalized: 'if (existingTransport && existingTransport instanceof StreamableHTTPServerTransport) {'
+
+====================================================================================================
+entry-00507 trace[5]  src/http-server-single-session.ts:1074  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+              await existingTransport.handleRequest(req, res, undefined);
+expected normalized: 'await existingTransport.handleRequest(req, res, undefined);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1074
+actual code:
+              await existingTransport.handleRequest(req, res, undefined);
+actual normalized: 'await existingTransport.handleRequest(req, res, undefined);'

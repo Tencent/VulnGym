@@ -1,0 +1,169 @@
+====================================================================================================
+entry-00511 entry_point  packages/workflow/src/expression.ts:485  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    		data.extend = extend;
+expected normalized: 'data.extend = extend;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:485
+actual code:
+    		data.extend = extend;
+actual normalized: 'data.extend = extend;'
+
+====================================================================================================
+entry-00511 critical_operation  packages/@n8n/expression-runtime/src/extensions/extend.ts:82-84  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    			return { type: 'native', function: inputAny[functionName] };
+expected normalized: "if (inputAny && functionName && typeof inputAny[functionName] === 'function') { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment return { type: 'native', function: inputAny[functionName] };"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/extensions/extend.ts:82-84
+actual code:
+    		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    			return { type: 'native', function: inputAny[functionName] };
+actual normalized: "if (inputAny && functionName && typeof inputAny[functionName] === 'function') { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment return { type: 'native', function: inputAny[functionName] };"
+
+====================================================================================================
+entry-00511 trace[0]  packages/workflow/src/expression.ts:484-492  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    		// expression extensions
+    		data.extend = extend;
+    		data.extendOptional = extendOptional;
+    
+    		Object.defineProperty(data, sanitizerName, {
+    			value: sanitizer,
+    			writable: false,
+    			configurable: false,
+    		});
+expected normalized: '// expression extensions data.extend = extend; data.extendOptional = extendOptional; Object.defineProperty(data, sanitizerName, { value: sanitizer, writable: false, configurable: false, });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:484-492
+actual code:
+    		// expression extensions
+    		data.extend = extend;
+    		data.extendOptional = extendOptional;
+    
+    		Object.defineProperty(data, sanitizerName, {
+    			value: sanitizer,
+    			writable: false,
+    			configurable: false,
+    		});
+actual normalized: '// expression extensions data.extend = extend; data.extendOptional = extendOptional; Object.defineProperty(data, sanitizerName, { value: sanitizer, writable: false, configurable: false, });'
+
+====================================================================================================
+entry-00511 trace[1]  packages/workflow/src/expression.ts:496-503  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    		const constructorValidation = new RegExp(/\.\s*constructor/gm);
+    		if (parameterValue.match(constructorValidation)) {
+    			throw new ExpressionError('Expression contains invalid constructor function call', {
+    				causeDetailed: 'Constructor override attempt is not allowed due to security concerns',
+    				runIndex: data.$thisRunIndex,
+    				itemIndex: data.$thisItemIndex,
+    			});
+    		}
+expected normalized: "const constructorValidation = new RegExp(/\\.\\s*constructor/gm); if (parameterValue.match(constructorValidation)) { throw new ExpressionError('Expression contains invalid constructor function call', { causeDetailed: 'Constructor override attempt is not allowed due to security concerns', runIndex: data.$thisRunIndex, itemIndex: data.$thisItemIndex, }); }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression.ts:496-503
+actual code:
+    		const constructorValidation = new RegExp(/\.\s*constructor/gm);
+    		if (parameterValue.match(constructorValidation)) {
+    			throw new ExpressionError('Expression contains invalid constructor function call', {
+    				causeDetailed: 'Constructor override attempt is not allowed due to security concerns',
+    				runIndex: data.$thisRunIndex,
+    				itemIndex: data.$thisItemIndex,
+    			});
+    		}
+actual normalized: "const constructorValidation = new RegExp(/\\.\\s*constructor/gm); if (parameterValue.match(constructorValidation)) { throw new ExpressionError('Expression contains invalid constructor function call', { causeDetailed: 'Constructor override attempt is not allowed due to security concerns', runIndex: data.$thisRunIndex, itemIndex: data.$thisItemIndex, }); }"
+
+====================================================================================================
+entry-00511 trace[2]  packages/workflow/src/expression-sandboxing.ts:137  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+expected normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:137
+actual code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+actual normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'
+
+====================================================================================================
+entry-00511 trace[3]  packages/@n8n/expression-runtime/src/runtime/reset.ts:167-168  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    	globalThis.__data.extend = extend;
+    	globalThis.__data.extendOptional = extendOptional;
+expected normalized: 'globalThis.__data.extend = extend; globalThis.__data.extendOptional = extendOptional;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/runtime/reset.ts:167-168
+actual code:
+    	globalThis.__data.extend = extend;
+    	globalThis.__data.extendOptional = extendOptional;
+actual normalized: 'globalThis.__data.extend = extend; globalThis.__data.extendOptional = extendOptional;'
+
+====================================================================================================
+entry-00511 trace[4]  packages/@n8n/expression-runtime/src/extensions/extend.ts:105-106  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    export function extend(input: unknown, functionName: string, args: unknown[]) {
+    	const foundFunction = findExtendedFunction(input, functionName);
+expected normalized: 'export function extend(input: unknown, functionName: string, args: unknown[]) { const foundFunction = findExtendedFunction(input, functionName);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/extensions/extend.ts:105-106
+actual code:
+    export function extend(input: unknown, functionName: string, args: unknown[]) {
+    	const foundFunction = findExtendedFunction(input, functionName);
+actual normalized: 'export function extend(input: unknown, functionName: string, args: unknown[]) { const foundFunction = findExtendedFunction(input, functionName);'
+
+====================================================================================================
+entry-00511 trace[5]  packages/@n8n/expression-runtime/src/extensions/extend.ts:79-85  report=GHSA-6CQR-8CFR-67F8
+repo=https://github.com/n8n-io/n8n
+commit=09e2c2b5547b49a824a8265d312583f5d1f5c79f
+expected code:
+    		const inputAny: any = input;
+    		// This is likely a builtin we're implementing for another type
+    		// (e.g. toLocaleString). We'll return that instead
+    		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    			return { type: 'native', function: inputAny[functionName] };
+    		}
+expected normalized: "const inputAny: any = input; // This is likely a builtin we're implementing for another type // (e.g. toLocaleString). We'll return that instead if (inputAny && functionName && typeof inputAny[functionName] === 'function') { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment return { type: 'native', function: inputAny[functionName] }; }"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/expression-runtime/src/extensions/extend.ts:79-85
+actual code:
+    		const inputAny: any = input;
+    		// This is likely a builtin we're implementing for another type
+    		// (e.g. toLocaleString). We'll return that instead
+    		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+    			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    			return { type: 'native', function: inputAny[functionName] };
+    		}
+actual normalized: "const inputAny: any = input; // This is likely a builtin we're implementing for another type // (e.g. toLocaleString). We'll return that instead if (inputAny && functionName && typeof inputAny[functionName] === 'function') { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment return { type: 'native', function: inputAny[functionName] }; }"

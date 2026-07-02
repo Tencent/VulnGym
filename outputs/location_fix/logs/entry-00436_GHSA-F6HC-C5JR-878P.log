@@ -1,0 +1,120 @@
+====================================================================================================
+entry-00436 entry_point  packages/server/src/enterprise/routes/account.route.ts:29  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.post('/reset-password', accountController.resetPassword)
+expected normalized: "router.post('/reset-password', accountController.resetPassword)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/account.route.ts:29
+actual code:
+    router.post('/reset-password', accountController.resetPassword)
+actual normalized: "router.post('/reset-password', accountController.resetPassword)"
+
+====================================================================================================
+entry-00436 critical_operation  packages/server/src/enterprise/services/account.service.ts:570-571  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                if (user.tempToken !== data.user.tempToken)
+                    throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)
+expected normalized: 'if (user.tempToken !== data.user.tempToken) throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:570-571
+actual code:
+                if (user.tempToken !== data.user.tempToken)
+                    throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)
+actual normalized: 'if (user.tempToken !== data.user.tempToken) throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)'
+
+====================================================================================================
+entry-00436 trace[0]  packages/server/src/enterprise/routes/account.route.ts:29  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    router.post('/reset-password', accountController.resetPassword)
+expected normalized: "router.post('/reset-password', accountController.resetPassword)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/routes/account.route.ts:29
+actual code:
+    router.post('/reset-password', accountController.resetPassword)
+actual normalized: "router.post('/reset-password', accountController.resetPassword)"
+
+====================================================================================================
+entry-00436 trace[1]  packages/server/src/enterprise/controllers/account.controller.ts:67-71  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        public async resetPassword(req: Request, res: Response, next: NextFunction) {
+            try {
+                const accountService = new AccountService()
+                const data = await accountService.resetPassword(req.body)
+                return res.status(StatusCodes.OK).json(data)
+expected normalized: 'public async resetPassword(req: Request, res: Response, next: NextFunction) { try { const accountService = new AccountService() const data = await accountService.resetPassword(req.body) return res.status(StatusCodes.OK).json(data)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/controllers/account.controller.ts:67-71
+actual code:
+        public async resetPassword(req: Request, res: Response, next: NextFunction) {
+            try {
+                const accountService = new AccountService()
+                const data = await accountService.resetPassword(req.body)
+                return res.status(StatusCodes.OK).json(data)
+actual normalized: 'public async resetPassword(req: Request, res: Response, next: NextFunction) { try { const accountService = new AccountService() const data = await accountService.resetPassword(req.body) return res.status(StatusCodes.OK).json(data)'
+
+====================================================================================================
+entry-00436 trace[2]  packages/server/src/enterprise/services/account.service.ts:563-564  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+        public async resetPassword(data: AccountDTO) {
+            data = this.initializeAccountDTO(data)
+expected normalized: 'public async resetPassword(data: AccountDTO) { data = this.initializeAccountDTO(data)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:563-564
+actual code:
+        public async resetPassword(data: AccountDTO) {
+            data = this.initializeAccountDTO(data)
+actual normalized: 'public async resetPassword(data: AccountDTO) { data = this.initializeAccountDTO(data)'
+
+====================================================================================================
+entry-00436 trace[3]  packages/server/src/enterprise/services/account.service.ts:568-569  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                const user = await this.userService.readUserByEmail(data.user.email, queryRunner)
+                if (!user) throw new InternalFlowiseError(StatusCodes.NOT_FOUND, UserErrorMessage.USER_NOT_FOUND)
+expected normalized: 'const user = await this.userService.readUserByEmail(data.user.email, queryRunner) if (!user) throw new InternalFlowiseError(StatusCodes.NOT_FOUND, UserErrorMessage.USER_NOT_FOUND)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:568-569
+actual code:
+                const user = await this.userService.readUserByEmail(data.user.email, queryRunner)
+                if (!user) throw new InternalFlowiseError(StatusCodes.NOT_FOUND, UserErrorMessage.USER_NOT_FOUND)
+actual normalized: 'const user = await this.userService.readUserByEmail(data.user.email, queryRunner) if (!user) throw new InternalFlowiseError(StatusCodes.NOT_FOUND, UserErrorMessage.USER_NOT_FOUND)'
+
+====================================================================================================
+entry-00436 trace[4]  packages/server/src/enterprise/services/account.service.ts:570-571  report=GHSA-F6HC-C5JR-878P
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                if (user.tempToken !== data.user.tempToken)
+                    throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)
+expected normalized: 'if (user.tempToken !== data.user.tempToken) throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/enterprise/services/account.service.ts:570-571
+actual code:
+                if (user.tempToken !== data.user.tempToken)
+                    throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)
+actual normalized: 'if (user.tempToken !== data.user.tempToken) throw new InternalFlowiseError(StatusCodes.BAD_REQUEST, UserErrorMessage.INVALID_TEMP_TOKEN)'

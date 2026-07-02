@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00435 entry_point  src/google/adk/cli/fast_api.py:497  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.get(
+expected normalized: '@app.get('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:497
+actual code:
+        @app.get(
+actual normalized: '@app.get('
+
+====================================================================================================
+entry-00435 critical_operation  src/google/adk/cli/fast_api.py:537  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          return FileResponse(
+expected normalized: 'return FileResponse('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:537
+actual code:
+          return FileResponse(
+actual normalized: 'return FileResponse('
+
+====================================================================================================
+entry-00435 trace[0]  src/google/adk/cli/fast_api.py:497  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.get(
+expected normalized: '@app.get('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:497
+actual code:
+        @app.get(
+actual normalized: '@app.get('
+
+====================================================================================================
+entry-00435 trace[1]  src/google/adk/cli/fast_api.py:317  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        def _parse_file_path(file_path: str) -> str:
+expected normalized: 'def _parse_file_path(file_path: str) -> str:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:317
+actual code:
+        def _parse_file_path(file_path: str) -> str:
+actual normalized: 'def _parse_file_path(file_path: str) -> str:'
+
+====================================================================================================
+entry-00435 trace[2]  src/google/adk/cli/fast_api.py:329  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          resolved_root_dir = root_dir.resolve()
+expected normalized: 'resolved_root_dir = root_dir.resolve()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:329
+actual code:
+          resolved_root_dir = root_dir.resolve()
+actual normalized: 'resolved_root_dir = root_dir.resolve()'
+
+====================================================================================================
+entry-00435 trace[3]  src/google/adk/cli/fast_api.py:537  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          return FileResponse(
+expected normalized: 'return FileResponse('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/fast_api.py:537
+actual code:
+          return FileResponse(
+actual normalized: 'return FileResponse('

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00076 entry_point  server/routes.go:1506  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	r.GET("/api/tags", s.ListHandler)
+expected normalized: 'r.GET("/api/tags", s.ListHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1506
+actual code:
+    	r.GET("/api/tags", s.ListHandler)
+actual normalized: 'r.GET("/api/tags", s.ListHandler)'
+
+====================================================================================================
+entry-00076 critical_operation  server/routes.go:1266  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	c.JSON(http.StatusOK, api.ListResponse{Models: models})
+expected normalized: 'c.JSON(http.StatusOK, api.ListResponse{Models: models})'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1266
+actual code:
+    	c.JSON(http.StatusOK, api.ListResponse{Models: models})
+actual normalized: 'c.JSON(http.StatusOK, api.ListResponse{Models: models})'
+
+====================================================================================================
+entry-00076 trace[0]  server/routes.go:1506  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	r.GET("/api/tags", s.ListHandler)
+expected normalized: 'r.GET("/api/tags", s.ListHandler)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1506
+actual code:
+    	r.GET("/api/tags", s.ListHandler)
+actual normalized: 'r.GET("/api/tags", s.ListHandler)'
+
+====================================================================================================
+entry-00076 trace[1]  server/routes.go:1217  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    func (s *Server) ListHandler(c *gin.Context) {
+expected normalized: 'func (s *Server) ListHandler(c *gin.Context) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1217
+actual code:
+    func (s *Server) ListHandler(c *gin.Context) {
+actual normalized: 'func (s *Server) ListHandler(c *gin.Context) {'
+
+====================================================================================================
+entry-00076 trace[2]  server/routes.go:1266  report=GHSA-F6MR-38G8-39RG
+repo=https://github.com/ollama/ollama
+commit=7325791599409de52534429897481918717a9e85
+expected code:
+    	c.JSON(http.StatusOK, api.ListResponse{Models: models})
+expected normalized: 'c.JSON(http.StatusOK, api.ListResponse{Models: models})'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/routes.go:1266
+actual code:
+    	c.JSON(http.StatusOK, api.ListResponse{Models: models})
+actual normalized: 'c.JSON(http.StatusOK, api.ListResponse{Models: models})'

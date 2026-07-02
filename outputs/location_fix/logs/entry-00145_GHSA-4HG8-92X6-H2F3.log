@@ -1,0 +1,121 @@
+====================================================================================================
+entry-00145 entry_point  extensions/voice-call/src/webhook.ts:226  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+      private async handleRequest(
+expected normalized: 'private async handleRequest('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:226
+actual code:
+      private async handleRequest(
+actual normalized: 'private async handleRequest('
+
+====================================================================================================
+entry-00145 critical_operation  extensions/voice-call/src/providers/telnyx.ts:86  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+          if (this.options.allowUnsignedWebhooks) {
+expected normalized: 'if (this.options.allowUnsignedWebhooks) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/providers/telnyx.ts:86
+actual code:
+          if (this.options.allowUnsignedWebhooks) {
+actual normalized: 'if (this.options.allowUnsignedWebhooks) {'
+
+====================================================================================================
+entry-00145 trace[0]  extensions/voice-call/src/webhook.ts:226  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+      private async handleRequest(
+expected normalized: 'private async handleRequest('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:226
+actual code:
+      private async handleRequest(
+actual normalized: 'private async handleRequest('
+
+====================================================================================================
+entry-00145 trace[1]  extensions/voice-call/src/webhook.ts:266-273  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+        const ctx: WebhookContext = {
+          headers: req.headers as Record<string, string | string[] | undefined>,
+          rawBody: body,
+          url: `http://${req.headers.host}${req.url}`,
+          method: "POST",
+          query: Object.fromEntries(url.searchParams),
+          remoteAddress: req.socket.remoteAddress ?? undefined,
+        };
+expected normalized: 'const ctx: WebhookContext = { headers: req.headers as Record<string, string | string[] | undefined>, rawBody: body, url: `http://${req.headers.host}${req.url}`, method: "POST", query: Object.fromEntries(url.searchParams), remoteAddress: req.socket.remoteAddress ?? undefined, };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:266-273
+actual code:
+        const ctx: WebhookContext = {
+          headers: req.headers as Record<string, string | string[] | undefined>,
+          rawBody: body,
+          url: `http://${req.headers.host}${req.url}`,
+          method: "POST",
+          query: Object.fromEntries(url.searchParams),
+          remoteAddress: req.socket.remoteAddress ?? undefined,
+        };
+actual normalized: 'const ctx: WebhookContext = { headers: req.headers as Record<string, string | string[] | undefined>, rawBody: body, url: `http://${req.headers.host}${req.url}`, method: "POST", query: Object.fromEntries(url.searchParams), remoteAddress: req.socket.remoteAddress ?? undefined, };'
+
+====================================================================================================
+entry-00145 trace[2]  extensions/voice-call/src/webhook.ts:276  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+        const verification = this.provider.verifyWebhook(ctx);
+expected normalized: 'const verification = this.provider.verifyWebhook(ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:276
+actual code:
+        const verification = this.provider.verifyWebhook(ctx);
+actual normalized: 'const verification = this.provider.verifyWebhook(ctx);'
+
+====================================================================================================
+entry-00145 trace[3]  extensions/voice-call/src/providers/telnyx.ts:84-93  report=GHSA-4HG8-92X6-H2F3
+repo=https://github.com/openclaw/openclaw
+commit=ff11d8793b90c52f8d84dae3fbb99307da51b5c9
+expected code:
+      verifyWebhook(ctx: WebhookContext): WebhookVerificationResult {
+        if (!this.publicKey) {
+          if (this.options.allowUnsignedWebhooks) {
+            console.warn("[telnyx] Webhook verification skipped (no public key configured)");
+            return { ok: true, reason: "verification skipped (no public key configured)" };
+          }
+          return {
+            ok: false,
+            reason: "Missing telnyx.publicKey (configure to verify webhooks)",
+          };
+expected normalized: 'verifyWebhook(ctx: WebhookContext): WebhookVerificationResult { if (!this.publicKey) { if (this.options.allowUnsignedWebhooks) { console.warn("[telnyx] Webhook verification skipped (no public key configured)"); return { ok: true, reason: "verification skipped (no public key configured)" }; } return { ok: false, reason: "Missing telnyx.publicKey (configure to verify webhooks)", };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/providers/telnyx.ts:84-93
+actual code:
+      verifyWebhook(ctx: WebhookContext): WebhookVerificationResult {
+        if (!this.publicKey) {
+          if (this.options.allowUnsignedWebhooks) {
+            console.warn("[telnyx] Webhook verification skipped (no public key configured)");
+            return { ok: true, reason: "verification skipped (no public key configured)" };
+          }
+          return {
+            ok: false,
+            reason: "Missing telnyx.publicKey (configure to verify webhooks)",
+          };
+actual normalized: 'verifyWebhook(ctx: WebhookContext): WebhookVerificationResult { if (!this.publicKey) { if (this.options.allowUnsignedWebhooks) { console.warn("[telnyx] Webhook verification skipped (no public key configured)"); return { ok: true, reason: "verification skipped (no public key configured)" }; } return { ok: false, reason: "Missing telnyx.publicKey (configure to verify webhooks)", };'

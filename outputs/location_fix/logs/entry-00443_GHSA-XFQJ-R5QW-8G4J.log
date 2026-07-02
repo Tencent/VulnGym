@@ -1,0 +1,110 @@
+====================================================================================================
+entry-00443 entry_point  server/src/routes/health.ts:26  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/", async (_req, res) => {
+expected normalized: 'router.get("/", async (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/health.ts:26
+actual code:
+      router.get("/", async (_req, res) => {
+actual normalized: 'router.get("/", async (_req, res) => {'
+
+====================================================================================================
+entry-00443 critical_operation  server/src/routes/health.ts:88  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.json({
+expected normalized: 'res.json({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/health.ts:88
+actual code:
+        res.json({
+actual normalized: 'res.json({'
+
+====================================================================================================
+entry-00443 trace[0]  server/src/routes/health.ts:26  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+      router.get("/", async (_req, res) => {
+expected normalized: 'router.get("/", async (_req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/health.ts:26
+actual code:
+      router.get("/", async (_req, res) => {
+actual normalized: 'router.get("/", async (_req, res) => {'
+
+====================================================================================================
+entry-00443 trace[1]  server/src/routes/health.ts:32-41  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        try {
+          await db.execute(sql`SELECT 1`);
+        } catch {
+          res.status(503).json({
+            status: "unhealthy",
+            version: serverVersion,
+            error: "database_unreachable",
+          });
+          return;
+        }
+expected normalized: 'try { await db.execute(sql`SELECT 1`); } catch { res.status(503).json({ status: "unhealthy", version: serverVersion, error: "database_unreachable", }); return; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/health.ts:32-41
+actual code:
+        try {
+          await db.execute(sql`SELECT 1`);
+        } catch {
+          res.status(503).json({
+            status: "unhealthy",
+            version: serverVersion,
+            error: "database_unreachable",
+          });
+          return;
+        }
+actual normalized: 'try { await db.execute(sql`SELECT 1`); } catch { res.status(503).json({ status: "unhealthy", version: serverVersion, error: "database_unreachable", }); return; }'
+
+====================================================================================================
+entry-00443 trace[2]  server/src/routes/health.ts:88-97  report=GHSA-XFQJ-R5QW-8G4J
+repo=https://github.com/paperclipai/paperclip
+commit=50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02
+expected code:
+        res.json({
+          status: "ok",
+          version: serverVersion,
+          deploymentMode: opts.deploymentMode,
+          deploymentExposure: opts.deploymentExposure,
+          authReady: opts.authReady,
+          bootstrapStatus,
+          bootstrapInviteActive,
+          features: {
+            companyDeletionEnabled: opts.companyDeletionEnabled,
+expected normalized: 'res.json({ status: "ok", version: serverVersion, deploymentMode: opts.deploymentMode, deploymentExposure: opts.deploymentExposure, authReady: opts.authReady, bootstrapStatus, bootstrapInviteActive, features: { companyDeletionEnabled: opts.companyDeletionEnabled,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/health.ts:88-97
+actual code:
+        res.json({
+          status: "ok",
+          version: serverVersion,
+          deploymentMode: opts.deploymentMode,
+          deploymentExposure: opts.deploymentExposure,
+          authReady: opts.authReady,
+          bootstrapStatus,
+          bootstrapInviteActive,
+          features: {
+            companyDeletionEnabled: opts.companyDeletionEnabled,
+actual normalized: 'res.json({ status: "ok", version: serverVersion, deploymentMode: opts.deploymentMode, deploymentExposure: opts.deploymentExposure, authReady: opts.authReady, bootstrapStatus, bootstrapInviteActive, features: { companyDeletionEnabled: opts.companyDeletionEnabled,'

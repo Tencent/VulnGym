@@ -1,0 +1,97 @@
+====================================================================================================
+entry-00418 entry_point  src/node-host/invoke-browser.ts:212  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const pathValue = typeof params.path === "string" ? params.path.trim() : "";
+expected normalized: 'const pathValue = typeof params.path === "string" ? params.path.trim() : "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:212
+actual code:
+      const pathValue = typeof params.path === "string" ? params.path.trim() : "";
+actual normalized: 'const pathValue = typeof params.path === "string" ? params.path.trim() : "";'
+
+====================================================================================================
+entry-00418 critical_operation  src/node-host/invoke-browser.ts:255  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());
+expected normalized: 'const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:255
+actual code:
+      const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());
+actual normalized: 'const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());'
+
+====================================================================================================
+entry-00418 trace[0]  src/node-host/invoke-browser.ts:212-215  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const pathValue = typeof params.path === "string" ? params.path.trim() : "";
+      if (!pathValue) {
+        throw new Error("INVALID_REQUEST: path required");
+      }
+expected normalized: 'const pathValue = typeof params.path === "string" ? params.path.trim() : ""; if (!pathValue) { throw new Error("INVALID_REQUEST: path required"); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:212-215
+actual code:
+      const pathValue = typeof params.path === "string" ? params.path.trim() : "";
+      if (!pathValue) {
+        throw new Error("INVALID_REQUEST: path required");
+      }
+actual normalized: 'const pathValue = typeof params.path === "string" ? params.path.trim() : ""; if (!pathValue) { throw new Error("INVALID_REQUEST: path required"); }'
+
+====================================================================================================
+entry-00418 trace[1]  src/node-host/invoke-browser.ts:225  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const allowedProfiles = proxyConfig.allowProfiles;
+expected normalized: 'const allowedProfiles = proxyConfig.allowProfiles;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:225
+actual code:
+      const allowedProfiles = proxyConfig.allowProfiles;
+actual normalized: 'const allowedProfiles = proxyConfig.allowProfiles;'
+
+====================================================================================================
+entry-00418 trace[2]  src/node-host/invoke-browser.ts:239-240  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";
+      const path = pathValue.startsWith("/") ? pathValue : `/${pathValue}`;
+expected normalized: 'const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET"; const path = pathValue.startsWith("/") ? pathValue : `/${pathValue}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:239-240
+actual code:
+      const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET";
+      const path = pathValue.startsWith("/") ? pathValue : `/${pathValue}`;
+actual normalized: 'const method = typeof params.method === "string" ? params.method.toUpperCase() : "GET"; const path = pathValue.startsWith("/") ? pathValue : `/${pathValue}`;'
+
+====================================================================================================
+entry-00418 trace[3]  src/node-host/invoke-browser.ts:255  report=GHSA-H5HG-H7RR-GPF3
+repo=https://github.com/openclaw/openclaw
+commit=3fd5d13315f6e3cd850315160497f0017c7effac
+expected code:
+      const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());
+expected normalized: 'const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-browser.ts:255
+actual code:
+      const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());
+actual normalized: 'const dispatcher = createBrowserRouteDispatcher(createBrowserControlContext());'

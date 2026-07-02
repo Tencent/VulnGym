@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00222 entry_point  scripts/sandbox-browser-entrypoint.sh:69  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then
+expected normalized: 'if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:69
+actual code:
+    if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then
+actual normalized: 'if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then'
+
+====================================================================================================
+entry-00222 critical_operation  scripts/sandbox-browser-entrypoint.sh:70  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+      x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &
+expected normalized: 'x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:70
+actual code:
+      x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &
+actual normalized: 'x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &'
+
+====================================================================================================
+entry-00222 trace[0]  scripts/sandbox-browser-entrypoint.sh:11  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    NOVNC_PORT="${OPENCLAW_BROWSER_NOVNC_PORT:-${CLAWDBOT_BROWSER_NOVNC_PORT:-6080}}"
+expected normalized: 'NOVNC_PORT="${OPENCLAW_BROWSER_NOVNC_PORT:-${CLAWDBOT_BROWSER_NOVNC_PORT:-6080}}"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:11
+actual code:
+    NOVNC_PORT="${OPENCLAW_BROWSER_NOVNC_PORT:-${CLAWDBOT_BROWSER_NOVNC_PORT:-6080}}"
+actual normalized: 'NOVNC_PORT="${OPENCLAW_BROWSER_NOVNC_PORT:-${CLAWDBOT_BROWSER_NOVNC_PORT:-6080}}"'
+
+====================================================================================================
+entry-00222 trace[1]  scripts/sandbox-browser-entrypoint.sh:12  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    ENABLE_NOVNC="${OPENCLAW_BROWSER_ENABLE_NOVNC:-${CLAWDBOT_BROWSER_ENABLE_NOVNC:-1}}"
+expected normalized: 'ENABLE_NOVNC="${OPENCLAW_BROWSER_ENABLE_NOVNC:-${CLAWDBOT_BROWSER_ENABLE_NOVNC:-1}}"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:12
+actual code:
+    ENABLE_NOVNC="${OPENCLAW_BROWSER_ENABLE_NOVNC:-${CLAWDBOT_BROWSER_ENABLE_NOVNC:-1}}"
+actual normalized: 'ENABLE_NOVNC="${OPENCLAW_BROWSER_ENABLE_NOVNC:-${CLAWDBOT_BROWSER_ENABLE_NOVNC:-1}}"'
+
+====================================================================================================
+entry-00222 trace[2]  scripts/sandbox-browser-entrypoint.sh:69  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then
+expected normalized: 'if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:69
+actual code:
+    if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then
+actual normalized: 'if [[ "${ENABLE_NOVNC}" == "1" && "${HEADLESS}" != "1" ]]; then'
+
+====================================================================================================
+entry-00222 trace[3]  scripts/sandbox-browser-entrypoint.sh:70  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+      x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &
+expected normalized: 'x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:70
+actual code:
+      x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &
+actual normalized: 'x11vnc -display :1 -rfbport "${VNC_PORT}" -shared -forever -nopw -localhost &'
+
+====================================================================================================
+entry-00222 trace[4]  scripts/sandbox-browser-entrypoint.sh:71  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+      websockify --web /usr/share/novnc/ "${NOVNC_PORT}" "localhost:${VNC_PORT}" &
+expected normalized: 'websockify --web /usr/share/novnc/ "${NOVNC_PORT}" "localhost:${VNC_PORT}" &'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: scripts/sandbox-browser-entrypoint.sh:71
+actual code:
+      websockify --web /usr/share/novnc/ "${NOVNC_PORT}" "localhost:${VNC_PORT}" &
+actual normalized: 'websockify --web /usr/share/novnc/ "${NOVNC_PORT}" "localhost:${VNC_PORT}" &'
+
+====================================================================================================
+entry-00222 trace[5]  src/agents/sandbox/browser.ts:204  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+        if (params.cfg.browser.enableNoVnc && !params.cfg.browser.headless) {
+expected normalized: 'if (params.cfg.browser.enableNoVnc && !params.cfg.browser.headless) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:204
+actual code:
+        if (params.cfg.browser.enableNoVnc && !params.cfg.browser.headless) {
+actual normalized: 'if (params.cfg.browser.enableNoVnc && !params.cfg.browser.headless) {'
+
+====================================================================================================
+entry-00222 trace[6]  src/agents/sandbox/browser.ts:325  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+      const noVncUrl =
+expected normalized: 'const noVncUrl ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:325
+actual code:
+      const noVncUrl =
+actual normalized: 'const noVncUrl ='

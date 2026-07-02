@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00210 entry_point  src/gateway/server-methods/exec-approval.ts:30  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+    "exec.approval.request": async ({ params, respond, context, client }) => {
+expected normalized: '"exec.approval.request": async ({ params, respond, context, client }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:30
+actual code:
+        "exec.approval.request": async ({ params, respond, context, client }) => {
+actual normalized: '"exec.approval.request": async ({ params, respond, context, client }) => {'
+
+====================================================================================================
+entry-00210 critical_operation  src/node-host/invoke-system-run.ts:669  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+    const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+expected normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:669
+actual code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+actual normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+
+====================================================================================================
+entry-00210 trace[0]  src/gateway/server-methods/exec-approval.ts:30  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+    "exec.approval.request": async ({ params, respond, context, client }) => {
+expected normalized: '"exec.approval.request": async ({ params, respond, context, client }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:30
+actual code:
+        "exec.approval.request": async ({ params, respond, context, client }) => {
+actual normalized: '"exec.approval.request": async ({ params, respond, context, client }) => {'
+
+====================================================================================================
+entry-00210 trace[1]  src/gateway/server-methods/exec-approval.ts:91  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+              ? buildSystemRunApprovalBindingV1({
+expected normalized: '? buildSystemRunApprovalBindingV1({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:91
+actual code:
+              ? buildSystemRunApprovalBindingV1({
+actual normalized: '? buildSystemRunApprovalBindingV1({'
+
+====================================================================================================
+entry-00210 trace[2]  src/gateway/server-methods/exec-approval.ts:112  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+            cwd: p.cwd ?? null,
+expected normalized: 'cwd: p.cwd ?? null,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/exec-approval.ts:112
+actual code:
+            cwd: p.cwd ?? null,
+actual normalized: 'cwd: p.cwd ?? null,'
+
+====================================================================================================
+entry-00210 trace[3]  src/gateway/node-invoke-system-run-approval.ts:120  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+      const next: Record<string, unknown> = pickSystemRunParams(obj);
+expected normalized: 'const next: Record<string, unknown> = pickSystemRunParams(obj);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-invoke-system-run-approval.ts:120
+actual code:
+      const next: Record<string, unknown> = pickSystemRunParams(obj);
+actual normalized: 'const next: Record<string, unknown> = pickSystemRunParams(obj);'
+
+====================================================================================================
+entry-00210 trace[4]  src/node-host/invoke-system-run.ts:166  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+        if (cwdLstat.isSymbolicLink()) {
+expected normalized: 'if (cwdLstat.isSymbolicLink()) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:166
+actual code:
+        if (cwdLstat.isSymbolicLink()) {
+actual normalized: 'if (cwdLstat.isSymbolicLink()) {'
+
+====================================================================================================
+entry-00210 trace[5]  src/node-host/invoke-system-run.ts:522  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+      const hardenedPaths = hardenApprovedExecutionPaths({
+expected normalized: 'const hardenedPaths = hardenApprovedExecutionPaths({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:522
+actual code:
+      const hardenedPaths = hardenApprovedExecutionPaths({
+actual normalized: 'const hardenedPaths = hardenApprovedExecutionPaths({'
+
+====================================================================================================
+entry-00210 trace[6]  src/node-host/invoke-system-run.ts:669  report=GHSA-F7WW-2725-QVW2
+repo=https://github.com/openclaw/openclaw
+commit=611dff985d4ecc442633a740f0918d9eb5c6bf36
+expected code:
+    const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+expected normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke-system-run.ts:669
+actual code:
+      const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);
+actual normalized: 'const result = await opts.runCommand(execArgv, phase.cwd, phase.env, phase.timeoutMs);'

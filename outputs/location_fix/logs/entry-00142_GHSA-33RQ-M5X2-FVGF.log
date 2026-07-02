@@ -1,0 +1,200 @@
+====================================================================================================
+entry-00142 entry_point  extensions/twitch/src/monitor.ts:216  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+      const unregisterHandler = clientManager.onMessage(account, (message) => {
+expected normalized: 'const unregisterHandler = clientManager.onMessage(account, (message) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/monitor.ts:216
+actual code:
+      const unregisterHandler = clientManager.onMessage(account, (message) => {
+actual normalized: 'const unregisterHandler = clientManager.onMessage(account, (message) => {'
+
+====================================================================================================
+entry-00142 critical_operation  extensions/twitch/src/access-control.ts:68  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:68
+actual code:
+        }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (7):
+  [1] .github/workflows/auto-response.yml:74
+                    }
+  [2] .github/workflows/auto-response.yml:75
+                  }
+  [3] .github/workflows/auto-response.yml:80
+                  }
+  [4] .github/workflows/auto-response.yml:85
+                  }
+  [5] .github/workflows/auto-response.yml:90
+                  }
+  [6] .github/workflows/auto-response.yml:106
+                  }
+  [7] .github/workflows/auto-response.yml:115
+                  }
+
+====================================================================================================
+entry-00142 trace[0]  extensions/twitch/src/monitor.ts:227  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        const access = checkTwitchAccessControl({
+expected normalized: 'const access = checkTwitchAccessControl({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/monitor.ts:227
+actual code:
+        const access = checkTwitchAccessControl({
+actual normalized: 'const access = checkTwitchAccessControl({'
+
+====================================================================================================
+entry-00142 trace[1]  extensions/twitch/src/access-control.ts:51  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+      if (account.allowFrom && account.allowFrom.length > 0) {
+expected normalized: 'if (account.allowFrom && account.allowFrom.length > 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:51
+actual code:
+      if (account.allowFrom && account.allowFrom.length > 0) {
+actual normalized: 'if (account.allowFrom && account.allowFrom.length > 0) {'
+
+====================================================================================================
+entry-00142 trace[2]  extensions/twitch/src/access-control.ts:62  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        if (allowFrom.includes(senderId)) {
+expected normalized: 'if (allowFrom.includes(senderId)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:62
+actual code:
+        if (allowFrom.includes(senderId)) {
+actual normalized: 'if (allowFrom.includes(senderId)) {'
+
+====================================================================================================
+entry-00142 trace[3]  extensions/twitch/src/access-control.ts:68  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:68
+actual code:
+        }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (7):
+  [1] .github/workflows/auto-response.yml:74
+                    }
+  [2] .github/workflows/auto-response.yml:75
+                  }
+  [3] .github/workflows/auto-response.yml:80
+                  }
+  [4] .github/workflows/auto-response.yml:85
+                  }
+  [5] .github/workflows/auto-response.yml:90
+                  }
+  [6] .github/workflows/auto-response.yml:106
+                  }
+  [7] .github/workflows/auto-response.yml:115
+                  }
+
+====================================================================================================
+entry-00142 trace[4]  extensions/twitch/src/access-control.ts:71  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+      if (account.allowedRoles && account.allowedRoles.length > 0) {
+expected normalized: 'if (account.allowedRoles && account.allowedRoles.length > 0) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:71
+actual code:
+      if (account.allowedRoles && account.allowedRoles.length > 0) {
+actual normalized: 'if (account.allowedRoles && account.allowedRoles.length > 0) {'
+
+====================================================================================================
+entry-00142 trace[5]  extensions/twitch/src/access-control.ts:102  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+      return {
+expected normalized: 'return {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/access-control.ts:102
+actual code:
+      return {
+actual normalized: 'return {'
+
+====================================================================================================
+entry-00142 trace[6]  extensions/twitch/src/monitor.ts:233  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        if (!access.allowed) {
+expected normalized: 'if (!access.allowed) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/monitor.ts:233
+actual code:
+        if (!access.allowed) {
+actual normalized: 'if (!access.allowed) {'
+
+====================================================================================================
+entry-00142 trace[7]  extensions/twitch/src/monitor.ts:240  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+        void processTwitchMessage({
+expected normalized: 'void processTwitchMessage({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/monitor.ts:240
+actual code:
+        void processTwitchMessage({
+actual normalized: 'void processTwitchMessage({'
+
+====================================================================================================
+entry-00142 trace[8]  extensions/twitch/src/monitor.ts:107  report=GHSA-33RQ-M5X2-FVGF
+repo=https://github.com/openclaw/openclaw
+commit=aa2eb48b9c0fe63aa7b8be6329869d3a2539c446
+expected code:
+      await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+expected normalized: 'await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/twitch/src/monitor.ts:107
+actual code:
+      await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+actual normalized: 'await core.channel.reply.dispatchReplyWithBufferedBlockDispatcher({'

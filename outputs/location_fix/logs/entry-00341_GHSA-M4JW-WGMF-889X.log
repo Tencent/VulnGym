@@ -1,0 +1,94 @@
+====================================================================================================
+entry-00341 entry_point  nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:33-38  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def load_adapters(
+            self,
+            filepath: str,
+            peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None,
+            map_location: str = None,
+        ):
+expected normalized: 'def load_adapters( self, filepath: str, peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None, map_location: str = None, ):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:33-38
+actual code:
+        def load_adapters(
+            self,
+            filepath: str,
+            peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None,
+            map_location: str = None,
+        ):
+actual normalized: 'def load_adapters( self, filepath: str, peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None, map_location: str = None, ):'
+
+====================================================================================================
+entry-00341 critical_operation  nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:65  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']
+expected normalized: "state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:65
+actual code:
+                state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']
+actual normalized: "state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']"
+
+====================================================================================================
+entry-00341 trace[0]  nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:33-38  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+        def load_adapters(
+            self,
+            filepath: str,
+            peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None,
+            map_location: str = None,
+        ):
+expected normalized: 'def load_adapters( self, filepath: str, peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None, map_location: str = None, ):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:33-38
+actual code:
+        def load_adapters(
+            self,
+            filepath: str,
+            peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None,
+            map_location: str = None,
+        ):
+actual normalized: 'def load_adapters( self, filepath: str, peft_cfgs: Optional[Union[PEFTConfig, List[PEFTConfig]]] = None, map_location: str = None, ):'
+
+====================================================================================================
+entry-00341 trace[1]  nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:64  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+            elif filepath.endswith('.ckpt'):
+expected normalized: "elif filepath.endswith('.ckpt'):"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:64
+actual code:
+            elif filepath.endswith('.ckpt'):
+actual normalized: "elif filepath.endswith('.ckpt'):"
+
+====================================================================================================
+entry-00341 trace[2]  nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:65  report=GHSA-M4JW-WGMF-889X
+repo=https://github.com/NVIDIA/NeMo
+commit=ffee9a91f4b78ebb441825975a827d80167a21d8
+expected code:
+                state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']
+expected normalized: "state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/multimodal/speech_llm/parts/mixins/adapter_mixin.py:65
+actual code:
+                state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']
+actual normalized: "state_dict = torch.load(filepath, map_location, weights_only=False)['state_dict']"

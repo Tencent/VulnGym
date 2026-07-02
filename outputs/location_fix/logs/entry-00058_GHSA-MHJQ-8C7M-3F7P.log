@@ -1,0 +1,182 @@
+====================================================================================================
+entry-00058 entry_point  internal/distributed/proxy/service.go:245  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    			proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),
+expected normalized: 'proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:245
+actual code:
+    			proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),
+actual normalized: 'proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),'
+
+====================================================================================================
+entry-00058 critical_operation  internal/proxy/authentication_interceptor.go:84  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    		if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {
+expected normalized: 'if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/proxy/authentication_interceptor.go:84
+actual code:
+    		if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {
+actual normalized: 'if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {'
+
+====================================================================================================
+entry-00058 trace[0]  internal/distributed/proxy/service.go:240-249  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    	if enableCustomInterceptor {
+    		unaryServerOption = grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+    			proxy.DatabaseInterceptor(),
+    			UnaryRequestStatsInterceptor,
+    			accesslog.UnaryAccessLogInterceptor,
+    			proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),
+    			proxy.UnaryServerHookInterceptor(),
+    			proxy.UnaryServerInterceptor(proxy.PrivilegeInterceptor),
+    			logutil.UnaryTraceLoggerInterceptor,
+    			proxy.RateLimitInterceptor(limiter),
+expected normalized: 'if enableCustomInterceptor { unaryServerOption = grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer( proxy.DatabaseInterceptor(), UnaryRequestStatsInterceptor, accesslog.UnaryAccessLogInterceptor, proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor), proxy.UnaryServerHookInterceptor(), proxy.UnaryServerInterceptor(proxy.PrivilegeInterceptor), logutil.UnaryTraceLoggerInterceptor, proxy.RateLimitInterceptor(limiter),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:240-249
+actual code:
+    	if enableCustomInterceptor {
+    		unaryServerOption = grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+    			proxy.DatabaseInterceptor(),
+    			UnaryRequestStatsInterceptor,
+    			accesslog.UnaryAccessLogInterceptor,
+    			proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor),
+    			proxy.UnaryServerHookInterceptor(),
+    			proxy.UnaryServerInterceptor(proxy.PrivilegeInterceptor),
+    			logutil.UnaryTraceLoggerInterceptor,
+    			proxy.RateLimitInterceptor(limiter),
+actual normalized: 'if enableCustomInterceptor { unaryServerOption = grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer( proxy.DatabaseInterceptor(), UnaryRequestStatsInterceptor, accesslog.UnaryAccessLogInterceptor, proxy.GrpcAuthInterceptor(proxy.AuthenticationInterceptor), proxy.UnaryServerHookInterceptor(), proxy.UnaryServerInterceptor(proxy.PrivilegeInterceptor), logutil.UnaryTraceLoggerInterceptor, proxy.RateLimitInterceptor(limiter),'
+
+====================================================================================================
+entry-00058 trace[1]  internal/proxy/authentication_interceptor.go:50-59  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    func GrpcAuthInterceptor(authFunc grpc_auth.AuthFunc) grpc.UnaryServerInterceptor {
+    	return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
+    		var newCtx context.Context
+    		var err error
+    		if overrideSrv, ok := info.Server.(grpc_auth.ServiceAuthFuncOverride); ok {
+    			newCtx, err = overrideSrv.AuthFuncOverride(ctx, info.FullMethod)
+    		} else {
+    			newCtx, err = authFunc(ctx)
+    		}
+    		if err != nil {
+expected normalized: 'func GrpcAuthInterceptor(authFunc grpc_auth.AuthFunc) grpc.UnaryServerInterceptor { return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) { var newCtx context.Context var err error if overrideSrv, ok := info.Server.(grpc_auth.ServiceAuthFuncOverride); ok { newCtx, err = overrideSrv.AuthFuncOverride(ctx, info.FullMethod) } else { newCtx, err = authFunc(ctx) } if err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/proxy/authentication_interceptor.go:50-59
+actual code:
+    func GrpcAuthInterceptor(authFunc grpc_auth.AuthFunc) grpc.UnaryServerInterceptor {
+    	return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
+    		var newCtx context.Context
+    		var err error
+    		if overrideSrv, ok := info.Server.(grpc_auth.ServiceAuthFuncOverride); ok {
+    			newCtx, err = overrideSrv.AuthFuncOverride(ctx, info.FullMethod)
+    		} else {
+    			newCtx, err = authFunc(ctx)
+    		}
+    		if err != nil {
+actual normalized: 'func GrpcAuthInterceptor(authFunc grpc_auth.AuthFunc) grpc.UnaryServerInterceptor { return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) { var newCtx context.Context var err error if overrideSrv, ok := info.Server.(grpc_auth.ServiceAuthFuncOverride); ok { newCtx, err = overrideSrv.AuthFuncOverride(ctx, info.FullMethod) } else { newCtx, err = authFunc(ctx) } if err != nil {'
+
+====================================================================================================
+entry-00058 trace[2]  internal/proxy/authentication_interceptor.go:39-48  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    		return false
+    	}
+    	// token format: base64<sourceID>
+    	token := authorization[0]
+    	sourceID, err := crypto.Base64Decode(token)
+    	if err != nil {
+    		return false
+    	}
+    	return sourceID == util.MemberCredID
+    }
+expected normalized: 'return false } // token format: base64<sourceID> token := authorization[0] sourceID, err := crypto.Base64Decode(token) if err != nil { return false } return sourceID == util.MemberCredID }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/proxy/authentication_interceptor.go:39-48
+actual code:
+    		return false
+    	}
+    	// token format: base64<sourceID>
+    	token := authorization[0]
+    	sourceID, err := crypto.Base64Decode(token)
+    	if err != nil {
+    		return false
+    	}
+    	return sourceID == util.MemberCredID
+    }
+actual normalized: 'return false } // token format: base64<sourceID> token := authorization[0] sourceID, err := crypto.Base64Decode(token) if err != nil { return false } return sourceID == util.MemberCredID }'
+
+====================================================================================================
+entry-00058 trace[3]  pkg/util/constant.go:49-52  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    	// HeaderSourceID identify requests from Milvus members and client requests
+    	HeaderSourceID = "sourceId"
+    	// MemberCredID id for Milvus members (data/index/query node/coord component)
+    	MemberCredID        = "@@milvus-member@@"
+expected normalized: '// HeaderSourceID identify requests from Milvus members and client requests HeaderSourceID = "sourceId" // MemberCredID id for Milvus members (data/index/query node/coord component) MemberCredID = "@@milvus-member@@"'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: pkg/util/constant.go:49-52
+actual code:
+    	// HeaderSourceID identify requests from Milvus members and client requests
+    	HeaderSourceID = "sourceId"
+    	// MemberCredID id for Milvus members (data/index/query node/coord component)
+    	MemberCredID        = "@@milvus-member@@"
+actual normalized: '// HeaderSourceID identify requests from Milvus members and client requests HeaderSourceID = "sourceId" // MemberCredID id for Milvus members (data/index/query node/coord component) MemberCredID = "@@milvus-member@@"'
+
+====================================================================================================
+entry-00058 trace[4]  internal/proxy/authentication_interceptor.go:83-92  report=GHSA-MHJQ-8C7M-3F7P
+repo=https://github.com/milvus-io/milvus
+commit=2fad5b34f7d3cf44cf0436ae7f1f31fabf17b6a0
+expected code:
+    	if Params.CommonCfg.AuthorizationEnabled.GetAsBool() {
+    		if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {
+    			authStrArr := md[strings.ToLower(util.HeaderAuthorize)]
+    
+    			if len(authStrArr) < 1 {
+    				log.Warn("key not found in header")
+    				return nil, status.Error(codes.Unauthenticated, "missing authorization in header")
+    			}
+    
+    			// token format: base64<username:password>
+expected normalized: 'if Params.CommonCfg.AuthorizationEnabled.GetAsBool() { if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) { authStrArr := md[strings.ToLower(util.HeaderAuthorize)] if len(authStrArr) < 1 { log.Warn("key not found in header") return nil, status.Error(codes.Unauthenticated, "missing authorization in header") } // token format: base64<username:password>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/proxy/authentication_interceptor.go:83-92
+actual code:
+    	if Params.CommonCfg.AuthorizationEnabled.GetAsBool() {
+    		if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) {
+    			authStrArr := md[strings.ToLower(util.HeaderAuthorize)]
+    
+    			if len(authStrArr) < 1 {
+    				log.Warn("key not found in header")
+    				return nil, status.Error(codes.Unauthenticated, "missing authorization in header")
+    			}
+    
+    			// token format: base64<username:password>
+actual normalized: 'if Params.CommonCfg.AuthorizationEnabled.GetAsBool() { if !validSourceID(ctx, md[strings.ToLower(util.HeaderSourceID)]) { authStrArr := md[strings.ToLower(util.HeaderAuthorize)] if len(authStrArr) < 1 { log.Warn("key not found in header") return nil, status.Error(codes.Unauthenticated, "missing authorization in header") } // token format: base64<username:password>'

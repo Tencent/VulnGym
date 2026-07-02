@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00266 entry_point  packages/server/src/routes/nvidia-nim/index.ts:11  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    router.post('/start-container', nimController.startContainer)
+expected normalized: "router.post('/start-container', nimController.startContainer)"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/nvidia-nim/index.ts:11
+actual code:
+    router.post('/start-container', nimController.startContainer)
+actual normalized: "router.post('/start-container', nimController.startContainer)"
+
+====================================================================================================
+entry-00266 critical_operation  packages/server/src/controllers/nvidia-nim/index.ts:64  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)
+expected normalized: 'await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:64
+actual code:
+            await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)
+actual normalized: 'await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)'
+
+====================================================================================================
+entry-00266 trace[0]  packages/server/src/utils/constants.ts:26  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+        '/api/v1/nvidia-nim',
+expected normalized: "'/api/v1/nvidia-nim',"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/constants.ts:26
+actual code:
+        '/api/v1/nvidia-nim',
+actual normalized: "'/api/v1/nvidia-nim',"
+
+====================================================================================================
+entry-00266 trace[1]  packages/server/src/index.ts:221  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+expected normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:221
+actual code:
+                        const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))
+actual normalized: 'const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))'
+
+====================================================================================================
+entry-00266 trace[2]  packages/server/src/index.ts:223  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+                            next()
+expected normalized: 'next()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/index.ts:223
+actual code:
+                            next()
+actual normalized: 'next()'
+
+====================================================================================================
+entry-00266 trace[3]  packages/server/src/controllers/nvidia-nim/index.ts:54  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+    const startContainer = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const startContainer = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:54
+actual code:
+    const startContainer = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const startContainer = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00266 trace[4]  packages/server/src/controllers/nvidia-nim/index.ts:56  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            const imageTag = req.body.imageTag
+expected normalized: 'const imageTag = req.body.imageTag'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:56
+actual code:
+            const imageTag = req.body.imageTag
+actual normalized: 'const imageTag = req.body.imageTag'
+
+====================================================================================================
+entry-00266 trace[5]  packages/server/src/controllers/nvidia-nim/index.ts:64  report=GHSA-5F53-522J-J454
+repo=https://github.com/FlowiseAI/Flowise
+commit=e135b2943362da036a6942d931b9de76094874af
+expected code:
+            await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)
+expected normalized: 'await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/nvidia-nim/index.ts:64
+actual code:
+            await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)
+actual normalized: 'await NimContainerManager.startContainer(imageTag, apiKey, hostPort, nimRelaxMemConstraints)'

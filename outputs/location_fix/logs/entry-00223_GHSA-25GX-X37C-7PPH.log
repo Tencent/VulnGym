@@ -1,0 +1,112 @@
+====================================================================================================
+entry-00223 entry_point  src/agents/sandbox/browser.ts:99  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    export async function ensureSandboxBrowser(params: {
+expected normalized: 'export async function ensureSandboxBrowser(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:99
+actual code:
+    export async function ensureSandboxBrowser(params: {
+actual normalized: 'export async function ensureSandboxBrowser(params: {'
+
+====================================================================================================
+entry-00223 critical_operation  src/agents/system-prompt.ts:531-533  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+              params.sandboxInfo.browserNoVncUrl
+                ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}`
+                : "",
+expected normalized: 'params.sandboxInfo.browserNoVncUrl ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}` : "",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/system-prompt.ts:531-533
+actual code:
+              params.sandboxInfo.browserNoVncUrl
+                ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}`
+                : "",
+actual normalized: 'params.sandboxInfo.browserNoVncUrl ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}` : "",'
+
+====================================================================================================
+entry-00223 trace[0]  src/agents/sandbox/browser.ts:99  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+    export async function ensureSandboxBrowser(params: {
+expected normalized: 'export async function ensureSandboxBrowser(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:99
+actual code:
+    export async function ensureSandboxBrowser(params: {
+actual normalized: 'export async function ensureSandboxBrowser(params: {'
+
+====================================================================================================
+entry-00223 trace[1]  src/agents/sandbox/browser.ts:326  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+        mappedNoVnc && params.cfg.browser.enableNoVnc && !params.cfg.browser.headless
+expected normalized: 'mappedNoVnc && params.cfg.browser.enableNoVnc && !params.cfg.browser.headless'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:326
+actual code:
+        mappedNoVnc && params.cfg.browser.enableNoVnc && !params.cfg.browser.headless
+actual normalized: 'mappedNoVnc && params.cfg.browser.enableNoVnc && !params.cfg.browser.headless'
+
+====================================================================================================
+entry-00223 trace[2]  src/agents/sandbox/browser.ts:332  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+        noVncUrl,
+expected normalized: 'noVncUrl,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/sandbox/browser.ts:332
+actual code:
+        noVncUrl,
+actual normalized: 'noVncUrl,'
+
+====================================================================================================
+entry-00223 trace[3]  src/agents/pi-embedded-runner/sandbox-info.ts:20  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+        browserNoVncUrl: sandbox.browser?.noVncUrl,
+expected normalized: 'browserNoVncUrl: sandbox.browser?.noVncUrl,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/sandbox-info.ts:20
+actual code:
+        browserNoVncUrl: sandbox.browser?.noVncUrl,
+actual normalized: 'browserNoVncUrl: sandbox.browser?.noVncUrl,'
+
+====================================================================================================
+entry-00223 trace[4]  src/agents/system-prompt.ts:531-533  report=GHSA-25GX-X37C-7PPH
+repo=https://github.com/openclaw/openclaw
+commit=6cb7e16d400366602e0bd0e0ac04898b86232782
+expected code:
+              params.sandboxInfo.browserNoVncUrl
+                ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}`
+                : "",
+expected normalized: 'params.sandboxInfo.browserNoVncUrl ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}` : "",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/system-prompt.ts:531-533
+actual code:
+              params.sandboxInfo.browserNoVncUrl
+                ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}`
+                : "",
+actual normalized: 'params.sandboxInfo.browserNoVncUrl ? `Sandbox browser observer (noVNC): ${sanitizeForPromptLiteral(params.sandboxInfo.browserNoVncUrl)}` : "",'

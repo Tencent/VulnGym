@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00181 entry_point  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:245  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    			Buffer: new Proxy(Buffer, {
+expected normalized: 'Buffer: new Proxy(Buffer, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:245
+actual code:
+    			Buffer: new Proxy(Buffer, {
+actual normalized: 'Buffer: new Proxy(Buffer, {'
+
+====================================================================================================
+entry-00181 critical_operation  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:252  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    					return target[prop as keyof typeof Buffer];
+expected normalized: 'return target[prop as keyof typeof Buffer];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:252
+actual code:
+    					return target[prop as keyof typeof Buffer];
+actual normalized: 'return target[prop as keyof typeof Buffer];'
+
+====================================================================================================
+entry-00181 trace[0]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:245  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    			Buffer: new Proxy(Buffer, {
+expected normalized: 'Buffer: new Proxy(Buffer, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:245
+actual code:
+    			Buffer: new Proxy(Buffer, {
+actual normalized: 'Buffer: new Proxy(Buffer, {'
+
+====================================================================================================
+entry-00181 trace[1]  packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:252  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    					return target[prop as keyof typeof Buffer];
+expected normalized: 'return target[prop as keyof typeof Buffer];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/@n8n/task-runner/src/js-task-runner/js-task-runner.ts:252
+actual code:
+    					return target[prop as keyof typeof Buffer];
+actual normalized: 'return target[prop as keyof typeof Buffer];'

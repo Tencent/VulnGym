@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00179 entry_point  packages/workflow/src/expression-sandboxing.ts:22  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    const EMPTY_CONTEXT = b.objectExpression([
+expected normalized: 'const EMPTY_CONTEXT = b.objectExpression(['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:22
+actual code:
+    const EMPTY_CONTEXT = b.objectExpression([
+actual normalized: 'const EMPTY_CONTEXT = b.objectExpression(['
+
+====================================================================================================
+entry-00179 critical_operation  packages/workflow/src/expression-sandboxing.ts:76  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+expected normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:76
+actual code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+actual normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'
+
+====================================================================================================
+entry-00179 trace[0]  packages/workflow/src/expression-sandboxing.ts:22  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    const EMPTY_CONTEXT = b.objectExpression([
+expected normalized: 'const EMPTY_CONTEXT = b.objectExpression(['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:22
+actual code:
+    const EMPTY_CONTEXT = b.objectExpression([
+actual normalized: 'const EMPTY_CONTEXT = b.objectExpression(['
+
+====================================================================================================
+entry-00179 trace[1]  packages/workflow/src/expression-sandboxing.ts:250  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+expected normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:250
+actual code:
+    export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {
+actual normalized: 'export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {'
+
+====================================================================================================
+entry-00179 trace[2]  packages/workflow/src/expression-sandboxing.ts:71  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    const GLOBAL_IDENTIFIERS = new Set(['globalThis']);
+expected normalized: "const GLOBAL_IDENTIFIERS = new Set(['globalThis']);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:71
+actual code:
+    const GLOBAL_IDENTIFIERS = new Set(['globalThis']);
+actual normalized: "const GLOBAL_IDENTIFIERS = new Set(['globalThis']);"
+
+====================================================================================================
+entry-00179 trace[3]  packages/workflow/src/expression-sandboxing.ts:76  report=GHSA-VPCF-GVG4-6QWR
+repo=https://github.com/n8n-io/n8n
+commit=8e81f3e31398b04fd6f8cc27cf844980cd382117
+expected code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+expected normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/workflow/src/expression-sandboxing.ts:76
+actual code:
+    export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {
+actual normalized: 'export const ThisSanitizer: ASTBeforeHook = (ast, dataNode) => {'

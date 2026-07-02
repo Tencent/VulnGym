@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00071 entry_point  src/backend/base/langflow/api/v1/monitor.py:46  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.get("/messages", response_model=list[MessageResponse])
+expected normalized: '@router.get("/messages", response_model=list[MessageResponse])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:46
+actual code:
+    @router.get("/messages", response_model=list[MessageResponse])
+actual normalized: '@router.get("/messages", response_model=list[MessageResponse])'
+
+====================================================================================================
+entry-00071 critical_operation  src/backend/base/langflow/api/v1/monitor.py:68  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            messages = session.exec(stmt)
+expected normalized: 'messages = session.exec(stmt)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:68
+actual code:
+            messages = session.exec(stmt)
+actual normalized: 'messages = session.exec(stmt)'
+
+====================================================================================================
+entry-00071 trace[0]  src/backend/base/langflow/api/v1/monitor.py:46  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    @router.get("/messages", response_model=list[MessageResponse])
+expected normalized: '@router.get("/messages", response_model=list[MessageResponse])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:46
+actual code:
+    @router.get("/messages", response_model=list[MessageResponse])
+actual normalized: '@router.get("/messages", response_model=list[MessageResponse])'
+
+====================================================================================================
+entry-00071 trace[1]  src/backend/base/langflow/api/v1/monitor.py:47  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+    async def get_messages(
+expected normalized: 'async def get_messages('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:47
+actual code:
+    async def get_messages(
+actual normalized: 'async def get_messages('
+
+====================================================================================================
+entry-00071 trace[2]  src/backend/base/langflow/api/v1/monitor.py:56  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            stmt = select(MessageTable)
+expected normalized: 'stmt = select(MessageTable)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:56
+actual code:
+            stmt = select(MessageTable)
+actual normalized: 'stmt = select(MessageTable)'
+
+====================================================================================================
+entry-00071 trace[3]  src/backend/base/langflow/api/v1/monitor.py:68  report=GHSA-C5CP-VX83-JHQX
+repo=https://github.com/langflow-ai/langflow
+commit=908c141d972118286d682124ce53ced16a4140ea
+expected code:
+            messages = session.exec(stmt)
+expected normalized: 'messages = session.exec(stmt)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v1/monitor.py:68
+actual code:
+            messages = session.exec(stmt)
+actual normalized: 'messages = session.exec(stmt)'

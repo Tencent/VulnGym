@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00322 entry_point  src/agents/bash-tools.exec-host-gateway.ts:57  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    export async function processGatewayAllowlist(
+expected normalized: 'export async function processGatewayAllowlist('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:57
+actual code:
+    export async function processGatewayAllowlist(
+actual normalized: 'export async function processGatewayAllowlist('
+
+====================================================================================================
+entry-00322 critical_operation  src/infra/exec-approvals.ts:480  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+      allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });
+expected normalized: 'allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals.ts:480
+actual code:
+      allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });
+actual normalized: 'allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });'
+
+====================================================================================================
+entry-00322 trace[0]  src/agents/bash-tools.exec-host-gateway.ts:57  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    export async function processGatewayAllowlist(
+expected normalized: 'export async function processGatewayAllowlist('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:57
+actual code:
+    export async function processGatewayAllowlist(
+actual normalized: 'export async function processGatewayAllowlist('
+
+====================================================================================================
+entry-00322 trace[1]  src/agents/bash-tools.exec-host-gateway.ts:157  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+          } else if (decision === "allow-always") {
+expected normalized: '} else if (decision === "allow-always") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:157
+actual code:
+          } else if (decision === "allow-always") {
+actual normalized: '} else if (decision === "allow-always") {'
+
+====================================================================================================
+entry-00322 trace[2]  src/agents/bash-tools.exec-host-gateway.ts:160  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+              const patterns = resolveAllowAlwaysPatterns({
+expected normalized: 'const patterns = resolveAllowAlwaysPatterns({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-host-gateway.ts:160
+actual code:
+              const patterns = resolveAllowAlwaysPatterns({
+actual normalized: 'const patterns = resolveAllowAlwaysPatterns({'
+
+====================================================================================================
+entry-00322 trace[3]  src/infra/exec-approvals-allowlist.ts:340  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    export function resolveAllowAlwaysPatterns(params: {
+expected normalized: 'export function resolveAllowAlwaysPatterns(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:340
+actual code:
+    export function resolveAllowAlwaysPatterns(params: {
+actual normalized: 'export function resolveAllowAlwaysPatterns(params: {'
+
+====================================================================================================
+entry-00322 trace[4]  src/infra/exec-approvals-allowlist.ts:291  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    function collectAllowAlwaysPatterns(params: {
+expected normalized: 'function collectAllowAlwaysPatterns(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:291
+actual code:
+    function collectAllowAlwaysPatterns(params: {
+actual normalized: 'function collectAllowAlwaysPatterns(params: {'
+
+====================================================================================================
+entry-00322 trace[5]  src/infra/exec-approvals-allowlist.ts:303  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+      if (!isShellWrapperSegment(params.segment)) {
+expected normalized: 'if (!isShellWrapperSegment(params.segment)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:303
+actual code:
+      if (!isShellWrapperSegment(params.segment)) {
+actual normalized: 'if (!isShellWrapperSegment(params.segment)) {'
+
+====================================================================================================
+entry-00322 trace[6]  src/infra/exec-approvals-allowlist.ts:218  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+    const SHELL_WRAPPER_EXECUTABLES = new Set([
+expected normalized: 'const SHELL_WRAPPER_EXECUTABLES = new Set(['
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:218
+actual code:
+    const SHELL_WRAPPER_EXECUTABLES = new Set([
+actual normalized: 'const SHELL_WRAPPER_EXECUTABLES = new Set(['
+
+====================================================================================================
+entry-00322 trace[7]  src/infra/exec-approvals.ts:480  report=GHSA-PFV5-RPCW-X34X
+repo=https://github.com/openclaw/openclaw
+commit=4adfe800276f1eacd2e0af79db34af1267d6c7ec
+expected code:
+      allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });
+expected normalized: 'allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals.ts:480
+actual code:
+      allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });
+actual normalized: 'allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });'

@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00313 entry_point  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:84  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],
+expected normalized: 'dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:84
+actual code:
+        dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],
+actual normalized: 'dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],'
+
+====================================================================================================
+entry-00313 critical_operation  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:117  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        dag_versions_select, total_entries = paginated_select(
+expected normalized: 'dag_versions_select, total_entries = paginated_select('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:117
+actual code:
+        dag_versions_select, total_entries = paginated_select(
+actual normalized: 'dag_versions_select, total_entries = paginated_select('
+
+====================================================================================================
+entry-00313 trace[0]  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:84  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],
+expected normalized: 'dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:84
+actual code:
+        dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],
+actual normalized: 'dependencies=[Depends(requires_access_dag(method="GET", access_entity=DagAccessEntity.VERSION))],'
+
+====================================================================================================
+entry-00313 trace[1]  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:86  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+    def get_dag_versions(
+expected normalized: 'def get_dag_versions('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:86
+actual code:
+    def get_dag_versions(
+actual normalized: 'def get_dag_versions('
+
+====================================================================================================
+entry-00313 trace[2]  airflow-core/src/airflow/api_fastapi/core_api/security.py:164  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+                dag_id = dag_id if dag_id != "~" else None
+expected normalized: 'dag_id = dag_id if dag_id != "~" else None'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/security.py:164
+actual code:
+                dag_id = dag_id if dag_id != "~" else None
+actual normalized: 'dag_id = dag_id if dag_id != "~" else None'
+
+====================================================================================================
+entry-00313 trace[3]  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:113  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        if dag_id != "~":
+expected normalized: 'if dag_id != "~":'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:113
+actual code:
+        if dag_id != "~":
+actual normalized: 'if dag_id != "~":'
+
+====================================================================================================
+entry-00313 trace[4]  airflow-core/src/airflow/api_fastapi/core_api/security.py:242  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        def depends_permitted_dags_filter(
+expected normalized: 'def depends_permitted_dags_filter('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/security.py:242
+actual code:
+        def depends_permitted_dags_filter(
+actual normalized: 'def depends_permitted_dags_filter('
+
+====================================================================================================
+entry-00313 trace[5]  airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:117  report=GHSA-4M3H-WP5W-5HQH
+repo=https://github.com/apache/airflow
+commit=19c1a16dc8b44ba470198c300b25defc7848576f
+expected code:
+        dag_versions_select, total_entries = paginated_select(
+expected normalized: 'dag_versions_select, total_entries = paginated_select('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: airflow-core/src/airflow/api_fastapi/core_api/routes/public/dag_versions.py:117
+actual code:
+        dag_versions_select, total_entries = paginated_select(
+actual normalized: 'dag_versions_select, total_entries = paginated_select('

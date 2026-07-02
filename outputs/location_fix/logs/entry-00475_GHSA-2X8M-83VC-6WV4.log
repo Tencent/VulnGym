@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00475 entry_point  packages/components/src/utils.ts:478  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {
+expected normalized: 'export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:478
+actual code:
+    export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {
+actual normalized: 'export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00475 critical_operation  packages/components/src/httpSecurity.ts:216  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                isDeniedIP(r.address, denyList)
+expected normalized: 'isDeniedIP(r.address, denyList)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:216
+actual code:
+                isDeniedIP(r.address, denyList)
+actual normalized: 'isDeniedIP(r.address, denyList)'
+
+====================================================================================================
+entry-00475 trace[0]  packages/components/src/utils.ts:478  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {
+expected normalized: 'export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/utils.ts:478
+actual code:
+    export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {
+actual normalized: 'export async function xmlScrape(currentURL: string, limit: number): Promise<string[]> {'
+
+====================================================================================================
+entry-00475 trace[1]  packages/components/src/httpSecurity.ts:133  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    export async function secureFetch(url: string, init?: RequestInit, maxRedirects: number = 5): Promise<Response> {
+expected normalized: 'export async function secureFetch(url: string, init?: RequestInit, maxRedirects: number = 5): Promise<Response> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:133
+actual code:
+    export async function secureFetch(url: string, init?: RequestInit, maxRedirects: number = 5): Promise<Response> {
+actual normalized: 'export async function secureFetch(url: string, init?: RequestInit, maxRedirects: number = 5): Promise<Response> {'
+
+====================================================================================================
+entry-00475 trace[2]  packages/components/src/httpSecurity.ts:188  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+    async function resolveAndValidate(url: string): Promise<ResolvedTarget> {
+expected normalized: 'async function resolveAndValidate(url: string): Promise<ResolvedTarget> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:188
+actual code:
+    async function resolveAndValidate(url: string): Promise<ResolvedTarget> {
+actual normalized: 'async function resolveAndValidate(url: string): Promise<ResolvedTarget> {'
+
+====================================================================================================
+entry-00475 trace[3]  packages/components/src/httpSecurity.ts:216  report=GHSA-2X8M-83VC-6WV4
+repo=https://github.com/FlowiseAI/Flowise
+commit=f0c1294173a55f26e0b972c39c0c16917f5ca9e7
+expected code:
+                isDeniedIP(r.address, denyList)
+expected normalized: 'isDeniedIP(r.address, denyList)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:216
+actual code:
+                isDeniedIP(r.address, denyList)
+actual normalized: 'isDeniedIP(r.address, denyList)'

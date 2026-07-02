@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00432 entry_point  src/google/adk/cli/adk_web_server.py:1959  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.websocket("/run_live")
+expected normalized: '@app.websocket("/run_live")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1959
+actual code:
+        @app.websocket("/run_live")
+actual normalized: '@app.websocket("/run_live")'
+
+====================================================================================================
+entry-00432 critical_operation  src/google/adk/cli/utils/agent_loader.py:74  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(agent_name)
+expected normalized: 'module_candidate = importlib.import_module(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:74
+actual code:
+          module_candidate = importlib.import_module(agent_name)
+actual normalized: 'module_candidate = importlib.import_module(agent_name)'
+
+====================================================================================================
+entry-00432 trace[0]  src/google/adk/cli/adk_web_server.py:1959  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.websocket("/run_live")
+expected normalized: '@app.websocket("/run_live")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1959
+actual code:
+        @app.websocket("/run_live")
+actual normalized: '@app.websocket("/run_live")'
+
+====================================================================================================
+entry-00432 trace[1]  src/google/adk/cli/adk_web_server.py:1994  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          async def forward_events():
+expected normalized: 'async def forward_events():'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1994
+actual code:
+          async def forward_events():
+actual normalized: 'async def forward_events():'
+
+====================================================================================================
+entry-00432 trace[2]  src/google/adk/cli/utils/agent_loader.py:74  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(agent_name)
+expected normalized: 'module_candidate = importlib.import_module(agent_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:74
+actual code:
+          module_candidate = importlib.import_module(agent_name)
+actual normalized: 'module_candidate = importlib.import_module(agent_name)'

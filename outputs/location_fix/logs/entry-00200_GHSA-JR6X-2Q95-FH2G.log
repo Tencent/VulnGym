@@ -1,0 +1,59 @@
+====================================================================================================
+entry-00200 entry_point  src/gateway/openai-http.ts:250  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    const result = await agentCommand(commandInput, defaultRuntime, deps);
+expected normalized: 'const result = await agentCommand(commandInput, defaultRuntime, deps);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/openai-http.ts:250
+actual code:
+          const result = await agentCommand(commandInput, defaultRuntime, deps);
+actual normalized: 'const result = await agentCommand(commandInput, defaultRuntime, deps);'
+
+====================================================================================================
+entry-00200 critical_operation  src/commands/agent.ts:126  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    function runAgentAttempt(params: {
+expected normalized: 'function runAgentAttempt(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/agent.ts:126
+actual code:
+    function runAgentAttempt(params: {
+actual normalized: 'function runAgentAttempt(params: {'
+
+====================================================================================================
+entry-00200 trace[0]  src/gateway/openai-http.ts:250  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    const result = await agentCommand(commandInput, defaultRuntime, deps);
+expected normalized: 'const result = await agentCommand(commandInput, defaultRuntime, deps);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/openai-http.ts:250
+actual code:
+          const result = await agentCommand(commandInput, defaultRuntime, deps);
+actual normalized: 'const result = await agentCommand(commandInput, defaultRuntime, deps);'
+
+====================================================================================================
+entry-00200 trace[1]  src/commands/agent.ts:126  report=GHSA-JR6X-2Q95-FH2G
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    function runAgentAttempt(params: {
+expected normalized: 'function runAgentAttempt(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/commands/agent.ts:126
+actual code:
+    function runAgentAttempt(params: {
+actual normalized: 'function runAgentAttempt(params: {'

@@ -1,0 +1,151 @@
+====================================================================================================
+entry-00496 entry_point  src/agents/bash-tools.exec-runtime.ts:151  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+      host: Type.Optional(
+expected normalized: 'host: Type.Optional('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:151
+actual code:
+      host: Type.Optional(
+actual normalized: 'host: Type.Optional('
+
+====================================================================================================
+entry-00496 critical_operation  src/agents/bash-tools.exec-runtime.ts:231  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+        if (params.sandboxAvailable && params.requestedTarget === "gateway") {
+expected normalized: 'if (params.sandboxAvailable && params.requestedTarget === "gateway") {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:231
+actual code:
+        if (params.sandboxAvailable && params.requestedTarget === "gateway") {
+actual normalized: 'if (params.sandboxAvailable && params.requestedTarget === "gateway") {'
+
+====================================================================================================
+entry-00496 trace[0]  src/agents/bash-tools.exec-runtime.ts:151-155  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+      host: Type.Optional(
+        Type.String({
+          description: "Exec host/target (auto|sandbox|gateway|node).",
+        }),
+      ),
+expected normalized: 'host: Type.Optional( Type.String({ description: "Exec host/target (auto|sandbox|gateway|node).", }), ),'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:151-155
+actual code:
+      host: Type.Optional(
+        Type.String({
+          description: "Exec host/target (auto|sandbox|gateway|node).",
+        }),
+      ),
+actual normalized: 'host: Type.Optional( Type.String({ description: "Exec host/target (auto|sandbox|gateway|node).", }), ),'
+
+====================================================================================================
+entry-00496 trace[1]  src/agents/bash-tools.exec-runtime.ts:244-253  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+    }) {
+      const configuredTarget = params.configuredTarget ?? "auto";
+      const requestedTarget = params.requestedTarget ?? null;
+      if (
+        requestedTarget &&
+        !isRequestedExecTargetAllowed({
+          configuredTarget,
+          requestedTarget,
+          sandboxAvailable: params.sandboxAvailable,
+        })
+expected normalized: '}) { const configuredTarget = params.configuredTarget ?? "auto"; const requestedTarget = params.requestedTarget ?? null; if ( requestedTarget && !isRequestedExecTargetAllowed({ configuredTarget, requestedTarget, sandboxAvailable: params.sandboxAvailable, })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:244-253
+actual code:
+    }) {
+      const configuredTarget = params.configuredTarget ?? "auto";
+      const requestedTarget = params.requestedTarget ?? null;
+      if (
+        requestedTarget &&
+        !isRequestedExecTargetAllowed({
+          configuredTarget,
+          requestedTarget,
+          sandboxAvailable: params.sandboxAvailable,
+        })
+actual normalized: '}) { const configuredTarget = params.configuredTarget ?? "auto"; const requestedTarget = params.requestedTarget ?? null; if ( requestedTarget && !isRequestedExecTargetAllowed({ configuredTarget, requestedTarget, sandboxAvailable: params.sandboxAvailable, })'
+
+====================================================================================================
+entry-00496 trace[2]  src/agents/bash-tools.exec-runtime.ts:228-237  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+        return true;
+      }
+      if (params.configuredTarget === "auto") {
+        if (params.sandboxAvailable && params.requestedTarget === "gateway") {
+          return false;
+        }
+        return true;
+      }
+      return false;
+    }
+expected normalized: 'return true; } if (params.configuredTarget === "auto") { if (params.sandboxAvailable && params.requestedTarget === "gateway") { return false; } return true; } return false; }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:228-237
+actual code:
+        return true;
+      }
+      if (params.configuredTarget === "auto") {
+        if (params.sandboxAvailable && params.requestedTarget === "gateway") {
+          return false;
+        }
+        return true;
+      }
+      return false;
+    }
+actual normalized: 'return true; } if (params.configuredTarget === "auto") { if (params.sandboxAvailable && params.requestedTarget === "gateway") { return false; } return true; } return false; }'
+
+====================================================================================================
+entry-00496 trace[3]  src/agents/bash-tools.exec-runtime.ts:268-277  report=GHSA-736R-JWJ6-4W23
+repo=https://github.com/openclaw/openclaw
+commit=777c6f7580918e6711c4457cbd91161cbaefe311
+expected code:
+      const selectedTarget = requestedTarget ?? configuredTarget;
+      const resolvedTarget = params.elevatedRequested
+        ? selectedTarget === "node"
+          ? "node"
+          : "gateway"
+        : selectedTarget;
+      const effectiveHost =
+        resolvedTarget === "auto" ? (params.sandboxAvailable ? "sandbox" : "gateway") : resolvedTarget;
+      return {
+        configuredTarget,
+expected normalized: 'const selectedTarget = requestedTarget ?? configuredTarget; const resolvedTarget = params.elevatedRequested ? selectedTarget === "node" ? "node" : "gateway" : selectedTarget; const effectiveHost = resolvedTarget === "auto" ? (params.sandboxAvailable ? "sandbox" : "gateway") : resolvedTarget; return { configuredTarget,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec-runtime.ts:268-277
+actual code:
+      const selectedTarget = requestedTarget ?? configuredTarget;
+      const resolvedTarget = params.elevatedRequested
+        ? selectedTarget === "node"
+          ? "node"
+          : "gateway"
+        : selectedTarget;
+      const effectiveHost =
+        resolvedTarget === "auto" ? (params.sandboxAvailable ? "sandbox" : "gateway") : resolvedTarget;
+      return {
+        configuredTarget,
+actual normalized: 'const selectedTarget = requestedTarget ?? configuredTarget; const resolvedTarget = params.elevatedRequested ? selectedTarget === "node" ? "node" : "gateway" : selectedTarget; const effectiveHost = resolvedTarget === "auto" ? (params.sandboxAvailable ? "sandbox" : "gateway") : resolvedTarget; return { configuredTarget,'

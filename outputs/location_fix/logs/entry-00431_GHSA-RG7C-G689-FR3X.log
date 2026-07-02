@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00431 entry_point  src/google/adk/cli/adk_web_server.py:1836  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/run_sse")
+expected normalized: '@app.post("/run_sse")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1836
+actual code:
+        @app.post("/run_sse")
+actual normalized: '@app.post("/run_sse")'
+
+====================================================================================================
+entry-00431 critical_operation  src/google/adk/cli/utils/agent_loader.py:122  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(f"{agent_name}.agent")
+expected normalized: 'module_candidate = importlib.import_module(f"{agent_name}.agent")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:122
+actual code:
+          module_candidate = importlib.import_module(f"{agent_name}.agent")
+actual normalized: 'module_candidate = importlib.import_module(f"{agent_name}.agent")'
+
+====================================================================================================
+entry-00431 trace[0]  src/google/adk/cli/adk_web_server.py:1836  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+        @app.post("/run_sse")
+expected normalized: '@app.post("/run_sse")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1836
+actual code:
+        @app.post("/run_sse")
+actual normalized: '@app.post("/run_sse")'
+
+====================================================================================================
+entry-00431 trace[1]  src/google/adk/cli/adk_web_server.py:1839  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          runner = await self.get_runner_async(req.app_name)
+expected normalized: 'runner = await self.get_runner_async(req.app_name)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/adk_web_server.py:1839
+actual code:
+          runner = await self.get_runner_async(req.app_name)
+actual normalized: 'runner = await self.get_runner_async(req.app_name)'
+
+====================================================================================================
+entry-00431 trace[2]  src/google/adk/cli/utils/agent_loader.py:122  report=GHSA-RG7C-G689-FR3X
+repo=https://github.com/google/adk-python
+commit=d1121317ef4e1ac559f4ae13855ac1af28eef8f6
+expected code:
+          module_candidate = importlib.import_module(f"{agent_name}.agent")
+expected normalized: 'module_candidate = importlib.import_module(f"{agent_name}.agent")'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/google/adk/cli/utils/agent_loader.py:122
+actual code:
+          module_candidate = importlib.import_module(f"{agent_name}.agent")
+actual normalized: 'module_candidate = importlib.import_module(f"{agent_name}.agent")'

@@ -1,0 +1,119 @@
+====================================================================================================
+entry-00278 entry_point  packages/server/src/routes/predictions/index.ts:10  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.post(
+expected normalized: 'router.post('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/predictions/index.ts:10
+actual code:
+    router.post(
+actual normalized: 'router.post('
+
+====================================================================================================
+entry-00278 critical_operation  packages/components/src/httpSecurity.ts:38  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    export async function checkDenyList(url: string): Promise<void> {
+expected normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:38
+actual code:
+    export async function checkDenyList(url: string): Promise<void> {
+actual normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+
+====================================================================================================
+entry-00278 trace[0]  packages/server/src/routes/predictions/index.ts:10  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    router.post(
+expected normalized: 'router.post('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/routes/predictions/index.ts:10
+actual code:
+    router.post(
+actual normalized: 'router.post('
+
+====================================================================================================
+entry-00278 trace[1]  packages/server/src/utils/buildChatflow.ts:778  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            let result = await endingNodeInstance.run(endingNodeData, finalQuestion, runParams)
+expected normalized: 'let result = await endingNodeInstance.run(endingNodeData, finalQuestion, runParams)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/buildChatflow.ts:778
+actual code:
+            let result = await endingNodeInstance.run(endingNodeData, finalQuestion, runParams)
+actual normalized: 'let result = await endingNodeInstance.run(endingNodeData, finalQuestion, runParams)'
+
+====================================================================================================
+entry-00278 trace[2]  packages/components/nodes/tools/RequestsGet/core.ts:96  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const inputUrl = this.url
+expected normalized: 'const inputUrl = this.url'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/tools/RequestsGet/core.ts:96
+actual code:
+            const inputUrl = this.url
+actual normalized: 'const inputUrl = this.url'
+
+====================================================================================================
+entry-00278 trace[3]  packages/components/nodes/tools/RequestsGet/core.ts:170  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                const res = await secureFetch(finalUrl, {
+expected normalized: 'const res = await secureFetch(finalUrl, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/tools/RequestsGet/core.ts:170
+actual code:
+                const res = await secureFetch(finalUrl, {
+actual normalized: 'const res = await secureFetch(finalUrl, {'
+
+====================================================================================================
+entry-00278 trace[4]  packages/components/src/httpSecurity.ts:175  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+        await checkDenyList(currentUrl)
+expected normalized: 'await checkDenyList(currentUrl)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:175
+actual code:
+        await checkDenyList(currentUrl)
+actual normalized: 'await checkDenyList(currentUrl)'
+
+====================================================================================================
+entry-00278 trace[5]  packages/components/src/httpSecurity.ts:38  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    export async function checkDenyList(url: string): Promise<void> {
+expected normalized: 'export async function checkDenyList(url: string): Promise<void> {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:38
+actual code:
+    export async function checkDenyList(url: string): Promise<void> {
+actual normalized: 'export async function checkDenyList(url: string): Promise<void> {'

@@ -1,0 +1,117 @@
+====================================================================================================
+entry-00080 entry_point  internal/handler/mcp_service.go:41  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	if err := c.ShouldBindJSON(&service); err != nil {
+expected normalized: 'if err := c.ShouldBindJSON(&service); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/mcp_service.go:41
+actual code:
+    	if err := c.ShouldBindJSON(&service); err != nil {
+actual normalized: 'if err := c.ShouldBindJSON(&service); err != nil {'
+
+====================================================================================================
+entry-00080 critical_operation  internal/mcp/client.go:133  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    		mcpClient, err = client.NewStdioMCPClientWithOptions(
+expected normalized: 'mcpClient, err = client.NewStdioMCPClientWithOptions('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/mcp/client.go:133
+actual code:
+    		mcpClient, err = client.NewStdioMCPClientWithOptions(
+actual normalized: 'mcpClient, err = client.NewStdioMCPClientWithOptions('
+
+====================================================================================================
+entry-00080 trace[0]  internal/handler/mcp_service.go:41  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	if err := c.ShouldBindJSON(&service); err != nil {
+expected normalized: 'if err := c.ShouldBindJSON(&service); err != nil {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/mcp_service.go:41
+actual code:
+    	if err := c.ShouldBindJSON(&service); err != nil {
+actual normalized: 'if err := c.ShouldBindJSON(&service); err != nil {'
+
+====================================================================================================
+entry-00080 trace[1]  internal/handler/mcp_service.go:325-334  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	result, err := h.mcpServiceService.TestMCPService(ctx, tenantID, serviceID)
+    	if err != nil {
+    		logger.ErrorWithFields(ctx, err, map[string]interface{}{"service_id": secutils.SanitizeForLog(serviceID)})
+    		c.JSON(http.StatusOK, gin.H{
+    			"success": true,
+    			"data": types.MCPTestResult{
+    				Success: false,
+    				Message: "Test failed: " + err.Error(),
+    			},
+    		})
+expected normalized: 'result, err := h.mcpServiceService.TestMCPService(ctx, tenantID, serviceID) if err != nil { logger.ErrorWithFields(ctx, err, map[string]interface{}{"service_id": secutils.SanitizeForLog(serviceID)}) c.JSON(http.StatusOK, gin.H{ "success": true, "data": types.MCPTestResult{ Success: false, Message: "Test failed: " + err.Error(), }, })'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/handler/mcp_service.go:325-334
+actual code:
+    	result, err := h.mcpServiceService.TestMCPService(ctx, tenantID, serviceID)
+    	if err != nil {
+    		logger.ErrorWithFields(ctx, err, map[string]interface{}{"service_id": secutils.SanitizeForLog(serviceID)})
+    		c.JSON(http.StatusOK, gin.H{
+    			"success": true,
+    			"data": types.MCPTestResult{
+    				Success: false,
+    				Message: "Test failed: " + err.Error(),
+    			},
+    		})
+actual normalized: 'result, err := h.mcpServiceService.TestMCPService(ctx, tenantID, serviceID) if err != nil { logger.ErrorWithFields(ctx, err, map[string]interface{}{"service_id": secutils.SanitizeForLog(serviceID)}) c.JSON(http.StatusOK, gin.H{ "success": true, "data": types.MCPTestResult{ Success: false, Message: "Test failed: " + err.Error(), }, })'
+
+====================================================================================================
+entry-00080 trace[2]  internal/application/service/mcp_service.go:246-251  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    	// Create temporary client for testing
+    	config := &mcp.ClientConfig{
+    		Service: service,
+    	}
+    
+    	client, err := mcp.NewMCPClient(config)
+expected normalized: '// Create temporary client for testing config := &mcp.ClientConfig{ Service: service, } client, err := mcp.NewMCPClient(config)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/application/service/mcp_service.go:246-251
+actual code:
+    	// Create temporary client for testing
+    	config := &mcp.ClientConfig{
+    		Service: service,
+    	}
+    
+    	client, err := mcp.NewMCPClient(config)
+actual normalized: '// Create temporary client for testing config := &mcp.ClientConfig{ Service: service, } client, err := mcp.NewMCPClient(config)'
+
+====================================================================================================
+entry-00080 trace[3]  internal/mcp/client.go:133  report=GHSA-78H3-63C4-5FQC
+repo=https://github.com/Tencent/WeKnora
+commit=a20541cd9d0a54dbff0b9112f1299c64347370ff
+expected code:
+    		mcpClient, err = client.NewStdioMCPClientWithOptions(
+expected normalized: 'mcpClient, err = client.NewStdioMCPClientWithOptions('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/mcp/client.go:133
+actual code:
+    		mcpClient, err = client.NewStdioMCPClientWithOptions(
+actual normalized: 'mcpClient, err = client.NewStdioMCPClientWithOptions('

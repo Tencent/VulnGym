@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00117 entry_point  internal/distributed/proxy/service.go:155  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    func (s *Server) registerHTTPServer() {
+expected normalized: 'func (s *Server) registerHTTPServer() {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:155
+actual code:
+    func (s *Server) registerHTTPServer() {
+actual normalized: 'func (s *Server) registerHTTPServer() {'
+
+====================================================================================================
+entry-00117 critical_operation  internal/distributed/proxy/service.go:168  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	apiv1.Use(httpserver.RequestHandlerFunc)
+expected normalized: 'apiv1.Use(httpserver.RequestHandlerFunc)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:168
+actual code:
+    	apiv1.Use(httpserver.RequestHandlerFunc)
+actual normalized: 'apiv1.Use(httpserver.RequestHandlerFunc)'
+
+====================================================================================================
+entry-00117 trace[0]  internal/distributed/proxy/service.go:155  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    func (s *Server) registerHTTPServer() {
+expected normalized: 'func (s *Server) registerHTTPServer() {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:155
+actual code:
+    func (s *Server) registerHTTPServer() {
+actual normalized: 'func (s *Server) registerHTTPServer() {'
+
+====================================================================================================
+entry-00117 trace[1]  internal/distributed/proxy/service.go:166  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	metricsGinHandler := gin.Default()
+expected normalized: 'metricsGinHandler := gin.Default()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:166
+actual code:
+    	metricsGinHandler := gin.Default()
+actual normalized: 'metricsGinHandler := gin.Default()'
+
+====================================================================================================
+entry-00117 trace[2]  internal/distributed/proxy/service.go:168  report=GHSA-7PPG-37FH-VCR6
+repo=https://github.com/milvus-io/milvus
+commit=5519df6efc738abadf46b23cf63b51a2145146d5
+expected code:
+    	apiv1.Use(httpserver.RequestHandlerFunc)
+expected normalized: 'apiv1.Use(httpserver.RequestHandlerFunc)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: internal/distributed/proxy/service.go:168
+actual code:
+    	apiv1.Use(httpserver.RequestHandlerFunc)
+actual normalized: 'apiv1.Use(httpserver.RequestHandlerFunc)'

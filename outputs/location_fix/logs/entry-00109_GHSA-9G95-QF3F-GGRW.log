@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00109 entry_point  packages/nodes-base/nodes/Git/Git.node.ts:563  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    if (options.reference !== undefined && options.reference !== '') {
+expected normalized: "if (options.reference !== undefined && options.reference !== '') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:563
+actual code:
+    					if (options.reference !== undefined && options.reference !== '') {
+actual normalized: "if (options.reference !== undefined && options.reference !== '') {"
+
+====================================================================================================
+entry-00109 critical_operation  packages/nodes-base/nodes/Git/Git.node.ts:570  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    const reflogResult = await git.raw(['reflog', reference]);
+expected normalized: "const reflogResult = await git.raw(['reflog', reference]);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:570
+actual code:
+    					const reflogResult = await git.raw(['reflog', reference]);
+actual normalized: "const reflogResult = await git.raw(['reflog', reference]);"
+
+====================================================================================================
+entry-00109 trace[0]  packages/nodes-base/nodes/Git/Git.node.ts:563  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    if (options.reference !== undefined && options.reference !== '') {
+expected normalized: "if (options.reference !== undefined && options.reference !== '') {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:563
+actual code:
+    					if (options.reference !== undefined && options.reference !== '') {
+actual normalized: "if (options.reference !== undefined && options.reference !== '') {"
+
+====================================================================================================
+entry-00109 trace[1]  packages/nodes-base/nodes/Git/Git.node.ts:564  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    assertParamIsString('reference', options.reference, this.getNode());
+expected normalized: "assertParamIsString('reference', options.reference, this.getNode());"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:564
+actual code:
+    						assertParamIsString('reference', options.reference, this.getNode());
+actual normalized: "assertParamIsString('reference', options.reference, this.getNode());"
+
+====================================================================================================
+entry-00109 trace[2]  packages/nodes-base/nodes/Git/Git.node.ts:565  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    validateGitReference(reference, this.getNode());
+expected normalized: 'validateGitReference(reference, this.getNode());'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:565
+actual code:
+    						validateGitReference(reference, this.getNode());
+actual normalized: 'validateGitReference(reference, this.getNode());'
+
+====================================================================================================
+entry-00109 trace[3]  packages/nodes-base/nodes/Git/Git.node.ts:567  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    reference = options.reference;
+expected normalized: 'reference = options.reference;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:567
+actual code:
+    						reference = options.reference;
+actual normalized: 'reference = options.reference;'
+
+====================================================================================================
+entry-00109 trace[4]  packages/nodes-base/nodes/Git/Git.node.ts:570  report=GHSA-9G95-QF3F-GGRW
+repo=https://github.com/n8n-io/n8n
+commit=4bb3552d8a0c57b65571f06bdd976bb7431e81b2
+expected code:
+    const reflogResult = await git.raw(['reflog', reference]);
+expected normalized: "const reflogResult = await git.raw(['reflog', reference]);"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/nodes-base/nodes/Git/Git.node.ts:570
+actual code:
+    					const reflogResult = await git.raw(['reflog', reference]);
+actual normalized: "const reflogResult = await git.raw(['reflog', reference]);"

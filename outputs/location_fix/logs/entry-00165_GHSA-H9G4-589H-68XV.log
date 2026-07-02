@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00165 entry_point  src/browser/routes/tabs.ts:6  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+      app.get("/tabs", async (req, res) => {
+expected normalized: 'app.get("/tabs", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/tabs.ts:6
+actual code:
+      app.get("/tabs", async (req, res) => {
+actual normalized: 'app.get("/tabs", async (req, res) => {'
+
+====================================================================================================
+entry-00165 critical_operation  src/browser/routes/tabs.ts:17  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+          res.json({ running: true, tabs });
+expected normalized: 'res.json({ running: true, tabs });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/tabs.ts:17
+actual code:
+          res.json({ running: true, tabs });
+actual normalized: 'res.json({ running: true, tabs });'
+
+====================================================================================================
+entry-00165 trace[0]  src/browser/routes/tabs.ts:6  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+      app.get("/tabs", async (req, res) => {
+expected normalized: 'app.get("/tabs", async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/tabs.ts:6
+actual code:
+      app.get("/tabs", async (req, res) => {
+actual normalized: 'app.get("/tabs", async (req, res) => {'
+
+====================================================================================================
+entry-00165 trace[1]  src/browser/routes/tabs.ts:16  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+          const tabs = await profileCtx.listTabs();
+expected normalized: 'const tabs = await profileCtx.listTabs();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/tabs.ts:16
+actual code:
+          const tabs = await profileCtx.listTabs();
+actual normalized: 'const tabs = await profileCtx.listTabs();'
+
+====================================================================================================
+entry-00165 trace[2]  src/browser/routes/tabs.ts:17  report=GHSA-H9G4-589H-68XV
+repo=https://github.com/openclaw/openclaw
+commit=3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+expected code:
+          res.json({ running: true, tabs });
+expected normalized: 'res.json({ running: true, tabs });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/browser/routes/tabs.ts:17
+actual code:
+          res.json({ running: true, tabs });
+actual normalized: 'res.json({ running: true, tabs });'

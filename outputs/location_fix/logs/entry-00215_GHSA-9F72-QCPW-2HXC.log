@@ -1,0 +1,104 @@
+====================================================================================================
+entry-00215 entry_point  src/agents/pi-embedded-runner/run/attempt.ts:1082  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+              const imageResult = await detectAndLoadPromptImages({
+expected normalized: 'const imageResult = await detectAndLoadPromptImages({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/attempt.ts:1082
+actual code:
+              const imageResult = await detectAndLoadPromptImages({
+actual normalized: 'const imageResult = await detectAndLoadPromptImages({'
+
+====================================================================================================
+entry-00215 critical_operation  src/agents/pi-embedded-runner/run/images.ts:200  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+              const resolved = options.sandbox.bridge.resolvePath({
+expected normalized: 'const resolved = options.sandbox.bridge.resolvePath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:200
+actual code:
+              const resolved = options.sandbox.bridge.resolvePath({
+actual normalized: 'const resolved = options.sandbox.bridge.resolvePath({'
+
+====================================================================================================
+entry-00215 trace[0]  src/agents/pi-embedded-runner/run/attempt.ts:1082  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+              const imageResult = await detectAndLoadPromptImages({
+expected normalized: 'const imageResult = await detectAndLoadPromptImages({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/attempt.ts:1082
+actual code:
+              const imageResult = await detectAndLoadPromptImages({
+actual normalized: 'const imageResult = await detectAndLoadPromptImages({'
+
+====================================================================================================
+entry-00215 trace[1]  src/agents/pi-embedded-runner/run/images.ts:78  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+    export function detectImageReferences(prompt: string): DetectedImageRef[] {
+expected normalized: 'export function detectImageReferences(prompt: string): DetectedImageRef[] {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:78
+actual code:
+    export function detectImageReferences(prompt: string): DetectedImageRef[] {
+actual normalized: 'export function detectImageReferences(prompt: string): DetectedImageRef[] {'
+
+====================================================================================================
+entry-00215 trace[2]  src/agents/pi-embedded-runner/run/images.ts:356  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+    export async function detectAndLoadPromptImages(params: {
+expected normalized: 'export async function detectAndLoadPromptImages(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:356
+actual code:
+    export async function detectAndLoadPromptImages(params: {
+actual normalized: 'export async function detectAndLoadPromptImages(params: {'
+
+====================================================================================================
+entry-00215 trace[3]  src/agents/pi-embedded-runner/run/images.ts:179  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+    export async function loadImageFromRef(
+expected normalized: 'export async function loadImageFromRef('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:179
+actual code:
+    export async function loadImageFromRef(
+actual normalized: 'export async function loadImageFromRef('
+
+====================================================================================================
+entry-00215 trace[4]  src/agents/pi-embedded-runner/run/images.ts:200  report=GHSA-9F72-QCPW-2HXC
+repo=https://github.com/openclaw/openclaw
+commit=c3680c227798263fea3a8178ee53d9d388e19d94
+expected code:
+              const resolved = options.sandbox.bridge.resolvePath({
+expected normalized: 'const resolved = options.sandbox.bridge.resolvePath({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-embedded-runner/run/images.ts:200
+actual code:
+              const resolved = options.sandbox.bridge.resolvePath({
+actual normalized: 'const resolved = options.sandbox.bridge.resolvePath({'

@@ -1,0 +1,174 @@
+====================================================================================================
+entry-00125 entry_point  src/gateway/server-http.ts:187  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+        const body = await readJsonBody(req, hooksConfig.maxBodyBytes);
+expected normalized: 'const body = await readJsonBody(req, hooksConfig.maxBodyBytes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:187
+actual code:
+        const body = await readJsonBody(req, hooksConfig.maxBodyBytes);
+actual normalized: 'const body = await readJsonBody(req, hooksConfig.maxBodyBytes);'
+
+====================================================================================================
+entry-00125 critical_operation  src/gateway/server-http.ts:218  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+          const runId = dispatchAgentHook({
+            ...normalized.value,
+            agentId: resolveHookTargetAgentId(hooksConfig, normalized.value.agentId),
+          });
+expected normalized: 'const runId = dispatchAgentHook({ ...normalized.value, agentId: resolveHookTargetAgentId(hooksConfig, normalized.value.agentId), });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:218-221
+actual code:
+          const runId = dispatchAgentHook({
+            ...normalized.value,
+            agentId: resolveHookTargetAgentId(hooksConfig, normalized.value.agentId),
+          });
+actual normalized: 'const runId = dispatchAgentHook({ ...normalized.value, agentId: resolveHookTargetAgentId(hooksConfig, normalized.value.agentId), });'
+
+====================================================================================================
+entry-00125 trace[0]  src/gateway/server-http.ts:187  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+        const body = await readJsonBody(req, hooksConfig.maxBodyBytes);
+expected normalized: 'const body = await readJsonBody(req, hooksConfig.maxBodyBytes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:187
+actual code:
+        const body = await readJsonBody(req, hooksConfig.maxBodyBytes);
+actual normalized: 'const body = await readJsonBody(req, hooksConfig.maxBodyBytes);'
+
+====================================================================================================
+entry-00125 trace[1]  src/gateway/server-http.ts:194  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+        const payload = typeof body.value === "object" && body.value !== null ? body.value : {};
+expected normalized: 'const payload = typeof body.value === "object" && body.value !== null ? body.value : {};'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:194
+actual code:
+        const payload = typeof body.value === "object" && body.value !== null ? body.value : {};
+actual normalized: 'const payload = typeof body.value === "object" && body.value !== null ? body.value : {};'
+
+====================================================================================================
+entry-00125 trace[2]  src/gateway/server-http.ts:209  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+          const normalized = normalizeAgentPayload(payload as Record<string, unknown>);
+expected normalized: 'const normalized = normalizeAgentPayload(payload as Record<string, unknown>);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:209
+actual code:
+          const normalized = normalizeAgentPayload(payload as Record<string, unknown>);
+actual normalized: 'const normalized = normalizeAgentPayload(payload as Record<string, unknown>);'
+
+====================================================================================================
+entry-00125 trace[3]  src/gateway/hooks.ts:276  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+      const sessionKeyRaw = payload.sessionKey;
+expected normalized: 'const sessionKeyRaw = payload.sessionKey;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/hooks.ts:276
+actual code:
+      const sessionKeyRaw = payload.sessionKey;
+actual normalized: 'const sessionKeyRaw = payload.sessionKey;'
+
+====================================================================================================
+entry-00125 trace[4]  src/gateway/hooks.ts:278  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+      const sessionKey =
+        typeof sessionKeyRaw === "string" && sessionKeyRaw.trim()
+          ? sessionKeyRaw.trim()
+          : `hook:${idFactory()}`;
+expected normalized: 'const sessionKey = typeof sessionKeyRaw === "string" && sessionKeyRaw.trim() ? sessionKeyRaw.trim() : `hook:${idFactory()}`;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/hooks.ts:278-281
+actual code:
+      const sessionKey =
+        typeof sessionKeyRaw === "string" && sessionKeyRaw.trim()
+          ? sessionKeyRaw.trim()
+          : `hook:${idFactory()}`;
+actual normalized: 'const sessionKey = typeof sessionKeyRaw === "string" && sessionKeyRaw.trim() ? sessionKeyRaw.trim() : `hook:${idFactory()}`;'
+
+====================================================================================================
+entry-00125 trace[5]  src/gateway/hooks.ts:302  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+      return {
+        ok: true,
+        value: {
+          message,
+          name,
+          agentId,
+          wakeMode,
+          sessionKey,
+          deliver,
+          channel,
+          to,
+          model,
+          thinking,
+          timeoutSeconds,
+        },
+expected normalized: 'return { ok: true, value: { message, name, agentId, wakeMode, sessionKey, deliver, channel, to, model, thinking, timeoutSeconds, },'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/hooks.ts:302-316
+actual code:
+      return {
+        ok: true,
+        value: {
+          message,
+          name,
+          agentId,
+          wakeMode,
+          sessionKey,
+          deliver,
+          channel,
+          to,
+          model,
+          thinking,
+          timeoutSeconds,
+        },
+actual normalized: 'return { ok: true, value: { message, name, agentId, wakeMode, sessionKey, deliver, channel, to, model, thinking, timeoutSeconds, },'
+
+====================================================================================================
+entry-00125 trace[6]  src/gateway/server-http.ts:214  report=GHSA-HV93-R4J3-Q65F
+repo=https://github.com/openclaw/openclaw
+commit=54513f4240661eb2e1bec49fbea1b7eb009a863e
+expected code:
+          if (!isHookAgentAllowed(hooksConfig, normalized.value.agentId)) {
+expected normalized: 'if (!isHookAgentAllowed(hooksConfig, normalized.value.agentId)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:214
+actual code:
+          if (!isHookAgentAllowed(hooksConfig, normalized.value.agentId)) {
+actual normalized: 'if (!isHookAgentAllowed(hooksConfig, normalized.value.agentId)) {'

@@ -1,0 +1,164 @@
+====================================================================================================
+entry-00375 entry_point  src/gateway/server-http.ts:853  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      name: "sessions-kill",
+expected normalized: 'name: "sessions-kill",'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:853
+actual code:
+              name: "sessions-kill",
+actual normalized: 'name: "sessions-kill",'
+
+====================================================================================================
+entry-00375 critical_operation  src/gateway/session-kill-http.ts:135  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+        const result = await killSubagentRunAdmin({
+expected normalized: 'const result = await killSubagentRunAdmin({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:135
+actual code:
+        const result = await killSubagentRunAdmin({
+actual normalized: 'const result = await killSubagentRunAdmin({'
+
+====================================================================================================
+entry-00375 trace[0]  src/gateway/session-kill-http.ts:68  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      const token = getBearerToken(req);
+expected normalized: 'const token = getBearerToken(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:68
+actual code:
+      const token = getBearerToken(req);
+actual normalized: 'const token = getBearerToken(req);'
+
+====================================================================================================
+entry-00375 trace[1]  src/gateway/session-kill-http.ts:69  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      const ok = await authorizeGatewayBearerRequestOrReply({
+expected normalized: 'const ok = await authorizeGatewayBearerRequestOrReply({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:69
+actual code:
+      const ok = await authorizeGatewayBearerRequestOrReply({
+actual normalized: 'const ok = await authorizeGatewayBearerRequestOrReply({'
+
+====================================================================================================
+entry-00375 trace[2]  src/gateway/session-kill-http.ts:97  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      const allowBearerOperatorKill = canBearerTokenKillSessions(token, true);
+expected normalized: 'const allowBearerOperatorKill = canBearerTokenKillSessions(token, true);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:97
+actual code:
+      const allowBearerOperatorKill = canBearerTokenKillSessions(token, true);
+actual normalized: 'const allowBearerOperatorKill = canBearerTokenKillSessions(token, true);'
+
+====================================================================================================
+entry-00375 trace[3]  src/gateway/session-kill-http.ts:19  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+    function canBearerTokenKillSessions(token: string | undefined, authOk: boolean): boolean {
+expected normalized: 'function canBearerTokenKillSessions(token: string | undefined, authOk: boolean): boolean {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:19
+actual code:
+    function canBearerTokenKillSessions(token: string | undefined, authOk: boolean): boolean {
+actual normalized: 'function canBearerTokenKillSessions(token: string | undefined, authOk: boolean): boolean {'
+
+====================================================================================================
+entry-00375 trace[4]  src/gateway/method-scopes.ts:206  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      if (scopes.includes(ADMIN_SCOPE)) {
+expected normalized: 'if (scopes.includes(ADMIN_SCOPE)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/method-scopes.ts:206
+actual code:
+      if (scopes.includes(ADMIN_SCOPE)) {
+actual normalized: 'if (scopes.includes(ADMIN_SCOPE)) {'
+
+====================================================================================================
+entry-00375 trace[5]  src/gateway/session-kill-http.ts:99  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      if (!requesterSessionKey && !allowLocalAdminKill && !allowBearerOperatorKill) {
+expected normalized: 'if (!requesterSessionKey && !allowLocalAdminKill && !allowBearerOperatorKill) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:99
+actual code:
+      if (!requesterSessionKey && !allowLocalAdminKill && !allowBearerOperatorKill) {
+actual normalized: 'if (!requesterSessionKey && !allowLocalAdminKill && !allowBearerOperatorKill) {'
+
+====================================================================================================
+entry-00375 trace[6]  src/gateway/session-kill-http.ts:111  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      const allowAdminKill = allowLocalAdminKill || allowBearerOperatorKill;
+expected normalized: 'const allowAdminKill = allowLocalAdminKill || allowBearerOperatorKill;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:111
+actual code:
+      const allowAdminKill = allowLocalAdminKill || allowBearerOperatorKill;
+actual normalized: 'const allowAdminKill = allowLocalAdminKill || allowBearerOperatorKill;'
+
+====================================================================================================
+entry-00375 trace[7]  src/gateway/session-kill-http.ts:114  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      if (!allowAdminKill && requesterSessionKey) {
+expected normalized: 'if (!allowAdminKill && requesterSessionKey) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:114
+actual code:
+      if (!allowAdminKill && requesterSessionKey) {
+actual normalized: 'if (!allowAdminKill && requesterSessionKey) {'
+
+====================================================================================================
+entry-00375 trace[8]  src/gateway/session-kill-http.ts:134  report=GHSA-9P93-7J67-5PC2
+repo=https://github.com/openclaw/openclaw
+commit=f29c1206cde7121f3632d6bc3386ab9e92263bde
+expected code:
+      } else {
+expected normalized: '} else {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/session-kill-http.ts:134
+actual code:
+      } else {
+actual normalized: '} else {'

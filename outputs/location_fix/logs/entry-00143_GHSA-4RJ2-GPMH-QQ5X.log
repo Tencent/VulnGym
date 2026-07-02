@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00143 entry_point  extensions/voice-call/src/providers/twilio.ts:239  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+          from: params.get("From") || undefined,
+expected normalized: 'from: params.get("From") || undefined,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/providers/twilio.ts:239
+actual code:
+          from: params.get("From") || undefined,
+actual normalized: 'from: params.get("From") || undefined,'
+
+====================================================================================================
+entry-00143 critical_operation  extensions/voice-call/src/manager.ts:477  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+            const normalized = from?.replace(/\D/g, "") || "";
+expected normalized: 'const normalized = from?.replace(/\\D/g, "") || "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/manager.ts:477
+actual code:
+            const normalized = from?.replace(/\D/g, "") || "";
+actual normalized: 'const normalized = from?.replace(/\\D/g, "") || "";'
+
+====================================================================================================
+entry-00143 trace[0]  extensions/voice-call/src/providers/twilio.ts:239  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+          from: params.get("From") || undefined,
+expected normalized: 'from: params.get("From") || undefined,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/providers/twilio.ts:239
+actual code:
+          from: params.get("From") || undefined,
+actual normalized: 'from: params.get("From") || undefined,'
+
+====================================================================================================
+entry-00143 trace[1]  extensions/voice-call/src/webhook.ts:240  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+        const verification = this.provider.verifyWebhook(ctx);
+expected normalized: 'const verification = this.provider.verifyWebhook(ctx);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:240
+actual code:
+        const verification = this.provider.verifyWebhook(ctx);
+actual normalized: 'const verification = this.provider.verifyWebhook(ctx);'
+
+====================================================================================================
+entry-00143 trace[2]  extensions/voice-call/src/webhook.ts:254  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+            this.manager.processEvent(event);
+expected normalized: 'this.manager.processEvent(event);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/webhook.ts:254
+actual code:
+            this.manager.processEvent(event);
+actual normalized: 'this.manager.processEvent(event);'
+
+====================================================================================================
+entry-00143 trace[3]  extensions/voice-call/src/manager.ts:477  report=GHSA-4RJ2-GPMH-QQ5X
+repo=https://github.com/openclaw/openclaw
+commit=fc40ba8e7eb1345afdb1c8d274219cd702b73354
+expected code:
+            const normalized = from?.replace(/\D/g, "") || "";
+expected normalized: 'const normalized = from?.replace(/\\D/g, "") || "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/voice-call/src/manager.ts:477
+actual code:
+            const normalized = from?.replace(/\D/g, "") || "";
+actual normalized: 'const normalized = from?.replace(/\\D/g, "") || "";'

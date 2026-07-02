@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00329 entry_point  src/gateway/server-http.ts:528  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+            if (requestPath.startsWith("/api/channels/")) {
+expected normalized: 'if (requestPath.startsWith("/api/channels/")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:528
+actual code:
+            if (requestPath.startsWith("/api/channels/")) {
+actual normalized: 'if (requestPath.startsWith("/api/channels/")) {'
+
+====================================================================================================
+entry-00329 critical_operation  src/gateway/auth.ts:379  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+      if (auth.allowTailscale && !localDirect) {
+expected normalized: 'if (auth.allowTailscale && !localDirect) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:379
+actual code:
+      if (auth.allowTailscale && !localDirect) {
+actual normalized: 'if (auth.allowTailscale && !localDirect) {'
+
+====================================================================================================
+entry-00329 trace[0]  src/gateway/server-http.ts:528  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+            if (requestPath.startsWith("/api/channels/")) {
+expected normalized: 'if (requestPath.startsWith("/api/channels/")) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:528
+actual code:
+            if (requestPath.startsWith("/api/channels/")) {
+actual normalized: 'if (requestPath.startsWith("/api/channels/")) {'
+
+====================================================================================================
+entry-00329 trace[1]  src/gateway/server-http.ts:530  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+              const authResult = await authorizeGatewayConnect({
+expected normalized: 'const authResult = await authorizeGatewayConnect({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-http.ts:530
+actual code:
+              const authResult = await authorizeGatewayConnect({
+actual normalized: 'const authResult = await authorizeGatewayConnect({'
+
+====================================================================================================
+entry-00329 trace[2]  src/gateway/auth.ts:379  report=GHSA-QWMF-95R9-GX9X
+repo=https://github.com/openclaw/openclaw
+commit=6aa11f30924ee08d0e6f36ede4877e44c553b984
+expected code:
+      if (auth.allowTailscale && !localDirect) {
+expected normalized: 'if (auth.allowTailscale && !localDirect) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/auth.ts:379
+actual code:
+      if (auth.allowTailscale && !localDirect) {
+actual normalized: 'if (auth.allowTailscale && !localDirect) {'

@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00414 entry_point  mlflow/server/job_api.py:48  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    @job_api_router.get("/{job_id}", response_model=Job)
+expected normalized: '@job_api_router.get("/{job_id}", response_model=Job)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:48
+actual code:
+    @job_api_router.get("/{job_id}", response_model=Job)
+actual normalized: '@job_api_router.get("/{job_id}", response_model=Job)'
+
+====================================================================================================
+entry-00414 critical_operation  mlflow/server/auth/__init__.py:2924  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        if path.startswith("/gateway/"):
+expected normalized: 'if path.startswith("/gateway/"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2924
+actual code:
+        if path.startswith("/gateway/"):
+actual normalized: 'if path.startswith("/gateway/"):'
+
+====================================================================================================
+entry-00414 trace[0]  mlflow/server/job_api.py:48  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+    @job_api_router.get("/{job_id}", response_model=Job)
+expected normalized: '@job_api_router.get("/{job_id}", response_model=Job)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/job_api.py:48
+actual code:
+    @job_api_router.get("/{job_id}", response_model=Job)
+actual normalized: '@job_api_router.get("/{job_id}", response_model=Job)'
+
+====================================================================================================
+entry-00414 trace[1]  mlflow/server/auth/__init__.py:2951  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+            path = request.url.path
+expected normalized: 'path = request.url.path'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2951
+actual code:
+            path = request.url.path
+actual normalized: 'path = request.url.path'
+
+====================================================================================================
+entry-00414 trace[2]  mlflow/server/auth/__init__.py:2924  report=GHSA-7QHF-V65M-G5F3
+repo=https://github.com/mlflow/mlflow
+commit=083eac9cd0be4a8934fac7010f9248c7888c6da4
+expected code:
+        if path.startswith("/gateway/"):
+expected normalized: 'if path.startswith("/gateway/"):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: mlflow/server/auth/__init__.py:2924
+actual code:
+        if path.startswith("/gateway/"):
+actual normalized: 'if path.startswith("/gateway/"):'

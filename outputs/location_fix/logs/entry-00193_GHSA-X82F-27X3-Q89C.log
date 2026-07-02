@@ -1,0 +1,92 @@
+====================================================================================================
+entry-00193 entry_point  src/agents/apply-patch.ts:84  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> { // Agent 工具注册点，patch 文本由 AI 或外部输入提供
+expected normalized: 'export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> { // Agent 工具注册点，patch 文本由 AI 或外部输入提供'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:84
+actual code:
+    export function createApplyPatchTool(
+actual normalized: 'export function createApplyPatchTool('
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 79 to 89
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 595 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00193 critical_operation  src/infra/fs-safe.ts:225  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+    handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600); // 含 O_TRUNC，截断在边界校验之前发生
+expected normalized: 'handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600); // 含 O_TRUNC，截断在边界校验之前发生'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/fs-safe.ts:225
+actual code:
+        handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);
+actual normalized: 'handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600);'
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=no_match
+detail=search original file from line 220 to 230
+----------------------------------------------------------------------------------------------------
+step=same_file status=no_match
+detail=search entire original file with 268 lines
+----------------------------------------------------------------------------------------------------
+step=whole_repo status=no_match
+detail=search every readable text file in the commit snapshot
+
+====================================================================================================
+entry-00193 trace[0]  src/agents/apply-patch.ts:97  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+        execute: async (_toolCallId, args, signal) => {
+expected normalized: 'execute: async (_toolCallId, args, signal) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:97
+actual code:
+        execute: async (_toolCallId, args, signal) => {
+actual normalized: 'execute: async (_toolCallId, args, signal) => {'
+
+====================================================================================================
+entry-00193 trace[1]  src/agents/apply-patch.ts:155  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+          await fileOps.writeFile(target.resolved, hunk.contents);
+expected normalized: 'await fileOps.writeFile(target.resolved, hunk.contents);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:155
+actual code:
+          await fileOps.writeFile(target.resolved, hunk.contents);
+actual normalized: 'await fileOps.writeFile(target.resolved, hunk.contents);'
+
+====================================================================================================
+entry-00193 trace[2]  src/agents/apply-patch.ts:265  report=GHSA-X82F-27X3-Q89C
+repo=https://github.com/openclaw/openclaw
+commit=bc507080577c620243617e8fadd294bec3efa252
+expected code:
+          await writeFileWithinRoot({
+expected normalized: 'await writeFileWithinRoot({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/apply-patch.ts:265
+actual code:
+          await writeFileWithinRoot({
+actual normalized: 'await writeFileWithinRoot({'

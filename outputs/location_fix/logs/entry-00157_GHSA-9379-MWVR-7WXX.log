@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00157 entry_point  nemo/collections/llm/gpt/model/deepseek.py:228  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+    def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:
+expected normalized: 'def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/deepseek.py:228
+actual code:
+        def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:
+actual normalized: 'def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:'
+
+====================================================================================================
+entry-00157 critical_operation  nemo/collections/llm/gpt/model/deepseek.py:233  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+    source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+expected normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/deepseek.py:233
+actual code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+actual normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+
+====================================================================================================
+entry-00157 trace[0]  nemo/collections/llm/gpt/model/deepseek.py:228  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+    def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:
+expected normalized: 'def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/deepseek.py:228
+actual code:
+        def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:
+actual normalized: 'def apply(self, output_path: Path, convert_mtp: bool = False) -> Path:'
+
+====================================================================================================
+entry-00157 trace[1]  nemo/collections/llm/gpt/model/deepseek.py:232  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+    self._verify_source()
+expected normalized: 'self._verify_source()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/deepseek.py:232
+actual code:
+            self._verify_source()
+actual normalized: 'self._verify_source()'
+
+====================================================================================================
+entry-00157 trace[2]  nemo/collections/llm/gpt/model/deepseek.py:233  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+    source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+expected normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/collections/llm/gpt/model/deepseek.py:233
+actual code:
+            source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')
+actual normalized: "source = AutoModelForCausalLM.from_pretrained(str(self), trust_remote_code=True, torch_dtype='auto')"

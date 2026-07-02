@@ -1,0 +1,271 @@
+====================================================================================================
+entry-00312 entry_point  src/infra/device-bootstrap.ts:92  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    token: string;
+expected normalized: 'token: string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:92
+actual code:
+      token: string;
+actual normalized: 'token: string;'
+
+====================================================================================================
+entry-00312 critical_operation  src/infra/device-bootstrap.ts:125  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    entry.roles = mergeRoles(entry.roles, role);
+expected normalized: 'entry.roles = mergeRoles(entry.roles, role);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:125
+actual code:
+    <empty>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 120 to 130
+candidates (1):
+  [1] src/infra/device-bootstrap.ts:128
+          entry.roles = mergeRoles(entry.roles, role);
+
+====================================================================================================
+entry-00312 trace[0]  src/infra/device-bootstrap.ts:100  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    const state = await loadState(params.baseDir);
+expected normalized: 'const state = await loadState(params.baseDir);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:100
+actual code:
+        const state = await loadState(params.baseDir);
+actual normalized: 'const state = await loadState(params.baseDir);'
+
+====================================================================================================
+entry-00312 trace[1]  src/infra/device-bootstrap.ts:105  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    const entry = Object.values(state).find((candidate) =>
+expected normalized: 'const entry = Object.values(state).find((candidate) =>'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:105
+actual code:
+        const entry = Object.values(state).find((candidate) =>
+actual normalized: 'const entry = Object.values(state).find((candidate) =>'
+
+====================================================================================================
+entry-00312 trace[2]  src/infra/device-bootstrap.ts:117  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    }
+expected normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:117
+actual code:
+        }
+actual normalized: '}'
+----------------------------------------------------------------------------------------------------
+step=low_information_anchor status=multiple_matches
+detail=original location matched, but the code is too generic to trust as a unique anchor
+candidates (53):
+  [1] .github/workflows/auto-response.yml:123
+                    }
+  [2] .github/workflows/auto-response.yml:132
+                    }
+  [3] .github/workflows/auto-response.yml:137
+                      }
+  [4] .github/workflows/auto-response.yml:138
+                    }
+  [5] .github/workflows/auto-response.yml:152
+                      }
+  [6] .github/workflows/auto-response.yml:160
+                    }
+  [7] .github/workflows/auto-response.yml:166
+                    }
+  [8] .github/workflows/auto-response.yml:172
+                    }
+  [9] .github/workflows/auto-response.yml:180
+                      }
+  [10] .github/workflows/auto-response.yml:183
+                      }
+  [11] .github/workflows/auto-response.yml:195
+                        }
+  [12] .github/workflows/auto-response.yml:196
+                      }
+  [13] .github/workflows/auto-response.yml:197
+                    }
+  [14] .github/workflows/auto-response.yml:207
+                    }
+  [15] .github/workflows/auto-response.yml:213
+                    }
+  [16] .github/workflows/auto-response.yml:217
+                    }
+  [17] .github/workflows/auto-response.yml:229
+                      }
+  [18] .github/workflows/auto-response.yml:230
+                    }
+  [19] .github/workflows/auto-response.yml:238
+                    }
+  [20] .github/workflows/auto-response.yml:242
+                    }
+  [21] .github/workflows/auto-response.yml:248
+                    }
+  [22] .github/workflows/auto-response.yml:253
+                    }
+  [23] .github/workflows/auto-response.yml:256
+                    }
+  [24] .github/workflows/auto-response.yml:262
+                      }
+  [25] .github/workflows/auto-response.yml:263
+                    }
+  [26] .github/workflows/auto-response.yml:273
+                  }
+  [27] .github/workflows/auto-response.yml:288
+                    }
+  [28] .github/workflows/auto-response.yml:295
+                    }
+  [29] .github/workflows/auto-response.yml:305
+                    }
+  [30] .github/workflows/auto-response.yml:314
+                    }
+  [31] .github/workflows/auto-response.yml:316
+                  }
+  [32] .github/workflows/auto-response.yml:334
+                      }
+  [33] .github/workflows/auto-response.yml:337
+                    }
+  [34] .github/workflows/auto-response.yml:338
+                  }
+  [35] .github/workflows/auto-response.yml:353
+                      }
+  [36] .github/workflows/auto-response.yml:354
+                    }
+  [37] .github/workflows/auto-response.yml:355
+                  }
+  [38] .github/workflows/auto-response.yml:360
+                  }
+  [39] .github/workflows/auto-response.yml:377
+                    }
+  [40] .github/workflows/auto-response.yml:386
+                    }
+  [41] .github/workflows/auto-response.yml:395
+                    }
+  [42] .github/workflows/auto-response.yml:396
+                  }
+  [43] .github/workflows/auto-response.yml:419
+                    }
+  [44] .github/workflows/auto-response.yml:435
+                    }
+  [45] .github/workflows/auto-response.yml:450
+                    }
+  [46] .github/workflows/auto-response.yml:459
+                    }
+  [47] .github/workflows/auto-response.yml:460
+                  }
+  [48] .github/workflows/auto-response.yml:477
+                  }
+  [49] .github/workflows/auto-response.yml:488
+                  }
+  [50] .github/workflows/auto-response.yml:492
+                  }
+  [51] .github/workflows/auto-response.yml:497
+                  }
+  [52] .github/workflows/auto-response.yml:515
+                  }
+  [53] .github/workflows/auto-response.yml:524
+                  }
+
+====================================================================================================
+entry-00312 trace[3]  src/infra/device-bootstrap.ts:123  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    return { ok: false, reason: "bootstrap_token_invalid" };
+expected normalized: 'return { ok: false, reason: "bootstrap_token_invalid" };'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:123
+actual code:
+          return { ok: false, reason: "bootstrap_token_invalid" };
+actual normalized: 'return { ok: false, reason: "bootstrap_token_invalid" };'
+
+====================================================================================================
+entry-00312 trace[4]  src/infra/device-bootstrap.ts:125  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    entry.roles = mergeRoles(entry.roles, role);
+expected normalized: 'entry.roles = mergeRoles(entry.roles, role);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=not_matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:125
+actual code:
+    <empty>
+actual normalized: ''
+----------------------------------------------------------------------------------------------------
+step=nearby_window status=unique_match
+detail=search original file from line 120 to 130
+candidates (1):
+  [1] src/infra/device-bootstrap.ts:128
+          entry.roles = mergeRoles(entry.roles, role);
+
+====================================================================================================
+entry-00312 trace[5]  src/infra/device-bootstrap.ts:126  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    entry.deviceId = deviceId;
+expected normalized: 'entry.deviceId = deviceId;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:126
+actual code:
+        entry.deviceId = deviceId;
+actual normalized: 'entry.deviceId = deviceId;'
+
+====================================================================================================
+entry-00312 trace[6]  src/infra/device-bootstrap.ts:128  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    entry.roles = mergeRoles(entry.roles, role);
+expected normalized: 'entry.roles = mergeRoles(entry.roles, role);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:128
+actual code:
+        entry.roles = mergeRoles(entry.roles, role);
+actual normalized: 'entry.roles = mergeRoles(entry.roles, role);'
+
+====================================================================================================
+entry-00312 trace[7]  src/infra/device-bootstrap.ts:129  report=GHSA-63F5-HHC7-CX6P
+repo=https://github.com/openclaw/openclaw
+commit=ae1a1fccfeac598a747a9b4a6c9871c93061229c
+expected code:
+    entry.scopes = mergeScopes(entry.scopes, params.scopes);
+expected normalized: 'entry.scopes = mergeScopes(entry.scopes, params.scopes);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/device-bootstrap.ts:129
+actual code:
+        entry.scopes = mergeScopes(entry.scopes, params.scopes);
+actual normalized: 'entry.scopes = mergeScopes(entry.scopes, params.scopes);'

@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00240 entry_point  src/infra/exec-approvals-analysis.ts:70  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";
+expected normalized: 'const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:70
+actual code:
+      const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";
+actual normalized: 'const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";'
+
+====================================================================================================
+entry-00240 critical_operation  src/infra/exec-approvals-allowlist.ts:84  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      const matchesSafeBin =
+expected normalized: 'const matchesSafeBin ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:84
+actual code:
+      const matchesSafeBin =
+actual normalized: 'const matchesSafeBin ='
+
+====================================================================================================
+entry-00240 trace[0]  src/infra/exec-approvals-analysis.ts:87  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      for (const entry of entries) {
+expected normalized: 'for (const entry of entries) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:87
+actual code:
+      for (const entry of entries) {
+actual normalized: 'for (const entry of entries) {'
+
+====================================================================================================
+entry-00240 trace[1]  src/infra/exec-approvals-analysis.ts:107  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+expected normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-analysis.ts:107
+actual code:
+      const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);
+actual normalized: 'const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);'
+
+====================================================================================================
+entry-00240 trace[2]  src/infra/exec-approvals-allowlist.ts:80  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      const execName = resolution?.executableName?.toLowerCase();
+expected normalized: 'const execName = resolution?.executableName?.toLowerCase();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:80
+actual code:
+      const execName = resolution?.executableName?.toLowerCase();
+actual normalized: 'const execName = resolution?.executableName?.toLowerCase();'
+
+====================================================================================================
+entry-00240 trace[3]  src/infra/exec-approvals-allowlist.ts:84  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      const matchesSafeBin =
+expected normalized: 'const matchesSafeBin ='
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:84
+actual code:
+      const matchesSafeBin =
+actual normalized: 'const matchesSafeBin ='
+
+====================================================================================================
+entry-00240 trace[4]  src/infra/exec-approvals-allowlist.ts:90  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      if (!resolution?.resolvedPath) {
+expected normalized: 'if (!resolution?.resolvedPath) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:90
+actual code:
+      if (!resolution?.resolvedPath) {
+actual normalized: 'if (!resolution?.resolvedPath) {'
+
+====================================================================================================
+entry-00240 trace[5]  src/infra/exec-approvals-allowlist.ts:127  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+      return true;
+expected normalized: 'return true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/infra/exec-approvals-allowlist.ts:127
+actual code:
+      return true;
+actual normalized: 'return true;'
+
+====================================================================================================
+entry-00240 trace[6]  src/agents/bash-tools.exec.ts:707  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+            const allowlistEval = evaluateShellAllowlist({
+expected normalized: 'const allowlistEval = evaluateShellAllowlist({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec.ts:707
+actual code:
+            const allowlistEval = evaluateShellAllowlist({
+actual normalized: 'const allowlistEval = evaluateShellAllowlist({'
+
+====================================================================================================
+entry-00240 trace[7]  src/agents/bash-tools.exec.ts:907  report=GHSA-G75X-8QQM-2VXP
+repo=https://github.com/openclaw/openclaw
+commit=42d2a6188864a9c114209e35b8ea3c192792667c
+expected code:
+            if (hostSecurity === "allowlist" && (!analysisOk || !allowlistSatisfied)) {
+expected normalized: 'if (hostSecurity === "allowlist" && (!analysisOk || !allowlistSatisfied)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/bash-tools.exec.ts:907
+actual code:
+            if (hostSecurity === "allowlist" && (!analysisOk || !allowlistSatisfied)) {
+actual normalized: 'if (hostSecurity === "allowlist" && (!analysisOk || !allowlistSatisfied)) {'

@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00487 entry_point  server/src/routes/agents.ts:2019  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+expected normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2019
+actual code:
+      router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {
+actual normalized: 'router.post("/agents/:id/keys", validate(createAgentKeySchema), async (req, res) => {'
+
+====================================================================================================
+entry-00487 critical_operation  server/src/services/agents.ts:564  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    createApiKey: async (id: string, name: string) => {
+expected normalized: 'createApiKey: async (id: string, name: string) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:564
+actual code:
+        createApiKey: async (id: string, name: string) => {
+actual normalized: 'createApiKey: async (id: string, name: string) => {'
+
+====================================================================================================
+entry-00487 trace[0]  server/src/routes/agents.ts:2020  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    assertBoard(req);
+expected normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2020
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+
+====================================================================================================
+entry-00487 trace[1]  server/src/routes/agents.ts:2021  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    const id = req.params.id as string;
+expected normalized: 'const id = req.params.id as string;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2021
+actual code:
+        const id = req.params.id as string;
+actual normalized: 'const id = req.params.id as string;'
+
+====================================================================================================
+entry-00487 trace[2]  server/src/routes/agents.ts:2020  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    assertBoard(req);
+expected normalized: 'assertBoard(req);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/routes/agents.ts:2020
+actual code:
+        assertBoard(req);
+actual normalized: 'assertBoard(req);'
+
+====================================================================================================
+entry-00487 trace[3]  server/src/services/agents.ts:564  report=GHSA-3XX2-MQJM-HG9X
+repo=https://github.com/paperclipai/paperclip
+commit=a07237779bd5391a4683a754ed95249d57a49b2c
+expected code:
+    createApiKey: async (id: string, name: string) => {
+expected normalized: 'createApiKey: async (id: string, name: string) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: server/src/services/agents.ts:564
+actual code:
+        createApiKey: async (id: string, name: string) => {
+actual normalized: 'createApiKey: async (id: string, name: string) => {'

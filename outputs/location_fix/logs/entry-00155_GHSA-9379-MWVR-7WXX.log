@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00155 entry_point  nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:59  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        if isinstance(val, torch.Tensor):
+expected normalized: 'if isinstance(val, torch.Tensor):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:59
+actual code:
+        if isinstance(val, torch.Tensor):
+actual normalized: 'if isinstance(val, torch.Tensor):'
+
+====================================================================================================
+entry-00155 critical_operation  nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:64  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            return pickle.loads(val)
+expected normalized: 'return pickle.loads(val)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:64
+actual code:
+            return pickle.loads(val)
+actual normalized: 'return pickle.loads(val)'
+
+====================================================================================================
+entry-00155 trace[0]  nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:59  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+        if isinstance(val, torch.Tensor):
+expected normalized: 'if isinstance(val, torch.Tensor):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:59
+actual code:
+        if isinstance(val, torch.Tensor):
+actual normalized: 'if isinstance(val, torch.Tensor):'
+
+====================================================================================================
+entry-00155 trace[1]  nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:63  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            val = val.detach().numpy(force=True).tobytes()
+expected normalized: 'val = val.detach().numpy(force=True).tobytes()'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:63
+actual code:
+            val = val.detach().numpy(force=True).tobytes()
+actual normalized: 'val = val.detach().numpy(force=True).tobytes()'
+
+====================================================================================================
+entry-00155 trace[2]  nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:64  report=GHSA-9379-MWVR-7WXX
+repo=https://github.com/NVIDIA/NeMo
+commit=4d313cf5f097529420f27278b28a569e15190b1b
+expected code:
+            return pickle.loads(val)
+expected normalized: 'return pickle.loads(val)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/export/trt_llm/nemo_ckpt_loader/nemo_file.py:64
+actual code:
+            return pickle.loads(val)
+actual normalized: 'return pickle.loads(val)'

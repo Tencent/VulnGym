@@ -1,0 +1,111 @@
+====================================================================================================
+entry-00401 entry_point  backend/open_webui/routers/tools.py:645  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+    @router.get("/id/{id}/valves", response_model=Optional[dict])
+expected normalized: '@router.get("/id/{id}/valves", response_model=Optional[dict])'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/tools.py:645
+actual code:
+    @router.get("/id/{id}/valves", response_model=Optional[dict])
+actual normalized: '@router.get("/id/{id}/valves", response_model=Optional[dict])'
+
+====================================================================================================
+entry-00401 critical_operation  backend/open_webui/routers/tools.py:652  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+    valves = Tools.get_tool_valves_by_id(id, db=db)
+                return valves
+expected normalized: 'valves = Tools.get_tool_valves_by_id(id, db=db) return valves'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/tools.py:652-653
+actual code:
+                valves = Tools.get_tool_valves_by_id(id, db=db)
+                return valves
+actual normalized: 'valves = Tools.get_tool_valves_by_id(id, db=db) return valves'
+
+====================================================================================================
+entry-00401 trace[0]  backend/open_webui/routers/tools.py:645-647  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+    @router.get("/id/{id}/valves", response_model=Optional[dict])
+    async def get_tools_valves_by_id(
+        id: str, user=Depends(get_verified_user), db: Session = Depends(get_session)
+expected normalized: '@router.get("/id/{id}/valves", response_model=Optional[dict]) async def get_tools_valves_by_id( id: str, user=Depends(get_verified_user), db: Session = Depends(get_session)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/tools.py:645-647
+actual code:
+    @router.get("/id/{id}/valves", response_model=Optional[dict])
+    async def get_tools_valves_by_id(
+        id: str, user=Depends(get_verified_user), db: Session = Depends(get_session)
+actual normalized: '@router.get("/id/{id}/valves", response_model=Optional[dict]) async def get_tools_valves_by_id( id: str, user=Depends(get_verified_user), db: Session = Depends(get_session)'
+
+====================================================================================================
+entry-00401 trace[1]  backend/open_webui/utils/auth.py:415-421  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+    def get_verified_user(user=Depends(get_current_user)):
+        if user.role not in {"user", "admin"}:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=ERROR_MESSAGES.ACCESS_PROHIBITED,
+            )
+        return user
+expected normalized: 'def get_verified_user(user=Depends(get_current_user)): if user.role not in {"user", "admin"}: raise HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=ERROR_MESSAGES.ACCESS_PROHIBITED, ) return user'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/utils/auth.py:415-421
+actual code:
+    def get_verified_user(user=Depends(get_current_user)):
+        if user.role not in {"user", "admin"}:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=ERROR_MESSAGES.ACCESS_PROHIBITED,
+            )
+        return user
+actual normalized: 'def get_verified_user(user=Depends(get_current_user)): if user.role not in {"user", "admin"}: raise HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=ERROR_MESSAGES.ACCESS_PROHIBITED, ) return user'
+
+====================================================================================================
+entry-00401 trace[2]  backend/open_webui/routers/tools.py:649-650  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+        tools = Tools.get_tool_by_id(id, db=db)
+        if tools:
+expected normalized: 'tools = Tools.get_tool_by_id(id, db=db) if tools:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/tools.py:649-650
+actual code:
+        tools = Tools.get_tool_by_id(id, db=db)
+        if tools:
+actual normalized: 'tools = Tools.get_tool_by_id(id, db=db) if tools:'
+
+====================================================================================================
+entry-00401 trace[3]  backend/open_webui/routers/tools.py:652-653  report=GHSA-7429-HXCV-268M
+repo=https://github.com/open-webui/open-webui
+commit=e4e69a10ec08a725bf2ab3db499ef664f2bd7570
+expected code:
+                valves = Tools.get_tool_valves_by_id(id, db=db)
+                return valves
+expected normalized: 'valves = Tools.get_tool_valves_by_id(id, db=db) return valves'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: backend/open_webui/routers/tools.py:652-653
+actual code:
+                valves = Tools.get_tool_valves_by_id(id, db=db)
+                return valves
+actual normalized: 'valves = Tools.get_tool_valves_by_id(id, db=db) return valves'

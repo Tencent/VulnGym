@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00292 entry_point  src/agents/tools/subagents-tool.ts:349  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+    export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {
+expected normalized: 'export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:349
+actual code:
+    export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {
+actual normalized: 'export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {'
+
+====================================================================================================
+entry-00292 critical_operation  src/agents/tools/subagents-tool.ts:231  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+        requesterSessionKey: spawnedBy || callerSessionKey,
+expected normalized: 'requesterSessionKey: spawnedBy || callerSessionKey,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:231
+actual code:
+        requesterSessionKey: spawnedBy || callerSessionKey,
+actual normalized: 'requesterSessionKey: spawnedBy || callerSessionKey,'
+
+====================================================================================================
+entry-00292 trace[0]  src/agents/pi-tools.policy.ts:67  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+    const SUBAGENT_TOOL_DENY_LEAF = ["sessions_list", "sessions_history", "sessions_spawn"];
+expected normalized: 'const SUBAGENT_TOOL_DENY_LEAF = ["sessions_list", "sessions_history", "sessions_spawn"];'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.policy.ts:67
+actual code:
+    const SUBAGENT_TOOL_DENY_LEAF = ["sessions_list", "sessions_history", "sessions_spawn"];
+actual normalized: 'const SUBAGENT_TOOL_DENY_LEAF = ["sessions_list", "sessions_history", "sessions_spawn"];'
+
+====================================================================================================
+entry-00292 trace[1]  src/agents/pi-tools.policy.ts:77  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+    function resolveSubagentDenyList(depth: number, maxSpawnDepth: number): string[] {
+expected normalized: 'function resolveSubagentDenyList(depth: number, maxSpawnDepth: number): string[] {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/pi-tools.policy.ts:77
+actual code:
+    function resolveSubagentDenyList(depth: number, maxSpawnDepth: number): string[] {
+actual normalized: 'function resolveSubagentDenyList(depth: number, maxSpawnDepth: number): string[] {'
+
+====================================================================================================
+entry-00292 trace[2]  src/agents/tools/subagents-tool.ts:360  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+          const requester = resolveRequesterKey({
+expected normalized: 'const requester = resolveRequesterKey({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:360
+actual code:
+          const requester = resolveRequesterKey({
+actual normalized: 'const requester = resolveRequesterKey({'
+
+====================================================================================================
+entry-00292 trace[3]  src/agents/tools/subagents-tool.ts:199  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+      if (!isSubagentSessionKey(callerSessionKey)) {
+expected normalized: 'if (!isSubagentSessionKey(callerSessionKey)) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:199
+actual code:
+      if (!isSubagentSessionKey(callerSessionKey)) {
+actual normalized: 'if (!isSubagentSessionKey(callerSessionKey)) {'
+
+====================================================================================================
+entry-00292 trace[4]  src/agents/tools/subagents-tool.ts:209  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+      const callerDepth = getSubagentDepthFromSessionStore(callerSessionKey, { cfg: params.cfg });
+expected normalized: 'const callerDepth = getSubagentDepthFromSessionStore(callerSessionKey, { cfg: params.cfg });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:209
+actual code:
+      const callerDepth = getSubagentDepthFromSessionStore(callerSessionKey, { cfg: params.cfg });
+actual normalized: 'const callerDepth = getSubagentDepthFromSessionStore(callerSessionKey, { cfg: params.cfg });'
+
+====================================================================================================
+entry-00292 trace[5]  src/agents/tools/subagents-tool.ts:224  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+      const callerEntry = resolveSessionEntryForKey({
+expected normalized: 'const callerEntry = resolveSessionEntryForKey({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:224
+actual code:
+      const callerEntry = resolveSessionEntryForKey({
+actual normalized: 'const callerEntry = resolveSessionEntryForKey({'
+
+====================================================================================================
+entry-00292 trace[6]  src/agents/tools/subagents-tool.ts:231  report=GHSA-4W7M-58CG-CMFF
+repo=https://github.com/openclaw/openclaw
+commit=3ba64916599b57978c42aafd2857d4e4fdb44d9c
+expected code:
+        requesterSessionKey: spawnedBy || callerSessionKey,
+expected normalized: 'requesterSessionKey: spawnedBy || callerSessionKey,'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/agents/tools/subagents-tool.ts:231
+actual code:
+        requesterSessionKey: spawnedBy || callerSessionKey,
+actual normalized: 'requesterSessionKey: spawnedBy || callerSessionKey,'

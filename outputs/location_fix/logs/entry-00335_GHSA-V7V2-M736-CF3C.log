@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00335 entry_point  nemo/lightning/io/hf.py:226  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def load_checkpoint(
+expected normalized: 'def load_checkpoint('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:226
+actual code:
+        def load_checkpoint(
+actual normalized: 'def load_checkpoint('
+
+====================================================================================================
+entry-00335 critical_operation  nemo/lightning/io/hf.py:254  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                trainer_state = torch.load(
+expected normalized: 'trainer_state = torch.load('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:254
+actual code:
+                trainer_state = torch.load(
+actual normalized: 'trainer_state = torch.load('
+
+====================================================================================================
+entry-00335 trace[0]  nemo/lightning/io/hf.py:226  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+        def load_checkpoint(
+expected normalized: 'def load_checkpoint('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:226
+actual code:
+        def load_checkpoint(
+actual normalized: 'def load_checkpoint('
+
+====================================================================================================
+entry-00335 trace[1]  nemo/lightning/io/hf.py:247  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+            path = Path(path)
+expected normalized: 'path = Path(path)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:247
+actual code:
+            path = Path(path)
+actual normalized: 'path = Path(path)'
+
+====================================================================================================
+entry-00335 trace[2]  nemo/lightning/io/hf.py:251  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+            if not (path / 'trainer.pt').exists():
+expected normalized: "if not (path / 'trainer.pt').exists():"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:251
+actual code:
+            if not (path / 'trainer.pt').exists():
+actual normalized: "if not (path / 'trainer.pt').exists():"
+
+====================================================================================================
+entry-00335 trace[3]  nemo/lightning/io/hf.py:254  report=GHSA-V7V2-M736-CF3C
+repo=https://github.com/NVIDIA/NeMo
+commit=d282d04322a8e3c9e30d743e15b1e409b05da0fd
+expected code:
+                trainer_state = torch.load(
+expected normalized: 'trainer_state = torch.load('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: nemo/lightning/io/hf.py:254
+actual code:
+                trainer_state = torch.load(
+actual normalized: 'trainer_state = torch.load('

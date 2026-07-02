@@ -1,0 +1,89 @@
+====================================================================================================
+entry-00506 entry_point  src/http-server-single-session.ts:1266  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {
+expected normalized: "app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1266
+actual code:
+        app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {
+actual normalized: "app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {"
+
+====================================================================================================
+entry-00506 critical_operation  src/http-server-single-session.ts:1298  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+              await this.removeSession(mcpSessionId, 'manual_termination');
+expected normalized: "await this.removeSession(mcpSessionId, 'manual_termination');"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1298
+actual code:
+              await this.removeSession(mcpSessionId, 'manual_termination');
+actual normalized: "await this.removeSession(mcpSessionId, 'manual_termination');"
+
+====================================================================================================
+entry-00506 trace[0]  src/http-server-single-session.ts:1266  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+        app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {
+expected normalized: "app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1266
+actual code:
+        app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {
+actual normalized: "app.delete('/mcp', async (req: express.Request, res: express.Response): Promise<void> => {"
+
+====================================================================================================
+entry-00506 trace[1]  src/http-server-single-session.ts:1267  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          const mcpSessionId = req.headers['mcp-session-id'] as string;
+expected normalized: "const mcpSessionId = req.headers['mcp-session-id'] as string;"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1267
+actual code:
+          const mcpSessionId = req.headers['mcp-session-id'] as string;
+actual normalized: "const mcpSessionId = req.headers['mcp-session-id'] as string;"
+
+====================================================================================================
+entry-00506 trace[2]  src/http-server-single-session.ts:1295  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+          if (this.transports[mcpSessionId]) {
+expected normalized: 'if (this.transports[mcpSessionId]) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1295
+actual code:
+          if (this.transports[mcpSessionId]) {
+actual normalized: 'if (this.transports[mcpSessionId]) {'
+
+====================================================================================================
+entry-00506 trace[3]  src/http-server-single-session.ts:1298  report=GHSA-75HX-XJ24-MQRW
+repo=https://github.com/czlonkowski/n8n-mcp
+commit=ff486ea04f0b20460141e5ef2be3d518e1772b80
+expected code:
+              await this.removeSession(mcpSessionId, 'manual_termination');
+expected normalized: "await this.removeSession(mcpSessionId, 'manual_termination');"
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/http-server-single-session.ts:1298
+actual code:
+              await this.removeSession(mcpSessionId, 'manual_termination');
+actual normalized: "await this.removeSession(mcpSessionId, 'manual_termination');"

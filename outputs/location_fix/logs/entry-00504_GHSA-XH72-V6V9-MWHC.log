@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00504 entry_point  extensions/feishu/src/card-action.ts:176  report=GHSA-XH72-V6V9-MWHC
+repo=https://github.com/openclaw/openclaw
+commit=1f14c8d96b8662e155d5c10ea650da868e1a9e63
+expected code:
+    export async function handleFeishuCardAction(params: {
+expected normalized: 'export async function handleFeishuCardAction(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/card-action.ts:176
+actual code:
+    export async function handleFeishuCardAction(params: {
+actual normalized: 'export async function handleFeishuCardAction(params: {'
+
+====================================================================================================
+entry-00504 critical_operation  extensions/feishu/src/card-action.ts:65  report=GHSA-XH72-V6V9-MWHC
+repo=https://github.com/openclaw/openclaw
+commit=1f14c8d96b8662e155d5c10ea650da868e1a9e63
+expected code:
+      if (!normalizedToken) {
+expected normalized: 'if (!normalizedToken) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/card-action.ts:65
+actual code:
+      if (!normalizedToken) {
+actual normalized: 'if (!normalizedToken) {'
+
+====================================================================================================
+entry-00504 trace[0]  extensions/feishu/src/card-action.ts:176  report=GHSA-XH72-V6V9-MWHC
+repo=https://github.com/openclaw/openclaw
+commit=1f14c8d96b8662e155d5c10ea650da868e1a9e63
+expected code:
+    export async function handleFeishuCardAction(params: {
+expected normalized: 'export async function handleFeishuCardAction(params: {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/card-action.ts:176
+actual code:
+    export async function handleFeishuCardAction(params: {
+actual normalized: 'export async function handleFeishuCardAction(params: {'
+
+====================================================================================================
+entry-00504 trace[1]  extensions/feishu/src/card-action.ts:187  report=GHSA-XH72-V6V9-MWHC
+repo=https://github.com/openclaw/openclaw
+commit=1f14c8d96b8662e155d5c10ea650da868e1a9e63
+expected code:
+      const claimedToken = beginFeishuCardActionToken({
+expected normalized: 'const claimedToken = beginFeishuCardActionToken({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/card-action.ts:187
+actual code:
+      const claimedToken = beginFeishuCardActionToken({
+actual normalized: 'const claimedToken = beginFeishuCardActionToken({'
+
+====================================================================================================
+entry-00504 trace[2]  extensions/feishu/src/card-action.ts:65  report=GHSA-XH72-V6V9-MWHC
+repo=https://github.com/openclaw/openclaw
+commit=1f14c8d96b8662e155d5c10ea650da868e1a9e63
+expected code:
+      if (!normalizedToken) {
+expected normalized: 'if (!normalizedToken) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: extensions/feishu/src/card-action.ts:65
+actual code:
+      if (!normalizedToken) {
+actual normalized: 'if (!normalizedToken) {'

@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00253 entry_point  src/slack/monitor/events/interactions.ts:518  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      ctx.app.action(
+expected normalized: 'ctx.app.action('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:518
+actual code:
+      ctx.app.action(
+actual normalized: 'ctx.app.action('
+
+====================================================================================================
+entry-00253 critical_operation  src/slack/monitor/events/interactions.ts:591  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+expected normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:591
+actual code:
+          enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+actual normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+
+====================================================================================================
+entry-00253 trace[0]  src/slack/monitor/events/interactions.ts:518  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      ctx.app.action(
+expected normalized: 'ctx.app.action('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:518
+actual code:
+      ctx.app.action(
+actual normalized: 'ctx.app.action('
+
+====================================================================================================
+entry-00253 trace[1]  src/slack/monitor/events/interactions.ts:533  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          await ack();
+expected normalized: 'await ack();'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:533
+actual code:
+          await ack();
+actual normalized: 'await ack();'
+
+====================================================================================================
+entry-00253 trace[2]  src/slack/monitor/events/interactions.ts:556  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          const userId = typedBody.user?.id ?? "unknown";
+expected normalized: 'const userId = typedBody.user?.id ?? "unknown";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:556
+actual code:
+          const userId = typedBody.user?.id ?? "unknown";
+actual normalized: 'const userId = typedBody.user?.id ?? "unknown";'
+
+====================================================================================================
+entry-00253 trace[3]  src/slack/monitor/events/interactions.ts:557  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          const channelId = typedBody.channel?.id ?? typedBody.container?.channel_id;
+expected normalized: 'const channelId = typedBody.channel?.id ?? typedBody.container?.channel_id;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:557
+actual code:
+          const channelId = typedBody.channel?.id ?? typedBody.container?.channel_id;
+actual normalized: 'const channelId = typedBody.channel?.id ?? typedBody.container?.channel_id;'
+
+====================================================================================================
+entry-00253 trace[4]  src/slack/monitor/events/interactions.ts:560  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          const actionSummary = summarizeAction(typedAction);
+expected normalized: 'const actionSummary = summarizeAction(typedAction);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:560
+actual code:
+          const actionSummary = summarizeAction(typedAction);
+actual normalized: 'const actionSummary = summarizeAction(typedAction);'
+
+====================================================================================================
+entry-00253 trace[5]  src/slack/monitor/events/interactions.ts:561  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          const eventPayload: InteractionSummary = {
+expected normalized: 'const eventPayload: InteractionSummary = {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:561
+actual code:
+          const eventPayload: InteractionSummary = {
+actual normalized: 'const eventPayload: InteractionSummary = {'
+
+====================================================================================================
+entry-00253 trace[6]  src/slack/monitor/events/interactions.ts:591  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+          enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+expected normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:591
+actual code:
+          enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {
+actual normalized: 'enqueueSystemEvent(`Slack interaction: ${JSON.stringify(eventPayload)}`, {'

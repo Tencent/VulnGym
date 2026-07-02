@@ -1,0 +1,125 @@
+====================================================================================================
+entry-00255 entry_point  src/slack/monitor/events/interactions.ts:693  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      registerModalLifecycleHandler({
+expected normalized: 'registerModalLifecycleHandler({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:693
+actual code:
+      registerModalLifecycleHandler({
+actual normalized: 'registerModalLifecycleHandler({'
+
+====================================================================================================
+entry-00255 critical_operation  src/slack/monitor/events/interactions.ts:486-488  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+        sessionKey: sessionRouting.sessionKey,
+        contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"),
+      });
+expected normalized: 'sessionKey: sessionRouting.sessionKey, contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"), });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:486-488
+actual code:
+        sessionKey: sessionRouting.sessionKey,
+        contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"),
+      });
+actual normalized: 'sessionKey: sessionRouting.sessionKey, contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"), });'
+
+====================================================================================================
+entry-00255 trace[0]  src/slack/monitor/events/interactions.ts:693-699  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      registerModalLifecycleHandler({
+        register: viewClosed,
+        matcher: modalMatcher,
+        ctx,
+        interactionType: "view_closed",
+        contextPrefix: "slack:interaction:view-closed",
+      });
+expected normalized: 'registerModalLifecycleHandler({ register: viewClosed, matcher: modalMatcher, ctx, interactionType: "view_closed", contextPrefix: "slack:interaction:view-closed", });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:693-699
+actual code:
+      registerModalLifecycleHandler({
+        register: viewClosed,
+        matcher: modalMatcher,
+        ctx,
+        interactionType: "view_closed",
+        contextPrefix: "slack:interaction:view-closed",
+      });
+actual normalized: 'registerModalLifecycleHandler({ register: viewClosed, matcher: modalMatcher, ctx, interactionType: "view_closed", contextPrefix: "slack:interaction:view-closed", });'
+
+====================================================================================================
+entry-00255 trace[1]  src/slack/monitor/events/interactions.ts:462  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      const isViewClosed = params.interactionType === "view_closed";
+expected normalized: 'const isViewClosed = params.interactionType === "view_closed";'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:462
+actual code:
+      const isViewClosed = params.interactionType === "view_closed";
+actual normalized: 'const isViewClosed = params.interactionType === "view_closed";'
+
+====================================================================================================
+entry-00255 trace[2]  src/slack/monitor/events/interactions.ts:475-483  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+      if (isViewClosed) {
+        params.ctx.runtime.log?.(
+          `slack:interaction view_closed callback=${callbackId} user=${userId} cleared=${isCleared}`,
+        );
+      } else {
+        params.ctx.runtime.log?.(
+          `slack:interaction view_submission callback=${callbackId} user=${userId} inputs=${payload.inputs.length}`,
+        );
+      }
+expected normalized: 'if (isViewClosed) { params.ctx.runtime.log?.( `slack:interaction view_closed callback=${callbackId} user=${userId} cleared=${isCleared}`, ); } else { params.ctx.runtime.log?.( `slack:interaction view_submission callback=${callbackId} user=${userId} inputs=${payload.inputs.length}`, ); }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:475-483
+actual code:
+      if (isViewClosed) {
+        params.ctx.runtime.log?.(
+          `slack:interaction view_closed callback=${callbackId} user=${userId} cleared=${isCleared}`,
+        );
+      } else {
+        params.ctx.runtime.log?.(
+          `slack:interaction view_submission callback=${callbackId} user=${userId} inputs=${payload.inputs.length}`,
+        );
+      }
+actual normalized: 'if (isViewClosed) { params.ctx.runtime.log?.( `slack:interaction view_closed callback=${callbackId} user=${userId} cleared=${isCleared}`, ); } else { params.ctx.runtime.log?.( `slack:interaction view_submission callback=${callbackId} user=${userId} inputs=${payload.inputs.length}`, ); }'
+
+====================================================================================================
+entry-00255 trace[3]  src/slack/monitor/events/interactions.ts:486-488  report=GHSA-X2FF-J5C2-GGPR
+repo=https://github.com/openclaw/openclaw
+commit=5e1bfb2ce2b73a27d04e03c5049910753f09aa3f
+expected code:
+        sessionKey: sessionRouting.sessionKey,
+        contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"),
+      });
+expected normalized: 'sessionKey: sessionRouting.sessionKey, contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"), });'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/slack/monitor/events/interactions.ts:486-488
+actual code:
+        sessionKey: sessionRouting.sessionKey,
+        contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"),
+      });
+actual normalized: 'sessionKey: sessionRouting.sessionKey, contextKey: [params.contextPrefix, callbackId, viewId, userId].filter(Boolean).join(":"), });'

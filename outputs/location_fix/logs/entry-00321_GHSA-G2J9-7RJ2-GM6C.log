@@ -1,0 +1,74 @@
+====================================================================================================
+entry-00321 entry_point  src/backend/base/langflow/api/v2/files.py:162  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+    new_filename = file.filename
+expected normalized: 'new_filename = file.filename'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:162
+actual code:
+            new_filename = file.filename
+actual normalized: 'new_filename = file.filename'
+
+====================================================================================================
+entry-00321 critical_operation  src/backend/base/langflow/services/storage/local.py:116  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+    file_path = folder_path / file_name
+expected normalized: 'file_path = folder_path / file_name'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/storage/local.py:116
+actual code:
+            file_path = folder_path / file_name
+actual normalized: 'file_path = folder_path / file_name'
+
+====================================================================================================
+entry-00321 trace[0]  src/backend/base/langflow/api/v2/files.py:162  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+            new_filename = file.filename
+expected normalized: 'new_filename = file.filename'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:162
+actual code:
+            new_filename = file.filename
+actual normalized: 'new_filename = file.filename'
+
+====================================================================================================
+entry-00321 trace[1]  src/backend/base/langflow/api/v2/files.py:192  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+                    unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename
+expected normalized: 'unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/api/v2/files.py:192
+actual code:
+                    unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename
+actual normalized: 'unique_filename = f"{root_filename}.{file_extension}" if file_extension else root_filename'
+
+====================================================================================================
+entry-00321 trace[2]  src/backend/base/langflow/services/storage/local.py:116  report=GHSA-G2J9-7RJ2-GM6C
+repo=https://github.com/langflow-ai/langflow
+commit=e8bbae8eeb8729abd650f07bfc55957cbdbc1636
+expected code:
+            file_path = folder_path / file_name
+expected normalized: 'file_path = folder_path / file_name'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/backend/base/langflow/services/storage/local.py:116
+actual code:
+            file_path = folder_path / file_name
+actual normalized: 'file_path = folder_path / file_name'

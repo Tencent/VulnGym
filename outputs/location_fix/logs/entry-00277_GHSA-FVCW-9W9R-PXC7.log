@@ -1,0 +1,157 @@
+====================================================================================================
+entry-00277 entry_point  packages/server/src/controllers/predictions/index.ts:14  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    const createPrediction = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const createPrediction = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/predictions/index.ts:14
+actual code:
+    const createPrediction = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const createPrediction = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00277 critical_operation  packages/components/src/httpSecurity.ts:69-71  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+        if (currentUrl) {
+            await checkDenyList(currentUrl)
+        }
+expected normalized: 'if (currentUrl) { await checkDenyList(currentUrl) }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:69-71
+actual code:
+        if (currentUrl) {
+            await checkDenyList(currentUrl)
+        }
+actual normalized: 'if (currentUrl) { await checkDenyList(currentUrl) }'
+
+====================================================================================================
+entry-00277 trace[0]  packages/server/src/controllers/predictions/index.ts:14  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+    const createPrediction = async (req: Request, res: Response, next: NextFunction) => {
+expected normalized: 'const createPrediction = async (req: Request, res: Response, next: NextFunction) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/predictions/index.ts:14
+actual code:
+    const createPrediction = async (req: Request, res: Response, next: NextFunction) => {
+actual normalized: 'const createPrediction = async (req: Request, res: Response, next: NextFunction) => {'
+
+====================================================================================================
+entry-00277 trace[1]  packages/server/src/controllers/predictions/index.ts:79  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                        const apiResponse = await predictionsServices.buildChatflow(req)
+expected normalized: 'const apiResponse = await predictionsServices.buildChatflow(req)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/controllers/predictions/index.ts:79
+actual code:
+                        const apiResponse = await predictionsServices.buildChatflow(req)
+actual normalized: 'const apiResponse = await predictionsServices.buildChatflow(req)'
+
+====================================================================================================
+entry-00277 trace[2]  packages/server/src/utils/buildChatflow.ts:473  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            return executeAgentFlow({
+expected normalized: 'return executeAgentFlow({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/buildChatflow.ts:473
+actual code:
+            return executeAgentFlow({
+actual normalized: 'return executeAgentFlow({'
+
+====================================================================================================
+entry-00277 trace[3]  packages/server/src/utils/buildAgentflow.ts:1105  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const reactFlowNodeData: INodeData = await resolveVariables(
+expected normalized: 'const reactFlowNodeData: INodeData = await resolveVariables('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/buildAgentflow.ts:1105
+actual code:
+            const reactFlowNodeData: INodeData = await resolveVariables(
+actual normalized: 'const reactFlowNodeData: INodeData = await resolveVariables('
+
+====================================================================================================
+entry-00277 trace[4]  packages/server/src/utils/buildAgentflow.ts:1192  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            let results = await newNodeInstance.run(reactFlowNodeData, finalInput, runParams)
+expected normalized: 'let results = await newNodeInstance.run(reactFlowNodeData, finalInput, runParams)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/server/src/utils/buildAgentflow.ts:1192
+actual code:
+            let results = await newNodeInstance.run(reactFlowNodeData, finalInput, runParams)
+actual normalized: 'let results = await newNodeInstance.run(reactFlowNodeData, finalInput, runParams)'
+
+====================================================================================================
+entry-00277 trace[5]  packages/components/nodes/agentflow/HTTP/HTTP.ts:206  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+            const url = nodeData.inputs?.url as string
+expected normalized: 'const url = nodeData.inputs?.url as string'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/agentflow/HTTP/HTTP.ts:206
+actual code:
+            const url = nodeData.inputs?.url as string
+actual normalized: 'const url = nodeData.inputs?.url as string'
+
+====================================================================================================
+entry-00277 trace[6]  packages/components/nodes/agentflow/HTTP/HTTP.ts:303  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+                const response = await secureAxiosRequest(requestConfig)
+expected normalized: 'const response = await secureAxiosRequest(requestConfig)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/nodes/agentflow/HTTP/HTTP.ts:303
+actual code:
+                const response = await secureAxiosRequest(requestConfig)
+actual normalized: 'const response = await secureAxiosRequest(requestConfig)'
+
+====================================================================================================
+entry-00277 trace[7]  packages/components/src/httpSecurity.ts:69-71  report=GHSA-FVCW-9W9R-PXC7
+repo=https://github.com/FlowiseAI/Flowise
+commit=55b6913c03f0dba37cc207975f0c0d0786e0f3c7
+expected code:
+        if (currentUrl) {
+            await checkDenyList(currentUrl)
+        }
+expected normalized: 'if (currentUrl) { await checkDenyList(currentUrl) }'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: packages/components/src/httpSecurity.ts:69-71
+actual code:
+        if (currentUrl) {
+            await checkDenyList(currentUrl)
+        }
+actual normalized: 'if (currentUrl) { await checkDenyList(currentUrl) }'

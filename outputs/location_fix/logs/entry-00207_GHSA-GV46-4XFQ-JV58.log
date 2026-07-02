@@ -1,0 +1,149 @@
+====================================================================================================
+entry-00207 entry_point  src/gateway/server-methods/nodes.ts:364  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    "node.invoke": async ({ params, respond, context }) => {
+expected normalized: '"node.invoke": async ({ params, respond, context }) => {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:364
+actual code:
+      "node.invoke": async ({ params, respond, context }) => {
+actual normalized: '"node.invoke": async ({ params, respond, context }) => {'
+
+====================================================================================================
+entry-00207 critical_operation  src/node-host/invoke.ts:693  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const approvedByAsk = approvalDecision !== null || params.approved === true;
+expected normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:693
+actual code:
+      const approvedByAsk = approvalDecision !== null || params.approved === true;
+actual normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+
+====================================================================================================
+entry-00207 trace[0]  src/gateway/server-methods/nodes.ts:373  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const p = params as {
+expected normalized: 'const p = params as {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:373
+actual code:
+        const p = params as {
+actual normalized: 'const p = params as {'
+
+====================================================================================================
+entry-00207 trace[1]  src/gateway/server-methods/nodes.ts:420  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const res = await context.nodeRegistry.invoke({
+expected normalized: 'const res = await context.nodeRegistry.invoke({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/server-methods/nodes.ts:420
+actual code:
+          const res = await context.nodeRegistry.invoke({
+actual normalized: 'const res = await context.nodeRegistry.invoke({'
+
+====================================================================================================
+entry-00207 trace[2]  src/gateway/node-registry.ts:126  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    paramsJSON:
+expected normalized: 'paramsJSON:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/gateway/node-registry.ts:126
+actual code:
+          paramsJSON:
+actual normalized: 'paramsJSON:'
+
+====================================================================================================
+entry-00207 trace[3]  src/node-host/invoke.ts:498  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    params = decodeParams<SystemRunParams>(frame.paramsJSON);
+expected normalized: 'params = decodeParams<SystemRunParams>(frame.paramsJSON);'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:498
+actual code:
+        params = decodeParams<SystemRunParams>(frame.paramsJSON);
+actual normalized: 'params = decodeParams<SystemRunParams>(frame.paramsJSON);'
+
+====================================================================================================
+entry-00207 trace[4]  src/node-host/invoke.ts:682  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const requiresAsk = requiresExecApproval({
+expected normalized: 'const requiresAsk = requiresExecApproval({'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:682
+actual code:
+      const requiresAsk = requiresExecApproval({
+actual normalized: 'const requiresAsk = requiresExecApproval({'
+
+====================================================================================================
+entry-00207 trace[5]  src/node-host/invoke.ts:693  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const approvedByAsk = approvalDecision !== null || params.approved === true;
+expected normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:693
+actual code:
+      const approvedByAsk = approvalDecision !== null || params.approved === true;
+actual normalized: 'const approvedByAsk = approvalDecision !== null || params.approved === true;'
+
+====================================================================================================
+entry-00207 trace[6]  src/node-host/invoke.ts:694  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    if (requiresAsk && !approvedByAsk) {
+expected normalized: 'if (requiresAsk && !approvedByAsk) {'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:694
+actual code:
+      if (requiresAsk && !approvedByAsk) {
+actual normalized: 'if (requiresAsk && !approvedByAsk) {'
+
+====================================================================================================
+entry-00207 trace[7]  src/node-host/invoke.ts:792  report=GHSA-GV46-4XFQ-JV58
+repo=https://github.com/openclaw/openclaw
+commit=233483d2b913038592c863785e1bc815336a5b69
+expected code:
+    const result = await runCommand(
+expected normalized: 'const result = await runCommand('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: src/node-host/invoke.ts:792
+actual code:
+      const result = await runCommand(
+actual normalized: 'const result = await runCommand('

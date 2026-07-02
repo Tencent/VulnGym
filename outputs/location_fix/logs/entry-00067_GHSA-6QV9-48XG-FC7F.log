@@ -1,0 +1,134 @@
+====================================================================================================
+entry-00067 entry_point  libs/core/langchain_core/prompts/string.py:111  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+    def mustache_formatter(template: str, /, **kwargs: Any) -> str:
+expected normalized: 'def mustache_formatter(template: str, /, **kwargs: Any) -> str:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/string.py:111
+actual code:
+    def mustache_formatter(template: str, /, **kwargs: Any) -> str:
+actual normalized: 'def mustache_formatter(template: str, /, **kwargs: Any) -> str:'
+
+====================================================================================================
+entry-00067 critical_operation  libs/core/langchain_core/utils/mustache.py:382  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+                            resolved_scope = getattr(resolved_scope, child)
+expected normalized: 'resolved_scope = getattr(resolved_scope, child)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:382
+actual code:
+                            resolved_scope = getattr(resolved_scope, child)
+actual normalized: 'resolved_scope = getattr(resolved_scope, child)'
+
+====================================================================================================
+entry-00067 trace[0]  libs/core/langchain_core/prompts/string.py:111  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+    def mustache_formatter(template: str, /, **kwargs: Any) -> str:
+expected normalized: 'def mustache_formatter(template: str, /, **kwargs: Any) -> str:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/string.py:111
+actual code:
+    def mustache_formatter(template: str, /, **kwargs: Any) -> str:
+actual normalized: 'def mustache_formatter(template: str, /, **kwargs: Any) -> str:'
+
+====================================================================================================
+entry-00067 trace[1]  libs/core/langchain_core/prompts/string.py:121  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+        return mustache.render(template, kwargs)
+expected normalized: 'return mustache.render(template, kwargs)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/prompts/string.py:121
+actual code:
+        return mustache.render(template, kwargs)
+actual normalized: 'return mustache.render(template, kwargs)'
+
+====================================================================================================
+entry-00067 trace[2]  libs/core/langchain_core/utils/mustache.py:482  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+            tokens = tokenize(template, def_ldel, def_rdel)
+expected normalized: 'tokens = tokenize(template, def_ldel, def_rdel)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:482
+actual code:
+            tokens = tokenize(template, def_ldel, def_rdel)
+actual normalized: 'tokens = tokenize(template, def_ldel, def_rdel)'
+
+====================================================================================================
+entry-00067 trace[3]  libs/core/langchain_core/utils/mustache.py:513  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+                thing = _get_key(
+expected normalized: 'thing = _get_key('
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:513
+actual code:
+                thing = _get_key(
+actual normalized: 'thing = _get_key('
+
+====================================================================================================
+entry-00067 trace[4]  libs/core/langchain_core/utils/mustache.py:371  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+                for child in key.split("."):
+expected normalized: 'for child in key.split("."):'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:371
+actual code:
+                for child in key.split("."):
+actual normalized: 'for child in key.split("."):'
+
+====================================================================================================
+entry-00067 trace[5]  libs/core/langchain_core/utils/mustache.py:377  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+                    try:
+expected normalized: 'try:'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:377
+actual code:
+                    try:
+actual normalized: 'try:'
+
+====================================================================================================
+entry-00067 trace[6]  libs/core/langchain_core/utils/mustache.py:382  report=GHSA-6QV9-48XG-FC7F
+repo=https://github.com/langchain-ai/langchain
+commit=b7d1831f9d3560ed4fb45134861eef3f4544eff3
+expected code:
+                            resolved_scope = getattr(resolved_scope, child)
+expected normalized: 'resolved_scope = getattr(resolved_scope, child)'
+----------------------------------------------------------------------------------------------------
+step=original_location status=matched
+detail=compare node code with source at the recorded file/line
+compared source: libs/core/langchain_core/utils/mustache.py:382
+actual code:
+                            resolved_scope = getattr(resolved_scope, child)
+actual normalized: 'resolved_scope = getattr(resolved_scope, child)'
