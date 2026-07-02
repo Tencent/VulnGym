@@ -1,0 +1,210 @@
+# Trace cleanup report
+
+## Config
+
+- mode: `fix`
+- input: `data/entries.jsonl`
+- output: `data/entries.trace_fixed.jsonl`
+- fix_verify: `0`
+- order_fix_policy: `entry-before-only`
+- duplicate_fix_policy: `safe`
+- log_cross_file: `True`
+
+## Totals
+
+- entries scanned: 408
+- trace nodes scanned: 2073
+- changed entries: 2
+- log events: 2089
+- manual-review entries: 161
+- input schema errors: 0
+- output schema errors: 0
+
+## Issues
+
+- duplicate_nodes: 7
+- duplicate_desc_sync_needed: 0
+- duplicate_desc_conflicts: 7
+- order_before_entry_whole: 139
+- order_before_entry_overlap: 7
+- order_after_critical_whole: 237
+- order_after_critical_overlap: 34
+- cross_file_entry_comparisons_skipped: 907
+- cross_file_critical_comparisons_skipped: 751
+- invalid_trace_lines: 0
+
+## Actions
+
+- kept_cross_file: 1658
+- manual_review: 292
+- removed: 2
+- skipped_not_fix_target: 137
+
+## Changed Entries
+
+- entry-00103
+- entry-00320
+
+## Manual Review Entries
+
+- entry-00058
+- entry-00061
+- entry-00062
+- entry-00063
+- entry-00066
+- entry-00067
+- entry-00074
+- entry-00075
+- entry-00076
+- entry-00078
+- entry-00079
+- entry-00081
+- entry-00082
+- entry-00083
+- entry-00087
+- entry-00103
+- entry-00104
+- entry-00105
+- entry-00106
+- entry-00113
+- entry-00115
+- entry-00122
+- entry-00123
+- entry-00126
+- entry-00127
+- entry-00128
+- entry-00129
+- entry-00130
+- entry-00131
+- entry-00132
+- entry-00133
+- entry-00134
+- entry-00140
+- entry-00142
+- entry-00145
+- entry-00149
+- entry-00158
+- entry-00163
+- entry-00171
+- entry-00172
+- entry-00173
+- entry-00175
+- entry-00176
+- entry-00178
+- entry-00179
+- entry-00182
+- entry-00184
+- entry-00185
+- entry-00186
+- entry-00192
+- entry-00194
+- entry-00195
+- entry-00199
+- entry-00207
+- entry-00212
+- entry-00213
+- entry-00215
+- entry-00216
+- entry-00217
+- entry-00219
+- entry-00220
+- entry-00222
+- entry-00224
+- entry-00226
+- entry-00231
+- entry-00232
+- entry-00240
+- entry-00245
+- entry-00246
+- entry-00247
+- entry-00248
+- entry-00250
+- entry-00254
+- entry-00255
+- entry-00256
+- entry-00257
+- entry-00258
+- entry-00278
+- entry-00285
+- entry-00286
+- entry-00287
+- entry-00288
+- entry-00289
+- entry-00292
+- entry-00296
+- entry-00303
+- entry-00309
+- entry-00310
+- entry-00311
+- entry-00312
+- entry-00314
+- entry-00315
+- entry-00317
+- entry-00319
+- entry-00324
+- entry-00350
+- entry-00351
+- entry-00352
+- entry-00356
+- entry-00362
+- entry-00363
+- entry-00364
+- entry-00365
+- entry-00369
+- entry-00372
+- entry-00373
+- entry-00378
+- entry-00383
+- entry-00384
+- entry-00385
+- entry-00388
+- entry-00391
+- entry-00394
+- entry-00395
+- entry-00398
+- entry-00399
+- entry-00400
+- entry-00401
+- entry-00402
+- entry-00403
+- entry-00404
+- entry-00405
+- entry-00410
+- entry-00411
+- entry-00413
+- entry-00414
+- entry-00415
+- entry-00417
+- entry-00419
+- entry-00429
+- entry-00430
+- entry-00437
+- entry-00438
+- entry-00440
+- entry-00443
+- entry-00446
+- entry-00448
+- entry-00449
+- entry-00450
+- entry-00451
+- entry-00464
+- entry-00471
+- entry-00474
+- entry-00476
+- entry-00481
+- entry-00484
+- entry-00487
+- entry-00491
+- entry-00494
+- entry-00495
+- entry-00496
+- entry-00497
+- entry-00501
+- entry-00502
+- entry-00503
+- entry-00504
+- entry-00505
+- entry-00507
+- entry-00509
+- entry-00510
+- entry-00511
