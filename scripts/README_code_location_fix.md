@@ -38,6 +38,8 @@ python scripts/fix_code_locations.py --entry-id entry-00103 --entry-id entry-003
   `file`, `line`, `desc`, strategy, and source evidence.
 - `reports/needs_human.csv`: nodes with multiple matches, no match, invalid
   metadata, or checkout failures.
+- `reports/code_location_summary.md`: reviewer-friendly summary with selected
+  entries, fixed/manual counts, strategy counts, and manual-review reasons.
 
 ## Matching Strategy
 
@@ -57,6 +59,10 @@ For mismatched nodes, repair attempts are conservative and ordered:
 
 Only a unique match is repaired. Multiple matches or no matches are written to
 `needs_human.csv` and left unchanged.
+
+Very low-information snippets such as a standalone `}`, `);`, or `return;` are
+also sent to `needs_human.csv` even if they have a unique textual match. These
+snippets are too generic to safely prove a semantic code location by themselves.
 
 ## Source Cache
 
@@ -82,6 +88,18 @@ When a node location changes, the script performs a narrow text rewrite on
 
 If no safe rewrite is found, `desc_status` is recorded as
 `unchanged_needs_review` in `fix_diff.csv`.
+
+## Delivered Artifacts
+
+The checked-in output artifacts were generated from the current issue #4 repair
+set:
+
+- entries scanned: 408
+- automatic repairs: 12
+- manual-review rows: 75
+
+The CSVs and summary are intended to make the automatic changes auditable while
+keeping ambiguous nodes out of the fixed JSONL.
 
 ## Limits
 

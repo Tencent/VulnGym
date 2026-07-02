@@ -36,6 +36,7 @@ DEFAULT_REPO_CACHE = REPO_ROOT / ".cache" / "source_repos"
 DEFAULT_OUTPUT = REPO_ROOT / "data" / "entries.fixed.jsonl"
 DEFAULT_DIFF = REPO_ROOT / "reports" / "fix_diff.csv"
 DEFAULT_NEEDS_HUMAN = REPO_ROOT / "reports" / "needs_human.csv"
+DEFAULT_SUMMARY = REPO_ROOT / "reports" / "code_location_summary.md"
 
 LINE_RANGE_RE = re.compile(r"^([1-9]\d*)-([1-9]\d*)$")
 NUMERIC_LINE_RE = re.compile(r"^[1-9]\d*$")
@@ -61,6 +62,7 @@ REQUIRED_ENTRY_FIELDS = {
     "vuln_title",
 }
 REQUIRED_NODE_FIELDS = {"file", "line", "code"}
+LOW_INFORMATION_SNIPPETS = {"}", "{", ");", "};", ")", "]", "];", "return;", "else {"}
 
 
 @dataclass(frozen=True)
@@ -175,6 +177,15 @@ def normalize_code_lines(code: Any) -> tuple[str, ...]:
     return tuple(normalize_line(line) for line in lines)
 
 
+def is_low_information_needle(needle: tuple[str, ...]) -> bool:
+    normalized = " ".join(needle).strip()
+    if not normalized:
+        return True
+    if normalized in LOW_INFORMATION_SNIPPETS:
+        return True
+    return len(normalized) <= 3
+
+
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     with path.open("r", encoding="utf-8") as handle:
@@ -253,8 +264,8 @@ def line_desc_pattern_variants(value: Any) -> list[str]:
     if isinstance(value, str):
         variants = [value]
         if "-" in value:
-            variants.append(value.replace("-", "–"))
-            variants.append(value.replace("-", "—"))
+            variants.append(value.replace("-", "\u2013"))
+            variants.append(value.replace("-", "\u2014"))
         return variants
     return []
 
@@ -285,7 +296,7 @@ def maybe_update_desc(
     if old_line_texts and str(old_line) != new_line_text:
         for old_line_text in old_line_texts:
             escaped = re.escape(old_line_text)
-            updated = re.sub(rf"(第\s*){escaped}(\s*行)", rf"\g<1>{new_line_text}\2", updated)
+            updated = re.sub(rf"(\u7b2c\s*){escaped}(\s*\u884c)", rf"\g<1>{new_line_text}\2", updated)
             updated = re.sub(rf"(?i)\b(line\s*){escaped}\b", rf"\g<1>{new_line_text}", updated)
             updated = re.sub(rf"(?i)\b(lines\s*){escaped}\b", rf"\g<1>{new_line_text}", updated)
 
@@ -425,6 +436,17 @@ def fix_node(
         return "human"
     if not needle:
         human_rows.append(make_human_row(entry, field_path, node, "empty_or_invalid_code", ""))
+        return "human"
+    if is_low_information_needle(needle):
+        human_rows.append(
+            make_human_row(
+                entry,
+                field_path,
+                node,
+                "low_information_code",
+                "snippet is too generic for safe automatic repair",
+            )
+        )
         return "human"
 
     current_matches = workspace.search_file(old_file, needle, start_min=line_span.start, start_max=line_span.start)
@@ -638,6 +660,55 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow(row)
 
 
+def count_by(rows: list[dict[str, Any]], key: str) -> Counter[str]:
+    return Counter(str(row.get(key, "")) or "<empty>" for row in rows)
+
+
+def markdown_count_table(title: str, counts: Counter[str]) -> str:
+    lines = [f"## {title}", "", "| Value | Count |", "| --- | ---: |"]
+    if counts:
+        for value, count in counts.most_common():
+            lines.append(f"| {value} | {count} |")
+    else:
+        lines.append("| none | 0 |")
+    return "\n".join(lines)
+
+
+def write_summary(
+    path: Path,
+    *,
+    args: argparse.Namespace,
+    selected_entries: int,
+    group_count: int,
+    stats: Counter[str],
+    diff_rows: list[dict[str, Any]],
+    human_rows: list[dict[str, Any]],
+    validation_errors: list[str],
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        "# Code Location Fix Summary",
+        "",
+        f"- Entries selected: {selected_entries}",
+        f"- Repo/commit groups: {group_count}",
+        f"- OK nodes: {stats['ok']}",
+        f"- Fixed nodes: {stats['fixed']}",
+        f"- Manual-review nodes: {stats['human']}",
+        f"- Schema errors: {len(validation_errors)}",
+        f"- Fixed JSONL: `{args.output.as_posix()}`",
+        f"- Diff CSV: `{args.diff_out.as_posix()}`",
+        f"- Needs-human CSV: `{args.needs_human_out.as_posix()}`",
+        "",
+        markdown_count_table("Automatic fixes by strategy", count_by(diff_rows, "strategy")),
+        "",
+        markdown_count_table("Manual review by reason", count_by(human_rows, "reason")),
+        "",
+        markdown_count_table("Desc rewrite status", count_by(diff_rows, "desc_status")),
+        "",
+    ]
+    path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Repair VulnGym node file/line locations from code snippets.",
@@ -648,6 +719,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--diff-out", type=Path, default=DEFAULT_DIFF)
     parser.add_argument("--needs-human-out", type=Path, default=DEFAULT_NEEDS_HUMAN)
+    parser.add_argument("--summary-out", type=Path, default=DEFAULT_SUMMARY)
     parser.add_argument("--verify", choices=("0", "1", "all"), default="0")
     parser.add_argument("--entry-id", action="append", default=[])
     parser.add_argument("--nearby-lines", type=int, default=5)
@@ -752,6 +824,16 @@ def main(argv: list[str] | None = None) -> int:
             "details",
         ],
     )
+    write_summary(
+        args.summary_out,
+        args=args,
+        selected_entries=len(selected_indexes),
+        group_count=len(groups),
+        stats=stats,
+        diff_rows=diff_rows,
+        human_rows=human_rows,
+        validation_errors=validation_errors,
+    )
 
     print("summary", flush=True)
     print("-------", flush=True)
@@ -762,6 +844,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"wrote fixed jsonl: {args.output}", flush=True)
     print(f"wrote diff csv: {args.diff_out}", flush=True)
     print(f"wrote needs-human csv: {args.needs_human_out}", flush=True)
+    print(f"wrote summary: {args.summary_out}", flush=True)
 
     return 1 if validation_errors else 0
 

@@ -48,10 +48,16 @@ class CodeLocationFixTests(unittest.TestCase):
         self.assertEqual(fix.parse_line_span("7-9"), fix.LineSpan(7, 9))
         self.assertIsNone(fix.parse_line_span(0))
         self.assertIsNone(fix.parse_line_span("9-7"))
+        self.assertIsNone(fix.parse_line_span(True))
+
+    def test_low_information_needle_is_not_auto_fixable(self):
+        self.assertTrue(fix.is_low_information_needle(fix.normalize_code_lines("}")))
+        self.assertTrue(fix.is_low_information_needle(fix.normalize_code_lines(");")))
+        self.assertFalse(fix.is_low_information_needle(fix.normalize_code_lines("return value;")))
 
     def test_desc_rewrite_updates_contextual_line_reference(self):
         desc, status = fix.maybe_update_desc(
-            "example.ts 第 10 行 forwards the value",
+            "example.ts \u7b2c 10 \u884c forwards the value",
             old_file="src/example.ts",
             old_line=10,
             new_file="src/example.ts",
@@ -59,4 +65,9 @@ class CodeLocationFixTests(unittest.TestCase):
         )
 
         self.assertEqual(status, "updated_by_text_rewrite")
-        self.assertIn("第 12 行", desc)
+        self.assertIn("\u7b2c 12 \u884c", desc)
+
+    def test_markdown_count_table_renders_empty_counts(self):
+        table = fix.markdown_count_table("Reasons", fix.Counter())
+
+        self.assertIn("| none | 0 |", table)
