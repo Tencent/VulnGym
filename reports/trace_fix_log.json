@@ -6721,8 +6721,8 @@
     "verify": 1,
     "field_path": "trace[1]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "    async connect(transport: Transport): Promise<void> {",
       "desc": "随后，Client B 调用同一 Protocol 实例的 connect()；由于缺少已连接守卫，this._transport 被赋值为 Client B 的 transport，静默覆盖先前 Client A 建立的绑定；自此，实例内所有出站消息均将错误地流向 Client B 的通道。",
@@ -6737,7 +6737,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -13809,8 +13810,8 @@
     "verify": 1,
     "field_path": "trace[1]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "BLOCKED_ATTRIBUTES = {",
       "desc": "调用链第二步（运行时属性检查阶段）：沙箱拦截属性访问时对 BLOCKED_ATTRIBUTES 执行成员查询。当攻击者请求访问 __objclass__ 时，查询在已固化集合中找不到对应条目，检查结果为 False，属性访问被直接放行，为后续获取底层类引用打开通道。",
@@ -13825,7 +13826,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -15415,8 +15417,8 @@
     "verify": 1,
     "field_path": "trace[2]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "    void agentCommand(",
       "desc": "此处的 agentCommand 调用即是 WRITE_SCOPE 所覆盖的 agent 方法处理器的实际执行位置，印证了上一步权限配置的作用范围。调用以 void 触发后执行线程脱离原始请求上下文，调用者身份信息不再可追溯，漏洞利用路径由此向后续环节持续延伸。",
@@ -15431,7 +15433,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -18734,8 +18737,8 @@
     "verify": 1,
     "field_path": "trace[6]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "export function isPathProtectedByPrefixes(pathname: string, prefixes: readonly string[]): boolean {",
       "desc": "随着解码循环终止，流程沿 callee→caller 方向回到 isPathProtectedByPrefixes；该函数以不完整的候选集合与前缀列表逐一执行前缀匹配，因候选中不存在充分还原的受保护路径形式，所有比对均不命中，函数向调用者 isProtectedPluginRoutePath 返回 false。此负向返回值继续沿调用栈上传，最终抵达鉴权决策点。",
@@ -18750,7 +18753,8 @@
     },
     "details": {
       "kept_path": "trace[2]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -50167,8 +50171,8 @@
     "verify": 1,
     "field_path": "trace[2]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "assertBoard(req);",
       "desc": "assertBoard(req) 在此处暴露的是其后本应存在的租户归属校验的结构性缺位；路由在确认 actor 类型后直接进入业务逻辑，省略了将调用方 companyIds 与目标 agent 的 companyId 做交叉核查的步骤，这一缺口使得跨租户的密钥操作请求得以无拦截地向下穿透至服务层。",
@@ -50183,7 +50187,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -50499,8 +50504,8 @@
     "verify": 1,
     "field_path": "trace[2]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "assertBoard(req);",
       "desc": "在调用栈此处，assertBoard(req) 是路由层仅有的权限调用，然而代码完全缺失将 req.actor.companyIds 与目标 agent 所属公司进行比对的归属校验步骤。这一缺口使任何已通过 assertBoard 类型断言的 board 用户均可跨越租户边界，是 IDOR 的直接根因——若此处存在 assertCompanyAccess 调用，后续跨租户密钥铸造将被拦截。",
@@ -50515,7 +50520,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {
@@ -53696,8 +53702,8 @@
     "verify": 1,
     "field_path": "trace[1]",
     "event_type": "duplicate_node",
-    "action": "skipped_not_fix_target",
-    "reason": "duplicate trace node with identical file, line, and code; the first occurrence is retained",
+    "action": "manual_review",
+    "reason": "duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review",
     "before": {
       "code": "    app.get('/mcp', async (req, res) => {",
       "desc": "处理器函数体执行的第一步理应包含身份校验调用，但此处直接进入后续逻辑，未对请求者身份作任何核验。随后的数据读取和会话查找均在此无鉴权前提下展开，这一缺口是从入口路由向下游 session 查找阶段跨越的关键权限边界缺失点，是漏洞链路中从 caller 流向内部状态查找逻辑的第一段。",
@@ -53712,7 +53718,8 @@
     },
     "details": {
       "kept_path": "trace[0]",
-      "desc_status": "conflict_review"
+      "desc_status": "conflict_review",
+      "duplicate_fix_policy": "safe"
     }
   },
   {

@@ -26,9 +26,9 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_INPUT = REPO_ROOT / "data" / "entries.jsonl"
 DEFAULT_OUTPUT = REPO_ROOT / "data" / "entries.trace_fixed.jsonl"
-DEFAULT_LOG = REPO_ROOT / "data" / "trace_fix_log.json"
-DEFAULT_REPORT_JSON = REPO_ROOT / "data" / "trace_fix_report.json"
-DEFAULT_REPORT_MD = REPO_ROOT / "data" / "trace_fix_report.md"
+DEFAULT_LOG = REPO_ROOT / "reports" / "trace_fix_log.json"
+DEFAULT_REPORT_JSON = REPO_ROOT / "reports" / "trace_fix_report.json"
+DEFAULT_REPORT_MD = REPO_ROOT / "reports" / "trace_fix_report.md"
 
 LINE_RANGE_RE = re.compile(r"^([1-9]\d*)-([1-9]\d*)$")
 NUMERIC_LINE_RE = re.compile(r"^[1-9]\d*$")
@@ -135,6 +135,15 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
             handle.write("\n")
 
 
+def display_path(path: Path | None) -> str | None:
+    if path is None:
+        return None
+    try:
+        return path.resolve().relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def add_log(
     logs: list[dict[str, Any]],
     stats: Counter[str],
@@ -188,7 +197,7 @@ def handle_duplicate_nodes(
     logs: list[dict[str, Any]],
     stats: Counter[str],
     can_fix: bool,
-    mode: str,
+    args: argparse.Namespace,
 ) -> None:
     seen: dict[tuple[Any, Any, Any], TraceItem] = {}
 
@@ -211,14 +220,19 @@ def handle_duplicate_nodes(
             before_first = copy.deepcopy(first.node)
             after_first = copy.deepcopy(first.node)
             after_first["desc"] = duplicate_desc
-            if can_fix:
+            if can_fix and args.duplicate_fix_policy != "none":
                 first.node["desc"] = duplicate_desc
-            action = candidate_action(
-                can_fix=can_fix,
-                mode=mode,
-                fixed_action="desc_synced",
-                check_action="would_sync_desc",
-            )
+            if args.duplicate_fix_policy == "none":
+                action = "manual_review"
+                after_sync = before_first
+            else:
+                action = candidate_action(
+                    can_fix=can_fix,
+                    mode=args.mode,
+                    fixed_action="desc_synced",
+                    check_action="would_sync_desc",
+                )
+                after_sync = after_first
             add_log(
                 logs,
                 stats,
@@ -231,10 +245,11 @@ def handle_duplicate_nodes(
                     "non-empty desc while the first occurrence has no desc"
                 ),
                 before=before_first,
-                after=after_first,
+                after=after_sync,
                 details={
                     "duplicate_path": f"trace[{item.original_index}]",
                     "kept_path": f"trace[{first.original_index}]",
+                    "duplicate_fix_policy": args.duplicate_fix_policy,
                 },
             )
         elif first_desc and duplicate_desc and first_desc != duplicate_desc:
@@ -259,14 +274,44 @@ def handle_duplicate_nodes(
                 },
             )
 
-        if can_fix:
+        policy = args.duplicate_fix_policy
+        should_drop = False
+        if policy == "drop-all":
+            should_drop = can_fix
+        elif policy == "safe":
+            should_drop = can_fix and desc_status != "conflict_review"
+
+        if should_drop:
             item.dropped = True
-        action = candidate_action(
-            can_fix=can_fix,
-            mode=mode,
-            fixed_action="removed",
-            check_action="would_remove",
-        )
+            action = "removed"
+            after = None
+            reason = (
+                "duplicate trace node with identical file, line, and code; "
+                "the first occurrence is retained"
+            )
+        elif desc_status == "conflict_review" and policy == "safe":
+            action = "manual_review"
+            after = node
+            reason = (
+                "duplicate trace node has identical file, line, and code but a "
+                "different desc; kept by the safe duplicate policy for manual review"
+            )
+        elif policy == "none":
+            action = "manual_review"
+            after = node
+            reason = "duplicate trace node detected; kept because duplicate fixing is disabled"
+        else:
+            action = candidate_action(
+                can_fix=can_fix,
+                mode=args.mode,
+                fixed_action="removed",
+                check_action="would_remove",
+            )
+            after = node
+            reason = (
+                "duplicate trace node with identical file, line, and code; "
+                "the first occurrence would be retained in fix mode"
+            )
         add_log(
             logs,
             stats,
@@ -274,15 +319,13 @@ def handle_duplicate_nodes(
             event_type="duplicate_node",
             field_path=f"trace[{item.original_index}]",
             action=action,
-            reason=(
-                "duplicate trace node with identical file, line, and code; "
-                "the first occurrence is retained"
-            ),
+            reason=reason,
             before=node,
-            after=None if can_fix else node,
+            after=after,
             details={
                 "kept_path": f"trace[{first.original_index}]",
                 "desc_status": desc_status,
+                "duplicate_fix_policy": policy,
             },
         )
 
@@ -512,7 +555,7 @@ def process_entry(
         logs=logs,
         stats=stats,
         can_fix=can_fix,
-        mode=args.mode,
+        args=args,
     )
 
     for item in items:
@@ -608,10 +651,11 @@ def build_report(
     return {
         "config": {
             "mode": args.mode,
-            "input": str(input_path),
-            "output": str(output_path) if output_path else None,
+            "input": display_path(input_path),
+            "output": display_path(output_path),
             "fix_verify": args.fix_verify,
             "order_fix_policy": args.order_fix_policy,
+            "duplicate_fix_policy": args.duplicate_fix_policy,
             "log_cross_file": args.log_cross_file,
         },
         "totals": {
@@ -666,6 +710,7 @@ def write_report_markdown(path: Path, report: dict[str, Any]) -> None:
         f"- output: `{cfg['output']}`",
         f"- fix_verify: `{cfg['fix_verify']}`",
         f"- order_fix_policy: `{cfg['order_fix_policy']}`",
+        f"- duplicate_fix_policy: `{cfg['duplicate_fix_policy']}`",
         f"- log_cross_file: `{cfg['log_cross_file']}`",
         "",
         "## Totals",
@@ -777,6 +822,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "order cleanup in fix mode: none keeps order anomalies, "
             "entry-before-only drops wholly pre-entry nodes, bounds also drops "
             "wholly post-critical nodes"
+        ),
+    )
+    parser.add_argument(
+        "--duplicate-fix-policy",
+        choices=("safe", "drop-all", "none"),
+        default="safe",
+        help=(
+            "duplicate cleanup in fix mode: safe drops only duplicates without "
+            "conflicting desc text, drop-all drops every duplicate candidate, "
+            "none only reports duplicates"
         ),
     )
     parser.add_argument(

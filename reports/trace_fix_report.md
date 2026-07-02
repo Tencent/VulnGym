@@ -3,10 +3,11 @@
 ## Config
 
 - mode: `fix`
-- input: `C:\Users\22977\Documents\Codex\2026-07-01\2026-vulngym-5-open-open-2026\work\VulnGym\data\entries.jsonl`
-- output: `C:\Users\22977\Documents\Codex\2026-07-01\2026-vulngym-5-open-open-2026\work\VulnGym\data\entries.trace_fixed.jsonl`
+- input: `data/entries.jsonl`
+- output: `data/entries.trace_fixed.jsonl`
 - fix_verify: `0`
 - order_fix_policy: `entry-before-only`
+- duplicate_fix_policy: `safe`
 - log_cross_file: `True`
 
 ## Totals
@@ -35,9 +36,9 @@
 ## Actions
 
 - kept_cross_file: 1658
-- manual_review: 285
+- manual_review: 292
 - removed: 2
-- skipped_not_fix_target: 144
+- skipped_not_fix_target: 137
 
 ## Changed Entries
 
