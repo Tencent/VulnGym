@@ -6,12 +6,12 @@
     "fix_verify": "0",
     "order_fix_policy": "entry-before-only",
     "duplicate_fix_policy": "safe",
-    "log_cross_file": true
+    "log_cross_file": false
   },
   "totals": {
     "entries_scanned": 408,
     "trace_nodes_scanned": 2073,
-    "log_events": 2089,
+    "log_events": 431,
     "changed_entries": 2,
     "manual_review_entries": 161,
     "input_schema_errors": 0,
@@ -30,13 +30,11 @@
     "invalid_trace_lines": 0
   },
   "action_counts": {
-    "kept_cross_file": 1658,
     "manual_review": 292,
     "removed": 2,
     "skipped_not_fix_target": 137
   },
   "event_counts": {
-    "cross_file_skip": 1658,
     "duplicate_desc_conflict": 7,
     "duplicate_node": 7,
     "order_after_critical": 237,

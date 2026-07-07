@@ -8,14 +8,14 @@
 - fix_verify: `0`
 - order_fix_policy: `entry-before-only`
 - duplicate_fix_policy: `safe`
-- log_cross_file: `True`
+- log_cross_file: `False`
 
 ## Totals
 
 - entries scanned: 408
 - trace nodes scanned: 2073
 - changed entries: 2
-- log events: 2089
+- log events: 431
 - manual-review entries: 161
 - input schema errors: 0
 - output schema errors: 0
@@ -35,7 +35,6 @@
 
 ## Actions
 
-- kept_cross_file: 1658
 - manual_review: 292
 - removed: 2
 - skipped_not_fix_target: 137

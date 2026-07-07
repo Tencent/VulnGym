@@ -18,8 +18,7 @@ Check-only mode is the default:
 python scripts/trace_cleanup.py
 ```
 
-Fix mode writes `data/entries.trace_fixed.jsonl` plus a JSON log and JSON/Markdown
-reports:
+Fix mode writes `data/entries.trace_fixed.jsonl` plus JSON/Markdown reports:
 
 ```bash
 python scripts/trace_cleanup.py --mode fix
@@ -47,8 +46,10 @@ human-verified entries.
   - `trace.start <= critical_operation.end < trace.end` is a boundary overlap
     and is kept for manual review.
 - Cross-file checks: when a trace node is in a different file from the boundary
-  being checked, the script records a cross-file skip and preserves the trace
-  order.
+  being checked, the script counts a cross-file skip and preserves the trace
+  order. Per-node cross-file skip events are intentionally omitted by default
+  to keep review artifacts small; use `--log-cross-file` when a full event log
+  is needed for local debugging.
 
 ## Fix policy
 
@@ -88,8 +89,9 @@ python scripts/trace_cleanup.py --mode fix --duplicate-fix-policy safe
 
 - `data/entries.trace_fixed.jsonl`: fixed data, written only in fix mode unless
   `--output` is provided.
-- `reports/trace_fix_log.json`: event log with `entry_id`, field path, before/after
-  content, action, and reason.
+- `reports/trace_fix_log.json`: generated event log with `entry_id`, field
+  path, before/after content, action, and reason. This verbose log is
+  reproducible from the script and is not intended to be checked in.
 - `reports/trace_fix_report.json`: structured counts for duplicates, order
   anomalies, automatic fixes, cross-file skips, and schema validation.
 - `reports/trace_fix_report.md`: short human-readable report.

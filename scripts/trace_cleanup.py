@@ -418,24 +418,25 @@ def compare_trace_bounds(
                     "classification": "boundary_overlap",
                 },
             )
-    elif args.log_cross_file:
+    elif trace_file != entry_file:
         stats["cross_file_entry_comparisons_skipped"] += 1
-        add_log(
-            logs,
-            stats,
-            entry=entry,
-            event_type="cross_file_skip",
-            field_path=trace_path,
-            action="kept_cross_file",
-            reason="cross-file trace node is not compared with entry_point line numbers",
-            before=node,
-            after=node,
-            details={
-                "comparison": "trace_vs_entry_point",
-                "trace_file": node.get("file"),
-                "entry_point_file": entry.get("entry_point", {}).get("file"),
-            },
-        )
+        if args.log_cross_file:
+            add_log(
+                logs,
+                stats,
+                entry=entry,
+                event_type="cross_file_skip",
+                field_path=trace_path,
+                action="kept_cross_file",
+                reason="cross-file trace node is not compared with entry_point line numbers",
+                before=node,
+                after=node,
+                details={
+                    "comparison": "trace_vs_entry_point",
+                    "trace_file": node.get("file"),
+                    "entry_point_file": entry.get("entry_point", {}).get("file"),
+                },
+            )
 
     if critical_span is None:
         stats["invalid_critical_operation_lines"] += 1
@@ -496,24 +497,25 @@ def compare_trace_bounds(
                     "classification": "boundary_overlap",
                 },
             )
-    elif args.log_cross_file:
+    elif trace_file != critical_file:
         stats["cross_file_critical_comparisons_skipped"] += 1
-        add_log(
-            logs,
-            stats,
-            entry=entry,
-            event_type="cross_file_skip",
-            field_path=trace_path,
-            action="kept_cross_file",
-            reason="cross-file trace node is not compared with critical_operation line numbers",
-            before=node,
-            after=node,
-            details={
-                "comparison": "trace_vs_critical_operation",
-                "trace_file": node.get("file"),
-                "critical_operation_file": entry.get("critical_operation", {}).get("file"),
-            },
-        )
+        if args.log_cross_file:
+            add_log(
+                logs,
+                stats,
+                entry=entry,
+                event_type="cross_file_skip",
+                field_path=trace_path,
+                action="kept_cross_file",
+                reason="cross-file trace node is not compared with critical_operation line numbers",
+                before=node,
+                after=node,
+                details={
+                    "comparison": "trace_vs_critical_operation",
+                    "trace_file": node.get("file"),
+                    "critical_operation_file": entry.get("critical_operation", {}).get("file"),
+                },
+            )
 
 
 def process_entry(
@@ -838,8 +840,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--log-cross-file",
         dest="log_cross_file",
         action="store_true",
-        default=True,
-        help="log skipped cross-file line comparisons",
+        default=False,
+        help="include verbose per-node skipped cross-file line comparisons in the JSON event log",
     )
     parser.add_argument(
         "--no-log-cross-file",

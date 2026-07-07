@@ -55,6 +55,18 @@ class TraceCleanupTests(unittest.TestCase):
         self.assertEqual(args.log_out, ROOT / "reports" / "trace_fix_log.json")
         self.assertEqual(args.report_out, ROOT / "reports" / "trace_fix_report.json")
         self.assertEqual(args.report_md_out, ROOT / "reports" / "trace_fix_report.md")
+        self.assertFalse(args.log_cross_file)
+
+    def test_cross_file_counts_without_verbose_log(self):
+        entry = make_entry(
+            [{"file": "other.py", "line": 50, "code": "x", "desc": "x"}]
+        )
+
+        _, logs, stats = process(entry, ["--mode", "fix"])
+
+        self.assertEqual(logs, [])
+        self.assertEqual(stats["cross_file_entry_comparisons_skipped"], 1)
+        self.assertEqual(stats["cross_file_critical_comparisons_skipped"], 1)
 
     def test_report_uses_repo_relative_paths_for_default_files(self):
         args = trace_cleanup.parse_args(["--mode", "fix"])

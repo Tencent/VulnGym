@@ -91,3 +91,6 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+
+# Generated trace-cleanup debug artifact
+reports/trace_fix_log.json
