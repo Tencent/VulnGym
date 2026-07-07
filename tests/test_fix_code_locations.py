@@ -71,3 +71,10 @@ class CodeLocationFixTests(unittest.TestCase):
         table = fix.markdown_count_table("Reasons", fix.Counter())
 
         self.assertIn("| none | 0 |", table)
+
+    def test_committed_summary_mentions_verifier(self):
+        summary = (SCRIPT.parents[1] / "reports" / "code_location_summary.md").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("scripts/verify_code_location_outputs.py", summary)

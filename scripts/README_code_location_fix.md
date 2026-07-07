@@ -40,6 +40,8 @@ python scripts/fix_code_locations.py --entry-id entry-00103 --entry-id entry-003
   metadata, or checkout failures.
 - `reports/code_location_summary.md`: reviewer-friendly summary with selected
   entries, fixed/manual counts, strategy counts, and manual-review reasons.
+- `reports/code_location_acceptance_matrix.md`: mapping from issue acceptance
+  criteria to committed artifacts and verification commands.
 
 ## Matching Strategy
 
@@ -100,6 +102,12 @@ set:
 
 The CSVs and summary are intended to make the automatic changes auditable while
 keeping ambiguous nodes out of the fixed JSONL.
+
+Verify the committed artifacts without network access:
+
+```bash
+python scripts/verify_code_location_outputs.py
+```
 
 ## Limits
 
