@@ -34,6 +34,16 @@ REQUIRED_ENTRY_FIELDS = {
 }
 REQUIRED_NODE_FIELDS = {"file", "line", "code", "desc"}
 TARGET_IDS = {"entry-00185", "entry-00197", "entry-00290", "entry-00320", "entry-00391"}
+CORRUPTION_MARKERS = (
+    "\ufffd",
+    "锟斤拷",
+    "娉ㄥ",
+    "閰嶇",
+    "瑙﹀",
+    "缂哄",
+    "璺",
+    "瀵艰",
+)
 
 
 @dataclass(frozen=True)
@@ -100,11 +110,37 @@ def validate_entries(entries: list[dict[str, Any]]) -> list[str]:
             errors.append(f"{entry_id}: verify must be 0 or 1")
         if not isinstance(entry.get("trace"), list):
             errors.append(f"{entry_id}: trace must be a list")
+        errors.extend(validate_text_integrity(entry_id, entry))
         for node_path, node in iter_nodes(entry):
             errors.extend(validate_node(entry_id, node_path, node))
     missing_targets = sorted(TARGET_IDS - seen)
     if missing_targets:
         errors.append(f"missing issue #7 target entries: {', '.join(missing_targets)}")
+    return errors
+
+
+def iter_text_values(value: Any, path: str = "") -> Iterable[tuple[str, str]]:
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key == "code":
+                continue
+            child_path = f"{path}.{key}" if path else str(key)
+            yield from iter_text_values(child, child_path)
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            yield from iter_text_values(child, f"{path}[{index}]")
+    elif isinstance(value, str):
+        yield path, value
+
+
+def validate_text_integrity(entry_id: str, entry: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    for path, value in iter_text_values(entry):
+        if re.search(r"\?{4,}", value):
+            errors.append(f"{entry_id} {path}: suspicious replacement question marks")
+        marker = next((marker for marker in CORRUPTION_MARKERS if marker in value), None)
+        if marker is not None:
+            errors.append(f"{entry_id} {path}: suspicious mojibake marker {marker!r}")
     return errors
 
 

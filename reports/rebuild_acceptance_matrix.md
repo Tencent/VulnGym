@@ -9,7 +9,7 @@ This matrix maps each acceptance requirement from issue #7 to the artifacts in t
 | Multi-stage scenarios must identify prerequisite and trigger stages | `entry-00197` describes check/use TOCTOU; `entry-00290` separates fail-open check from final write sink | Covered |
 | Irrelevant trace nodes should be removed or replaced | `reports/rebuild_fix_diff.csv` records replacement/removal of stale logger, declaration, return-value, and brace nodes | Covered |
 | Uncertain changes must go to manual review | `reports/rebuild_manual_review.csv` is kept as the audit artifact; this pass has no unresolved rows | Covered |
-| Rebuilt data must satisfy SCHEMA.md basics | `scripts/verify_rebuilt_chains.py` validates required entry/node fields, line spans, non-empty code, and non-empty desc | Covered |
+| Rebuilt data must satisfy SCHEMA.md basics | `scripts/verify_rebuilt_chains.py` validates required entry/node fields, line spans, non-empty code, non-empty desc, and text-integrity markers | Covered |
 
 ## Distinctive Choices Versus Other Submissions
 
@@ -17,4 +17,4 @@ This matrix maps each acceptance requirement from issue #7 to the artifacts in t
 - Full-data delivery: `data/entries.fixed.jsonl` contains all 408 entries after applying the patch.
 - Sink-oriented critical operations: final dangerous operations are used as `critical_operation` for n8n, openclaw apply_patch, and langflow; root-cause checks remain visible in `trace`.
 - Reproducible local tooling: `scripts/apply_rebuild_patches.py` regenerates full output and diff from the patch file.
-- Independent verification: `scripts/verify_rebuilt_chains.py` can run schema-only or remote source matching.
+- Independent verification: `scripts/verify_rebuilt_chains.py` can run schema-only or remote source matching, and now rejects obvious natural-language encoding damage.

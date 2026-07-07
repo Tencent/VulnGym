@@ -57,6 +57,21 @@ class RebuiltChainToolTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
 
+    def test_text_integrity_rejects_corrupted_natural_language_only(self):
+        entry = {
+            "entry_id": "bad",
+            "vuln_title": "鍛戒护娉ㄥ叆 ????",
+            "entry_point": {"file": "a", "line": 1, "code": "value ???? value", "desc": "clean"},
+            "critical_operation": {"file": "b", "line": 2, "code": "b", "desc": "clean"},
+            "trace": [],
+        }
+
+        errors = verify_tools.validate_text_integrity("bad", entry)
+
+        self.assertTrue(any("replacement question marks" in error for error in errors))
+        self.assertTrue(any("mojibake marker" in error for error in errors))
+        self.assertFalse(any("entry_point.code" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()
