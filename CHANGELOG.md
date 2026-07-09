@@ -4,6 +4,31 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Data correction — rebuild n8n semantic annotations from issue #6.
+
+### Changed
+- Rebuilt `entry_point`, `critical_operation`, and `trace` annotations for
+  n8n entries `entry-00099`, `entry-00100`, `entry-00103`, `entry-00176`,
+  `entry-00511`, and `entry-00512`.
+- Human-audited entries grew from **393 → 399 / 408** (97.8 %),
+  covering **182 / 184** advisories (98.9 %).
+
+### Added
+- `data/entries.n8n_semantic_fixed.jsonl` with the six repaired n8n rows.
+- `reports/n8n_semantic_fix_notes.md`, `reports/n8n_semantic_fix_diff.csv`,
+  and `reports/n8n_semantic_acceptance_matrix.md` for review.
+- `scripts/apply_n8n_semantic_patches.py`,
+  `scripts/verify_n8n_semantic_annotations.py`, and unit tests for the n8n
+  semantic repair artifacts.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **399** (was 393)
+- human-audited advisories (≥ 1 verified entry): **182** (was 178)
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
