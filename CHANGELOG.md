@@ -4,6 +4,28 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Data correction — document and apply configuration-vulnerability annotation rules from issue #8.
+
+### Changed
+- Rebuilt `entry_point`, `critical_operation`, and `trace` annotations for
+  OpenClaw Dockerfile configuration entries `entry-00241`, `entry-00242`,
+  `entry-00243`, and `entry-00244`.
+- Human-audited entries grew from **393 → 397 / 408** (97.3 %),
+  covering **179 / 184** advisories (97.3 %).
+
+### Added
+- `config_vuln_annotation.md` with annotation principles for configuration
+  and non-taint vulnerabilities under the existing schema.
+- `fix_diff.csv` with field-level change records for the four rebuilt entries.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **397** (was 393)
+- human-audited advisories (≥ 1 verified entry): **179** (was 178)
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
