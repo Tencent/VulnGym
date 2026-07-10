@@ -145,11 +145,19 @@ class TraceProcessingTests(unittest.TestCase):
             node("z.py", 900, "first_cross_file()"),
             node("a.py", 1, "second_cross_file()"),
         ]
-        output, _, summary = process_entries([entry(trace)], mode="fix")
+        output, findings, summary = process_entries([entry(trace)], mode="fix")
 
         self.assertEqual(trace, output[0]["trace"])
         self.assertEqual(2, summary["cross_file_nodes"])
         self.assertEqual(4, summary["cross_file_comparisons_skipped"])
+        self.assertEqual(1, summary["cross_file_log_records"])
+        cross_file_finding = next(
+            item for item in findings if item.finding == "cross_file_comparison_skipped"
+        )
+        self.assertIsNone(cross_file_finding.before)
+        self.assertIsNone(cross_file_finding.after)
+        details = json.loads(cross_file_finding.comparison)
+        self.assertEqual([0, 1], [item["trace_index"] for item in details])
 
     def test_verified_entries_are_report_only_without_explicit_opt_in(self):
         source = entry([node("same.py", 5, "early()")], verify=1)

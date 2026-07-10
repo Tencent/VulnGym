@@ -80,6 +80,10 @@ python -m unittest discover -s tests -v
 一个节点仍可只和相同文件的边界比较。例如节点与 `entry_point` 同文件、与
 `critical_operation` 不同文件时，只执行入口边界检查。
 
+为避免大型数据集产生大量重复 CSV 内容，同一个 entry 的跨文件跳过事件会聚合为
+一条日志；`comparison` 字段仍保留每个节点的 `trace_index`、文件、已比较边界和
+跳过边界。此类事件没有修改节点，因此 `before` / `after` 为 `null`。
+
 ## 输出
 
 ### `data/entries.trace_fixed.jsonl`

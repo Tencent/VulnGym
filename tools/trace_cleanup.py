@@ -72,6 +72,7 @@ SUMMARY_KEYS = {
     "boundary_inversions",
     "critical_boundary_overlaps",
     "cross_file_comparisons_skipped",
+    "cross_file_log_records",
     "cross_file_nodes",
     "description_conflicts",
     "description_sync_candidates",
@@ -353,6 +354,7 @@ def scan_entry(
     planned_desc: dict[int, str] = {}
     structural_finding = False
     cross_file_skip = False
+    cross_file_details: list[dict[str, Any]] = []
     would_modify = False
 
     first_by_key: dict[tuple[str, Any, str], int] = {}
@@ -593,22 +595,34 @@ def scan_entry(
             cross_file_skip = True
             stats["cross_file_nodes"] += 1
             stats["cross_file_comparisons_skipped"] += len(skipped_boundaries)
-            findings.append(
-                Finding(
-                    entry_id=entry_id,
-                    field_path=f"trace[{index}]",
-                    finding="cross_file_comparison_skipped",
-                    action="skip",
-                    before=node,
-                    after=node,
-                    reason="跨文件，不参与行号比较；原始 trace 顺序保持不变",
-                    comparison=(
-                        f"node_file={node['file']};"
-                        f" compared={','.join(compared_boundaries) or 'none'};"
-                        f" skipped={','.join(skipped_boundaries)}"
-                    ),
-                )
+            cross_file_details.append(
+                {
+                    "compared": compared_boundaries,
+                    "node_file": node["file"],
+                    "skipped": skipped_boundaries,
+                    "trace_index": index,
+                }
             )
+
+    if cross_file_details:
+        stats["cross_file_log_records"] += 1
+        findings.append(
+            Finding(
+                entry_id=entry_id,
+                field_path="trace",
+                finding="cross_file_comparison_skipped",
+                action="skip",
+                before=None,
+                after=None,
+                reason="跨文件，不参与行号比较；原始 trace 顺序保持不变（按 entry 聚合）",
+                comparison=json.dumps(
+                    cross_file_details,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                    sort_keys=True,
+                ),
+            )
+        )
 
     modified = False
     if eligible_for_fix:
