@@ -4,6 +4,20 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Added `config_vuln_annotation.md`, a schema-compatible annotation policy for
+  configuration-state, missing-control, and other non-taint vulnerabilities.
+- Added `config_vuln_fix_diff.csv` with field-level changes for the four
+  GHSA-W7J5-J98M-W679 entries.
+
+### Changed
+- Rebuilt `entry-00241` through `entry-00244` around configuration-state
+  introduction, scope, and effect instead of synthetic taint propagation.
+- Human-audited coverage increased to **397 / 408** entries (97.3 %), covering
+  **179 / 184** advisories (97.3 %); schema and row counts are unchanged.
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
