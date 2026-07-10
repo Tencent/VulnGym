@@ -4,6 +4,31 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Data correction — rebuild complex and multi-stage vulnerability chains from issue #7.
+
+### Changed
+- Rebuilt `entry_point`, `critical_operation`, and `trace` annotations for
+  `entry-00185`, `entry-00197`, `entry-00290`, `entry-00320`, and
+  `entry-00391`.
+- Confirmed four rebuilt entries and retained `entry-00290` as unverified
+  because its recorded source commit already contains the fail-closed
+  dangling-symlink resolution described by the advisory fix.
+- Human-audited entries grew from **393 → 397 / 408** (97.3 %); the number
+  of advisories with at least one verified entry remains **178 / 184** (96.7 %).
+
+### Added
+- `rebuild_report.md` with per-entry source and advisory evidence.
+- `fix_diff.csv` with field-level changes.
+- `manual_review.csv` for the unresolved `entry-00290` commit mismatch.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **397** (was 393)
+- human-audited advisories (≥ 1 verified entry): **178** (unchanged)
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
