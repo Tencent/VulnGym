@@ -1,0 +1,26 @@
+{
+  "commits": 166,
+  "descriptions_updated": 2,
+  "elapsed_seconds": 10.323,
+  "entries_modified": 11,
+  "entries_needing_human_review": 15,
+  "entries_selected": 408,
+  "entries_total": 408,
+  "human_reason_counts": {
+    "code_not_found_in_repository": 55,
+    "empty_code": 1
+  },
+  "nodes_scanned": 2889,
+  "repositories": 23,
+  "status_counts": {
+    "fixed": 19,
+    "human": 56,
+    "matched": 2814
+  },
+  "strategy_counts": {
+    "exact": 2814,
+    "file_unique": 2,
+    "nearby_unique": 17
+  },
+  "verify_filter": "all"
+}
