@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import copy
+import csv
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -13,13 +15,18 @@ from code_location_repair import (  # noqa: E402
     NodeTask,
     apply_results,
     find_matches,
+    load_jsonl,
     match_has_annotated_location,
     normalize_code,
     normalized_source,
     repair_commit_tasks,
     repaired_line,
     update_desc,
+    validate_entries,
 )
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def make_node(file: str = "src/a.py", line: int | str = 10, code: str = "call()") -> dict:
@@ -50,6 +57,13 @@ def make_task(node: dict, task_id: int = 0) -> NodeTask:
         commit="a" * 40,
         node=node,
     )
+
+
+def iter_nodes(entry: dict):
+    yield "entry_point", entry["entry_point"]
+    yield "critical_operation", entry["critical_operation"]
+    for index, trace_node in enumerate(entry["trace"]):
+        yield f"trace[{index}]", trace_node
 
 
 class FakeRepository:
@@ -168,6 +182,66 @@ class OutputTests(unittest.TestCase):
         self.assertEqual(output[0]["entry_point"]["line"], 20)
         self.assertEqual(len(fixes), 1)
         self.assertEqual(human, [])
+
+
+class DatasetRegressionTests(unittest.TestCase):
+    def test_committed_artifacts_match_real_dataset_changes(self) -> None:
+        source = load_jsonl(REPO_ROOT / "data" / "entries.jsonl")
+        repaired = load_jsonl(REPO_ROOT / "entries.fixed.jsonl")
+        report = json.loads(
+            (REPO_ROOT / "location_fix_report.json").read_text(encoding="utf-8")
+        )
+        with (REPO_ROOT / "fix_diff.csv").open(encoding="utf-8", newline="") as stream:
+            fixes = list(csv.DictReader(stream))
+        with (REPO_ROOT / "needs_human.csv").open(
+            encoding="utf-8", newline=""
+        ) as stream:
+            human = list(csv.DictReader(stream))
+
+        validate_entries(repaired)
+        self.assertEqual(len(source), 408)
+        self.assertEqual(len(repaired), len(source))
+        self.assertEqual(len(fixes), report["status_counts"]["fixed"])
+        self.assertEqual(len(human), report["status_counts"]["human"])
+
+        expected_changes = {(row["entry_id"], row["field_path"]) for row in fixes}
+        observed_changes = set()
+        for original_entry, repaired_entry in zip(source, repaired):
+            self.assertEqual(original_entry["entry_id"], repaired_entry["entry_id"])
+            data_fields = original_entry.keys() - {
+                "entry_point",
+                "critical_operation",
+                "trace",
+            }
+            for key in data_fields:
+                self.assertEqual(original_entry[key], repaired_entry[key])
+
+            original_nodes = list(iter_nodes(original_entry))
+            repaired_nodes = list(iter_nodes(repaired_entry))
+            self.assertEqual(
+                [path for path, _ in original_nodes],
+                [path for path, _ in repaired_nodes],
+            )
+            for (path, original_node), (_, repaired_node) in zip(
+                original_nodes, repaired_nodes
+            ):
+                for key in original_node.keys() | repaired_node.keys():
+                    if key not in {"file", "line", "desc"}:
+                        self.assertEqual(
+                            original_node.get(key), repaired_node.get(key)
+                        )
+                if original_node != repaired_node:
+                    observed_changes.add((original_entry["entry_id"], path))
+
+        self.assertEqual(observed_changes, expected_changes)
+        self.assertEqual(len(observed_changes), 19)
+        self.assertTrue(
+            {
+                ("entry-00103", "trace[1]"),
+                ("entry-00103", "trace[2]"),
+                ("entry-00185", "trace[1]"),
+            }.issubset(observed_changes)
+        )
 
 
 if __name__ == "__main__":
