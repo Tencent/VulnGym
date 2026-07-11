@@ -1,0 +1,34 @@
+{
+  "desc_status_counts": {
+    "checked_no_location_reference": 97,
+    "updated_location_references": 12
+  },
+  "elapsed_seconds": 309.469,
+  "fix_rows": 109,
+  "human_reason_counts": {
+    "empty_or_invalid_code": 1,
+    "no_match": 55
+  },
+  "input": "data/entries.jsonl",
+  "input_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+  "needs_human_rows": 56,
+  "offline": false,
+  "output": "location_repair/entries.fixed.jsonl",
+  "output_sha256": "680c9b5434d3aba7e01f20372782164f344db6726b424913ce2669082a29096c",
+  "repo_commit_groups": 166,
+  "repo_count": 23,
+  "repository_errors": {},
+  "schema_errors": 0,
+  "selected_entries": 408,
+  "selected_nodes": 2889,
+  "status_counts": {
+    "fixed": 109,
+    "human": 56,
+    "ok": 2724
+  },
+  "strategy_counts": {
+    "current_start_span_repair": 95,
+    "nearby_plus_minus_5": 12,
+    "same_file_unique": 2
+  }
+}
