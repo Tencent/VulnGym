@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -8,7 +9,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
-from trace_cleanup import DataValidationError, parse_line, process_entries  # noqa: E402
+from trace_cleanup import (  # noqa: E402
+    DataValidationError,
+    load_jsonl,
+    parse_line,
+    process_entries,
+)
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def node(file: str, line: int | str, code: str, desc: str | None = None) -> dict:
@@ -82,6 +91,7 @@ class ProcessingTests(unittest.TestCase):
         self.assertEqual(events[0]["kind"], "duplicate")
         self.assertEqual(report["removed_nodes"], 1)
 
+
     def test_duplicate_syncs_the_only_description(self) -> None:
         original = entry([node("a.py", 15, "step()"), node("a.py", 15, "step()", "detail")])
         output, events, _ = process_entries([original], mode="fix")
@@ -130,6 +140,38 @@ class ProcessingTests(unittest.TestCase):
 
         self.assertEqual(output[0]["trace"], [])
         self.assertEqual(report["removed_nodes"], 1)
+
+
+class DatasetRegressionTests(unittest.TestCase):
+    def test_committed_output_is_reproducible_from_real_dataset(self) -> None:
+        source = load_jsonl(REPO_ROOT / "data" / "entries.jsonl")
+        committed = load_jsonl(REPO_ROOT / "data" / "entries.trace_fixed.jsonl")
+        expected_report = json.loads(
+            (REPO_ROOT / "trace_fix_report.json").read_text(encoding="utf-8")
+        )
+
+        output, events, report = process_entries(source, mode="fix")
+        removed = {
+            (event["entry_id"], event["field_path"], event["kind"])
+            for event in events
+            if event["action"] == "removed"
+        }
+
+        self.assertEqual(output, committed)
+        self.assertEqual(report, expected_report)
+        self.assertEqual(
+            removed,
+            {
+                ("entry-00103", "trace[1]", "before_entry_point"),
+                ("entry-00185", "trace[2]", "after_critical_operation"),
+                ("entry-00320", "trace[2]", "before_entry_point"),
+                ("entry-00511", "trace[4]", "after_critical_operation"),
+            },
+        )
+
+        unverified = [entry for entry in committed if entry["verify"] == 0]
+        _, _, recheck = process_entries(unverified, mode="report")
+        self.assertEqual(recheck["order_anomalies"], 0)
 
 
 if __name__ == "__main__":
