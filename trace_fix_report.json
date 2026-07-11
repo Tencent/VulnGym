@@ -1,0 +1,27 @@
+{
+  "action_counts": {
+    "kept_for_review": 379,
+    "removed": 4,
+    "skipped": 1276
+  },
+  "cross_file_comparisons_skipped": 1658,
+  "duplicate_candidate_groups": 7,
+  "duplicate_candidate_nodes": 7,
+  "duplicate_desc_conflict_groups": 7,
+  "entries_modified": 4,
+  "entries_scanned": 408,
+  "entries_with_anomalies": 160,
+  "event_counts": {
+    "after_critical_operation": 237,
+    "before_entry_point": 139,
+    "cross_file_skipped": 1276,
+    "duplicate_desc_conflict": 7
+  },
+  "manual_review_nodes": 364,
+  "mode": "fix",
+  "order_anomalies": 376,
+  "removed_nodes": 4,
+  "trace_nodes_scanned": 2073,
+  "trace_nodes_written": 2069,
+  "verified_entries_protected": true
+}
