@@ -1,0 +1,14 @@
+entry_id,field_path,file,old_line,new_file,new_line,fix_strategy
+entry-00251,trace[3],src/auto-reply/command-auth.ts,325,src/auto-reply/command-auth.ts,326,FIXED_NEARBY
+entry-00300,trace[0],src/auto-reply/reply/commands-config.ts,134,src/auto-reply/reply/commands-config.ts,196,FIXED_WHOLE_FILE
+entry-00312,critical_operation,src/infra/device-bootstrap.ts,125,src/infra/device-bootstrap.ts,128,FIXED_NEARBY
+entry-00312,trace[4],src/infra/device-bootstrap.ts,125,src/infra/device-bootstrap.ts,128,FIXED_NEARBY
+entry-00398,trace[5],src/auto-reply/reply/directive-handling.impl.ts,413-421,src/auto-reply/reply/directive-handling.impl.ts,407-413,FIXED_WHOLE_FILE
+entry-00405,entry_point,src/node-host/invoke-system-run.ts,619,src/node-host/invoke-system-run.ts,614-624,FIXED_NEARBY
+entry-00405,critical_operation,src/infra/exec-approvals-allowlist.ts,458,src/infra/exec-approvals-allowlist.ts,453-463,FIXED_NEARBY
+entry-00405,trace[0],src/node-host/invoke-system-run.ts,547,src/node-host/invoke-system-run.ts,542-552,FIXED_NEARBY
+entry-00405,trace[1],src/node-host/invoke-system-run.ts,559,src/node-host/invoke-system-run.ts,554-564,FIXED_NEARBY
+entry-00405,trace[2],src/infra/exec-approvals-allowlist.ts,567,src/infra/exec-approvals-allowlist.ts,562-572,FIXED_NEARBY
+entry-00405,trace[3],src/infra/exec-approvals-allowlist.ts,520,src/infra/exec-approvals-allowlist.ts,515-525,FIXED_NEARBY
+entry-00405,trace[4],src/infra/exec-approvals.ts,364,src/infra/exec-approvals.ts,359-369,FIXED_NEARBY
+entry-00298,trace[0],src/auto-reply/reply/commands-config.ts,134,src/auto-reply/reply/commands-config.ts,196,FIXED_REPO_SEARCH_COMMENT
