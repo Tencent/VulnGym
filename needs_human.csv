@@ -1,1 +1,345 @@
 ﻿entry_id,field_path,repo_url,commit,file,line,code,desc,reason,candidate_count,candidates
+entry-00164,trace[0],https://github.com/openclaw/openclaw,3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9,src/browser/routes/basic.ts,7,export function registerBrowserBasicRoutes(...) {,registerBrowserBasicRoutes 在桥接服务器启动阶段被上游初始化逻辑调用，负责向 app 实例挂载 GET /profiles 路由处理器；这里是调用栈从服务器初始化层流入路由注册层的起点。由于外层调用方从未传入认证令牌，认证中间件在此之前已经缺失，随后注册的每条路由均在无保护状态下暴露，为漏洞链路中后续所有未授权访问奠定了基础。,code not found in repository,0,
+entry-00193,entry_point,https://github.com/openclaw/openclaw,bc507080577c620243617e8fadd294bec3efa252,src/agents/apply-patch.ts,84,"export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> { // Agent 工具注册点，patch 文本由 AI 或外部输入提供",createApplyPatchTool 接收 options 配置（cwd、sandbox、workspaceOnly 等）并返回绑定了 applyPatchSchema 的 AgentTool 对象，是 apply-patch 工具的注册函数。该函数是外部调用方（AI 或用户）提供的 patch 内容进入文件写入管道的声明入口——通过此处注册的工具接口，任何能调用该 Agent 的调用方均可将包含目标路径与 hunk 内容的 patch 传递给下游执行链，最终触及含 TOCTOU 竞争窗口的底层写入逻辑。,code not found in repository,0,
+entry-00193,critical_operation,https://github.com/openclaw/openclaw,bc507080577c620243617e8fadd294bec3efa252,src/infra/fs-safe.ts,225,"handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600); // 含 O_TRUNC，截断在边界校验之前发生",fs.open 以包含 O_TRUNC 标志的 OPEN_WRITE_FLAGS 打开 ioPath（文件权限 0o600），在同一系统调用中立即完成文件截断。身份验证与根目录边界校验位于此调用之后（第 237-258 行），形成先截后验的时序——若在前序 realpath 检查通过后到本调用执行前，路径中的符号链接被替换为指向根目录外的目标，则 O_TRUNC 将不可逆地截断该目标文件，即使随后检测到异常并抛出错误，已完成的截断操作也无法回滚。,code not found in repository,0,
+entry-00274,trace[3],https://github.com/Tencent/WeKnora,10b6c98078dc5206c8fd00d3eebe5535a7571eb4,internal/handler/tenant.go,251,,第 251 行为空行，是 handler 从提取上下文到调用服务层之间的代码过渡位置。在漏洞修复语义上，该位置正是应当插入租户归属校验逻辑的节点，其空白状态直接体现了缺失显式约束这一根因，在漏洞链路中标记了从上下文携带凭据到服务层调用之间的防御空缺。,invalid or empty file/code,0,
+entry-00298,trace[0],https://github.com/openclaw/openclaw,fda49658183dc1afee48143f4de47dedc7590966,src/auto-reply/reply/commands-config.ts,134,"const unauthorized = rejectUnauthorizedCommand(params, ""/debug""); // 仅校验 isAuthorizedSender；通过后未继续校验 senderIsOwner","handleDebugCommand 在进入 action 分支之前调用 rejectUnauthorizedCommand(params, ""/debug"")，将返回值赋给 unauthorized。该调用是 /debug 命令路径上唯一的权限关卡：函数内部只判断 params.command.isAuthorizedSender 为真即返回 null 放行，未读取 senderIsOwner 字段，从而将调用流直接导向后续的 show/set/reset/unset 分支，是漏洞链路中权限检查不完整的关键节点。",code not found in repository,0,
+entry-00311,entry_point,https://github.com/jlowin/fastmcp,6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3,src/fastmcp/server/auth/oauth_proxy.py,625,"def __init__(
+    self,
+    *,
+    upstream_authorization_endpoint: str,
+    upstream_token_endpoint: str,
+    upstream_client_id: str,
+    upstream_client_secret: str,
+    upstream_revocation_endpoint: str | None = None,
+    token_verifier: TokenVerifier,
+    base_url: AnyHttpUrl | str,
+    redirect_path: str | None = None,
+    ...",OAuthProxy.__init__ 接收 base_url 参数并将其保存为实例属性，作为后续所有 JWT 签发操作的基础 URL。这是漏洞链的起点：base_url 在初始化阶段被静态捕获，随后被直接用于构造 JWTIssuer 的 audience 字段，而非等待运行时各 MCP server 实际注册时所提供的资源地址。,code not found in repository,0,
+entry-00311,critical_operation,https://github.com/jlowin/fastmcp,6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3,src/fastmcp/server/auth/oauth_proxy.py,808,"self._jwt_issuer: JWTIssuer = JWTIssuer(
+    issuer=str(self.base_url),
+    audience=f""{str(self.base_url).rstrip(""/"")}/mcp"",
+    signing_key=jwt_signing_key,
+)",self._jwt_issuer 在 __init__ 内被构造，audience 固定为 base_url 末尾拼接 /mcp 的字符串。此静态绑定使得同一 OAuthProxy 代理下所有 MCP server 共享相同的 JWT audience，令 token 可在不同 server 间重放。在漏洞链中，这是核心缺陷所在：audience 应在各 MCP server 注册并提供实际 resource URL 之后动态设定，而非在代理实例化阶段一次性固化。,code not found in repository,0,
+entry-00311,trace[1],https://github.com/jlowin/fastmcp,6bade1cbd973cbbbca26a84ed7c4cc58ecfda5b3,src/fastmcp/server/auth/oauth_proxy.py,1635,"def get_routes(
+    self,
+    mcp_path: str | None = None,
+) -> list[Route]:
+    """"""Get OAuth routes with custom handlers for better error UX.""""""
+    # Get standard OAuth routes from parent class
+    routes = super().get_routes(mcp_path)",OAuthProxy.get_routes() 覆盖父类方法并接收 mcp_path，但函数体内仅将参数透传给 super().get_routes()，从未依据 mcp_path 重建或更新 _jwt_issuer 的 audience。在调用栈下游，此处是应修复漏洞的关键位置：正确实现需要在此处以 mcp_path 导出实际 resource URL 并重新绑定 audience，而该逻辑在此版本完全缺失。,code not found in repository,0,
+entry-00398,entry_point,https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",chat.send 处理器在构建 MsgContext 时，将 client?.connect?.scopes ?? [] 赋值给 GatewayClientScopes 字段，把调用方的权限集合（包括仅持有 operator.write 的情形）注入到贯穿整条消息处理管道的上下文中。这一赋值是漏洞利用链的入口，使下游指令解析与持久化逻辑在未施加额外 scope 校验的情况下可被低权限调用方触达。,code not found in repository,0,
+entry-00398,trace[0],https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,src/gateway/server-methods/chat.ts,2011-2020,"GatewayClientScopes: client?.connect?.scopes ?? [],",chat.send 处理器在构造 MsgContext 对象时，将 client?.connect?.scopes ?? [] 赋值给 GatewayClientScopes，把本次调用方的权限集合封装进消息上下文。这是从 gateway caller 流向内部处理链的第一段传递，scope 信息由此随上下文向下游各层传播，为后续 canPersistInternalExecDirective 的读取以及漏洞触发时 verbose 分支的无检查执行奠定了基础。,code not found in repository,0,
+entry-00398,trace[1],https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,src/gateway/server-methods/chat.ts,2173,"void dispatchInboundMessage({
+  ctx,
+  cfg,
+  dispatcher,
+  ...
+});",在调用栈下游，dispatchInboundMessage 以携带 GatewayClientScopes 的 ctx 对象为主要参数被异步调用，将消息上下文从 chat.send 的 gateway 层传入自动回复与指令处理管道。这一步是从 chat.ts caller 流向 directive-handling 层 callee 的关键转交，使网关调用方的 scope 信息进入可被 canPersistInternalExecDirective 读取但对 verbose 分支不做校验的处理流程。,code not found in repository,0,
+entry-00399,entry_point,https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",GatewayClientScopes: client?.connect?.scopes ?? [] 位于 chat.send 方法组装 MsgContext 的阶段，将当前 gateway 连接客户端的实际 scope 集合（此场景下仅含 operator.write，不含 operator.admin）原样注入到消息上下文对象中。该字段随后沿调用链传入 persistInlineDirectives，决定（或本应决定）指令持久化时的权限上限。在漏洞链路中，这是调用方不足权限凭据进入消息处理流水线的起始注入点，为后续缺失鉴权的 verbose 持久化操作提供了通道。,code not found in repository,0,
+entry-00399,trace[0],https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",chat.send 方法在构建 MsgContext 时，将 client?.connect?.scopes 的实际值（operator.write scope 集合）赋给 GatewayClientScopes 字段，完成调用方身份信息向消息上下文的写入。这是漏洞链路的第一个节点：不足权限的 scope 随 MsgContext 进入下游的 auto-reply 处理流程，在后续 persistInlineDirectives 调用中被读取，但未被用于拦截 verbose 持久化操作。,code not found in repository,0,
+entry-00400,entry_point,https://github.com/openclaw/openclaw,aa66ae1fc797d3298cc409ed2c5da69a89950a45,src/gateway/server-methods/chat.ts,1452,"CommandAuthorized: true,
+        GatewayClientScopes: client?.connect?.scopes,",chat.send handler 在构造 MsgContext 时将 CommandAuthorized 字段固定赋值为 true，并将客户端连接协商的 scopes 原样写入 GatewayClientScopes，对调用者是否具备 admin 权限未作任何过滤。这两处赋值共同构成权限绕过链路的入口，使得后续 session 层的重置鉴权无法获得准确的权限信息。,code not found in repository,0,
+entry-00402,entry_point,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/agents/bash-tools.exec-host-gateway.ts,77,"export async function processGatewayAllowlist(
+  params: ProcessGatewayAllowlistParams,
+): Promise<ProcessGatewayAllowlistResult> {
+  const { approvals, hostSecurity, hostAsk, askFallback } = resolveExecHostApprovalContext({
+    agentId: params.agentId,
+    security: params.security,
+    ask: params.ask,
+    host: ""gateway"",
+  });
+  const allowlistEval = evaluateShellAllowlist({
+    command: params.command,
+    allowlist: approvals.allowlist,
+    safeBins: params.safeBins,
+    safeBinProfiles: params.safeBinProfiles,",processGatewayAllowlist 是 Gateway exec 工具的命令审批处理入口，接收外部传入的 params.command 字符串，随即通过 resolveExecHostApprovalContext 初始化审批上下文（approvals/hostSecurity/hostAsk），并调用 evaluateShellAllowlist 对命令进行初步许可名单匹配。在漏洞链路中，该函数是受污染命令字符串进入审批决策路径的第一个消费者，其后续的 allow-always 分支将把格式化不当的 patterns 传播至持久化层。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,critical_operation,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/infra/exec-approvals-allowlist.ts,458,"const carriedExecutable = argv
+    .slice(inlineMatch.valueTokenIndex + 1)
+    .map((token) => token.trim())
+    .find((token) => token.length > 0);
+  if (!carriedExecutable) {
+    return undefined;
+  }
+
+  const resolution = resolveCommandResolutionFromArgv([carriedExecutable], params.cwd, params.env);
+  return resolveExecutionTargetCandidatePath(resolution, params.cwd);
+}
+
+function isDirectShellPositionalCarrierInvocation(command: string): boolean {",resolveShellWrapperPositionalArgvCandidatePath 在确认命令符合 shell 位置参数载体调用模式后，从 argv 截取 valueTokenIndex+1 之后的首个非空 token 赋值给 carriedExecutable，随后直接经 resolveCommandResolutionFromArgv 解析路径并返回。此处缺失对 carriedExecutable 是否属于 dispatch wrapper 或 shell wrapper 的判断：若 $0 位置绑定的是 nice、sudo、bash 等程序，其路径将无阻拦地沿调用栈向上传递，成为 allow-always 写入错误 pattern 的直接根源。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[0],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/agents/bash-tools.exec-host-gateway.ts,256,"} else if (decision === ""allow-always"") {
+        approvedByAsk = true;
+        if (hostSecurity === ""allowlist"" && !requiresInlineEvalApproval) {
+          const patterns = resolveAllowAlwaysPatterns({
+            segments: allowlistEval.segments,
+            cwd: params.workdir,
+            env: params.env,
+            platform: process.platform,
+          });
+          for (const pattern of patterns) {
+            if (pattern) {
+              addAllowlistEntry(approvals.file, params.agentId, pattern);
+            }
+          }
+        }
+      }",当审批询问返回 allow-always 决策时，processGatewayAllowlist 进入此分支：在 hostSecurity 为 allowlist 且无需内联二次评估的前提下，以 allowlistEval.segments、工作目录及环境变量为参数调用 resolveAllowAlwaysPatterns，从而将审批决策从 caller 侧向 callee 传递。在漏洞链路中，该分支是将操作员决策转化为持久化 pattern 映射关系的起点，决策语义的精确性从此开始向下游扩散。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[1],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/agents/bash-tools.exec-host-gateway.ts,265,"for (const pattern of patterns) {
+            if (pattern) {
+              addAllowlistEntry(approvals.file, params.agentId, pattern);
+            }
+          }","resolveAllowAlwaysPatterns 返回的 patterns 集合在此处被逐一迭代：对每个非空字符串调用 addAllowlistEntry(approvals.file, params.agentId, pattern)，将 pattern 直接转发至持久化层。在调用栈下游，该循环是漏洞触发的最后一个传递节点——若上游错误地返回了 wrapper 路径，此处无任何额外过滤，直接将其传入 addAllowlistEntry，是 wrapper 路径进入 allowlist 的最终跳板。","repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[2],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/infra/exec-approvals-allowlist.ts,567,"export function resolveAllowAlwaysPatterns(params: {
+  segments: ExecCommandSegment[];
+  cwd?: string;
+  env?: NodeJS.ProcessEnv;
+  platform?: string | null;
+}): string[] {
+  const patterns = new Set<string>();
+  for (const segment of params.segments) {
+    collectAllowAlwaysPatterns({
+      segment,
+      cwd: params.cwd,
+      env: params.env,
+      platform: params.platform,
+      depth: 0,
+      out: patterns,
+    });",resolveAllowAlwaysPatterns 从 caller processGatewayAllowlist 接收 segments 数组，通过迭代每个 ExecCommandSegment 调用 collectAllowAlwaysPatterns，将结果汇总至 Set<string> 后返回数组。随后该结果将被直接写入 allowlist，因此此函数是将命令结构分析结果转化为持久化候选路径集合的中间枢纽；内部对 shellWrapperExecutable 的判断逻辑一旦存在缺失，错误路径便可在此阶段进入输出集合并向 caller 回流。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[3],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/infra/exec-approvals-allowlist.ts,516,"if (!trustPlan.shellWrapperExecutable) {
+    params.out.add(candidatePath);
+    return;
+  }
+  const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+    segment,
+    cwd: params.cwd,
+    env: params.env,
+  });
+  if (positionalArgvPath) {
+    params.out.add(positionalArgvPath);
+    return;
+  }",collectAllowAlwaysPatterns 在调用 resolveShellWrapperPositionalArgvCandidatePath 获得 positionalArgvPath 后，仅做非空判断即将其加入 params.out 并提前返回。在调用栈下游，此处是决定哪个路径写入 pattern 集合的关键分叉：当 trustPlan.shellWrapperExecutable 为真时转而使用 positional argv 的解析结果，但对 wrapper 身份的校验已在被调用的 resolveShellWrapperPositionalArgvCandidatePath 中缺失，导致 wrapper 路径无阻拦地流入输出集合。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[4],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/infra/exec-approvals-allowlist.ts,454,"if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+    return undefined;
+  }
+
+  const carriedExecutable = argv
+    .slice(inlineMatch.valueTokenIndex + 1)
+    .map((token) => token.trim())
+    .find((token) => token.length > 0);
+  if (!carriedExecutable) {
+    return undefined;
+  }
+
+  const resolution = resolveCommandResolutionFromArgv([carriedExecutable], params.cwd, params.env);
+  return resolveExecutionTargetCandidatePath(resolution, params.cwd);
+}",resolveShellWrapperPositionalArgvCandidatePath 在验证 isDirectShellPositionalCarrierInvocation 返回 true 后，从 argv 提取 $0 位置实参作为 carriedExecutable，经 resolveCommandResolutionFromArgv 与 resolveExecutionTargetCandidatePath 解析为候选绝对路径后返回给 caller collectAllowAlwaysPatterns。该函数处于从 caller 流向 critical_operation 的中间段：完成了位置参数模式识别到具体路径提取的转换，但返回前未对 wrapper 类型加以拒绝，使错误路径得以回流至 pattern 集合。,"repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00402,trace[5],https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,src/infra/exec-approvals.ts,525,"export function addAllowlistEntry(
+  approvals: ExecApprovalsFile,
+  agentId: string | undefined,
+  pattern: string,
+) {
+  const target = agentId ?? DEFAULT_AGENT_ID;
+  const agents = approvals.agents ?? {};
+  const existing = agents[target] ?? {};
+  const allowlist = Array.isArray(existing.allowlist) ? existing.allowlist : [];
+  const trimmed = pattern.trim();
+  if (!trimmed) {
+    return;
+  }
+  if (allowlist.some((entry) => entry.pattern === trimmed)) {","addAllowlistEntry 是整条漏洞链路的最终 sink：接收来自 caller 循环传入的 pattern 字符串，经去除首尾空白、去重检查后，将 { id, pattern, lastUsedAt } 条目追加至指定 agentId 的 allowlist 数组，并通过 saveExecApprovals 持久化写入磁盘。在调用栈下游，若 pattern 为 wrapper 可执行文件路径，该条目跨会话永久生效，后续所有以此 wrapper 为首的命令均将自动通过执行审批，完成权限边界逃逸的闭环。","repository unavailable: Preparing worktree (detached HEAD 7ce2670043)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch 71e320a9eb5d06c349d36967b3eae1fdbc4465c5 from promisor remote",0,
+entry-00409,entry_point,https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,265,"  socket.on(""message"", async (data) => {",socket.on 在 WebSocket 连接上注册异步消息监听回调，负责接收客户端发送的所有原始数据帧并启动 message-handler 的主处理流程。该回调是授权绕过漏洞链路的起点：任何已建立连接（包括仅完成设备配对、未完成节点配对的客户端）均可通过此入口触发后续 role 分支与命令过滤逻辑。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,critical_operation,https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,973,          const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;,pairedCommands 的赋值语句以三元运算符对 pairedNode 进行空值检测：若 pairedNode 存在则构建其 commands 的 Set 集合，否则赋为 null。这是漏洞的核心缺陷所在：当节点未完成 node pairing 时 pairedNode 为 null，pairedCommands 被置为 null，下游命令过滤器因 null 被解释为无约束而放行全部命令，最终导致授权门控失效。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[0],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,265,"  socket.on(""message"", async (data) => {",socket.on 回调接收来自 WebSocket 连接的消息数据，作为调用链的起始节点将控制流从网络层传递至 message-handler 内部的业务逻辑。在漏洞传播路径上，该 caller 侧入口不区分客户端配对状态，直接将 data 向下游分发，为后续 role 判断与命令过滤步骤提供原始输入。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[1],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,964,"        if (role === ""node"") {",随后在消息处理流程的分支判断中，role 字段与字面量 node 进行严格相等比对，仅当连接声明自身角色为 node 时才进入该代码块。该条件分支是从通用消息处理 caller 流向 node 专属命令暴露 callee 逻辑的分岔点，绕过漏洞的前提是触发此分支。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[2],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,966,          const nodeId = connectParams.device?.id ?? connectParams.client.id;,随后 nodeId 从 connectParams 中提取节点标识符：优先取 device.id，若缺失则退回 client.id。该变量作为 caller 侧传入 getPairedNode 的关键参数，nodeId 的来源直接由客户端上传的 connectParams 决定，在调用栈下游将被用于查询配对记录。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[3],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,967,          const pairedNode = await getPairedNode(nodeId);,在调用栈下游，getPairedNode 以 nodeId 为参数异步查询数据库中的节点配对记录，将结果写入 pairedNode。若该节点尚未完成 node pairing，此调用返回 null；这一结果随后作为 pairedCommands 赋值逻辑的输入，是空值绕过漏洞得以触发的关键数据流节点。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[4],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,972,          const declared = Array.isArray(connectParams.commands) ? connectParams.commands : [];,随后 declared 变量从 connectParams.commands 中读取客户端自行声明的命令列表，以 Array.isArray 做类型保护确保其为数组。该赋值步骤与 pairedCommands 构成并列输入：当 pairedCommands 因空值缺陷被置为 null 时，declared 中的任意命令均可绕过过滤，直接暴露给下游调用方。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00409,trace[5],https://github.com/openclaw/openclaw,6b38815f86d8d58e29745fe212d95650e13a936c,src/gateway/server/ws-connection/message-handler.ts,973,          const pairedCommands = pairedNode ? new Set(pairedNode.commands ?? []) : null;,在调用栈最终环节，pairedCommands 由三元条件对 pairedNode 的空值进行检测后赋值：pairedNode 有效则构建 commands 集合，否则置为 null。该步骤从上游 getPairedNode 的返回值流至命令过滤器入口，null 结果在过滤条件中被解释为无限制，使 declared 列表内全部命令得以通过，授权门控于此处完全失效。,"repository unavailable: Preparing worktree (detached HEAD 6b38815f86)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': schannel: server closed abruptly (missing close_notify)
+fatal: could not fetch 3b558adc16ec9b02f19d4d1828604993aa97f366 from promisor remote",0,
+entry-00410,entry_point,https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/pi-tools.ts,379-386,"    if (tool.name === readTool.name) {
+      if (sandboxRoot) {
+        const sandboxed = createSandboxedReadTool({
+          root: sandboxRoot,
+          bridge: sandboxFsBridge!,
+          modelContextWindowTokens: options?.modelContextWindowTokens,
+          imageSanitization,
+        });",pi-tools.ts 匹配到 readTool 并检测到 sandboxRoot 后，调用 createSandboxedReadTool 将 sandboxFsBridge 和沙箱根路径传入，把所有沙箱内文件读取请求路由至桥接层。此处是漏洞链路的入口节点，后续路径校验与文件读取两步分离的不安全结构由此向下游传递。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,critical_operation,https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/sandbox/remote-fs-bridge.ts,73-77,"    const result = await this.runRemoteScript({
+      script: 'set -eu\ncat -- ""$1""',
+      args: [canonical],
+      signal: params.signal,
+    });",runRemoteScript 以 canonical 字符串为参数向容器派发 shell 脚本，执行 cat 读取文件内容。这是漏洞链路中「使用」阶段的关键节点：canonical 此时仅凭字符串传入 cat，不持有任何文件描述符绑定；若路径在上游校验后已被替换为指向沙箱外的符号链接，cat 将穿透边界读取宿主机文件，完成沙箱逃逸。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[0],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/pi-tools.ts,379-386,"    if (tool.name === readTool.name) {
+      if (sandboxRoot) {
+        const sandboxed = createSandboxedReadTool({
+          root: sandboxRoot,
+          bridge: sandboxFsBridge!,
+          modelContextWindowTokens: options?.modelContextWindowTokens,
+          imageSanitization,
+        });",调用链起始帧：pi-tools.ts 在工具名称匹配后判断 sandboxRoot 是否存在，满足条件时构造 createSandboxedReadTool 调用，将 sandboxFsBridge 引用连同配置向下传递至沙箱化读取工具。这是控制流从工具分发层流向 RemoteShellSandboxFsBridge 的起点，后续路径解析与读取的两步调用链由此向下游延伸。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[1],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/pi-tools.read.ts,670-671,"    readFile: (absolutePath: string) =>
+      params.bridge.readFile({ filePath: absolutePath, cwd: params.root }),",随后进入 pi-tools.read.ts，readFile 闭包接收上层传入的 absolutePath，将其与沙箱根路径 params.root 打包后转发至 params.bridge.readFile。这是从工具层 caller 流向 RemoteShellSandboxFsBridge callee 的中间传递节点，absolutePath 以 filePath 形式进入桥接层，触发后续的路径解析与文件读取序列。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[2],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/sandbox/remote-fs-bridge.ts,58-67,"    filePath: string;
+    cwd?: string;
+    signal?: AbortSignal;
+  }): Promise<Buffer> {
+    const target = this.resolveTarget(params);
+    const canonical = await this.resolveCanonicalPath({
+      containerPath: target.containerPath,
+      action: ""read files"",
+      signal: params.signal,
+    });",RemoteShellSandboxFsBridge.readFile 是由 pi-tools.read.ts 调用的 callee，接收传入的 filePath 与 cwd 后，先通过 resolveTarget 合成容器内绝对路径，随即调用 resolveCanonicalPath 启动路径校验子流程。这一步是竞态链路中校验阶段的起点：canonical 以字符串形式返回，不绑定文件描述符，为后续竞态窗口埋下隐患。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[3],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/sandbox/remote-fs-bridge.ts,391-400,"      args: [params.containerPath, params.allowFinalSymlinkForUnlink ? ""1"" : ""0""],
+      signal: params.signal,
+    });
+    const canonical = normalizeContainerPath(result.stdout.toString(""utf8"").trim());
+    if (!this.resolveMountByContainerPath(this.getMounts(), canonical)) {
+      throw new Error(
+        `Sandbox path escapes allowed mounts; cannot ${params.action}: ${params.containerPath}`,
+      );
+    }
+    return canonical;",进入 resolveCanonicalPath 内部：normalizeContainerPath 规整远程路径解析输出，随后 resolveMountByContainerPath 核验 canonical 是否落在允许挂载点范围内，越界则抛出错误并中断流程。校验通过后 canonical 字符串返回调用方，此时路径仅以字符串快照存在，未被原子持有，竞态窗口正式开启，外部可趁此替换路径组件。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[4],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/sandbox/remote-fs-bridge.ts,68-72,"    await this.assertNoHardlinkedFile({
+      containerPath: canonical,
+      action: ""read files"",
+      signal: params.signal,
+    });",resolveCanonicalPath 返回后，控制流回到 readFile，随即调用 assertNoHardlinkedFile 对 canonical 执行硬链接检测，防止路径指向沙箱外的硬链接文件。此检测同样仅操作字符串形式的 canonical，不持有文件描述符；检测通过至后续 cat 执行之间的窗口期内，路径仍可被并发替换为符号链接，竞态漏洞在此步后依然敞开。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00410,trace[5],https://github.com/openclaw/openclaw,7ae1bb0c7799fd0cbd2d4de7b0f5b8039837ab8d,src/agents/sandbox/remote-fs-bridge.ts,73-77,"    const result = await this.runRemoteScript({
+      script: 'set -eu\ncat -- ""$1""',
+      args: [canonical],
+      signal: params.signal,
+    });",在调用栈末端，readFile 通过 runRemoteScript 将 canonical 字符串传入 shell 脚本并执行 cat 读取文件。这是调用链的终点，也是竞态漏洞的触发点：若上游 assertNoHardlinkedFile 通过后路径已被并发替换为指向沙箱边界之外的符号链接，cat 将跟随该链接读取宿主机上的任意文件，沙箱逃逸在此处完成。,"repository unavailable: Preparing worktree (detached HEAD 7ae1bb0c77)
+fatal: unable to access 'https://github.com/openclaw/openclaw/': Recv failure: Connection was reset
+fatal: could not fetch d10f01007920726adea57db5ec252af3632d6e80 from promisor remote",0,
+entry-00462,entry_point,https://github.com/onnx/onnx,bca0315ff3e56bb5847509ca32fadb8d87f680e1,onnx/external_data_helper.py,186,"def save_external_data(tensor: TensorProto, base_path: str) -> None:",save_external_data 是将 tensor 数据持久化至外部文件的入口，接收 TensorProto 和 base_path 后，从 tensor.external_data 字段读取 location 等属性，并无验证地拼接路径。由于缺少对 location 中 '../' 序列和绝对路径的检查，攻击者可通过构造恶意模型文件将写入目标重定向到任意位置，形成路径穿越漏洞的源头。,"repository unavailable: Preparing worktree (detached HEAD bca0315f)
+error: RPC failed; curl 56 schannel: server closed abruptly (missing close_notify)
+error: 2922 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+fatal: could not fetch a441e05c9d27272174c630ba86f6b889e95c0982 from promisor remote",0,
+entry-00462,critical_operation,https://github.com/onnx/onnx,bca0315ff3e56bb5847509ca32fadb8d87f680e1,onnx/external_data_helper.py,202,"        with open(external_data_file_path, ""ab""):",以追加二进制模式打开 external_data_file_path 执行数据写入，是整个漏洞链中实际产生副作用的操作。此处既未使用 O_NOFOLLOW 标志，也位于 os.path.isfile() 检查之后，导致攻击者可在两次调用之间替换目标路径为符号链接，使 open() 跟随链接写入任意系统文件，同时触发竞态条件与符号链接跟随两类缺陷。,"repository unavailable: Preparing worktree (detached HEAD bca0315f)
+error: RPC failed; curl 56 schannel: server closed abruptly (missing close_notify)
+error: 2922 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+fatal: could not fetch a441e05c9d27272174c630ba86f6b889e95c0982 from promisor remote",0,
+entry-00462,trace[0],https://github.com/onnx/onnx,bca0315ff3e56bb5847509ca32fadb8d87f680e1,onnx/external_data_helper.py,186,"def save_external_data(tensor: TensorProto, base_path: str) -> None:",漏洞执行链的首帧，位于 save_external_data 被外部调用方触发的瞬间。函数接收 tensor 和 base_path 后，即从 external_data 属性中无校验地读取 location 字段并拼接路径，随后将构造好的路径传递给下游的文件存在性检查与写入操作，是整条漏洞链由外部输入流向文件系统的入口节点。,"repository unavailable: Preparing worktree (detached HEAD bca0315f)
+error: RPC failed; curl 56 schannel: server closed abruptly (missing close_notify)
+error: 2922 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+fatal: could not fetch a441e05c9d27272174c630ba86f6b889e95c0982 from promisor remote",0,
+entry-00462,trace[1],https://github.com/onnx/onnx,bca0315ff3e56bb5847509ca32fadb8d87f680e1,onnx/external_data_helper.py,197,"    if not tensor.HasField(""raw_data""):",在从入口向文件写入操作推进的中间段，HasField 检查作为守卫分支：raw_data 缺失时函数提前终止，否则执行流程继续向下延伸，随后流入 os.path.isfile() 检查以及 open() 追加写入的竞态窗口区域。此分支本身不含缺陷，但一旦通过，攻击者所需的恶意路径与竞态条件已就位。,"repository unavailable: Preparing worktree (detached HEAD bca0315f)
+error: RPC failed; curl 56 schannel: server closed abruptly (missing close_notify)
+error: 2922 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+fatal: could not fetch a441e05c9d27272174c630ba86f6b889e95c0982 from promisor remote",0,
+entry-00462,trace[2],https://github.com/onnx/onnx,bca0315ff3e56bb5847509ca32fadb8d87f680e1,onnx/external_data_helper.py,202,"        with open(external_data_file_path, ""ab""):",在调用栈下游的写入节点，open() 以追加二进制模式操作 external_data_file_path，承接了函数入口处注入的未净化路径。由于紧随 os.path.isfile() 之后执行，竞态窗口已开启；且 open() 不设 O_NOFOLLOW，若攻击者在窗口期替换目标为符号链接，则文件系统将跟随链接，任意文件均可遭到追加覆盖。,"repository unavailable: Preparing worktree (detached HEAD bca0315f)
+error: RPC failed; curl 56 schannel: server closed abruptly (missing close_notify)
+error: 2922 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+fatal: could not fetch a441e05c9d27272174c630ba86f6b889e95c0982 from promisor remote",0,
+entry-00477,entry_point,https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/routes/public-chatbots/index.ts,8,"router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)  // 入口：无任何认证中间件，path 在 WHITELIST_URLS 白名单中，全局认证中间件直接放行",,code not found in repository,0,
+entry-00477,critical_operation,https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/services/chatflows/index.ts,391,"return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // 漏洞触发点：flowData 包含所有节点的 data.credential（credentialId UUID）原样返回给匿名调用者，应在此处删除或脱敏凭据引用字段",,code not found in repository,0,
+entry-00477,trace[0],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/utils/constants.ts,10,"'/api/v1/public-chatbotConfig',  // 白名单放行条目：中间件 startsWith 匹配后跳过所有认证检查",,code not found in repository,0,
+entry-00477,trace[1],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/index.ts,221,const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))  // 此处判断为 true，执行 next()，完全绕过 JWT/API Key 验证,,code not found in repository,0,
+entry-00477,trace[2],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/index.ts,223,if (isWhitelisted) { next() }  // 缺失：应有对 chatbotConfig 端点的 ownership 或访问控制校验,,code not found in repository,0,
+entry-00477,trace[3],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/controllers/chatflows/index.ts,246,const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)  // chatflowId 来自路径参数，未验证调用者是否有权访问该 chatflow,,code not found in repository,0,
+entry-00477,trace[4],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/services/chatflows/index.ts,366,const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId })  // 直接按 id 查询任意 chatflow，无工作区隔离,,code not found in repository,0,
+entry-00477,trace[5],https://github.com/FlowiseAI/Flowise,f0c1294173a55f26e0b972c39c0c16917f5ca9e7,packages/server/src/services/chatflows/index.ts,391,"return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // flowData 内节点 data.credential 字段包含 credentialId，原样暴露给匿名用户",,code not found in repository,0,
+entry-00483,entry_point,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2012,"router.get(""/agents/:id/keys"", async (req, res) => {  // 入口：外部可达 GET 路由，无公司归属校验",,code not found in repository,0,
+entry-00483,critical_operation,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 直接用攻击者传入的 id 查询任意租户密钥，无 companyId 过滤",,code not found in repository,0,
+entry-00483,trace[0],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2013,assertBoard(req);  // 仅校验 actor 类型为 board，不校验所属公司,,code not found in repository,0,
+entry-00483,trace[1],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2014,const id = req.params.id as string;  // 路径参数直接使用，可传入任意租户的 agent UUID,,code not found in repository,0,
+entry-00483,trace[2],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司",,code not found in repository,0,
+entry-00483,trace[3],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 触发点：无租户边界，返回受害租户密钥列表",,code not found in repository,0,
+entry-00485,entry_point,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2040,"router.delete(""/agents/:id/keys/:keyId"", async (req, res) => {  // 入口：外部可达 DELETE 路由，吊销 agent API key",,code not found in repository,0,
+entry-00485,critical_operation,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,606,"revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) }  // 直接按 keyId 吊销，无公司归属校验",,code not found in repository,0,
+entry-00485,trace[0],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2041,assertBoard(req);  // 仅校验 actor 类型为 board,,code not found in repository,0,
+entry-00485,trace[1],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2042,const keyId = req.params.keyId as string;  // 攻击者控制的任意租户密钥 ID,,code not found in repository,0,
+entry-00485,trace[2],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）",,code not found in repository,0,
+entry-00485,trace[3],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,606,"revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) ... }  // 触发点：无租户验证，直接吊销受害租户合法密钥",,code not found in repository,0,
+entry-00486,entry_point,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2012,"router.get(""/agents/:id/keys"", async (req, res) => {  // 入口：外部可达 GET 路由，无公司归属校验",,code not found in repository,0,
+entry-00486,critical_operation,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 直接用攻击者传入的 id 查询任意租户密钥，无 companyId 过滤",,code not found in repository,0,
+entry-00486,trace[0],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2013,assertBoard(req);  // 仅校验 actor 类型为 board，不校验所属公司,,code not found in repository,0,
+entry-00486,trace[1],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2014,const id = req.params.id as string;  // 路径参数直接使用，可传入任意租户的 agent UUID,,code not found in repository,0,
+entry-00486,trace[2],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司",,code not found in repository,0,
+entry-00486,trace[3],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // 触发点：无租户边界，返回受害租户密钥列表",,code not found in repository,0,
+entry-00488,entry_point,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2040,"router.delete(""/agents/:id/keys/:keyId"", async (req, res) => {  // 入口：外部可达 DELETE 路由，吊销 agent API key",,code not found in repository,0,
+entry-00488,critical_operation,https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,606,"revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) }  // 直接按 keyId 吊销，无公司归属校验",,code not found in repository,0,
+entry-00488,trace[0],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2041,assertBoard(req);  // 仅校验 actor 类型为 board,,code not found in repository,0,
+entry-00488,trace[1],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2042,const keyId = req.params.keyId as string;  // 攻击者控制的任意租户密钥 ID,,code not found in repository,0,
+entry-00488,trace[2],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）",,code not found in repository,0,
+entry-00488,trace[3],https://github.com/paperclipai/paperclip,a07237779bd5391a4683a754ed95249d57a49b2c,server/src/services/agents.ts,606,"revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).where(eq(agentApiKeys.id, keyId)) ... }  // 触发点：无租户验证，直接吊销受害租户合法密钥",,code not found in repository,0,
+entry-00498,entry_point,https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/agents/sandbox/types.ts,38,cdpSourceRange?: string;  // 可选字段，默认 undefined — 无 source-range 限制时不注入环境变量,cdpSourceRange 字段在 SandboxBrowserConfig 接口中被声明为可选字符串（?: string），未设置任何默认值。这是缺失约束的源头：用户配置中一旦省略该字段，值将以 undefined 形式流入后续调用链，整个链路中不存在 fail-closed 回路，最终使容器内 source-range 环境变量保持缺失状态。,code not found in repository,0,
+entry-00498,trace[0],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/agents/sandbox/config.ts,148,"cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange,  // 无默认值，用户未配置则 undefined",配置合并函数从 agentBrowser 和 globalBrowser 两层配置中读取 cdpSourceRange 字段，以空值合并运算符（??）向上一层回退，但两层均无默认值，因此用户未配置时结果为 undefined。该赋值是从类型声明层流向运行时配置对象的传递节点，undefined 值随后作为 browser 配置的一部分被传入浏览器启动流程。,code not found in repository,0,
+entry-00498,trace[1],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/agents/sandbox/browser.ts,157,const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);  // undefined → null/undefined,normalizeOptionalString 调用接收来自 params.cfg.browser 的 cdpSourceRange 属性，将可能为 undefined 或空字符串的输入统一归一化为 falsy 值并赋给局部变量 cdpSourceRange。该步骤处于从配置读取层流向容器参数构建层的中间段，归一化后的 falsy 结果直接控制下游条件注入逻辑的走向。,code not found in repository,0,
+entry-00498,trace[2],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/agents/sandbox/browser.ts,270,"if (cdpSourceRange) {
+  args.push(""-e"", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`);
+}  // cdpSourceRange 为 falsy 时跳过，容器内 OPENCLAW_BROWSER_CDP_SOURCE_RANGE 不注入 → 空字符串",if(cdpSourceRange) 条件块在 cdpSourceRange 为 falsy 时跳过向 args 追加 -e 参数的操作，导致容器启动命令中不包含 OPENCLAW_BROWSER_CDP_SOURCE_RANGE 环境变量注入。该分支是从 Node.js 宿主进程流向容器内 shell 环境的关键截断点，随后容器内脚本将因该环境变量缺失而以空字符串初始化 CDP_SOURCE_RANGE。,code not found in repository,0,
+entry-00498,trace[3],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,scripts/sandbox-browser-entrypoint.sh,12,"CDP_SOURCE_RANGE=""${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}""  // 默认空字符串",容器启动脚本在初始化阶段将 CDP_SOURCE_RANGE 赋值为 OPENCLAW_BROWSER_CDP_SOURCE_RANGE 的展开值，若该环境变量未被注入则默认取空字符串。该赋值是从宿主进程环境变量层流入容器内 shell 变量层的接收节点，空字符串的结果随后传入下游的 -n 检测逻辑，决定是否向 SOCAT_LISTEN_ADDR 附加 range= 约束。,code not found in repository,0,
+entry-00498,trace[4],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,scripts/sandbox-browser-entrypoint.sh,178,"if [[ -n ""${CDP_SOURCE_RANGE}"" ]]; then
+  SOCAT_LISTEN_ADDR=""${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE_RANGE}""
+fi  // CDP_SOURCE_RANGE 为空 → 跳过 range= 附加，socat 以无限制模式启动",-n 检测块判断 CDP_SOURCE_RANGE 是否为非空字符串，仅当非空时才向 SOCAT_LISTEN_ADDR 追加 range= 参数以限制连接来源；CDP_SOURCE_RANGE 为空字符串时条件不成立，range= 子句被跳过。在调用栈下游，SOCAT_LISTEN_ADDR 保持仅含 bind=0.0.0.0 的形式，直接传入 socat 命令执行，使中继服务在无来源过滤的状态下启动。,code not found in repository,0,
+entry-00499,entry_point,https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/security/audit-extra.sync.ts,848,const browserExposurePaths: string[] = [];  // 安全审计入口：检查 CDP bridge 是否 unrestricted,,code not found in repository,0,
+entry-00499,critical_operation,https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/security/audit-extra.sync.ts,875,"checkId: ""sandbox.browser_cdp_bridge_unrestricted"",
+severity: ""warn"",  // 此处应有却缺失的约束：安全审计仅以 warn 级别提示，未阻断容器启动；且仅针对 network=bridge 做检查，其他 network 模式的暴露漏检",,code not found in repository,0,
+entry-00499,trace[0],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/security/audit-extra.sync.ts,850,"if (
+  defaultBrowser.enabled &&
+  normalizeOptionalLowercaseString(defaultBrowser.network) === ""bridge"" &&
+  !defaultBrowser.cdpSourceRange?.trim()
+) {  // 仅检查默认 bridge 网络 + 未配置 cdpSourceRange 的情形",,code not found in repository,0,
+entry-00499,trace[1],https://github.com/openclaw/openclaw,67ae576b9e8713bbc4aec24f2b325ad8bc84e787,src/security/audit-extra.sync.ts,873,"if (browserExposurePaths.length > 0) {
+  findings.push({ checkId: ""sandbox.browser_cdp_bridge_unrestricted"", severity: ""warn"", ... })
+}  // 结果仅为 warn，不阻断流程；且 audit 为离线检查，不影响运行中容器",,code not found in repository,0,
