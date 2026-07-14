@@ -91,3 +91,6 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+
+# Tool source caches
+.cache/
