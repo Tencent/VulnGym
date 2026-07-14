@@ -265,9 +265,9 @@ python3 examples/evaluate.py path/to/your_findings.jsonl -v
 | 维度 | 默认值 |
 |---|---|
 | 路径匹配 | 归一化后严格相等 |
-| 行号容差 | entry_point 与 critical_operation 均满足 `|Δline| ≤ 5` |
+| 行号容差 | entry_point 与 critical_operation 的闭区间距离均 `≤ 5`；整数/区间重叠时距离为 `0` |
 | 方向 | 严格（entry_point 对 entry_point，critical_operation 对 critical_operation） |
-| ground truth 中 `line == 0` | 同时从分子分母中剔除 |
+| ground truth 行号无效 | 同时从分子分母中剔除；兼容旧版/自定义数据中已废弃的 `line == 0` |
 
 所有策略均有文档说明，并可通过 CLI 参数调整（`--line-tolerance` 等）。
 
