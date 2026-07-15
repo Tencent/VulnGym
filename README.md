@@ -88,8 +88,8 @@ full vulnerable source tree for the corresponding version.
 | Reachable entry points (entries) | **408** |
 | Distinct projects | 38 |
 | Distinct repositories | 23 |
-| Human-audited entries (`verify = 1`) | **393 / 408 (96.3 %)** |
-| Human-audited advisories (≥ 1 verified entry) | **178 / 184 (96.7 %)** |
+| Human-audited entries (`verify = 1`) | **390 / 408 (95.6 %)** |
+| Human-audited advisories (≥ 1 verified entry) | **177 / 184 (96.2 %)** |
 
 ### Human audit status
 
