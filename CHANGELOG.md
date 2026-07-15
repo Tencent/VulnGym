@@ -4,6 +4,14 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+- Re-pinned the three `GHSA-MXRG-77HM-89HV` n8n entries to a common
+  pre-fix snapshot and rebuilt their prototype-pollution semantic chains.
+- Returned those entries to `verify = 0` pending maintainer review; current
+  audited coverage is **390 / 408** entries across **177 / 184** advisories.
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
