@@ -48,25 +48,29 @@ Rejected candidates:
 
 ### entry-00103
 
-The old entry point was a lone closing brace. The new chain starts where workflow
-response headers are written, reads `content-type`, calls
-`isHtmlRenderedContentType`, and ends at `html-sandbox.ts:20`. Lowercasing without
-trimming preserves leading whitespace, so both HTML `startsWith` checks fail and
-the CSP sandbox header is skipped.
+The old entry point was a lone closing brace. The new chain starts where the
+Webhook node's `responseHeaders` configuration is evaluated, follows the
+resulting `WebhookStaticResponse`, and writes the attacker-controlled
+`Content-Type` to the Express response. The missing trim in
+`html-sandbox.ts:19-25` remains in the trace as the failed guard; the chain now
+ends at `webhook-request-handler.ts:153-157`, where that false result makes
+`needsSandbox` false and skips the CSP sandbox header.
 
-Rejected candidate:
+Rejected candidates:
 
 - `webhook-helpers.ts:615`: a block boundary that neither receives the malicious
   header nor makes the CSP decision.
+- `html-sandbox.ts:20`: the root-cause transformation and a necessary trace node,
+  but not the final control-flow decision that omits CSP.
 
 ### entry-00176
 
 The static `BLOCKED_ATTRIBUTES` declaration is retained as root-cause evidence,
 but the critical operation is now `task_analyzer.py:66`, where the analyzer
-checks each literal AST attribute. The vulnerable snapshot both omits
-`__objclass__` from the denylist and fails to cover dynamic `getattr(obj, name)`
-access in this visitor. The trace continues through the normal `exec` sink to
-distinguish the bypass decision from its impact.
+checks each AST attribute. The vulnerable snapshot omits `__objclass__` from the
+denylist, so direct slot-wrapper access passes this visitor. The trace continues
+through the normal `exec` sink to distinguish the bypass decision from its
+impact.
 
 Rejected candidates:
 
@@ -102,11 +106,9 @@ This entry was marked `verify=1`, but its entry point, critical operation, and a
 trace nodes were static constants in `constants.py`; the trace never reached a
 validator or executor. The upstream patch adds `__objclass__` to
 `BLOCKED_ATTRIBUTES` and regression cases for direct slot-wrapper access. The
-broader audit also needs to account for dynamic `getattr(obj, name)` access,
-which the vulnerable visitor does not inspect. The corrected chain therefore
-mirrors the concrete Python Code-node path at this entry's own vulnerable commit:
-node parameter -> Python task -> analyzer -> incomplete attribute decision ->
-`exec`.
+corrected chain therefore mirrors the concrete Python Code-node path at this
+entry's own vulnerable commit: node parameter -> Python task -> analyzer ->
+incomplete attribute decision -> `exec`.
 
 ### entry-00191
 
@@ -123,8 +125,9 @@ security patch identifies the actual defect: `textFilter` decoded `&lt;` back to
 - No schema or top-level field changes.
 - All line locations use positive integers or supported `start-end` ranges.
 - JSON objects remain alphabetically keyed and the file remains UTF-8 JSONL.
-- The diff CSV is generated against the clean base checkout and lists every
-  changed semantic field.
+- The diff CSV is generated against the clean base snapshot and lists every
+  changed semantic field plus the two verification-state changes.
 - `tests/test_n8n_semantic_annotations.py` provides offline regression checks for
   the eight target entries, schema invariants, semantic anchors, trace endpoints,
-  and an optional cached-source check for all 61 nodes.
+  documented verification statistics, and an optional cached-source check for
+  all 64 nodes.

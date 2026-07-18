@@ -1,6 +1,8 @@
+import csv
 import json
 import os
 import re
+import subprocess
 import unittest
 from collections import defaultdict
 from pathlib import Path
@@ -9,6 +11,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "entries.jsonl"
 REPORTS_PATH = ROOT / "data" / "reports.jsonl"
+README_PATH = ROOT / "README.md"
+README_ZH_PATH = ROOT / "README_zh.md"
+DIFF_CSV_PATH = ROOT / "reports" / "issue-6-n8n-semantic-review.diff.csv"
 TARGET_IDS = {
     "entry-00099",
     "entry-00100",
@@ -72,20 +77,33 @@ ANCHORS = {
     },
     "entry-00103": {
         "entry_point": (
-            "packages/cli/src/webhooks/webhook-request-handler.ts",
-            "146-150",
-            "\tprivate setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {\n"
-            "\t\tif (headers) {\n"
-            "\t\t\tfor (const [name, value] of headers.entries()) {\n"
-            "\t\t\t\tres.setHeader(name, value);\n"
-            "\t\t\t}",
+            "packages/cli/src/webhooks/webhook-helpers.ts",
+            "882-892",
+            "\tconst evaluatedHeaders =\n"
+            "\t\tcontext.evaluateComplexWebhookDescriptionExpression<WebhookNodeResponseHeaders>(\n"
+            "\t\t\t'responseHeaders',\n"
+            "\t\t);\n"
+            "\tif (evaluatedHeaders?.entries === undefined) {\n"
+            "\t\treturn headers;\n"
+            "\t}\n"
+            "\n"
+            "\tfor (const entry of evaluatedHeaders.entries) {\n"
+            "\t\theaders.set(entry.name.toLowerCase(), entry.value);\n"
+            "\t}",
         ),
         "critical_operation": (
-            "packages/core/src/html-sandbox.ts",
-            20,
-            "\tconst contentTypeLower = contentType.toLowerCase();",
+            "packages/cli/src/webhooks/webhook-request-handler.ts",
+            "153-157",
+            "\t\tconst contentType = res.getHeader('content-type') as string | undefined;\n"
+            "\t\tconst needsSandbox = !contentType || isHtmlRenderedContentType(contentType);\n"
+            "\n"
+            "\t\tif (needsSandbox && !isWebhookHtmlSandboxingDisabled()) {\n"
+            "\t\t\tres.setHeader('Content-Security-Policy', getWebhookSandboxCSP());",
         ),
-        "trace_end": ("packages/core/src/html-sandbox.ts", "19-25"),
+        "trace_end": (
+            "packages/cli/src/webhooks/webhook-request-handler.ts",
+            "153-157",
+        ),
     },
     "entry-00176": {
         "entry_point": (
@@ -239,6 +257,66 @@ class SemanticAnnotationTests(unittest.TestCase):
             self.assertEqual(report["entry_ids"], sorted(grouped[report_id]))
             self.assertEqual(report["num_entries"], len(grouped[report_id]))
 
+    def test_documented_verification_statistics_match_dataset(self):
+        verified_entries = [entry for entry in self.entries if entry["verify"] == 1]
+        verified_reports = {entry["report_id"] for entry in verified_entries}
+        grouped = defaultdict(list)
+        for entry in self.entries:
+            grouped[entry["report_id"]].append(entry)
+
+        fully_verified = sum(
+            all(entry["verify"] == 1 for entry in rows)
+            for rows in grouped.values()
+        )
+        partially_verified = sum(
+            any(entry["verify"] == 1 for entry in rows)
+            and any(entry["verify"] == 0 for entry in rows)
+            for rows in grouped.values()
+        )
+
+        self.assertEqual((len(verified_entries), len(verified_reports)), (391, 178))
+        self.assertEqual((fully_verified, partially_verified), (172, 6))
+
+        readme = README_PATH.read_text(encoding="utf-8")
+        readme_zh = README_ZH_PATH.read_text(encoding="utf-8")
+        self.assertIn("391 / 408 (95.8 %)", readme)
+        self.assertIn("178 / 184 (96.7 %)", readme)
+        self.assertIn("**172** have all of their entries verified", readme)
+        self.assertIn("**6** are partially verified", readme)
+        self.assertIn("391 / 408 (95.8%)", readme_zh)
+        self.assertIn("178 / 184 (96.7%)", readme_zh)
+        self.assertIn("**172** 条 advisory 的所有入口均已审计通过", readme_zh)
+        self.assertIn("**6** 条为部分审计通过", readme_zh)
+
+    def test_review_csv_covers_every_changed_field(self):
+        with DIFF_CSV_PATH.open(encoding="utf-8", newline="") as handle:
+            rows = list(csv.DictReader(handle))
+
+        grouped = defaultdict(list)
+        for row in rows:
+            grouped[row["entry_id"]].append(row)
+            self.assertTrue(row["old_value"])
+            self.assertTrue(row["new_value"])
+            self.assertTrue(row["reason"])
+
+        self.assertEqual(set(grouped), TARGET_IDS)
+        for entry_id in TARGET_IDS:
+            fields = {row["field"] for row in grouped[entry_id]}
+            expected_fields = {"entry_point", "critical_operation", "trace"}
+            if entry_id in {"entry-00182", "entry-00191"}:
+                expected_fields.add("verify")
+                verify_row = next(
+                    row for row in grouped[entry_id] if row["field"] == "verify"
+                )
+                self.assertEqual(
+                    (verify_row["old_value"], verify_row["new_value"]),
+                    ("1", "0"),
+                )
+            self.assertEqual(fields, expected_fields, entry_id)
+            self.assertEqual(len(grouped[entry_id]), len(expected_fields), entry_id)
+
+        self.assertEqual(len(rows), 26)
+
     def test_all_target_entries_are_present_and_unverified(self):
         self.assertEqual(set(self.by_id) & TARGET_IDS, TARGET_IDS)
         for entry_id in TARGET_IDS:
@@ -271,14 +349,41 @@ class SemanticAnnotationTests(unittest.TestCase):
     def test_only_target_entries_changed_when_base_is_available(self):
         base_path = os.environ.get("VULNGYM_BASE_ENTRIES")
         if base_path:
-            candidate = Path(base_path)
+            base_entries = read_jsonl(Path(base_path))
         else:
-            sibling = ROOT.parent / "VulnGym" / "data" / "entries.jsonl"
-            candidate = sibling
-        if not candidate.exists():
-            self.skipTest("set VULNGYM_BASE_ENTRIES to enable baseline diff check")
+            base_entries = None
+            for base_ref in ("origin/main", "main"):
+                merge_base = subprocess.run(
+                    ["git", "merge-base", "HEAD", base_ref],
+                    cwd=ROOT,
+                    capture_output=True,
+                    check=False,
+                    text=True,
+                )
+                if merge_base.returncode != 0:
+                    continue
+                base_snapshot = subprocess.run(
+                    [
+                        "git",
+                        "show",
+                        f"{merge_base.stdout.strip()}:data/entries.jsonl",
+                    ],
+                    cwd=ROOT,
+                    capture_output=True,
+                    check=False,
+                    text=True,
+                )
+                if base_snapshot.returncode == 0:
+                    base_entries = [
+                        json.loads(line)
+                        for line in base_snapshot.stdout.splitlines()
+                    ]
+                    break
 
-        base_entries = read_jsonl(candidate)
+        if base_entries is None:
+            self.skipTest(
+                "set VULNGYM_BASE_ENTRIES or provide origin/main to enable baseline diff check"
+            )
         self.assertEqual(len(base_entries), len(self.entries))
         changed = {
             old["entry_id"]
@@ -310,7 +415,7 @@ class SemanticAnnotationTests(unittest.TestCase):
                 self.assertEqual(actual, node["code"], f"{entry_id}: {node['file']}:{node['line']}")
                 checked += 1
 
-        self.assertEqual(checked, 61)
+        self.assertEqual(checked, 64)
 
     def _assert_node_shape(self, node):
         required = {"file", "line", "code"}
