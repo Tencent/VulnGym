@@ -1,0 +1,44 @@
+{
+  "changes_applied": 19,
+  "entries": 408,
+  "fix_candidates": 19,
+  "human_reason_counts": {
+    "code_not_found_in_repository": 22,
+    "ellipsis_not_expanded": 5,
+    "empty_code": 1,
+    "verified_entry_requires_verbatim_match": 1
+  },
+  "input_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+  "match_mode_counts": {
+    "annotation_projection": 28,
+    "none": 1,
+    "verbatim": 2860
+  },
+  "matched": 2841,
+  "mode": "fix",
+  "nearby_window": 5,
+  "needs_human": 29,
+  "nodes": 2889,
+  "output_sha256": "24643b4bbfed8c739d62804a9ce67254b8239ef64cd0617f8c599477e4991328",
+  "repository_fallback_nodes": 27,
+  "source_commits": 166,
+  "source_commits_complete": 166,
+  "stage_counts": {
+    "fixed:nearby": 17,
+    "fixed:same_file": 2,
+    "human:input": 1,
+    "human:repository": 27,
+    "human:same_file": 1,
+    "matched:current": 2841
+  },
+  "status_counts": {
+    "fixed": 19,
+    "human": 29,
+    "matched": 2841
+  },
+  "strategy_counts": {
+    "nearby_unique": 17,
+    "same_file_unique": 2
+  },
+  "verified_policy": "strict"
+}
