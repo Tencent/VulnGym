@@ -1,0 +1,19 @@
+{
+  "entries_scanned": 408,
+  "trace_nodes_scanned": 2073,
+  "duplicate_groups": 7,
+  "duplicate_extra_nodes": 7,
+  "before_entry_findings": 139,
+  "after_critical_findings": 237,
+  "overlap_findings": 41,
+  "cross_file_skipped": 382,
+  "auto_fixed": 0,
+  "manual_review": 5,
+  "protected_verified": 415,
+  "changed_entries": 0,
+  "input_sha256": "2158b6bfef0be1812e7a6a77b32ad32b65964c2546c83018ff20a9a6f706c7b1",
+  "output_sha256": "2158b6bfef0be1812e7a6a77b32ad32b65964c2546c83018ff20a9a6f706c7b1",
+  "mode": "fix",
+  "duplicate_action": "remove-safe",
+  "order_action": "report"
+}
