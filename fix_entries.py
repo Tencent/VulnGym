@@ -70,6 +70,25 @@ def normalize_code(code: str) -> str:
     return '\n'.join(cleaned).strip()
 
 
+# 这些字符串只会匹配代码块的闭合符号，不包含有意义逻辑
+_DEGENERATE_STRINGS = {
+    '}', '});', '};', '];', ')];',
+    ')', ']', '{', '});', ')};',
+    '});', ');', '}]);', '}));',
+    '', ' ', '  ', '\t',
+}
+
+
+def is_degenerate_snippet(code: str) -> bool:
+    """检测是否是无意义的退化代码片段（单独的闭合括号等）。"""
+    stripped = code.strip()
+    if stripped in _DEGENERATE_STRINGS:
+        return True
+    if len(stripped) <= 2 and all(c in '{}[]();,' for c in stripped):
+        return True
+    return False
+
+
 def search_code_in_lines(lines: list[str], norm_code: str) -> list[int]:
     code_lines = norm_code.split('\n')
     if not code_lines or not lines:
@@ -98,6 +117,59 @@ def _parse_line(line_value):
         return n, n
     except (ValueError, TypeError):
         return None, None
+
+
+# ─── desc 字段行号同步 ───────────────────────
+# 匹配中文描述中的 "第 N 行" / "行号为 N" / "line:N" 等模式
+import re as _re
+
+_DESC_LINE_PATTERNS = [
+    _re.compile(r'(\D)(\d{1,5})(\s*[-–—至到]\s*)(\d{1,5})(\s*行)'),           # "第 100-105 行"
+    _re.compile(r'(\D)(\d{1,5})(\s*[-–—至到]\s*)(\d{1,5})\b'),                  # "100-105" (bare)
+    _re.compile(r'(?:line|行号为?|第)\s*(\d{1,5})\b', _re.IGNORECASE),           # "line 100" / "第100行"
+    _re.compile(r'(?:L)\s*(\d{1,5})\b'),                                          # "L100"
+]
+
+
+def sync_desc(desc: str, old_file: str, new_file: str,
+              old_line_start: int, old_line_end: int,
+              new_line_start: int, new_line_end: int | None = None) -> str:
+    """保守同步 desc 中的行号引用。
+
+    只在 file 不变时更新行号引用；file 变化时不做行号替换。
+    """
+    if old_file != new_file:
+        return desc
+    if new_line_end is None:
+        new_line_end = new_line_start
+
+    old_line_diff = old_line_end - old_line_start
+    new_line_diff = new_line_end - new_line_start
+
+    # 先处理范围格式: "100-105行" / "lines 100-105"
+    for pattern in _DESC_LINE_PATTERNS[:2]:
+        def _replace_range(m):
+            a, b = int(m.group(2)), int(m.group(4))
+            if a <= old_line_start <= b:
+                ra = new_line_start
+                rb = new_line_start + (b - a)
+                sep = m.group(3)
+                suffix = m.group(5) if len(m.groups()) >= 5 else ''
+                return f'{m.group(1)}{ra}{sep}{rb}{suffix}'
+            return m.group(0)
+        desc = pattern.sub(_replace_range, desc)
+
+    # 再处理单行格式: "line 100" / "第100行" / "L100"
+    for pattern in _DESC_LINE_PATTERNS[2:]:
+        def _replace_single(m):
+            n = int(m.group(1))
+            if n == old_line_start or old_line_start <= n <= old_line_end:
+                delta = n - old_line_start
+                return m.group(0).replace(str(n), str(new_line_start + delta))
+            return m.group(0)
+        desc = pattern.sub(_replace_single, desc)
+
+    return desc
 
 
 def build_raw_url(repo_url: str, commit: str, filepath: str) -> str:
@@ -254,6 +326,11 @@ def verify_node(repo_url: str, commit: str, node: dict, repo_cache_dir: Path) ->
     if not norm_code:
         return {'strategy': 'correct', 'new_node': node, 'reason': 'empty code after normalize'}
 
+    # 退化片段检测：单独的 `}` / `)` 等闭合符号不自动修复
+    if is_degenerate_snippet(norm_code):
+        return {'strategy': 'degenerate', 'new_node': node,
+                'reason': f'degenerate snippet (auto-fix skipped): {repr(code.strip()[:60])}'}
+
     code_line_count = len(norm_code.split('\n'))
     effective_end = max(line_end, line_start + code_line_count - 1)
 
@@ -263,6 +340,10 @@ def verify_node(repo_url: str, commit: str, node: dict, repo_cache_dir: Path) ->
             if effective_end != line_end and isinstance(raw_line, int):
                 new_node = dict(node)
                 new_node['line'] = f'{line_start}-{effective_end}'
+                if 'desc' in node and isinstance(node['desc'], str) and node['desc']:
+                    new_node['desc'] = sync_desc(
+                        node['desc'], filepath, filepath,
+                        line_start, line_end, line_start, effective_end)
                 return {
                     'strategy': 'nearby_fix',
                     'new_node': new_node,
@@ -279,6 +360,10 @@ def verify_node(repo_url: str, commit: str, node: dict, repo_cache_dir: Path) ->
                 new_line = search_start + matches[0]
                 new_node = dict(node)
                 new_node['line'] = new_line
+                if 'desc' in node and isinstance(node['desc'], str) and node['desc']:
+                    new_node['desc'] = sync_desc(
+                        node['desc'], filepath, filepath,
+                        line_start, line_end, new_line, new_line)
                 return {
                     'strategy': 'nearby_fix',
                     'new_node': new_node,
@@ -291,6 +376,10 @@ def verify_node(repo_url: str, commit: str, node: dict, repo_cache_dir: Path) ->
         if len(matches) == 1:
             new_node = dict(node)
             new_node['line'] = matches[0]
+            if 'desc' in node and isinstance(node['desc'], str) and node['desc']:
+                new_node['desc'] = sync_desc(
+                    node['desc'], filepath, filepath,
+                    line_start, line_end, matches[0], matches[0])
             return {
                 'strategy': 'file_search',
                 'new_node': new_node,
@@ -311,6 +400,10 @@ def verify_node(repo_url: str, commit: str, node: dict, repo_cache_dir: Path) ->
         new_node = dict(node)
         new_node['file'] = new_file
         new_node['line'] = new_line
+        if 'desc' in node and isinstance(node['desc'], str) and node['desc']:
+            new_node['desc'] = sync_desc(
+                node['desc'], filepath, new_file,
+                line_start, line_end, new_line, new_line)
         return {
             'strategy': 'repo_search',
             'new_node': new_node,
@@ -341,13 +434,15 @@ def process_entry(entry: dict, repo_cache_dir: Path) -> dict:
                 'field': field_name,
                 'original_file': node.get('file', ''),
                 'original_line': node.get('line', ''),
+                'original_desc': node.get('desc', ''),
                 'new_file': vr['new_node'].get('file', ''),
                 'new_line': vr['new_node'].get('line', ''),
+                'new_desc': vr['new_node'].get('desc', ''),
                 'strategy': vr['strategy'],
                 'reason': vr['reason']
             })
             return vr['new_node']
-        if vr['strategy'] in ('not_found', 'multi_hit', 'fetch_error'):
+        if vr['strategy'] in ('not_found', 'multi_hit', 'fetch_error', 'degenerate'):
             result['needs_human'].append({
                 'entry_id': entry_id,
                 'field': field_name,
@@ -390,6 +485,7 @@ def main():
     parser.add_argument('--verbose', '-v', action='store_true')
     parser.add_argument('--workers', type=int, default=DEFAULT_WORKERS, help='并行 worker 数')
     parser.add_argument('--limit', type=int, default=0, help='限制处理条数（调试用）')
+    parser.add_argument('--no-cache', action='store_true', help='禁用 HTTP 和仓库缓存')
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -417,6 +513,10 @@ def main():
         print(f'Limited to {len(entries)} entries')
 
     repo_cache_dir = Path(args.repo_cache_dir)
+    if args.no_cache:
+        _file_cache.clear()
+        if repo_cache_dir.exists():
+            shutil.rmtree(str(repo_cache_dir), ignore_errors=True)
     repo_cache_dir.mkdir(parents=True, exist_ok=True)
 
     start_time = time.time()
@@ -470,6 +570,8 @@ def main():
     nearby_count = sum(1 for f in all_fixes if f['strategy'] == 'nearby_fix')
     file_count = sum(1 for f in all_fixes if f['strategy'] == 'file_search')
     repo_count = sum(1 for f in all_fixes if f['strategy'] == 'repo_search')
+    desc_synced = sum(1 for f in all_fixes
+                      if f.get('original_desc', '') != f.get('new_desc', ''))
 
     print(f"\n{'=' * 60}")
     print(f'  Processed {len(entries)} entries in {elapsed:.1f}s')
@@ -478,7 +580,11 @@ def main():
     print(f'    - nearby (+/-{SEARCH_RANGE}): {nearby_count}')
     print(f'    - file search:              {file_count}')
     print(f'    - repo search:              {repo_count}')
+    print(f'    - desc sync:                 {desc_synced}')
     print(f'  Needs human: {len(all_needs_human)}')
+    degenerate_count = sum(1 for nh in all_needs_human if nh.get('reason', '').startswith('degenerate'))
+    if degenerate_count:
+        print(f'    - degenerate snippets: {degenerate_count}')
     print(f'  Errors:      {len(errors)}')
     print(f"{'=' * 60}")
 
@@ -494,7 +600,8 @@ def main():
             with open(args.fix_diff, 'w', encoding='utf-8', newline='') as f:
                 writer = csv.DictWriter(f, fieldnames=[
                     'entry_id', 'field', 'original_file', 'original_line',
-                    'new_file', 'new_line', 'strategy', 'reason'
+                    'original_desc', 'new_file', 'new_line', 'new_desc',
+                    'strategy', 'reason'
                 ])
                 writer.writeheader()
                 writer.writerows(all_fixes)
