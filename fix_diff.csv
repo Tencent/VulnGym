@@ -1,0 +1,13 @@
+entry_id,field_path,field,before,after,reason
+entry-00185,entry_point,,packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:46,packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts:70,重新定位 entry_point
+entry-00185,critical_operation,,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:48,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts:128-131,重新定位 critical_operation
+entry-00185,trace,,4 nodes,3 nodes,完全重建 trace
+entry-00197,entry_point.desc,,(updated),(enhanced),补充多阶段利用说明
+entry-00197,critical_operation.desc,,(updated),(enhanced),增强关键操作描述
+entry-00197,trace[*].desc,,(updated),(enhanced),增强 trace 节点描述
+entry-00290,critical_operation,,src/infra/boundary-path.ts:196,src/agents/apply-patch.ts:152,重新定位 critical_operation
+entry-00290,trace[*].desc,,(updated),(enhanced),增强 trace 节点描述
+entry-00320,entry_point,,src/backend/base/langflow/api/v2/files.py:163-166,src/backend/base/langflow/api/v2/files.py:162,重新定位 entry_point
+entry-00320,trace[*].desc,,(updated),(enhanced),增强 trace 节点描述
+entry-00391,critical_operation,,src/fastmcp/utilities/openapi/director.py:194,src/fastmcp/utilities/openapi/director.py:213-216,重新定位 critical_operation
+entry-00391,trace,,4 nodes,3 nodes,完全重建 trace
