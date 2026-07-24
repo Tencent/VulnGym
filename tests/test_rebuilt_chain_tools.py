@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +36,24 @@ class RebuiltChainToolTests(unittest.TestCase):
 
         self.assertEqual(verify_tools.source_slice(source, span), "two\nthree")
 
+    def test_fetch_bytes_retries_transient_network_error(self):
+        response = mock.MagicMock()
+        response.__enter__.return_value.read.return_value = b"ok"
+        request = verify_tools.urllib.request.Request("https://example.invalid")
+
+        with (
+            mock.patch.object(
+                verify_tools.urllib.request,
+                "urlopen",
+                side_effect=[verify_tools.urllib.error.URLError("transient"), response],
+            ) as urlopen,
+            mock.patch.object(verify_tools.time, "sleep"),
+        ):
+            result = verify_tools.fetch_bytes(request, timeout=1)
+
+        self.assertEqual(result, b"ok")
+        self.assertEqual(urlopen.call_count, 2)
+
     def test_apply_patches_replaces_only_target_entry(self):
         base_entries = [
             {"entry_id": "keep", "entry_point": {"file": "a", "line": 1, "code": "a"}, "critical_operation": {"file": "b", "line": 2, "code": "b"}, "trace": []},
@@ -56,6 +75,96 @@ class RebuiltChainToolTests(unittest.TestCase):
         errors = verify_tools.validate_entries(entries)
 
         self.assertEqual(errors, [])
+
+    def test_verify_current_patch_semantic_anchors(self):
+        entries = verify_tools.read_jsonl(ROOT / "data" / "entries.rebuilt_chains.jsonl")
+        manual_ids = verify_tools.read_manual_review_ids(
+            ROOT / "reports" / "rebuild_manual_review.csv"
+        )
+
+        errors = verify_tools.validate_target_semantics(entries, manual_ids)
+
+        self.assertEqual(errors, [])
+
+    def test_upstream_fix_evidence_accepts_expected_patches(self):
+        entries = verify_tools.read_jsonl(ROOT / "data" / "entries.rebuilt_chains.jsonl")
+        by_id = {entry["entry_id"]: entry for entry in entries}
+        payloads = {
+            "entry-00197": {
+                "parents": [{"sha": by_id["entry-00197"]["commit"]}],
+                "files": [
+                    {
+                        "filename": "src/infra/outbound/message-action-params.ts",
+                        "patch": (
+                            "createRootScopedReadFile normalizeSandboxMediaParams "
+                            "hydrateAttachmentParamsForAction"
+                        ),
+                    }
+                ],
+            },
+            "entry-00290": {
+                "parents": [{"sha": by_id["entry-00290"]["commit"]}],
+                "files": [
+                    {"filename": "src/agents/apply-patch.test.ts", "patch": "test"},
+                    {"filename": "src/infra/boundary-path.test.ts", "patch": "test"},
+                ],
+            },
+            "entry-00391": {
+                "parents": [{"sha": by_id["entry-00391"]["commit"]}],
+                "files": [
+                    {
+                        "filename": "src/fastmcp/utilities/openapi/director.py",
+                        "patch": (
+                            "from urllib.parse import quote safe_value "
+                            "replace(placeholder, safe_value)"
+                        ),
+                    }
+                ],
+            },
+        }
+
+        errors = verify_tools.validate_upstream_evidence(entries, payloads)
+
+        self.assertEqual(errors, [])
+
+    def test_upstream_fix_evidence_rejects_parent_and_production_mismatch(self):
+        entries = verify_tools.read_jsonl(ROOT / "data" / "entries.rebuilt_chains.jsonl")
+        by_id = {entry["entry_id"]: entry for entry in entries}
+        payloads = {
+            "entry-00197": {
+                "parents": [{"sha": "wrong-parent"}],
+                "files": [
+                    {
+                        "filename": "message-action-params.ts",
+                        "patch": (
+                            "createRootScopedReadFile normalizeSandboxMediaParams "
+                            "hydrateAttachmentParamsForAction"
+                        ),
+                    }
+                ],
+            },
+            "entry-00290": {
+                "parents": [{"sha": by_id["entry-00290"]["commit"]}],
+                "files": [{"filename": "src/agents/apply-patch.ts", "patch": "production"}],
+            },
+            "entry-00391": {
+                "parents": [{"sha": by_id["entry-00391"]["commit"]}],
+                "files": [
+                    {
+                        "filename": "src/fastmcp/utilities/openapi/director.py",
+                        "patch": (
+                            "from urllib.parse import quote safe_value "
+                            "replace(placeholder, safe_value)"
+                        ),
+                    }
+                ],
+            },
+        }
+
+        errors = verify_tools.validate_upstream_evidence(entries, payloads)
+
+        self.assertTrue(any("does not match recorded commit" in error for error in errors))
+        self.assertTrue(any("test-only changes" in error for error in errors))
 
     def test_text_integrity_rejects_corrupted_natural_language_only(self):
         entry = {

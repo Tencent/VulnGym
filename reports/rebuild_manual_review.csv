@@ -1,1 +1,2 @@
 entry_id,status,reason,candidate_locations
+"entry-00290","manual_review","Recorded commit 8b5ebff is the parent of advisory fix 4fd29a3, but that fix changes only tests; the production guard at the recorded revision appears fail-closed, so the true vulnerable revision is unresolved.","guard: src/infra/boundary-path.ts:196-197 and missing-target resolution around 487-496; candidate sink: src/agents/apply-patch.ts:152; request maintainer or advisory provenance"

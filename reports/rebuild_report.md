@@ -8,17 +8,17 @@ The goal is not a line-offset repair. Each entry is rebuilt around the attacker-
 - `data/entries.rebuilt_chains.jsonl`: patch-first view containing only the five rebuilt entries.
 - `data/entries.fixed.jsonl`: full 408-entry JSONL after applying the patch file.
 - `reports/rebuild_fix_diff.csv`: node-level old/new diff with rebuild rationale.
-- `reports/rebuild_manual_review.csv`: manual-review audit file. This pass has no unresolved rows.
+- `reports/rebuild_manual_review.csv`: manual-review audit file. `entry-00290` remains unresolved because the advisory fix changes tests but not production code.
 - `reports/rebuild_acceptance_matrix.md`: issue #7 acceptance criteria mapped to concrete evidence.
 - `scripts/apply_rebuild_patches.py`: regenerates full fixed JSONL and diff from the patch file.
-- `scripts/verify_rebuilt_chains.py`: validates schema basics, checks natural-language text for corruption markers, and can compare every `{file,line,code}` against GitHub raw sources.
+- `scripts/verify_rebuilt_chains.py`: validates schema basics and semantic anchors, checks natural-language text for corruption markers, compares every `{file,line,code}` against GitHub raw sources, and can verify advisory-fix parent/patch evidence.
 
 ## Design Choice
 
 This submission intentionally uses a sink-oriented `critical_operation` where that makes the chain easier to review:
 
 - `entry-00185`: critical operation is the final `fsWriteFile` call, while path-blocking logic remains in `trace`.
-- `entry-00290`: critical operation is the final `fileOps.writeFile` call, while the dangling-symlink fail-open decision remains in `trace`.
+- `entry-00290`: `fileOps.writeFile` is retained only as a candidate impact sink; the recorded revision appears fail-closed, so this entry is marked `verify=0` and sent to manual review.
 - `entry-00320`: critical operation is the final `async_open` write, while the unsafe path join remains in `trace`.
 
 This keeps root-cause checks visible without hiding the concrete operation that materializes the impact.
@@ -28,10 +28,10 @@ This keeps root-cause checks visible without hiding the concrete operation that 
 | entry_id | project | entry point | critical operation | trace nodes | main rebuild |
 | --- | --- | --- | --- | ---: | --- |
 | entry-00185 | n8n | `write.operation.ts:70` | `file-system-helper-functions.ts:128-132` | 5 | Move from static option/default nodes to attacker-controlled filename, path resolution, policy decision, and final write sink |
-| entry-00197 | openclaw | `server.ts:35-36` | `server.ts:57` | 6 | Express the check/use TOCTOU stages with the real `fs-safe.ts` boundary and open handoff |
-| entry-00290 | openclaw | `apply-patch.ts:94` | `apply-patch.ts:152` | 6 | Separate the alias assertion, dangling-symlink fail-open check, and final write sink |
+| entry-00197 | openclaw | `message-action-params.ts:288` | `web/media.ts:360` | 8 | Rebuild the actual normalize/retarget/hydrate sequence and the stale `sandboxValidated` trust boundary |
+| entry-00290 | openclaw | `apply-patch.ts:94` | `apply-patch.ts:152` | 6 | Preserve the candidate chain while recording that the checked revision appears fail-closed (`verify=0`) |
 | entry-00320 | langflow | `files.py:162` | `local.py:120` | 6 | Move entry to route-level filename capture and follow it to storage write |
-| entry-00391 | fastmcp | `director.py:23-28` | `director.py:194-216` | 6 | Track argument unflattening, path parameter capture, raw replacement, and `urljoin` normalization |
+| entry-00391 | fastmcp | `director.py:23-28` | `director.py:208-213` | 6 | Track argument unflattening and isolate the raw path-parameter substitution changed by the security fix |
 
 ## entry-00185: n8n ReadWriteFile writing `.git/config`
 
@@ -42,14 +42,15 @@ The important distinction is that `.git` is not specially denied by the access-c
 ## entry-00197: openclaw media TOCTOU
 
 This is a multi-stage vulnerability. The rebuilt chain keeps a single external entry point but makes the check/use split explicit.
-The route captures `req.params.id`, `isValidMediaId` performs only syntactic filtering, `openFileWithinRoot` performs the lexical boundary check, and `openVerifiedLocalFile` opens the checked path.
-The critical operation is `handle.readFile()`, the use phase that reads from a handle after the race window.
+`normalizeSandboxMediaParams` reads the caller-controlled path, resolves it while a symlink still points inside the sandbox, and stores that normalized path for later use.
+After the symlink is retargeted, attachment hydration passes the stored path with `sandboxValidated: true` and an unscoped `fs.readFile` callback. `loadWebMedia` therefore skips a fresh root check and invokes `readFileOverride(mediaUrl)`.
+This is the same two-stage sequence exercised by the regression test added in fix commit `c823a85302119044bc26763644c15fe35dd04f4a`, whose first parent is the recorded vulnerable commit.
 
 ## entry-00290: openclaw dangling symlink sandbox escape
 
-The root cause is the fail-open symlink resolution path, but the vulnerability is completed by a write operation.
-The rebuilt chain starts at the apply_patch tool `execute`, flows through `applyPatch`, `resolvePatchPath`, `assertNoPathAliasEscape`, and `resolveSymlinkHopPath`, then ends at `fileOps.writeFile(target.resolved, hunk.contents)`.
-This expresses both why the boundary check can be wrong and where the attacker-controlled patch content is written.
+The candidate chain starts at the apply_patch tool `execute`, flows through `applyPatch`, `resolvePatchPath`, and `assertNoPathAliasEscape`, then reaches the candidate `fileOps.writeFile` sink.
+However, the recorded revision canonicalizes the symlink hop and rejects it when it leaves the sandbox. Advisory fix `4fd29a35bb85a1898ebff518364c467058b50e14` has the recorded commit as its parent but changes only two test files, so it does not identify a missing production guard.
+The entry is therefore retained as `verify=0` with an explicit manual-review row instead of claiming a proven fail-open path.
 
 ## entry-00320: langflow upload filename traversal
 
@@ -61,12 +62,13 @@ The critical operation is `async_open(str(file_path), mode)` because that is whe
 
 The old trace included logger and declaration-level nodes. The rebuilt chain starts at `RequestDirector.build`, follows the handoff into `_build_url`, and highlights raw path-parameter replacement.
 It now also includes argument unflattening and path parameter bucket assignment, which makes the data path from `flat_args` to `url_path.replace(...)` explicit.
-The critical operation is the `_build_url` block that performs raw `replace` and then `urljoin`, allowing traversal segments in path parameters to affect the final outbound URL.
+The critical operation is narrowed to lines 208-213, where raw `str(param_value)` is substituted into the path template. Fix commit `40bdfb6b1de0ce30609ee9ba5bb95ecd04a9fb71` changes this exact operation to an encoded `safe_value`; the following `urljoin` remains in the trace as the downstream URL-construction effect.
 
 ## Verification
 
-The rebuilt patch contains five entries and 39 nodes. `scripts/verify_rebuilt_chains.py` validates required fields, line spans, non-empty `code`, non-empty `desc`, and natural-language text integrity.
+The rebuilt patch contains five entries and 41 nodes. `scripts/verify_rebuilt_chains.py` validates required fields, line spans, non-empty `code`, non-empty `desc`, natural-language text integrity, target-specific semantic anchors, and manual-review coverage.
 With `--use-remote`, it fetches GitHub raw files at the recorded commits and compares each node's source slice to the recorded `code`.
+With `--check-upstream`, it verifies fix-parent relationships and patch evidence for the three entries whose interpretation depends on the upstream security fix.
 
 Recommended commands:
 
@@ -75,4 +77,5 @@ python -m unittest discover -s tests
 python scripts/apply_rebuild_patches.py
 python scripts/verify_rebuilt_chains.py
 python scripts/verify_rebuilt_chains.py --use-remote
+python scripts/verify_rebuilt_chains.py --use-remote --check-upstream
 ```
