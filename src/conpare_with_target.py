@@ -9,7 +9,10 @@ from config import (
     CHROME_USER_AGENT,
     READ_MAX_LINES,
     READ_START_LINE,
-    READ_END_LINE
+    READ_END_LINE,
+    ENABLE_WHOLE_REPO_SCAN,
+    MAX_REPO_SCAN_FILES,
+    ENABLE_FILE_CACHE
 )
 
 import json
@@ -21,6 +24,9 @@ import sys
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 HEADERS = {"User-Agent": CHROME_USER_AGENT}
+
+# 全局文件缓存 key=完整raw链接  value=(content, lines)
+file_cache = {}
 
 
 def extract_info(node: dict) -> dict:
@@ -74,12 +80,24 @@ def build_raw_link(repo_url: str, commit_hash: str, file_path: str) -> str:
 
 def download_file(repo_url: str, commit: str, file_path: str):
     url = build_raw_link(repo_url, commit, file_path)
+    cache_key = url
+
+    # 命中缓存直接返回，不再重复下载
+    if ENABLE_FILE_CACHE and cache_key in file_cache:
+        return file_cache[cache_key][0], file_cache[cache_key][1], None
+
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=False)
+        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=False, stream=True)
         resp.raise_for_status()
         content = resp.text
         lines = content.splitlines()
+        if ENABLE_FILE_CACHE:
+            file_cache[cache_key] = (content, lines)
         return content, lines, None
+    except requests.exceptions.Timeout:
+        return "", [], f"下载超时{TIMEOUT}s"
+    except requests.exceptions.ConnectionError:
+        return "", [], "连接失败"
     except Exception as e:
         return "", [], str(e)
 
@@ -113,6 +131,10 @@ def repo_list_all_files(repo_url: str, commit: str):
         for item in tree_data["tree"]:
             if item["type"] == "blob":
                 all_files.append(item["path"])
+                # 限制最大文件数量，防止超大仓库卡死
+                if len(all_files) >= MAX_REPO_SCAN_FILES:
+                    print(f"仓库文件过多，已达到最大遍历上限{MAX_REPO_SCAN_FILES}，截断文件列表")
+                    break
         return all_files, None
     except Exception as e:
         return [], str(e)
@@ -144,6 +166,10 @@ def three_stage_repair(original_file, original_line_raw, repo_url, commit, local
         hit_line = hit_stage2[0]
         return True, original_file, hit_line, hit_stage2, "", "阶段2当前文件全量检索唯一命中修复"
 
+    # 新增：总开关控制是否进入全仓库遍历（防卡死核心）
+    if not ENABLE_WHOLE_REPO_SCAN:
+        return False, original_file, original_line_raw, [], "已关闭全仓库检索，仅检索当前文件", ""
+
     all_files, list_err = repo_list_all_files(repo_url, commit)
     if list_err:
         return False, original_file, original_line_raw, [], f"仓库文件列表获取失败：{list_err}", ""
@@ -151,6 +177,7 @@ def three_stage_repair(original_file, original_line_raw, repo_url, commit, local
     for fpath in all_files:
         f_cont, f_lines, f_err = download_file(repo_url, commit, fpath)
         if f_err:
+            # 单个文件下载失败直接跳过，不阻塞循环整体
             continue
         hits = search_code_in_file(f_lines, target_loose)
         for ln in hits:
@@ -181,7 +208,6 @@ def write_human_csv(csv_path, rows):
 
 
 def write_fix_diff_csv(csv_path, rows):
-    # fix_diff 核心表头：记录每一处修改
     header = [
         "entry_id(JSON物理行号)", "节点字段路径",
         "old_file", "old_line", "old_desc",
@@ -202,17 +228,11 @@ def process_single_node(
     node_path: str, node_meta: dict, repo_url: str, commit: str, entry_id: int,
     human_list: list, diff_list: list
 ):
-    """
-    node_path: 节点路径如 entry_point / critical_operation / trace[2]
-    entry_id: JSON物理行号，全局唯一ID
-    返回：修复后的节点字典
-    """
     file_orig = node_meta["file"]
     line_orig = node_meta["line"]
     code_local = node_meta["code"]
     desc_orig = node_meta["desc"]
 
-    # 基础字段缺失，归入人工
     if not repo_url or not commit or not file_orig or code_local is None:
         human_list.append({
             "entry_id(JSON物理行号)": entry_id,
@@ -227,7 +247,6 @@ def process_single_node(
         })
         return node_meta
 
-    # 先校验原本是否匹配成功，匹配成功直接返回，无修改
     s_orig, e_orig = parse_line_range(line_orig)
     match_ok = False
     url = build_raw_link(repo_url, commit, file_orig)
@@ -249,12 +268,10 @@ def process_single_node(
     if match_ok:
         return node_meta
 
-    # 匹配失败 → 启动三级修复
     fix_ok, new_file, new_line, hit_info, fail_reason, fix_strategy = three_stage_repair(
         file_orig, line_orig, repo_url, commit, code_local
     )
     if fix_ok:
-        # 修复成功，写入diff日志
         new_node = {
             "file": new_file,
             "line": new_line,
@@ -274,7 +291,6 @@ def process_single_node(
         })
         return new_node
     else:
-        # 无法修复，写入人工清单
         human_list.append({
             "entry_id(JSON物理行号)": entry_id,
             "节点字段路径": node_path,
@@ -290,13 +306,16 @@ def process_single_node(
 
 
 def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
+    global file_cache
+    # 每次完整运行清空缓存，避免上次残留脏数据
+    file_cache = {}
+
     use_range = False
     use_max = False
     start = 0
     end = 0
     max_n = 0
 
-    # 优先级：命令行区间 > 命令行前N行 > config区间 > config前N行
     if cmd_start is not None and cmd_end is not None and cmd_start > 0 and cmd_end >= cmd_start:
         start, end = cmd_start, cmd_end
         use_range = True
@@ -314,11 +333,10 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
     final_fix_jsonl = []
     human_csv_rows = []
     fix_diff_csv_rows = []
-    entry_id = 1  # entry_id = JSON物理行号，从1递增
+    entry_id = 1
 
     with open(ENTRIES_JSONL_FILE_PATH, "r", encoding="utf-8") as f_in:
         for raw_ln in f_in:
-            # 行范围拦截
             if use_range:
                 if entry_id < start:
                     entry_id += 1
@@ -345,8 +363,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
             commit = line_data.get("commit", "")
             new_line_data = line_data.copy()
 
-            # 处理三大固定节点
-            # 1 entry_point
             entry_raw = line_data.get("entry_point", {})
             entry_meta = extract_info(entry_raw)
             new_entry = process_single_node(
@@ -360,7 +376,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
             )
             new_line_data["entry_point"] = new_entry
 
-            # 2 critical_operation
             crit_raw = line_data.get("critical_operation", {})
             crit_meta = extract_info(crit_raw)
             new_crit = process_single_node(
@@ -374,7 +389,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
             )
             new_line_data["critical_operation"] = new_crit
 
-            # 3 trace数组逐个处理
             trace_new = []
             trace_list = line_data.get("trace", [])
             if isinstance(trace_list, list):
@@ -393,17 +407,14 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
                     trace_new.append(fixed_trace_item)
             new_line_data["trace"] = trace_new
 
-            # 存入最终修复JSONL
             final_fix_jsonl.append(json.dumps(new_line_data, ensure_ascii=False))
             print(f"完成 entry_id {entry_id} 全节点校验处理")
             entry_id += 1
 
-    # 写出最终修复JSONL
     with open(FIXED_JSONL_OUTPUT_PATH, "w", encoding="utf-8") as f_out:
         for line in final_fix_jsonl:
             f_out.write(line + "\n")
 
-    # 写入两份CSV
     if human_csv_rows:
         write_human_csv(NEEDS_HUMAN_CSV_PATH, human_csv_rows)
         print(f"人工待处理 {len(human_csv_rows)} 条，写入 {NEEDS_HUMAN_CSV_PATH}")
@@ -411,7 +422,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
         write_fix_diff_csv(FIX_DIFF_CSV_PATH, fix_diff_csv_rows)
         print(f"自动修改 {len(fix_diff_csv_rows)} 处，修改明细写入 {FIX_DIFF_CSV_PATH}")
 
-    # 收尾提示
     if use_range:
         print(f"处理区间：{start}~{end}，共处理有效行数 {len(final_fix_jsonl)}")
     elif use_max:
@@ -422,7 +432,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
 
 
 if __name__ == "__main__":
-    # 命令行兼容：python 文件.py 起止行 / python 文件.py 前N行
     arg1 = None
     arg2 = None
     if len(sys.argv) == 2:

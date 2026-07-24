@@ -1,0 +1,2 @@
+﻿entry_id(JSON物理行号),节点字段路径,原始file,原始line,原始desc,repo_url,commit,无法修复原因,命中明细
+95,trace[0],src/browser/routes/basic.ts,7,registerBrowserBasicRoutes 在桥接服务器启动阶段被上游初始化逻辑调用，负责向 app 实例挂载 GET /profiles 路由处理器；这里是调用栈从服务器初始化层流入路由注册层的起点。由于外层调用方从未传入认证令牌，认证中间件在此之前已经缺失，随后注册的每条路由均在无保护状态下暴露，为漏洞链路中后续所有未授权访问奠定了基础。,https://github.com/openclaw/openclaw,3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9,已关闭全仓库检索，仅检索当前文件,[]

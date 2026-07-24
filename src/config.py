@@ -26,3 +26,11 @@ USE_GHPROXY = False
 TIMEOUT = 25
 # 请求UA
 CHROME_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+
+# 防卡死关键配置
+# 三级修复开关：False=关闭全仓库遍历，只跑前两级（±5行+本文件），杜绝大批量文件遍历卡死
+ENABLE_WHOLE_REPO_SCAN = False
+# 全仓库最多遍历文件数量，超出直接终止仓库检索
+MAX_REPO_SCAN_FILES = 300
+# 开启文件缓存，避免重复下载同一个文件
+ENABLE_FILE_CACHE = True
