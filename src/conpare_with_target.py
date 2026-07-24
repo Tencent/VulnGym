@@ -2,6 +2,7 @@ from config import (
     ENTRIES_JSONL_FILE_PATH,
     FIXED_JSONL_OUTPUT_PATH,
     NEEDS_HUMAN_CSV_PATH,
+    FIX_DIFF_CSV_PATH,
     LINE_SEARCH_OFFSET,
     USE_GHPROXY,
     TIMEOUT,
@@ -24,7 +25,7 @@ HEADERS = {"User-Agent": CHROME_USER_AGENT}
 
 def extract_info(node: dict) -> dict:
     if not isinstance(node, dict):
-        return {"file": None, "line": None, "line": None, "code": None, "desc": None}
+        return {"file": None, "line": None, "code": None, "desc": None}
     return {
         "file": node.get("file", None),
         "line": node.get("line", None),
@@ -117,17 +118,15 @@ def repo_list_all_files(repo_url: str, commit: str):
         return [], str(e)
 
 
-def three_stage_repair(
-    original_file: str, original_line_raw, repo_url: str, commit: str, local_code: str
-):
+def three_stage_repair(original_file, original_line_raw, repo_url, commit, local_code):
     target_loose = normalize_text(local_code, loose_match=True)
     if not target_loose:
-        return False, original_file, original_line_raw, [], "待匹配code为空"
+        return False, original_file, original_line_raw, [], "待匹配code为空", ""
 
     start_orig, end_orig = parse_line_range(original_line_raw)
     file_content, file_lines, err = download_file(repo_url, commit, original_file)
     if err:
-        return False, original_file, original_line_raw, [], f"下载原文件失败：{err}"
+        return False, original_file, original_line_raw, [], f"下载原文件失败：{err}", ""
     total_file_lines = len(file_lines)
 
     offset = LINE_SEARCH_OFFSET
@@ -138,16 +137,16 @@ def three_stage_repair(
     hit_stage1_global = [x + search_s - 1 for x in hit_stage1]
     if len(hit_stage1_global) == 1:
         hit_line = hit_stage1_global[0]
-        return True, original_file, hit_line, hit_stage1_global, "阶段1(±5行)唯一命中修复行号"
+        return True, original_file, hit_line, hit_stage1_global, "", "阶段1±5行区间唯一命中修复"
 
     hit_stage2 = search_code_in_file(file_lines, target_loose)
     if len(hit_stage2) == 1:
         hit_line = hit_stage2[0]
-        return True, original_file, hit_line, hit_stage2, "阶段2(当前全文件)唯一命中修复行号"
+        return True, original_file, hit_line, hit_stage2, "", "阶段2当前文件全量检索唯一命中修复"
 
     all_files, list_err = repo_list_all_files(repo_url, commit)
     if list_err:
-        return False, original_file, original_line_raw, [], f"仓库文件列表获取失败：{list_err}"
+        return False, original_file, original_line_raw, [], f"仓库文件列表获取失败：{list_err}", ""
     repo_hits = []
     for fpath in all_files:
         f_cont, f_lines, f_err = download_file(repo_url, commit, fpath)
@@ -158,18 +157,18 @@ def three_stage_repair(
             repo_hits.append({"file": fpath, "line": ln})
     if len(repo_hits) == 1:
         hit_item = repo_hits[0]
-        return True, hit_item["file"], hit_item["line"], repo_hits, "阶段3(全仓库)唯一命中，修正文件+行号"
+        return True, hit_item["file"], hit_item["line"], repo_hits, "", "阶段3全仓库检索唯一命中，修正文件+行号"
 
     if len(repo_hits) == 0:
-        return False, original_file, original_line_raw, [], "三级检索全程无任何宽松匹配命中"
+        return False, original_file, original_line_raw, [], "三级检索全程无宽松匹配命中", ""
     else:
-        return False, original_file, original_line_raw, repo_hits, f"检索命中{len(repo_hits)}处，多处匹配无法自动判定"
+        return False, original_file, original_line_raw, repo_hits, f"命中{len(repo_hits)}处，多匹配无法自动修复", ""
 
 
 def write_human_csv(csv_path, rows):
     header = [
-        "json全局行号", "节点类型", "原始file", "原始line",
-        "repo_url", "commit", "匹配失败原因", "检索命中详情"
+        "entry_id(JSON物理行号)", "节点字段路径", "原始file", "原始line", "原始desc",
+        "repo_url", "commit", "无法修复原因", "命中明细"
     ]
     try:
         with open(csv_path, "a", encoding="utf-8-sig", newline="") as f:
@@ -178,31 +177,60 @@ def write_human_csv(csv_path, rows):
                 writer.writeheader()
             writer.writerows(rows)
     except Exception as e:
-        print(f"CSV写入异常：{e}")
+        print(f"needs_human.csv写入失败：{e}")
 
 
-def process_single_node(node_type: str, node_meta: dict, repo_url: str, commit: str, json_line_no: int, human_list: list):
+def write_fix_diff_csv(csv_path, rows):
+    # fix_diff 核心表头：记录每一处修改
+    header = [
+        "entry_id(JSON物理行号)", "节点字段路径",
+        "old_file", "old_line", "old_desc",
+        "new_file", "new_line", "new_desc",
+        "修复策略说明"
+    ]
+    try:
+        with open(csv_path, "a", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=header)
+            if f.tell() == 0:
+                writer.writeheader()
+            writer.writerows(rows)
+    except Exception as e:
+        print(f"fix_diff.csv写入失败：{e}")
+
+
+def process_single_node(
+    node_path: str, node_meta: dict, repo_url: str, commit: str, entry_id: int,
+    human_list: list, diff_list: list
+):
+    """
+    node_path: 节点路径如 entry_point / critical_operation / trace[2]
+    entry_id: JSON物理行号，全局唯一ID
+    返回：修复后的节点字典
+    """
     file_orig = node_meta["file"]
     line_orig = node_meta["line"]
     code_local = node_meta["code"]
-    desc = node_meta["desc"]
+    desc_orig = node_meta["desc"]
 
+    # 基础字段缺失，归入人工
     if not repo_url or not commit or not file_orig or code_local is None:
         human_list.append({
-            "json全局行号": json_line_no,
-            "节点类型": node_type,
+            "entry_id(JSON物理行号)": entry_id,
+            "节点字段路径": node_path,
             "原始file": file_orig,
             "原始line": line_orig,
+            "原始desc": desc_orig,
             "repo_url": repo_url,
             "commit": commit,
-            "匹配失败原因": "基础字段缺失，无法校验修复",
-            "检索命中详情": ""
+            "无法修复原因": "必填字段file/code/repo/commit缺失",
+            "命中明细": ""
         })
         return node_meta
 
+    # 先校验原本是否匹配成功，匹配成功直接返回，无修改
     s_orig, e_orig = parse_line_range(line_orig)
-    url = build_raw_link(repo_url, commit, file_orig)
     match_ok = False
+    url = build_raw_link(repo_url, commit, file_orig)
     try:
         resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=False)
         resp.raise_for_status()
@@ -221,41 +249,54 @@ def process_single_node(node_type: str, node_meta: dict, repo_url: str, commit: 
     if match_ok:
         return node_meta
 
-    fix_ok, new_file, new_line, hit_info, fix_reason = three_stage_repair(
+    # 匹配失败 → 启动三级修复
+    fix_ok, new_file, new_line, hit_info, fail_reason, fix_strategy = three_stage_repair(
         file_orig, line_orig, repo_url, commit, code_local
     )
     if fix_ok:
-        return {
+        # 修复成功，写入diff日志
+        new_node = {
             "file": new_file,
             "line": new_line,
             "code": code_local,
-            "desc": desc
+            "desc": desc_orig
         }
+        diff_list.append({
+            "entry_id(JSON物理行号)": entry_id,
+            "节点字段路径": node_path,
+            "old_file": file_orig,
+            "old_line": line_orig,
+            "old_desc": desc_orig,
+            "new_file": new_file,
+            "new_line": new_line,
+            "new_desc": desc_orig,
+            "修复策略说明": fix_strategy
+        })
+        return new_node
     else:
+        # 无法修复，写入人工清单
         human_list.append({
-            "json全局行号": json_line_no,
-            "节点类型": node_type,
+            "entry_id(JSON物理行号)": entry_id,
+            "节点字段路径": node_path,
             "原始file": file_orig,
             "原始line": line_orig,
+            "原始desc": desc_orig,
             "repo_url": repo_url,
             "commit": commit,
-            "匹配失败原因": fix_reason,
-            "检索命中详情": json.dumps(hit_info, ensure_ascii=False)
+            "无法修复原因": fail_reason,
+            "命中明细": json.dumps(hit_info, ensure_ascii=False)
         })
         return node_meta
 
 
 def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
-    """
-    读取规则优先级：命令行区间 > 命令行前N行 > config区间 > config前N行 > 全量
-    """
     use_range = False
     use_max = False
     start = 0
     end = 0
     max_n = 0
 
-    # 1. 解析命令行传入参数
+    # 优先级：命令行区间 > 命令行前N行 > config区间 > config前N行
     if cmd_start is not None and cmd_end is not None and cmd_start > 0 and cmd_end >= cmd_start:
         start, end = cmd_start, cmd_end
         use_range = True
@@ -263,7 +304,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
         max_n = cmd_max
         use_max = True
     else:
-        # 2. 读取配置文件
         if READ_START_LINE > 0 and READ_END_LINE >= READ_START_LINE:
             start, end = READ_START_LINE, READ_END_LINE
             use_range = True
@@ -271,91 +311,118 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
             max_n = READ_MAX_LINES
             use_max = True if max_n > 0 else False
 
-    final_fix_lines = []
+    final_fix_jsonl = []
     human_csv_rows = []
-    json_line_index = 1
+    fix_diff_csv_rows = []
+    entry_id = 1  # entry_id = JSON物理行号，从1递增
 
     with open(ENTRIES_JSONL_FILE_PATH, "r", encoding="utf-8") as f_in:
         for raw_ln in f_in:
-            # 区间模式：小于起始行跳过；超过结束行终止
+            # 行范围拦截
             if use_range:
-                if json_line_index < start:
-                    json_line_index += 1
+                if entry_id < start:
+                    entry_id += 1
                     continue
-                if json_line_index > end:
-                    print(f"已读取到区间结束行{end}，终止读取")
+                if entry_id > end:
+                    print(f"到达区间尾行{end}，终止读取")
                     break
-            # 前N行模式：超出上限终止
-            if use_max and json_line_index > max_n:
-                print(f"已读取前{max_n}行上限，终止读取")
+            if use_max and entry_id > max_n:
+                print(f"到达前{max_n}行上限，终止读取")
                 break
 
             raw_ln = raw_ln.strip()
             if not raw_ln:
-                json_line_index += 1
+                entry_id += 1
                 continue
             try:
                 line_data = json.loads(raw_ln)
             except json.JSONDecodeError:
-                print(f"第{json_line_index}行JSON损坏，跳过")
-                json_line_index += 1
+                print(f"entry_id {entry_id} JSON格式损坏，跳过")
+                entry_id += 1
                 continue
 
             repo = line_data.get("repo_url", "")
             commit = line_data.get("commit", "")
             new_line_data = line_data.copy()
 
+            # 处理三大固定节点
+            # 1 entry_point
             entry_raw = line_data.get("entry_point", {})
             entry_meta = extract_info(entry_raw)
             new_entry = process_single_node(
-                "entry_point", entry_meta, repo, commit, json_line_index, human_csv_rows
+                node_path="entry_point",
+                node_meta=entry_meta,
+                repo_url=repo,
+                commit=commit,
+                entry_id=entry_id,
+                human_list=human_csv_rows,
+                diff_list=fix_diff_csv_rows
             )
             new_line_data["entry_point"] = new_entry
 
+            # 2 critical_operation
             crit_raw = line_data.get("critical_operation", {})
             crit_meta = extract_info(crit_raw)
             new_crit = process_single_node(
-                "critical_operation", crit_meta, repo, commit, json_line_index, human_csv_rows
+                node_path="critical_operation",
+                node_meta=crit_meta,
+                repo_url=repo,
+                commit=commit,
+                entry_id=entry_id,
+                human_list=human_csv_rows,
+                diff_list=fix_diff_csv_rows
             )
             new_line_data["critical_operation"] = new_crit
 
+            # 3 trace数组逐个处理
             trace_new = []
             trace_list = line_data.get("trace", [])
             if isinstance(trace_list, list):
                 for idx, trace_item in enumerate(trace_list):
                     trace_meta = extract_info(trace_item)
+                    path_name = f"trace[{idx}]"
                     fixed_trace_item = process_single_node(
-                        f"trace[{idx}]", trace_meta, repo, commit, json_line_index, human_csv_rows
+                        node_path=path_name,
+                        node_meta=trace_meta,
+                        repo_url=repo,
+                        commit=commit,
+                        entry_id=entry_id,
+                        human_list=human_csv_rows,
+                        diff_list=fix_diff_csv_rows
                     )
                     trace_new.append(fixed_trace_item)
             new_line_data["trace"] = trace_new
 
-            final_fix_lines.append(json.dumps(new_line_data, ensure_ascii=False))
-            print(f"已处理JSONL第{json_line_index}行")
-            json_line_index += 1
+            # 存入最终修复JSONL
+            final_fix_jsonl.append(json.dumps(new_line_data, ensure_ascii=False))
+            print(f"完成 entry_id {entry_id} 全节点校验处理")
+            entry_id += 1
 
-    # 写出文件
+    # 写出最终修复JSONL
     with open(FIXED_JSONL_OUTPUT_PATH, "w", encoding="utf-8") as f_out:
-        for line in final_fix_lines:
+        for line in final_fix_jsonl:
             f_out.write(line + "\n")
 
+    # 写入两份CSV
     if human_csv_rows:
         write_human_csv(NEEDS_HUMAN_CSV_PATH, human_csv_rows)
-        print(f"人工待复核共{len(human_csv_rows)}条，写入{NEEDS_HUMAN_CSV_PATH}")
+        print(f"人工待处理 {len(human_csv_rows)} 条，写入 {NEEDS_HUMAN_CSV_PATH}")
+    if fix_diff_csv_rows:
+        write_fix_diff_csv(FIX_DIFF_CSV_PATH, fix_diff_csv_rows)
+        print(f"自动修改 {len(fix_diff_csv_rows)} 处，修改明细写入 {FIX_DIFF_CSV_PATH}")
 
+    # 收尾提示
     if use_range:
-        print(f"处理完成，本次读取区间：{start}~{end}，有效处理{len(final_fix_lines)}行")
+        print(f"处理区间：{start}~{end}，共处理有效行数 {len(final_fix_jsonl)}")
     elif use_max:
-        print(f"处理完成，本次读取前{max_n}行，有效处理{len(final_fix_lines)}行")
+        print(f"处理前{max_n}行，有效行数 {len(final_fix_jsonl)}")
     else:
-        print(f"处理完成，全文件读取完毕，有效处理{len(final_fix_lines)}行")
-    print(f"修复文件输出路径：{FIXED_JSONL_OUTPUT_PATH}")
+        print(f"全文件处理完成，有效行数 {len(final_fix_jsonl)}")
+    print(f"修复文件输出：{FIXED_JSONL_OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
-    # 命令行两种用法
-    # 用法A：区间读取  python main.py 10 25  读取10~25行
-    # 用法B：前N行读取 python main.py 8  读取前8行
+    # 命令行兼容：python 文件.py 起止行 / python 文件.py 前N行
     arg1 = None
     arg2 = None
     if len(sys.argv) == 2:

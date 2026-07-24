@@ -7,6 +7,9 @@ ENTRIES_JSONL_FILE_PATH = "data/entries.jsonl"
 FIXED_JSONL_OUTPUT_PATH = "outputs/fixed_result.jsonl"
 # 需要人工复核的csv清单
 NEEDS_HUMAN_CSV_PATH = "outputs/needs_human.csv"
+# 修改差异明细CSV
+FIX_DIFF_CSV_PATH = "outputs/fix_diff.csv"
+
 # 上下检索行数范围
 LINE_SEARCH_OFFSET = 5
 
