@@ -29,7 +29,7 @@ TARGET_IDS = (
     "entry-00512",
 )
 
-FIELDS_TO_DIFF = ("entry_point", "critical_operation", "trace")
+FIELDS_TO_DIFF = ("entry_point", "critical_operation", "trace", "verify")
 LINE_RE = re.compile(r"^[1-9]\d*-[1-9]\d*$")
 DAMAGED_TEXT_RE = re.compile(r"\?{4,}|\ufffd")
 
@@ -90,8 +90,11 @@ def validate_patch_rows(rows: list[dict[str, Any]]) -> None:
         entry_id = row["entry_id"]
         if row.get("project") != "n8n":
             raise AssertionError(f"{entry_id} project must be n8n")
-        if row.get("verify") not in (0, 1):
-            raise AssertionError(f"{entry_id} verify must be 0 or 1")
+        if row.get("verify") != 1:
+            raise AssertionError(f"{entry_id} verify must be 1 after source and fix review")
+        for value in iter_text_values(row):
+            if DAMAGED_TEXT_RE.search(value):
+                raise AssertionError(f"{entry_id} contains encoding-damaged text")
         validate_node(row["entry_point"], entry_id, "entry_point")
         validate_node(row["critical_operation"], entry_id, "critical_operation")
         trace = row.get("trace")
@@ -99,6 +102,17 @@ def validate_patch_rows(rows: list[dict[str, Any]]) -> None:
             raise AssertionError(f"{entry_id} trace must be a non-empty list")
         for index, node in enumerate(trace):
             validate_node(node, entry_id, f"trace[{index}]")
+
+
+def iter_text_values(value: Any):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for nested in value.values():
+            yield from iter_text_values(nested)
+    elif isinstance(value, list):
+        for nested in value:
+            yield from iter_text_values(nested)
 
 
 def apply_patch_rows(
@@ -150,6 +164,10 @@ def write_diff_csv(
         "trace": (
             "Keep only the important data-flow or control-flow nodes from the entry point "
             "to the critical operation."
+        ),
+        "verify": (
+            "Mark the row reviewed only after vulnerable-source snippets, advisory context, "
+            "and the direct upstream fix delta have all been checked."
         ),
     }
     rows: list[dict[str, Any]] = []

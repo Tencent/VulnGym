@@ -1,130 +1,120 @@
 # n8n Semantic Annotation Repair Notes
 
-Scope: issue #6, six n8n samples:
+Scope: issue #6 and its six n8n samples.
 
-| entry_id | focus |
+| entry_id | reviewed vulnerability boundary |
 |---|---|
-| `entry-00099` | workflow expression sandbox escape, evaluator execution point |
-| `entry-00100` | workflow expression sandbox escape, evaluator execution point |
-| `entry-00103` | webhook `Content-Type` whitespace bypass and CSP sandbox decision |
-| `entry-00176` | Python Code node `__objclass__` escape reaching `exec` |
-| `entry-00511` | VM expression `extend.ts` native function dispatch |
-| `entry-00512` | VM runtime writable `__sanitize` slot in `reset.ts` |
+| `entry-00099` | workflow-run request to expression evaluator execution |
+| `entry-00100` | workflow expression parameter to evaluator execution |
+| `entry-00103` | configured response header to CSP sandbox decision |
+| `entry-00176` | Python source to the incomplete attribute-policy decision |
+| `entry-00511` | VM expression parameter to native function invocation |
+| `entry-00512` | VM expression parameter to writable `__sanitize` installation |
 
-## Comparison With PR #13
+## Comparison And Distinctive Approach
 
-PR #13 is useful because it covers all six target entries and moves several
-bad semantic anchors away from defensive helpers or static declarations. In
-particular, it correctly identifies that:
+The current issue #6 submissions provide useful independent checks. PR #55 has
+the most compact end-to-end chains, PR #54 correctly distinguishes the Python
+attribute-policy gap from the later `exec` impact, and PR #46 provides useful
+automation and reasoning artifacts.
 
-- `entry-00099` and `entry-00100` should not end at `PrototypeSanitizer` or
-  `sanitizer` definitions; the malicious expression must reach the evaluator.
-- `entry-00176` should not use the static `BLOCKED_ATTRIBUTES` list as the
-  final critical operation; the bypass matters because the code reaches Python
-  `exec`.
-- `entry-00511` should distinguish native function resolution from the later
-  native `apply` call.
-- `entry-00512` should keep `reset.ts` as the critical defect but explain why a
-  writable `__data.__sanitize` slot is reachable from user expression code.
+This repair incorporates those semantic lessons without adopting another PR's
+delivery structure. Its distinctive guarantees are:
 
-This PR keeps those semantic improvements but changes the delivery shape. It
-uses one consolidated patch JSONL, one full fixed JSONL, one diff CSV, a local
-generator, an upstream-aware verifier, and unit tests. It also sharpens
-`entry-00103`: the entry point is moved to the `RespondToWebhook` node code
-that reads user-configured response headers, which better matches issue #6's
-requirement that `entry_point` reflect external input or user configuration
-entering the chain.
+1. A six-row patch JSONL remains the single source of truth.
+2. The full 408-row dataset and 24-row field diff are generated locally.
+3. Every source snippet is compared with the recorded vulnerable commit.
+4. Four direct upstream fix commits are checked for expected patch semantics.
+5. Each recorded vulnerable commit must be the first parent of its direct fix.
+6. Advisory metadata and affected-version records are checked through GitHub's
+   API before the six rows are marked `verify=1`.
+
+The parent relationship matters because it proves that each patch describes
+the exact vulnerable snapshot recorded by VulnGym, rather than a similar fix
+from another release branch.
 
 ## Repair Principles
 
-1. `entry_point` should be externally meaningful: an HTTP trigger, workflow
-   parameter, node setting, or user-controlled code string entering the chain.
-2. `critical_operation` should be the operation that makes the vulnerability
-   hold: evaluator execution, CSP sandbox decision, Python `exec`, native
-   function invocation, or writable sanitizer initialization.
-3. `trace` should keep the important data-flow/control-flow nodes and drop
-   static declarations, wrappers, repeated helper definitions, or unrelated
-   defensive background.
-4. Every `{file,line,code}` snippet is checked against the vulnerable n8n
-   commit by `scripts/verify_n8n_semantic_annotations.py --check-upstream`.
-5. No schema change is required. The repair uses only existing `SCHEMA.md`
-   fields.
+1. `entry_point` identifies external input or workflow configuration entering
+   the vulnerable path.
+2. `critical_operation` identifies the vulnerability-specific execution,
+   security decision, or mutable guard. Generic impact remains in `trace` when
+   it is not the root security failure.
+3. `trace` contains only the important data-flow and control-flow transitions.
+4. Descriptions explain why each node belongs to the chain and are checked for
+   replacement-character and repeated-question-mark encoding damage.
+5. The repair uses only fields already defined by `SCHEMA.md`.
 
-## Per-Entry Summary
+## Per-Entry Decisions
 
 ### `entry-00099`
 
-Old problem: the original critical operation stopped at
-`PrototypeSanitizer`, which is a defensive AST hook and patch location, not the
-point where a malicious workflow expression is evaluated.
+The authenticated workflow-run route remains the external trigger. The trace
+then follows parameter resolution, expression-prefix removal, syntax
+expansion, and evaluator dispatch. The critical operation is the Tournament
+evaluator call, not an AST sanitizer declaration.
 
-New shape: keep the workflow execution HTTP route as the external trigger, then
-trace expression detection, syntax extension, `renderExpression`, and
-`evaluateExpression` until the evaluator call in
-`packages/workflow/src/expression-evaluator-proxy.ts`.
+Direct fix evidence: commit
+`30383d86139f3279a698df8d229eadfefe8627f4` has the recorded vulnerable commit
+as its first parent and adds reserved-name and `with`-statement AST checks.
 
 ### `entry-00100`
 
-Old problem: the critical operation pointed at the `sanitizer` function
-definition, and the trace included static constants and defensive setup nodes.
+The entry point is the direct workflow expression parameter rather than an
+HTTP wrapper. The trace retains the immutable host `__sanitize` binding because
+the escape bypasses that guard, then ends at evaluator execution.
 
-New shape: keep `resolveSimpleParameterValue` as the parameter entry point and
-end at the same evaluator call used by `entry-00099`, while retaining
-`PrototypeSanitizer` only as a control-flow explanation node for the incomplete
-checks.
+Direct fix evidence is shared with `entry-00099`.
 
 ### `entry-00103`
 
-Old problem: the old critical operation highlighted `toLowerCase()` in
-`isHtmlRenderedContentType()`, which explains the trim bug but not the security
-decision that omits CSP sandboxing.
+The entry point now covers evaluation of workflow-controlled
+`responseHeaders`, including the unchanged header value. The chain follows the
+static webhook response, header writer, whitespace-sensitive HTML classifier,
+and the `needsSandbox` branch that omits CSP.
 
-New shape: start where the `RespondToWebhook` node reads user-configured
-response headers, then follow header writing, HTML content-type classification,
-and the `needsSandbox` decision that controls whether
-`Content-Security-Policy` is set.
+Direct fix commit `ced34c0f93ab4c759a56065965986094d8ef7323`
+has the recorded vulnerable commit as its first parent and changes
+`contentType.toLowerCase()` to `contentType.trim().toLowerCase()`.
 
 ### `entry-00176`
 
-Old problem: `BLOCKED_ATTRIBUTES` is only a static denylist. It explains why
-`__objclass__` was missed, but it is not the operation where attacker-supplied
-Python code runs.
+The critical operation is the AST analyzer's membership test against
+`BLOCKED_ATTRIBUTES`. This is the vulnerability-specific policy decision:
+`__objclass__` is missing, so the slot-wrapper traversal is accepted. Python
+`exec` remains the final trace node because it realizes impact after the
+incomplete check.
 
-New shape: trace the user Python code from the Code node parameter through
-`PythonTaskRunnerSandbox`, `TaskAnalyzer.validate`, `visit_Attribute`, process
-creation, compilation, and finally `exec(compiled_code, globals)`.
+Direct release-branch fix commit
+`062644ef786b6af480afe4a0f12bc6d70040534a` has the recorded vulnerable commit
+as its first parent and adds `__objclass__` plus regression coverage.
 
 ### `entry-00511`
 
-Old problem: `data.extend = extend` is helper exposure, not external input, and
-the old critical operation stopped at native function lookup rather than
-invocation.
-
-New shape: start at `resolveSimpleParameterValue`, follow VM expression
-evaluation into expression-runtime, keep native fallback as a trace node, and
-mark the native `foundFunction.function.apply(input, args)` call as the
-critical operation.
+The entry point is the user expression parameter. The compact trace shows the
+insufficient dot-constructor regex, VM exposure of `extend`, unchecked native
+property lookup, and the final native `apply` call. The call is critical
+because it invokes the resolved `Function` constructor with attacker input.
 
 ### `entry-00512`
 
-Old problem: `renderExpression` was too internal for an entry point, while the
-critical operation needed more explanation about why `__sanitize` is writable
-and reachable.
+The direct expression parameter replaces the remote workflow-run wrapper. The
+trace shows AST rewriting to depend on `__data.__sanitize` and ends at the
+ordinary writable assignment that lets expression code replace the guard.
 
-New shape: start at the manual workflow execution HTTP route, trace the saved
-workflow into expression evaluation, show AST sanitizer insertion, bridge
-execution, `resetDataProxies`, and keep
-`globalThis.__data.__sanitize = __sanitize` as the critical writable runtime
-slot.
+Direct fix commit `1acdafe6ac862dfc4d04783a68c2bb065ab8c6a6`
+has the recorded vulnerable commit as its first parent. It blocks unsafe native
+property names and installs `__sanitize` with a non-configurable getter and a
+throwing setter, directly confirming both VM-engine annotations.
 
 ## Artifacts
 
 | artifact | purpose |
 |---|---|
-| `data/entries.n8n_semantic_fixed.jsonl` | six-row patch fragment |
-| `data/entries.fixed.jsonl` | full 408-row dataset with the patch applied |
-| `reports/n8n_semantic_fix_diff.csv` | field-level diff for entry, critical, trace |
+| `data/entries.n8n_semantic_fixed.jsonl` | six reviewed patch rows |
+| `data/entries.fixed.jsonl` | generated 408-row dataset |
+| `reports/n8n_semantic_fix_diff.csv` | 24 entry/critical/trace/verify diffs |
 | `reports/n8n_semantic_acceptance_matrix.md` | issue #6 acceptance mapping |
-| `scripts/apply_n8n_semantic_patches.py` | generator for full fixed JSONL and diff CSV |
-| `scripts/verify_n8n_semantic_annotations.py` | local and optional upstream verifier |
-| `tests/test_n8n_semantic_annotations.py` | unit tests for patch validity and semantic anchors |
+| `scripts/apply_n8n_semantic_patches.py` | deterministic artifact generator |
+| `scripts/verify_n8n_semantic_annotations.py` | local, source, advisory, and direct-fix verifier |
+| `tests/test_n8n_semantic_annotations.py` | semantic, integrity, evidence, and retry tests |
