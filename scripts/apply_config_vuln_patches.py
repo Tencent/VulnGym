@@ -22,6 +22,7 @@ DIFF_CSV = ROOT / "reports" / "config_vuln_fix_diff.csv"
 
 TARGET_IDS = ("entry-00241", "entry-00242", "entry-00243", "entry-00244")
 UPSTREAM_COMMIT = "c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1"
+FIX_COMMIT = "84281abd4bd1c717bb37a2de12694fe203827eee"
 
 SOURCE_FILES = {
     "scripts/e2e/Dockerfile": "\n".join(
@@ -161,20 +162,25 @@ PATCH_SPECS = {
         ),
         "critical_operation": make_node(
             "scripts/e2e/Dockerfile",
-            "1-23",
-            "Lines 1-23 are the vulnerable configuration interval. The Dockerfile "
-            "starts from a root-default Node image, copies and builds the app, and "
-            "registers CMD [\"bash\"] without ever declaring USER. The bug is the "
-            "structural absence of a non-root boundary, so marking only CMD would "
-            "hide the root cause.",
+            23,
+            "Runtime effect: CMD registers bash as the container default process. "
+            "Because no USER instruction has overridden the base image identity, "
+            "this process starts as uid 0. The missing boundary is explained by "
+            "the preceding state trace rather than represented as a fictional line.",
         ),
         "trace": [
             make_node(
                 "scripts/e2e/Dockerfile",
-                "1-23",
-                "Configuration state: the whole file keeps the default root user "
-                "from FROM through dependency install, build, and CMD registration. "
-                "No instruction changes the active user.",
+                1,
+                "Inherited state: the Node base image establishes root as the "
+                "default user at the start of this Dockerfile stage.",
+            ),
+            make_node(
+                "scripts/e2e/Dockerfile",
+                "19-21",
+                "Build-time effect: dependency installation and both builds execute "
+                "while the inherited root identity remains active; no USER boundary "
+                "appears before these commands.",
             ),
             make_node(
                 "scripts/e2e/Dockerfile",
@@ -195,19 +201,18 @@ PATCH_SPECS = {
         ),
         "critical_operation": make_node(
             "scripts/e2e/Dockerfile.qr-import",
-            "1-9",
-            "Lines 1-9 are the complete vulnerable configuration interval. The "
-            "image inherits root from node:22-bookworm, copies the project, and "
-            "runs pnpm install with no USER boundary. The risk is not a single "
-            "tainted value; it is the unbroken privileged configuration state.",
+            9,
+            "Build-time effect: pnpm install runs with the inherited root identity, "
+            "so package lifecycle scripts receive unnecessary uid 0 privileges. "
+            "This is the narrowest operation at which the missing USER boundary "
+            "produces a concrete security effect.",
         ),
         "trace": [
             make_node(
                 "scripts/e2e/Dockerfile.qr-import",
-                "1-9",
-                "Configuration state: FROM establishes root and every later "
-                "instruction, including COPY and pnpm install, executes without "
-                "a user downgrade.",
+                1,
+                "Inherited state: the base image introduces its default root user, "
+                "and no later USER instruction changes that identity.",
             ),
             make_node(
                 "scripts/e2e/Dockerfile.qr-import",
@@ -229,19 +234,24 @@ PATCH_SPECS = {
         ),
         "critical_operation": make_node(
             "scripts/docker/install-sh-e2e/Dockerfile",
-            "1-14",
-            "Lines 1-14 are the vulnerable configuration interval. The Dockerfile "
-            "installs system packages, copies an installer into /usr/local/bin, "
-            "marks it executable, and registers it as ENTRYPOINT while never "
-            "switching away from root. The root cause is the missing USER boundary "
-            "across the complete file.",
+            14,
+            "Runtime effect: ENTRYPOINT launches the test installer as the container "
+            "main process. Since this stage never declares USER, the process inherits "
+            "uid 0. This exact boundary is where the persistent configuration state "
+            "becomes an unnecessarily privileged runtime.",
         ),
         "trace": [
             make_node(
                 "scripts/docker/install-sh-e2e/Dockerfile",
-                "1-14",
-                "Configuration state: root is introduced by FROM and remains active "
-                "while apt-get, COPY, chmod, and ENTRYPOINT are configured.",
+                1,
+                "Inherited state: the slim Node base image establishes root as the "
+                "default user for the Dockerfile stage.",
+            ),
+            make_node(
+                "scripts/docker/install-sh-e2e/Dockerfile",
+                "11-12",
+                "Preparation effect: the installer is copied into a system path and "
+                "made executable while the inherited root state remains active.",
             ),
             make_node(
                 "scripts/docker/install-sh-e2e/Dockerfile",
@@ -255,27 +265,32 @@ PATCH_SPECS = {
         "file": "scripts/docker/install-sh-nonroot/Dockerfile",
         "entry_point": make_node(
             "scripts/docker/install-sh-nonroot/Dockerfile",
-            17,
-            "This RUN starts the non-root boundary by creating app. In this variant "
-            "the defect is not simply missing USER; the app boundary is immediately "
-            "invalidated by the adjacent sudoers grant, so the user-creation block "
-            "is the configuration entry point.",
+            "17-18",
+            "Explicit dangerous state: this RUN block creates app and immediately "
+            "associates it with a passwordless full-sudo rule. Unlike the first "
+            "three entries, the vulnerable privilege state is declared here rather "
+            "than inherited from a missing USER boundary.",
         ),
         "critical_operation": make_node(
             "scripts/docker/install-sh-nonroot/Dockerfile",
-            "17-20",
-            "Lines 17-20 are the vulnerable configuration interval. The Dockerfile "
-            "creates app, grants it NOPASSWD:ALL through sudoers, and then switches "
-            "to USER app. That switch only looks like a downgrade: app can regain "
-            "root without a password, so the non-root boundary is ineffective.",
+            18,
+            "Dangerous configuration: this sudoers rule grants app passwordless "
+            "execution as any user for every command. It directly defeats the later "
+            "USER app privilege boundary because a compromised process can recover "
+            "full root without credentials.",
         ),
         "trace": [
             make_node(
                 "scripts/docker/install-sh-nonroot/Dockerfile",
-                "17-20",
-                "Configuration state: app is created, given passwordless full sudo, "
-                "and then selected as USER. These adjacent instructions together "
-                "erase the intended privilege boundary.",
+                "17-18",
+                "Declaration: app is created and given NOPASSWD:ALL, establishing a "
+                "persistent capability to recover root.",
+            ),
+            make_node(
+                "scripts/docker/install-sh-nonroot/Dockerfile",
+                20,
+                "Nominal transition: USER app changes the active uid but does not "
+                "remove the full passwordless sudo capability declared above.",
             ),
             make_node(
                 "scripts/docker/install-sh-nonroot/Dockerfile",
@@ -321,7 +336,7 @@ def build_patch_rows(baseline_rows: list[dict[str, Any]]) -> list[dict[str, Any]
         row["entry_point"] = deepcopy(spec["entry_point"])
         row["critical_operation"] = deepcopy(spec["critical_operation"])
         row["trace"] = deepcopy(spec["trace"])
-        row["verify"] = 0
+        row["verify"] = 1
         patch_rows.append(row)
     return patch_rows
 
@@ -355,8 +370,8 @@ def validate_patch_rows(patch_rows: list[dict[str, Any]]) -> None:
     for row in patch_rows:
         if row["commit"] != UPSTREAM_COMMIT:
             raise AssertionError(f"unexpected commit for {row['entry_id']}")
-        if row["verify"] not in (0, 1):
-            raise AssertionError(f"invalid verify value for {row['entry_id']}")
+        if row["verify"] != 1:
+            raise AssertionError(f"{row['entry_id']} must be human-reviewed")
         validate_node(row["entry_point"])
         validate_node(row["critical_operation"])
         trace = row.get("trace")
@@ -395,23 +410,30 @@ def write_diff_csv(baseline_rows: list[dict[str, Any]], patch_rows: list[dict[st
             "the ineffective-nonroot sudoers variant."
         ),
         "critical_operation": (
-            "Mark the minimal configuration interval that makes the unsafe "
-            "privilege state unavoidable instead of a single taint sink line."
+            "Select the narrow dangerous declaration or build/runtime operation "
+            "where the effective privilege state produces a concrete impact."
         ),
         "trace": (
             "Represent configuration-state propagation with compact state/effect "
             "nodes rather than a verbose per-command taint flow."
         ),
+        "verify": (
+            "Mark the rows human-reviewed after vulnerable-source, advisory, "
+            "fix-patch, and commit-ancestry evidence checks."
+        ),
     }
 
     for patch_row in patch_rows:
         old = baseline_by_id[patch_row["entry_id"]]
-        for field in ("entry_point", "critical_operation", "trace"):
+        for field in ("entry_point", "critical_operation", "trace", "verify"):
             old_value = old[field]
             new_value = patch_row[field]
             if field == "trace":
                 old_node = old_value[-1] if old_value else {}
                 new_node = new_value[0] if new_value else {}
+            elif field == "verify":
+                old_node = {}
+                new_node = {}
             else:
                 old_node = old_value
                 new_node = new_value
@@ -453,7 +475,7 @@ def main() -> None:
 
     print(f"patch rows: {len(patch_rows)} -> {PATCH_JSONL}")
     print(f"full rows: {len(fixed_rows)} -> {FULL_JSONL}")
-    print(f"diff rows: {len(patch_rows) * 3} -> {DIFF_CSV}")
+    print(f"diff rows: {len(patch_rows) * 4} -> {DIFF_CSV}")
 
 
 if __name__ == "__main__":

@@ -34,27 +34,38 @@ escalation.
    block, such as `RUN useradd ...`, because the issue starts where the false
    boundary is constructed.
 
-2. `critical_operation` should mark the minimal interval that makes the unsafe
-   state unavoidable.
+2. `critical_operation` should mark the narrowest dangerous declaration or
+   effect point.
 
-   For missing-`USER` files, this can be the whole Dockerfile: the defect is a
-   structural absence and cannot be represented honestly by only marking the
-   final `CMD` or `ENTRYPOINT`. For the sudoers case, the minimal interval is
-   `17-20`, where `app` is created, granted `NOPASSWD:ALL`, and then selected
-   via `USER app`.
+   A missing declaration has no honest source line, so it must not be invented
+   or represented by making the whole file a critical block. Record the
+   absence in `desc` and the state lifecycle in `trace`, then select the
+   narrowest real instruction where the inherited privilege produces impact:
+   `pnpm install`, `CMD`, or `ENTRYPOINT`. For the sudoers variant, select the
+   exact `NOPASSWD:ALL` declaration.
 
 3. `trace` should describe configuration-state propagation, not pretend this is
    taint propagation.
 
-   A compact trace is preferred. The repaired rows use a state node plus a
-   materialization node when helpful. This keeps the annotation reviewable while
-   still showing how the configuration becomes a build-time or runtime effect.
+   A compact trace is preferred: `inherits` or `declares`, optional
+   `fails_to_neutralize`, and `takes_effect_at`. Current schema has no relation
+   field, so these meanings are stated in `desc`. Unrelated `WORKDIR`, `ENV`,
+   and `COPY` instructions are not added merely to imitate a taint flow.
 
 4. `desc` must explain the security role of the configuration.
 
    It should not merely restate code. It must answer why the line or interval is
    vulnerable: missing `USER`, unbroken root state, passwordless sudo, or
    ineffective privilege separation.
+
+## Target Decisions
+
+| entry_id | state origin | critical operation | lifecycle trace |
+|---|---|---|---|
+| `entry-00241` | `FROM` inherits root | `CMD ["bash"]` starts the root runtime | inherit root -> root install/build -> root default process |
+| `entry-00242` | `FROM` inherits root | `pnpm install` runs lifecycle scripts as uid 0 | inherit root -> root dependency install |
+| `entry-00243` | `FROM` inherits root | installer `ENTRYPOINT` starts as uid 0 | inherit root -> prepare system-path executable -> root entrypoint |
+| `entry-00244` | user creation plus sudoers block | exact `NOPASSWD:ALL` rule | declare full sudo -> nominal `USER app` -> demonstrated sudo use -> runtime |
 
 ## Backward-Compatible Schema Guidance
 
@@ -73,6 +84,24 @@ Future releases could add optional fields without breaking old consumers:
 These fields are suggestions only. The fixed data in this PR intentionally
 stays within `SCHEMA.md`.
 
+## Evidence Model
+
+The four rows are marked `verify=1` after a human review backed by four
+independent checks:
+
+1. Every annotated source slice matches vulnerable commit
+   `c56fb7f353d63d6ea97028ee7d8a97bc4edf21c1`.
+2. GHSA-W7J5-J98M-W679 lists all four affected Dockerfiles and distinguishes
+   the `install-sh-nonroot` passwordless-sudo variant.
+3. Security fix `84281abd4bd1c717bb37a2de12694fe203827eee`
+   adds `USER appuser` to exactly the three missing-`USER` Dockerfiles.
+4. The GitHub compare API proves the vulnerable commit is an ancestor of that
+   fix (`behind_by=0` and matching merge base).
+
+The fourth Dockerfile is deliberately not attributed to the three-file fix
+delta. Its evidence is the explicit `NOPASSWD:ALL` declaration, the subsequent
+`USER app`, and the later successful `sudo chmod` use.
+
 ## Produced Artifacts
 
 | artifact | role |
@@ -82,5 +111,5 @@ stays within `SCHEMA.md`.
 | `reports/config_vuln_fix_diff.csv` | field-level diff for `entry_point`, `critical_operation`, and `trace` |
 | `reports/config_vuln_acceptance_matrix.md` | mapping from issue acceptance criteria to artifacts |
 | `scripts/apply_config_vuln_patches.py` | reproducible generator |
-| `scripts/verify_config_vuln_annotations.py` | local and optional upstream verifier |
-| `tests/test_config_vuln_annotations.py` | unittest coverage for line spans, row count, and schema-compatible nodes |
+| `scripts/verify_config_vuln_annotations.py` | local verifier plus vulnerable-source, advisory, fix-patch, and ancestry checks |
+| `tests/test_config_vuln_annotations.py` | unittest coverage for line spans, semantic anchors, evidence rules, retries, row count, and schema-compatible nodes |
