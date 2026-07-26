@@ -1,0 +1,72 @@
+entry_id,node,reason,file,line,code
+entry-00164,trace[0],low_information_not_found,src/browser/routes/basic.ts,7,export function registerBrowserBasicRoutes(...) {
+entry-00193,entry_point,code_not_found,src/agents/apply-patch.ts,84,"export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDeta"
+entry-00311,critical_operation,code_not_found,src/fastmcp/server/auth/oauth_proxy.py,808,"self._jwt_issuer: JWTIssuer = JWTIssuer(
+    issuer=str(self.base_url),
+    audience=f""{str(self.bas"
+entry-00311,entry_point,low_information_not_found,src/fastmcp/server/auth/oauth_proxy.py,625,"def __init__(
+    self,
+    *,
+    upstream_authorization_endpoint: str,
+    upstream_token_endpoint"
+entry-00311,trace[0],code_not_found,src/fastmcp/server/auth/auth.py,131,"def get_routes(
+    self,
+    mcp_path: str | None = None,
+) -> list[Route]:"
+entry-00311,trace[1],code_not_found,src/fastmcp/server/auth/oauth_proxy.py,1635,"def get_routes(
+    self,
+    mcp_path: str | None = None,
+) -> list[Route]:
+    """"""Get OAuth routes"
+entry-00332,ALL,commit_not_found: 1885610c,,,
+entry-00333,ALL,commit_not_found: 1885610c,,,
+entry-00334,ALL,commit_not_found: 1885610c,,,
+entry-00371,critical_operation,code_not_found,src/infra/device-pairing.ts,346,"tokens[roleForToken] = {
+        token: newToken(),
+        role: roleForToken,
+        scopes: next"
+entry-00371,trace[5],code_not_found,src/infra/device-pairing.ts,346,"tokens[roleForToken] = {
+        token: newToken(),
+        role: roleForToken,
+        scopes: next"
+entry-00398,entry_point,code_not_found,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],"
+entry-00398,trace[0],code_not_found,src/gateway/server-methods/chat.ts,2011-2020,"GatewayClientScopes: client?.connect?.scopes ?? [],"
+entry-00398,trace[1],low_information_not_found,src/gateway/server-methods/chat.ts,2173,"void dispatchInboundMessage({
+  ctx,
+  cfg,
+  dispatcher,
+  ...
+});"
+entry-00398,trace[5],code_not_found,src/auto-reply/reply/directive-handling.impl.ts,413-421,"sessionEntry.updatedAt = Date.now();
+sessionStore[sessionKey] = sessionEntry;
+if (storePath) {
+  awa"
+entry-00399,entry_point,code_not_found,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],"
+entry-00399,trace[0],code_not_found,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],"
+entry-00400,entry_point,code_not_found,src/gateway/server-methods/chat.ts,1452,"CommandAuthorized: true,
+        GatewayClientScopes: client?.connect?.scopes,"
+entry-00477,trace[2],code_not_found,packages/server/src/index.ts,223,if (isWhitelisted) { next() }  // 缺失：应有对 chatbotConfig 端点的 ownership 或访问控制校验
+entry-00477,trace[4],code_not_found,packages/server/src/services/chatflows/index.ts,366,const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId 
+entry-00483,critical_operation,low_information_not_found,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // "
+entry-00483,trace[2],multiple_matches,server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司"
+entry-00483,trace[3],low_information_not_found,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // "
+entry-00485,critical_operation,code_not_found,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(e
+entry-00485,trace[2],multiple_matches,server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）"
+entry-00485,trace[3],low_information_not_found,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).whe
+entry-00486,critical_operation,low_information_not_found,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // "
+entry-00486,trace[2],multiple_matches,server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司"
+entry-00486,trace[3],low_information_not_found,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // "
+entry-00488,critical_operation,code_not_found,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(e
+entry-00488,trace[2],multiple_matches,server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）"
+entry-00488,trace[3],low_information_not_found,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).whe
+entry-00498,trace[1],code_not_found,src/agents/sandbox/browser.ts,157,const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);  // undefined → n
+entry-00498,trace[2],code_not_found,src/agents/sandbox/browser.ts,270,"if (cdpSourceRange) {
+  args.push(""-e"", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`);
+}  // cdpS"
+entry-00499,critical_operation,code_not_found,src/security/audit-extra.sync.ts,875,"checkId: ""sandbox.browser_cdp_bridge_unrestricted"",
+severity: ""warn"",  // 此处应有却缺失的约束：安全审计仅以 warn 级别提"
+entry-00499,trace[0],code_not_found,src/security/audit-extra.sync.ts,850,"if (
+  defaultBrowser.enabled &&
+  normalizeOptionalLowercaseString(defaultBrowser.network) === ""bri"
+entry-00499,trace[1],low_information_not_found,src/security/audit-extra.sync.ts,873,"if (browserExposurePaths.length > 0) {
+  findings.push({ checkId: ""sandbox.browser_cdp_bridge_unrest"
