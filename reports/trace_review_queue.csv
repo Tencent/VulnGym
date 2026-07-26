@@ -1,0 +1,256 @@
+entry_id,verify,event_type,action,finding_count,field_paths,reason
+entry-00057,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00058,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00058,1,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00061,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00061,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00061,1,order_before_entry,skipped_not_fix_target,4,trace[1];trace[2];trace[3];trace[4],same-file trace node is wholly before entry_point
+entry-00062,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00062,1,order_after_critical_overlap,manual_review,1,trace[7],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00063,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00065,1,order_before_entry,skipped_not_fix_target,4,trace[1];trace[2];trace[3];trace[4],same-file trace node is wholly before entry_point
+entry-00066,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00066,1,order_before_entry,skipped_not_fix_target,2,trace[3];trace[5],same-file trace node is wholly before entry_point
+entry-00067,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00074,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00074,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00075,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00075,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00075,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[2],same-file trace node is wholly before entry_point
+entry-00076,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00076,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[2],same-file trace node is wholly before entry_point
+entry-00078,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00078,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00079,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00079,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[2],same-file trace node is wholly before entry_point
+entry-00081,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00082,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00083,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00085,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00087,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00091,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00101,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00103,0,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00104,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00105,1,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00106,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00112,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00113,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00113,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00115,1,duplicate_desc_conflict,manual_review,1,trace[1].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00115,1,duplicate_node,manual_review,1,trace[1],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00122,1,order_after_critical,manual_review,2,trace[1];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00123,1,order_after_critical,manual_review,2,trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00126,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00127,1,order_after_critical,manual_review,3,trace[3];trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00127,1,order_before_entry,skipped_not_fix_target,1,trace[6],same-file trace node is wholly before entry_point
+entry-00128,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00129,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00129,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00130,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00131,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00132,1,order_after_critical,manual_review,3,trace[2];trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00133,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00134,1,order_after_critical,manual_review,3,trace[5];trace[6];trace[7],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00140,1,order_after_critical_overlap,manual_review,1,trace[5],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00140,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00142,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00142,1,order_before_entry,skipped_not_fix_target,1,trace[8],same-file trace node is wholly before entry_point
+entry-00145,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00147,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00149,1,order_after_critical,manual_review,6,trace[0];trace[2];trace[3];trace[4];trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00149,1,order_before_entry,skipped_not_fix_target,7,trace[1];trace[2];trace[3];trace[4];trace[5];trace[6];trace[7],same-file trace node is wholly before entry_point
+entry-00158,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00163,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00171,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00172,1,order_after_critical,manual_review,4,trace[0];trace[1];trace[2];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00172,1,order_before_entry,skipped_not_fix_target,3,trace[2];trace[6];trace[7],same-file trace node is wholly before entry_point
+entry-00173,1,order_after_critical,manual_review,4,trace[0];trace[1];trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00173,1,order_before_entry,skipped_not_fix_target,1,trace[5],same-file trace node is wholly before entry_point
+entry-00175,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00176,0,order_after_critical_overlap,manual_review,1,trace[6],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00178,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00179,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00182,1,duplicate_desc_conflict,manual_review,1,trace[1].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00182,1,duplicate_node,manual_review,1,trace[1],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00182,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00182,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00184,1,order_after_critical,manual_review,3,trace[0];trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00184,1,order_before_entry,skipped_not_fix_target,2,trace[3];trace[4],same-file trace node is wholly before entry_point
+entry-00185,0,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00186,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00186,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00186,1,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00189,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00192,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00194,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00195,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00198,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[5],same-file trace node is wholly before entry_point
+entry-00199,1,duplicate_desc_conflict,manual_review,1,trace[2].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00199,1,duplicate_node,manual_review,1,trace[2],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00207,1,order_after_critical,manual_review,2,trace[6];trace[7],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00208,1,order_before_entry,skipped_not_fix_target,2,trace[4];trace[5],same-file trace node is wholly before entry_point
+entry-00212,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00213,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00213,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00215,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00216,1,order_after_critical,manual_review,1,trace[7],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00217,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00219,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00220,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00222,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00222,1,order_before_entry,skipped_not_fix_target,2,trace[0];trace[1],same-file trace node is wholly before entry_point
+entry-00224,1,duplicate_desc_conflict,manual_review,1,trace[6].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00224,1,duplicate_node,manual_review,1,trace[6],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00226,1,order_after_critical,manual_review,6,trace[0];trace[1];trace[2];trace[3];trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00226,1,order_before_entry,skipped_not_fix_target,6,trace[1];trace[2];trace[3];trace[4];trace[5];trace[6],same-file trace node is wholly before entry_point
+entry-00231,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00232,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00240,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00245,1,order_after_critical,manual_review,2,trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00245,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00246,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00247,1,order_after_critical,manual_review,2,trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00247,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00248,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00250,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00251,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00252,1,order_before_entry,skipped_not_fix_target,2,trace[0];trace[1],same-file trace node is wholly before entry_point
+entry-00254,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00254,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[3],same-file trace node is wholly before entry_point
+entry-00255,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00255,1,order_before_entry,skipped_not_fix_target,3,trace[1];trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00256,1,order_after_critical,manual_review,4,trace[0];trace[1];trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00256,1,order_before_entry,skipped_not_fix_target,4,trace[4];trace[5];trace[6];trace[7],same-file trace node is wholly before entry_point
+entry-00257,1,order_after_critical,manual_review,3,trace[0];trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00257,1,order_before_entry,skipped_not_fix_target,4,trace[3];trace[4];trace[5];trace[6],same-file trace node is wholly before entry_point
+entry-00258,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00278,1,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00285,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00286,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00287,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00288,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00289,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00292,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00292,1,order_before_entry,skipped_not_fix_target,4,trace[3];trace[4];trace[5];trace[6],same-file trace node is wholly before entry_point
+entry-00293,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00296,1,order_after_critical,manual_review,1,trace[10],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00303,1,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00309,1,order_after_critical,manual_review,4,trace[3];trace[4];trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00310,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00310,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00311,1,order_after_critical,manual_review,2,trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00312,1,order_after_critical,manual_review,3,trace[5];trace[6];trace[7],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00314,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00314,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00315,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00315,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00317,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00319,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00324,1,order_after_critical,manual_review,1,trace[7],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00338,1,order_before_entry,skipped_not_fix_target,1,trace[3],same-file trace node is wholly before entry_point
+entry-00344,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00349,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[2],same-file trace node is wholly before entry_point
+entry-00350,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00350,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00351,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00351,1,order_after_critical_overlap,manual_review,1,trace[5],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00352,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00356,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00362,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00362,1,order_before_entry,skipped_not_fix_target,1,trace[6],same-file trace node is wholly before entry_point
+entry-00363,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00363,1,order_before_entry,skipped_not_fix_target,1,trace[6],same-file trace node is wholly before entry_point
+entry-00364,1,order_after_critical,manual_review,3,trace[0];trace[7];trace[8],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00364,1,order_before_entry,skipped_not_fix_target,9,trace[1];trace[2];trace[3];trace[4];trace[5];trace[6];trace[7];trace[8];trace[10],same-file trace node is wholly before entry_point
+entry-00365,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00365,1,order_before_entry,skipped_not_fix_target,3,trace[1];trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00369,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00369,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00370,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00372,1,order_after_critical,manual_review,3,trace[0];trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00372,1,order_before_entry,skipped_not_fix_target,1,trace[3],same-file trace node is wholly before entry_point
+entry-00373,1,order_after_critical,manual_review,3,trace[0];trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00378,1,order_after_critical,manual_review,3,trace[3];trace[4];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00383,1,order_after_critical,manual_review,2,trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00384,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00385,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00388,1,order_after_critical,manual_review,2,trace[3];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00391,0,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00394,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00395,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00395,1,order_before_entry,skipped_not_fix_target,2,trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00398,1,order_after_critical,manual_review,2,trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00398,1,order_before_entry,skipped_not_fix_target,1,trace[0],same-file trace node is wholly before entry_point
+entry-00399,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00400,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00400,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00401,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00402,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00403,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00403,1,order_before_entry,skipped_not_fix_target,2,trace[0];trace[1],same-file trace node is wholly before entry_point
+entry-00404,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00405,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00405,1,order_before_entry,skipped_not_fix_target,2,trace[0];trace[1],same-file trace node is wholly before entry_point
+entry-00406,1,order_before_entry,skipped_not_fix_target,2,trace[0];trace[1],same-file trace node is wholly before entry_point
+entry-00410,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00411,1,order_after_critical,manual_review,1,trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00413,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00414,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00415,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00417,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00419,1,order_after_critical,manual_review,1,trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00419,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00429,1,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00430,1,order_after_critical,manual_review,2,trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00430,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00433,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00435,1,order_before_entry,skipped_not_fix_target,2,trace[1];trace[2],same-file trace node is wholly before entry_point
+entry-00437,1,order_after_critical,manual_review,5,trace[4];trace[5];trace[6];trace[7];trace[8],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00438,1,order_after_critical_overlap,manual_review,1,trace[1],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00440,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00443,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00446,1,order_after_critical,manual_review,3,trace[4];trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00448,1,order_after_critical_overlap,manual_review,1,trace[3],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00448,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00449,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00450,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00450,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00451,1,order_after_critical,manual_review,1,trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00451,1,order_after_critical_overlap,manual_review,1,trace[4],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00464,1,order_before_entry_overlap,manual_review,1,trace[2],same-file trace range starts before entry_point but overlaps the entry boundary
+entry-00471,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00474,1,order_after_critical,manual_review,5,trace[1];trace[2];trace[3];trace[4];trace[5],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00476,1,order_after_critical,manual_review,4,trace[2];trace[4];trace[5];trace[6],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00476,1,order_before_entry,skipped_not_fix_target,1,trace[3],same-file trace node is wholly before entry_point
+entry-00481,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00484,1,duplicate_desc_conflict,manual_review,1,trace[2].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00484,1,duplicate_node,manual_review,1,trace[2],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00487,1,duplicate_desc_conflict,manual_review,1,trace[2].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00487,1,duplicate_node,manual_review,1,trace[2],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00490,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00491,1,order_after_critical_overlap,manual_review,1,trace[1],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00494,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00495,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00495,1,order_before_entry,skipped_not_fix_target,1,trace[3],same-file trace node is wholly before entry_point
+entry-00496,1,order_after_critical,manual_review,2,trace[1];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00496,1,order_after_critical_overlap,manual_review,1,trace[2],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00497,1,order_after_critical,manual_review,1,trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00501,1,order_after_critical,manual_review,3,trace[0];trace[1];trace[2],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00501,1,order_before_entry,skipped_not_fix_target,3,trace[1];trace[2];trace[3],same-file trace node is wholly before entry_point
+entry-00502,1,order_after_critical,manual_review,3,trace[0];trace[2];trace[3],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00502,1,order_before_entry,skipped_not_fix_target,1,trace[1],same-file trace node is wholly before entry_point
+entry-00503,1,order_after_critical,manual_review,4,trace[0];trace[1];trace[2];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00503,1,order_before_entry,skipped_not_fix_target,2,trace[3];trace[5],same-file trace node is wholly before entry_point
+entry-00504,1,order_after_critical,manual_review,2,trace[0];trace[1],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00504,1,order_before_entry,skipped_not_fix_target,1,trace[2],same-file trace node is wholly before entry_point
+entry-00505,1,order_after_critical,manual_review,7,trace[0];trace[1];trace[2];trace[3];trace[4];trace[6];trace[9],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00505,1,order_before_entry,skipped_not_fix_target,4,trace[2];trace[3];trace[4];trace[6],same-file trace node is wholly before entry_point
+entry-00507,1,duplicate_desc_conflict,manual_review,1,trace[1].desc,duplicate trace node has the same file/line/code but a different desc from the first occurrence
+entry-00507,1,duplicate_node,manual_review,1,trace[1],"duplicate trace node has identical file, line, and code but a different desc; kept by the safe duplicate policy for manual review"
+entry-00509,1,order_after_critical,manual_review,2,trace[1];trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00509,1,order_after_critical_overlap,manual_review,1,trace[5],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00510,1,order_after_critical,manual_review,1,trace[0],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00511,0,order_after_critical,manual_review,1,trace[4],same-file trace node is wholly after critical_operation; kept for review unless --order-fix-policy bounds is used
+entry-00511,0,order_after_critical_overlap,manual_review,1,trace[5],same-file trace range extends beyond critical_operation but overlaps the critical boundary
+entry-00511,0,order_before_entry_overlap,manual_review,1,trace[0],same-file trace range starts before entry_point but overlaps the entry boundary

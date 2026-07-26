@@ -6,7 +6,16 @@
     "fix_verify": "0",
     "order_fix_policy": "entry-before-only",
     "duplicate_fix_policy": "safe",
-    "log_cross_file": false
+    "log_cross_file": false,
+    "diff_output": "reports/trace_fix_diff.csv",
+    "review_output": "reports/trace_review_queue.csv"
+  },
+  "artifacts": {
+    "format_version": 2,
+    "input_rows_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+    "output_rows_sha256": "a14d5f00d91c1e6bdda8d56e5e40fff15f110baeed93ff8a216ddd52a20cd590",
+    "change_log_rows": 2,
+    "review_queue_rows": 255
   },
   "totals": {
     "entries_scanned": 408,

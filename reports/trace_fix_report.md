@@ -9,6 +9,16 @@
 - order_fix_policy: `entry-before-only`
 - duplicate_fix_policy: `safe`
 - log_cross_file: `False`
+- diff_output: `reports/trace_fix_diff.csv`
+- review_output: `reports/trace_review_queue.csv`
+
+## Artifact Integrity
+
+- format version: 2
+- input rows SHA-256: `8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2`
+- output rows SHA-256: `a14d5f00d91c1e6bdda8d56e5e40fff15f110baeed93ff8a216ddd52a20cd590`
+- compact change-log rows: 2
+- aggregated review-queue rows: 255
 
 ## Totals
 

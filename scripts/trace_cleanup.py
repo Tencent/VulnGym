@@ -14,6 +14,8 @@ from __future__ import annotations
 
 import argparse
 import copy
+import csv
+import hashlib
 import json
 import re
 import sys
@@ -29,6 +31,9 @@ DEFAULT_OUTPUT = REPO_ROOT / "data" / "entries.trace_fixed.jsonl"
 DEFAULT_LOG = REPO_ROOT / "reports" / "trace_fix_log.json"
 DEFAULT_REPORT_JSON = REPO_ROOT / "reports" / "trace_fix_report.json"
 DEFAULT_REPORT_MD = REPO_ROOT / "reports" / "trace_fix_report.md"
+DEFAULT_DIFF_CSV = REPO_ROOT / "reports" / "trace_fix_diff.csv"
+DEFAULT_REVIEW_CSV = REPO_ROOT / "reports" / "trace_review_queue.csv"
+ARTIFACT_FORMAT_VERSION = 2
 
 LINE_RANGE_RE = re.compile(r"^([1-9]\d*)-([1-9]\d*)$")
 NUMERIC_LINE_RE = re.compile(r"^[1-9]\d*$")
@@ -129,10 +134,18 @@ def write_json(path: Path, payload: Any) -> None:
 
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8", newline="\n") as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True))
-            handle.write("\n")
+    path.write_bytes(rows_jsonl_bytes(rows))
+
+
+def rows_jsonl_bytes(rows: list[dict[str, Any]]) -> bytes:
+    text = "".join(
+        json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows
+    )
+    return text.encode("utf-8")
+
+
+def rows_sha256(rows: list[dict[str, Any]]) -> str:
+    return hashlib.sha256(rows_jsonl_bytes(rows)).hexdigest()
 
 
 def display_path(path: Path | None) -> str | None:
@@ -634,7 +647,7 @@ def build_report(
 ) -> dict[str, Any]:
     changed_entries = [
         row.get("entry_id")
-        for original, row in zip(original_rows, fixed_rows)
+        for original, row in zip(original_rows, fixed_rows, strict=True)
         if original != row
     ]
     event_counts = Counter(log["event_type"] for log in logs)
@@ -659,6 +672,15 @@ def build_report(
             "order_fix_policy": args.order_fix_policy,
             "duplicate_fix_policy": args.duplicate_fix_policy,
             "log_cross_file": args.log_cross_file,
+            "diff_output": display_path(args.diff_out),
+            "review_output": display_path(args.review_out),
+        },
+        "artifacts": {
+            "format_version": ARTIFACT_FORMAT_VERSION,
+            "input_rows_sha256": rows_sha256(original_rows),
+            "output_rows_sha256": rows_sha256(fixed_rows),
+            "change_log_rows": len(change_events(logs)),
+            "review_queue_rows": len(build_review_rows(logs)),
         },
         "totals": {
             "entries_scanned": len(original_rows),
@@ -696,8 +718,113 @@ def build_report(
     }
 
 
+def compact_json(value: Any) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def audit_value(value: Any) -> Any:
+    if not isinstance(value, dict):
+        return value
+    return {key: nested for key, nested in value.items() if key != "desc"}
+
+
+def desc_sha256(value: Any) -> str:
+    if not isinstance(value, dict) or not isinstance(value.get("desc"), str):
+        return ""
+    return hashlib.sha256(value["desc"].encode("utf-8")).hexdigest()
+
+
+def change_events(logs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        log for log in logs if log.get("action") in {"removed", "desc_synced"}
+    ]
+
+
+def build_review_rows(logs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    groups: dict[tuple[Any, ...], list[str]] = {}
+    for log in logs:
+        if log.get("action") not in {"manual_review", "skipped_not_fix_target"}:
+            continue
+        key = (
+            log.get("entry_id"),
+            log.get("verify"),
+            log.get("event_type"),
+            log.get("action"),
+            log.get("reason"),
+        )
+        groups.setdefault(key, []).append(str(log.get("field_path", "")))
+
+    rows = []
+    for key, field_paths in sorted(groups.items(), key=lambda item: tuple(map(str, item[0]))):
+        entry_id, verify, event_type, action, reason = key
+        rows.append(
+            {
+                "entry_id": entry_id,
+                "verify": verify,
+                "event_type": event_type,
+                "action": action,
+                "finding_count": len(field_paths),
+                "field_paths": ";".join(field_paths),
+                "reason": reason,
+            }
+        )
+    return rows
+
+
+def write_change_diff_csv(path: Path, logs: list[dict[str, Any]]) -> None:
+    fieldnames = (
+        "entry_id",
+        "verify",
+        "field_path",
+        "event_type",
+        "action",
+        "before_json",
+        "before_desc_sha256",
+        "after_json",
+        "after_desc_sha256",
+        "reason",
+    )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        for log in change_events(logs):
+            writer.writerow(
+                {
+                    "entry_id": log.get("entry_id"),
+                    "verify": log.get("verify"),
+                    "field_path": log.get("field_path"),
+                    "event_type": log.get("event_type"),
+                    "action": log.get("action"),
+                    "before_json": compact_json(audit_value(log.get("before"))),
+                    "before_desc_sha256": desc_sha256(log.get("before")),
+                    "after_json": compact_json(audit_value(log.get("after"))),
+                    "after_desc_sha256": desc_sha256(log.get("after")),
+                    "reason": log.get("reason"),
+                }
+            )
+
+
+def write_review_queue_csv(path: Path, logs: list[dict[str, Any]]) -> None:
+    fieldnames = (
+        "entry_id",
+        "verify",
+        "event_type",
+        "action",
+        "finding_count",
+        "field_paths",
+        "reason",
+    )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(build_review_rows(logs))
+
+
 def write_report_markdown(path: Path, report: dict[str, Any]) -> None:
     cfg = report["config"]
+    artifacts = report["artifacts"]
     totals = report["totals"]
     issue_counts = report["issue_counts"]
     action_counts = report["action_counts"]
@@ -714,6 +841,16 @@ def write_report_markdown(path: Path, report: dict[str, Any]) -> None:
         f"- order_fix_policy: `{cfg['order_fix_policy']}`",
         f"- duplicate_fix_policy: `{cfg['duplicate_fix_policy']}`",
         f"- log_cross_file: `{cfg['log_cross_file']}`",
+        f"- diff_output: `{cfg['diff_output']}`",
+        f"- review_output: `{cfg['review_output']}`",
+        "",
+        "## Artifact Integrity",
+        "",
+        f"- format version: {artifacts['format_version']}",
+        f"- input rows SHA-256: `{artifacts['input_rows_sha256']}`",
+        f"- output rows SHA-256: `{artifacts['output_rows_sha256']}`",
+        f"- compact change-log rows: {artifacts['change_log_rows']}",
+        f"- aggregated review-queue rows: {artifacts['review_queue_rows']}",
         "",
         "## Totals",
         "",
@@ -760,7 +897,14 @@ def write_report_markdown(path: Path, report: dict[str, Any]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def print_summary(report: dict[str, Any], log_path: Path, report_path: Path, md_path: Path) -> None:
+def print_summary(
+    report: dict[str, Any],
+    log_path: Path,
+    report_path: Path,
+    md_path: Path,
+    diff_path: Path,
+    review_path: Path,
+) -> None:
     totals = report["totals"]
     issues = report["issue_counts"]
     actions = report["action_counts"]
@@ -785,6 +929,8 @@ def print_summary(report: dict[str, Any], log_path: Path, report_path: Path, md_
     print(f"log: {log_path}")
     print(f"json report: {report_path}")
     print(f"markdown report: {md_path}")
+    print(f"compact diff: {diff_path}")
+    print(f"review queue: {review_path}")
     if report["config"]["output"]:
         print(f"fixed jsonl: {report['config']['output']}")
 
@@ -804,6 +950,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--log-out", type=Path, default=DEFAULT_LOG, help="JSON event log output")
     parser.add_argument("--report-out", type=Path, default=DEFAULT_REPORT_JSON, help="JSON report output")
     parser.add_argument("--report-md-out", type=Path, default=DEFAULT_REPORT_MD, help="Markdown report output")
+    parser.add_argument("--diff-out", type=Path, default=DEFAULT_DIFF_CSV, help="compact CSV of applied changes")
+    parser.add_argument(
+        "--review-out",
+        type=Path,
+        default=DEFAULT_REVIEW_CSV,
+        help="entry-level aggregated CSV of findings retained for review",
+    )
     parser.add_argument(
         "--mode",
         choices=("check", "fix"),
@@ -877,7 +1030,16 @@ def main(argv: list[str] | None = None) -> int:
     write_json(args.log_out, logs)
     write_json(args.report_out, report)
     write_report_markdown(args.report_md_out, report)
-    print_summary(report, args.log_out, args.report_out, args.report_md_out)
+    write_change_diff_csv(args.diff_out, logs)
+    write_review_queue_csv(args.review_out, logs)
+    print_summary(
+        report,
+        args.log_out,
+        args.report_out,
+        args.report_md_out,
+        args.diff_out,
+        args.review_out,
+    )
 
     return 1 if report["totals"]["output_schema_errors"] else 0
 
