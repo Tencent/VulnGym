@@ -8,11 +8,19 @@ unchanged at the reported field paths.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
+import os
 import re
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from typing import Any
+
+import fix_code_locations as fixer
 
 ROOT = Path(__file__).resolve().parent.parent
 BASELINE_JSONL = ROOT / "data" / "entries.jsonl"
@@ -20,6 +28,7 @@ FIXED_JSONL = ROOT / "data" / "entries.fixed.jsonl"
 DIFF_CSV = ROOT / "reports" / "fix_diff.csv"
 NEEDS_HUMAN_CSV = ROOT / "reports" / "needs_human.csv"
 SUMMARY_MD = ROOT / "reports" / "code_location_summary.md"
+MANIFEST_JSON = ROOT / "reports" / "code_location_manifest.json"
 
 EXPECTED_ROWS = 408
 EXPECTED_DIFF_ROWS = 12
@@ -110,10 +119,35 @@ def check_fixed_matches_diff(
     baseline_by_id = {row["entry_id"]: row for row in baseline_rows}
     fixed_by_id = {row["entry_id"]: row for row in fixed_rows}
     changed_paths = {(row["entry_id"], row["field_path"]) for row in diff_rows}
+    if len(changed_paths) != len(diff_rows):
+        raise AssertionError("duplicate entry/field path in diff")
 
     for diff in diff_rows:
-        baseline_node = node_at(baseline_by_id[diff["entry_id"]], diff["field_path"])
-        fixed_node = node_at(fixed_by_id[diff["entry_id"]], diff["field_path"])
+        baseline_entry = baseline_by_id[diff["entry_id"]]
+        fixed_entry = fixed_by_id[diff["entry_id"]]
+        if (
+            diff["repo_url"] != baseline_entry["repo_url"]
+            or diff["commit"] != baseline_entry["commit"]
+        ):
+            raise AssertionError(
+                f"diff source identity mismatch for {diff['entry_id']}"
+            )
+        baseline_node = node_at(baseline_entry, diff["field_path"])
+        fixed_node = node_at(fixed_entry, diff["field_path"])
+        baseline_static = {
+            key: value
+            for key, value in baseline_node.items()
+            if key not in {"file", "line", "desc"}
+        }
+        fixed_static = {
+            key: value
+            for key, value in fixed_node.items()
+            if key not in {"file", "line", "desc"}
+        }
+        if baseline_static != fixed_static:
+            raise AssertionError(
+                f"non-location node fields changed for {diff['entry_id']} {diff['field_path']}"
+            )
         if baseline_node.get("file") != diff["old_file"] or str(baseline_node.get("line")) != diff["old_line"]:
             raise AssertionError(
                 f"diff old location mismatch for {diff['entry_id']} {diff['field_path']}"
@@ -135,8 +169,20 @@ def check_fixed_matches_diff(
                 f"fixed code changed semantically for {diff['entry_id']} {diff['field_path']}"
             )
 
-    for baseline_row, fixed_row in zip(baseline_rows, fixed_rows):
+    for baseline_row, fixed_row in zip(baseline_rows, fixed_rows, strict=True):
         entry_id = baseline_row["entry_id"]
+        baseline_metadata = {
+            key: value
+            for key, value in baseline_row.items()
+            if key not in {"entry_point", "critical_operation", "trace"}
+        }
+        fixed_metadata = {
+            key: value
+            for key, value in fixed_row.items()
+            if key not in {"entry_point", "critical_operation", "trace"}
+        }
+        if baseline_metadata != fixed_metadata:
+            raise AssertionError(f"unexpected entry metadata change: {entry_id}")
         for field_path in ["entry_point", "critical_operation"]:
             if (entry_id, field_path) not in changed_paths:
                 if node_at(baseline_row, field_path) != node_at(fixed_row, field_path):
@@ -167,13 +213,99 @@ def check_needs_human_unchanged(
 
 
 def check_text_artifacts() -> None:
-    for path in (DIFF_CSV, NEEDS_HUMAN_CSV, SUMMARY_MD):
+    for path in (DIFF_CSV, NEEDS_HUMAN_CSV, SUMMARY_MD, MANIFEST_JSON):
         text = path.read_text(encoding="utf-8")
         if DAMAGED_TEXT_RE.search(text):
             raise AssertionError(f"encoding damage pattern found in {path}")
 
 
+def check_manifest(
+    baseline_rows: list[dict[str, Any]],
+    fixed_rows: list[dict[str, Any]],
+    diff_rows: list[dict[str, str]],
+    needs_human_rows: list[dict[str, str]],
+) -> None:
+    actual = json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
+    expected = fixer.build_manifest(
+        args=fixer.parse_args([]),
+        input_rows=baseline_rows,
+        output_rows=fixed_rows,
+        diff_rows=diff_rows,
+        human_rows=needs_human_rows,
+    )
+    if actual != expected:
+        raise AssertionError("artifact manifest is stale")
+
+
+def request_headers() -> dict[str, str]:
+    headers = {"User-Agent": "vulngym-code-location-verifier"}
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
+
+
+def fetch_bytes(url: str, attempts: int = 3) -> bytes:
+    request = urllib.request.Request(url, headers=request_headers())
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return response.read()
+        except urllib.error.URLError:
+            if attempt + 1 == attempts:
+                raise
+            time.sleep(1 + attempt)
+    raise AssertionError("unreachable retry state")
+
+
+def raw_url(repo_url: str, commit: str, file_name: str) -> str:
+    repo = fixer.normalize_repo_url(repo_url).removeprefix("https://github.com/")
+    path = urllib.parse.quote(fixer.normalize_path(file_name), safe="/")
+    return f"https://raw.githubusercontent.com/{repo}/{commit}/{path}"
+
+
+def source_slice(source: str, line: Any, code: str) -> str:
+    span = fixer.parse_line_span(line)
+    if span is None:
+        raise AssertionError(f"invalid source line: {line!r}")
+    end = span.end
+    if isinstance(line, int):
+        end = span.start + max(1, len(code.splitlines())) - 1
+    lines = source.splitlines()
+    if end > len(lines):
+        raise AssertionError(f"line span {line!r} exceeds source length {len(lines)}")
+    return "\n".join(lines[span.start - 1 : end])
+
+
+def check_upstream_sources(
+    fixed_by_id: dict[str, dict[str, Any]],
+    diff_rows: list[dict[str, str]],
+) -> int:
+    cache: dict[tuple[str, str, str], str] = {}
+    for diff in diff_rows:
+        node = node_at(fixed_by_id[diff["entry_id"]], diff["field_path"])
+        key = (diff["repo_url"], diff["commit"], diff["new_file"])
+        if key not in cache:
+            cache[key] = fetch_bytes(raw_url(*key)).decode("utf-8")
+        source_code = source_slice(cache[key], node["line"], node["code"])
+        if fixer.normalize_code_lines(source_code) != fixer.normalize_code_lines(
+            node["code"]
+        ):
+            raise AssertionError(
+                f"upstream mismatch for {diff['entry_id']} {diff['field_path']}"
+            )
+    return len(cache)
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--check-source",
+        action="store_true",
+        help="compare all repaired nodes with raw files at their pinned commits",
+    )
+    args = parser.parse_args()
+
     baseline_rows = load_jsonl(BASELINE_JSONL)
     fixed_rows = load_jsonl(FIXED_JSONL)
     diff_rows = load_csv(DIFF_CSV)
@@ -196,6 +328,7 @@ def main() -> None:
     baseline_by_id = {row["entry_id"]: row for row in baseline_rows}
     fixed_by_id = {row["entry_id"]: row for row in fixed_rows}
     check_needs_human_unchanged(baseline_by_id, fixed_by_id, needs_human_rows)
+    check_manifest(baseline_rows, fixed_rows, diff_rows, needs_human_rows)
     check_text_artifacts()
 
     print("code-location artifacts verified")
@@ -203,6 +336,11 @@ def main() -> None:
     print(f"diff rows: {len(diff_rows)}")
     print(f"needs-human rows: {len(needs_human_rows)}")
     print("schema errors: 0")
+    print("non-location fields: unchanged")
+    print("artifact manifest: ok")
+    if args.check_source:
+        source_files = check_upstream_sources(fixed_by_id, diff_rows)
+        print(f"upstream repaired nodes: {len(diff_rows)}, source files: {source_files}, all match")
 
 
 if __name__ == "__main__":

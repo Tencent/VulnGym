@@ -9,6 +9,7 @@
 - Fixed JSONL: `data/entries.fixed.jsonl`
 - Diff CSV: `reports/fix_diff.csv`
 - Needs-human CSV: `reports/needs_human.csv`
+- Artifact manifest: `reports/code_location_manifest.json`
 - Verifier: `scripts/verify_code_location_outputs.py`
 - Acceptance matrix: `reports/code_location_acceptance_matrix.md`
 

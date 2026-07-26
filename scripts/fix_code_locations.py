@@ -37,9 +37,15 @@ DEFAULT_OUTPUT = REPO_ROOT / "data" / "entries.fixed.jsonl"
 DEFAULT_DIFF = REPO_ROOT / "reports" / "fix_diff.csv"
 DEFAULT_NEEDS_HUMAN = REPO_ROOT / "reports" / "needs_human.csv"
 DEFAULT_SUMMARY = REPO_ROOT / "reports" / "code_location_summary.md"
+DEFAULT_MANIFEST = REPO_ROOT / "reports" / "code_location_manifest.json"
+ARTIFACT_FORMAT_VERSION = 2
 
 LINE_RANGE_RE = re.compile(r"^([1-9]\d*)-([1-9]\d*)$")
 NUMERIC_LINE_RE = re.compile(r"^[1-9]\d*$")
+COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
+GITHUB_REPO_RE = re.compile(
+    r"^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+)
 LEADING_DOT_SLASH_RE = re.compile(r"^(?:\./)+")
 MULTI_SLASH_RE = re.compile(r"/+")
 SPACE_RE = re.compile(r"[ \t]+")
@@ -115,6 +121,20 @@ def normalize_repo_url(url: str) -> str:
     if url.endswith(".git"):
         url = url[:-4]
     return url
+
+
+def remote_identity(url: str) -> str:
+    normalized = normalize_repo_url(url)
+    if normalized.startswith("git@github.com:"):
+        normalized = "https://github.com/" + normalized.split("git@github.com:", 1)[1]
+    return normalize_repo_url(normalized)
+
+
+def validate_source_identity(repo_url: str, commit: str) -> None:
+    if not GITHUB_REPO_RE.fullmatch(repo_url):
+        raise CheckoutError(f"unsupported_repo_url:{repo_url}")
+    if not COMMIT_RE.fullmatch(commit):
+        raise CheckoutError(f"invalid_commit:{commit}")
 
 
 def repo_cache_name(repo_url: str) -> str:
@@ -316,6 +336,7 @@ class RepoWorkspace:
         self.lines_cache: dict[str, list[str] | None] = {}
 
     def ensure(self) -> None:
+        validate_source_identity(self.repo_url, self.commit)
         self.cache_root.mkdir(parents=True, exist_ok=True)
         if not (self.path / ".git").exists():
             if self.args.offline:
@@ -328,7 +349,13 @@ class RepoWorkspace:
                 timeout=self.args.git_timeout,
             )
             if result.returncode != 0:
+                if self.path.exists():
+                    shutil.rmtree(self.path)
                 raise CheckoutError(f"clone_failed:{result.stderr.strip() or result.stdout.strip()}")
+
+        remote = run_git(["remote", "get-url", "origin"], cwd=self.path, timeout=30)
+        if remote.returncode != 0 or remote_identity(remote.stdout.strip()) != self.repo_url:
+            raise CheckoutError(f"cache_origin_mismatch:{self.path}")
 
         exists = run_git(
             ["cat-file", "-e", f"{self.commit}^{{commit}}"],
@@ -452,8 +479,15 @@ def fix_node(
     current_matches = workspace.search_file(old_file, needle, start_min=line_span.start, start_max=line_span.start)
     current_match, _ = unique_or_reason(current_matches, "current_line")
     if current_match is not None:
-        new_line = current_match.line_value
-        if normalize_path(current_match.file) == old_file and new_line == old_line:
+        integer_start_anchor = isinstance(old_line, int) and current_match.start == old_line
+        exact_range = (
+            isinstance(old_line, str)
+            and current_match.start == line_span.start
+            and current_match.end == line_span.end
+        )
+        if normalize_path(current_match.file) == old_file and (
+            integer_start_anchor or exact_range
+        ):
             return "ok"
         apply_match(
             node=node,
@@ -660,6 +694,64 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow(row)
 
 
+def canonical_sha256(value: Any) -> str:
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def csv_manifest_rows(rows: list[dict[str, Any]]) -> list[dict[str, str]]:
+    return [
+        {
+            key: "" if value is None else str(value)
+            for key, value in row.items()
+        }
+        for row in rows
+    ]
+
+
+def build_manifest(
+    *,
+    args: argparse.Namespace,
+    input_rows: list[dict[str, Any]],
+    output_rows: list[dict[str, Any]],
+    diff_rows: list[dict[str, Any]],
+    human_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    return {
+        "format_version": ARTIFACT_FORMAT_VERSION,
+        "config": {
+            "verify": args.verify,
+            "nearby_lines": args.nearby_lines,
+            "max_file_bytes": args.max_file_bytes,
+            "max_repo_matches": args.max_repo_matches,
+        },
+        "counts": {
+            "input_rows": len(input_rows),
+            "output_rows": len(output_rows),
+            "diff_rows": len(diff_rows),
+            "needs_human_rows": len(human_rows),
+        },
+        "sha256": {
+            "input_rows": canonical_sha256(input_rows),
+            "output_rows": canonical_sha256(output_rows),
+            "diff_rows": canonical_sha256(csv_manifest_rows(diff_rows)),
+            "needs_human_rows": canonical_sha256(csv_manifest_rows(human_rows)),
+        },
+    }
+
+
+def write_manifest(path: Path, manifest: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        json.dump(manifest, handle, ensure_ascii=False, indent=2, sort_keys=True)
+        handle.write("\n")
+
+
 def count_by(rows: list[dict[str, Any]], key: str) -> Counter[str]:
     return Counter(str(row.get(key, "")) or "<empty>" for row in rows)
 
@@ -698,6 +790,9 @@ def write_summary(
         f"- Fixed JSONL: `{args.output.as_posix()}`",
         f"- Diff CSV: `{args.diff_out.as_posix()}`",
         f"- Needs-human CSV: `{args.needs_human_out.as_posix()}`",
+        f"- Artifact manifest: `{args.manifest_out.as_posix()}`",
+        "- Verifier: `scripts/verify_code_location_outputs.py`",
+        "- Acceptance matrix: `reports/code_location_acceptance_matrix.md`",
         "",
         markdown_count_table("Automatic fixes by strategy", count_by(diff_rows, "strategy")),
         "",
@@ -720,7 +815,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--diff-out", type=Path, default=DEFAULT_DIFF)
     parser.add_argument("--needs-human-out", type=Path, default=DEFAULT_NEEDS_HUMAN)
     parser.add_argument("--summary-out", type=Path, default=DEFAULT_SUMMARY)
-    parser.add_argument("--verify", choices=("0", "1", "all"), default="0")
+    parser.add_argument("--manifest-out", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument(
+        "--verify",
+        choices=("0", "1", "all"),
+        default="all",
+        help="entries to scan; full-dataset audit is the default",
+    )
     parser.add_argument("--entry-id", action="append", default=[])
     parser.add_argument("--nearby-lines", type=int, default=5)
     parser.add_argument("--max-file-bytes", type=int, default=3_000_000)
@@ -834,6 +935,16 @@ def main(argv: list[str] | None = None) -> int:
         human_rows=human_rows,
         validation_errors=validation_errors,
     )
+    write_manifest(
+        args.manifest_out,
+        build_manifest(
+            args=args,
+            input_rows=rows,
+            output_rows=fixed_rows,
+            diff_rows=diff_rows,
+            human_rows=human_rows,
+        ),
+    )
 
     print("summary", flush=True)
     print("-------", flush=True)
@@ -845,6 +956,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"wrote diff csv: {args.diff_out}", flush=True)
     print(f"wrote needs-human csv: {args.needs_human_out}", flush=True)
     print(f"wrote summary: {args.summary_out}", flush=True)
+    print(f"wrote manifest: {args.manifest_out}", flush=True)
 
     return 1 if validation_errors else 0
 

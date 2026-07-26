@@ -7,16 +7,16 @@ single unambiguous match.
 
 ## Run
 
-Quick run for the current unverified bucket:
+The default run audits all 408 entries:
+
+```bash
+python scripts/fix_code_locations.py
+```
+
+Use a verify bucket for a focused rerun:
 
 ```bash
 python scripts/fix_code_locations.py --verify 0
-```
-
-Run all entries after the source cache has been populated:
-
-```bash
-python scripts/fix_code_locations.py --verify all
 ```
 
 If HTTPS access to GitHub is unstable but SSH authentication is available:
@@ -40,6 +40,8 @@ python scripts/fix_code_locations.py --entry-id entry-00103 --entry-id entry-003
   metadata, or checkout failures.
 - `reports/code_location_summary.md`: reviewer-friendly summary with selected
   entries, fixed/manual counts, strategy counts, and manual-review reasons.
+- `reports/code_location_manifest.json`: platform-independent SHA-256
+  fingerprints for the input rows, fixed rows, diff rows, and human queue.
 - `reports/code_location_acceptance_matrix.md`: mapping from issue acceptance
   criteria to committed artifacts and verification commands.
 
@@ -62,6 +64,11 @@ For mismatched nodes, repair attempts are conservative and ordered:
 Only a unique match is repaired. Multiple matches or no matches are written to
 `needs_human.csv` and left unchanged.
 
+An integer `line` is treated as the start anchor of a multi-line snippet. It is
+not mechanically expanded into a range when the snippet already starts at that
+line. A string `"start-end"` location must match both boundaries. This avoids
+turning valid start anchors into noisy automatic repairs.
+
 Very low-information snippets such as a standalone `}`, `);`, or `return;` are
 also sent to `needs_human.csv` even if they have a unique textual match. These
 snippets are too generic to safely prove a semantic code location by themselves.
@@ -71,6 +78,11 @@ snippets are too generic to safely prove a semantic code location by themselves.
 Repositories are cloned under `.cache/source_repos` by default. For each
 `repo_url` / `commit`, the script fetches and checks out the exact commit, then
 uses `git ls-files` to decide which files to scan.
+
+Before using a cache, the tool requires a canonical GitHub repository URL, a
+40-character commit SHA, and an `origin` URL that resolves to the recorded
+repository. A cache directory from another repository is rejected instead of
+silently reused.
 
 Use `--offline` to require the cache to already contain the needed repos and
 commits.
@@ -108,6 +120,16 @@ Verify the committed artifacts without network access:
 ```bash
 python scripts/verify_code_location_outputs.py
 ```
+
+Verify all 12 repaired nodes against raw source files at their pinned commits:
+
+```bash
+GITHUB_TOKEN="$(gh auth token)" python scripts/verify_code_location_outputs.py --check-source
+```
+
+The verifier also proves that only `file`, `line`, and narrowly synchronized
+`desc` fields changed, human-queue nodes stayed unchanged, and every committed
+artifact still matches the manifest fingerprints.
 
 ## Limits
 

@@ -1,0 +1,21 @@
+{
+  "config": {
+    "max_file_bytes": 3000000,
+    "max_repo_matches": 100,
+    "nearby_lines": 5,
+    "verify": "all"
+  },
+  "counts": {
+    "diff_rows": 12,
+    "input_rows": 408,
+    "needs_human_rows": 75,
+    "output_rows": 408
+  },
+  "format_version": 2,
+  "sha256": {
+    "diff_rows": "866325243fa228b5dbbd5f23db41db0e0767f67260d730d5d9766d25f00b00df",
+    "input_rows": "7e83417132440cd4c89d6a2f52f8d9650702f103a4f424c74d199f5cc46da0d3",
+    "needs_human_rows": "02821b0a2e76bf4ecda848eb478cd0af03f332137fab1e9f44d0f82f00670333",
+    "output_rows": "81b913e1a35c9c84a9036fe7aa6a6fabaa7319c782abf6cd9fd2f5fe9de31aa7"
+  }
+}

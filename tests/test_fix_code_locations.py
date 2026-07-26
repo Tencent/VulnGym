@@ -72,6 +72,46 @@ class CodeLocationFixTests(unittest.TestCase):
 
         self.assertIn("| none | 0 |", table)
 
+    def test_full_dataset_scan_is_the_default(self):
+        self.assertEqual(fix.parse_args([]).verify, "all")
+
+    def test_integer_line_is_valid_multiline_start_anchor(self):
+        class Workspace:
+            def search_file(self, *_args, **_kwargs):
+                return [fix.Match(file="src/example.py", start=10, end=11)]
+
+            def search_repo(self, *_args, **_kwargs):
+                raise AssertionError("repo search should not run for an exact start anchor")
+
+        node = {
+            "file": "src/example.py",
+            "line": 10,
+            "code": "value = source\nreturn value",
+            "desc": "input propagation",
+        }
+        entry = {"entry_id": "entry-test", "verify": 0}
+        diff_rows = []
+        human_rows = []
+        result = fix.fix_node(
+            workspace=Workspace(),
+            entry=entry,
+            field_path="entry_point",
+            node=node,
+            diff_rows=diff_rows,
+            human_rows=human_rows,
+            args=fix.parse_args([]),
+        )
+        self.assertEqual(result, "ok")
+        self.assertEqual(node["line"], 10)
+        self.assertEqual(diff_rows, [])
+        self.assertEqual(human_rows, [])
+
+    def test_source_identity_rejects_non_github_and_invalid_commit(self):
+        with self.assertRaises(fix.CheckoutError):
+            fix.validate_source_identity("file:///tmp/repo", "a" * 40)
+        with self.assertRaises(fix.CheckoutError):
+            fix.validate_source_identity("https://github.com/owner/repo", "main")
+
     def test_committed_summary_mentions_verifier(self):
         summary = (SCRIPT.parents[1] / "reports" / "code_location_summary.md").read_text(
             encoding="utf-8"
