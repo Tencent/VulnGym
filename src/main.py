@@ -319,6 +319,7 @@ def write_fix_diff_csv(csv_path, rows):
     except Exception as e:
         print(f"fix_diff.csv写入失败：{e}")
 
+
 def process_single_node(
     node_path: str, node_meta: dict, repo_url: str, commit: str, entry_id: str,
     human_list: list, diff_list: list
@@ -431,6 +432,8 @@ def process_single_node(
             "命中明细": json.dumps(hit_info, ensure_ascii=False)
         })
         return node_meta
+
+
 def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
     '''
     全流程入口主函数，统筹读取JSONL、按行处理所有节点、落地修复JSONL+两份CSV
@@ -566,7 +569,6 @@ def full_batch_pipeline(cmd_start=None, cmd_end=None, cmd_max=None):
     else:
         print(f"全文件处理完成，有效行数 {len(final_fix_jsonl)}")
     print(f"修复文件输出：{FIXED_JSONL_OUTPUT_PATH}")
-    
 
 
 if __name__ == "__main__":
