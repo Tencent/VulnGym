@@ -131,3 +131,13 @@ security patch identifies the actual defect: `textFilter` decoded `&lt;` back to
   the eight target entries, schema invariants, semantic anchors, trace endpoints,
   documented verification statistics, and an optional cached-source check for
   all 64 nodes.
+- `scripts/verify_issue6_n8n_semantic_annotations.py` independently checks the
+  committed dataset, report mapping, field-level diff, mutation scope, text
+  integrity, and all 64 pinned source spans without relying on the test module.
+
+```bash
+python scripts/verify_issue6_n8n_semantic_annotations.py
+python scripts/verify_issue6_n8n_semantic_annotations.py \
+  --base /path/to/clean/entries.jsonl \
+  --check-upstream
+```

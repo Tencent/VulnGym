@@ -1,4 +1,5 @@
 import csv
+import importlib.util
 import json
 import os
 import re
@@ -14,6 +15,7 @@ REPORTS_PATH = ROOT / "data" / "reports.jsonl"
 README_PATH = ROOT / "README.md"
 README_ZH_PATH = ROOT / "README_zh.md"
 DIFF_CSV_PATH = ROOT / "reports" / "issue-6-n8n-semantic-review.diff.csv"
+VERIFIER_PATH = ROOT / "scripts" / "verify_issue6_n8n_semantic_annotations.py"
 TARGET_IDS = {
     "entry-00099",
     "entry-00100",
@@ -416,6 +418,18 @@ class SemanticAnnotationTests(unittest.TestCase):
                 checked += 1
 
         self.assertEqual(checked, 64)
+
+    def test_standalone_verifier_accepts_committed_artifacts(self):
+        spec = importlib.util.spec_from_file_location(
+            "issue6_n8n_verifier",
+            VERIFIER_PATH,
+        )
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        verifier = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(verifier)
+        verified = verifier.validate_local()
+        self.assertEqual(set(verified), TARGET_IDS)
 
     def _assert_node_shape(self, node):
         required = {"file", "line", "code"}
