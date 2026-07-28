@@ -83,6 +83,17 @@ class FastMcpOpenApiIssue7Tests(unittest.TestCase):
             <= {row["field"] for row in rows}
         )
 
+    def test_committed_artifacts_use_lf_and_one_final_newline(self):
+        for relative_path in (
+            "reports/issue-7-fastmcp-openapi.diff.csv",
+            "reports/issue-7-fastmcp-openapi.manual_review.csv",
+            "reports/issue-7-fastmcp-openapi-rebuild.md",
+        ):
+            data = (ROOT / relative_path).read_bytes()
+            self.assertNotIn(b"\r", data, relative_path)
+            self.assertTrue(data.endswith(b"\n"), relative_path)
+            self.assertFalse(data.endswith(b"\n\n"), relative_path)
+
     def test_readme_audit_statistics_match_dataset(self):
         entries = []
         with DATA_PATH.open(encoding="utf-8") as handle:

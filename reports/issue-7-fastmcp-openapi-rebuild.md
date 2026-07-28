@@ -106,12 +106,13 @@ The two rebuilt entries are `verify=1` because:
 4. the complete `entry-00394` chain reaches the authenticated request send.
 
 The apply script preserves every non-target JSONL line byte-for-byte and emits
-the field-level diff CSV. Its upstream mode verifies every annotated node
-occurrence plus the vulnerable-to-fix relationship:
+the field-level diff CSV. Generated text artifacts use UTF-8, LF line endings,
+one final newline, and a regression check that prevents platform-dependent CSV
+rewrites. Its upstream mode verifies every annotated node occurrence plus the
+vulnerable-to-fix relationship:
 
 ```bash
 python scripts/apply_issue7_fastmcp_openapi_patch.py
 python scripts/apply_issue7_fastmcp_openapi_patch.py --check-upstream
 python -m unittest discover -s tests -p "test_issue7_fastmcp_openapi.py" -v
 ```
-

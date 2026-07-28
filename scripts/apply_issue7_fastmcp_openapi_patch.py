@@ -327,6 +327,7 @@ def apply() -> None:
             writer = csv.DictWriter(
                 handle,
                 fieldnames=["entry_id", "field", "before", "after", "reason"],
+                lineterminator="\n",
             )
             writer.writeheader()
             writer.writerows(diff_rows)
