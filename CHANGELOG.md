@@ -4,6 +4,26 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Data correction — refine n8n semantic annotations for Issue #6.
+
+### Changed
+- Rebuilt the evidence chains for the six required n8n entries and one
+  independently audited entry.
+- Returned `entry-00182` to `verify = 0` pending maintainer review of its
+  corrected annotation.
+- Current audited coverage is **392 / 408** entries across **178 / 184**
+  advisories.
+
+### Added
+- A field-level review report and diff CSV for the seven corrected entries.
+- Independent online validation of each target advisory, direct fix commit,
+  vulnerable parent commit, and fix-specific patch marker.
+- Offline regression tests for schema invariants, semantic anchors, trace
+  endpoints, diff CSV coverage, documented verification statistics, and
+  optional source matching.
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
