@@ -13,6 +13,9 @@
 - Automatic changes: 0
 - Protected verified findings: 379
 - Manual-review findings: 4
+- Fingerprinted manual-review rows: 4
+- Manual-review schema version: 1
+- Manual-review manifest SHA-256: `d9e8f1cd72bce2179795730560fd224e47caf50109cb9f04943a8de629eb542f`
 - Input SHA-256: `8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2`
 - Output SHA-256: `8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2`
 

@@ -108,6 +108,18 @@ FINDING_FIELDS = [
     "reason",
 ]
 
+HUMAN_REVIEW_FIELDS = [
+    "review_id",
+    "dataset_sha256",
+    "entry_sha256",
+    "node_sha256",
+    "anchor_sha256",
+    *FINDING_FIELDS,
+    "decision",
+    "reviewer",
+    "rationale",
+]
+
 DIFF_FIELDS = [
     "entry_id",
     "field_path",
@@ -510,6 +522,61 @@ def _sha256(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def _object_sha256(value: Any) -> str:
+    canonical = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return _sha256(canonical)
+
+
+def _anchor_node(
+    entry: dict[str, Any],
+    anchor_field: str,
+) -> dict[str, Any]:
+    if anchor_field in {"entry_point", "critical_operation"}:
+        return entry[anchor_field]
+    match = re.fullmatch(r"trace\[(\d+)\]", anchor_field)
+    if not match:
+        raise ValueError(f"invalid anchor field: {anchor_field}")
+    return entry["trace"][int(match.group(1))]
+
+
+def _human_review_row(
+    finding: Finding,
+    entry: dict[str, Any],
+    dataset_sha256: str,
+) -> dict[str, Any]:
+    node = entry["trace"][finding.trace_index]
+    anchor = _anchor_node(entry, finding.anchor_field)
+    entry_sha256 = _object_sha256(entry)
+    node_sha256 = _object_sha256(node)
+    anchor_sha256 = _object_sha256(anchor)
+    review_id = _object_sha256(
+        {
+            "anchor_sha256": anchor_sha256,
+            "entry_id": finding.entry_id,
+            "entry_sha256": entry_sha256,
+            "kind": finding.kind,
+            "node_sha256": node_sha256,
+            "trace_index": finding.trace_index,
+        }
+    )
+    return {
+        "review_id": review_id,
+        "dataset_sha256": dataset_sha256,
+        "entry_sha256": entry_sha256,
+        "node_sha256": node_sha256,
+        "anchor_sha256": anchor_sha256,
+        **finding.csv_row(),
+        "decision": "",
+        "reviewer": "",
+        "rationale": "",
+    }
+
+
 def _render_report(
     stats: dict[str, Any],
     input_sha256: str,
@@ -536,6 +603,9 @@ def _render_report(
 - Automatic changes: {stats['changes_applied']}
 - Protected verified findings: {action_counts.get('protected_verified', 0)}
 - Manual-review findings: {action_counts.get('manual_review', 0)}
+- Fingerprinted manual-review rows: {stats['manual_review_rows']}
+- Manual-review schema version: {stats['manual_review_schema_version']}
+- Manual-review manifest SHA-256: `{stats['manual_review_manifest_sha256']}`
 - Input SHA-256: `{input_sha256}`
 - Output SHA-256: `{output_sha256}`
 
@@ -573,6 +643,7 @@ def write_artifacts(
     report_md_path: Path = DEFAULT_REPORT_MD,
 ) -> None:
     output_text = _serialize_jsonl(result.entries)
+    input_sha256 = _sha256(input_text)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(output_text, encoding="utf-8", newline="\n")
 
@@ -588,17 +659,33 @@ def write_artifacts(
     )
     _write_csv(
         needs_human_path,
-        FINDING_FIELDS,
+        HUMAN_REVIEW_FIELDS,
         (
-            finding.csv_row()
+            _human_review_row(
+                finding,
+                next(
+                    entry
+                    for entry in result.entries
+                    if entry["entry_id"] == finding.entry_id
+                ),
+                input_sha256,
+            )
             for finding in result.findings
             if finding.action == "manual_review"
         ),
     )
 
     stats = dict(result.stats)
-    stats["input_sha256"] = _sha256(input_text)
+    stats["input_sha256"] = input_sha256
     stats["output_sha256"] = _sha256(output_text)
+    stats["manual_review_rows"] = stats["action_counts"].get(
+        "manual_review",
+        0,
+    )
+    stats["manual_review_schema_version"] = 1
+    stats["manual_review_manifest_sha256"] = _sha256(
+        needs_human_path.read_text(encoding="utf-8")
+    )
     report_json_path.parent.mkdir(parents=True, exist_ok=True)
     report_json_path.write_text(
         json.dumps(stats, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

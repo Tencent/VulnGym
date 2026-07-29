@@ -13,6 +13,9 @@
     "duplicate": 7
   },
   "input_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+  "manual_review_manifest_sha256": "d9e8f1cd72bce2179795730560fd224e47caf50109cb9f04943a8de629eb542f",
+  "manual_review_rows": 4,
+  "manual_review_schema_version": 1,
   "mode": "fix",
   "needs_human_entries": [
     "entry-00103",

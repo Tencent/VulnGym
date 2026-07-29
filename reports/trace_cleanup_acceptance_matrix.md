@@ -13,9 +13,11 @@
 | 修复数据文件 | `data/entries.trace_fixed.jsonl`；保守结果与 canonical 字节级一致 |
 | 修改日志 | `trace_fix_diff.csv`；当前无安全自动修改，因此只有表头 |
 | 人工复核清单 | `trace_needs_human.csv` 精确记录 4 条未审核语义 finding |
+| 防过期人工决策 | 每条复核项绑定 dataset / entry / node / anchor 指纹与稳定 `review_id`；只接受 `keep` / `remove` 且要求 reviewer、rationale |
 | 检测报告 | `trace_structure_report.json` 与 `.md`，含策略、计数、entry 列表和输入/输出哈希 |
 | Schema 兼容 | 校验 entry 排序、report 映射、节点字段、line、commit、verify 和禁止字段 |
 | 可复现性 | 生成器使用标准库、固定 LF 输出；测试验证默认输出字节稳定和 fix 幂等 |
+| 独立产物验证 | `verify_trace_cleanup_outputs.py` 不导入生成器，独立重算 408 entries、2,073 nodes、383 findings 并核对所有产物 |
 | 源码证据 | `--check-upstream` 将 4 条人工复核样本的入口、关键操作和 finding 节点与固定提交逐字匹配 |
 
 ## 零自动修改说明

@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import importlib.util
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "trace_cleanup.py"
+VERIFIER = ROOT / "scripts" / "verify_trace_cleanup_outputs.py"
 SPEC = importlib.util.spec_from_file_location("trace_cleanup", SCRIPT)
 trace_cleanup = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
@@ -298,6 +300,18 @@ class ArtifactTests(unittest.TestCase):
                 {row["entry_id"] for row in rows},
                 trace_cleanup.TARGET_REVIEW_IDS,
             )
+            for row in rows:
+                for field in (
+                    "review_id",
+                    "dataset_sha256",
+                    "entry_sha256",
+                    "node_sha256",
+                    "anchor_sha256",
+                ):
+                    self.assertRegex(row[field], r"^[0-9a-f]{64}$")
+                self.assertEqual(row["decision"], "")
+                self.assertEqual(row["reviewer"], "")
+                self.assertEqual(row["rationale"], "")
 
     def test_committed_fixed_artifact_matches_canonical_bytes(self):
         fixed = ROOT / "data" / "entries.trace_fixed.jsonl"
@@ -311,6 +325,12 @@ class ArtifactTests(unittest.TestCase):
         )
         self.assertEqual(report["input_sha256"], report["output_sha256"])
         self.assertEqual(report["changes_applied"], 0)
+        self.assertEqual(report["manual_review_rows"], 4)
+        self.assertEqual(report["manual_review_schema_version"], 1)
+        self.assertRegex(
+            report["manual_review_manifest_sha256"],
+            r"^[0-9a-f]{64}$",
+        )
         self.assertEqual(
             report["needs_human_entries"],
             sorted(trace_cleanup.TARGET_REVIEW_IDS),
@@ -339,8 +359,102 @@ class ArtifactTests(unittest.TestCase):
             "trace_fix_diff.csv",
             "trace_needs_human.csv",
             "零自动修改",
+            "防过期人工决策",
+            "独立产物验证",
         ):
             self.assertIn(term, matrix)
+
+    def _run_verifier(self, *args: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [sys.executable, str(VERIFIER), *args],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+
+    @staticmethod
+    def _write_review_csv(
+        path: Path,
+        fieldnames: list[str],
+        rows: list[dict[str, str]],
+    ) -> None:
+        with path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(
+                handle,
+                fieldnames=fieldnames,
+                lineterminator="\n",
+            )
+            writer.writeheader()
+            writer.writerows(rows)
+
+    def test_independent_verifier_accepts_committed_artifacts(self):
+        result = self._run_verifier()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn(
+            "4 fingerprinted manual reviews",
+            result.stdout,
+        )
+
+    def test_independent_verifier_rejects_stale_review_fingerprints(self):
+        review_path = ROOT / "reports" / "trace_needs_human.csv"
+        with review_path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            fieldnames = list(reader.fieldnames or [])
+            original_rows = list(reader)
+
+        for field in (
+            "dataset_sha256",
+            "entry_sha256",
+            "node_sha256",
+            "anchor_sha256",
+        ):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as temp:
+                rows = [dict(row) for row in original_rows]
+                rows[0][field] = "0" * 64
+                decisions = Path(temp) / "decisions.csv"
+                self._write_review_csv(decisions, fieldnames, rows)
+                result = self._run_verifier("--decisions", str(decisions))
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(f"stale {field}", result.stderr)
+
+    def test_manual_decision_requires_allowed_value_reviewer_and_rationale(self):
+        review_path = ROOT / "reports" / "trace_needs_human.csv"
+        with review_path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            fieldnames = list(reader.fieldnames or [])
+            original_rows = list(reader)
+
+        cases = (
+            ("delete", "", "", "invalid decision"),
+            ("keep", "", "", "requires reviewer and rationale"),
+            ("", "reviewer", "reason", "require a decision"),
+        )
+        for decision, reviewer, rationale, message in cases:
+            with (
+                self.subTest(decision=decision, reviewer=reviewer),
+                tempfile.TemporaryDirectory() as temp,
+            ):
+                rows = [dict(row) for row in original_rows]
+                rows[0]["decision"] = decision
+                rows[0]["reviewer"] = reviewer
+                rows[0]["rationale"] = rationale
+                decisions = Path(temp) / "decisions.csv"
+                self._write_review_csv(decisions, fieldnames, rows)
+                result = self._run_verifier("--decisions", str(decisions))
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(message, result.stderr)
+
+        with tempfile.TemporaryDirectory() as temp:
+            rows = [dict(row) for row in original_rows]
+            rows[0]["decision"] = "keep"
+            rows[0]["reviewer"] = "maintainer"
+            rows[0]["rationale"] = "Runtime call order confirms this node."
+            decisions = Path(temp) / "decisions.csv"
+            self._write_review_csv(decisions, fieldnames, rows)
+            result = self._run_verifier("--decisions", str(decisions))
+            self.assertEqual(result.returncode, 0, result.stderr)
 
 
 if __name__ == "__main__":

@@ -28,6 +28,13 @@ python3 scripts/trace_cleanup.py --mode fix --order-policy structural
 
 # 将四条未审核边界 finding 与各自固定提交逐字核对
 python3 scripts/trace_cleanup.py --check-upstream
+
+# 使用完全独立的实现重算统计、核对全部产物与人工复核指纹
+python3 scripts/verify_trace_cleanup_outputs.py
+
+# 校验维护者填写的人工决策；输入或节点变化后旧决策会被拒绝
+python3 scripts/verify_trace_cleanup_outputs.py \
+  --decisions path/to/review-decisions.csv
 ```
 
 ## 产物
@@ -35,9 +42,20 @@ python3 scripts/trace_cleanup.py --check-upstream
 - `data/entries.trace_fixed.jsonl`：保守策略的完整输出。
 - `reports/trace_findings.csv`：全部结构 finding。
 - `reports/trace_fix_diff.csv`：实际自动修改；无安全修改时只有表头。
-- `reports/trace_needs_human.csv`：未审核且需要语义判断的 finding。
+- `reports/trace_needs_human.csv`：未审核且需要语义判断的 finding；每行绑定
+  dataset、entry、node、anchor 四级 SHA-256 指纹与稳定 `review_id`。
 - `reports/trace_structure_report.json`：机器可读统计、哈希与策略。
 - `reports/trace_structure_report.md`：面向 reviewer 的结果摘要。
+- `scripts/verify_trace_cleanup_outputs.py`：不导入生成器的独立产物验证器，
+  可额外校验人工决策文件。
+
+## 人工决策防过期机制
+
+`trace_needs_human.csv` 的 `decision` 仅允许留空、`keep` 或 `remove`。填写
+决定时必须同时提供 `reviewer` 与 `rationale`。验证器会用当前 canonical
+数据重新计算 `dataset_sha256`、`entry_sha256`、`node_sha256`、
+`anchor_sha256` 和 `review_id`；任一输入或定位节点发生变化，旧决策都会以
+stale 错误被拒绝，避免把先前审阅结论静默套用到新数据。
 
 ## 为什么默认不删除四条未审核边界 finding
 
