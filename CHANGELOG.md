@@ -4,6 +4,24 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Data correction — rebuild semantically misplaced and multistage vulnerability
+chains for Issue #7.
+
+### Changed
+- Rebuilt all five priority samples plus one directly fix-backed FastMCP
+  sibling: 6 targets, 52 annotated node occurrences, and 22 field-level
+  changes.
+- Raised three directly evidenced entries to `verify = 1`, bringing audited
+  coverage to **397 / 408** entries. `entry-00290` remains `verify = 0`
+  because its named fix commit changes tests only.
+
+### Added
+- Deterministic field diff, three-case manual-review artifact, SHA-256
+  manifest, independent output verifier, regression tests, and an online
+  validator for five advisory/direct-fix relationships.
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
