@@ -9,15 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 Data correction — refine n8n semantic annotations for Issue #6.
 
 ### Changed
-- Rebuilt the evidence chains for the six required n8n entries and two
-  independently audited entries.
-- Returned `entry-00182` and `entry-00191` to `verify = 0` pending maintainer
-  review of their corrected annotations.
-- Current audited coverage is **391 / 408** entries across **178 / 184**
+- Rebuilt the evidence chains for the six required n8n entries and one
+  independently audited entry.
+- Returned `entry-00182` to `verify = 0` pending maintainer review of its
+  corrected annotation.
+- Current audited coverage is **392 / 408** entries across **178 / 184**
   advisories.
 
 ### Added
-- A field-level review report and diff CSV for the eight corrected entries.
+- A field-level review report and diff CSV for the seven corrected entries.
+- Independent online validation of each target advisory, direct fix commit,
+  vulnerable parent commit, and fix-specific patch marker.
 - Offline regression tests for schema invariants, semantic anchors, trace
   endpoints, diff CSV coverage, documented verification statistics, and
   optional source matching.

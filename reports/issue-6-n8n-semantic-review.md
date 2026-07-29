@@ -2,14 +2,14 @@
 
 ## Scope
 
-This review corrects the six entries named in Issue #6 and adds two independently
-audited n8n entries whose annotations have the same semantic failure mode:
+This review corrects the six entries named in Issue #6 and adds one independently
+audited n8n entry whose annotation has the same semantic failure mode:
 
 - Required baseline: `entry-00099`, `entry-00100`, `entry-00103`,
   `entry-00176`, `entry-00511`, `entry-00512`
-- Additional findings: `entry-00182`, `entry-00191`
+- Additional finding: `entry-00182`
 
-All eight entries remain or become `verify=0`. A correction should not inherit a
+All seven entries remain or become `verify=0`. A correction should not inherit a
 previous human-review bit before maintainers review the new evidence chain.
 
 ## Review method
@@ -27,6 +27,22 @@ The selection rule is:
    bypassed, or perform the unsafe transformation that makes exploitation possible.
 3. `trace` must describe an executable data/control path; declarations and policy
    constants may appear only as supporting root-cause evidence.
+
+The independent verifier also binds every target advisory to a concrete upstream
+security change:
+
+| Advisory | Vulnerable snapshot | Direct fix | Patch evidence |
+|---|---|---|---|
+| `GHSA-5XRP-6693-JJX9` | `8ab4492e` | `30383d86` | reserved names and `WithStatement` handling |
+| `GHSA-825Q-W924-XHGX` | `57d6015f` | `ced34c0f` | normalized Content-Type comparison |
+| `GHSA-MMGG-M5J7-F83H` | `3af90952` | `062644ef` | `__objclass__` added to the denylist |
+| `GHSA-VPCF-GVG4-6QWR` | `8e81f3e3` | `9e5212ec` | `__objclass__` added at this release snapshot |
+| `GHSA-6CQR-8CFR-67F8` | `09e2c2b5` | `1acdafe6` | unsafe property rejection and immutable guard binding |
+
+For every row, the vulnerable snapshot is the direct fix commit's first parent.
+The advisory identity, affected-package metadata, parent relationship, and
+security-specific patch markers are checked online rather than inferred from a
+commit message.
 
 ## Required entries
 
@@ -110,15 +126,13 @@ corrected chain therefore mirrors the concrete Python Code-node path at this
 entry's own vulnerable commit: node parameter -> Python task -> analyzer ->
 incomplete attribute decision -> `exec`.
 
-### entry-00191
+### Confidence boundary: entry-00191
 
-This entry was also marked `verify=1`, yet its trace followed an unrelated
-`hiddenField` branch and ended at the declaration of `sanitizeCustomCss`. The
-security patch identifies the actual defect: `textFilter` decoded `&lt;` back to
-`<` after sanitize-html encoded it, allowing a payload to recreate
-`</style><script>` boundaries. The corrected chain follows
-`options.customCss` -> `renderForm` -> `sanitizeCustomCss` -> the unsafe decode at
-`utils.ts:149`.
+`entry-00191` was examined but is deliberately not changed by this PR. The
+advisory's direct fix changes Form HTML-field expression handling; it does not
+modify `sanitizeCustomCss` or its `textFilter`. A `customCss` rewrite would
+therefore lack direct patch support and is excluded instead of being presented as
+a verified additional finding.
 
 ## Compatibility and validation
 
@@ -126,14 +140,16 @@ security patch identifies the actual defect: `textFilter` decoded `&lt;` back to
 - All line locations use positive integers or supported `start-end` ranges.
 - JSON objects remain alphabetically keyed and the file remains UTF-8 JSONL.
 - The diff CSV is generated against the clean base snapshot and lists every
-  changed semantic field plus the two verification-state changes.
+  changed semantic field plus the one verification-state change.
 - `tests/test_n8n_semantic_annotations.py` provides offline regression checks for
-  the eight target entries, schema invariants, semantic anchors, trace endpoints,
+  the seven target entries, schema invariants, semantic anchors, trace endpoints,
   documented verification statistics, and an optional cached-source check for
-  all 64 nodes.
+  all 58 nodes.
 - `scripts/verify_issue6_n8n_semantic_annotations.py` independently checks the
   committed dataset, report mapping, field-level diff, mutation scope, text
-  integrity, and all 64 pinned source spans without relying on the test module.
+  integrity, all 58 pinned source spans, five advisories, five direct security
+  fixes, and five vulnerable-parent relationships without relying on the test
+  module.
 
 ```bash
 python scripts/verify_issue6_n8n_semantic_annotations.py

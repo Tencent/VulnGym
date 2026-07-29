@@ -22,7 +22,6 @@ TARGET_IDS = {
     "entry-00103",
     "entry-00176",
     "entry-00182",
-    "entry-00191",
     "entry-00511",
     "entry-00512",
 }
@@ -139,37 +138,6 @@ ANCHORS = {
             213,
         ),
     },
-    "entry-00191": {
-        "entry_point": (
-            "packages/nodes-base/nodes/Form/utils/utils.ts",
-            "590-605",
-            "\tconst options = context.getNodeParameter('options', {}) as {\n"
-            "\t\tignoreBots?: boolean;\n"
-            "\t\tipWhitelist?: string;\n"
-            "\t\trespondWithOptions?: {\n"
-            "\t\t\tvalues: {\n"
-            "\t\t\t\trespondWith: 'text' | 'redirect';\n"
-            "\t\t\t\tformSubmittedText: string;\n"
-            "\t\t\t\tredirectUrl: string;\n"
-            "\t\t\t};\n"
-            "\t\t};\n"
-            "\t\tformSubmittedText?: string;\n"
-            "\t\tuseWorkflowTimezone?: boolean;\n"
-            "\t\tappendAttribution?: boolean;\n"
-            "\t\tbuttonLabel?: string;\n"
-            "\t\tcustomCss?: string;\n"
-            "\t};",
-        ),
-        "critical_operation": (
-            "packages/nodes-base/nodes/Form/utils/utils.ts",
-            149,
-            "\t\ttextFilter: (text) => text.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&'),",
-        ),
-        "trace_end": (
-            "packages/nodes-base/nodes/Form/utils/utils.ts",
-            "141-150",
-        ),
-    },
     "entry-00511": {
         "entry_point": (
             "packages/workflow/src/expression.ts",
@@ -276,19 +244,19 @@ class SemanticAnnotationTests(unittest.TestCase):
             for rows in grouped.values()
         )
 
-        self.assertEqual((len(verified_entries), len(verified_reports)), (391, 178))
-        self.assertEqual((fully_verified, partially_verified), (172, 6))
+        self.assertEqual((len(verified_entries), len(verified_reports)), (392, 178))
+        self.assertEqual((fully_verified, partially_verified), (173, 5))
 
         readme = README_PATH.read_text(encoding="utf-8")
         readme_zh = README_ZH_PATH.read_text(encoding="utf-8")
-        self.assertIn("391 / 408 (95.8 %)", readme)
+        self.assertIn("392 / 408 (96.1 %)", readme)
         self.assertIn("178 / 184 (96.7 %)", readme)
-        self.assertIn("**172** have all of their entries verified", readme)
-        self.assertIn("**6** are partially verified", readme)
-        self.assertIn("391 / 408 (95.8%)", readme_zh)
+        self.assertIn("**173** have all of their entries verified", readme)
+        self.assertIn("**5** are partially verified", readme)
+        self.assertIn("392 / 408 (96.1%)", readme_zh)
         self.assertIn("178 / 184 (96.7%)", readme_zh)
-        self.assertIn("**172** 条 advisory 的所有入口均已审计通过", readme_zh)
-        self.assertIn("**6** 条为部分审计通过", readme_zh)
+        self.assertIn("**173** 条 advisory 的所有入口均已审计通过", readme_zh)
+        self.assertIn("**5** 条为部分审计通过", readme_zh)
 
     def test_review_csv_covers_every_changed_field(self):
         with DIFF_CSV_PATH.open(encoding="utf-8", newline="") as handle:
@@ -305,7 +273,7 @@ class SemanticAnnotationTests(unittest.TestCase):
         for entry_id in TARGET_IDS:
             fields = {row["field"] for row in grouped[entry_id]}
             expected_fields = {"entry_point", "critical_operation", "trace"}
-            if entry_id in {"entry-00182", "entry-00191"}:
+            if entry_id == "entry-00182":
                 expected_fields.add("verify")
                 verify_row = next(
                     row for row in grouped[entry_id] if row["field"] == "verify"
@@ -317,7 +285,7 @@ class SemanticAnnotationTests(unittest.TestCase):
             self.assertEqual(fields, expected_fields, entry_id)
             self.assertEqual(len(grouped[entry_id]), len(expected_fields), entry_id)
 
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(rows), 22)
 
     def test_all_target_entries_are_present_and_unverified(self):
         self.assertEqual(set(self.by_id) & TARGET_IDS, TARGET_IDS)
@@ -417,7 +385,7 @@ class SemanticAnnotationTests(unittest.TestCase):
                 self.assertEqual(actual, node["code"], f"{entry_id}: {node['file']}:{node['line']}")
                 checked += 1
 
-        self.assertEqual(checked, 64)
+        self.assertEqual(checked, 58)
 
     def test_standalone_verifier_accepts_committed_artifacts(self):
         spec = importlib.util.spec_from_file_location(
@@ -430,6 +398,23 @@ class SemanticAnnotationTests(unittest.TestCase):
         spec.loader.exec_module(verifier)
         verified = verifier.validate_local()
         self.assertEqual(set(verified), TARGET_IDS)
+
+    def test_fix_evidence_covers_every_target_advisory(self):
+        spec = importlib.util.spec_from_file_location(
+            "issue6_n8n_verifier_evidence",
+            VERIFIER_PATH,
+        )
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        verifier = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(verifier)
+        target_reports = {self.by_id[entry_id]["report_id"] for entry_id in TARGET_IDS}
+        self.assertEqual(set(verifier.FIX_EVIDENCE), target_reports)
+        for report_id, evidence in verifier.FIX_EVIDENCE.items():
+            with self.subTest(report_id=report_id):
+                self.assertRegex(evidence["fix"], r"^[0-9a-f]{40}$")
+                self.assertRegex(evidence["vulnerable"], r"^[0-9a-f]{40}$")
+                self.assertTrue(evidence["markers"])
 
     def _assert_node_shape(self, node):
         required = {"file", "line", "code"}

@@ -31,12 +31,43 @@ TARGET_IDS = {
     "entry-00103",
     "entry-00176",
     "entry-00182",
-    "entry-00191",
     "entry-00511",
     "entry-00512",
 }
-EXPECTED_DIFF_ROWS = 26
-EXPECTED_NODE_OCCURRENCES = 64
+EXPECTED_DIFF_ROWS = 22
+EXPECTED_NODE_OCCURRENCES = 58
+GITHUB_API = "https://api.github.com"
+
+# Each fix is independently bound to the vulnerable snapshot recorded by the
+# corresponding entry.  Patch markers are deliberately narrow security
+# semantics, not commit-message or filename checks.
+FIX_EVIDENCE = {
+    "GHSA-5XRP-6693-JJX9": {
+        "fix": "30383d86139f3279a698df8d229eadfefe8627f4",
+        "vulnerable": "8ab4492e8c0b743455e51fc111441d8d5010a6ad",
+        "markers": ("RESERVED_VARIABLE_NAMES", "visitWithStatement"),
+    },
+    "GHSA-825Q-W924-XHGX": {
+        "fix": "ced34c0f93ab4c759a56065965986094d8ef7323",
+        "vulnerable": "57d6015f2ea0442c24e0449105325b7e36f066df",
+        "markers": ("contentType.trim().toLowerCase()",),
+    },
+    "GHSA-MMGG-M5J7-F83H": {
+        "fix": "062644ef786b6af480afe4a0f12bc6d70040534a",
+        "vulnerable": "3af9095245be3aaad6bc16622f379f79c6c6068f",
+        "markers": ('"__objclass__"',),
+    },
+    "GHSA-VPCF-GVG4-6QWR": {
+        "fix": "9e5212ecbc5d2d4e6f340b636a5e84be6369882e",
+        "vulnerable": "8e81f3e31398b04fd6f8cc27cf844980cd382117",
+        "markers": ('"__objclass__"',),
+    },
+    "GHSA-6CQR-8CFR-67F8": {
+        "fix": "1acdafe6ac862dfc4d04783a68c2bb065ab8c6a6",
+        "vulnerable": "09e2c2b5547b49a824a8265d312583f5d1f5c79f",
+        "markers": ("UNSAFE_PROPERTY_NAMES", "Object.defineProperty", "Cannot override"),
+    },
+}
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -261,6 +292,13 @@ def fetch_text(url: str, attempts: int = 3) -> str:
     raise RuntimeError(f"unable to fetch {url}: {last_error}")
 
 
+def fetch_json(url: str) -> dict[str, Any]:
+    payload = json.loads(fetch_text(url))
+    if not isinstance(payload, dict):
+        raise ValueError(f"expected JSON object from {url}")
+    return payload
+
+
 def validate_upstream(entries: dict[str, dict[str, Any]]) -> None:
     source_cache: dict[tuple[str, str, str], list[str]] = {}
     checked = 0
@@ -295,6 +333,51 @@ def validate_upstream(entries: dict[str, dict[str, Any]]) -> None:
     )
 
 
+def validate_security_evidence(
+    entries: dict[str, dict[str, Any]],
+) -> None:
+    report_ids = {entry["report_id"] for entry in entries.values()}
+    if report_ids != set(FIX_EVIDENCE):
+        raise ValueError(
+            "target advisory coverage differs from fix evidence: "
+            f"{sorted(report_ids)}"
+        )
+
+    for report_id, expected in FIX_EVIDENCE.items():
+        advisory = fetch_json(f"{GITHUB_API}/advisories/{report_id}")
+        if advisory.get("ghsa_id", "").upper() != report_id:
+            raise ValueError(f"{report_id}: advisory identity mismatch")
+        if advisory.get("source_code_location") != "https://github.com/n8n-io/n8n":
+            raise ValueError(f"{report_id}: unexpected advisory source repository")
+        if not advisory.get("summary") or not advisory.get("vulnerabilities"):
+            raise ValueError(f"{report_id}: advisory lacks reviewed package evidence")
+
+        commit = fetch_json(
+            f"{GITHUB_API}/repos/n8n-io/n8n/commits/{expected['fix']}"
+        )
+        if commit.get("sha") != expected["fix"]:
+            raise ValueError(f"{report_id}: fix commit identity mismatch")
+        parents = commit.get("parents", [])
+        if not parents or parents[0].get("sha") != expected["vulnerable"]:
+            raise ValueError(
+                f"{report_id}: vulnerable snapshot is not the fix's first parent"
+            )
+        patch = "\n".join(
+            file.get("patch", "") for file in commit.get("files", [])
+        )
+        for marker in expected["markers"]:
+            if marker not in patch:
+                raise ValueError(
+                    f"{report_id}: fix patch is missing marker {marker!r}"
+                )
+
+    print(
+        "security evidence verification passed: "
+        f"{len(FIX_EVIDENCE)} advisories, {len(FIX_EVIDENCE)} direct fixes, "
+        f"{len(FIX_EVIDENCE)} vulnerable-parent relationships"
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -317,6 +400,7 @@ def main() -> None:
     )
     if args.check_upstream:
         validate_upstream(entries)
+        validate_security_evidence(entries)
 
 
 if __name__ == "__main__":
