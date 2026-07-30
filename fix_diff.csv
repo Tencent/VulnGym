@@ -1,4 +1,51 @@
-entry_id,field_path,old_file,old_line,old_desc,new_file,new_line,new_desc,strategy
+entry_id,field_path,old_file,old_line,old_value,new_file,new_line,new_value,rationale
+entry-00185,entry_point,packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,46,"append 配置项的默认值，不是攻击者可控数据来源。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,70,"从节点参数读取攻击者指定的 fileName，作为真实路径 source。",source_rebuild
+entry-00185,critical_operation,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,48,"resolvePath 函数闭合括号，不执行文件写入。",packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,128-131,"fsWriteFile 使用已解析路径和攻击者内容执行真实磁盘写入。",sink_rebuild
+entry-00185,trace[0],packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,46,"append 默认值。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,70,"读取用户指定的 fileName。",trace_rebuild
+entry-00185,trace[1],packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,75-82,"旧链路记录 item 初始化，未准确描述路径和写入模式的传播。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,71-74,"读取 options 并根据 append 选择写入标志。",trace_rebuild
+entry-00185,trace[2],packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,65,"isFilePathBlocked 返回 false。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,86-93,"从输入二进制数据取得待写入 fileContent。",trace_rebuild
+entry-00185,trace[3],packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,48,"resolvePath 函数闭合括号。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,96-100,"解析 fileName 并把路径、内容和写入标志传给 writeContentToFile。",trace_rebuild
+entry-00185,trace[4],,,,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,119,"writeContentToFile 调用 isFilePathBlocked 检查解析后的目标路径。",trace_expand
+entry-00185,trace[5],,,,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,50-66,"旧实现只检查受限路径和允许路径，未阻断 .git 路径模式。",trace_expand
+entry-00185,trace[6],,,,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,128-131,"通过检查后调用 fsWriteFile 完成落盘。",trace_expand
+entry-00185,verify,,,0,,,1,source_exact_match
+entry-00320,entry_point,src/backend/base/langflow/api/v2/files.py,163-166,"原入口位于 rsplit 文件名拆分逻辑，未覆盖 multipart 外部输入首次进入位置。",src/backend/base/langflow/api/v2/files.py,162,"upload_user_file 直接读取 file.filename，作为路径穿越载荷的准确 source。",source_rebuild
+entry-00391,entry_point,src/fastmcp/utilities/openapi/director.py,23,"原入口只标注 def build( 单行。",src/fastmcp/utilities/openapi/director.py,23-28,"扩展为完整 build 签名，明确 flat_args 与 base_url 的输入边界。",source_rebuild
+entry-00391,critical_operation,src/fastmcp/utilities/openapi/director.py,194,"原 critical_operation 是 _build_url 方法声明，没有执行危险操作。",src/fastmcp/utilities/openapi/director.py,213,"移动到未编码 str.replace 执行语句，直接对应漏洞根因。",critical_operation_rebuild
+entry-00391,trace[0],src/fastmcp/utilities/openapi/director.py,23-28,"原 build 入口位置准确。",src/fastmcp/utilities/openapi/director.py,23-28,"保留输入边界并明确不可信 flat_args 携带 path 参数。",desc_rebuild
+entry-00391,trace[1],src/fastmcp/utilities/openapi/director.py,40-44,"原节点由 logger 和 Step 1 注释组成，属于弱相关节点。",src/fastmcp/utilities/openapi/director.py,45-47,"替换为 _unflatten_arguments 的真实调用。",weak_node_replaced
+entry-00391,trace[2],src/fastmcp/utilities/openapi/director.py,114-115,"原节点位置准确。",src/fastmcp/utilities/openapi/director.py,114-115,"明确原始 value 未编码写入 path_params。",desc_rebuild
+entry-00391,trace[3],src/fastmcp/utilities/openapi/director.py,194-203,"原节点为 _build_url 声明和 docstring，缺少执行语句。",src/fastmcp/utilities/openapi/director.py,54,"替换为 build 调用 _build_url 的实际传播节点。",weak_node_replaced
+entry-00391,trace[4],,,,src/fastmcp/utilities/openapi/director.py,209-213,"新增模板遍历和未编码字符串替换节点。",trace_added
+entry-00391,trace[5],,,,src/fastmcp/utilities/openapi/director.py,216,"新增 urljoin 拼接与路径规范化 sink。",trace_added
+entry-00391,verify,,,0,,,1,source_verified
+entry-00290,entry_point,src/agents/apply-patch.ts,94,"原入口位置准确，但描述未简洁绑定 patch 参数 source。",src/agents/apply-patch.ts,94,"保留 execute 工具入口，明确悬空链接路径通过 patch 文本进入。",desc_rebuild
+entry-00290,critical_operation,src/infra/boundary-path.ts,196,"原 critical_operation 是边界 guard 的决策节点，不执行文件写入。",src/agents/apply-patch.ts,152,"移动到 Add File 分支的 fileOps.writeFile，作为实际越界写入 sink。",sink_rebuild
+entry-00290,trace[0],src/agents/apply-patch.ts,94,"原描述只说明工具入口。",src/agents/apply-patch.ts,94,"补充攻击者预先准备悬空链接并让 Add File hunk 使用该路径。",multistage_rebuild
+entry-00290,trace[1],src/agents/apply-patch.ts,106,"原描述较宽泛。",src/agents/apply-patch.ts,106,"明确 input 与 workspace/sandbox 选项进入 applyPatch 调度。",desc_rebuild
+entry-00290,trace[2],src/agents/apply-patch.ts,150,"原描述位置准确。",src/agents/apply-patch.ts,150,"明确 Add File 的 hunk.path 进入 resolvePatchPath，返回值随后用于写入。",desc_rebuild
+entry-00290,trace[3],src/agents/apply-patch.ts,281,"原节点只有三元运算符 ? (，语义过弱。",src/agents/apply-patch.ts,282-289,"替换为实际 assertSandboxPath 调用块，表达 workspace-only guard 入口。",weak_node_replaced
+entry-00290,trace[4],src/agents/sandbox-paths.ts,72,"原节点只标注调用首行。",src/agents/sandbox-paths.ts,72-77,"扩展为 assertNoPathAliasEscape 完整参数块，明确 root 和 policy。",guard_rebuild
+entry-00290,trace[5],src/infra/boundary-path.ts,196,"原节点把 guard failure 误写成调用链最终执行点。",src/infra/boundary-path.ts,196-203,"保留并扩展 canonical 检查与拒绝分支，明确它是错误放行原因而非 sink。",guard_failure_rebuild
+entry-00290,trace[6],,,,src/agents/apply-patch.ts,152,"新增 fileOps.writeFile 最终写入节点，使 trace 落到危害执行点。",sink_added
+entry-00290,verify,,,0,,,1,source_verified
+entry-00197,entry_point,src/media/server.ts,35-36,"原描述使用英文说明 URL 参数来源。",src/media/server.ts,35-36,"重写为中文，明确 GET /media/:id 是主触发入口，req.params.id 是外部 source。",desc_rebuild
+entry-00197,critical_operation,src/media/server.ts,57,"原描述把风险简化为最终读取。",src/media/server.ts,57,"明确 handle.readFile 是 use sink，并说明修复将 check、限制与读取统一到 root-scoped helper。",desc_rebuild
+entry-00197,trace[0],src/media/server.ts,35-36,"原描述仅说明 HTTP 调用链起点。",src/media/server.ts,35-36,"补充攻击者前置准备 media path 或 symlink，以及 GET 请求的主触发阶段。",multistage_rebuild
+entry-00197,trace[1],src/media/server.ts,37,"原描述未清晰区分格式校验与文件系统边界校验。",src/media/server.ts,37,"明确 isValidMediaId 只是语法 guard，不能保证检查后文件系统状态不变。",guard_rebuild
+entry-00197,trace[2],src/media/server.ts,42-44,"原描述将 openFileWithinRoot 标记为 check，但缺少调用点分离语义。",src/media/server.ts,42-44,"明确返回 handle、realPath、stat 的 root-scoped check 阶段及跨步骤生命周期。",check_rebuild
+entry-00197,trace[3],src/media/server.ts,46-49,"原描述为英文大小检查说明。",src/media/server.ts,46-49,"明确 stat 快照大小检查位于 check 与 use 之间，是窗口阶段之一。",window_rebuild
+entry-00197,trace[4],src/media/server.ts,51-55,"原描述为英文 TTL 检查说明。",src/media/server.ts,51-55,"明确 TTL 和 realPath 删除逻辑扩大 check/use 控制流间隔。",window_rebuild
+entry-00197,trace[5],src/media/server.ts,57,"原描述把 symlink 替换直接归因于 handle 读取。",src/media/server.ts,57,"按公告和修复补丁说明调用点间的 check/use drift，并保留最终读取 sink。",sink_rebuild
+entry-00197,verify,,,0,,,1,source_verified
+entry-00320,trace[0],src/backend/base/langflow/api/v2/files.py,163-166,"原 trace 从 rsplit 开始，缺少 file.filename source。",src/backend/base/langflow/api/v2/files.py,162,"补入 multipart filename 外部输入节点。",source_rebuild
+entry-00320,trace[1],src/backend/base/langflow/api/v2/files.py,205-214,"原节点直接进入去重逻辑，未单独保留拆分阶段。",src/backend/base/langflow/api/v2/files.py,163-166,"补入 rsplit 不净化路径片段的传播节点。",trace_rebuild
+entry-00320,trace[2],src/backend/base/langflow/api/v2/files.py,119-122,"原节点使用 save_file_routine 的备用赋值分支，未反映实际调用方已传入 file_name。",src/backend/base/langflow/api/v2/files.py,205-214,"保留 unique_filename 去重与重组过程中穿越片段不变的节点。",trace_rebuild
+entry-00320,trace[3],src/backend/base/langflow/services/storage/local.py,120,"原 trace 从 API 层直接跳到最终 sink，缺少跨层传播和路径构造。",src/backend/base/langflow/api/v2/files.py,218-220,"补入 unique_filename 传给 save_file_routine 的 API 内部调用。",trace_rebuild
+entry-00320,trace[4],,,,src/backend/base/langflow/api/v2/files.py,125,"补入 file_name 原样传给 storage_service.save_file 的跨层调用。",trace_rebuild
+entry-00320,trace[5],,,,src/backend/base/langflow/services/storage/local.py,114-116,"补入 folder_path / file_name 的未约束路径拼接。",trace_rebuild
+entry-00320,trace[6],src/backend/base/langflow/services/storage/local.py,120,"原 sink 节点位置准确，但缺少完整上游链路。",src/backend/base/langflow/services/storage/local.py,120,"保留 async_open 实际写入 sink，并明确操作系统解析穿越片段。",trace_rebuild
+entry-00320,verify,,,0,,,1,source_exact_match
 entry-00090,trace[3],packages/nodes-base/nodes/Code/Code.node.ts,174-183,"在调用栈下游，getSandbox 工厂函数调用 getSandboxContext.call(this, index) 获取含有 helpers 的执行上下文，并附加 items 或 item 字段后，将整个 context 对象传递给 JavaScriptSandbox 构造函数，是文件系统辅助函数从外层上下文流入 vm2 沙箱的传递桥梁。",packages/nodes-base/nodes/Code/Code.node.ts,174-182,"在调用栈下游，getSandbox 工厂函数调用 getSandboxContext.call(this, index) 获取含有 helpers 的执行上下文，并附加 items 或 item 字段后，将整个 context 对象传递给 JavaScriptSandbox 构造函数，是文件系统辅助函数从外层上下文流入 vm2 沙箱的传递桥梁。",nearby_line
 entry-00103,trace[1],packages/cli/src/webhooks/webhook-helpers.ts,605-614,trace 第 1 步，位于 webhook-helpers.ts 第 605–614 行的 streaming 分支体内：responseMode 为 'streaming' 时，runData.httpResponse 被直接赋值为 res，runData.streamingEnabled 置为 true，didSendResponse 标记设为已响应。随后调用栈下游的 setResponseHeaders() 将以此 res 对象为操作目标，对用户指定的 headers 进行写入与读回。,packages/cli/src/webhooks/webhook-helpers.ts,606-614,trace 第 1 步，位于 webhook-helpers.ts 第 605–614 行的 streaming 分支体内：responseMode 为 'streaming' 时，runData.httpResponse 被直接赋值为 res，runData.streamingEnabled 置为 true，didSendResponse 标记设为已响应。随后调用栈下游的 setResponseHeaders() 将以此 res 对象为操作目标，对用户指定的 headers 进行写入与读回。,nearby_line
 entry-00103,trace[2],packages/cli/src/webhooks/webhook-request-handler.ts,146-155,trace 第 2 步，setResponseHeaders() 位于 webhook-request-handler.ts 第 146–155 行，承接来自上游的 res 对象，将用户工作流指定的 headers 逐条通过 res.setHeader() 写入响应——含潜在首尾空白的 content-type 于此被设置。随后函数读回 content-type 头的当前值并调用 isHtmlRenderedContentType(contentType)，needsSandbox 的布尔结果决定是否追加 CSP sandbox 头，污染值由此传入检测函数。,packages/cli/src/webhooks/webhook-request-handler.ts,146-154,trace 第 2 步，setResponseHeaders() 位于 webhook-request-handler.ts 第 146–155 行，承接来自上游的 res 对象，将用户工作流指定的 headers 逐条通过 res.setHeader() 写入响应——含潜在首尾空白的 content-type 于此被设置。随后函数读回 content-type 头的当前值并调用 isHtmlRenderedContentType(contentType)，needsSandbox 的布尔结果决定是否追加 CSP sandbox 头，污染值由此传入检测函数。,nearby_line

@@ -4,6 +4,22 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.5] — 2026-07-30
+
+Source-backed annotation rebuild for five vulnerability entries.
+
+### Changed
+- Rebuilt the source-to-sink chains for `entry-00185`, `entry-00197`,
+  `entry-00290`, `entry-00320`, and `entry-00391` against their vulnerable commits.
+- Human-audited entries grew from **393 → 398 / 408** (97.5 %),
+  covering **179 / 184** advisories (97.3 %).
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **398** (was 393)
+- human-audited advisories (≥ 1 verified entry): **179** (was 178)
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.
