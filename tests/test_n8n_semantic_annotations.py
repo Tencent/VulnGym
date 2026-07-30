@@ -56,6 +56,14 @@ class N8nSemanticAnnotationTests(unittest.TestCase):
     def test_semantic_anchors_match_reviewed_chains(self) -> None:
         verify.check_semantic_anchors(gen.load_jsonl(gen.PATCH_JSONL))
 
+    def test_manual_run_entry_uses_request_handoff_not_route_metadata(self) -> None:
+        rows = {row["entry_id"]: row for row in gen.load_jsonl(gen.PATCH_JSONL)}
+        entry = rows["entry-00099"]["entry_point"]
+        self.assertEqual(entry["line"], "561-565")
+        self.assertIn("executeManually", entry["code"])
+        self.assertIn("req.body", entry["code"])
+        self.assertNotIn("@Post", entry["code"])
+
     def test_policy_gap_is_critical_and_exec_is_impact_for_python(self) -> None:
         rows = {row["entry_id"]: row for row in gen.load_jsonl(gen.PATCH_JSONL)}
         python_row = rows["entry-00176"]

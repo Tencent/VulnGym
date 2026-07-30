@@ -3,7 +3,7 @@
 | acceptance item | covered by |
 |---|---|
 | Repaired rows match vulnerable source commits | raw-source comparison for every `{file,line,code}` node |
-| `entry_point` reflects external input, user config, request, or workflow parameter entry | repaired `entry_point` fields in `data/entries.n8n_semantic_fixed.jsonl` |
+| `entry_point` reflects external input, user config, request, or workflow parameter entry | repaired `entry_point` fields in `data/entries.n8n_semantic_fixed.jsonl`; `entry-00099` uses the executable `req.body` to `executeManually` handoff rather than route metadata |
 | `critical_operation` points to the vulnerability-specific execution, decision, or mutable guard | exact semantic-anchor checks and `reports/n8n_semantic_fix_notes.md` |
 | `trace` keeps important data-flow/control-flow nodes and removes irrelevant nodes | repaired `trace` arrays and field-level diff CSV |
 | Vulnerable snapshot is directly tied to the reviewed fix | four fix commits must have the recorded vulnerable commit as first parent |

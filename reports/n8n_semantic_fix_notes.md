@@ -49,10 +49,13 @@ from another release branch.
 
 ### `entry-00099`
 
-The authenticated workflow-run route remains the external trigger. The trace
-then follows parameter resolution, expression-prefix removal, syntax
-expansion, and evaluator dispatch. The critical operation is the Tournament
-evaluator call, not an AST sanitizer declaration.
+The authenticated manual-run handler forwards `req.body`, including workflow
+nodes and their expression parameters, into `executeManually`. This executable
+handoff is the real request-to-workflow boundary; the `@Post` decorator only
+registers route metadata. The trace then follows parameter resolution,
+expression-prefix removal, syntax expansion, and evaluator dispatch. The
+critical operation is the Tournament evaluator call, not an AST sanitizer
+declaration.
 
 Direct fix evidence: commit
 `30383d86139f3279a698df8d229eadfefe8627f4` has the recorded vulnerable commit

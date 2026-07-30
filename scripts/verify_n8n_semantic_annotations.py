@@ -26,7 +26,7 @@ GITHUB_API = "https://api.github.com"
 
 EXPECTED_ANCHORS = {
     "entry-00099": {
-        "entry": ("packages/cli/src/workflows/workflows.controller.ts", "539"),
+        "entry": ("packages/cli/src/workflows/workflows.controller.ts", "561-565"),
         "critical": ("packages/workflow/src/expression-evaluator-proxy.ts", "19-20"),
         "trace_nodes": 5,
     },
