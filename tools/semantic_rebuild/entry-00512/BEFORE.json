@@ -1,0 +1,49 @@
+{
+  "commit": "09e2c2b5547b49a824a8265d312583f5d1f5c79f",
+  "critical_operation": {
+    "code": "\tglobalThis.__data.__sanitize = __sanitize;",
+    "desc": "globalThis.__data.__sanitize = __sanitize 以普通赋值向 __data 写入 sanitize 钩子，缺少 Object.defineProperty 的不可写约束，致使该属性在沙箱内表达式执行期间仍可被覆写为恒等函数。PrototypeSanitizer 编译期在每处计算属性访问点插入的 sanitizer 调用均绑定于此槽位，槽位失守后动态属性过滤在运行期全链失效，这是路径 B 的根本缺陷所在。",
+    "file": "packages/@n8n/expression-runtime/src/runtime/reset.ts",
+    "line": 46
+  },
+  "entry_id": "entry-00512",
+  "entry_point": {
+    "code": "\tprivate renderExpression(expression: string, data: IWorkflowDataProxyData) {",
+    "desc": "renderExpression 接收工作流节点参数中外部可控的 expression 字符串，通过内部 evaluate 调用将其送入 VM 沙箱求值，是整条表达式求值链的宿主层入口。该方法触发后使 PrototypeSanitizer 的 AST 改写与 reset.ts 中 __sanitize 的初始化进入激活状态，入口处未对载荷内容施加任何预过滤。",
+    "file": "packages/workflow/src/expression.ts",
+    "line": 524
+  },
+  "origin": "GitHub Advisory Database (reviewed)",
+  "project": "n8n",
+  "repo_url": "https://github.com/n8n-io/n8n",
+  "report_id": "GHSA-6CQR-8CFR-67F8",
+  "source_link": "https://github.com/advisories/GHSA-6cqr-8cfr-67f8",
+  "trace": [
+    {
+      "code": "\tprivate renderExpression(expression: string, data: IWorkflowDataProxyData) {",
+      "desc": "renderExpression 是调用链从宿主层进入沙箱的起始段，从外部 caller 接收 expression 字符串后调用 evaluate，将控制流传递至 VM 沙箱内部的 callee；随后 PrototypeSanitizer 的编译期 AST 变换以此次触发为前提，执行路径再向下游延伸至 reset.ts 中 __sanitize 的初始化赋值，构成整条防护链的入口环节。",
+      "file": "packages/workflow/src/expression.ts",
+      "line": 524
+    },
+    {
+      "code": "\t\t\t\tpath.replace(\n\t\t\t\t\tb.memberExpression(\n\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any\n\t\t\t\t\t\tnode.object as any,\n\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-argument\n\t\t\t\t\t\tb.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [\n\t\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-explicit-any\n\t\t\t\t\t\t\tnode.property as any,\n\t\t\t\t\t\t]),\n\t\t\t\t\t\ttrue,",
+      "desc": "PrototypeSanitizer 的 path.replace 处于调用链中间段，承接 renderExpression 触发的 AST 编译阶段控制流：将计算成员表达式逐一改写为 obj[this.__sanitize(expr)] 调用形式，在编译期将运行时过滤点嵌入每处动态属性访问，并将防护责任传递至下游 reset.ts 的 __sanitize 槽位。随后执行路径进入运行时初始化，改写节点所绑定的槽位是否具备不可变约束，决定该层防护在运行期能否成立。",
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "493-502"
+    },
+    {
+      "code": "\tglobalThis.__data.__sanitize = __sanitize;",
+      "desc": "reset.ts L46 位于调用链末段，承接 PrototypeSanitizer 编译期改写所预设的绑定点：以普通赋值将 __sanitize 写入 __data，未设置不可写属性描述符，形成可覆写的运行时过滤槽位。与 critical_operation 指向同一赋值行，在调用链中既是初始化收口，也是沙箱内表达式可触达的缺陷落点——一旦该槽位被替换为恒等函数，上游 PrototypeSanitizer 编译期插入的全部过滤调用随之失效。",
+      "file": "packages/@n8n/expression-runtime/src/runtime/reset.ts",
+      "line": 46
+    }
+  ],
+  "verify": 0,
+  "vuln_category_l1": "沙箱逃逸",
+  "vuln_category_l2": "表达式引擎沙箱逃逸",
+  "vuln_ids": [
+    "CVE-2026-25049",
+    "GHSA-6CQR-8CFR-67F8"
+  ],
+  "vuln_title": "n8n VM 表达式引擎沙箱逃逸导致 RCE（CVE-2026-25049 / GHSA-6cqr-8cfr-67f8） - reset.ts"
+}

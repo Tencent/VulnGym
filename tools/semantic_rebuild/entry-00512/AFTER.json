@@ -1,0 +1,37 @@
+{
+  "entry_id": "entry-00512",
+  "report_id": "GHSA-6CQR-8CFR-67F8",
+  "entry_point": {
+    "file": "packages/workflow/src/expression.ts",
+    "line": "534-536",
+    "code": "\t\t\t\tconst result = Expression.vmEvaluator.evaluate(expression, data, {\n\t\t\t\t\ttimezone: this.timezone,\n\t\t\t\t});",
+    "desc": "VM 引擎路径：宿主把表达式和 data 交给 vmEvaluator。用户表达式由此进入可覆写 __sanitize 的运行时。"
+  },
+  "critical_operation": {
+    "file": "packages/@n8n/expression-runtime/src/runtime/reset.ts",
+    "line": 46,
+    "code": "\tglobalThis.__data.__sanitize = __sanitize;",
+    "desc": "普通赋值挂上 __sanitize，没有 defineProperty 锁住。运行期可被改成恒等函数，PrototypeSanitizer 插入的过滤全部失效。这条路径的根因就是槽位可写，所以 critical 留在这里。"
+  },
+  "trace": [
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "488-492",
+      "code": "\t\tObject.defineProperty(data, sanitizerName, {\n\t\t\tvalue: sanitizer,\n\t\t\twritable: false,\n\t\t\tconfigurable: false,\n\t\t});",
+      "desc": "对照：宿主侧用 defineProperty 锁 sanitizer；VM 运行时 reset.ts 却用可写赋值，形成不一致。"
+    },
+    {
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "493-504",
+      "code": "\t\t\t\tpath.replace(\n\t\t\t\t\tb.memberExpression(\n\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any\n\t\t\t\t\t\tnode.object as any,\n\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-argument\n\t\t\t\t\t\tb.callExpression(b.memberExpression(dataNode, sanitizerIdentifier), [\n\t\t\t\t\t\t\t// eslint-disable-next-line @typescript-eslint/no-explicit-any\n\t\t\t\t\t\t\tnode.property as any,\n\t\t\t\t\t\t]),\n\t\t\t\t\t\ttrue,\n\t\t\t\t\t),\n\t\t\t\t);",
+      "desc": "编译期把动态属性改成 obj[this.__sanitize(expr)]，运行时依赖 __data.__sanitize。"
+    },
+    {
+      "file": "packages/@n8n/expression-runtime/src/runtime/reset.ts",
+      "line": "44-46",
+      "code": "\t// __sanitize must be on __data because PrototypeSanitizer generates:\n\t// obj[this.__sanitize(expr)] where 'this' is __data (via .call(__data) wrapping)\n\tglobalThis.__data.__sanitize = __sanitize;",
+      "desc": "注释说明依赖关系；可写赋值即 critical 所在行（此处带注释上下文，与 critical 单行节点分工：critical 钉执行语句）。"
+    }
+  ],
+  "verify": 0
+}

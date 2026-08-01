@@ -1,0 +1,37 @@
+{
+  "entry_id": "entry-00103",
+  "report_id": "GHSA-825Q-W924-XHGX",
+  "entry_point": {
+    "file": "packages/cli/src/webhooks/webhook-request-handler.ts",
+    "line": "146-154",
+    "code": "\tprivate setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {\n\t\tif (headers) {\n\t\t\tfor (const [name, value] of headers.entries()) {\n\t\t\t\tres.setHeader(name, value);\n\t\t\t}\n\t\t}\n\n\t\tconst contentType = res.getHeader('content-type') as string | undefined;\n\t\tconst needsSandbox = !contentType || isHtmlRenderedContentType(contentType);",
+    "desc": "用户可控的响应头在这里写入；随后读回 content-type 并交给 isHtmlRenderedContentType，决定要不要加 CSP sandbox。"
+  },
+  "critical_operation": {
+    "file": "packages/core/src/html-sandbox.ts",
+    "line": 20,
+    "code": "\tconst contentTypeLower = contentType.toLowerCase();",
+    "desc": "只做了 toLowerCase，没有 trim。带前导空白的 text/html 过不了 startsWith，needsSandbox 变 false，CSP 被跳过。这是本条根因（不是执行点，是校验漏 trim）。"
+  },
+  "trace": [
+    {
+      "file": "packages/cli/src/webhooks/webhook-request-handler.ts",
+      "line": "127-131",
+      "code": "\tprivate sendStaticResponse(res: express.Response, webhookResponse: WebhookStaticResponse) {\n\t\tconst { body, code, headers } = webhookResponse;\n\n\t\tthis.setResponseStatus(res, code);\n\t\tthis.setResponseHeaders(res, headers);",
+      "desc": "静态响应路径把用户可控 headers 传入 setResponseHeaders（不与 entry 重复整段函数体）。"
+    },
+    {
+      "file": "packages/cli/src/webhooks/webhook-helpers.ts",
+      "line": "606-615",
+      "code": "\t\tif (responseMode === 'streaming') {\n\t\t\tContainer.get(Logger).debug(\n\t\t\t\t`Execution of workflow \"${workflow.name}\" from with ID ${executionId} is set to streaming`,\n\t\t\t\t{ executionId },\n\t\t\t);\n\t\t\t// TODO: Add check for streaming nodes here\n\t\t\trunData.httpResponse = res;\n\t\t\trunData.streamingEnabled = true;\n\t\t\tdidSendResponse = true;\n\t\t}",
+      "desc": "streaming 模式下把 res 交给后续响应处理。"
+    },
+    {
+      "file": "packages/core/src/html-sandbox.ts",
+      "line": "19-25",
+      "code": "export const isHtmlRenderedContentType = (contentType: string) => {\n\tconst contentTypeLower = contentType.toLowerCase();\n\n\treturn (\n\t\t// The content-type can also contain a charset, e.g. \"text/html; charset=utf-8\"\n\t\tcontentTypeLower.startsWith('text/html') || contentTypeLower.startsWith('application/xhtml+xml')\n\t);",
+      "desc": "用 startsWith 判断是否 HTML；缺 trim 时前导空白可绕过。critical 落在其中 toLowerCase 行。"
+    }
+  ],
+  "verify": 0
+}

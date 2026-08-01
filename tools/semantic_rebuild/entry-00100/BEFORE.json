@@ -1,0 +1,61 @@
+{
+  "commit": "8ab4492e8c0b743455e51fc111441d8d5010a6ad",
+  "critical_operation": {
+    "code": "export const sanitizer = (value: unknown): unknown => {\n\tconst propertyKey = String(value);\n\tif (!isSafeObjectProperty(propertyKey)) {\n\t\tthrow new ExpressionError(`Cannot access \"${propertyKey}\" due to security concerns`);\n\t}\n\treturn propertyKey;\n};",
+    "desc": "sanitizer 是运行时属性键安全检查的核心实现：将传入值转为字符串后交由 isSafeObjectProperty 验证，若属性名属于危险范畴则抛出 ExpressionError 阻断访问。在漏洞链路中，此函数是防止通过属性链访问 constructor 等危险对象的最终防线，但当表达式用局部常量声明将 __sanitize 绑定遮蔽后，此函数不再被调用，保护机制因此完全失效。",
+    "file": "packages/workflow/src/expression-sandboxing.ts",
+    "line": "330-336"
+  },
+  "entry_id": "entry-00100",
+  "entry_point": {
+    "code": "\tresolveSimpleParameterValue(",
+    "desc": "resolveSimpleParameterValue 是节点参数求值的顶层入口方法，接收用户在工作流节点配置中填入的原始表达式字符串 parameterValue，随后在方法体内初始化沙箱数据上下文并注入保护变量。在漏洞链路中，此处是用户可控输入进入求值管线的第一个关口，with 语句绕过与保留变量遮蔽两条攻击路径均从此方法的参数入口向下游扩散。",
+    "file": "packages/workflow/src/expression.ts",
+    "line": 368
+  },
+  "origin": "GitHub Advisory Database (reviewed)",
+  "project": "n8n",
+  "repo_url": "https://github.com/n8n-io/n8n",
+  "report_id": "GHSA-5XRP-6693-JJX9",
+  "source_link": "https://github.com/advisories/GHSA-5xrp-6693-jjx9",
+  "trace": [
+    {
+      "code": "\tresolveSimpleParameterValue(\n\t\tparameterValue: NodeParameterValue,\n\t\tsiblingParameters: INodeParameters,\n\t\trunExecutionData: IRunExecutionData | null,\n\t\trunIndex: number,\n\t\titemIndex: number,\n\t\tactiveNodeName: string,\n\t\tconnectionInputData: INodeExecutionData[],\n\t\tmode: WorkflowExecuteMode,\n\t\tadditionalKeys: IWorkflowDataProxyAdditionalKeys,",
+      "desc": "resolveSimpleParameterValue 的形参列表横跨多行，接收求值所需的全部运行时上下文：parameterValue 携带用户表达式，additionalKeys 等参数补充工作流状态。此段是从上游调用方（工作流执行引擎）流向本方法内部处理逻辑的入口截面，parameterValue 在此作为不可信输入首次出现在参数位置，随后将在方法体内被传入 extendSyntax 和 renderExpression 进行求值。",
+      "file": "packages/workflow/src/expression.ts",
+      "line": "368-377"
+    },
+    {
+      "code": "\t\tObject.defineProperty(data, sanitizerName, {\n\t\t\tvalue: sanitizer,\n\t\t\twritable: false,\n\t\t\tconfigurable: false,\n\t\t});",
+      "desc": "Object.defineProperty 以 writable:false、configurable:false 将 sanitizer 函数写入数据对象 data 的 sanitizerName（即 '__sanitize'）键下，意图在编译后的函数作用域内固化保护引用。在调用栈下游，此步骤是沙箱防护机制的装配点；然而当表达式通过 const ___n8n_data 声明局部变量遮蔽 data 对象本身时，这里写入的保护引用对遮蔽后的局部作用域不再可见，防御随之失效。",
+      "file": "packages/workflow/src/expression.ts",
+      "line": "434-438"
+    },
+    {
+      "code": "\t\tconst extendedExpression = extendSyntax(parameterValue);\n\t\tconst returnValue = this.renderExpression(extendedExpression, data);",
+      "desc": "extendSyntax 将用户表达式的原始字符串改写为经过 AST 转换的安全版本，在属性访问点插入 sanitizer 调用；随后 renderExpression 将转换结果与携带 sanitizer 引用的 data 对象绑定，编译并执行最终表达式。此步是从参数准备阶段流向代码执行阶段的关键转折，若上游的遮蔽或注入已破坏 sanitizer 绑定，恶意代码将在此处以沙箱名义获得实际的运行机会。",
+      "file": "packages/workflow/src/expression.ts",
+      "line": "452-453"
+    },
+    {
+      "code": "export const sanitizerName = '__sanitize';\nconst sanitizerIdentifier = b.identifier(sanitizerName);",
+      "desc": "sanitizerName 被声明为字符串常量 '__sanitize'，同时 sanitizerIdentifier 将其封装为 AST 标识符节点，供语法改写阶段在属性访问表达式中插入调用占位符。在漏洞链路中，此处固定的字符串名称是保护机制的命名锚点：正是因为此键名在模块加载时已公开确定，表达式才能用同名局部常量精确遮蔽 data 对象上的 sanitizer 绑定，从而在调用栈下游绕过运行时属性检查。",
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "11-12"
+    },
+    {
+      "code": "export const sanitizer = (value: unknown): unknown => {\n\tconst propertyKey = String(value);\n\tif (!isSafeObjectProperty(propertyKey)) {\n\t\tthrow new ExpressionError(`Cannot access \"${propertyKey}\" due to security concerns`);\n\t}\n\treturn propertyKey;\n};",
+      "desc": "sanitizer 函数以模块导出的形式在此处定义，与 critical_operation 所指代的是同一份实现：对每次属性访问传入的键名执行 isSafeObjectProperty 检查，一旦检测到 constructor 等敏感名称即抛出异常。在调用栈最下游，此处是 extendSyntax 在 AST 改写时插入的调用点在运行时最终解析到的目标函数体；若调用链任意一环（如 __sanitize 名称被局部声明遮蔽）切断了对此函数的引用，则后续所有属性访问均不再经过安全校验。",
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "330-336"
+    }
+  ],
+  "verify": 0,
+  "vuln_category_l1": "Code Injection",
+  "vuln_category_l2": "Eval Injection (CWE-95)",
+  "vuln_ids": [
+    "CVE-2026-1470",
+    "GHSA-5XRP-6693-JJX9"
+  ],
+  "vuln_title": "n8n Workflow Expression Sandbox Escape leading to RCE (CVE-2026-1470) - expression-sandboxing.ts"
+}

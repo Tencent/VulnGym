@@ -1,0 +1,55 @@
+{
+  "commit": "57d6015f2ea0442c24e0449105325b7e36f066df",
+  "critical_operation": {
+    "code": "\tconst contentTypeLower = contentType.toLowerCase();",
+    "desc": "isHtmlRenderedContentType() 在 html-sandbox.ts 第 20 行仅对传入的 contentType 字符串执行 toLowerCase() 转换，生成 contentTypeLower，随后通过 startsWith 判断是否为 HTML 类型。由于此处跳过了 .trim() 步骤，任何含首尾空白的值在大小写规范化后依然保留空白前缀，致使 startsWith('text/html') 比较结果为 false，是整条漏洞链路的根因操作。",
+    "file": "packages/core/src/html-sandbox.ts",
+    "line": 20
+  },
+  "entry_id": "entry-00103",
+  "entry_point": {
+    "code": "\t\t}",
+    "desc": "webhook-helpers.ts 第 615 行是 streaming 分支代码块的结束边界，标志着 res 对象已被完整写入 runData.httpResponse 并将 didSendResponse 置为 true。此时响应对象携带的 content-type 值——包括任何首尾空白字符——已无条件进入后续处理流程，构成污染链路的起始入口；任何对该头部值的校验缺失均会在下游持续传播。",
+    "file": "packages/cli/src/webhooks/webhook-helpers.ts",
+    "line": 615
+  },
+  "origin": "GitHub Advisory Database (reviewed)",
+  "project": "n8n",
+  "repo_url": "https://github.com/n8n-io/n8n",
+  "report_id": "GHSA-825Q-W924-XHGX",
+  "source_link": "https://github.com/advisories/GHSA-825q-w924-xhgx",
+  "trace": [
+    {
+      "code": "\t\t}",
+      "desc": "trace 链路的第 0 节点，以 webhook-helpers.ts 第 615 行的代码块闭合边界为锚点，代表 streaming 分支执行完毕后 runData 已持有 res 引用的起始状态。从此节点出发，调用栈向下游依次流经 setResponseHeaders() 与 isHtmlRenderedContentType()，是整条调用链的起始锚定点。",
+      "file": "packages/cli/src/webhooks/webhook-helpers.ts",
+      "line": 615
+    },
+    {
+      "code": "\n\t\tif (responseMode === 'streaming') {\n\t\t\tContainer.get(Logger).debug(\n\t\t\t\t`Execution of workflow \"${workflow.name}\" from with ID ${executionId} is set to streaming`,\n\t\t\t\t{ executionId },\n\t\t\t);\n\t\t\t// TODO: Add check for streaming nodes here\n\t\t\trunData.httpResponse = res;\n\t\t\trunData.streamingEnabled = true;\n\t\t\tdidSendResponse = true;",
+      "desc": "trace 第 1 步，位于 webhook-helpers.ts 第 605–614 行的 streaming 分支体内：responseMode 为 'streaming' 时，runData.httpResponse 被直接赋值为 res，runData.streamingEnabled 置为 true，didSendResponse 标记设为已响应。随后调用栈下游的 setResponseHeaders() 将以此 res 对象为操作目标，对用户指定的 headers 进行写入与读回。",
+      "file": "packages/cli/src/webhooks/webhook-helpers.ts",
+      "line": "605-614"
+    },
+    {
+      "code": "\tprivate setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {\n\t\tif (headers) {\n\t\t\tfor (const [name, value] of headers.entries()) {\n\t\t\t\tres.setHeader(name, value);\n\t\t\t}\n\t\t}\n\n\t\tconst contentType = res.getHeader('content-type') as string | undefined;\n\t\tconst needsSandbox = !contentType || isHtmlRenderedContentType(contentType);",
+      "desc": "trace 第 2 步，setResponseHeaders() 位于 webhook-request-handler.ts 第 146–155 行，承接来自上游的 res 对象，将用户工作流指定的 headers 逐条通过 res.setHeader() 写入响应——含潜在首尾空白的 content-type 于此被设置。随后函数读回 content-type 头的当前值并调用 isHtmlRenderedContentType(contentType)，needsSandbox 的布尔结果决定是否追加 CSP sandbox 头，污染值由此传入检测函数。",
+      "file": "packages/cli/src/webhooks/webhook-request-handler.ts",
+      "line": "146-155"
+    },
+    {
+      "code": "export const isHtmlRenderedContentType = (contentType: string) => {\n\tconst contentTypeLower = contentType.toLowerCase();\n\n\treturn (\n\t\t// The content-type can also contain a charset, e.g. \"text/html; charset=utf-8\"\n\t\tcontentTypeLower.startsWith('text/html') || contentTypeLower.startsWith('application/xhtml+xml')\n\t);",
+      "desc": "trace 第 3 步也是调用链终点，isHtmlRenderedContentType() 函数体位于 html-sandbox.ts 第 19–25 行，接收由 setResponseHeaders() 传入的 contentType 字符串。函数仅调用 toLowerCase() 生成 contentTypeLower，随即对 'text/html' 与 'application/xhtml+xml' 做 startsWith 前缀匹配。由于缺少 trim() 预处理，含首尾空白的 contentType 在大小写转换后仍无法通过前缀匹配，函数返回 false，上游 needsSandbox 判定失效，CSP 保护头被跳过。",
+      "file": "packages/core/src/html-sandbox.ts",
+      "line": "19-25"
+    }
+  ],
+  "verify": 0,
+  "vuln_category_l1": "XSS（跨站脚本）",
+  "vuln_category_l2": "存储型 XSS / CSP 绕过",
+  "vuln_ids": [
+    "CVE-2026-25051",
+    "GHSA-825Q-W924-XHGX"
+  ],
+  "vuln_title": "n8n webhook 响应中 Content-Type 首尾空白导致 isHtmlRenderedContentType 误判，CSP sandbox 保护被绕过引发存储型 XSS"
+}

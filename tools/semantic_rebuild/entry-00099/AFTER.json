@@ -1,0 +1,55 @@
+{
+  "entry_id": "entry-00099",
+  "report_id": "GHSA-5XRP-6693-JJX9",
+  "entry_point": {
+    "file": "packages/cli/src/workflows/workflows.controller.ts",
+    "line": "561-565",
+    "code": "\t\treturn await this.workflowExecutionService.executeManually(\n\t\t\treq.body,\n\t\t\treq.user,\n\t\t\treq.headers['push-ref'],\n\t\t);",
+    "desc": "手动执行接口把 req.body（含节点参数/表达式）交给 execution service。比单独的 @Post 装饰器更能体现外部输入进入链路。"
+  },
+  "critical_operation": {
+    "file": "packages/workflow/src/expression-evaluator-proxy.ts",
+    "line": "19-21",
+    "code": "export const evaluateExpression: Evaluator = (expr, data) => {\n\treturn evaluator(expr, data);\n};",
+    "desc": "表达式实际交给 Tournament.execute 的出口。with + 裸 constructor 逃过 sanitizer 后，用户代码在这里跑起来。不是 PrototypeSanitizer 类定义处；缺口（缺 visitWithStatement）写在 trace。"
+  },
+  "trace": [
+    {
+      "file": "packages/cli/src/workflows/workflows.controller.ts",
+      "line": 539,
+      "code": "\t@Post('/:workflowId/run')",
+      "desc": "HTTP 路由装饰器；仅标记入口，真正把 body 送进执行链的是下面的 executeManually。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "384-393",
+      "code": "\t\tif (!isExpression(parameterValue)) {\n\t\t\t// Is no expression so return value\n\t\t\treturn parameterValue;\n\t\t}\n\n\t\t// Is an expression\n\n\t\t// Remove the equal sign\n\n\t\tparameterValue = parameterValue.substr(1);",
+      "desc": "认出表达式后去掉前缀，后面才进沙箱；这里不做安全检查。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "442-449",
+      "code": "\t\tconst constructorValidation = new RegExp(/\\.\\s*constructor/gm);\n\t\tif (parameterValue.match(constructorValidation)) {\n\t\t\tthrow new ExpressionError('Expression contains invalid constructor function call', {\n\t\t\t\tcauseDetailed: 'Constructor override attempt is not allowed due to security concerns',\n\t\t\t\trunIndex,\n\t\t\t\titemIndex,\n\t\t\t});\n\t\t}",
+      "desc": "正则只拦 .constructor；with 里单独的 constructor 标识符拦不住。"
+    },
+    {
+      "file": "packages/workflow/src/expression-evaluator-proxy.ts",
+      "line": "9-12",
+      "code": "const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {\n\tbefore: [ThisSanitizer],\n\tafter: [PrototypeSanitizer, DollarSignValidator],\n});",
+      "desc": "挂上 PrototypeSanitizer；漏洞版没有 visitWithStatement（2.5.1 才加）。"
+    },
+    {
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "264-279",
+      "code": "\t\tvisitMemberExpression(path) {\n\t\t\tthis.traverse(path);\n\t\t\tconst node = path.node;\n\t\t\tif (!node.computed) {\n\t\t\t\t// This is static, so we're safe to error here\n\t\t\t\tif (node.property.type !== 'Identifier') {\n\t\t\t\t\tthrow new ExpressionError(\n\t\t\t\t\t\t`Unknown property type ${node.property.type} while sanitising expression`,\n\t\t\t\t\t);\n\t\t\t\t}\n\n\t\t\t\tif (!isSafeObjectProperty(node.property.name)) {\n\t\t\t\t\tthrow new ExpressionError(\n\t\t\t\t\t\t`Cannot access \"${node.property.name}\" due to security concerns`,\n\t\t\t\t\t);\n\t\t\t\t}",
+      "desc": "只检查 MemberExpression。with 作用域里的 Identifier constructor 不走这里。这是保护缺口（缺陷位点），不作 RCE critical——Issue 不认可 sanitizer 钩子当 RCE critical。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "452-453",
+      "code": "\t\tconst extendedExpression = extendSyntax(parameterValue);\n\t\tconst returnValue = this.renderExpression(extendedExpression, data);",
+      "desc": "扩展语法后进 renderExpression → evaluateExpression。"
+    }
+  ],
+  "verify": 0
+}

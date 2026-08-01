@@ -1,0 +1,55 @@
+{
+  "commit": "8ab4492e8c0b743455e51fc111441d8d5010a6ad",
+  "critical_operation": {
+    "code": "export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {",
+    "desc": "PrototypeSanitizer 以 ASTAfterHook 接口实现，是表达式沙箱在编译阶段对抽象语法树执行后处理遍历的核心钩子函数，负责拦截危险属性访问节点（如对 .constructor 的引用）以阻止原型链操控。然而该函数缺少对 WithStatement 节点的访问处理器，导致 with 语句可将函数对象的 .constructor 悄然注入词法作用域，从而绕过现有防御。在漏洞链路中，PrototypeSanitizer 是沙箱逃逸的核心缺失点：整条链路的防御完整性依赖于此函数对所有危险 AST 节点类型的覆盖，而该遗漏使沙箱约束实质性失效。",
+    "file": "packages/workflow/src/expression-sandboxing.ts",
+    "line": 244
+  },
+  "entry_id": "entry-00099",
+  "entry_point": {
+    "code": "\t@Post('/:workflowId/run')",
+    "desc": "@Post('/:workflowId/run') 是 WorkflowsController 中工作流执行路由的装饰器，将对应控制器方法注册为可被低权限认证用户通过网络直接触达的 HTTP POST 端点。请求体携带的工作流节点参数（包含用户自定义的表达式字符串）由此处进入系统，并随调用链向下传递至表达式解析与沙箱求值子系统。在漏洞链路中，该端点是用户可控表达式从外部网络进入内部执行管道的最外层入口，决定了沙箱绕过攻击具备网络可达性。",
+    "file": "packages/cli/src/workflows/workflows.controller.ts",
+    "line": 539
+  },
+  "origin": "GitHub Advisory Database (reviewed)",
+  "project": "n8n",
+  "repo_url": "https://github.com/n8n-io/n8n",
+  "report_id": "GHSA-5XRP-6693-JJX9",
+  "source_link": "https://github.com/advisories/GHSA-5xrp-6693-jjx9",
+  "trace": [
+    {
+      "code": "\t@Post('/:workflowId/run')",
+      "desc": "@Post('/:workflowId/run') 路由装饰器标志着调用栈中从 HTTP 请求层流向工作流执行管道的起始节点，即 caller 侧的入口。此步骤中，用户在节点参数里嵌入的表达式字符串以请求体的形式到达控制器方法，随后作为待处理参数向 callee 层——即表达式解析逻辑——继续传递。在漏洞链路中，trace 自此处发端，用户可控的恶意表达式正是从这一节点开始逐级流入求值沙箱。",
+      "file": "packages/cli/src/workflows/workflows.controller.ts",
+      "line": 539
+    },
+    {
+      "code": "\t\tif (!isExpression(parameterValue)) {\n\t\t\t// Is no expression so return value\n\t\t\treturn parameterValue;\n\t\t}\n\n\t\t// Is an expression\n\n\t\t// Remove the equal sign\n\n\t\tparameterValue = parameterValue.substr(1);",
+      "desc": "expression.ts 第 384–393 行通过 isExpression 检查确认 parameterValue 以等号开头后，调用 substr(1) 剥离前缀符号，将剩余字符串作为纯表达式内容向 callee 传递，完成从 caller 控制器入口到 tournamentEvaluator 求值器的中间转接。此步骤仅验证字符串格式标记，不对表达式内容做任何安全审查。在漏洞链路中，含有 with 语句或保留变量重声明的恶意字符串经此预处理后，随后被送入沙箱编译流程，是攻击载荷穿越预处理门控的关键转接点。",
+      "file": "packages/workflow/src/expression.ts",
+      "line": "384-393"
+    },
+    {
+      "code": "const tournamentEvaluator = new Tournament(errorHandler, undefined, undefined, {\n\tbefore: [ThisSanitizer],\n\tafter: [PrototypeSanitizer, DollarSignValidator],\n});",
+      "desc": "expression-evaluator-proxy.ts 第 9–12 行构造了 tournamentEvaluator 实例，将 ThisSanitizer 注册为 AST 前置钩子，将 PrototypeSanitizer 与 DollarSignValidator 注册为后置钩子，确立了表达式求值管道的防御架构。在调用栈下游，所有运行时表达式求值均经由此代理实例执行。在漏洞链路中，PrototypeSanitizer 在此处被绑定入钩子列表，其缺少 WithStatement 处理器的缺陷随同整个钩子配置一起传递至每次表达式编译，使后续每次求值都在存在缺陷的防御结构下运行。",
+      "file": "packages/workflow/src/expression-evaluator-proxy.ts",
+      "line": "9-12"
+    },
+    {
+      "code": "export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {",
+      "desc": "PrototypeSanitizer 函数体定义于 expression-sandboxing.ts 第 244 行，作为 ASTAfterHook 在 tournamentEvaluator 每次编译表达式后被调用，接收来自上层传递的 ast 与 dataNode 参数，对 AST 节点执行属性访问合法性遍历。在调用栈下游的终点，此函数承担着清理危险节点的最终职责；然而由于缺少 visitWithStatement 处理器，with 语句节点在遍历时被跳过而不做任何处置。在漏洞链路中，这是防御失效的终止点：沙箱核心约束在此因缺位的节点类型处理而失效，最终为任意代码执行打开通道。",
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": 244
+    }
+  ],
+  "verify": 0,
+  "vuln_category_l1": "Code Injection",
+  "vuln_category_l2": "Eval Injection (CWE-95)",
+  "vuln_ids": [
+    "CVE-2026-1470",
+    "GHSA-5XRP-6693-JJX9"
+  ],
+  "vuln_title": "n8n Workflow Expression Sandbox Escape leading to RCE (CVE-2026-1470) - expression-sandboxing.ts"
+}

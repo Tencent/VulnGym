@@ -1,0 +1,43 @@
+{
+  "entry_id": "entry-00511",
+  "report_id": "GHSA-6CQR-8CFR-67F8",
+  "entry_point": {
+    "file": "packages/workflow/src/expression.ts",
+    "line": 485,
+    "code": "\t\tdata.extend = extend;",
+    "desc": "把 extend 挂进表达式 data，用户表达式可以调用；functionName 在此边界没有黑名单。"
+  },
+  "critical_operation": {
+    "file": "packages/@n8n/expression-runtime/src/extensions/extend.ts",
+    "line": "82-84",
+    "code": "\t\tif (inputAny && functionName && typeof inputAny[functionName] === 'function') {\n\t\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment\n\t\t\treturn { type: 'native', function: inputAny[functionName] };",
+    "desc": "类型扩展未命中时，无检查返回 input[functionName]；constructor 时拿到 Function。此为 vuln 树上首次交出 Function。补丁在函数入口加 UNSAFE 名检查（vuln 无该行可钉），未改 apply。见 CRITICAL_RULE。"
+  },
+  "trace": [
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "484-492",
+      "code": "\t\t// expression extensions\n\t\tdata.extend = extend;\n\t\tdata.extendOptional = extendOptional;\n\n\t\tObject.defineProperty(data, sanitizerName, {\n\t\t\tvalue: sanitizer,\n\t\t\twritable: false,\n\t\t\tconfigurable: false,\n\t\t});",
+      "desc": "挂上 extend；sanitizer 用 defineProperty，extend 是普通赋值。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "496-503",
+      "code": "\t\tconst constructorValidation = new RegExp(/\\.\\s*constructor/gm);\n\t\tif (parameterValue.match(constructorValidation)) {\n\t\t\tthrow new ExpressionError('Expression contains invalid constructor function call', {\n\t\t\t\tcauseDetailed: 'Constructor override attempt is not allowed due to security concerns',\n\t\t\t\trunIndex: data.$thisRunIndex,\n\t\t\t\titemIndex: data.$thisItemIndex,\n\t\t\t});\n\t\t}",
+      "desc": "正则只看源码里的 .constructor；extend('constructor') 这种参数形式过得去。"
+    },
+    {
+      "file": "packages/@n8n/expression-runtime/src/extensions/extend.ts",
+      "line": "105-106",
+      "code": "export function extend(input: unknown, functionName: string, args: unknown[]) {\n\tconst foundFunction = findExtendedFunction(input, functionName);",
+      "desc": "用户侧 extend 调用进入分发。"
+    },
+    {
+      "file": "packages/@n8n/expression-runtime/src/extensions/extend.ts",
+      "line": "132-135",
+      "code": "\tif (foundFunction.type === 'native') {\n\t\t// eslint-disable-next-line @typescript-eslint/no-unsafe-return\n\t\treturn foundFunction.function.apply(input, args);\n\t}",
+      "desc": "拿到 native Function 后在此 apply 执行。表现位点；修复未改此行，故不作 critical（见 PATCH_NOTES / CANDIDATES）。"
+    }
+  ],
+  "verify": 0
+}

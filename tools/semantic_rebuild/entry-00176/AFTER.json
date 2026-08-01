@@ -1,0 +1,43 @@
+{
+  "entry_id": "entry-00176",
+  "report_id": "GHSA-MMGG-M5J7-F83H",
+  "entry_point": {
+    "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+    "line": 206,
+    "code": "\t\t\tconst code = this.getNodeParameter(codeParameterName, 0) as string;",
+    "desc": "Python Code 节点读取用户脚本（pythonCode），再交给 task runner。"
+  },
+  "critical_operation": {
+    "file": "packages/@n8n/task-runner-python/src/task_analyzer.py",
+    "line": "66-69",
+    "code": "        if node.attr in BLOCKED_ATTRIBUTES:\n            self._add_violation(\n                node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr)\n            )",
+    "desc": "visit_Attribute 用黑名单决定是否报错。漏洞版没有 __objclass__，这里会放过。判断点，不是 constants 里的集合字面量。"
+  },
+  "trace": [
+    {
+      "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+      "line": 207,
+      "code": "\t\t\tconst sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);",
+      "desc": "脚本进入 PythonTaskRunnerSandbox。"
+    },
+    {
+      "file": "packages/@n8n/task-runner-python/src/task_analyzer.py",
+      "line": "237-240",
+      "code": "        tree = ast.parse(code)\n\n        security_validator = SecurityValidator(self._security_config)\n        security_validator.visit(tree)",
+      "desc": "TaskAnalyzer.validate：解析 AST 并 visit。属性拦截发生在 visit_Attribute，不是这个包装入口。"
+    },
+    {
+      "file": "packages/@n8n/task-runner-python/src/constants.py",
+      "line": 126,
+      "code": "BLOCKED_ATTRIBUTES = {",
+      "desc": "黑名单数据。2.9.2 缺 __objclass__，2.10.1 已补。只作上下文，不是 critical。"
+    },
+    {
+      "file": "packages/@n8n/task-runner-python/src/task_analyzer.py",
+      "line": "71-74",
+      "code": "        if node.attr.startswith(\"_\") and \"__\" in node.attr:\n            parts = node.attr.split(\"__\", 1)\n            if len(parts) == 2 and parts[0].startswith(\"_\"):\n                self._add_violation(node.lineno, ERROR_NAME_MANGLED_ATTRIBUTE)",
+      "desc": "name-mangle 检查对纯 __objclass__ 不触发（split 后首段为空）。"
+    }
+  ],
+  "verify": 0
+}

@@ -1,0 +1,73 @@
+{
+  "commit": "3af9095245be3aaad6bc16622f379f79c6c6068f",
+  "critical_operation": {
+    "code": "BLOCKED_ATTRIBUTES = {",
+    "desc": "BLOCKED_ATTRIBUTES 是 constants.py 中定义的静态属性名集合，供 visit_Attribute 在 AST 遍历时作为唯一拦截依据。集合包含 __subclasses__、__globals__、__builtins__ 等已知危险属性，但未将 __objclass__ 纳入其中；这一遗漏使对 slot wrapper 方法属性的访问无法被 AST 层拦截，是整条逃逸链路得以建立的根本缺口。",
+    "file": "packages/@n8n/task-runner-python/src/constants.py",
+    "line": 126
+  },
+  "entry_id": "entry-00176",
+  "entry_point": {
+    "code": "\t\t\tconst code = this.getNodeParameter(codeParameterName, 0) as string;",
+    "desc": "getNodeParameter 从节点执行上下文读取 codeParameterName 对应的参数值，将用户提交的 Python 脚本字符串赋给 code 变量。code 内容完全由外部用户控制，是整条漏洞链路不可信代码进入系统的输入边界；后续沙箱构造、任务投递与 AST 静态校验均以此字符串为原始素材。",
+    "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+    "line": 206
+  },
+  "origin": "GitHub Advisory Database (reviewed)",
+  "project": "n8n",
+  "repo_url": "https://github.com/n8n-io/n8n",
+  "report_id": "GHSA-MMGG-M5J7-F83H",
+  "source_link": "https://github.com/advisories/GHSA-mmgg-m5j7-f83h",
+  "trace": [
+    {
+      "code": "\t\t\tconst code = this.getNodeParameter(codeParameterName, 0) as string;",
+      "desc": "getNodeParameter 从节点执行上下文读取 codeParameterName 对应的参数值，将原始 Python 脚本字符串赋给局部变量 code，完成从外部用户输入（caller 侧）流向沙箱构造阶段（callee 侧）的第一段数据传递。此步骤为后续 PythonTaskRunnerSandbox 接收代码字符串奠定基础，是整个漏洞利用链路的起点。",
+      "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+      "line": 206
+    },
+    {
+      "code": "\t\t\tconst sandbox = new PythonTaskRunnerSandbox(code, nodeMode, workflowMode, this);",
+      "desc": "随后，PythonTaskRunnerSandbox 构造函数将 code 字符串连同 nodeMode、workflowMode 和节点上下文打包，从 Code.node.ts 执行方法（caller）流向 PythonTaskRunnerSandbox 初始化逻辑（callee）。恶意代码字符串至此封装进任务参数结构，等待 runUsingIncomingItems 触发跨进程提交，推进漏洞链路向 Python 运行时一侧延伸。",
+      "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+      "line": 207
+    },
+    {
+      "code": "\t\t\treturn [await sandbox.runUsingIncomingItems()];",
+      "desc": "在调用栈下游，sandbox.runUsingIncomingItems 由 Code.node.ts 执行方法（caller）触发，将封装好的代码任务连同当前输入项提交给底层 Task Runner（callee），完成从 TypeScript 节点层到 Python 子进程层的跨层异步调度。此调用是恶意代码字符串离开上层框架进入 Python 运行时沙箱前的关键转发点，执行流进一步流向静态分析阶段。",
+      "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+      "line": 209
+    },
+    {
+      "code": "\t\tconst executionResult = await this.executeFunctions.startJob<INodeExecutionData[]>(\n\t\t\t'python',\n\t\t\ttaskSettings,\n\t\t\titemIndex,",
+      "desc": "随后，startJob 携带任务类型标识 python 及含原始代码字符串的 taskSettings，从 PythonTaskRunnerSandbox（caller）流向底层 Task Runner 的作业调度接口（callee），触发跨进程 Python 任务投递。taskSettings 中的代码字符串就此进入 Python 子进程侧接收队列，为 task_runner.py 的 validate 调用提供输入，推动执行流向 AST 静态分析阶段。",
+      "file": "packages/nodes-base/nodes/Code/PythonTaskRunnerSandbox.ts",
+      "line": "62-65"
+    },
+    {
+      "code": "            self.analyzer.validate(task_settings.code)",
+      "desc": "在调用栈下游，self.analyzer.validate 由 TaskRunner（caller）调用，将 task_settings.code 传入 TaskAnalyzer（callee）执行 AST 静态分析；validate 遍历代码语法树中所有属性访问节点并与 BLOCKED_ATTRIBUTES 逐一比对。由于 __objclass__ 不在集合内，含该属性访问的代码将通过此检查，沙箱 AST 防线对这条路径静默放行。",
+      "file": "packages/@n8n/task-runner-python/src/task_runner.py",
+      "line": 321
+    },
+    {
+      "code": "    def visit_Attribute(self, node: ast.Attribute) -> None:\n        \"\"\"Detect access to unsafe attributes that could bypass security restrictions.\"\"\"\n\n        if node.attr in BLOCKED_ATTRIBUTES:\n            self._add_violation(\n                node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr)\n            )",
+      "desc": "随后，visit_Attribute 作为 AST 节点访问器，由 TaskAnalyzer 的语法树遍历（caller）针对每个 ast.Attribute 节点（callee）调用；提取 node.attr 后执行 BLOCKED_ATTRIBUTES 成员测试，命中则记录违规，未命中则放行。进一步地，__objclass__ 不在集合内，携带该属性访问的节点不会触发任何违规记录，AST 层对此逃逸路径全程静默放行。",
+      "file": "packages/@n8n/task-runner-python/src/task_analyzer.py",
+      "line": "63-69"
+    },
+    {
+      "code": "BLOCKED_ATTRIBUTES = {\n    # runtime attributes\n    \"__subclasses__\",\n    \"__globals__\",\n    \"__builtins__\",\n    \"__traceback__\",\n    \"tb_frame\",\n    \"tb_next\",\n    \"f_back\",\n    \"f_globals\",",
+      "desc": "在调用栈下游，BLOCKED_ATTRIBUTES 的完整定义由 constants.py（caller）提供给 visit_Attribute（callee）作为静态数据源；集合收录了 __subclasses__、__globals__、__builtins__、tb_frame 等运行时危险属性，但未将 __objclass__ 列入。正是这一遗漏使 visit_Attribute 对含 __objclass__ 访问的代码无法产生违规记录，允许携带此属性访问的脚本通过 AST 校验进入运行时，构成整条逃逸链路的根本缺口。",
+      "file": "packages/@n8n/task-runner-python/src/constants.py",
+      "line": "126-135"
+    }
+  ],
+  "verify": 0,
+  "vuln_category_l1": "沙箱逃逸",
+  "vuln_category_l2": "Python 沙箱绕过",
+  "vuln_ids": [
+    "CVE-2026-27494",
+    "GHSA-MMGG-M5J7-F83H"
+  ],
+  "vuln_title": "n8n Python Code 节点 __objclass__ 沙箱逃逸 (CVE-2026-27494)"
+}

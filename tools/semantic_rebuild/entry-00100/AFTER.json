@@ -1,0 +1,49 @@
+{
+  "entry_id": "entry-00100",
+  "report_id": "GHSA-5XRP-6693-JJX9",
+  "entry_point": {
+    "file": "packages/workflow/src/expression.ts",
+    "line": 368,
+    "code": "\tresolveSimpleParameterValue(",
+    "desc": "节点参数求值入口：拿用户填的表达式字符串，后面装 data、再 render。"
+  },
+  "critical_operation": {
+    "file": "packages/workflow/src/expression-evaluator-proxy.ts",
+    "line": "19-21",
+    "code": "export const evaluateExpression: Evaluator = (expr, data) => {\n\treturn evaluator(expr, data);\n};",
+    "desc": "和 00099 同一个执行出口。sanitizer 函数定义不是 sink；with 缺口见 trace / PATCH_NOTES。"
+  },
+  "trace": [
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "434-438",
+      "code": "\t\tObject.defineProperty(data, sanitizerName, {\n\t\t\tvalue: sanitizer,\n\t\t\twritable: false,\n\t\t\tconfigurable: false,\n\t\t});",
+      "desc": "把 __sanitize 挂到 data 上，给后面 AST 改写用。装配点，不是 critical。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "442-449",
+      "code": "\t\tconst constructorValidation = new RegExp(/\\.\\s*constructor/gm);\n\t\tif (parameterValue.match(constructorValidation)) {\n\t\t\tthrow new ExpressionError('Expression contains invalid constructor function call', {\n\t\t\t\tcauseDetailed: 'Constructor override attempt is not allowed due to security concerns',\n\t\t\t\trunIndex,\n\t\t\t\titemIndex,\n\t\t\t});\n\t\t}",
+      "desc": "只匹配 .constructor，拦不住 with 里的裸 constructor。"
+    },
+    {
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "264-279",
+      "code": "\t\tvisitMemberExpression(path) {\n\t\t\tthis.traverse(path);\n\t\t\tconst node = path.node;\n\t\t\tif (!node.computed) {\n\t\t\t\t// This is static, so we're safe to error here\n\t\t\t\tif (node.property.type !== 'Identifier') {\n\t\t\t\t\tthrow new ExpressionError(\n\t\t\t\t\t\t`Unknown property type ${node.property.type} while sanitising expression`,\n\t\t\t\t\t);\n\t\t\t\t}\n\n\t\t\t\tif (!isSafeObjectProperty(node.property.name)) {\n\t\t\t\t\tthrow new ExpressionError(\n\t\t\t\t\t\t`Cannot access \"${node.property.name}\" due to security concerns`,\n\t\t\t\t\t);\n\t\t\t\t}",
+      "desc": "只检查 MemberExpression。with 里 Identifier constructor 不走这里。缺陷位点；Issue 不认 sanitizer 钩子作 RCE critical → 不升 critical。"
+    },
+    {
+      "file": "packages/workflow/src/expression-sandboxing.ts",
+      "line": "330-336",
+      "code": "export const sanitizer = (value: unknown): unknown => {\n\tconst propertyKey = String(value);\n\tif (!isSafeObjectProperty(propertyKey)) {\n\t\tthrow new ExpressionError(`Cannot access \"${propertyKey}\" due to security concerns`);\n\t}\n\treturn propertyKey;\n};",
+      "desc": "原 critical 标在这里。属性键检查实现；逃逸时常调不到。降到 trace。"
+    },
+    {
+      "file": "packages/workflow/src/expression.ts",
+      "line": "470-472",
+      "code": "\tprivate renderExpression(expression: string, data: IWorkflowDataProxyData) {\n\t\ttry {\n\t\t\treturn evaluateExpression(expression, data);",
+      "desc": "转到 evaluateExpression。"
+    }
+  ],
+  "verify": 0
+}

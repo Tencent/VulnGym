@@ -1,0 +1,42 @@
+entry_id,field,change_kind,before_file,before_line,before_code,after_file,after_line,after_code,reason
+entry-00099,entry_point,position_or_code,packages/cli/src/workflows/workflows.controller.ts,539,	@Post('/:workflowId/run'),packages/cli/src/workflows/workflows.controller.ts,561-565,"		return await this.workflowExecutionService.executeManually(
+			req.body,
+			req.user,
+			req.headers['push-ref'],
+		);",decorator→executeManually(req.body) so external input enters chain
+entry-00099,critical_operation,position_or_code,packages/workflow/src/expression-sandboxing.ts,244,"export const PrototypeSanitizer: ASTAfterHook = (ast, dataNode) => {",packages/workflow/src/expression-evaluator-proxy.ts,19-21,"export const evaluateExpression: Evaluator = (expr, data) => {
+	return evaluator(expr, data);
+};",RCE sink evaluateExpression; sanitizer def rejected
+entry-00099,trace,trace_rewrite,len=4,,packages/cli/src/workflows/workflows.controller.ts:539; packages/workflow/src/expression.ts:384-393; packages/workflow/src/expression-evaluator-proxy.ts:9-12; packages/workflow/src/expression-sandboxing.ts:244,len=6,,packages/cli/src/workflows/workflows.controller.ts:539; packages/workflow/src/expression.ts:384-393; packages/workflow/src/expression.ts:442-449; packages/workflow/src/expression-evaluator-proxy.ts:9-12,keep gap(visitMemberExpression)/regex; drop brace-only noise
+entry-00100,entry_point,desc_only,packages/workflow/src/expression.ts,368,	resolveSimpleParameterValue(,packages/workflow/src/expression.ts,368,	resolveSimpleParameterValue(,unchanged position; desc clarified
+entry-00100,critical_operation,position_or_code,packages/workflow/src/expression-sandboxing.ts,330-336,"export const sanitizer = (value: unknown): unknown => {
+	const propertyKey = String(value);
+	if (!isSafeObjectProperty(propertyKey)) {
+		throw new ExpressionErr",packages/workflow/src/expression-evaluator-proxy.ts,19-21,"export const evaluateExpression: Evaluator = (expr, data) => {
+	return evaluator(expr, data);
+};",sanitizer def→evaluateExpression sink
+entry-00100,trace,trace_rewrite,len=5,,packages/workflow/src/expression.ts:368-377; packages/workflow/src/expression.ts:434-438; packages/workflow/src/expression.ts:452-453; packages/workflow/src/expression-sandboxing.ts:11-12,len=5,,packages/workflow/src/expression.ts:434-438; packages/workflow/src/expression.ts:442-449; packages/workflow/src/expression-sandboxing.ts:264-279; packages/workflow/src/expression-sandboxing.ts:330-336,sanitizer def demoted to trace
+entry-00103,entry_point,position_or_code,packages/cli/src/webhooks/webhook-helpers.ts,615,		},packages/cli/src/webhooks/webhook-request-handler.ts,146-154,"	private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {
+		if (headers) {
+			for (const [name, value] of headers.entries()) {
+				",brace `}`→setResponseHeaders
+entry-00103,critical_operation,desc_only,packages/core/src/html-sandbox.ts,20,	const contentTypeLower = contentType.toLowerCase();,packages/core/src/html-sandbox.ts,20,	const contentTypeLower = contentType.toLowerCase();,keep missing-trim locus; desc clarified
+entry-00103,trace,trace_rewrite,len=4,,packages/cli/src/webhooks/webhook-helpers.ts:615; packages/cli/src/webhooks/webhook-helpers.ts:605-614; packages/cli/src/webhooks/webhook-request-handler.ts:146-155; packages/core/src/html-sandbox.ts:19-25,len=3,,packages/cli/src/webhooks/webhook-request-handler.ts:127-131; packages/cli/src/webhooks/webhook-helpers.ts:606-615; packages/core/src/html-sandbox.ts:19-25,call-site + streaming; no duplicate entry body
+entry-00176,entry_point,desc_only,packages/nodes-base/nodes/Code/Code.node.ts,206,"			const code = this.getNodeParameter(codeParameterName, 0) as string;",packages/nodes-base/nodes/Code/Code.node.ts,206,"			const code = this.getNodeParameter(codeParameterName, 0) as string;",unchanged Python getNodeParameter
+entry-00176,critical_operation,position_or_code,packages/@n8n/task-runner-python/src/constants.py,126,BLOCKED_ATTRIBUTES = {,packages/@n8n/task-runner-python/src/task_analyzer.py,66-69,"        if node.attr in BLOCKED_ATTRIBUTES:
+            self._add_violation(
+                node.lineno, ERROR_DANGEROUS_ATTRIBUTE.format(attr=node.attr)
+     ",static BLOCKED_* → visit_Attribute membership
+entry-00176,trace,trace_rewrite,len=7,,packages/nodes-base/nodes/Code/Code.node.ts:206; packages/nodes-base/nodes/Code/Code.node.ts:207; packages/nodes-base/nodes/Code/Code.node.ts:209; packages/nodes-base/nodes/Code/PythonTaskRunnerSandbox.ts:62-65,len=4,,packages/nodes-base/nodes/Code/Code.node.ts:207; packages/@n8n/task-runner-python/src/task_analyzer.py:237-240; packages/@n8n/task-runner-python/src/constants.py:126; packages/@n8n/task-runner-python/src/task_analyzer.py:71-74,add validate() visit; document getattr not CVE path
+entry-00511,entry_point,desc_only,packages/workflow/src/expression.ts,485,		data.extend = extend;,packages/workflow/src/expression.ts,485,		data.extend = extend;,unchanged extend injection
+entry-00511,critical_operation,desc_only,packages/@n8n/expression-runtime/src/extensions/extend.ts,82-84,"		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+			retu",packages/@n8n/expression-runtime/src/extensions/extend.ts,82-84,"		if (inputAny && functionName && typeof inputAny[functionName] === 'function') {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+			retu",keep unchecked native select; patch blocks names before lookup (not apply)
+entry-00511,trace,trace_rewrite,len=6,,packages/workflow/src/expression.ts:484-492; packages/workflow/src/expression.ts:496-503; packages/workflow/src/expression-sandboxing.ts:137; packages/@n8n/expression-runtime/src/runtime/reset.ts:167-168,len=4,,packages/workflow/src/expression.ts:484-492; packages/workflow/src/expression.ts:496-503; packages/@n8n/expression-runtime/src/extensions/extend.ts:105-106; packages/@n8n/expression-runtime/src/extensions/extend.ts:132-135,apply demoted to trace; patch evidence in PATCH_NOTES
+entry-00512,entry_point,position_or_code,packages/workflow/src/expression.ts,524,"	private renderExpression(expression: string, data: IWorkflowDataProxyData) {",packages/workflow/src/expression.ts,534-536,"				const result = Expression.vmEvaluator.evaluate(expression, data, {
+					timezone: this.timezone,
+				});",method head→vmEvaluator.evaluate
+entry-00512,critical_operation,desc_only,packages/@n8n/expression-runtime/src/runtime/reset.ts,46,	globalThis.__data.__sanitize = __sanitize;,packages/@n8n/expression-runtime/src/runtime/reset.ts,46,	globalThis.__data.__sanitize = __sanitize;,position kept (writable __sanitize); desc tightened
+entry-00512,trace,trace_rewrite,len=3,,packages/workflow/src/expression.ts:524; packages/workflow/src/expression-sandboxing.ts:493-502; packages/@n8n/expression-runtime/src/runtime/reset.ts:46,len=3,,packages/workflow/src/expression.ts:488-492; packages/workflow/src/expression-sandboxing.ts:493-504; packages/@n8n/expression-runtime/src/runtime/reset.ts:44-46,defineProperty contrast + path.replace; no exact critical dup
