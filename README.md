@@ -196,6 +196,7 @@ VulnGym/
 │   └── entries.jsonl            # 408 rows — one entry point per row, with human-audit flag (verify)
 └── examples/
     ├── load_dataset.py          # stdlib / pandas / HuggingFace datasets loader
+    ├── validate_dataset.py      # schema and cross-file integrity validator
     ├── example_result.jsonl     # illustrative tool-findings submission
     └── evaluate.py              # coverage / recall evaluator
 ```
@@ -208,7 +209,12 @@ VulnGym/
 git clone https://github.com/Tencent/VulnGym.git
 cd VulnGym
 python3 examples/load_dataset.py
+python3 examples/validate_dataset.py
 ```
+
+The validator checks the `SCHEMA.md` field contract, node locations, stable
+ordering, and the bidirectional `entries.jsonl` / `reports.jsonl` join. Use
+`--json-out path/to/report.json` to emit the same result for CI or automation.
 
 Or load directly in Python:
 
