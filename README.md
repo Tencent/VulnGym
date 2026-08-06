@@ -277,9 +277,14 @@ The script reports two metrics:
 | Aspect | Default |
 |---|---|
 | Path match | normalized, exact |
-| Line tolerance | `\|Δline\| ≤ 5` on entry_point **and** critical_operation |
+| Line tolerance | Minimum distance between the normalized line intervals is `≤ 5` on entry_point **and** critical_operation |
 | Direction | strict (entry_point-to-entry_point, critical_operation-to-critical_operation) |
 | `line == 0` in ground truth | excluded from numerator and denominator |
+
+Integer line values are treated as single-line intervals. Range values such as
+`"112-119"` are treated as inclusive intervals. A finding matches when the
+minimum distance between the finding interval and ground-truth interval is no
+greater than the configured tolerance.
 
 All policies are documented and configurable via CLI arguments
 (`--line-tolerance`, etc.).

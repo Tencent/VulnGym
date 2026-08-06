@@ -32,7 +32,10 @@ BOTH of the following hold:
 
   1. Paths are equal after normalization (strip leading './', unify '\\' to
      '/', collapse repeated slashes, case-sensitive).
-  2. |line_F - line_E| <= tolerance, default 5.
+  2. Line values are normalized to closed intervals. An integer is treated
+     as a single-line interval, and a ``start-end`` value is treated as the
+     inclusive interval ``[start, end]``. The minimum distance between the
+     two intervals must be <= tolerance, default 5.
 
 Direction is strict: F.entry_point is compared to E.entry_point,
 F.critical_operation to E.critical_operation.
@@ -146,6 +149,25 @@ def load_jsonl(path: Path) -> list[dict]:
 # ---------------------------------------------------------------------------
 # Matching
 # ---------------------------------------------------------------------------
+def _parse_line_span(value: Any) -> tuple[int, int] | None:
+    """Normalize an integer or ``start-end`` line value to a closed span."""
+    if isinstance(value, int):
+        return (value, value) if value >= 1 else None
+    if not isinstance(value, str):
+        return None
+
+    value = value.strip()
+    if value.isdigit():
+        line = int(value)
+        return (line, line) if line >= 1 else None
+
+    match = re.fullmatch(r"([1-9][0-9]*)-([1-9][0-9]*)", value)
+    if not match:
+        return None
+    start, end = (int(part) for part in match.groups())
+    return (start, end) if start <= end else None
+
+
 def _endpoint_match(
     f_ep: dict, e_ep: dict, tolerance: int
 ) -> bool:
@@ -157,16 +179,15 @@ def _endpoint_match(
     e_file = normalize_path(e_ep.get("file", ""))
     if not f_file or f_file != e_file:
         return False
-    try:
-        f_line = int(f_ep.get("line", 0))
-        e_line = int(e_ep.get("line", 0))
-    except (TypeError, ValueError):
+    f_span = _parse_line_span(f_ep.get("line"))
+    e_span = _parse_line_span(e_ep.get("line"))
+    if f_span is None or e_span is None:
         return False
-    # line == 0 on the ground-truth side is handled upstream (that entry is
-    # excluded). Defense-in-depth: reject a zero line here too.
-    if e_line == 0:
-        return False
-    return abs(f_line - e_line) <= tolerance
+
+    f_start, f_end = f_span
+    e_start, e_end = e_span
+    distance = max(f_start - e_end, e_start - f_end, 0)
+    return distance <= tolerance
 
 
 def finding_matches_entry(
