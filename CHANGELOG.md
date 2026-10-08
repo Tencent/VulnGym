@@ -4,6 +4,27 @@ All notable changes to VulnGym are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.5] — 2026-10-08
+
+Data refresh — human-audited coverage reaches 100 %.
+
+### Changed
+- Human-audited entries grew from **393 → 408 / 408** (100 %),
+  covering **184 / 184** advisories (100 %). All **184** advisories are
+  now fully verified — no partially verified advisories remain.
+- Refined `entry_point`, `critical_operation`, and `trace` annotations
+  on **15** entries for improved accuracy.
+- Corrected the upstream `commit` reference for GHSA-QCC4-P59M-P54M
+  (entry-00290).
+- Row counts, schema, `desc` coverage, and vulnerability-type
+  distribution are unchanged.
+
+### Stats
+- reports: **184** (unchanged)
+- entries: **408** (unchanged)
+- human-audited entries (verify = 1): **408** (was 393)
+- human-audited advisories (≥ 1 verified entry): **184** (was 178)
+
 ## [0.1.4] — 2026-06-26
 
 Data refresh — further expansion of human-audited coverage.

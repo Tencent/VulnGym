@@ -1,4 +1,4 @@
-# SCHEMA.md — VulnGym data format reference (v0.1.4)
+# SCHEMA.md — VulnGym data format reference (v0.1.5)
 
 The dataset ships two line-delimited JSON files under `data/`. Every line is
 a single self-contained JSON object (no trailing comma, `\n`-terminated,
