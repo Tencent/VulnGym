@@ -186,6 +186,7 @@ VulnGym/
 │   └── entries.jsonl            # 408 行 —— 每行一个入口点，含人工审计标记 verify
 └── examples/
     ├── load_dataset.py          # stdlib / pandas / HuggingFace datasets 加载器
+    ├── validate_dataset.py      # schema 与跨文件完整性校验器
     ├── example_result.jsonl     # 工具提交结果的示例
     └── evaluate.py              # 覆盖率 / 召回率 评测脚本
 ```
@@ -198,7 +199,12 @@ VulnGym/
 git clone https://github.com/Tencent/VulnGym.git
 cd VulnGym
 python3 examples/load_dataset.py
+python3 examples/validate_dataset.py
 ```
+
+校验器会检查 `SCHEMA.md` 字段约束、节点行号、稳定排序，以及
+`entries.jsonl` 与 `reports.jsonl` 的双向关联。可通过
+`--json-out path/to/report.json` 输出适合 CI 或自动化读取的同结构结果。
 
 或者直接在 Python 中加载：
 
