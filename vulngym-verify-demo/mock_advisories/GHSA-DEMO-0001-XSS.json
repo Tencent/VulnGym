@@ -1,0 +1,15 @@
+{
+  "report_id": "GHSA-DEMO-0001-XSS",
+  "ghsa_id": "GHSA-DEMO-0001-XSS",
+  "cve_id": "CVE-2026-DEMO-0001",
+  "title": "Blog Platform Stored DOM XSS via Comment Rich Text",
+  "severity": "moderate",
+  "cvss": 6.1,
+  "summary": "The blog platform renders user-submitted comments as HTML without sanitization, allowing arbitrary JavaScript execution in victim browsers.",
+  "description": "When a user posts a comment containing HTML/JS payloads, the platform stores the raw content and later injects it via innerHTML in the RichTextInput component, triggering stored DOM XSS.",
+  "affected_versions": ["< 1.4.2"],
+  "fixed_in": "1.4.2",
+  "vuln_category_l1_hint": "XSS",
+  "vuln_category_l2_hint": "Stored XSS",
+  "published_at": "2026-06-01T00:00:00Z"
+}

@@ -1,0 +1,98 @@
+{
+  "analysis_id": "error_attribution_20260905_204418",
+  "timestamp": "2026-09-05T20:44:18.010009",
+  "total_reports": 4,
+  "total_errors": 7,
+  "error_summary": {
+    "by_field": {
+      "vuln_ids": {
+        "incorrect": 0,
+        "uncertain": 2,
+        "low_confidence": 2,
+        "evidence_chain_broken": 0,
+        "samples": [
+          "entry-00002",
+          "entry-00004"
+        ]
+      },
+      "trace": {
+        "incorrect": 0,
+        "uncertain": 2,
+        "low_confidence": 2,
+        "evidence_chain_broken": 0,
+        "samples": [
+          "entry-00002",
+          "entry-00004"
+        ]
+      },
+      "critical_operation": {
+        "incorrect": 1,
+        "uncertain": 0,
+        "low_confidence": 0,
+        "evidence_chain_broken": 0,
+        "samples": [
+          "entry-00002"
+        ]
+      },
+      "entry_point": {
+        "incorrect": 1,
+        "uncertain": 0,
+        "low_confidence": 0,
+        "evidence_chain_broken": 0,
+        "samples": [
+          "entry-00003"
+        ]
+      },
+      "vuln_category_l2": {
+        "incorrect": 1,
+        "uncertain": 0,
+        "low_confidence": 0,
+        "evidence_chain_broken": 0,
+        "samples": [
+          "entry-00004"
+        ]
+      }
+    },
+    "by_tool": {
+      "read_file_lines": {
+        "failed": 4,
+        "total": 4,
+        "failure_rate": 1.0,
+        "common_errors": [
+          "not invoked (prerequisite failed) (x4)"
+        ],
+        "samples": [
+          "entry-00001",
+          "entry-00002",
+          "entry-00003",
+          "entry-00004"
+        ]
+      },
+      "read_advisory": {
+        "failed": 0,
+        "total": 4,
+        "failure_rate": 0.0,
+        "common_errors": [],
+        "samples": []
+      },
+      "checkout": {
+        "failed": 0,
+        "total": 4,
+        "failure_rate": 0.0,
+        "common_errors": [],
+        "samples": []
+      }
+    },
+    "by_llm": {
+      "unknown": {
+        "total_reports": 4,
+        "uncertain_rate": 0.125,
+        "low_confidence_rate": 0.125
+      }
+    },
+    "by_root_cause": []
+  },
+  "recommendations": [
+    "改进 read_file_lines 工具鲁棒性 (当前失败率 100.0%)"
+  ]
+}

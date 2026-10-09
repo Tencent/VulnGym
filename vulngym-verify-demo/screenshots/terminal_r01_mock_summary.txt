@@ -1,0 +1,50 @@
+[load] 4 entries from mock_data\entries.jsonl
+[llm] using ScriptedMockLLMClient
+  [self-check] {'agree': True, 'comment': '各字段证据一致，未发现冲突（mock 自检）'}
+  [self-check] {'agree': True, 'comment': '各字段证据一致，未发现冲突（mock 自检）'}
+  [self-check] {'agree': True, 'comment': '各字段证据一致，未发现冲突（mock 自检）'}
+  [self-check] {'agree': True, 'comment': '各字段证据一致，未发现冲突（mock 自检）'}
+[save] wrote 4 reports to out\reports_bench.jsonl
+
+========================================================================
+VulnGym 字段级验证 — 总览 (n=4)
+  correct   : 1
+  incorrect : 3
+  uncertain : 0
+------------------------------------------------------------------------
+entry_id     report_id                verdict    summary
+------------------------------------------------------------------------
+entry-00001  GHSA-DEMO-0001-XSS       correct    整体判定为 correct
+entry-00002  GHSA-DEMO-0002-RCE       incorrect  整体判定为 incorrect — 异常字段: critical_operation
+entry-00003  GHSA-DEMO-0003-CMD       incorrect  整体判定为 incorrect — 异常字段: entry_point
+entry-00004  GHSA-DEMO-0004-AUTH      incorrect  整体判定为 incorrect — 异常字段: vuln_category_l2
+========================================================================
+
+========================================================================
+VulnGym 字段级验证 — 评测 (n_entries=4)
+  field-level accuracy : 0.469  (15/32)  [target >= 0.85]
+  error recall         : 1.000  (3/3)  [target >= 0.90]
+  verdict accuracy     : 1.000  (4 entries)
+------------------------------------------------------------------------
+  field                  accuracy    hit/total
+  entry_point               0.500      2/4
+  critical_operation        0.500      2/4
+  commit                    0.250      1/4
+  vuln_ids                  0.750      3/4
+  vuln_title                0.250      1/4
+  vuln_category_l1          0.250      1/4
+  vuln_category_l2          0.500      2/4
+  trace                     0.750      3/4
+------------------------------------------------------------------------
+  note: low field accuracy is expected when running on a
+        script-mock LLM that returns 'correct' for fields
+        whose gold is 'uncertain' (e.g. commit/vuln_title/
+        trace on the incorrect entries). On a real LLM,
+        those fields degrade to uncertain, lifting accuracy.
+------------------------------------------------------------------------
+  per-entry breakdown:
+    entry-00001: verdict=correct    gold=correct    pred_inc=[] gold_inc=[]
+    entry-00002: verdict=incorrect  gold=incorrect  pred_inc=['critical_operation'] gold_inc=['critical_operation']
+    entry-00003: verdict=incorrect  gold=incorrect  pred_inc=['entry_point'] gold_inc=['entry_point']
+    entry-00004: verdict=incorrect  gold=incorrect  pred_inc=['vuln_category_l2'] gold_inc=['vuln_category_l2']
+========================================================================

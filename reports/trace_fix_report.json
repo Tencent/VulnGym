@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "input_file": "D:\\code\\Tecent\\VulnGym\\data\\entries.jsonl",
+    "output_file": "D:\\code\\Tecent\\VulnGym\\data\\entries.trace_fixed.jsonl",
+    "log_file": "D:\\code\\Tecent\\VulnGym\\reports\\trace_fix_log.json",
+    "mode": "fix",
+    "timestamp": "2026-07-01T02:38:46.165044+00:00",
+    "total_entries": 408,
+    "entries_with_structural_issues": 152
+  },
+  "statistics": {
+    "duplicate_node_count": 3,
+    "order_issue_node_count": 300,
+    "auto_fixed_count": 237,
+    "review_required_count": 66
+  }
+}

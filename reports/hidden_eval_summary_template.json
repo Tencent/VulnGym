@@ -1,0 +1,340 @@
+# 隐藏测试集评测汇总模板
+
+**用途**: 用于记录隐藏测试集的评测结果，不包含具体样本和金标内容。
+
+**位置**: `reports/hidden_eval_summary.json`
+
+---
+
+## 汇总格式
+
+```json
+{
+  "meta": {
+    "evaluator": "VulnGym Verification System v1.0",
+    "timestamp": "2026-09-03T12:00:00Z",
+    "test_set": "hidden_test_set_v1",
+    "total_entries": 100,
+    "model_config": {
+      "llm_provider": "qwen",
+      "llm_model": "qwen-turbo",
+      "llm_temperature": 0.0,
+      "cache_strategy": "prebuilt_snapshots"
+    },
+    "seed": 20260902
+  },
+  "metrics": {
+    "field_accuracy": {
+      "value": 0.875,
+      "threshold": 0.85,
+      "passed": true,
+      "details": {
+        "total_fields": 800,
+        "correct_predictions": 700,
+        "incorrect_predictions": 80,
+        "uncertain_predictions": 20
+      }
+    },
+    "error_recall": {
+      "value": 0.920,
+      "threshold": 0.90,
+      "passed": true,
+      "details": {
+        "total_error_entries": 50,
+        "detected_errors": 46,
+        "missed_errors": 4,
+        "false_positives": 5
+      }
+    },
+    "verdict_accuracy": {
+      "value": 0.880,
+      "details": {
+        "total_entries": 100,
+        "correct_verdicts": 88,
+        "incorrect_verdicts": 12
+      }
+    }
+  },
+  "field_breakdown": {
+    "entry_point": {
+      "accuracy": 0.90,
+      "correct": 90,
+      "incorrect": 5,
+      "uncertain": 5,
+      "total": 100
+    },
+    "critical_operation": {
+      "accuracy": 0.88,
+      "correct": 88,
+      "incorrect": 7,
+      "uncertain": 5,
+      "total": 100
+    },
+    "commit": {
+      "accuracy": 0.85,
+      "correct": 85,
+      "incorrect": 10,
+      "uncertain": 5,
+      "total": 100
+    },
+    "vuln_ids": {
+      "accuracy": 0.92,
+      "correct": 92,
+      "incorrect": 5,
+      "uncertain": 3,
+      "total": 100
+    },
+    "vuln_title": {
+      "accuracy": 0.89,
+      "correct": 89,
+      "incorrect": 8,
+      "uncertain": 3,
+      "total": 100
+    },
+    "vuln_category_l1": {
+      "accuracy": 0.91,
+      "correct": 91,
+      "incorrect": 7,
+      "uncertain": 2,
+      "total": 100
+    },
+    "vuln_category_l2": {
+      "accuracy": 0.84,
+      "correct": 84,
+      "incorrect": 12,
+      "uncertain": 4,
+      "total": 100
+    },
+    "trace": {
+      "accuracy": 0.87,
+      "correct": 87,
+      "incorrect": 8,
+      "uncertain": 5,
+      "total": 100
+    }
+  },
+  "robustness": {
+    "invalid_input_handling": {
+      "total_invalid": 5,
+      "correctly_handled": 5,
+      "crashed": 0
+    },
+    "missing_files": {
+      "total_cases": 10,
+      "correctly_detected": 10,
+      "false_negatives": 0
+    },
+    "advisory_404": {
+      "total_cases": 3,
+      "correctly_handled": 3,
+      "crashed": 0
+    },
+    "llm_failures": {
+      "total_failures": 8,
+      "safely_downgraded": 8,
+      "hallucinations": 0
+    }
+  },
+  "evidence_audit": {
+    "sample_size": 20,
+    "seed": 20260902,
+    "sampled_entry_ids": [
+      "hidden-00005",
+      "hidden-00012",
+      "hidden-00023",
+      "hidden-00034",
+      "hidden-00041",
+      "hidden-00056",
+      "hidden-00067",
+      "hidden-00072",
+      "hidden-00088",
+      "hidden-00091",
+      "hidden-00003",
+      "hidden-00019",
+      "hidden-00027",
+      "hidden-00038",
+      "hidden-00045",
+      "hidden-00052",
+      "hidden-00069",
+      "hidden-00074",
+      "hidden-00081",
+      "hidden-00099"
+    ],
+    "rubric_results": {
+      "source_locatable": {
+        "passed": 19,
+        "failed": 1,
+        "rate": 0.95
+      },
+      "content_supports_conclusion": {
+        "passed": 18,
+        "failed": 2,
+        "rate": 0.90
+      },
+      "no_fabrication": {
+        "passed": 20,
+        "failed": 0,
+        "rate": 1.00
+      },
+      "confidence_matches_evidence": {
+        "passed": 17,
+        "failed": 3,
+        "rate": 0.85
+      },
+      "overall_pass_rate": 0.85
+    },
+    "threshold": 0.80,
+    "passed": true
+  },
+  "performance": {
+    "total_runtime_seconds": 1200,
+    "avg_time_per_entry_seconds": 12.0,
+    "llm_calls": 350,
+    "tool_calls": 850,
+    "cache_hit_rate": 0.95
+  },
+  "issues": {
+    "critical": [],
+    "warnings": [
+      {
+        "type": "low_confidence_correct",
+        "count": 5,
+        "description": "5 entries marked correct but with confidence < 0.7"
+      },
+      {
+        "type": "vuln_category_l2_confusion",
+        "count": 12,
+        "description": "L2 category confusion between similar types (e.g., Stored vs Reflected XSS)"
+      }
+    ],
+    "info": [
+      {
+        "type": "uncertain_due_to_missing_advisory",
+        "count": 3,
+        "description": "3 entries uncertain due to advisory 404"
+      }
+    ]
+  },
+  "success_criteria": {
+    "field_accuracy_ge_0_85": true,
+    "error_recall_ge_0_90": true,
+    "evidence_audit_ge_0_80": true,
+    "no_crashes": true,
+    "all_passed": true
+  },
+  "conclusion": "PASSED - All Standard success criteria met."
+}
+```
+
+---
+
+## 字段说明
+
+### meta（元信息）
+
+- `evaluator`: 评测器名称和版本
+- `timestamp`: 评测时间（ISO 8601 格式）
+- `test_set`: 测试集标识符
+- `total_entries`: 测试样本总数
+- `model_config`: LLM 和缓存配置
+- `seed`: 随机种子（用于可复现抽样）
+
+### metrics（核心指标）
+
+#### field_accuracy（字段准确率）
+
+- `value`: 准确率数值
+- `threshold`: 目标阈值（0.85）
+- `passed`: 是否通过
+- `details`: 详细计数（总字段数、正确/错误/不确定预测数）
+
+#### error_recall（错误召回率）
+
+- `value`: 召回率数值
+- `threshold`: 目标阈值（0.90）
+- `passed`: 是否通过
+- `details`: 错误条目数、检测到的数量、遗漏数、误报数
+
+#### verdict_accuracy（整体判定准确率）
+
+- `value`: Verdict 级别准确率
+- `details`: 正确/错误 verdict 数量
+
+### field_breakdown（字段分解）
+
+每个字段的详细统计：
+- `accuracy`: 该字段的准确率
+- `correct/incorrect/uncertain`: 三态计数
+- `total`: 该字段的总样本数
+
+### robustness（鲁棒性测试）
+
+- `invalid_input_handling`: 坏输入容错
+- `missing_files`: 文件缺失检测
+- `advisory_404`: 公告缺失容错
+- `llm_failures`: LLM 失败降级
+
+### evidence_audit（证据抽查）
+
+- `sample_size`: 抽样数量（默认 20）
+- `seed`: 抽样随机种子
+- `sampled_entry_ids`: 抽中的 entry ID 列表
+- `rubric_results`: 按 4 项 rubric 的通过率
+  - `source_locatable`: 来源可定位
+  - `content_supports_conclusion`: 内容支持结论
+  - `no_fabrication`: 未编造证据
+  - `confidence_matches_evidence`: 置信度与证据匹配
+- `overall_pass_rate`: 整体通过率
+- `threshold`: 阈值（0.80）
+- `passed`: 是否通过
+
+### performance（性能统计）
+
+- `total_runtime_seconds`: 总运行时间
+- `avg_time_per_entry_seconds`: 单条平均耗时
+- `llm_calls`: LLM 调用次数
+- `tool_calls`: 工具调用次数
+- `cache_hit_rate`: 缓存命中率
+
+### issues（问题汇总）
+
+- `critical`: 关键问题（阻塞发布）
+- `warnings`: 警告（需关注）
+- `info`: 信息（供参考）
+
+### success_criteria（成功标准）
+
+- 各项指标是否通过的布尔值
+- `all_passed`: 是否全部通过
+
+---
+
+## 生成命令（示例）
+
+```bash
+# 运行隐藏集评测并生成汇总
+python -m vulngym_verify_demo \
+  --entries /path/to/hidden_entries.jsonl \
+  --repo-cache /path/to/cache \
+  --advisories /path/to/advisories \
+  --out /tmp/hidden_reports.jsonl \
+  --gold /path/to/hidden_gold.jsonl \
+  --llm qwen \
+  --bench \
+  --summary-out reports/hidden_eval_summary.json
+```
+
+---
+
+## 注意事项
+
+1. **隐私保护**: 汇总文件不包含具体样本内容、金标答案或完整报告
+2. **抽样 entry_id**: 只记录 ID 列表，不记录对应的判定结果
+3. **提交到仓库**: 只提交汇总文件，不提交 `hidden_entries.jsonl`、`hidden_gold.jsonl` 或 `hidden_reports.jsonl`
+4. **可复现性**: 记录 seed 和 model_config，方便复现抽样和评测
+5. **问题归类**: 将常见错误模式记录在 `issues` 中，供后续改进参考
+
+---
+
+**模板维护者**: VulnGym Team  
+**最后更新**: 2026-09-03

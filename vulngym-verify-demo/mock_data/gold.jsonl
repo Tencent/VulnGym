@@ -1,0 +1,4 @@
+{"entry_id": "entry-00001", "verdict": "correct", "incorrect_fields": []}
+{"entry_id": "entry-00002", "verdict": "incorrect", "incorrect_fields": ["critical_operation"]}
+{"entry_id": "entry-00003", "verdict": "incorrect", "incorrect_fields": ["entry_point"]}
+{"entry_id": "entry-00004", "verdict": "incorrect", "incorrect_fields": ["vuln_category_l2"]}

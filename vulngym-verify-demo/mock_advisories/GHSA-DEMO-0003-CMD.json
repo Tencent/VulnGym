@@ -1,0 +1,15 @@
+{
+  "report_id": "GHSA-DEMO-0003-CMD",
+  "ghsa_id": "GHSA-DEMO-0003-CMD",
+  "cve_id": "CVE-2026-DEMO-0003",
+  "title": "CMD Tool Command Injection via Query Parameter",
+  "severity": "medium",
+  "cvss": 6.5,
+  "summary": "The cmd-typo utility forwards req.query.cmd into a shell invocation, allowing attackers to inject arbitrary OS commands.",
+  "description": "An attacker can craft a URL such that req.query.cmd is passed unfiltered to processCommand, which then spawns a subshell.",
+  "affected_versions": ["< 0.9.5"],
+  "fixed_in": "0.9.5",
+  "vuln_category_l1_hint": "代码注入",
+  "vuln_category_l2_hint": "命令注入",
+  "published_at": "2026-06-15T00:00:00Z"
+}

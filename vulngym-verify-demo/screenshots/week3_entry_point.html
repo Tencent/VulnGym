@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0; padding: 0; background: #f3f4f6;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: #1f2937;
+  }
+  .frame {
+    width: 1100px;
+    padding: 22px 26px 16px 26px;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+  .header {
+    border-left: 4px solid #4f46e5;
+    padding-left: 14px;
+    margin-bottom: 8px;
+  }
+  .header .title {
+    font-size: 19px; font-weight: 600;
+    color: #111827; line-height: 1.35;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  .crumbs {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 6px;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  pre.code {
+    margin: 0;
+    padding: 14px 16px;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+  pre.code .ln {
+    display: inline-block;
+    width: 38px;
+    color: #64748b;
+    user-select: none;
+    text-align: right;
+    margin-right: 12px;
+    border-right: 1px solid #334155;
+    padding-right: 6px;
+  }
+  pre.code .src { white-space: pre; }
+  .py-kw { color: #c084fc; font-weight: 500; }
+  .py-str { color: #86efac; }
+  .py-com { color: #94a3b8; font-style: italic; }
+  .py-fn { color: #fbbf24; }
+  .py-num { color: #fda4af; }
+  .py-cn-com { color: #fde68a; font-style: italic; }
+  pre.term {
+    margin: 0;
+    padding: 14px 16px;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: hidden;
+  }
+  pre.term .ok { color: #6ee7b7; }
+  pre.term .warn { color: #facc15; }
+  pre.term .err { color: #fca5a5; }
+  pre.term .hi { color: #67e8f9; font-weight: 600; }
+  .footer {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #9ca3af;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="header">
+      <div class="title">第 3 周 · 核心字段审核 — entry_point 行号容错</div>
+      <div class="subtitle">本周产物：单字段三态判定。先做归一化、再做行号容错、再做片段匹配</div>
+      <div class="crumbs">📁 vulngym_verify_demo/field_checkers.py  ·  L38–L56</div>
+    </div>
+    <pre class="code"><span class="ln"></span><span class="src"><span class="py-cn-com"># ===== 第 3 周产物：归一化工具 + check_entry_point 头部 =====</span></span><span class="ln">38</span><span class="src">&lt;span class="py-kw"&gt;def&lt;/span&gt; &lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;_norm_code&lt;/span&gt;(code: str) -&gt; str:</span><span class="ln">39</span><span class="src">    &lt;span class="py-kw"&gt;return&lt;/span&gt; re.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;sub&lt;/span&gt;(r<span class="py-str">"\s+"</span>, <span class="py-str">" "</span>, (code &lt;span class="py-kw"&gt;or&lt;/span&gt; <span class="py-str">""</span>).&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;strip&lt;/span&gt;())</span><span class="ln"></span><span class="src"><span class="py-cn-com"># 归一化 1：_norm_code 把连续空白折叠成单空格，避免缩进差异误判</span></span><span class="ln">40</span><span class="src"></span><span class="ln">41</span><span class="src"></span><span class="ln">42</span><span class="src"><span class="py-com"># ============================================================</span></span><span class="ln">43</span><span class="src"><span class="py-cn-com"># 单字段判定</span></span><span class="ln">44</span><span class="src"><span class="py-com"># ============================================================</span></span><span class="ln"></span><span class="src"><span class="py-cn-com"># 归一化 2：_line_range 同时接受 int 与 'a-b' 两种 line 格式</span></span><span class="ln">45</span><span class="src">&lt;span class="py-kw"&gt;def&lt;/span&gt; &lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;check_entry_point&lt;/span&gt;(</span><span class="ln">46</span><span class="src">    entry: Dict[str, Any],</span><span class="ln">47</span><span class="src">    tools: VulnGymTools,</span><span class="ln">48</span><span class="src">    llm: BaseLLMClient,</span><span class="ln"></span><span class="src"><span class="py-cn-com"># checkout 不通过直接判 incorrect(0.95)：commit 不存在就是数据脏</span></span><span class="ln">49</span><span class="src">) -&gt; Dict[str, Any]:</span><span class="ln">50</span><span class="src">    ep = entry[<span class="py-str">"entry_point"</span>]</span><span class="ln">51</span><span class="src">    project = &lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;normalize_project_from_repo&lt;/span&gt;(entry[<span class="py-str">"repo_url"</span>])</span><span class="ln">52</span><span class="src">    commit = entry[<span class="py-str">"commit"</span>]</span><span class="ln">53</span><span class="src">    co = tools.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;checkout&lt;/span&gt;(project, commit)</span><span class="ln">54</span><span class="src">    &lt;span class="py-kw"&gt;if&lt;/span&gt; &lt;span class="py-kw"&gt;not&lt;/span&gt; co.ok:</span><span class="ln">55</span><span class="src">        &lt;span class="py-kw"&gt;return&lt;/span&gt; {<span class="py-str">"status"</span>: <span class="py-str">"incorrect"</span>, <span class="py-str">"confidence"</span>: &lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-num"&gt;0.95&lt;/span&gt;,</span><span class="ln"></span><span class="src"><span class="py-cn-com"># evidence 字段写明 commit[:7] + tool.error，方便评审逐条复核</span></span><span class="ln">56</span><span class="src">                <span class="py-str">"evidence"</span>: f<span class="py-str">"无法 checkout 到 commit={commit[:7]}：{co.error}"</span>}</span></pre>
+    <div class="footer">vulngym-verify-demo · screenshots/week3_entry_point.png</div>
+  </div>
+</body>
+</html>

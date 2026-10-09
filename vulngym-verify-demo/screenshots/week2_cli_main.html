@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0; padding: 0; background: #f3f4f6;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: #1f2937;
+  }
+  .frame {
+    width: 1100px;
+    padding: 22px 26px 16px 26px;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+  .header {
+    border-left: 4px solid #4f46e5;
+    padding-left: 14px;
+    margin-bottom: 8px;
+  }
+  .header .title {
+    font-size: 19px; font-weight: 600;
+    color: #111827; line-height: 1.35;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  .crumbs {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 6px;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  pre.code {
+    margin: 0;
+    padding: 14px 16px;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+  pre.code .ln {
+    display: inline-block;
+    width: 38px;
+    color: #64748b;
+    user-select: none;
+    text-align: right;
+    margin-right: 12px;
+    border-right: 1px solid #334155;
+    padding-right: 6px;
+  }
+  pre.code .src { white-space: pre; }
+  .py-kw { color: #c084fc; font-weight: 500; }
+  .py-str { color: #86efac; }
+  .py-com { color: #94a3b8; font-style: italic; }
+  .py-fn { color: #fbbf24; }
+  .py-num { color: #fda4af; }
+  .py-cn-com { color: #fde68a; font-style: italic; }
+  pre.term {
+    margin: 0;
+    padding: 14px 16px;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: hidden;
+  }
+  pre.term .ok { color: #6ee7b7; }
+  pre.term .warn { color: #facc15; }
+  pre.term .err { color: #fca5a5; }
+  pre.term .hi { color: #67e8f9; font-weight: 600; }
+  .footer {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #9ca3af;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="header">
+      <div class="title">第 2 周 · 命令行工程搭建 — argparse 参数解析</div>
+      <div class="subtitle">本周产物：CLI 主入口，支持 --bench 一键跑 mock + gold 评测</div>
+      <div class="crumbs">📁 vulngym_verify_demo/cli.py  ·  L72–L93</div>
+    </div>
+    <pre class="code"><span class="ln"></span><span class="src"><span class="py-cn-com"># ===== 第 2 周产物：CLI 参数解析（5 必选 + 2 可选）=====</span></span><span class="ln">72</span><span class="src">    p = argparse.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;ArgumentParser&lt;/span&gt;(description=<span class="py-str">"VulnGym 字段级验证 Demo"</span>)</span><span class="ln">73</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--entries"</span>, required=&lt;span class="py-kw"&gt;True&lt;/span&gt;, help=<span class="py-str">"entries.jsonl 路径"</span>)</span><span class="ln">74</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--repo-cache"</span>, required=&lt;span class="py-kw"&gt;True&lt;/span&gt;, help=<span class="py-str">"本地仓库缓存根目录"</span>)</span><span class="ln">75</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--advisories"</span>, required=&lt;span class="py-kw"&gt;True&lt;/span&gt;, help=<span class="py-str">"本地公告缓存目录"</span>)</span><span class="ln">76</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--out"</span>, default=<span class="py-str">"out/reports.jsonl"</span>, help=<span class="py-str">"输出报告 JSONL"</span>)</span><span class="ln"></span><span class="src"><span class="py-cn-com"># 5 个必选：路径类参数，防止静默用错目录</span></span><span class="ln"></span><span class="src"><span class="py-cn-com"># --llm auto/qwen/glm/deepseek/mock：auto 模式按 .env 自动选真实后端</span></span><span class="ln">77</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--llm"</span>, default=<span class="py-str">"auto"</span>, choices=[<span class="py-str">"auto"</span>, <span class="py-str">"qwen"</span>, <span class="py-str">"glm"</span>, <span class="py-str">"deepseek"</span>, <span class="py-str">"mock"</span>])</span><span class="ln">78</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(<span class="py-str">"--verbose"</span>, action=<span class="py-str">"store_true"</span>, help=<span class="py-str">"打印每条 entry 的规划/字段/自检细节"</span>)</span><span class="ln">79</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(</span><span class="ln">80</span><span class="src">        <span class="py-str">"--gold"</span>,</span><span class="ln">81</span><span class="src">        default=&lt;span class="py-kw"&gt;None&lt;/span&gt;,</span><span class="ln"></span><span class="src"><span class="py-cn-com"># --bench 是给评审的快捷开关，等价 --gold mock_data/gold.jsonl</span></span><span class="ln">82</span><span class="src">        help=<span class="py-str">"gold.jsonl 路径；提供后会在 Summary 之后追加字段级准确率与找错召回率"</span>,</span><span class="ln">83</span><span class="src">    )</span><span class="ln">84</span><span class="src">    p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;add_argument&lt;/span&gt;(</span><span class="ln">85</span><span class="src">        <span class="py-str">"--bench"</span>,</span><span class="ln">86</span><span class="src">        action=<span class="py-str">"store_true"</span>,</span><span class="ln">87</span><span class="src">        help=<span class="py-str">"快捷选项：等价于 --gold mock_data/gold.jsonl"</span>,</span><span class="ln"></span><span class="src"><span class="py-cn-com"># 注：argparse 拿到 args 后立刻做路径存在性检查（fail-fast）</span></span><span class="ln">88</span><span class="src">    )</span><span class="ln">89</span><span class="src">    args = p.&lt;span &lt;span class="py-kw"&gt;class&lt;/span&gt;="py-fn"&gt;parse_args&lt;/span&gt;(argv)</span><span class="ln">90</span><span class="src"></span><span class="ln">91</span><span class="src">    &lt;span class="py-kw"&gt;if&lt;/span&gt; args.bench &lt;span class="py-kw"&gt;and&lt;/span&gt; &lt;span class="py-kw"&gt;not&lt;/span&gt; args.gold:</span><span class="ln">92</span><span class="src">        args.gold = <span class="py-str">"mock_data/gold.jsonl"</span></span><span class="ln">93</span><span class="src"></span></pre>
+    <div class="footer">vulngym-verify-demo · screenshots/week2_cli_main.png</div>
+  </div>
+</body>
+</html>

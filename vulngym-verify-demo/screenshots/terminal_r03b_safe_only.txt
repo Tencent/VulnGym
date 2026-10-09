@@ -1,0 +1,13 @@
+=== entry 4/4: entry-00004 / GHSA-DEMO-0004-AUTH ===
+  [plan] {'entry_id': 'entry-00004', 'report_id': 'GHSA-DEMO-0004-AUTH', 'tools_planned': ['read_advisory', 'checkout', 'read_file_lines', 'grep_code', 'git_log'], 'fields_planned': ['entry_point', 'critical_operation', 'commit', 'vuln_ids', 'vuln_title', 'vuln_category_l1', 'vuln_category_l2', 'trace']}
+  [verdict] uncertain
+  [summary] 整体判定为 uncertain
+    - entry_point            correct    conf=0.90  checkout 后 src/middleware.js:88 代码片段匹配 (snippet=checkRole(req.user, role);)
+    - critical_operation     correct    conf=0.90  checkout 后 src/policy.js:156 匹配 (snippet=if (user.role !== requiredRole) throw new Forbidden();)
+    - commit                 correct    conf=0.90  commit 4444444 在本地缓存可用，且格式合规
+    - vuln_ids               uncertain  conf=0.55  vuln_ids 缺少公告中的 GHSA：GHSA-DEMO-0004-AUTH
+    - vuln_title             uncertain  conf=0.20  LLM unavailable; cannot perform semantic judgement. needs: re-run with API key set, or supply a manu
+    - vuln_category_l1       uncertain  conf=0.20  LLM unavailable; cannot perform semantic judgement. needs: re-run with API key set, or supply a manu
+    - vuln_category_l2       uncertain  conf=0.20  LLM unavailable; cannot perform semantic judgement. needs: re-run with API key set, or supply a manu
+    - trace                  uncertain  conf=0.40  trace 为空（可能合理，但无法验证）
+  [self-check] {'agree': False, 'comment': 'LLM unavailable for self-check; cannot confirm or revise prior judgements.'}

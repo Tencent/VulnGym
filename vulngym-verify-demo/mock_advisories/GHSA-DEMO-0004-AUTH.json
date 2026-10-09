@@ -1,0 +1,15 @@
+{
+  "report_id": "GHSA-DEMO-0004-AUTH",
+  "ghsa_id": "GHSA-DEMO-0004-AUTH",
+  "cve_id": "CVE-2026-0004",
+  "title": "Auth Service Authorization Bypass via Role Comparison",
+  "severity": "high",
+  "cvss": 7.5,
+  "summary": "The auth-svc middleware compares user.role against the required role without handling missing roles, allowing attackers to bypass authorization checks.",
+  "description": "When the role property is undefined, the comparison user.role !== requiredRole evaluates to true and a Forbidden is thrown; however, missing role for admin-only endpoints is not properly treated as unauthenticated, leading to a bypass for certain configurations.",
+  "affected_versions": ["< 3.1.0"],
+  "fixed_in": "3.1.0",
+  "vuln_category_l1_hint": "权限绕过",
+  "vuln_category_l2_hint": "权限绕过",
+  "published_at": "2026-06-20T00:00:00Z"
+}

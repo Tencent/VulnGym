@@ -1,0 +1,29 @@
+[warn] LLM GLMClient(model=glm-4.7-flash) failed: glm http 401: {"error":{"code":"401","message":"令牌已过期或验证不正确"}}
+[warn] falling back to SafeLLMClient
+[load] 4 entries from mock_data\entries.jsonl
+[llm] using ResilientLLMClient
+  [self-check] {'agree': False, 'comment': 'LLM unavailable for self-check; cannot confirm or revise prior judgements.'}
+  [self-check] {'agree': False, 'comment': 'LLM unavailable for self-check; cannot confirm or revise prior judgements.'}
+  [self-check] {'agree': False, 'comment': 'LLM unavailable for self-check; cannot confirm or revise prior judgements.'}
+  [self-check] {'agree': False, 'comment': 'LLM unavailable for self-check; cannot confirm or revise prior judgements.'}
+[save] wrote 4 reports to out\reports_glm_fallback.jsonl
+
+========================================================================
+VulnGym 字段级验证 — 总览 (n=4)
+  correct   : 0
+  incorrect : 2
+  uncertain : 2
+------------------------------------------------------------------------
+entry_id     report_id                verdict    summary
+------------------------------------------------------------------------
+entry-00001  GHSA-DEMO-0001-XSS       uncertain  整体判定为 uncertain
+entry-00002  GHSA-DEMO-0002-RCE       incorrect  整体判定为 incorrect — 异常字段: critical_operation
+entry-00003  GHSA-DEMO-0003-CMD       incorrect  整体判定为 incorrect — 异常字段: entry_point
+entry-00004  GHSA-DEMO-0004-AUTH      uncertain  整体判定为 uncertain
+========================================================================
+
+========================================================================
+VulnGym 字段级验证 — 评测 (n_entries=4)
+  field-level accuracy : 0.594  (19/32)  [target >= 0.85]
+  error recall         : 0.667  (2/3)  [target >= 0.90]
+  verdict accuracy     : 0.500  (4 entries)

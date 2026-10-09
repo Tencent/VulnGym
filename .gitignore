@@ -91,3 +91,40 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+
+# ===== VulnGym T1 项目特定 =====
+
+# T1 数据资料包（巨大，23个git bundle，不应提交）
+/T1Data/
+
+# 运行输出
+/reports/
+/vulngym-verify-demo/out/
+
+# 开发中间产物
+/.tools/
+/.workbuddy/
+/.cache/
+/.tmp/
+
+# NVD 外部数据集
+/data/nvd_cve_70/
+
+# 根目录 T1Data 打包临时文件
+/packaged-candidates.jsonl
+/manifest.json
+/repositories.json
+/sources.json
+/referenced-commits.json
+/patch-index.json
+/missing-materials.json
+/repo-map.json
+/dataset-info.json
+/restore_repos.py
+/extracted_doc.txt
+
+# 截图
+/vulngym-verify-demo/screenshots/
+
+# 环境变量（含API Key，所有层级）
+**/.env

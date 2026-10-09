@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0; padding: 0; background: #f3f4f6;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: #1f2937;
+  }
+  .frame {
+    width: 1100px;
+    padding: 22px 26px 16px 26px;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+  .header {
+    border-left: 4px solid #4f46e5;
+    padding-left: 14px;
+    margin-bottom: 8px;
+  }
+  .header .title {
+    font-size: 19px; font-weight: 600;
+    color: #111827; line-height: 1.35;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  .crumbs {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 6px;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  pre.code {
+    margin: 0;
+    padding: 14px 16px;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+  pre.code .ln {
+    display: inline-block;
+    width: 38px;
+    color: #64748b;
+    user-select: none;
+    text-align: right;
+    margin-right: 12px;
+    border-right: 1px solid #334155;
+    padding-right: 6px;
+  }
+  pre.code .src { white-space: pre; }
+  .py-kw { color: #c084fc; font-weight: 500; }
+  .py-str { color: #86efac; }
+  .py-com { color: #94a3b8; font-style: italic; }
+  .py-fn { color: #fbbf24; }
+  .py-num { color: #fda4af; }
+  .py-cn-com { color: #fde68a; font-style: italic; }
+  pre.term {
+    margin: 0;
+    padding: 14px 16px;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: hidden;
+  }
+  pre.term .ok { color: #6ee7b7; }
+  pre.term .warn { color: #facc15; }
+  pre.term .err { color: #fca5a5; }
+  pre.term .hi { color: #67e8f9; font-weight: 600; }
+  .footer {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #9ca3af;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="header">
+      <div class="title">Mock 数据样本 · 4 条故意制造的 entry</div>
+      <div class="subtitle">每条 entry 都设计了一类'标注脏'模式：行号漂移 / 文件不存在 / 分类错位</div>
+      <div class="crumbs">📁 mock_data/entries.jsonl  ·  4 lines</div>
+    </div>
+    <pre class="term">{"commit": "1111111111111111111111111111111111111111", "critical_operation": {"code": "tempDiv.innerHTML = htmlContent;", "file": "src/lib/RichTextInput.svelte", "line": 348}, "entry_id": "entry-00001", "entry_point": {"code": "insertTextHandler(data.content);", "file": "src/handlers/comment.js", "line": 97}, "origin": "GitHub Advisory Database (reviewed)", "project": "blog-platform", "report_id": "GHSA-DEMO-0001-XSS", "repo_url": "https://github.com/example/blog-platform", "source_link": "https://github.com/advisories/GHSA-DEMO-0001-XSS", "trace": [{"code": "renderRichText(content);", "file": "src/lib/RichTextInput.svelte", "line": 343}], "verify": 1, "vuln_category_l1": "XSS", "vuln_category_l2": "Stored XSS", "vuln_ids": ["CVE-2026-DEMO-0001", "GHSA-DEMO-0001-XSS"], "vuln_title": "Blog Platform Stored DOM XSS via Comment Rich Text"}
+{"commit": "2222222222222222222222222222222222222222", "critical_operation": {"code": "child_process.exec(userInput);", "file": "src/runner.js", "line": 200}, "entry_id": "entry-00002", "entry_point": {"code": "spawn(\"sh\", [\"-c\", cmd]);", "file": "src/api.js", "line": 42}, "origin": "GitHub Advisory Database (reviewed)", "project": "shell-runner", "report_id": "GHSA-DEMO-0002-RCE", "repo_url": "https://github.com/example/shell-runner", "source_link": "https://github.com/advisories/GHSA-DEMO-0002-RCE", "trace": [], "verify": 0, "vuln_category_l1": "代码注入", "vuln_category_l2": "命令注入", "vuln_ids": ["CVE-2026-DEMO-0002"], "vuln_title": "Shell Runner RCE via Unsanitized Command Argument"}
+{"commit": "3333333333333333333333333333333333333333", "critical_operation": {"code": "spawn(\"/bin/sh\", [req.query.cmd]);", "file": "src/exec.js", "line": 33}, "entry_id": "entry-00003", "entry_point": {"code": "processCommand(req.query.cmd);", "file": "src/nonexistent/typo/route.js", "line": 17}, "origin": "GitHub Advisory Database (reviewed)", "project": "cmd-typo", "report_id": "GHSA-DEMO-0003-CMD", "repo_url": "https://github.com/example/cmd-typo", "source_link": "https://github.com/advisories/GHSA-DEMO-0003-CMD", "trace": [{"code": "return exec(cmd);", "file": "src/exec.js", "line": 30}], "verify": 0, "vuln_category_l1": "代码注入", "vuln_category_l2": "命令注入", "vuln_ids": ["CVE-2026-DEMO-0003", "GHSA-DEMO-0003-CMD"], "vuln_title": "CMD Tool Command Injection via Query Parameter"}
+{"commit": "4444444444444444444444444444444444444444", "critical_operation": {"code": "if (user.role !== requiredRole) throw new Forbidden();", "file": "src/policy.js", "line": 156}, "entry_id": "entry-00004", "entry_point": {"code": "checkRole(req.user, role);", "file": "src/middleware.js", "line": 88}, "origin": "GitHub Advisory Database (reviewed)", "project": "auth-svc", "report_id": "GHSA-DEMO-0004-AUTH", "repo_url": "https://github.com/example/auth-svc", "source_link": "https://github.com/advisories/GHSA-DEMO-0004-AUTH", "trace": [], "verify": 1, "vuln_category_l1": "权限绕过", "vuln_category_l2": "权限提升", "vuln_ids": ["CVE-2026-DEMO-0004"], "vuln_title": "Auth Service Authorization Bypass via Role Comparison"}</pre>
+    <div class="footer">vulngym-verify-demo · screenshots/mock_entries_sample.png</div>
+  </div>
+</body>
+</html>

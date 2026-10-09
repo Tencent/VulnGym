@@ -1,0 +1,152 @@
+{
+  "schema_version": "v1",
+  "description": "mock_repo manifest — each item is one (project, commit, file) snapshot",
+  "items": [
+    {
+      "repo_url": "https://github.com/example/blog-platform",
+      "project": "blog-platform",
+      "commit": "1111111111111111111111111111111111111111",
+      "file": "src/handlers/comment.js",
+      "targets": [{"line": 97, "code": "insertTextHandler(data.content);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/blog-platform",
+      "project": "blog-platform",
+      "commit": "1111111111111111111111111111111111111111",
+      "file": "src/lib/RichTextInput.svelte",
+      "targets": [
+        {"line": 343, "code": "    renderRichText(content);"},
+        {"line": 348, "code": "    tempDiv.innerHTML = htmlContent;"}
+      ]
+    },
+    {
+      "repo_url": "https://github.com/example/shell-runner",
+      "project": "shell-runner",
+      "commit": "2222222222222222222222222222222222222222",
+      "file": "src/api.js",
+      "targets": [{"line": 42, "code": "spawn(\"sh\", [\"-c\", cmd]);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/shell-runner",
+      "project": "shell-runner",
+      "commit": "2222222222222222222222222222222222222222",
+      "file": "src/runner.js",
+      "targets": [{"line": 250, "code": "child_process.exec(userInput);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/cmd-typo",
+      "project": "cmd-typo",
+      "commit": "3333333333333333333333333333333333333333",
+      "file": "src/route.js",
+      "targets": [{"line": 17, "code": "processCommand(req.query.cmd);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/cmd-typo",
+      "project": "cmd-typo",
+      "commit": "3333333333333333333333333333333333333333",
+      "file": "src/exec.js",
+      "targets": [
+        {"line": 30, "code": "    return exec(cmd);"},
+        {"line": 33, "code": "    spawn(\"/bin/sh\", [req.query.cmd]);"}
+      ]
+    },
+    {
+      "repo_url": "https://github.com/example/auth-svc",
+      "project": "auth-svc",
+      "commit": "4444444444444444444444444444444444444444",
+      "file": "src/middleware.js",
+      "targets": [{"line": 88, "code": "checkRole(req.user, role);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/auth-svc",
+      "project": "auth-svc",
+      "commit": "4444444444444444444444444444444444444444",
+      "file": "src/policy.js",
+      "targets": [{"line": 156, "code": "if (user.role !== requiredRole) throw new Forbidden();"}]
+    },
+    {
+      "repo_url": "https://github.com/example/user-api",
+      "project": "user-api",
+      "commit": "5555555555555555555555555555555555555555",
+      "file": "src/routes/user.js",
+      "targets": [{"line": 12, "code": "getUserById(req.params.id);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/user-api",
+      "project": "user-api",
+      "commit": "5555555555555555555555555555555555555555",
+      "file": "src/user.js",
+      "targets": [{"line": 85, "code": "const sql = buildQuery(id);"}, {"line": 88, "code": "db.query(sql);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/code-sandbox",
+      "project": "code-sandbox",
+      "commit": "6666666666666666666666666666666666666666",
+      "file": "src/api/execute.js",
+      "targets": [{"line": 45, "code": "runCode(req.body.code);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/code-sandbox",
+      "project": "code-sandbox",
+      "commit": "6666666666666666666666666666666666666666",
+      "file": "src/sandbox.js",
+      "targets": [{"line": 120, "code": "eval(userCode);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/file-mgr",
+      "project": "file-mgr",
+      "commit": "7777777777777777777777777777777777777777",
+      "file": "src/routes/file.js",
+      "targets": [{"line": 23, "code": "deleteFile(req.query.path);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/file-mgr",
+      "project": "file-mgr",
+      "commit": "7777777777777777777777777777777777777777",
+      "file": "src/cleanup.js",
+      "targets": [{"line": 63, "code": "const filePath = buildPath(path);"}, {"line": 66, "code": "fs.unlinkSync(filePath);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/oauth-provider",
+      "project": "oauth-provider",
+      "commit": "8888888888888888888888888888888888888888",
+      "file": "src/routes/auth.js",
+      "targets": [{"line": 77, "code": "handleCallback(req.query.redirect_uri);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/oauth-provider",
+      "project": "oauth-provider",
+      "commit": "8888888888888888888888888888888888888888",
+      "file": "src/oauth.js",
+      "targets": [{"line": 155, "code": "redirect(url);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/native-parser",
+      "project": "native-parser",
+      "commit": "9999999999999999999999999999999999999999",
+      "file": "src/parser.js",
+      "targets": [{"line": 18, "code": "parseData(req.body);"}, {"line": 22, "code": "callNative(data);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/native-parser",
+      "project": "native-parser",
+      "commit": "9999999999999999999999999999999999999999",
+      "file": "native/parser.c",
+      "targets": [{"line": 234, "code": "memcpy(buf, input, len);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/token-api",
+      "project": "token-api",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "file": "src/middleware/auth.js",
+      "targets": [{"line": 34, "code": "authenticate(req);"}]
+    },
+    {
+      "repo_url": "https://github.com/example/token-api",
+      "project": "token-api",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "file": "src/auth.js",
+      "targets": [{"line": 99, "code": "res.setHeader('X-Token', token);"}]
+    }
+  ]
+}

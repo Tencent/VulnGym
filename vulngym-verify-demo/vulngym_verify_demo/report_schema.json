@@ -1,0 +1,222 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/perhaps468/VulnGym/main/vulngym-verify-demo/vulngym_verify_demo/report_schema.json",
+  "title": "VulnGym VerificationReport",
+  "description": "每条输入记录输出一行 JSON。坏输入行也必须生成报告：使用 __invalid_input__:<line_no> 填充缺失的 report_id/entry_id，并追加可选 input_error（line_no、kind、message）。",
+  "type": "object",
+  "required": ["report_id", "entry_id", "verdict", "fields", "summary"],
+  "additionalProperties": true,
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "GHSA id 或 __invalid_input__:<line_no>（坏 JSON 行稳定占位符）"
+    },
+    "entry_id": {
+      "type": "string",
+      "description": "entry-XXXXX 或 __invalid_input__:<line_no>（坏 JSON 行稳定占位符）"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["correct", "incorrect", "uncertain"],
+      "description": "整体判定"
+    },
+    "fields": {
+      "type": "object",
+      "required": ["entry_point", "critical_operation", "commit", "vuln_ids", "vuln_title", "vuln_category_l1", "vuln_category_l2", "trace"],
+      "additionalProperties": true,
+      "properties": {
+        "entry_point": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "critical_operation": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "commit": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "vuln_ids": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "vuln_title": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "vuln_category_l1": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "vuln_category_l2": {
+          "$ref": "#/definitions/FieldResult"
+        },
+        "trace": {
+          "$ref": "#/definitions/FieldResult"
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "整体判定摘要"
+    },
+    "self_check": {
+      "$ref": "#/definitions/SelfCheck"
+    },
+    "plan": {
+      "$ref": "#/definitions/Plan"
+    },
+    "tool_trace": {
+      "type": "array",
+      "description": "可选运行时审计字段；若输出，仅记录实际调用的工具。完整验证路径通常至少包含三类工具。",
+      "items": {
+        "$ref": "#/definitions/ToolCall"
+      }
+    },
+    "input_error": {
+      "type": "object",
+      "description": "仅坏输入行有。标记输入解析错误详情。",
+      "required": ["line_no", "kind", "message"],
+      "properties": {
+        "line_no": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "在输入 JSONL 文件中的行号（1-based）"
+        },
+        "kind": {
+          "type": "string",
+          "description": "错误类型：json_parse_error | schema_violation | missing_field | forbidden_field"
+        },
+        "message": {
+          "type": "string",
+          "description": "脱敏后的错误消息，不泄漏本地绝对路径"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "FieldResult": {
+      "type": "object",
+      "required": ["status", "confidence", "evidence"],
+      "additionalProperties": true,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["correct", "incorrect", "uncertain"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "evidence": {
+          "type": "string",
+          "description": "无证据时必须解释缺口，不得为空字符串"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "description": "引用格式：source=advisory|repository|git，locator 为 JSON 路径，quote 为引用内容",
+          "items": {
+            "$ref": "#/definitions/EvidenceRef"
+          }
+        }
+      }
+    },
+    "EvidenceRef": {
+      "type": "object",
+      "required": ["source", "locator", "quote"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["advisory", "repository", "git"]
+        },
+        "locator": {
+          "type": "string",
+          "description": "JSON 路径（如 fields.vuln_ids.evidence）或文件路径"
+        },
+        "quote": {
+          "type": "string",
+          "description": "引用内容片段"
+        }
+      }
+    },
+    "SelfCheck": {
+      "type": "object",
+      "required": ["status", "agree", "comment", "checked_fields"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["completed", "skipped", "failed"]
+        },
+        "agree": {
+          "type": "boolean",
+          "description": "status=failed|skipped 时必须为 false"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "checked_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Plan": {
+      "type": "object",
+      "required": ["version", "tools_planned", "fields_planned"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "const": "1"
+        },
+        "entry_id": {
+          "type": "string"
+        },
+        "report_id": {
+          "type": "string"
+        },
+        "tools_planned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fields_planned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ToolCall": {
+      "type": "object",
+      "required": ["seq", "tool", "ok"],
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "调用序号"
+        },
+        "tool": {
+          "type": "string",
+          "description": "工具名：read_advisory | checkout | read_file_lines | grep_code | git_log | git_tags_at_commit"
+        },
+        "input": {
+          "type": "object",
+          "description": "脱敏后的输入摘要，不记录 API key 或完整本地绝对路径"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": ["string", "null"]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "description": "JSON 路径格式（如 fields.vuln_ids.evidence）",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

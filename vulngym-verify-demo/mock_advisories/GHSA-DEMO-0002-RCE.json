@@ -1,0 +1,15 @@
+{
+  "report_id": "GHSA-DEMO-0002-RCE",
+  "ghsa_id": "GHSA-DEMO-0002-RCE",
+  "cve_id": "CVE-2026-DEMO-0002",
+  "title": "Shell Runner RCE via Unsanitized Command Argument",
+  "severity": "high",
+  "cvss": 8.8,
+  "summary": "The shell-runner service passes user-controlled input directly to child_process.exec, enabling arbitrary OS command execution.",
+  "description": "An authenticated user can submit a payload to /api/runner that is forwarded verbatim to child_process.exec(userInput) without parameterization, leading to remote code execution under the server's privileges.",
+  "affected_versions": ["< 2.0.0"],
+  "fixed_in": "2.0.0",
+  "vuln_category_l1_hint": "代码注入",
+  "vuln_category_l2_hint": "命令注入",
+  "published_at": "2026-06-10T00:00:00Z"
+}

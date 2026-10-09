@@ -1,0 +1,15 @@
+========================================================================
+VulnGym 字段级验证 — 评测 (n_entries=4)
+  field-level accuracy : 0.469  (15/32)  [target >= 0.85]
+  error recall         : 1.000  (3/3)  [target >= 0.90]
+  verdict accuracy     : 1.000  (4 entries)
+------------------------------------------------------------------------
+  field                  accuracy    hit/total
+  entry_point               0.500      2/4
+  critical_operation        0.500      2/4
+  commit                    0.250      1/4
+  vuln_ids                  0.750      3/4
+  vuln_title                0.250      1/4
+  vuln_category_l1          0.250      1/4
+  vuln_category_l2          0.500      2/4
+  trace                     0.750      3/4
