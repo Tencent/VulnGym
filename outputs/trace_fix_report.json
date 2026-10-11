@@ -1,0 +1,61 @@
+{
+  "after_critical_operation_nodes": 237,
+  "before_entry_point_nodes": 139,
+  "cross_file_trace_nodes_skipped": 382,
+  "duplicate_trace_nodes": 7,
+  "duplicate_trace_nodes_removed": 7,
+  "focus_entries": {
+    "entry-00103": {
+      "after_critical_operation_nodes": 0,
+      "before_entry_point_nodes": 1,
+      "cross_file_trace_nodes_skipped": 1,
+      "duplicate_trace_nodes": 0,
+      "duplicate_trace_nodes_removed": 0,
+      "need_manual_review": false,
+      "order_anomaly_nodes_removed": 1,
+      "total_trace_nodes": 4
+    },
+    "entry-00185": {
+      "after_critical_operation_nodes": 1,
+      "before_entry_point_nodes": 0,
+      "cross_file_trace_nodes_skipped": 0,
+      "duplicate_trace_nodes": 0,
+      "duplicate_trace_nodes_removed": 0,
+      "need_manual_review": false,
+      "order_anomaly_nodes_removed": 1,
+      "total_trace_nodes": 4
+    },
+    "entry-00320": {
+      "after_critical_operation_nodes": 0,
+      "before_entry_point_nodes": 1,
+      "cross_file_trace_nodes_skipped": 0,
+      "duplicate_trace_nodes": 0,
+      "duplicate_trace_nodes_removed": 0,
+      "need_manual_review": false,
+      "order_anomaly_nodes_removed": 1,
+      "total_trace_nodes": 4
+    },
+    "entry-00511": {
+      "after_critical_operation_nodes": 1,
+      "before_entry_point_nodes": 0,
+      "cross_file_trace_nodes_skipped": 2,
+      "duplicate_trace_nodes": 0,
+      "duplicate_trace_nodes_removed": 0,
+      "need_manual_review": false,
+      "order_anomaly_nodes_removed": 1,
+      "total_trace_nodes": 6
+    }
+  },
+  "manual_review_entries": [
+    "entry-00115",
+    "entry-00182",
+    "entry-00199",
+    "entry-00224",
+    "entry-00484",
+    "entry-00487",
+    "entry-00507"
+  ],
+  "order_anomaly_nodes_removed": 356,
+  "total_entries": 408,
+  "total_trace_nodes": 2073
+}
