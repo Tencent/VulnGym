@@ -276,9 +276,9 @@ The script reports two metrics:
 | Aspect | Default |
 |---|---|
 | Path match | normalized, exact |
-| Line tolerance | `\|Δline\| ≤ 5` on entry_point **and** critical_operation |
+| Line tolerance | inclusive span distance `≤ 5` on entry_point **and** critical_operation; overlapping integer/range locations have distance `0` |
 | Direction | strict (entry_point-to-entry_point, critical_operation-to-critical_operation) |
-| `line == 0` in ground truth | excluded from numerator and denominator |
+| Invalid ground-truth line | excluded from numerator and denominator; includes the retired `line == 0` sentinel in older/custom data |
 
 All policies are documented and configurable via CLI arguments
 (`--line-tolerance`, etc.).
