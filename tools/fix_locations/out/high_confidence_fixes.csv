@@ -1,0 +1,13 @@
+rule,entry_id,field_path,class,old_file,old_line,new_file,new_line,strategy,note
+R2a,entry-00251,trace[3],line_moved,src/auto-reply/command-auth.ts,325,src/auto-reply/command-auth.ts,326,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00300,trace[0],line_moved,src/auto-reply/reply/commands-config.ts,134,src/auto-reply/reply/commands-config.ts,196,whole_file,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00312,critical_operation,line_moved,src/infra/device-bootstrap.ts,125,src/infra/device-bootstrap.ts,128,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00312,trace[4],line_moved,src/infra/device-bootstrap.ts,125,src/infra/device-bootstrap.ts,128,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00398,trace[5],line_moved,src/auto-reply/reply/directive-handling.impl.ts,413-421,src/auto-reply/reply/directive-handling.impl.ts,407-413,whole_file,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,critical_operation,line_moved,src/infra/exec-approvals-allowlist.ts,458,src/infra/exec-approvals-allowlist.ts,453-463,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,entry_point,line_moved,src/node-host/invoke-system-run.ts,619,src/node-host/invoke-system-run.ts,614-624,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,trace[0],line_moved,src/node-host/invoke-system-run.ts,547,src/node-host/invoke-system-run.ts,542-552,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,trace[1],line_moved,src/node-host/invoke-system-run.ts,559,src/node-host/invoke-system-run.ts,554-564,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,trace[2],line_moved,src/infra/exec-approvals-allowlist.ts,567,src/infra/exec-approvals-allowlist.ts,562-572,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,trace[3],line_moved,src/infra/exec-approvals-allowlist.ts,520,src/infra/exec-approvals-allowlist.ts,515-525,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41
+R2a,entry-00405,trace[4],line_moved,src/infra/exec-approvals.ts,364,src/infra/exec-approvals.ts,359-369,neighborhood_pm5,line_moved ∩ (#35∪#39) ∩ #41

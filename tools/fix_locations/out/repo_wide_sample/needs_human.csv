@@ -1,0 +1,6 @@
+entry_id,field_path,old_file,old_line,new_file,new_line,status,reason,strategy
+entry-00164,trace[0],src/browser/routes/basic.ts,7,,,needs_human,repo_wide_no_match,
+entry-00193,entry_point,src/agents/apply-patch.ts,84,,,needs_human,repo_wide_no_match,
+entry-00193,critical_operation,src/infra/fs-safe.ts,225,,,needs_human,repo_wide_no_match,
+entry-00298,entry_point,src/auto-reply/reply/commands-config.ts,126,,,needs_human,degenerate_snippet,
+entry-00298,trace[0],src/auto-reply/reply/commands-config.ts,134,,,needs_human,repo_wide_no_match,

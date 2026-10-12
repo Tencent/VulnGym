@@ -1,0 +1,51 @@
+{
+  "repo_wide_unique": 0,
+  "checks": [
+    {
+      "entry_id": "entry-00164",
+      "field": "trace[0]",
+      "reason": "repo_wide_no_match",
+      "hit_count": 0,
+      "hits_sample": [],
+      "code_preview": "'export function registerBrowserBasicRoutes(...) {'",
+      "verify": "PASS_no_match"
+    },
+    {
+      "entry_id": "entry-00193",
+      "field": "entry_point",
+      "reason": "repo_wide_no_match",
+      "hit_count": 0,
+      "hits_sample": [],
+      "code_preview": "'export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> { // Agent 工具注",
+      "verify": "PASS_no_match"
+    },
+    {
+      "entry_id": "entry-00193",
+      "field": "critical_operation",
+      "reason": "repo_wide_no_match",
+      "hit_count": 0,
+      "hits_sample": [],
+      "code_preview": "'handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600); // 含 O_TRUNC，截断在边界校验之前发生'",
+      "verify": "PASS_no_match"
+    },
+    {
+      "entry_id": "entry-00298",
+      "field_path": "entry_point",
+      "reason": "degenerate_snippet",
+      "verify": "degenerate_ok",
+      "hit_count": null,
+      "code_preview": "'};'"
+    },
+    {
+      "entry_id": "entry-00298",
+      "field": "trace[0]",
+      "reason": "repo_wide_no_match",
+      "hit_count": 0,
+      "hits_sample": [],
+      "code_preview": "'const unauthorized = rejectUnauthorizedCommand(params, \"/debug\"); // 仅校验 isAuthorizedSender；通过后未继续校验 senderIsOwner'",
+      "verify": "PASS_no_match"
+    }
+  ],
+  "all_pass": true,
+  "gate_rule": "0 unique OK if no_match/ambiguous/degenerate classified correctly"
+}

@@ -1,0 +1,36 @@
+{
+  "ours_total": 102,
+  "ours_classes": {
+    "range_expand_same_start": 90,
+    "line_moved": 12
+  },
+  "comparisons": {
+    "pr35": {
+      "theirs": 19,
+      "intersection": 12,
+      "only_us": 90,
+      "only_them": 7,
+      "only_us_classes": {
+        "range_expand_same_start": 90
+      }
+    },
+    "pr39": {
+      "theirs": 14,
+      "intersection": 12,
+      "only_us": 90,
+      "only_them": 2,
+      "only_us_classes": {
+        "range_expand_same_start": 90
+      }
+    },
+    "pr41": {
+      "theirs": 101,
+      "intersection": 94,
+      "only_us": 8,
+      "only_them": 7,
+      "only_us_classes": {
+        "range_expand_same_start": 8
+      }
+    }
+  }
+}

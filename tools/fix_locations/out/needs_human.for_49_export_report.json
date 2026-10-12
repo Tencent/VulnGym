@@ -1,0 +1,9 @@
+{
+  "input": "D:\\postgraduate\\main-line\\Job\\Tencent\\VulnGym\\tools\\fix_locations\\out\\needs_human.csv",
+  "output": "D:\\postgraduate\\main-line\\Job\\Tencent\\VulnGym\\tools\\fix_locations\\out\\needs_human.for_49.csv",
+  "input_rows": 73,
+  "kept": 73,
+  "dropped": 0,
+  "dropped_reasons": {},
+  "note": "fetch_failed / repo_fetch_failed rows are excluded by default; see out/FETCH_FAILED_NOTE.md and out/COMPAT_WITH_49.md."
+}

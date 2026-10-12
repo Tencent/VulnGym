@@ -1,0 +1,10 @@
+{
+  "r2a_line_moved_count": 12,
+  "r2b_range_candidates": 82,
+  "r2b_range_passed_idempotency": 82,
+  "r2b_skipped": 0,
+  "entries_in_high_confidence_jsonl": 5,
+  "inter_conservative_size": 12,
+  "inter_41_size": 94,
+  "too_small": false
+}

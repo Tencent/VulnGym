@@ -1,0 +1,18 @@
+{
+  "pr1_fixes": 102,
+  "rw_fixes": 102,
+  "strategies": {
+    "neighborhood_pm5": 64,
+    "whole_file": 38
+  },
+  "repo_wide_unique": 0,
+  "only_rw": 0,
+  "only_pr1": 0,
+  "needs_human": 73,
+  "needs_human_reasons": {
+    "degenerate_snippet": 18,
+    "repo_wide_no_match": 55
+  },
+  "degenerate_pr1": 18,
+  "degenerate_rw": 18
+}

@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "checks": {
+    "row_count": {
+      "original": 408,
+      "fixed": 408,
+      "fix_diff": 102,
+      "ok": true
+    },
+    "schema": {
+      "errors": 0,
+      "samples": []
+    },
+    "fix_diff_consistency": {
+      "mismatches": 0,
+      "samples": []
+    },
+    "classification": {
+      "range_expand_same_start": 90,
+      "line_moved": 12
+    },
+    "idempotency": {
+      "sampled": 24,
+      "ok": 24,
+      "fail": 0,
+      "skip": 0,
+      "failures": []
+    }
+  }
+}

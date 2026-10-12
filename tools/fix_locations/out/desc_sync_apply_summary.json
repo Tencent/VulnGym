@@ -1,0 +1,7 @@
+{
+  "input_fixed": "D:\\postgraduate\\main-line\\Job\\Tencent\\VulnGym\\tools\\fix_locations\\out\\entries.fixed.jsonl",
+  "output": "D:\\postgraduate\\main-line\\Job\\Tencent\\VulnGym\\tools\\fix_locations\\out\\entries.fixed.desc_synced.jsonl",
+  "applied_count": 10,
+  "entries": 408,
+  "note": "Does not overwrite entries.fixed.jsonl; only would_update rows."
+}

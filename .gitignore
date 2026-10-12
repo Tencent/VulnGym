@@ -91,3 +91,25 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+
+# Local upstream repo cache for location repair (#4)
+.repo_cache/
+
+# Local-only / noisy artifacts under fix_locations
+tools/fix_locations/out/competitor_diffs/
+tools/fix_locations/out/archive/
+tools/fix_locations/out/fetch_retry/
+tools/fix_locations/out/*.log
+tools/fix_locations/out/*.log.err
+tools/fix_locations/out/night_run.pid
+tools/fix_locations/out/progress.jsonl
+tools/fix_locations/out/entries.fixed.partial.jsonl
+tools/fix_locations/out/_competitor_scan.md
+tools/fix_locations/out/repo_wide/*.log
+tools/fix_locations/out/repo_wide/*.log.err
+tools/fix_locations/out/repo_wide/night_run.pid
+tools/fix_locations/out/repo_wide/night_run_meta.txt
+tools/fix_locations/out/repo_wide/entries.fixed.partial.jsonl
+tools/fix_locations/out/repo_wide_sample/entries.fixed.partial.jsonl
+tools/fix_locations/out/repo_wide_sample/*.log
+tools/fix_locations/scripts/gate1_repo_wide_sample.py.bak
