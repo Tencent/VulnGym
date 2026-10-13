@@ -1,0 +1,17 @@
+entry_id,field,change_type,old_summary,new_summary,rationale
+entry-00241,entry_point.desc,rewrite,"描述 FROM 为漏洞源头/起点（taint 语义，易误解为运行时入口）","明确为配置基线锚点，并声明配置类漏洞 entry_point 非运行时可达入口","配置类漏洞无外部污点入口，entry_point 应定义为配置生效起点/特权基线锚点（见 config_vuln_annotation.md §2.1）"
+entry-00241,critical_operation.desc,rewrite,"描述 bash 以 root 运行（复述）","解释为何 CMD 是不必要特权的运行时兑现点：uid=0 启动→容器逃逸门槛与危害半径被不必要放大","desc 须解释为什么构成漏洞关键节点，而非简单复述代码（§2.2）"
+entry-00241,verify,0->1,自动标注（未人工确认）,人工审计通过,本次修复即人工审计，纳入高置信 ground truth 子集
+entry-00241,trace,unchanged,"特权传播链 FROM→RUN→...→CMD","保持不变","现有 trace 已正确表达配置声明到生效的传播路径，符合 §2.3，无需改动"
+entry-00242,entry_point.desc,rewrite,"描述 FROM 为漏洞源头/起点（taint 语义）","明确为配置基线锚点，声明非运行时入口","同 entry-00241 原则（§2.1）"
+entry-00242,critical_operation.desc,rewrite,"描述 root 执行依赖安装（复述）","解释为何 root 依赖安装是构建期兑现点：install 脚本以 uid=0 运行，依赖投毒即可借 root 写权限触达系统路径","构建期无显式 CMD 时，最具安全相关性的 root 操作即兑现点（§2.2）"
+entry-00242,verify,0->1,自动标注（未人工确认）,人工审计通过,本次修复即人工审计
+entry-00242,trace,unchanged,"特权传播链 FROM→corepack→WORKDIR→COPY→pnpm install","保持不变","已正确表达特权传播，无需改动"
+entry-00243,entry_point.desc,rewrite,"描述 FROM 为漏洞源头/起点（taint 语义）","明确为配置基线锚点，声明非运行时入口","同 §2.1"
+entry-00243,critical_operation.desc,rewrite,"描述 ENTRYPOINT 以 root 运行（复述）","解释为何 ENTRYPOINT 是运行时兑现点：安装脚本以 uid=0 运行，对系统路径任意写为完整 root 权限","§2.2"
+entry-00243,verify,0->1,自动标注（未人工确认）,人工审计通过,本次修复即人工审计
+entry-00243,trace,unchanged,"特权传播链 FROM→apt-get→COPY→chmod→ENTRYPOINT","保持不变","已正确表达特权传播，无需改动"
+entry-00244,entry_point.desc,rewrite,"描述 ubuntu 默认 root（未点明降权被架空）","明确基线锚点，并指出后续 sudoers 架空 USER app 降权","§2.1；根因性降权被架空须在点位/desc 中交代"
+entry-00244,critical_operation.desc,rewrite,"描述 ENTRYPOINT 以 app 运行（未点明等效 root）","解释 NOPASSWD:ALL 使 app≈root，所谓 nonroot 仅为形式降权，进程可零成本提权至完整 root","§2.2；解释为何该兑现点实际持有完整特权"
+entry-00244,verify,0->1,自动标注（未人工确认）,人工审计通过,本次修复即人工审计
+entry-00244,trace,unchanged,"含 sudoers 行(line18)与 USER app(line20) 架空降权的特权传播链","保持不变","已显式标注被架空的降权节点，符合 §2.3，无需改动"
