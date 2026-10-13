@@ -1,0 +1,16 @@
+entry_id,field,before,after,verify
+entry-00185,entry_point,(replaced),packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts::70,1
+entry-00185,critical_operation,(replaced),packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts::128-131,1
+entry-00185,trace,(replaced),[5 trace node(s)],1
+entry-00197,entry_point,(replaced),src/media/server.ts::36,1
+entry-00197,critical_operation,(replaced),src/media/server.ts::57,1
+entry-00197,trace,(replaced),[6 trace node(s)],1
+entry-00290,entry_point,(replaced),src/agents/apply-patch.ts::94,1
+entry-00290,critical_operation,(replaced),src/agents/apply-patch.ts::152,1
+entry-00290,trace,(replaced),[5 trace node(s)],1
+entry-00320,entry_point,(replaced),src/backend/base/langflow/api/v2/files.py::162,1
+entry-00320,critical_operation,(replaced),src/backend/base/langflow/services/storage/local.py::120,1
+entry-00320,trace,(replaced),[6 trace node(s)],1
+entry-00391,entry_point,(replaced),src/fastmcp/utilities/openapi/director.py::23-28,1
+entry-00391,critical_operation,(replaced),src/fastmcp/utilities/openapi/director.py::216,1
+entry-00391,trace,(replaced),[6 trace node(s)],1
