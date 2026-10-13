@@ -1,0 +1,24 @@
+﻿entry_id,field,before,after,change_type
+entry-00241,critical_operation.line,23,1-23,MODIFIED
+entry-00241,critical_operation.code,"CMD [""bash""]",FROM node:22-bookworm\n\nRUN corepack enable\n\nWORKDIR /app\n\nENV NODE_OPTIONS...,MODIFIED
+entry-00241,critical_operation.desc,CMD 指令将 bash 设为容器的默认启动进程，由于整个 Dockerfile 从未插入 USER 指令切换至非特权账户，bash 进程在容器启动时以 roo...,[缺失型缺陷] 整个 Dockerfile 共 23 行，从 line 1 的 FROM 声明到 line 23 的 CMD 声明，全程缺失 USER 指令。这...,MODIFIED
+entry-00241,trace (node count),7,1,MODIFIED
+entry-00241,(top-level key order),non-alphabetical,alphabetical (SCHEMA compliant),REORDERED (E2 fix)
+entry-00242,entry_point.desc,此行声明基础镜像为 node:22-bookworm，该镜像的默认用户为 root（uid=0）。整个漏洞的起点在此：后续所有 RUN 指令及容器内的应用进程均...,FROM 指令以 node:22-bookworm 作为基础镜像，该镜像内置默认用户为 root（uid=0）。整个构建文件自此层起始，既无 RUN usera...,MODIFIED
+entry-00242,critical_operation.line,9,1-9,MODIFIED
+entry-00242,critical_operation.code,RUN pnpm install --frozen-lockfile,FROM node:22-bookworm\n\nRUN corepack enable\n\nWORKDIR /app\n\nCOPY . .\n\nRUN ...,MODIFIED
+entry-00242,critical_operation.desc,此指令在 root 权限下执行 pnpm 包管理器的依赖安装，是漏洞危害落地的关键节点。由于 Dockerfile 全程缺少用户切换，安装过程及其触发的任何 i...,[缺失型缺陷] 整个 Dockerfile 共 9 行，从 line 1 的 FROM 声明到 line 9 的 RUN pnpm install 声明，全程缺...,MODIFIED
+entry-00242,trace (node count),5,1,MODIFIED
+entry-00242,(top-level key order),non-alphabetical,alphabetical (SCHEMA compliant),REORDERED (E2 fix)
+entry-00243,entry_point.desc,FROM node:22-bookworm-slim 是镜像构建的基础声明，引入该基础镜像后默认用户即为 root（uid 0）。该 Dockerfile 全文...,FROM 指令以 node:22-bookworm-slim 作为基础镜像，该镜像内置默认用户为 root（uid=0）。整个构建文件自此层起始，既无 RUN ...,MODIFIED
+entry-00243,critical_operation.line,14,1-14,MODIFIED
+entry-00243,critical_operation.code,"ENTRYPOINT [""/usr/local/bin/openclaw-install-e2e""]",FROM node:22-bookworm-slim\n\nRUN apt-get update \\n  && apt-get install -y --no...,MODIFIED
+entry-00243,critical_operation.desc,ENTRYPOINT 指令将 /usr/local/bin/openclaw-install-e2e 注册为容器默认启动入口。由于 FROM 层确立的 root...,[缺失型缺陷] 整个 Dockerfile 共 14 行，从 line 1 的 FROM 声明到 line 14 的 ENTRYPOINT 声明，全程缺失 US...,MODIFIED
+entry-00243,trace (node count),5,1,MODIFIED
+entry-00243,(top-level key order),non-alphabetical,alphabetical (SCHEMA compliant),REORDERED (E2 fix)
+entry-00244,entry_point.desc,FROM ubuntu:24.04 将基础镜像确立为 ubuntu:24.04，该镜像内置的默认进程执行身份为 uid 0（root）。此指令是整个权限链路的起...,FROM 指令以 ubuntu:24.04 作为基础镜像，该镜像内置默认用户为 root（uid=0）。整个构建文件自此层起始，root 上下文一直延续到 li...,MODIFIED
+entry-00244,critical_operation.line,29,17-20,MODIFIED
+entry-00244,critical_operation.code,"ENTRYPOINT [""/usr/local/bin/openclaw-install-nonroot""]","RUN useradd -m -s /bin/bash app \\n  && echo ""app ALL=(ALL) NOPASSWD:ALL"" > /etc...",MODIFIED
+entry-00244,critical_operation.desc,ENTRYPOINT 指令将 openclaw-install-nonroot 脚本设为容器启动时的入口进程，尽管其路径包含 nonroot 字样。该脚本在具备...,"[无效降权型缺陷] line 17-18 创建 app 用户并写入 sudoers 授权 ""app ALL=(ALL) NOPASSWD:ALL""，授予 app...",MODIFIED
+entry-00244,trace (node count),7,1,MODIFIED
+entry-00244,(top-level key order),non-alphabetical,alphabetical (SCHEMA compliant),REORDERED (E2 fix)
