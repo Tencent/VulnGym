@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "total_entries": 408,
+    "verify_0": 15,
+    "verify_1": 393,
+    "total_trace_nodes": 2073
+  },
+  "duplicates": {
+    "total": 7,
+    "desc_conflict_need_human": 7,
+    "auto_mergeable": 0
+  },
+  "order_anomalies": {
+    "before_entry": {
+      "total": 285,
+      "clear": 88,
+      "ambiguous": 197
+    },
+    "after_critical": {
+      "total": 395,
+      "clear": 187,
+      "ambiguous": 208
+    }
+  },
+  "cross_file_nodes": 382,
+  "fixes": {
+    "mode": "remove_before_entry",
+    "total_fix_entries": 4,
+    "entries_modified": 4
+  },
+  "human_review_needed": 214
+}
