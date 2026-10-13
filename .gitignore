@@ -91,3 +91,6 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+
+# Location fixer repository cache
+.cache/
