@@ -1,0 +1,29 @@
+{
+  "action_counts": {
+    "manual_review": 4,
+    "protected_verified": 379
+  },
+  "changed_entries": [],
+  "changes_applied": 0,
+  "cross_file_comparisons_skipped": 1658,
+  "entries_scanned": 408,
+  "finding_counts": {
+    "after_critical": 237,
+    "before_entry": 139,
+    "duplicate": 7
+  },
+  "input_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+  "manual_review_manifest_sha256": "d9e8f1cd72bce2179795730560fd224e47caf50109cb9f04943a8de629eb542f",
+  "manual_review_rows": 4,
+  "manual_review_schema_version": 1,
+  "mode": "fix",
+  "needs_human_entries": [
+    "entry-00103",
+    "entry-00185",
+    "entry-00320",
+    "entry-00511"
+  ],
+  "order_policy": "review",
+  "output_sha256": "8a0385a987dbad8e573ad06aec1b6b05367dd783b28f3bbf1ce2464aef851bf2",
+  "trace_nodes_scanned": 2073
+}
