@@ -91,3 +91,5 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+tmp/
+tmp_v0/
