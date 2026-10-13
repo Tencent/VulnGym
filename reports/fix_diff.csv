@@ -1,0 +1,266 @@
+entry_id,verify,repo_url,commit,field_path,old_file,old_line,old_code,old_desc,new_file,new_line,new_code,new_desc,strategy,match_mode,desc_status,source_url,source_sha256,candidate_count,reason
+entry-00090,1,https://github.com/n8n-io/n8n,e7d95055d1ab260ae91f8ba358310211476bd677,trace[3],packages/nodes-base/nodes/Code/Code.node.ts,174-183,"		const getSandbox = (index = 0) => {
+			const code = this.getNodeParameter(codeParameterName, index) as string;
+
+			const context = getSandboxContext.call(this, index);
+			if (nodeMode === 'runOnceForAllItems') {
+				context.items = context.$input.all();
+			} else {
+				context.item = context.$input.item;
+			}
+","在调用栈下游，getSandbox 工厂函数调用 getSandboxContext.call(this, index) 获取含有 helpers 的执行上下文，并附加 items 或 item 字段后，将整个 context 对象传递给 JavaScriptSandbox 构造函数，是文件系统辅助函数从外层上下文流入 vm2 沙箱的传递桥梁。",packages/nodes-base/nodes/Code/Code.node.ts,174-182,"		const getSandbox = (index = 0) => {
+			const code = this.getNodeParameter(codeParameterName, index) as string;
+
+			const context = getSandboxContext.call(this, index);
+			if (nodeMode === 'runOnceForAllItems') {
+				context.items = context.$input.all();
+			} else {
+				context.item = context.$input.item;
+			}
+","在调用栈下游，getSandbox 工厂函数调用 getSandboxContext.call(this, index) 获取含有 helpers 的执行上下文，并附加 items 或 item 字段后，将整个 context 对象传递给 JavaScriptSandbox 构造函数，是文件系统辅助函数从外层上下文流入 vm2 沙箱的传递桥梁。",nearby_unique,verbatim,checked_no_location_reference,https://github.com/n8n-io/n8n/blob/e7d95055d1ab260ae91f8ba358310211476bd677/packages/nodes-base/nodes/Code/Code.node.ts#L174,71602e2acd5c9a73a65c7c04c8a24dc33d6dc7a7f5785d8489eb703708f13c8a,1,unique_source_match
+entry-00103,0,https://github.com/n8n-io/n8n,57d6015f2ea0442c24e0449105325b7e36f066df,trace[1],packages/cli/src/webhooks/webhook-helpers.ts,605-614,"
+		if (responseMode === 'streaming') {
+			Container.get(Logger).debug(
+				`Execution of workflow ""${workflow.name}"" from with ID ${executionId} is set to streaming`,
+				{ executionId },
+			);
+			// TODO: Add check for streaming nodes here
+			runData.httpResponse = res;
+			runData.streamingEnabled = true;
+			didSendResponse = true;",trace 第 1 步，位于 webhook-helpers.ts 第 605–614 行的 streaming 分支体内：responseMode 为 'streaming' 时，runData.httpResponse 被直接赋值为 res，runData.streamingEnabled 置为 true，didSendResponse 标记设为已响应。随后调用栈下游的 setResponseHeaders() 将以此 res 对象为操作目标，对用户指定的 headers 进行写入与读回。,packages/cli/src/webhooks/webhook-helpers.ts,606-614,"
+		if (responseMode === 'streaming') {
+			Container.get(Logger).debug(
+				`Execution of workflow ""${workflow.name}"" from with ID ${executionId} is set to streaming`,
+				{ executionId },
+			);
+			// TODO: Add check for streaming nodes here
+			runData.httpResponse = res;
+			runData.streamingEnabled = true;
+			didSendResponse = true;",trace 第 1 步，位于 webhook-helpers.ts 第 606-614 行的 streaming 分支体内：responseMode 为 'streaming' 时，runData.httpResponse 被直接赋值为 res，runData.streamingEnabled 置为 true，didSendResponse 标记设为已响应。随后调用栈下游的 setResponseHeaders() 将以此 res 对象为操作目标，对用户指定的 headers 进行写入与读回。,nearby_unique,verbatim,updated_location_references,https://github.com/n8n-io/n8n/blob/57d6015f2ea0442c24e0449105325b7e36f066df/packages/cli/src/webhooks/webhook-helpers.ts#L606,055b847dd3dd26c260dd063ec9ad302f879a149237075a7bc0816026b34ff645,1,unique_source_match
+entry-00103,0,https://github.com/n8n-io/n8n,57d6015f2ea0442c24e0449105325b7e36f066df,trace[2],packages/cli/src/webhooks/webhook-request-handler.ts,146-155,"	private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {
+		if (headers) {
+			for (const [name, value] of headers.entries()) {
+				res.setHeader(name, value);
+			}
+		}
+
+		const contentType = res.getHeader('content-type') as string | undefined;
+		const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);",trace 第 2 步，setResponseHeaders() 位于 webhook-request-handler.ts 第 146–155 行，承接来自上游的 res 对象，将用户工作流指定的 headers 逐条通过 res.setHeader() 写入响应——含潜在首尾空白的 content-type 于此被设置。随后函数读回 content-type 头的当前值并调用 isHtmlRenderedContentType(contentType)，needsSandbox 的布尔结果决定是否追加 CSP sandbox 头，污染值由此传入检测函数。,packages/cli/src/webhooks/webhook-request-handler.ts,146-154,"	private setResponseHeaders(res: express.Response, headers?: WebhookResponseHeaders) {
+		if (headers) {
+			for (const [name, value] of headers.entries()) {
+				res.setHeader(name, value);
+			}
+		}
+
+		const contentType = res.getHeader('content-type') as string | undefined;
+		const needsSandbox = !contentType || isHtmlRenderedContentType(contentType);",trace 第 2 步，setResponseHeaders() 位于 webhook-request-handler.ts 第 146-154 行，承接来自上游的 res 对象，将用户工作流指定的 headers 逐条通过 res.setHeader() 写入响应——含潜在首尾空白的 content-type 于此被设置。随后函数读回 content-type 头的当前值并调用 isHtmlRenderedContentType(contentType)，needsSandbox 的布尔结果决定是否追加 CSP sandbox 头，污染值由此传入检测函数。,nearby_unique,verbatim,updated_location_references,https://github.com/n8n-io/n8n/blob/57d6015f2ea0442c24e0449105325b7e36f066df/packages/cli/src/webhooks/webhook-request-handler.ts#L146,b8808d6b81fed884ab40d0f5e5d80cc277dd89a9a2445d8746c448007ac93034,1,unique_source_match
+entry-00105,1,https://github.com/n8n-io/n8n,911d3771ce23dda2eb00a9d2c446e37f8223a9e9,trace[0],packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,69-75,"			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+			const options = this.getNodeParameter('options', itemIndex, {});
+			const flag: number = options.append
+				? constants.O_APPEND
+				: constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;","execute() 的参数收集阶段：同时读取 dataPropertyName、fileName 和 options，并依据 options.append 计算文件打开模式 flag。其中 getNodeParameter('fileName', itemIndex) 即为污点入口，未经校验的路径字符串随后流向 resolvePath 与 writeContentToFile 调用链。",packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,69-74,"			const dataPropertyName = this.getNodeParameter('dataPropertyName', itemIndex);
+			fileName = this.getNodeParameter('fileName', itemIndex) as string;
+			const options = this.getNodeParameter('options', itemIndex, {});
+			const flag: number = options.append
+				? constants.O_APPEND
+				: constants.O_WRONLY | constants.O_CREAT | constants.O_TRUNC;","execute() 的参数收集阶段：同时读取 dataPropertyName、fileName 和 options，并依据 options.append 计算文件打开模式 flag。其中 getNodeParameter('fileName', itemIndex) 即为污点入口，未经校验的路径字符串随后流向 resolvePath 与 writeContentToFile 调用链。",nearby_unique,verbatim,checked_no_location_reference,https://github.com/n8n-io/n8n/blob/911d3771ce23dda2eb00a9d2c446e37f8223a9e9/packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts#L69,c074213e252065622b070e7279afdb59b79e347379a017b38c44a786e41cfcb3,1,unique_source_match
+entry-00185,0,https://github.com/n8n-io/n8n,538181cbe32a92616df5e00d7ffaf4d568557f4f,trace[1],packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,75-82,"
+			item = items[itemIndex];
+
+			const newItem: INodeExecutionData = {
+				json: {},
+				pairedItem: {
+					item: itemIndex,
+				},",append 默认值确立后，execute 循环在此从 items[itemIndex] 取出当前工作流数据项，并初始化 newItem 以承载输出。此块是从 Write 节点 execute 调用层向实际写入逻辑传递控制流的关键段：item 数据（含用户指定的目标路径与文件内容）在此被提取并就绪，随即流向 writeContentToFile 及其上游的路径安全校验调用链。,packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts,76-82,"
+			item = items[itemIndex];
+
+			const newItem: INodeExecutionData = {
+				json: {},
+				pairedItem: {
+					item: itemIndex,
+				},",append 默认值确立后，execute 循环在此从 items[itemIndex] 取出当前工作流数据项，并初始化 newItem 以承载输出。此块是从 Write 节点 execute 调用层向实际写入逻辑传递控制流的关键段：item 数据（含用户指定的目标路径与文件内容）在此被提取并就绪，随即流向 writeContentToFile 及其上游的路径安全校验调用链。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/n8n-io/n8n/blob/538181cbe32a92616df5e00d7ffaf4d568557f4f/packages/nodes-base/nodes/Files/ReadWriteFile/actions/write.operation.ts#L76,88dd6d2767242afb964f66c1b87298afa4d2cfaa81a8f90d37ce7e5c53c93ef8,1,unique_source_match
+entry-00251,1,https://github.com/openclaw/openclaw,223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb,trace[3],src/auto-reply/command-auth.ts,325,      ? senderCandidates.find((candidate) => commandsAllowFromList.includes(candidate)),"senderCandidates.find iterates the tainted candidate list — including the conversation identifier pushed by pushCandidate — and checks each entry against commandsAllowFromList. Downstream from the unconditional push, this find call is where a conversation-shaped identifier can produce a non-null match, serving as the penultimate step before the authorization flag is set.",src/auto-reply/command-auth.ts,326,      ? senderCandidates.find((candidate) => commandsAllowFromList.includes(candidate)),"senderCandidates.find iterates the tainted candidate list — including the conversation identifier pushed by pushCandidate — and checks each entry against commandsAllowFromList. Downstream from the unconditional push, this find call is where a conversation-shaped identifier can produce a non-null match, serving as the penultimate step before the authorization flag is set.",nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/223d7dc23d73bdddd7d221d7ddbecafe5d03bfcb/src/auto-reply/command-auth.ts#L326,98fe0b160941b3980e5d5bd9ccc46a0d2fa24b9758af470ff2fc9fbfe6953e99,1,unique_source_match
+entry-00287,1,https://github.com/openclaw/openclaw,dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f,trace[1],src/plugins/runtime/gateway-request-scope.ts,33-38,"  scope: PluginRuntimeGatewayRequestScope,
+  run: () => T,
+): T {
+  return pluginRuntimeGatewayRequestScope.run(scope, run);
+}","withPluginRuntimeGatewayRequestScope 函数接收 scope 参数（类型为 PluginRuntimeGatewayRequestScope）与回调 run，随后调用 pluginRuntimeGatewayRequestScope.run(scope, run) 将 scope 存入 AsyncLocalStorage 并在其中执行 invokeHandler。在调用栈下游，由于传入的 scope 不含 client 字段，此次 run 调用所建立的异步存储上下文自始至终缺少真实调用方身份，为后续读取预置了不完整状态。",src/plugins/runtime/gateway-request-scope.ts,33-37,"  scope: PluginRuntimeGatewayRequestScope,
+  run: () => T,
+): T {
+  return pluginRuntimeGatewayRequestScope.run(scope, run);
+}","withPluginRuntimeGatewayRequestScope 函数接收 scope 参数（类型为 PluginRuntimeGatewayRequestScope）与回调 run，随后调用 pluginRuntimeGatewayRequestScope.run(scope, run) 将 scope 存入 AsyncLocalStorage 并在其中执行 invokeHandler。在调用栈下游，由于传入的 scope 不含 client 字段，此次 run 调用所建立的异步存储上下文自始至终缺少真实调用方身份，为后续读取预置了不完整状态。",nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f/src/plugins/runtime/gateway-request-scope.ts#L33,5796132b885f91d73ce6afab3c226f82a571a4bdbfacce0ff50faa43a5eec367,1,unique_source_match
+entry-00289,1,https://github.com/openclaw/openclaw,dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f,trace[1],src/plugins/runtime/gateway-request-scope.ts,33-38,"  scope: PluginRuntimeGatewayRequestScope,
+  run: () => T,
+): T {
+  return pluginRuntimeGatewayRequestScope.run(scope, run);
+}
+",withPluginRuntimeGatewayRequestScope 将传入的 scope 对象通过 pluginRuntimeGatewayRequestScope.run 存入 AsyncLocalStorage，随后在该上下文中执行回调 run。在调用栈下游，任何通过 getPluginRuntimeGatewayRequestScope 读取作用域的代码只能得到不含 client 的 scope 对象——此函数本身逻辑完整，但因类型约束不含 client 字段，它所传播的作用域从根本上无法携带调用方授权凭据。,src/plugins/runtime/gateway-request-scope.ts,33-37,"  scope: PluginRuntimeGatewayRequestScope,
+  run: () => T,
+): T {
+  return pluginRuntimeGatewayRequestScope.run(scope, run);
+}
+",withPluginRuntimeGatewayRequestScope 将传入的 scope 对象通过 pluginRuntimeGatewayRequestScope.run 存入 AsyncLocalStorage，随后在该上下文中执行回调 run。在调用栈下游，任何通过 getPluginRuntimeGatewayRequestScope 读取作用域的代码只能得到不含 client 的 scope 对象——此函数本身逻辑完整，但因类型约束不含 client 字段，它所传播的作用域从根本上无法携带调用方授权凭据。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/dafd61b5c19fb7df3e34157f4bc8f9c24bffd91f/src/plugins/runtime/gateway-request-scope.ts#L33,5796132b885f91d73ce6afab3c226f82a571a4bdbfacce0ff50faa43a5eec367,1,unique_source_match
+entry-00300,1,https://github.com/openclaw/openclaw,fda49658183dc1afee48143f4de47dedc7590966,trace[0],src/auto-reply/reply/commands-config.ts,134,"const unauthorized = rejectUnauthorizedCommand(params, ""/debug"");",在 handleConfigCommand 函数体内，rejectUnauthorizedCommand 被以 params 和命令标签为参数调用，完成从 caller（处理器函数）流向 callee（门控函数）的第一段权限检查路径。返回值赋给 unauthorized 变量，用于决定是否提前中断请求；然而此门控仅覆盖 isAuthorizedSender 单一条件，是整条漏洞链路中唯一的校验节点，也是 senderIsOwner 校验缺失的关键位置。,src/auto-reply/reply/commands-config.ts,196,"const unauthorized = rejectUnauthorizedCommand(params, ""/debug"");",在 handleConfigCommand 函数体内，rejectUnauthorizedCommand 被以 params 和命令标签为参数调用，完成从 caller（处理器函数）流向 callee（门控函数）的第一段权限检查路径。返回值赋给 unauthorized 变量，用于决定是否提前中断请求；然而此门控仅覆盖 isAuthorizedSender 单一条件，是整条漏洞链路中唯一的校验节点，也是 senderIsOwner 校验缺失的关键位置。,same_file_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/fda49658183dc1afee48143f4de47dedc7590966/src/auto-reply/reply/commands-config.ts#L196,c911fe0d7594c9a9fca468b72704a92dcebc19f29c5f0ef9419b5f4cbed86c84,1,unique_source_match
+entry-00312,1,https://github.com/openclaw/openclaw,ae1a1fccfeac598a747a9b4a6c9871c93061229c,critical_operation,src/infra/device-bootstrap.ts,125,"entry.roles = mergeRoles(entry.roles, role);","entry.roles = mergeRoles(entry.roles, role) 是角色权限写入的直接触发点，将外部传入的 role 参数无限制地追加至持久化 bootstrap 条目的角色集合。由于此前令牌未被消费，每次重放调用均可触达此处；role 字段的值由调用方完全控制，是权限提升漏洞链的最终汇聚节点。",src/infra/device-bootstrap.ts,128,"entry.roles = mergeRoles(entry.roles, role);","entry.roles = mergeRoles(entry.roles, role) 是角色权限写入的直接触发点，将外部传入的 role 参数无限制地追加至持久化 bootstrap 条目的角色集合。由于此前令牌未被消费，每次重放调用均可触达此处；role 字段的值由调用方完全控制，是权限提升漏洞链的最终汇聚节点。",nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/ae1a1fccfeac598a747a9b4a6c9871c93061229c/src/infra/device-bootstrap.ts#L128,97c880281621b488b4779b73aa551aea4fb86f905730afa1b60828c69fa7477c,1,unique_source_match
+entry-00312,1,https://github.com/openclaw/openclaw,ae1a1fccfeac598a747a9b4a6c9871c93061229c,trace[4],src/infra/device-bootstrap.ts,125,"entry.roles = mergeRoles(entry.roles, role);",mergeRoles 所在的写入区域在调用链中位于所有身份绑定校验通过之后、entry 字段批量更新序列的起点。执行流从上游的参数校验与令牌匹配段流向此处的字段写入段；token 未被消费使得重放请求同样能流经此节点，从而将外部控制的 role 值纳入累积写入范围。,src/infra/device-bootstrap.ts,128,"entry.roles = mergeRoles(entry.roles, role);",mergeRoles 所在的写入区域在调用链中位于所有身份绑定校验通过之后、entry 字段批量更新序列的起点。执行流从上游的参数校验与令牌匹配段流向此处的字段写入段；token 未被消费使得重放请求同样能流经此节点，从而将外部控制的 role 值纳入累积写入范围。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/ae1a1fccfeac598a747a9b4a6c9871c93061229c/src/infra/device-bootstrap.ts#L128,97c880281621b488b4779b73aa551aea4fb86f905730afa1b60828c69fa7477c,1,unique_source_match
+entry-00398,1,https://github.com/openclaw/openclaw,55cd272fe1a6822ec9be91022a257f195fe1639a,trace[5],src/auto-reply/reply/directive-handling.impl.ts,413-421,"sessionEntry.updatedAt = Date.now();
+sessionStore[sessionKey] = sessionEntry;
+if (storePath) {
+  await updateSessionStore(storePath, (store) => {
+    store[sessionKey] = sessionEntry;
+  });
+}",在调用栈最下游，已被修改的 sessionEntry 先经 sessionStore[sessionKey] = sessionEntry 写入内存存储，随后若 storePath 存在，再通过 updateSessionStore 写入磁盘持久化存储。这一步是从内存变更 caller 流向持久化 callee 的最终一段，使 verbose 配置覆盖跨会话生效；持久化能够发生，根本原因在于上游 shouldPersistSessionEntry 对 verbose 分支未施加 scope 校验，导致写权限 operator 的修改与管理员专属的 sessions.patch 路径产生等效效果。,src/auto-reply/reply/directive-handling.impl.ts,407-413,"sessionEntry.updatedAt = Date.now();
+sessionStore[sessionKey] = sessionEntry;
+if (storePath) {
+  await updateSessionStore(storePath, (store) => {
+    store[sessionKey] = sessionEntry;
+  });
+}",在调用栈最下游，已被修改的 sessionEntry 先经 sessionStore[sessionKey] = sessionEntry 写入内存存储，随后若 storePath 存在，再通过 updateSessionStore 写入磁盘持久化存储。这一步是从内存变更 caller 流向持久化 callee 的最终一段，使 verbose 配置覆盖跨会话生效；持久化能够发生，根本原因在于上游 shouldPersistSessionEntry 对 verbose 分支未施加 scope 校验，导致写权限 operator 的修改与管理员专属的 sessions.patch 路径产生等效效果。,same_file_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/55cd272fe1a6822ec9be91022a257f195fe1639a/src/auto-reply/reply/directive-handling.impl.ts#L407,e9768465c46070a01abb19155fc1ef0bff27c781e178ecbbe4b87613ad958904,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,critical_operation,src/infra/exec-approvals-allowlist.ts,458,"}
+  if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+    return undefined;
+  }
+
+  const carriedExecutable = argv
+    .slice(inlineMatch.valueTokenIndex + 1)
+    .map((token) => token.trim())
+    .find((token) => token.length > 0);
+  if (!carriedExecutable) {
+    return undefined;",resolveShellWrapperPositionalArgvCandidatePath 经 isDirectShellPositionalCarrierInvocation 验证命令形态后，从 argv 中截取位置参数并查找首个非空 token 赋值给 carriedExecutable；该函数仅校验调用模式是否为 shell 位置载体调用，未进一步判断所提取的 carriedExecutable 是否本身属于 dispatch wrapper 或 shell wrapper，从而将 wrapper 绝对路径原样返回给调用方。,src/infra/exec-approvals-allowlist.ts,453,"}
+  if (!isDirectShellPositionalCarrierInvocation(inlineMatch.command)) {
+    return undefined;
+  }
+
+  const carriedExecutable = argv
+    .slice(inlineMatch.valueTokenIndex + 1)
+    .map((token) => token.trim())
+    .find((token) => token.length > 0);
+  if (!carriedExecutable) {
+    return undefined;",resolveShellWrapperPositionalArgvCandidatePath 经 isDirectShellPositionalCarrierInvocation 验证命令形态后，从 argv 中截取位置参数并查找首个非空 token 赋值给 carriedExecutable；该函数仅校验调用模式是否为 shell 位置载体调用，未进一步判断所提取的 carriedExecutable 是否本身属于 dispatch wrapper 或 shell wrapper，从而将 wrapper 绝对路径原样返回给调用方。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/infra/exec-approvals-allowlist.ts#L453,6efb5198eb0a43d67938735d944c9bbefd8ede2cb5cccfd8b637d56e2435ea96,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,entry_point,src/node-host/invoke-system-run.ts,619,"error: result.error ?? null,
+    }),
+  );
+}
+
+export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+  const parsed = await parseSystemRunPhase(opts);
+  if (!parsed) {
+    return;
+  }
+  const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);",handleSystemRunInvoke 作为 Node host 侧处理 system-run 请求的入口函数，依次调用 parseSystemRunPhase 完成阶段解析，再进入 evaluateSystemRunPolicyPhase 执行策略评估；在漏洞链路中，此处是 allow-always allowlist 写入路径的最上游调用起点，parsed 对象携带后续 allowlist 持久化所需的 segments、agentId 等执行上下文。,src/node-host/invoke-system-run.ts,614,"error: result.error ?? null,
+    }),
+  );
+}
+
+export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {
+  const parsed = await parseSystemRunPhase(opts);
+  if (!parsed) {
+    return;
+  }
+  const policyPhase = await evaluateSystemRunPolicyPhase(opts, parsed);",handleSystemRunInvoke 作为 Node host 侧处理 system-run 请求的入口函数，依次调用 parseSystemRunPhase 完成阶段解析，再进入 evaluateSystemRunPolicyPhase 执行策略评估；在漏洞链路中，此处是 allow-always allowlist 写入路径的最上游调用起点，parsed 对象携带后续 allowlist 持久化所需的 segments、agentId 等执行上下文。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/node-host/invoke-system-run.ts#L614,fcc4156f26b1a4d04f5f6d29523fb314186d6212cba1253a67e1747e3fbc5c1c,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,trace[0],src/node-host/invoke-system-run.ts,547,"await sendSystemRunCompleted(opts, phase.execution, result, JSON.stringify(result));
+      return;
+    }
+  }
+
+  if (
+    phase.policy.approvalDecision === ""allow-always"" &&
+    phase.security === ""allowlist"" &&
+    phase.inlineEvalHit === null
+  ) {
+    if (phase.policy.analysisOk) {",此分支在 handleSystemRunInvoke 的策略执行阶段检查 phase.policy.approvalDecision 为 allow-always、phase.security 为 allowlist 且 phase.inlineEvalHit 为 null 三个条件同时成立时，将控制流导向 allowlist 持久化逻辑；在漏洞链路中，满足该条件即触发后续 resolveAllowAlwaysPatterns 调用，进入存在缺陷的 pattern 收集路径。,src/node-host/invoke-system-run.ts,542,"await sendSystemRunCompleted(opts, phase.execution, result, JSON.stringify(result));
+      return;
+    }
+  }
+
+  if (
+    phase.policy.approvalDecision === ""allow-always"" &&
+    phase.security === ""allowlist"" &&
+    phase.inlineEvalHit === null
+  ) {
+    if (phase.policy.analysisOk) {",此分支在 handleSystemRunInvoke 的策略执行阶段检查 phase.policy.approvalDecision 为 allow-always、phase.security 为 allowlist 且 phase.inlineEvalHit 为 null 三个条件同时成立时，将控制流导向 allowlist 持久化逻辑；在漏洞链路中，满足该条件即触发后续 resolveAllowAlwaysPatterns 调用，进入存在缺陷的 pattern 收集路径。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/node-host/invoke-system-run.ts#L542,eebaea8646c1f9ffac6ebb961a271994128f41f48b30af471e1262e89a879833,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,trace[1],src/node-host/invoke-system-run.ts,559,"segments: phase.segments,
+        cwd: phase.cwd,
+        env: phase.env,
+        platform: process.platform,
+      });
+      for (const pattern of patterns) {
+        if (pattern) {
+          addAllowlistEntry(phase.approvals.file, phase.agentId, pattern);
+        }
+      }
+    }",随后此段代码以 phase.segments、phase.cwd、phase.env 及 process.platform 为参数调用 resolveAllowAlwaysPatterns，并对返回的 patterns 数组逐项执行 addAllowlistEntry，将每条 pattern 与 phase.agentId 关联写入 phase.approvals.file；在漏洞链路中，resolveAllowAlwaysPatterns 若返回携带 wrapper 路径的 pattern，此处将不加过滤地直接持久化，是 wrapper 路径落地的直接写入点。,src/node-host/invoke-system-run.ts,554,"segments: phase.segments,
+        cwd: phase.cwd,
+        env: phase.env,
+        platform: process.platform,
+      });
+      for (const pattern of patterns) {
+        if (pattern) {
+          addAllowlistEntry(phase.approvals.file, phase.agentId, pattern);
+        }
+      }
+    }",随后此段代码以 phase.segments、phase.cwd、phase.env 及 process.platform 为参数调用 resolveAllowAlwaysPatterns，并对返回的 patterns 数组逐项执行 addAllowlistEntry，将每条 pattern 与 phase.agentId 关联写入 phase.approvals.file；在漏洞链路中，resolveAllowAlwaysPatterns 若返回携带 wrapper 路径的 pattern，此处将不加过滤地直接持久化，是 wrapper 路径落地的直接写入点。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/node-host/invoke-system-run.ts#L554,fb8228ddbf1d99152bc458785e7d90ceb6729d74543ab9951e378efa324e493c,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,trace[2],src/infra/exec-approvals-allowlist.ts,567,"/**
+ * Derive persisted allowlist patterns for an ""allow always"" decision.
+ * When a command is wrapped in a shell (for example `zsh -lc ""<cmd>""`),
+ * persist the inner executable(s) rather than the shell binary.
+ */
+export function resolveAllowAlwaysPatterns(params: {
+  segments: ExecCommandSegment[];
+  cwd?: string;
+  env?: NodeJS.ProcessEnv;
+  platform?: string | null;
+}): string[] {",在调用栈下游，resolveAllowAlwaysPatterns 接收 segments、cwd、env、platform 参数，遍历每个 ExecCommandSegment 依次调用 collectAllowAlwaysPatterns，将各 segment 产出的 pattern 汇聚后返回；作为漏洞链路的汇聚节点，此函数将 wrapper 路径与正常可执行路径混入同一返回集合，上游调用方无法从返回值中区分两者。,src/infra/exec-approvals-allowlist.ts,562,"/**
+ * Derive persisted allowlist patterns for an ""allow always"" decision.
+ * When a command is wrapped in a shell (for example `zsh -lc ""<cmd>""`),
+ * persist the inner executable(s) rather than the shell binary.
+ */
+export function resolveAllowAlwaysPatterns(params: {
+  segments: ExecCommandSegment[];
+  cwd?: string;
+  env?: NodeJS.ProcessEnv;
+  platform?: string | null;
+}): string[] {",在调用栈下游，resolveAllowAlwaysPatterns 接收 segments、cwd、env、platform 参数，遍历每个 ExecCommandSegment 依次调用 collectAllowAlwaysPatterns，将各 segment 产出的 pattern 汇聚后返回；作为漏洞链路的汇聚节点，此函数将 wrapper 路径与正常可执行路径混入同一返回集合，上游调用方无法从返回值中区分两者。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/infra/exec-approvals-allowlist.ts#L562,6e22fb88eed7af84f5bd0c809f9a87f041d8cee9bd3420c282565ca356f8003a,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,trace[3],src/infra/exec-approvals-allowlist.ts,520,"}
+  if (!trustPlan.shellWrapperExecutable) {
+    params.out.add(candidatePath);
+    return;
+  }
+  const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+    segment,
+    cwd: params.cwd,
+    env: params.env,
+  });
+  if (positionalArgvPath) {",随后 collectAllowAlwaysPatterns 在 trustPlan.shellWrapperExecutable 存在时，调用 resolveShellWrapperPositionalArgvCandidatePath 并将非空的 positionalArgvPath 直接通过 params.out.add 加入输出集合；此处是漏洞的直接触发点，缺少对 positionalArgvPath 是否为 dispatch wrapper 或 shell wrapper 的拒绝检查，导致 wrapper 绝对路径被无条件纳入 pattern 集合。,src/infra/exec-approvals-allowlist.ts,515,"}
+  if (!trustPlan.shellWrapperExecutable) {
+    params.out.add(candidatePath);
+    return;
+  }
+  const positionalArgvPath = resolveShellWrapperPositionalArgvCandidatePath({
+    segment,
+    cwd: params.cwd,
+    env: params.env,
+  });
+  if (positionalArgvPath) {",随后 collectAllowAlwaysPatterns 在 trustPlan.shellWrapperExecutable 存在时，调用 resolveShellWrapperPositionalArgvCandidatePath 并将非空的 positionalArgvPath 直接通过 params.out.add 加入输出集合；此处是漏洞的直接触发点，缺少对 positionalArgvPath 是否为 dispatch wrapper 或 shell wrapper 的拒绝检查，导致 wrapper 绝对路径被无条件纳入 pattern 集合。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/infra/exec-approvals-allowlist.ts#L515,acf16c02f5d16d339da110138c01e8772eb23636a245c7436db80c9240bf6d22,1,unique_source_match
+entry-00405,1,https://github.com/openclaw/openclaw,7ce2670043dbb29aa18cb123c04be4b5097b16cb,trace[4],src/infra/exec-approvals.ts,364,"} catch {
+    return normalizeExecApprovals({ version: 1, agents: {} });
+  }
+}
+
+export function saveExecApprovals(file: ExecApprovalsFile) {
+  const filePath = resolveExecApprovalsPath();
+  ensureDir(filePath);
+  fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\n`, { mode: 0o600 });
+  try {
+    fs.chmodSync(filePath, 0o600);",saveExecApprovals 调用 resolveExecApprovalsPath 定位文件路径并通过 ensureDir 确保目录存在，随后以 JSON.stringify 序列化 file 对象并经 fs.writeFileSync 以 0o600 权限写入磁盘，再通过 fs.chmodSync 二次确认权限；在漏洞链路末端，此函数将包含错误 wrapper 路径的 ExecApprovalsFile 结构持久化，使不正确的 allowlist 条目在进程重启后依然有效。,src/infra/exec-approvals.ts,359,"} catch {
+    return normalizeExecApprovals({ version: 1, agents: {} });
+  }
+}
+
+export function saveExecApprovals(file: ExecApprovalsFile) {
+  const filePath = resolveExecApprovalsPath();
+  ensureDir(filePath);
+  fs.writeFileSync(filePath, `${JSON.stringify(file, null, 2)}\n`, { mode: 0o600 });
+  try {
+    fs.chmodSync(filePath, 0o600);",saveExecApprovals 调用 resolveExecApprovalsPath 定位文件路径并通过 ensureDir 确保目录存在，随后以 JSON.stringify 序列化 file 对象并经 fs.writeFileSync 以 0o600 权限写入磁盘，再通过 fs.chmodSync 二次确认权限；在漏洞链路末端，此函数将包含错误 wrapper 路径的 ExecApprovalsFile 结构持久化，使不正确的 allowlist 条目在进程重启后依然有效。,nearby_unique,verbatim,checked_no_location_reference,https://github.com/openclaw/openclaw/blob/7ce2670043dbb29aa18cb123c04be4b5097b16cb/src/infra/exec-approvals.ts#L359,08a0f66b1b61c40714c2472e847c71509f3e60b2e408701dd2b7516ea6f1c741,1,unique_source_match
