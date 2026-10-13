@@ -91,3 +91,6 @@ coverage.xml
 *.tmp
 *.bak
 *.orig
+.issue4_repo_cache/
+test_cache/
+test_n8n/

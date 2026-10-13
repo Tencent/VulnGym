@@ -1,0 +1,1 @@
+# VulnGym Issue #4 — No external dependencies (Python 3.9+ stdlib only)

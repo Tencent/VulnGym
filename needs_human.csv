@@ -1,0 +1,96 @@
+entry_id,field,file,line,code_preview,reason
+entry-00082,trace[1],packages/workflow/src/expression.ts,205,		},degenerate snippet (auto-fix skipped): '}'
+entry-00103,entry_point,packages/cli/src/webhooks/webhook-helpers.ts,615,		},degenerate snippet (auto-fix skipped): '}'
+entry-00103,trace[0],packages/cli/src/webhooks/webhook-helpers.ts,615,		},degenerate snippet (auto-fix skipped): '}'
+entry-00142,critical_operation,extensions/twitch/src/access-control.ts,68,    },degenerate snippet (auto-fix skipped): '}'
+entry-00142,trace[3],extensions/twitch/src/access-control.ts,68,    },degenerate snippet (auto-fix skipped): '}'
+entry-00164,trace[0],src/browser/routes/basic.ts,7,export function registerBrowserBasicRoutes(...) {,failed to fetch repo snapshot for 3b56a6252bbc4dcf3d3c68a5e3cbb0e1162e58a9
+entry-00185,critical_operation,packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,48,},degenerate snippet (auto-fix skipped): '}'
+entry-00185,trace[3],packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts,48,},degenerate snippet (auto-fix skipped): '}'
+entry-00191,trace[1],packages/nodes-base/nodes/Form/utils/utils.ts,135,		},degenerate snippet (auto-fix skipped): '}'
+entry-00191,trace[2],packages/nodes-base/nodes/Form/utils/utils.ts,139,};,degenerate snippet (auto-fix skipped): '};'
+entry-00193,entry_point,src/agents/apply-patch.ts,84,"export function createApplyPatchTool(options): AgentTool<typeof applyPatchSchema, ApplyPatchToolDeta",failed to fetch repo snapshot for bc507080577c620243617e8fadd294bec3efa252
+entry-00193,critical_operation,src/infra/fs-safe.ts,225,"handle = await fs.open(ioPath, OPEN_WRITE_FLAGS, 0o600); // 含 O_TRUNC，截断在边界校验之前发生",failed to fetch repo snapshot for bc507080577c620243617e8fadd294bec3efa252
+entry-00298,entry_point,src/auto-reply/reply/commands-config.ts,126,};,degenerate snippet (auto-fix skipped): '};'
+entry-00298,trace[0],src/auto-reply/reply/commands-config.ts,134,"const unauthorized = rejectUnauthorizedCommand(params, ""/debug""); // 仅校验 isAuthorizedSender；通过后未继续校验",failed to fetch repo snapshot for fda49658183dc1afee48143f4de47dedc7590966
+entry-00300,entry_point,src/auto-reply/reply/commands-config.ts,126,};,degenerate snippet (auto-fix skipped): '};'
+entry-00301,entry_point,src/agents/sandbox/fs-bridge.ts,103,  },degenerate snippet (auto-fix skipped): '}'
+entry-00301,trace[0],src/agents/sandbox/fs-bridge.ts,103,  },degenerate snippet (auto-fix skipped): '}'
+entry-00311,entry_point,src/fastmcp/server/auth/oauth_proxy.py,625,"def __init__(
+    self,
+    *,
+    upstream_authorization_endpoint: str,
+    upstream_token_endpoint",code not found in file or repository
+entry-00311,critical_operation,src/fastmcp/server/auth/oauth_proxy.py,808,"self._jwt_issuer: JWTIssuer = JWTIssuer(
+    issuer=str(self.base_url),
+    audience=f""{str(self.bas",code not found in file or repository
+entry-00311,trace[1],src/fastmcp/server/auth/oauth_proxy.py,1635,"def get_routes(
+    self,
+    mcp_path: str | None = None,
+) -> list[Route]:
+    """"""Get OAuth routes",code not found in file or repository
+entry-00312,trace[2],src/infra/device-bootstrap.ts,117,},degenerate snippet (auto-fix skipped): '}'
+entry-00328,trace[1],src/gateway/auth.ts,261,  },degenerate snippet (auto-fix skipped): '}'
+entry-00361,trace[1],packages/nodes-base/nodes/Xml/Xml.node.ts,250,);,degenerate snippet (auto-fix skipped): ');'
+entry-00396,trace[2],src/auto-reply/reply/commands-approve.ts,163,  },degenerate snippet (auto-fix skipped): '}'
+entry-00398,entry_point,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",failed to fetch repo snapshot for 55cd272fe1a6822ec9be91022a257f195fe1639a
+entry-00398,trace[0],src/gateway/server-methods/chat.ts,2011-2020,"GatewayClientScopes: client?.connect?.scopes ?? [],",failed to fetch repo snapshot for 55cd272fe1a6822ec9be91022a257f195fe1639a
+entry-00398,trace[1],src/gateway/server-methods/chat.ts,2173,"void dispatchInboundMessage({
+  ctx,
+  cfg,
+  dispatcher,
+  ...
+});",failed to fetch repo snapshot for 55cd272fe1a6822ec9be91022a257f195fe1639a
+entry-00399,entry_point,src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",failed to fetch repo snapshot for 55cd272fe1a6822ec9be91022a257f195fe1639a
+entry-00399,trace[0],src/gateway/server-methods/chat.ts,2032,"GatewayClientScopes: client?.connect?.scopes ?? [],",failed to fetch repo snapshot for 55cd272fe1a6822ec9be91022a257f195fe1639a
+entry-00400,entry_point,src/gateway/server-methods/chat.ts,1452,"CommandAuthorized: true,
+        GatewayClientScopes: client?.connect?.scopes,",failed to fetch repo snapshot for aa66ae1fc797d3298cc409ed2c5da69a89950a45
+entry-00477,entry_point,packages/server/src/routes/public-chatbots/index.ts,8,"router.get(['/', '/:id'], chatflowsController.getSinglePublicChatbotConfig)  // 入口：无任何认证中间件，path 在 W",code not found in file or repository
+entry-00477,critical_operation,packages/server/src/services/chatflows/index.ts,391,"return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // ",code not found in file or repository
+entry-00477,trace[0],packages/server/src/utils/constants.ts,10,"'/api/v1/public-chatbotConfig',  // 白名单放行条目：中间件 startsWith 匹配后跳过所有认证检查",code not found in file or repository
+entry-00477,trace[1],packages/server/src/index.ts,221,const isWhitelisted = whitelistURLs.some((url) => req.path.startsWith(url))  // 此处判断为 true，执行 next(),code not found in file or repository
+entry-00477,trace[2],packages/server/src/index.ts,223,if (isWhitelisted) { next() }  // 缺失：应有对 chatbotConfig 端点的 ownership 或访问控制校验,code not found in file or repository
+entry-00477,trace[3],packages/server/src/controllers/chatflows/index.ts,246,const apiResponse = await chatflowsService.getSinglePublicChatbotConfig(req.params.id)  // chatflowI,code not found in file or repository
+entry-00477,trace[4],packages/server/src/services/chatflows/index.ts,366,const dbResponse = await appServer.AppDataSource.getRepository(ChatFlow).findOneBy({ id: chatflowId ,code not found in file or repository
+entry-00477,trace[5],packages/server/src/services/chatflows/index.ts,391,"return { ...parsedConfig, uploads: uploadsConfig, flowData: dbResponse.flowData, isTTSEnabled }  // ",code not found in file or repository
+entry-00483,entry_point,server/src/routes/agents.ts,2012,"router.get(""/agents/:id/keys"", async (req, res) => {  // 入口：外部可达 GET 路由，无公司归属校验",code not found in file or repository
+entry-00483,critical_operation,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // ",code not found in file or repository
+entry-00483,trace[0],server/src/routes/agents.ts,2013,assertBoard(req);  // 仅校验 actor 类型为 board，不校验所属公司,code not found in file or repository
+entry-00483,trace[1],server/src/routes/agents.ts,2014,const id = req.params.id as string;  // 路径参数直接使用，可传入任意租户的 agent UUID,code not found in file or repository
+entry-00483,trace[2],server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司",code not found in file or repository
+entry-00483,trace[3],server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // ",code not found in file or repository
+entry-00485,entry_point,server/src/routes/agents.ts,2040,"router.delete(""/agents/:id/keys/:keyId"", async (req, res) => {  // 入口：外部可达 DELETE 路由，吊销 agent API ke",code not found in file or repository
+entry-00485,critical_operation,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(e,code not found in file or repository
+entry-00485,trace[0],server/src/routes/agents.ts,2041,assertBoard(req);  // 仅校验 actor 类型为 board,code not found in file or repository
+entry-00485,trace[1],server/src/routes/agents.ts,2042,const keyId = req.params.keyId as string;  // 攻击者控制的任意租户密钥 ID,code not found in file or repository
+entry-00485,trace[2],server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）",code not found in file or repository
+entry-00485,trace[3],server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).whe,code not found in file or repository
+entry-00486,entry_point,server/src/routes/agents.ts,2012,"router.get(""/agents/:id/keys"", async (req, res) => {  // 入口：外部可达 GET 路由，无公司归属校验",code not found in file or repository
+entry-00486,critical_operation,server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // ",code not found in file or repository
+entry-00486,trace[0],server/src/routes/agents.ts,2013,assertBoard(req);  // 仅校验 actor 类型为 board，不校验所属公司,code not found in file or repository
+entry-00486,trace[1],server/src/routes/agents.ts,2014,const id = req.params.id as string;  // 路径参数直接使用，可传入任意租户的 agent UUID,code not found in file or repository
+entry-00486,trace[2],server/src/routes/agents.ts,2013,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，未验证调用方是否属于该 agent 所在公司",code not found in file or repository
+entry-00486,trace[3],server/src/services/agents.ts,595,"listKeys: (id: string) => db.select(...).from(agentApiKeys).where(eq(agentApiKeys.agentId, id))  // ",code not found in file or repository
+entry-00488,entry_point,server/src/routes/agents.ts,2040,"router.delete(""/agents/:id/keys/:keyId"", async (req, res) => {  // 入口：外部可达 DELETE 路由，吊销 agent API ke",code not found in file or repository
+entry-00488,critical_operation,server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { db.update(agentApiKeys).set({ revokedAt: new Date() }).where(e,code not found in file or repository
+entry-00488,trace[0],server/src/routes/agents.ts,2041,assertBoard(req);  // 仅校验 actor 类型为 board,code not found in file or repository
+entry-00488,trace[1],server/src/routes/agents.ts,2042,const keyId = req.params.keyId as string;  // 攻击者控制的任意租户密钥 ID,code not found in file or repository
+entry-00488,trace[2],server/src/routes/agents.ts,2041,"// 此处应有 assertCompanyAccess(req, agent.companyId) — 缺失，可吊销任意租户密钥（DoS）",code not found in file or repository
+entry-00488,trace[3],server/src/services/agents.ts,606,revokeKey: async (keyId: string) => { ... db.update(agentApiKeys).set({ revokedAt: new Date() }).whe,code not found in file or repository
+entry-00498,entry_point,src/agents/sandbox/types.ts,38,cdpSourceRange?: string;  // 可选字段，默认 undefined — 无 source-range 限制时不注入环境变量,failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00498,trace[0],src/agents/sandbox/config.ts,148,"cdpSourceRange: agentBrowser?.cdpSourceRange ?? globalBrowser?.cdpSourceRange,  // 无默认值，用户未配置则 undef",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00498,trace[1],src/agents/sandbox/browser.ts,157,const cdpSourceRange = normalizeOptionalString(params.cfg.browser.cdpSourceRange);  // undefined → n,failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00498,trace[2],src/agents/sandbox/browser.ts,270,"if (cdpSourceRange) {
+  args.push(""-e"", `${CDP_SOURCE_RANGE_ENV_KEY}=${cdpSourceRange}`);
+}  // cdpS",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00498,trace[3],scripts/sandbox-browser-entrypoint.sh,12,"CDP_SOURCE_RANGE=""${OPENCLAW_BROWSER_CDP_SOURCE_RANGE:-}""  // 默认空字符串",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00498,trace[4],scripts/sandbox-browser-entrypoint.sh,178,"if [[ -n ""${CDP_SOURCE_RANGE}"" ]]; then
+  SOCAT_LISTEN_ADDR=""${SOCAT_LISTEN_ADDR},range=${CDP_SOURCE",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00499,entry_point,src/security/audit-extra.sync.ts,848,const browserExposurePaths: string[] = [];  // 安全审计入口：检查 CDP bridge 是否 unrestricted,failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00499,critical_operation,src/security/audit-extra.sync.ts,875,"checkId: ""sandbox.browser_cdp_bridge_unrestricted"",
+severity: ""warn"",  // 此处应有却缺失的约束：安全审计仅以 warn 级别提",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00499,trace[0],src/security/audit-extra.sync.ts,850,"if (
+  defaultBrowser.enabled &&
+  normalizeOptionalLowercaseString(defaultBrowser.network) === ""bri",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
+entry-00499,trace[1],src/security/audit-extra.sync.ts,873,"if (browserExposurePaths.length > 0) {
+  findings.push({ checkId: ""sandbox.browser_cdp_bridge_unrest",failed to fetch repo snapshot for 67ae576b9e8713bbc4aec24f2b325ad8bc84e787
