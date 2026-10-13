@@ -1,0 +1,4 @@
+field,original_location,fixed_location,change_summary
+entry_point,packages/workflow/src/expression.ts:524,packages/cli/src/workflows/workflows.controller.ts:513,"修正为外部可达的 workflow 手动执行 HTTP 端点。原 renderExpression 是私有 VM 内部入口，不能充分体现用户通过 workflow 操作触发已保存 crafted expression 执行；新位置也避免和 entry-00511 的 resolveSimpleParameterValue 重复。"
+critical_operation,packages/@n8n/expression-runtime/src/runtime/reset.ts:46,packages/@n8n/expression-runtime/src/runtime/reset.ts:46,"保留 reset.ts 普通赋值位置，但重写描述，明确 .call(__data) 使 this.__sanitize 覆写可达，补丁 1acdafe6ac 以不可配置访问器修复该可写槽位。"
+trace,3 nodes,14 nodes,"补充从 HTTP run 端点、executeManually、WorkflowExpression 参数转接、Expression 参数解析、VM evaluator、Tournament AST 转换、PrototypeSanitizer 插桩、bridge.resetDataProxies、__sanitize 初始化、.call(__data) 绑定到 script.runSync 的关键控制流/数据流节点，并删除原 trace 中从 renderExpression 直接跳到 reset.ts 的语义跳跃。"
